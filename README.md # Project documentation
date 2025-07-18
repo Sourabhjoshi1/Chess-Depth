@@ -1,15 +1,61 @@
-# ♟️ ChessMaster Academy
+# ♟️ ChessDepth Academy Website
 
-Welcome to the official ChessMaster Academy website! This platform provides chess education for players of all levels, including:
+Welcome to the official repository for ChessDepth Academy's website! This project is designed to be a comprehensive online platform for chess enthusiasts of all levels, offering structured courses, expert instruction, and a vibrant community.
 
-- 🎯 Beginner tactics and strategies
-- 🧠 Advanced positional concepts
-- ♜ Complete opening repertoires
-- 📬 Inquiry form for new students
+## Table of Contents
 
-## 🚀 Live Website
+- [About ChessDepth Academy](#about-chessdepth-academy)
+- [Features](#features)
+  - [Current Features (Static Site)](#current-features-static-site)
+  - [Planned Features (Dynamic & Interactive)](#planned-features-dynamic--interactive)
+- [Project Structure](#project-structure)
+- [Technologies Used](#technologies-used)
+  - [Frontend](#frontend)
+  - [Backend (Planned)](#backend-planned)
+  - [Database (Planned)](#database-planned)
+- [Getting Started](#getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Installation (Frontend)](#installation-frontend)
+  - [Running the Website](#running-the-website)
+- [Contributing](#contributing)
+- [License](#license)
+- [Contact](#contact)
 
-👉 [View Live](https://yourusername.github.io/chess-website/)
+---
 
-## 📁 File Structure
+## About ChessDepth Academy
+
+ChessDepth Academy is dedicated to elevating your chess journey through deep insights and strategic excellence. We offer meticulously crafted courses by seasoned players and experienced educators, focusing on a holistic approach to chess improvement – from fundamental tactics to complex positional strategies and psychological aspects of the game. Our mission is to foster a love for chess while nurturing critical thinking skills that extend far beyond the chessboard.
+
+## Features
+
+### Current Features (Static Site)
+
+As of now, the website provides a clean, responsive, and aesthetically pleasing user interface for:
+
+* **Home Page (`index.html`):** An engaging introduction to ChessDepth Academy, highlighting the core mission.
+* **About Us Page (`about.html`):** Detailed information about the academy's philosophy, mission, and a section to introduce our esteemed instructors.
+* **Courses Page (`courses.html`):** A dedicated section showcasing our various popular courses across different skill levels and categories (e.g., Beginner, Intermediate, Advanced; Tactics, Strategy, Openings, Endgames, Psychology).
+* **Consistent Navigation:** Easy navigation across all pages via a sticky header.
+* **Responsive Design:** Built with Tailwind CSS to ensure a great experience on various devices.
+* **Smooth Animations:** Subtle fade-in animations for a polished user experience.
+
+### Planned Features (Dynamic & Interactive)
+
+Our roadmap includes expanding the website into a full-fledged dynamic platform:
+
+* **Student Inquiry Form:** A functional form (`inquiry.html`) to collect student details, with data submission to a backend server.
+* **Contact Information Page:** A dedicated contact page (`contact.html`) with direct contact details, social media links, and potentially a map.
+* **Dynamic Content Loading:** Fetching course details, instructor profiles, and testimonials from a database rather than hardcoding them into HTML.
+* **User Authentication:** User registration, login, and secure session management.
+* **Personalized Student Dashboard:** For logged-in students to track course progress, access materials, and manage their profile.
+* **Interactive Chess Board:**
+    * Daily chess puzzles.
+    * Play against an integrated AI (Stockfish.js).
+    * Live game spectating (future potential).
+* **Blog/Articles Section:** Dynamic content for chess articles, tips, and news.
+* **Payment Gateway Integration:** For course enrollment (future).
+* **Community Features:** Forums, leaderboards, and more interactive elements.
+
+## Project Structure
 
