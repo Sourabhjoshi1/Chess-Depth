@@ -70,8 +70,9 @@
         <a href="about.html" class="text-gray-700 hover:text-indigo-600 nav-link-hover-effect">About</a>
         <a href="courses.html" class="font-semibold text-indigo-700 underline underline-offset-4 decoration-2 nav-link-hover-effect">Courses</a>
         <a href="coaches.html" class="text-gray-700 hover:text-indigo-600 nav-link-hover-effect">Coaches</a>
-        <a href="index.html#inquiry" class="text-gray-700 hover:text-indigo-600 nav-link-hover-effect">Inquiry</a>
-        <a href="contact.html" class="text-gray-700 hover:text-indigo-600 nav-link-hover-effect">Contact</a> </nav>
+        <a href="#inquiry" class="text-gray-700 hover:text-indigo-600 nav-link-hover-effect">Inquiry</a>
+        <a href="#contact" class="text-gray-700 hover:text-indigo-600 nav-link-hover-effect">Contact</a>
+      </nav>
     </div>
   </header>
 
@@ -96,7 +97,7 @@
         <div>
           <h3 class="text-xl font-semibold mb-2 text-indigo-800">Positional Strategy Deep Dive</h3>
           <p class="text-gray-700 mb-4">
-            Go beyond basic tactics and delve into the art of positional chess. Learn about pawn structures, weak squares, piece activity, prophylactic thinking, and how to build long-term advantages.
+            Go beyond basic tactics and learn the art of positional play. Understand pawn structures, weak squares, piece activity, prophylactic thinking, and how to build long-term advantages.
           </p>
         </div>
         <a href="#" class="text-indigo-600 hover:text-indigo-800 font-medium mt-4 self-start transition-colors duration-200">View Details <i class="fas fa-arrow-right text-sm ml-1"></i></a>
@@ -116,7 +117,7 @@
         <div>
           <h3 class="text-xl font-semibold mb-2 text-indigo-800">Advanced Endgame Mastery</h3>
           <p class="text-gray-700 mb-4">
-            Transform your endgame play. Learn the critical techniques to convert advantages in the endgame. Study pawn endgames, rook endgames, and advanced king activity concepts.
+            Transform your endgame play. Learn the principles of king activity, pawn majorities, opposition, and critical endgame positions for confident finishes.
           </p>
         </div>
         <a href="#" class="text-indigo-600 hover:text-indigo-800 font-medium mt-4 self-start transition-colors duration-200">View Details <i class="fas fa-arrow-right text-sm ml-1"></i></a>
@@ -135,81 +136,19 @@
     </div>
   </section>
 
-  <section class="bg-indigo-600 text-white py-12 text-center fade-in-content">
-    <div class="max-w-4xl mx-auto px-4">
-      <h3 class="text-3xl font-bold mb-4">Ready to Start Your ChessDepth Journey?</h3>
-      <p class="text-xl mb-6">Our next batch of courses is starting soon!</p>
-      <a href="index.html#inquiry" class="bg-white text-indigo-600 font-semibold py-3 px-8 rounded-full shadow hover:bg-gray-100 transition">Enroll Now</a>
-    </div>
-  </section>
-
-  <footer id="contact" class="bg-gray-800 text-white py-6 mt-10 fade-in-content">
-    <div class="max-w-5xl mx-auto text-center">
-      <p>© 2025 ChessDepth Academy. All rights reserved.</p>
-      <div class="mt-4 flex justify-center space-x-6">
-        <a href="https://www.instagram.com/chessdepthacademy1/" class="text-gray-300 hover:text-indigo-300 transition-colors duration-200 text-2xl" target="_blank" aria-label="Follow us on Instagram"><i class="fab fa-instagram"></i></a>
-        <a href="https://www.facebook.com/chessdepthacademy/" class="text-gray-300 hover:text-indigo-300 transition-colors duration-200 text-2xl" target="_blank" aria-label="Follow us on Facebook"><i class="fab fa-facebook-f"></i></a>
-        <a href="#" class="text-gray-300 hover:text-indigo-300 transition-colors duration-200 text-2xl" aria-label="Watch us on YouTube"><i class="fab fa-youtube"></i></a>
-      </div>
-      <p class="mt-4 text-sm text-gray-400">Made by Sourabh Joshi ❤️</p>
-    </div>
+  <footer class="bg-white text-center py-6 shadow-inner mt-10">
+    <p class="text-sm text-gray-500">&copy; 2025 ChessDepth Academy. All rights reserved.</p>
   </footer>
 
   <script>
     // Fade-in animation for content on page load
     document.addEventListener('DOMContentLoaded', () => {
-        const contentSections = document.querySelectorAll('.fade-in-content');
-        contentSections.forEach(section => {
-            section.style.animation = 'fadeIn 1s ease-out forwards';
-            section.style.opacity = '1';
-        });
-    });
-
-    // Handle Form Submission (if you have a form on this page)
-    // You would typically include this from an external script.js file if a form is present.
-    // As there's no inquiry form on this specific courses.html content, this part can be omitted
-    // or kept as part of a shared script that handles forms across pages.
-    // For this exact file, the handleSubmit function might not be strictly needed unless a form is added.
-    // If you add a form, remember to copy the handleSubmit function here (or use a shared script.js)
-
-    // Smooth scroll for nav links
-    document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const targetId = this.getAttribute('href');
-            // Check if it's an internal anchor or an external page link
-            if (targetId.startsWith("#")) { 
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    const headerOffset = document.getElementById('main-header') ? document.getElementById('main-header').offsetHeight : 0;
-                    const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
-                    const offsetPosition = elementPosition - headerOffset - 20; // Added 20px padding
-
-                    window.scrollTo({
-                        top: offsetPosition,
-                        behavior: "smooth"
-                    });
-                }
-            } else {
-                // For external page links (like contact.html), allow default navigation
-                window.location.href = targetId; // Manually navigate if not smooth scrolling to anchor
-            }
-        });
-    });
-
-    // Add/remove header shadow on scroll
-    const header = document.getElementById('main-header');
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-            header.classList.add('shadow-xl');
-        } else {
-            header.classList.remove('shadow-xl');
+        const contentSection = document.querySelector('.fade-in-content');
+        if (contentSection) {
+            contentSection.style.animation = 'fadeIn 1s ease-out forwards';
+            contentSection.style.opacity = '1';
         }
     });
-
-    // Note: Intersection Observers from index.html (for stats, courses on scroll) are specific to index.html
-    // and are not copied here unless you want similar behavior on this page for elements below the fold.
-
   </script>
 </body>
 </html>
