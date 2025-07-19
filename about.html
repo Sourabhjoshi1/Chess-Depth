@@ -136,19 +136,146 @@
     </p>
   </section>
 
+  <section id="inquiry" class="py-16 px-4 bg-gray-100 fade-in-content">
+    <div class="max-w-xl mx-auto">
+      <h3 class="text-3xl font-bold text-center mb-8 tracking-tight">Student Inquiry Form</h3>
+      <form class="bg-white p-8 rounded-lg shadow-lg" onsubmit="handleSubmit(event)">
+        <div class="mb-4">
+          <label class="block text-gray-700 text-sm font-bold mb-2" for="fullName">Full Name</label>
+          <input type="text" id="fullName" name="fullName" class="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition duration-200 ease-in-out" required />
+        </div>
+
+        <div class="mb-4">
+          <label class="block text-gray-700 text-sm font-bold mb-2" for="age">Age</label>
+          <input type="number" id="age" name="age" class="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition duration-200 ease-in-out" required min="5" max="99" />
+        </div>
+
+        <div class="mb-4">
+          <label class="block text-gray-700 text-sm font-bold mb-2" for="rating">Current Chess Rating (if any)</label>
+          <input type="text" id="rating" name="rating" class="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition duration-200 ease-in-out" placeholder="e.g., 1200 FIDE, Unrated" />
+        </div>
+
+        <div class="mb-4">
+          <label class="block text-gray-700 text-sm font-bold mb-2" for="email">Email</label>
+          <input type="email" id="email" name="email" class="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition duration-200 ease-in-out" required />
+        </div>
+
+        <div class="mb-6">
+          <label class="block text-gray-700 text-sm font-bold mb-2" for="course">Interested Course</label>
+          <select id="course" name="interestedCourse" class="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition duration-200 ease-in-out">
+            <option value="beginner">Beginner's Tactics</option>
+            <option value="positional">Positional Strategy</option>
+            <option value="openings">Openings Repertoire</option>
+            <option value="other">Not sure / Other</option>
+          </select>
+        </div>
+
+        <button type="submit" class="w-full bg-indigo-600 text-white font-bold py-3 px-6 rounded-md hover:bg-indigo-700 transform hover:scale-105 transition duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Submit Inquiry</button>
+      </form>
+
+      <div id="thankYouMessage" class="hidden bg-green-100 border-l-4 border-green-500 text-green-700 p-4 mt-8 rounded-md" role="alert">
+          <p class="font-bold">Thank You!</p>
+          <p>Your inquiry has been submitted successfully. We'll get back to you shortly.</p>
+      </div>
+    </div>
+  </section>
+
   <footer class="bg-white text-center py-6 shadow-inner mt-10">
     <p class="text-sm text-gray-500">&copy; 2025 ChessDepth Academy. All rights reserved.</p>
+    <div class="mt-4 flex justify-center space-x-6">
+      <a href="https://www.instagram.com/chessdepthacademy1/" class="text-gray-300 hover:text-indigo-300 transition-colors duration-200 text-2xl" target="_blank" aria-label="Follow us on Instagram"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.facebook.com/chessdepthacademy/" class="text-gray-300 hover:text-indigo-300 transition-colors duration-200 text-2xl" target="_blank" aria-label="Follow us on Facebook"><i class="fab fa-facebook-f"></i></a>
+      <a href="#" class="text-gray-300 hover:text-indigo-300 transition-colors duration-200 text-2xl" aria-label="Watch us on YouTube"><i class="fab fa-youtube"></i></a>
+    </div>
+    <p class="mt-4 text-sm text-gray-400">Made by Sourabh Joshi ❤️</p>
   </footer>
 
   <script>
-    // JavaScript to trigger the fade-in animation on page load
+    // JavaScript for fade-in on content sections (copied from other pages)
     document.addEventListener('DOMContentLoaded', () => {
-        const contentSection = document.querySelector('.fade-in-content');
-        if (contentSection) {
-            contentSection.style.animation = 'fadeIn 1s ease-out forwards';
-            contentSection.style.opacity = '1';
+        const contentSections = document.querySelectorAll('.fade-in-content');
+        contentSections.forEach(section => {
+            section.style.animation = 'fadeIn 1s ease-out forwards';
+            section.style.opacity = '1';
+        });
+    });
+
+    // Handle Form Submission (Updated for Formspree and in-page message)
+    async function handleSubmit(event) {
+        event.preventDefault(); // Prevent default form submission
+
+        const form = event.target;
+        const formData = new FormData(form);
+
+        // Your Formspree endpoint (make sure this is correct)
+        const formspreeEndpoint = 'https://formspree.io/f/xqaleznp'; 
+
+        try {
+            const response = await fetch(formspreeEndpoint, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            });
+
+            if (response.ok) {
+                // Form submission successful
+                form.classList.add('hidden'); // Hide the form
+                const thankYouMessage = document.getElementById('thankYouMessage');
+                thankYouMessage.classList.remove('hidden'); // Show thank you message
+
+                // Optional: Hide thank you message and show form again after a few seconds
+                setTimeout(() => {
+                    thankYouMessage.classList.add('hidden');
+                    form.classList.remove('hidden');
+                    form.reset(); // Clear the form
+                }, 5000); // Hide after 5 seconds
+            } else {
+                // Form submission failed
+                alert('Oops! There was a problem submitting your form. Please try again.');
+            }
+        } catch (error) {
+            console.error('Error submitting form:', error);
+            alert('An error occurred. Please check your internet connection and try again.');
+        }
+    }
+    
+    // Add/remove header shadow on scroll (if you want this on non-index pages too)
+    const header = document.getElementById('main-header');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+            header.classList.add('shadow-xl');
+        } else {
+            header.classList.remove('shadow-xl');
         }
     });
+
+    // Smooth scroll for nav links (if you have local anchors on this page)
+    document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+                // Adjust headerOffset if you use a sticky header that changes height
+                const headerOffset = document.getElementById('main-header') ? document.getElementById('main-header').offsetHeight : 0;
+                const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
+                const offsetPosition = elementPosition - headerOffset - 20; // Added 20px padding
+
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: "smooth"
+                });
+            }
+        });
+    });
+
+    // Note: Intersection Observers for .fade-in-section and .course-card-X
+    // are typically used on index.html for elements below the fold.
+    // For a specific page, the 'fade-in-content' on DOMContentLoaded is often sufficient.
+    // If you plan to load more content dynamically or have sections fade in only on scroll on this page,
+    // you would copy the full Intersection Observer setup from index.html here.
   </script>
 </body>
 </html>
