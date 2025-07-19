@@ -51,12 +51,24 @@
     .nav-link-hover-effect:hover {
         color: #4f46e5; /* indigo-600 */
     }
+
+    /* Keyframes for the blinking effect */
+    @keyframes blinkEffect {
+      0%, 10%, 12%, 14%, 100% { opacity: 1; } /* Fully visible for most of the time */
+      11%, 13% { opacity: 0.2; } /* Brief blink to 20% opacity */
+    }
+
+    /* Application of the blinking effect to the ChessDepth title */
+    .animate-occasional-blink {
+      animation: blinkEffect 20s infinite; /* 20s cycle, repeats forever */
+      animation-delay: 3s; /* Starts blinking after 3 seconds */
+    }
   </style>
 </head>
 <body class="bg-gray-50 text-gray-800">
 
-  <nav class="bg-white shadow-md p-4 flex justify-between items-center sticky top-0 z-50">
-    <h1 class="text-2xl font-bold text-indigo-700">ChessDepth</h1>
+  <nav class="bg-white shadow-md py-6 flex justify-between items-center sticky top-0 z-50">
+    <h1 class="text-3xl font-bold text-indigo-700 animate-bounce-in-logo animate-occasional-blink ml-4">ChessDepth</h1>
     <div class="flex-grow flex justify-center space-x-6 text-gray-700">
       <a href="index.html" class="hover:text-indigo-600 transition-colors duration-200 nav-link-hover-effect">Home</a>
       <a href="about.html" class="font-semibold text-indigo-700 underline underline-offset-4 decoration-2 nav-link-hover-effect">About</a>
