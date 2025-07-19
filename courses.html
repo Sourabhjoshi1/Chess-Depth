@@ -1,154 +1,36 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="google-adsense-account" content="ca-pub-1353516013773606">
-  <title>Our Courses | ChessDepth Academy</title>
-  
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1353516013773606"
-          crossorigin="anonymous"></script>
-
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <style>
-    body {
-        font-family: 'Poppins', sans-serif;
-    }
-
-    /* Navbar Link Hover Effect (from previous iterations, ensure consistency) */
-    .nav-link-hover-effect {
-        transition: all 0.2s ease-in-out;
-        position: relative;
-    }
-    .nav-link-hover-effect:after {
-        content: '';
-        position: absolute;
-        width: 0%;
-        height: 2px;
-        bottom: -5px;
-        left: 0;
-        background-color: #4f46e5; /* indigo-600 */
-        transition: width 0.3s ease-out;
-    }
-    .nav-link-hover-effect:hover:after {
-        width: 100%;
-    }
-    .nav-link-hover-effect:hover {
-        color: #4f46e5; /* indigo-600 */
-    }
-
-    /* Course Card Hover Effect (copied from index.html's style) */
-    .course-card-hover {
-        transition: all 0.3s ease-in-out;
-    }
-    .course-card-hover:hover {
-        transform: translateY(-8px) scale(1.03); /* More pronounced lift */
-        box-shadow: 0 15px 25px -5px rgba(0, 0, 0, 0.15), 0 6px 10px -3px rgba(0, 0, 0, 0.08); /* Stronger shadow */
-    }
-
-    /* Fade-in animation for content on page load */
-    .fade-in-content {
-        opacity: 0;
-        animation: fadeIn 1s ease-out forwards;
-        animation-delay: 0.2s;
-    }
-    @keyframes fadeIn {
-        from { opacity: 0; }
-        to { opacity: 1; }
-    }
-  </style>
-</head>
-<body class="bg-gray-50 text-gray-800">
-
-  <header class="bg-white shadow-md py-6 flex justify-between items-center sticky top-0 z-50" id="main-header">
-    <div class="max-w-7xl mx-auto flex justify-between items-center w-full">
-      <h1 class="text-3xl font-bold text-indigo-700">♟️ ChessDepth</h1>
-      <nav class="space-x-4">
-        <a href="index.html" class="text-gray-700 hover:text-indigo-600 nav-link-hover-effect">Home</a>
-        <a href="about.html" class="text-gray-700 hover:text-indigo-600 nav-link-hover-effect">About</a>
-        <a href="courses.html" class="font-semibold text-indigo-700 underline underline-offset-4 decoration-2 nav-link-hover-effect">Courses</a>
-        <a href="coaches.html" class="text-gray-700 hover:text-indigo-600 nav-link-hover-effect">Coaches</a>
-        <a href="#inquiry" class="text-gray-700 hover:text-indigo-600 nav-link-hover-effect">Inquiry</a>
-        <a href="#contact" class="text-gray-700 hover:text-indigo-600 nav-link-hover-effect">Contact</a>
-      </nav>
-    </div>
-  </header>
-
-  <section id="courses-main" class="max-w-6xl mx-auto py-12 px-4 fade-in-content">
-    <h2 class="text-4xl font-bold text-center text-indigo-700 mb-10">Our Comprehensive Courses</h2>
-    <p class="text-lg leading-relaxed text-center max-w-3xl mx-auto mb-12 text-gray-600">
-      ChessDepth Academy offers a range of structured courses, designed by experienced coaches to cater to players of all skill levels. Explore our offerings and find the perfect path to elevate your game.
-    </p>
-
-    <div class="grid md:grid-cols-3 gap-8">
-      <div class="bg-white p-6 rounded-lg shadow course-card-hover flex flex-col justify-between">
-        <div>
-          <h3 class="text-xl font-semibold mb-2 text-indigo-800">Beginner's Tactics</h3>
-          <p class="text-gray-700 mb-4">
-            Master the fundamental tactical motifs that appear in every game. Learn to identify and execute forks, pins, skewers, discovered attacks, and back-rank mates. Essential for any aspiring player.
-          </p>
+<section id="courses-main" class="py-16 bg-white px-4 fade-in-content">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-4xl font-bold text-center text-indigo-700 mb-10">Our Popular Programs</h2>
+      
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="bg-gray-50 p-6 rounded-lg shadow course-card-hover flex flex-col justify-between">
+          <div>
+            <h4 class="text-xl font-semibold mb-2">Beginner's Tactics</h4>
+            <p class="text-gray-700 mb-4">Master forks, pins, skewers & traps to dominate early games and build a strong foundation.</p>
+          </div>
+          <a href="#" class="text-indigo-600 hover:text-indigo-800 font-medium mt-4 self-start transition-colors duration-200">View Details <i class="fas fa-arrow-right text-sm ml-1"></i></a>
         </div>
-        <a href="#" class="text-indigo-600 hover:text-indigo-800 font-medium mt-4 self-start transition-colors duration-200">View Details <i class="fas fa-arrow-right text-sm ml-1"></i></a>
+
+        <div class="bg-gray-50 p-6 rounded-lg shadow course-card-hover flex flex-col justify-between">
+          <div>
+            <h4 class="text-xl font-semibold mb-2">Positional Strategy</h4>
+            <p class="text-gray-700 mb-4">Learn pawn structures, weak squares, and subtle positional play for long-term advantages.</p>
+          </div>
+          <a href="#" class="text-indigo-600 hover:text-indigo-800 font-medium mt-4 self-start transition-colors duration-200">View Details <i class="fas fa-arrow-right text-sm ml-1"></i></a>
+        </div>
+
+        <div class="bg-gray-50 p-6 rounded-lg shadow course-card-hover flex flex-col justify-between">
+          <div>
+            <h4 class="text-xl font-semibold mb-2">Openings Repertoire</h4>
+            <p class="text-gray-700 mb-4">Build your white and black repertoire with sharp & solid openings.</p>
+          </div>
+          <a href="#" class="text-indigo-600 hover:text-indigo-800 font-medium mt-4 self-start transition-colors duration-200">View Details <i class="fas fa-arrow-right text-sm ml-1"></i></a>
+        </div>
       </div>
 
-      <div class="bg-white p-6 rounded-lg shadow course-card-hover flex flex-col justify-between">
-        <div>
-          <h3 class="text-xl font-semibold mb-2 text-indigo-800">Positional Strategy Deep Dive</h3>
-          <p class="text-gray-700 mb-4">
-            Go beyond basic tactics and learn the art of positional play. Understand pawn structures, weak squares, piece activity, prophylactic thinking, and how to build long-term advantages.
-          </p>
-        </div>
-        <a href="#" class="text-indigo-600 hover:text-indigo-800 font-medium mt-4 self-start transition-colors duration-200">View Details <i class="fas fa-arrow-right text-sm ml-1"></i></a>
-      </div>
-
-      <div class="bg-white p-6 rounded-lg shadow course-card-hover flex flex-col justify-between">
-        <div>
-          <h3 class="text-xl font-semibold mb-2 text-indigo-800">Openings Repertoire Building</h3>
-          <p class="text-gray-700 mb-4">
-            Develop a solid and reliable opening repertoire for both White and Black. Learn the core ideas, common traps, and typical middlegame plans for popular openings.
-          </p>
-        </div>
-        <a href="#" class="text-indigo-600 hover:text-indigo-800 font-medium mt-4 self-start transition-colors duration-200">View Details <i class="fas fa-arrow-right text-sm ml-1"></i></a>
-      </div>
-
-      <div class="bg-white p-6 rounded-lg shadow course-card-hover flex flex-col justify-between">
-        <div>
-          <h3 class="text-xl font-semibold mb-2 text-indigo-800">Advanced Endgame Mastery</h3>
-          <p class="text-gray-700 mb-4">
-            Transform your endgame play. Learn the principles of king activity, pawn majorities, opposition, and critical endgame positions for confident finishes.
-          </p>
-        </div>
-        <a href="#" class="text-indigo-600 hover:text-indigo-800 font-medium mt-4 self-start transition-colors duration-200">View Details <i class="fas fa-arrow-right text-sm ml-1"></i></a>
-      </div>
-
-      <div class="bg-white p-6 rounded-lg shadow course-card-hover flex flex-col justify-between">
-        <div>
-          <h3 class="text-xl font-semibold mb-2 text-indigo-800">Tournament Preparation & Psychology</h3>
-          <p class="text-gray-700 mb-4">
-            Prepare mentally and strategically for tournament play. Cover time management, psychological factors, pre-game routines, and post-game analysis techniques.
-          </p>
-        </div>
-        <a href="#" class="text-indigo-600 hover:text-indigo-800 font-medium mt-4 self-start transition-colors duration-200">View Details <i class="fas fa-arrow-right text-sm ml-1"></i></a>
-      </div>
+      <p class="text-center text-gray-600 mt-12 text-lg">
+        Can't find what you're looking for? <a href="index.html#inquiry" class="text-indigo-600 hover:underline font-semibold">Contact us</a> for custom training plans!
+      </p>
 
     </div>
   </section>
-
-  <footer class="bg-white text-center py-6 shadow-inner mt-10">
-    <p class="text-sm text-gray-500">&copy; 2025 ChessDepth Academy. All rights reserved.</p>
-  </footer>
-
-  <script>
-    // Fade-in animation for content on page load
-    document.addEventListener('DOMContentLoaded', () => {
-        const contentSection = document.querySelector('.fade-in-content');
-        if (contentSection) {
-            contentSection.style.animation = 'fadeIn 1s ease-out forwards';
-            contentSection.style.opacity = '1';
-        }
-    });
-  </script>
-</body>
-</html>
