@@ -68,9 +68,8 @@
         <a href="about.html" class="font-semibold text-indigo-700 underline underline-offset-4 decoration-2 nav-link-hover-effect">About</a>
         <a href="courses.html" class="text-gray-700 hover:text-indigo-600 nav-link-hover-effect">Courses</a>
         <a href="coaches.html" class="text-gray-700 hover:text-indigo-600 nav-link-hover-effect">Coaches</a>
-        <a href="#inquiry" class="text-gray-700 hover:text-indigo-600 nav-link-hover-effect">Inquiry</a>
-        <a href="#contact" class="text-gray-700 hover:text-indigo-600 nav-link-hover-effect">Contact</a>
-      </nav>
+        <a href="index.html#inquiry" class="text-gray-700 hover:text-indigo-600 nav-link-hover-effect">Inquiry</a>
+        <a href="contact.html" class="text-gray-700 hover:text-indigo-600 nav-link-hover-effect">Contact</a> </nav>
     </div>
   </header>
 
@@ -180,14 +179,16 @@
     </div>
   </section>
 
-  <footer class="bg-white text-center py-6 shadow-inner mt-10">
-    <p class="text-sm text-gray-500">&copy; 2025 ChessDepth Academy. All rights reserved.</p>
-    <div class="mt-4 flex justify-center space-x-6">
-      <a href="https://www.instagram.com/chessdepthacademy1/" class="text-gray-300 hover:text-indigo-300 transition-colors duration-200 text-2xl" target="_blank" aria-label="Follow us on Instagram"><i class="fab fa-instagram"></i></a>
-      <a href="https://www.facebook.com/chessdepthacademy/" class="text-gray-300 hover:text-indigo-300 transition-colors duration-200 text-2xl" target="_blank" aria-label="Follow us on Facebook"><i class="fab fa-facebook-f"></i></a>
-      <a href="#" class="text-gray-300 hover:text-indigo-300 transition-colors duration-200 text-2xl" aria-label="Watch us on YouTube"><i class="fab fa-youtube"></i></a>
+  <footer class="bg-gray-800 text-white py-6 mt-10 fade-in-content">
+    <div class="max-w-5xl mx-auto text-center">
+      <p>© 2025 ChessDepth Academy. All rights reserved.</p>
+      <div class="mt-4 flex justify-center space-x-6">
+        <a href="https://www.instagram.com/chessdepthacademy1/" class="text-gray-300 hover:text-indigo-300 transition-colors duration-200 text-2xl" target="_blank" aria-label="Follow us on Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.facebook.com/chessdepthacademy/" class="text-gray-300 hover:text-indigo-300 transition-colors duration-200 text-2xl" target="_blank" aria-label="Follow us on Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" class="text-gray-300 hover:text-indigo-300 transition-colors duration-200 text-2xl" aria-label="Watch us on YouTube"><i class="fab fa-youtube"></i></a>
+      </div>
+      <p class="mt-4 text-sm text-gray-400">Made by Sourabh Joshi ❤️</p>
     </div>
-    <p class="mt-4 text-sm text-gray-400">Made by Sourabh Joshi ❤️</p>
   </footer>
 
   <script>
@@ -256,24 +257,28 @@
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
             const targetId = this.getAttribute('href');
-            const targetElement = document.querySelector(targetId);
-            if (targetElement) {
-                // Adjust headerOffset if you use a sticky header that changes height
-                const headerOffset = document.getElementById('main-header') ? document.getElementById('main-header').offsetHeight : 0;
-                const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
-                const offsetPosition = elementPosition - headerOffset - 20; // Added 20px padding
+            // Check if it's an internal anchor or an external page link
+            if (targetId.startsWith("#")) { 
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    const headerOffset = document.getElementById('main-header') ? document.getElementById('main-header').offsetHeight : 0;
+                    const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
+                    const offsetPosition = elementPosition - headerOffset - 20; // Added 20px padding
 
-                window.scrollTo({
-                    top: offsetPosition,
-                    behavior: "smooth"
-                });
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: "smooth"
+                    });
+                }
+            } else {
+                // For external page links (like contact.html), allow default navigation
+                window.location.href = targetId; // Manually navigate if not smooth scrolling to anchor
             }
         });
     });
 
-    // Note: Intersection Observers for .fade-in-section and .course-card-X
-    // are typically used on index.html for elements below the fold.
-    // For a specific page, the 'fade-in-content' on DOMContentLoaded is often sufficient.
+    // Note: Intersection Observers for .fade-in-section and .course-card-X needed here (if applicable for content below hero)
+    // As 'fade-in-content' is used on DOMContentLoaded, this might be redundant for some sections but harmless.
     // If you plan to load more content dynamically or have sections fade in only on scroll on this page,
     // you would copy the full Intersection Observer setup from index.html here.
   </script>
