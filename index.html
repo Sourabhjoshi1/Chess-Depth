@@ -3,9 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="google-adsense-account" content="ca-pub-1353516013773606">
   <title>ChessDepth Academy</title>
+  
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1353516013773606"
+          crossorigin="anonymous"></script>
+
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css"> 
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
@@ -46,11 +51,7 @@
       }
     }
 
-    @keyframes bounceIn {
-      0% { transform: scale(0.5); opacity: 0; }
-      70% { transform: scale(1.1); opacity: 1; }
-      100% { transform: scale(1); }
-    }
+    /* Removed @keyframes bounceIn and @keyframes blinkEffect as requested for logo stillness */
 
     /* Apply animations */
     .animate-gradient-shift {
@@ -73,14 +74,14 @@
       animation-delay: 0.6s;
       opacity: 0; /* Start invisible */
     }
-    /* Removed @keyframes bounceIn and @keyframes blinkEffect */
+    /* Removed .animate-bounce-in-logo and .animate-occasional-blink */
 
 
     /* For staggered card animations (handled by JS IntersectionObserver) */
     /* Starting opacity is set by JS for controlled animation */
 
-    /* General fade-in from original HTML, ensuring it's smooth */
-    .fade-in-section { /* Renamed from fade-in to avoid conflict and be more specific */
+    /* General fade-in for sections */
+    .fade-in-section { 
         opacity: 0;
         /* Animation handled by JS IntersectionObserver */
     }
@@ -175,13 +176,12 @@
     <div class="max-w-7xl mx-auto flex justify-between items-center w-full">
       <h1 class="text-3xl font-bold text-indigo-600">♟️ ChessDepth</h1>
       <nav class="space-x-4">
-        <a href="index.html" class="text-gray-700 hover:text-indigo-600 nav-link-hover-effect">Home</a>
+        <a href="index.html" class="font-semibold text-indigo-700 underline underline-offset-4 decoration-2 nav-link-hover-effect">Home</a>
         <a href="about.html" class="text-gray-700 hover:text-indigo-600 nav-link-hover-effect">About</a>
         <a href="courses.html" class="text-gray-700 hover:text-indigo-600 nav-link-hover-effect">Courses</a>
         <a href="coaches.html" class="text-gray-700 hover:text-indigo-600 nav-link-hover-effect">Coaches</a>
         <a href="#inquiry" class="text-gray-700 hover:text-indigo-600 nav-link-hover-effect">Inquiry</a>
-        <a href="#contact" class="text-gray-700 hover:text-indigo-600 nav-link-hover-effect">Contact</a>
-      </nav>
+        <a href="contact.html" class="text-gray-700 hover:text-indigo-600 nav-link-hover-effect">Contact</a> </nav>
     </div>
   </header>
 
@@ -285,7 +285,7 @@
         <div class="bg-gray-50 p-6 rounded-lg shadow course-card-hover course-card-3 flex flex-col justify-between">
           <div>
             <h4 class="text-xl font-semibold mb-2">Openings Repertoire</h4>
-            <p class="text-gray-700 mb-4">Build your white and black repertoire with sharp & solid openings tailored to your style.</p>
+            <p class="text-gray-700 mb-4">Build your white and black repertoire with sharp & solid openings.</p>
           </div>
           <a href="courses.html#openings-repertoire" class="text-indigo-600 hover:text-indigo-800 font-medium mt-4 self-start transition-colors duration-200">Learn More <i class="fas fa-arrow-right text-sm ml-1"></i></a>
         </div>
@@ -337,7 +337,7 @@
     </div>
   </section>
 
-<footer id="contact" class="bg-gray-800 text-white py-6 mt-10 fade-in-section">
+  <footer id="contact" class="bg-gray-800 text-white py-6 mt-10 fade-in-section">
   <div class="max-w-5xl mx-auto text-center">
     <p>© 2025 ChessDepth Academy. All rights reserved.</p>
     <div class="mt-4 flex justify-center space-x-6">
@@ -350,21 +350,27 @@
 </footer>
 
 <script>
-    // Smooth scroll for nav links
+    // Smooth scroll for nav links (if you have local anchors on this page)
     document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
             const targetId = this.getAttribute('href');
-            const targetElement = document.querySelector(targetId);
-            if (targetElement) {
-                const headerOffset = document.getElementById('main-header').offsetHeight; // Get header height
-                const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
-                const offsetPosition = elementPosition - headerOffset - 20; // Added 20px padding
+            // Check if it's an internal anchor or an external page link
+            if (targetId.startsWith("#")) { 
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    const headerOffset = document.getElementById('main-header') ? document.getElementById('main-header').offsetHeight : 0;
+                    const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
+                    const offsetPosition = elementPosition - headerOffset - 20; // Added 20px padding
 
-                window.scrollTo({
-                    top: offsetPosition,
-                    behavior: "smooth"
-                });
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: "smooth"
+                    });
+                }
+            } else {
+                // For external page links (like contact.html), allow default navigation
+                window.location.href = targetId; // Manually navigate if not smooth scrolling to anchor
             }
         });
     });
@@ -376,9 +382,11 @@
         const form = event.target;
         const formData = new FormData(form);
 
-        // Replace 'YOUR_FORMSPREE_ENDPOINT_URL_HERE' with your actual Formspree endpoint
+        // Your Formspree endpoint (make sure this is correct)
+        const formspreeEndpoint = 'https://formspree.io/f/xqaleznp'; 
+
         try {
-            const response = await fetch('YOUR_FORMSPREE_ENDPOINT_URL_HERE', {
+            const response = await fetch(formspreeEndpoint, {
                 method: 'POST',
                 body: formData,
                 headers: {
@@ -407,8 +415,8 @@
             alert('An error occurred. Please check your internet connection and try again.');
         }
     }
-
-    // Add/remove header shadow on scroll
+    
+    // Add/remove header shadow on scroll (if you want this on non-index pages too)
     const header = document.getElementById('main-header');
     window.addEventListener('scroll', () => {
         if (window.scrollY > 50) {
