@@ -5,41 +5,93 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>About Us | ChessDepth Academy</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    body {
+        font-family: 'Poppins', sans-serif;
+    }
+    .profile-link:hover .fa-brands,
+    .profile-link:hover .fa-solid {
+        transform: scale(1.1);
+        color: #4f46e5; /* indigo-600 */
+        transition: transform 0.2s ease-in-out, color 0.2s ease-in-out;
+    }
+  </style>
 </head>
 <body class="bg-gray-50 text-gray-800">
 
-  <!-- Navbar -->
-  <nav class="bg-white shadow-md p-4 flex justify-between items-center">
+  <nav class="bg-white shadow-md p-4 flex justify-between items-center sticky top-0 z-50">
     <h1 class="text-2xl font-bold text-indigo-700">ChessDepth</h1>
     <div class="space-x-6 text-gray-700">
-      <a href="index.html" class="hover:text-indigo-600">Home</a>
-      <a href="about.html" class="font-semibold text-indigo-700 underline">About</a>
-      <a href="contact.html" class="hover:text-indigo-600">Contact</a>
+      <a href="index.html" class="hover:text-indigo-600 transition-colors duration-200">Home</a>
+      <a href="about.html" class="font-semibold text-indigo-700 underline underline-offset-4 decoration-2">About</a>
+      <a href="contact.html" class="hover:text-indigo-600 transition-colors duration-200">Contact</a>
     </div>
   </nav>
 
-  <!-- About Section -->
-  <section class="max-w-4xl mx-auto py-12 px-4">
-    <h2 class="text-4xl font-bold text-center text-indigo-700 mb-8">About ChessDepth</h2>
+  <section class="max-w-5xl mx-auto py-12 px-4">
+    <h2 class="text-4xl font-bold text-center text-indigo-700 mb-10">About ChessDepth Academy</h2>
 
-    <p class="text-lg leading-relaxed mb-6">
-      Welcome to <strong>ChessDepth</strong>, an online chess academy built for passionate players who want to go deeper. Founded by FIDE-rated player <strong>Sourabh Joshi</strong> (1603 FIDE, 2100+ online), our goal is to help developing players break plateaus, understand the "why" behind every move, and grow into confident tournament players.
-    </p>
+    <div class="bg-white rounded-lg shadow-lg p-8 mb-10">
+      <p class="text-lg leading-relaxed mb-6">
+        Welcome to <strong>ChessDepth Academy</strong>, your online destination for mastering the intricacies of chess and breaking through your personal plateaus. Founded with a vision to cultivate deep understanding and strategic prowess, ChessDepth is more than just an academy – it's a community for dedicated players.
+      </p>
 
-    <p class="text-lg leading-relaxed mb-6">
-      Whether you're just learning to control the center or preparing for national-level events, ChessDepth tailors lessons for every level under 1800. We don’t just throw tactics — we show you patterns, plans, and positional subtleties that actually win games.
-    </p>
+      <p class="text-lg leading-relaxed mb-6">
+        Our core philosophy revolves around the "why" behind every move. We guide developing players to not just memorize sequences, but to truly grasp the underlying principles of tactics, strategy, and positional play. This approach empowers our students to make informed decisions, adapt to various game situations, and ultimately, become confident tournament players.
+      </p>
 
-    <p class="text-lg leading-relaxed mb-6">
-      At ChessDepth, we believe in <strong>personalized learning</strong>, <strong>practical feedback</strong>, and most importantly, enjoying the beautiful game of chess together.
-    </p>
+      <p class="text-lg leading-relaxed mb-6">
+        Whether you are taking your first steps beyond basic rules or honing your skills for competitive events, ChessDepth offers tailored lessons designed for every level, particularly for players looking to advance their rating up to and beyond 1800. We don't just provide tactical exercises; we illuminate patterns, plans, and subtle positional nuances that are key to consistently winning games.
+      </p>
+
+      <p class="text-lg leading-relaxed mb-6 border-l-4 border-indigo-500 pl-4 italic">
+        At ChessDepth, we believe in <strong>personalized learning</strong>, providing <strong>actionable feedback</strong>, and most importantly, fostering a deep appreciation for the beautiful game of chess.
+      </p>
+    </div>
+
+    <div class="bg-indigo-50 rounded-lg shadow-lg p-8 mb-10 text-center">
+      <h3 class="text-3xl font-bold text-indigo-800 mb-6">Meet the Founder: Sourabh Joshi</h3>
+      <div class="flex flex-col md:flex-row items-center md:items-start space-y-6 md:space-y-0 md:space-x-8">
+        <div class="flex-shrink-0">
+          <img src="https://via.placeholder.com/200" alt="Sourabh Joshi Profile" class="rounded-full w-48 h-48 object-cover border-4 border-indigo-300 shadow-md mx-auto md:mx-0">
+          <p class="mt-4 text-sm text-gray-600 font-medium">Sourabh Joshi</p>
+        </div>
+
+        <div class="text-left flex-grow">
+          <p class="text-lg leading-relaxed mb-4">
+            Hello! I'm **Sourabh Joshi**, the founder of ChessDepth Academy. As a FIDE-rated player (current FIDE rating: **1603**), and with an online rating often exceeding **2100+** on various platforms, I've dedicated years to understanding the nuances of chess and, more importantly, how to effectively teach them.
+          </p>
+          <p class="text-lg leading-relaxed mb-4">
+            My journey in chess has provided me with a deep appreciation for its strategic depth and the cognitive benefits it offers. Through ChessDepth, I aim to share this passion and knowledge, guiding students to not only improve their game but also develop essential life skills like critical thinking, problem-solving, and resilience.
+          </p>
+          <p class="text-lg leading-relaxed mb-4">
+            I specialize in helping intermediate players overcome rating plateaus, refine their positional understanding, and build robust opening repertoires. My coaching philosophy emphasizes interactive learning, practical application, and a supportive environment where every question is valued.
+          </p>
+
+          <h4 class="text-xl font-semibold text-gray-800 mt-6 mb-3">Connect & Verify:</h4>
+          <div class="flex flex-wrap justify-center md:justify-start gap-4">
+            <a href="https://ratings.fide.com/profile/YourFIDEID" target="_blank" rel="noopener noreferrer" class="profile-link flex items-center bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700 transition duration-300 text-base shadow-md">
+              <i class="fas fa-chess-king text-lg mr-2"></i> FIDE Profile
+            </a>
+            <a href="https://www.chess.com/member/YourChesscomUsername" target="_blank" rel="noopener noreferrer" class="profile-link flex items-center bg-gray-700 text-white px-4 py-2 rounded-lg hover:bg-gray-800 transition duration-300 text-base shadow-md">
+              <i class="fas fa-chess-board text-lg mr-2"></i> Chess.com Profile
+            </a>
+            <a href="https://www.superprof.co.in/your-superprof-profile-link" target="_blank" rel="noopener noreferrer" class="profile-link flex items-center bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700 transition duration-300 text-base shadow-md">
+              <i class="fas fa-chalkboard-teacher text-lg mr-2"></i> Superprof Profile
+            </a>
+          </div>
+          <p class="text-sm text-gray-500 mt-4">*(Please replace "YourFIDEID", "YourChesscomUsername", and "your-superprof-profile-link" with your actual profile links and "https://via.placeholder.com/200" with your actual profile image URL)*</p>
+        </div>
+      </div>
+    </div>
 
     <p class="text-lg font-semibold mt-10 text-center text-gray-700">
       Let's go beyond surface-level chess — let's go deep.
     </p>
   </section>
 
-  <!-- Footer -->
   <footer class="bg-white text-center py-6 shadow-inner mt-10">
     <p class="text-sm text-gray-500">&copy; 2025 ChessDepth Academy. All rights reserved.</p>
   </footer>
