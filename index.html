@@ -3,14 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="google-adsense-account" content="ca-pub-1353516013773606">
   <title>ChessDepth Academy</title>
-  
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1353516013773606"
-          crossorigin="anonymous"></script>
-
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="style.css"> 
+  <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
@@ -51,7 +46,11 @@
       }
     }
 
-    /* Removed @keyframes bounceIn and @keyframes blinkEffect as requested for logo stillness */
+    @keyframes bounceIn {
+      0% { transform: scale(0.5); opacity: 0; }
+      70% { transform: scale(1.1); opacity: 1; }
+      100% { transform: scale(1); }
+    }
 
     /* Apply animations */
     .animate-gradient-shift {
@@ -74,14 +73,14 @@
       animation-delay: 0.6s;
       opacity: 0; /* Start invisible */
     }
-    /* Removed .animate-bounce-in-logo and .animate-occasional-blink */
+    /* Removed @keyframes bounceIn and @keyframes blinkEffect */
 
 
     /* For staggered card animations (handled by JS IntersectionObserver) */
     /* Starting opacity is set by JS for controlled animation */
 
-    /* General fade-in for sections */
-    .fade-in-section { 
+    /* General fade-in from original HTML, ensuring it's smooth */
+    .fade-in-section { /* Renamed from fade-in to avoid conflict and be more specific */
         opacity: 0;
         /* Animation handled by JS IntersectionObserver */
     }
@@ -176,7 +175,7 @@
     <div class="max-w-7xl mx-auto flex justify-between items-center w-full">
       <h1 class="text-3xl font-bold text-indigo-600">♟️ ChessDepth</h1>
       <nav class="space-x-4">
-        <a href="index.html" class="font-semibold text-indigo-700 underline underline-offset-4 decoration-2 nav-link-hover-effect">Home</a>
+        <a href="index.html" class="text-gray-700 hover:text-indigo-600 nav-link-hover-effect">Home</a>
         <a href="about.html" class="text-gray-700 hover:text-indigo-600 nav-link-hover-effect">About</a>
         <a href="courses.html" class="text-gray-700 hover:text-indigo-600 nav-link-hover-effect">Courses</a>
         <a href="coaches.html" class="text-gray-700 hover:text-indigo-600 nav-link-hover-effect">Coaches</a>
@@ -286,7 +285,7 @@
         <div class="bg-gray-50 p-6 rounded-lg shadow course-card-hover course-card-3 flex flex-col justify-between">
           <div>
             <h4 class="text-xl font-semibold mb-2">Openings Repertoire</h4>
-            <p class="text-gray-700 mb-4">Build your white and black repertoire with sharp & solid openings.</p>
+            <p class="text-gray-700 mb-4">Build your white and black repertoire with sharp & solid openings tailored to your style.</p>
           </div>
           <a href="courses.html#openings-repertoire" class="text-indigo-600 hover:text-indigo-800 font-medium mt-4 self-start transition-colors duration-200">Learn More <i class="fas fa-arrow-right text-sm ml-1"></i></a>
         </div>
@@ -338,7 +337,7 @@
     </div>
   </section>
 
-  <footer id="contact" class="bg-gray-800 text-white py-6 mt-10 fade-in-section">
+<footer id="contact" class="bg-gray-800 text-white py-6 mt-10 fade-in-section">
   <div class="max-w-5xl mx-auto text-center">
     <p>© 2025 ChessDepth Academy. All rights reserved.</p>
     <div class="mt-4 flex justify-center space-x-6">
@@ -351,15 +350,14 @@
 </footer>
 
 <script>
-    // Smooth scroll for nav links (if you have local anchors on this page)
+    // Smooth scroll for nav links
     document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
             const targetId = this.getAttribute('href');
             const targetElement = document.querySelector(targetId);
             if (targetElement) {
-                // Adjust headerOffset if you use a sticky header that changes height
-                const headerOffset = document.getElementById('main-header') ? document.getElementById('main-header').offsetHeight : 0;
+                const headerOffset = document.getElementById('main-header').offsetHeight; // Get header height
                 const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
                 const offsetPosition = elementPosition - headerOffset - 20; // Added 20px padding
 
@@ -378,11 +376,9 @@
         const form = event.target;
         const formData = new FormData(form);
 
-        // Your Formspree endpoint (make sure this is correct)
-        const formspreeEndpoint = 'https://formspree.io/f/xqaleznp'; 
-
+        // Replace 'YOUR_FORMSPREE_ENDPOINT_URL_HERE' with your actual Formspree endpoint
         try {
-            const response = await fetch(formspreeEndpoint, {
+            const response = await fetch('YOUR_FORMSPREE_ENDPOINT_URL_HERE', {
                 method: 'POST',
                 body: formData,
                 headers: {
@@ -411,8 +407,8 @@
             alert('An error occurred. Please check your internet connection and try again.');
         }
     }
-    
-    // Add/remove header shadow on scroll (if you want this on non-index pages too)
+
+    // Add/remove header shadow on scroll
     const header = document.getElementById('main-header');
     window.addEventListener('scroll', () => {
         if (window.scrollY > 50) {
@@ -422,20 +418,89 @@
         }
     });
 
-    // Note: Intersection Observers for .fade-in-section and .course-card-X
-    // are typically used on index.html for elements below the fold.
-    // For a specific page, the 'fade-in-content' on DOMContentLoaded is often sufficient.
-    // If you plan to load more content dynamically or have sections fade in only on scroll on this page,
-    // you would copy the full Intersection Observer setup from index.html here.
-    
-    // JS for fade-in on content sections (for elements with 'fade-in-content' class)
-    document.addEventListener('DOMContentLoaded', () => {
-        const contentSections = document.querySelectorAll('.fade-in-content');
-        contentSections.forEach(section => {
-            section.style.animation = 'fadeIn 1s ease-out forwards';
-            section.style.opacity = '1';
-        });
+    // Intersection Observer for section fade-in
+    const faders = document.querySelectorAll('.fade-in-section');
+    const appearOptions = {
+      threshold: 0.15, // Increased threshold for better feel
+      rootMargin: "0px 0px -50px 0px"
+    };
+
+    const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) {
+          return;
+        } else {
+          entry.target.style.animation = `fadeIn 1s ease-out forwards`;
+          entry.target.style.opacity = '1';
+          appearOnScroll.unobserve(entry.target);
+        }
+      });
+    }, appearOptions);
+
+    faders.forEach(fader => {
+      fader.style.opacity = '0';
+      appearOnScroll.observe(fader);
     });
-  </script>
+
+    // Intersection Observer for staggered course card animation
+    const courseCards = document.querySelectorAll('.course-card-1, .course-card-2, .course-card-3');
+    const cardOptions = {
+      threshold: 0.3, // Cards animate when 30% in view
+    };
+
+    const cardAppearOnScroll = new IntersectionObserver(function(entries, cardAppearOnScroll) {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) {
+          return;
+        } else {
+          const delay = entry.target.classList.contains('course-card-1') ? '0s' :
+                        entry.target.classList.contains('course-card-2') ? '0.2s' :
+                        '0.4s';
+          entry.target.style.animation = `cardPop 0.6s ease-out forwards ${delay}`;
+          entry.target.style.opacity = '1';
+          cardAppearOnScroll.unobserve(entry.target);
+        }
+      });
+    }, cardOptions);
+
+    courseCards.forEach(card => {
+        card.style.opacity = '0';
+        cardAppearOnScroll.observe(card);
+    });
+
+
+    // Counter Animation for Trust Bar
+    const statNumbers = document.querySelectorAll('.stat-number');
+
+    const animateCounter = (entry) => {
+        if (entry.isIntersecting) {
+            const target = parseInt(entry.target.dataset.target);
+            let current = 0;
+            const increment = target / 200; // Adjust for speed
+
+            const updateCounter = () => {
+                if (current < target) {
+                    current += increment;
+                    entry.target.textContent = Math.ceil(current) + entry.target.textContent.slice(-1); // Keep last char (+ or %)
+                    requestAnimationFrame(updateCounter);
+                } else {
+                    entry.target.textContent = target + entry.target.textContent.slice(-1);
+                }
+            };
+            updateCounter();
+            counterObserver.unobserve(entry.target); // Stop observing once counted
+        }
+    };
+
+    const counterObserver = new IntersectionObserver((entries) => {
+        entries.forEach(animateCounter);
+    }, { threshold: 0.5 }); // Trigger when 50% in view
+
+    statNumbers.forEach(number => {
+        counterObserver.observe(number);
+    });
+
+</script>
+<script src="script.js"></script>
 </body>
 </html>
