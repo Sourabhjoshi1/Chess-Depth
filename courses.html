@@ -4,98 +4,20 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="google-adsense-account" content="ca-pub-1353516013773606">
-  <title>Courses - ChessDepth Academy</title>
+  <title>Our Courses | ChessDepth Academy</title>
   
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1353516013773606"
           crossorigin="anonymous"></script>
 
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="style.css"> 
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-
   <style>
-    /* Custom CSS for subtle animations and enhancements (copied from consistent header/footer setup) */
-
-    /* Font Global Change (if Poppins is preferred) */
     body {
         font-family: 'Poppins', sans-serif;
     }
 
-    /* Keyframe Animations (ensuring all are present for consistency) */
-    @keyframes gradientShift {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
-
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    @keyframes cardPop {
-      from {
-        opacity: 0;
-        transform: scale(0.95);
-      }
-      to {
-        opacity: 1;
-        transform: scale(1);
-      }
-    }
-
-    /* Removed @keyframes bounceIn and @keyframes blinkEffect as requested for logo stillness */
-
-    /* Apply animations */
-    .animate-gradient-shift {
-      background-size: 200% 200%;
-      animation: gradientShift 18s ease infinite; /* Slower, more subtle */
-    }
-
-    .animate-fade-in-up-1 {
-      animation: fadeInUp 0.9s ease-out forwards;
-      animation-delay: 0.2s;
-      opacity: 0; /* Start invisible */
-    }
-    .animate-fade-in-up-2 {
-      animation: fadeInUp 0.9s ease-out forwards;
-      animation-delay: 0.4s;
-      opacity: 0; /* Start invisible */
-    }
-    .animate-fade-in-up-3 {
-      animation: fadeInUp 0.9s ease-out forwards;
-      animation-delay: 0.6s;
-      opacity: 0; /* Start invisible */
-    }
-    /* Removed .animate-bounce-in-logo and .animate-occasional-blink */
-
-
-    /* For staggered card animations (if used, JS needed to trigger) */
-    /* Starting opacity is set by JS for controlled animation */
-
-    /* General fade-in for sections and main content */
-    .fade-in-section, .fade-in-content { /* Added fade-in-content here */
-        opacity: 0;
-        /* Animation handled by JS IntersectionObserver for sections or DOMContentLoaded for content */
-    }
-    @keyframes fadeIn {
-        from { opacity: 0; }
-        to { opacity: 1; }
-    }
-
-    /* Header improvements (Sticky shadow) */
-    .header-shadow-on-scroll {
-        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-        transition: box-shadow 0.3s ease-in-out;
-    }
-    /* A subtle hover for nav links */
+    /* Navbar Link Hover Effect (from previous iterations, ensure consistency) */
     .nav-link-hover-effect {
         transition: all 0.2s ease-in-out;
         position: relative;
@@ -117,8 +39,8 @@
         color: #4f46e5; /* indigo-600 */
     }
 
-    /* Card hover effect */
-    .course-card-hover { /* This applies to the course cards on this page */
+    /* Course Card Hover Effect (copied from index.html's style) */
+    .course-card-hover {
         transition: all 0.3s ease-in-out;
     }
     .course-card-hover:hover {
@@ -126,51 +48,19 @@
         box-shadow: 0 15px 25px -5px rgba(0, 0, 0, 0.15), 0 6px 10px -3px rgba(0, 0, 0, 0.08); /* Stronger shadow */
     }
 
-    /* Hero Section Particle Overlay (Pure CSS) - for index.html hero, but included for consistency */
-    .hero-particles {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        overflow: hidden;
-        z-index: 0; /* Below content */
-        opacity: 0.1; /* Subtle */
-        background-image: radial-gradient(#fff 1px, transparent 1px);
-        background-size: 20px 20px;
-        animation: moveParticles 20s linear infinite;
+    /* Fade-in animation for content on page load */
+    .fade-in-content {
+        opacity: 0;
+        animation: fadeIn 1s ease-out forwards;
+        animation-delay: 0.2s;
     }
-
-    @keyframes moveParticles {
-        0% { background-position: 0 0; }
-        100% { background-position: 200px 200px; } /* Adjust for desired movement */
-    }
-
-    /* Specific styles for the "Explore Courses" button - for index.html hero, but included for consistency */
-    .hero-button {
-        transition: all 0.3s ease-in-out;
-    }
-    .hero-button:hover {
-        background-color: #e0e7ff; /* lighter indigo */
-        color: #3730a3; /* darker indigo */
-        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-    }
-
-    /* For the new stats section numbers - for index.html, but included for consistency */
-    .stat-number {
-        font-size: 2.5rem; /* Increased size */
-        font-weight: 700;
-        color: #4f46e5; /* indigo-600 */
-        line-height: 1;
-    }
-    .stat-label {
-        font-size: 0.95rem;
-        color: #555;
-        margin-top: 0.25rem;
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
     }
   </style>
 </head>
-<body class="bg-gray-100 text-gray-800">
+<body class="bg-gray-50 text-gray-800">
 
   <header class="bg-white shadow-md py-6 flex justify-between items-center sticky top-0 z-50" id="main-header">
     <div class="max-w-7xl mx-auto flex justify-between items-center w-full">
@@ -180,134 +70,67 @@
         <a href="about.html" class="text-gray-700 hover:text-indigo-600 nav-link-hover-effect">About</a>
         <a href="courses.html" class="font-semibold text-indigo-700 underline underline-offset-4 decoration-2 nav-link-hover-effect">Courses</a>
         <a href="coaches.html" class="text-gray-700 hover:text-indigo-600 nav-link-hover-effect">Coaches</a>
-        <a href="#inquiry" class="text-gray-700 hover:text-indigo-600 nav-link-hover-effect">Inquiry</a>
-        <a href="#contact" class="text-gray-700 hover:text-indigo-600 nav-link-hover-effect">Contact</a>
-      </nav>
+        <a href="index.html#inquiry" class="text-gray-700 hover:text-indigo-600 nav-link-hover-effect">Inquiry</a>
+        <a href="contact.html" class="text-gray-700 hover:text-indigo-600 nav-link-hover-effect">Contact</a> </nav>
     </div>
   </header>
 
-  <section class="bg-gradient-to-br from-indigo-500 to-purple-600 text-white py-16 fade-in-content">
-    <div class="max-w-4xl mx-auto text-center px-4">
-      <h2 class="text-4xl font-bold mb-4">Explore Our Comprehensive Courses</h2>
-      <p class="text-xl">Unlock your potential with our expertly designed programs for every skill level.</p>
-    </div>
-  </section>
+  <section id="courses-main" class="max-w-6xl mx-auto py-12 px-4 fade-in-content">
+    <h2 class="text-4xl font-bold text-center text-indigo-700 mb-10">Our Comprehensive Courses</h2>
+    <p class="text-lg leading-relaxed text-center max-w-3xl mx-auto mb-12 text-gray-600">
+      ChessDepth Academy offers a range of structured courses, designed by experienced coaches to cater to players of all skill levels. Explore our offerings and find the perfect path to elevate your game.
+    </p>
 
-  <section id="courses-listing" class="py-16 bg-gray-100 px-4 fade-in-content">
-    <div class="max-w-6xl mx-auto">
-      <h3 class="text-3xl font-bold text-center mb-10 text-gray-800">Our Popular Programs</h3>
-
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="courses-container">
-        <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition course-card-hover">
-          <div class="flex items-center mb-4">
-            <span class="bg-green-100 text-green-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full">Beginner</span>
-            <span class="bg-indigo-100 text-indigo-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Tactics</span>
-          </div>
-          <h4 class="text-2xl font-bold text-indigo-700 mb-2">Beginner's Blueprint: Master the Basics</h4>
-          <p class="text-gray-600 mb-4">
-            Start your chess journey right! Learn piece movements, basic checkmates, forks, pins, and essential opening principles. Perfect for absolute beginners.
+    <div class="grid md:grid-cols-3 gap-8">
+      <div class="bg-white p-6 rounded-lg shadow course-card-hover flex flex-col justify-between">
+        <div>
+          <h3 class="text-xl font-semibold mb-2 text-indigo-800">Beginner's Tactics</h3>
+          <p class="text-gray-700 mb-4">
+            Master the fundamental tactical motifs that appear in every game. Learn to identify and execute forks, pins, skewers, discovered attacks, and back-rank mates. Essential for any aspiring player.
           </p>
-          <ul class="list-disc list-inside text-sm text-gray-500 mb-4">
-            <li>Understanding the Chessboard</li>
-            <li>Basic Tactical Motifs</li>
-            <li>Fundamental Mates (King & Rook, King & Queen)</li>
-            <li>Introduction to Opening Strategy</li>
-          </ul>
-          <div class="flex justify-between items-center text-gray-700 font-semibold">
-            <span>Duration: 8 Weeks</span>
-            <a href="inquiry.html" class="bg-indigo-500 text-white px-4 py-2 rounded hover:bg-indigo-600 transition">Inquire</a>
-          </div>
         </div>
-
-        <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition course-card-hover">
-          <div class="flex items-center mb-4">
-            <span class="bg-yellow-100 text-yellow-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full">Intermediate</span>
-            <span class="bg-purple-100 text-purple-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Strategy</span>
-          </div>
-          <h4 class="text-2xl font-bold text-purple-700 mb-2">Intermediate Positional Play: Beyond Tactics</h4>
-          <p class="text-gray-600 mb-4">
-            Move beyond simple tactics and delve into the art of positional chess. Learn about pawn structures, weak squares, piece activity, and prophylactic thinking.
-          </p>
-          <ul class="list-disc list-inside text-sm text-gray-500 mb-4">
-            <li>Pawn Structures & Breaks</li>
-            <li>Understanding Piece Value & Activity</li>
-            <li>Evaluating Positions</li>
-            <li>Converting Small Advantages</li>
-          </ul>
-          <div class="flex justify-between items-center text-gray-700 font-semibold">
-            <span>Duration: 12 Weeks</span>
-            <a href="inquiry.html" class="bg-indigo-500 text-white px-4 py-2 rounded hover:bg-indigo-600 transition">Inquire</a>
-          </div>
-        </div>
-
-        <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition course-card-hover">
-          <div class="flex items-center mb-4">
-            <span class="bg-red-100 text-red-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full">Advanced</span>
-            <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Openings</span>
-          </div>
-          <h4 class="text-2xl font-bold text-blue-700 mb-2">Advanced Opening Repertoire: Dominate from Move 1</h4>
-          <p class="text-gray-600 mb-4">
-            Build a robust and dynamic opening repertoire for both White and Black. Understand the ideas behind the moves and gain a significant edge early in the game.
-          </p>
-          <ul class="list-disc list-inside text-sm text-gray-500 mb-4">
-            <li>Deep Dive into Main Lines</li>
-            <li>Understanding Transpositions</li>
-            <li>Preparing Novelties & Surprises</li>
-            <li>Analyzing Your Opening Play</li>
-          </ul>
-          <div class="flex justify-between items-center text-gray-700 font-semibold">
-            <span>Duration: 10 Weeks</span>
-            <a href="inquiry.html" class="bg-indigo-500 text-white px-4 py-2 rounded hover:bg-indigo-600 transition">Inquire</a>
-          </div>
-        </div>
-
-        <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition course-card-hover">
-          <div class="flex items-center mb-4">
-            <span class="bg-yellow-100 text-yellow-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full">Intermediate</span>
-            <span class="bg-green-100 text-green-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Endgames</span>
-          </div>
-          <h4 class="text-2xl font-bold text-green-700 mb-2">Endgame Mastery: The Art of Conversion</h4>
-          <p class="text-gray-600 mb-4">
-            Learn the critical techniques to convert advantages in the endgame. Study pawn endgames, rook endgames, and advanced king activity concepts.
-          </p>
-          <ul class="list-disc list-inside text-sm text-gray-500 mb-4">
-            <li>King and Pawn Endgames</li>
-            <li>Rook Endgames Principles</li>
-            <li>Minor Piece Endgames</li>
-            <li>Practical Endgame Play</li>
-          </ul>
-          <div class="flex justify-between items-center text-gray-700 font-semibold">
-            <span>Duration: 6 Weeks</span>
-            <a href="inquiry.html" class="bg-indigo-500 text-white px-4 py-2 rounded hover:bg-indigo-600 transition">Inquire</a>
-          </div>
-        </div>
-
-        <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition course-card-hover">
-          <div class="flex items-center mb-4">
-            <span class="bg-red-100 text-red-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full">Advanced</span>
-            <span class="bg-pink-100 text-pink-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Psychology</span>
-          </div>
-          <h4 class="text-2xl font-bold text-pink-700 mb-2">Chess Psychology: Master Your Mind</h4>
-          <p class="text-gray-600 mb-4">
-            Develop mental resilience, improve concentration, and learn to handle pressure in crucial moments. Essential for competitive players.
-          </p>
-          <ul class="list-disc list-inside text-sm text-gray-500 mb-4">
-            <li>Dealing with Tilt & Blunders</li>
-            <li>Concentration & Focus Techniques</li>
-            <li>Time Management Under Pressure</li>
-            <li>Understanding Opponent's Psychology</li>
-          </ul>
-          <div class="flex justify-between items-center text-gray-700 font-semibold">
-            <span>Duration: 4 Weeks</span>
-            <a href="inquiry.html" class="bg-indigo-500 text-white px-4 py-2 rounded hover:bg-indigo-600 transition">Inquire</a>
-          </div>
-        </div>
-
+        <a href="#" class="text-indigo-600 hover:text-indigo-800 font-medium mt-4 self-start transition-colors duration-200">View Details <i class="fas fa-arrow-right text-sm ml-1"></i></a>
       </div>
 
-      <p class="text-center text-gray-600 mt-12 text-lg">
-        Can't find what you're looking for? <a href="inquiry.html" class="text-indigo-600 hover:underline font-semibold">Contact us</a> for custom training plans!
-      </p>
+      <div class="bg-white p-6 rounded-lg shadow course-card-hover flex flex-col justify-between">
+        <div>
+          <h3 class="text-xl font-semibold mb-2 text-indigo-800">Positional Strategy Deep Dive</h3>
+          <p class="text-gray-700 mb-4">
+            Go beyond basic tactics and delve into the art of positional chess. Learn about pawn structures, weak squares, piece activity, prophylactic thinking, and how to build long-term advantages.
+          </p>
+        </div>
+        <a href="#" class="text-indigo-600 hover:text-indigo-800 font-medium mt-4 self-start transition-colors duration-200">View Details <i class="fas fa-arrow-right text-sm ml-1"></i></a>
+      </div>
+
+      <div class="bg-white p-6 rounded-lg shadow course-card-hover flex flex-col justify-between">
+        <div>
+          <h3 class="text-xl font-semibold mb-2 text-indigo-800">Openings Repertoire Building</h3>
+          <p class="text-gray-700 mb-4">
+            Develop a solid and reliable opening repertoire for both White and Black. Learn the core ideas, common traps, and typical middlegame plans for popular openings.
+          </p>
+        </div>
+        <a href="#" class="text-indigo-600 hover:text-indigo-800 font-medium mt-4 self-start transition-colors duration-200">View Details <i class="fas fa-arrow-right text-sm ml-1"></i></a>
+      </div>
+
+      <div class="bg-white p-6 rounded-lg shadow course-card-hover flex flex-col justify-between">
+        <div>
+          <h3 class="text-xl font-semibold mb-2 text-indigo-800">Advanced Endgame Mastery</h3>
+          <p class="text-gray-700 mb-4">
+            Transform your endgame play. Learn the critical techniques to convert advantages in the endgame. Study pawn endgames, rook endgames, and advanced king activity concepts.
+          </p>
+        </div>
+        <a href="#" class="text-indigo-600 hover:text-indigo-800 font-medium mt-4 self-start transition-colors duration-200">View Details <i class="fas fa-arrow-right text-sm ml-1"></i></a>
+      </div>
+
+      <div class="bg-white p-6 rounded-lg shadow course-card-hover flex flex-col justify-between">
+        <div>
+          <h3 class="text-xl font-semibold mb-2 text-indigo-800">Tournament Preparation & Psychology</h3>
+          <p class="text-gray-700 mb-4">
+            Prepare mentally and strategically for tournament play. Cover time management, psychological factors, pre-game routines, and post-game analysis techniques.
+          </p>
+        </div>
+        <a href="#" class="text-indigo-600 hover:text-indigo-800 font-medium mt-4 self-start transition-colors duration-200">View Details <i class="fas fa-arrow-right text-sm ml-1"></i></a>
+      </div>
 
     </div>
   </section>
@@ -316,7 +139,7 @@
     <div class="max-w-4xl mx-auto px-4">
       <h3 class="text-3xl font-bold mb-4">Ready to Start Your ChessDepth Journey?</h3>
       <p class="text-xl mb-6">Our next batch of courses is starting soon!</p>
-      <a href="inquiry.html" class="bg-white text-indigo-600 font-semibold py-3 px-8 rounded-full shadow hover:bg-gray-100 transition">Enroll Now</a>
+      <a href="index.html#inquiry" class="bg-white text-indigo-600 font-semibold py-3 px-8 rounded-full shadow hover:bg-gray-100 transition">Enroll Now</a>
     </div>
   </section>
 
@@ -342,35 +165,39 @@
         });
     });
 
-    // The rest of the common JS (smooth scroll, form handle, header shadow, intersection observers)
-    // You would typically include these from an external script.js file.
-    // For consistency with recent changes, I'll include the relevant common JS here too,
-    // assuming it's part of your single <script> block for the page.
+    // Handle Form Submission (if you have a form on this page)
+    // You would typically include this from an external script.js file if a form is present.
+    // As there's no inquiry form on this specific courses.html content, this part can be omitted
+    // or kept as part of a shared script that handles forms across pages.
+    // For this exact file, the handleSubmit function might not be strictly needed unless a form is added.
+    // If you add a form, remember to copy the handleSubmit function here (or use a shared script.js)
 
-    // Smooth scroll for nav links (if you have local anchors on this page)
+    // Smooth scroll for nav links
     document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
             const targetId = this.getAttribute('href');
-            const targetElement = document.querySelector(targetId);
-            if (targetElement) {
-                // Adjust headerOffset if you use a sticky header that changes height
-                const headerOffset = document.getElementById('main-header') ? document.getElementById('main-header').offsetHeight : 0;
-                const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
-                const offsetPosition = elementPosition - headerOffset - 20; // Added 20px padding
+            // Check if it's an internal anchor or an external page link
+            if (targetId.startsWith("#")) { 
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    const headerOffset = document.getElementById('main-header') ? document.getElementById('main-header').offsetHeight : 0;
+                    const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
+                    const offsetPosition = elementPosition - headerOffset - 20; // Added 20px padding
 
-                window.scrollTo({
-                    top: offsetPosition,
-                    behavior: "smooth"
-                });
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: "smooth"
+                    });
+                }
+            } else {
+                // For external page links (like contact.html), allow default navigation
+                window.location.href = targetId; // Manually navigate if not smooth scrolling to anchor
             }
         });
     });
 
-    // Form submission handler (if you have a form on this page)
-    // async function handleSubmit(event) { /* ... Your handleSubmit function ... */ }
-
-    // Add/remove header shadow on scroll (if you want this on non-index pages too)
+    // Add/remove header shadow on scroll
     const header = document.getElementById('main-header');
     window.addEventListener('scroll', () => {
         if (window.scrollY > 50) {
@@ -380,11 +207,8 @@
         }
     });
 
-    // Note: Intersection Observers for .fade-in-section and .course-card-X
-    // are typically used on index.html for elements below the fold.
-    // For a specific 'courses.html', the 'fade-in-content' on DOMContentLoaded is often sufficient.
-    // If you plan to load more content dynamically or have sections fade in only on scroll on this page,
-    // you would copy the full Intersection Observer setup from index.html here.
+    // Note: Intersection Observers from index.html (for stats, courses on scroll) are specific to index.html
+    // and are not copied here unless you want similar behavior on this page for elements below the fold.
 
   </script>
 </body>
