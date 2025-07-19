@@ -46,11 +46,7 @@
       }
     }
 
-    @keyframes bounceIn {
-      0% { transform: scale(0.5); opacity: 0; }
-      70% { transform: scale(1.1); opacity: 1; }
-      100% { transform: scale(1); }
-    }
+    /* Removed @keyframes bounceIn and @keyframes blinkEffect */
 
     /* Apply animations */
     .animate-gradient-shift {
@@ -73,11 +69,7 @@
       animation-delay: 0.6s;
       opacity: 0; /* Start invisible */
     }
-    .animate-bounce-in-logo {
-        animation: bounceIn 0.8s ease-out forwards;
-        animation-delay: 0.1s;
-        opacity: 0;
-    }
+    /* Removed .animate-bounce-in-logo and .animate-occasional-blink */
 
 
     /* For staggered card animations (handled by JS IntersectionObserver) */
@@ -171,15 +163,13 @@
         color: #555;
         margin-top: 0.25rem;
     }
-
-    /* Removed blinking effect keyframes and class */
   </style>
 </head>
 <body class="bg-gray-100 text-gray-800">
 
   <header class="bg-white shadow-md py-6 flex justify-between items-center sticky top-0 z-50" id="main-header">
     <div class="max-w-7xl mx-auto flex justify-between items-center w-full">
-      <h1 class="text-3xl font-bold text-indigo-600 animate-bounce-in-logo">♟️ ChessDepth</h1>
+      <h1 class="text-3xl font-bold text-indigo-600">♟️ ChessDepth</h1>
       <nav class="space-x-4">
         <a href="index.html" class="text-gray-700 hover:text-indigo-600 nav-link-hover-effect">Home</a>
         <a href="about.html" class="text-gray-700 hover:text-indigo-600 nav-link-hover-effect">About</a>
