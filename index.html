@@ -171,18 +171,30 @@
         color: #555;
         margin-top: 0.25rem;
     }
+
+    /* Adjusted Keyframes for the blinking effect (come and go back) */
+    @keyframes blinkEffect {
+      0%, 20%, 80%, 100% { opacity: 1; } /* Fully visible */
+      25%, 75% { opacity: 0; } /* Fully transparent (gone) */
+    }
+
+    /* Application of the blinking effect to the ChessDepth title */
+    .animate-occasional-blink {
+      animation: blinkEffect 8s infinite; /* Shorter cycle to make 'come and go' more apparent, adjust as needed */
+      animation-delay: 2s; /* Starts blinking after 2 seconds */
+    }
   </style>
 </head>
 <body class="bg-gray-100 text-gray-800">
 
-  <header class="bg-white shadow-md p-4 sticky top-0 z-50 transition-shadow duration-300" id="main-header">
-    <div class="max-w-7xl mx-auto flex justify-between items-center">
-      <h1 class="text-2xl font-bold text-indigo-600 animate-bounce-in-logo">♟️ ChessDepth</h1>
+  <header class="bg-white shadow-md py-6 flex justify-between items-center sticky top-0 z-50" id="main-header">
+    <div class="max-w-7xl mx-auto flex justify-between items-center w-full">
+      <h1 class="text-3xl font-bold text-indigo-600 animate-bounce-in-logo animate-occasional-blink">♟️ ChessDepth</h1>
       <nav class="space-x-4">
         <a href="index.html" class="text-gray-700 hover:text-indigo-600 nav-link-hover-effect">Home</a>
         <a href="about.html" class="text-gray-700 hover:text-indigo-600 nav-link-hover-effect">About</a>
         <a href="courses.html" class="text-gray-700 hover:text-indigo-600 nav-link-hover-effect">Courses</a>
-        <a href="#inquiry" class="text-gray-700 hover:text-indigo-600 nav-link-hover-effect">Inquiry</a>
+        <a href="coaches.html" class="text-gray-700 hover:text-indigo-600 nav-link-hover-effect">Coaches</a> <a href="#inquiry" class="text-gray-700 hover:text-indigo-600 nav-link-hover-effect">Inquiry</a>
         <a href="#contact" class="text-gray-700 hover:text-indigo-600 nav-link-hover-effect">Contact</a>
       </nav>
     </div>
@@ -248,21 +260,16 @@
       <h3 class="text-3xl font-bold mb-8 text-indigo-100">Our Achievements Speak Volumes</h3>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
         <div class="stat-item fade-in-section">
-          <div class="stat-number" data-target="1500">+</div>
-          <p class="stat-label">Students Enrolled</p>
+          <div class="stat-number" data-target="50">+</div> <p class="stat-label">Students Enrolled</p>
         </div>
         <div class="stat-item fade-in-section">
-          <div class="stat-number" data-target="2000">+</div>
-          <p class="stat-label">Hours of Lessons</p>
-        </div>
+          <div class="stat-number" data-target="500">+</div> <p class="stat-label">Hours of Content</p> </div>
         <div class="stat-item fade-in-section">
           <div class="stat-number" data-target="95">%</div>
           <p class="stat-label">Student Satisfaction</p>
         </div>
         <div class="stat-item fade-in-section">
-          <div class="stat-number" data-target="10">+</div>
-          <p class="stat-label">Rated Coaches</p>
-        </div>
+          <div class="stat-number" data-target="5">+</div> <p class="stat-label">Tutors</p> </div>
       </div>
     </div>
   </section>
