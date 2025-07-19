@@ -29,16 +29,39 @@
         from { opacity: 0; }
         to { opacity: 1; }
     }
+
+    /* Navbar Link Hover Effect (from previous iterations, ensure consistency) */
+    .nav-link-hover-effect {
+        transition: all 0.2s ease-in-out;
+        position: relative;
+    }
+    .nav-link-hover-effect:after {
+        content: '';
+        position: absolute;
+        width: 0%;
+        height: 2px;
+        bottom: -5px;
+        left: 0;
+        background-color: #4f46e5; /* indigo-600 */
+        transition: width 0.3s ease-out;
+    }
+    .nav-link-hover-effect:hover:after {
+        width: 100%;
+    }
+    .nav-link-hover-effect:hover {
+        color: #4f46e5; /* indigo-600 */
+    }
   </style>
 </head>
 <body class="bg-gray-50 text-gray-800">
 
   <nav class="bg-white shadow-md p-4 flex justify-between items-center sticky top-0 z-50">
     <h1 class="text-2xl font-bold text-indigo-700">ChessDepth</h1>
-    <div class="space-x-6 text-gray-700">
-      <a href="index.html" class="hover:text-indigo-600 transition-colors duration-200">Home</a>
-      <a href="about.html" class="font-semibold text-indigo-700 underline underline-offset-4 decoration-2">About</a>
-      <a href="contact.html" class="hover:text-indigo-600 transition-colors duration-200">Contact</a>
+    <div class="flex-grow flex justify-center space-x-6 text-gray-700">
+      <a href="index.html" class="hover:text-indigo-600 transition-colors duration-200 nav-link-hover-effect">Home</a>
+      <a href="about.html" class="font-semibold text-indigo-700 underline underline-offset-4 decoration-2 nav-link-hover-effect">About</a>
+      <a href="coaches.html" class="hover:text-indigo-600 transition-colors duration-200 nav-link-hover-effect">Coaches</a>
+      <a href="contact.html" class="hover:text-indigo-600 transition-colors duration-200 nav-link-hover-effect">Contact</a>
     </div>
   </nav>
 
