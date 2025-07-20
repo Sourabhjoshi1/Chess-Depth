@@ -140,13 +140,6 @@
         background-size: 20px 20px;
         animation: moveParticles 20s linear infinite;
     }
-    <!-- After your hero section or main welcome message -->
-<div class="text-center my-8">
-  <a href="https://wa.me/+919660088773" target="_blank" class="inline-block bg-gradient-to-r from-amber-500 to-yellow-400 hover:from-yellow-500 hover:to-yellow-300 text-white text-lg font-semibold py-3 px-6 rounded-full shadow-lg transition-transform transform hover:scale-105">
-    🎓 Book a Free Demo Class
-  </a>
-</div>
-
 
     @keyframes moveParticles {
         0% { background-position: 0 0; }
@@ -162,6 +155,27 @@
         color: #3730a3; /* darker indigo */
         box-shadow: 0 5px 15px rgba(0,0,0,0.2);
     }
+
+    /* Styles for the Demo Class button */
+    .demo-button {
+        background-color: #f97316; /* Orange 500 */
+        color: white;
+        font-weight: 600;
+        padding: 12px 32px; /* py-3 px-8 */
+        border-radius: 9999px; /* rounded-full */
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1), 0 1px 3px rgba(0,0,0,0.08); /* shadow */
+        transition: all 0.3s ease-in-out;
+        display: inline-flex; /* for icon alignment */
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem; /* space-x-2 */
+    }
+    .demo-button:hover {
+        background-color: #ea580c; /* Orange 600 */
+        transform: translateY(-2px) scale(1.02); /* slight lift and scale */
+        box-shadow: 0 10px 15px rgba(0,0,0,0.15), 0 4px 6px rgba(0,0,0,0.08); /* stronger shadow */
+    }
+
 
     /* For the new stats section numbers */
     .stat-number {
@@ -188,7 +202,8 @@
         <a href="courses.html" class="text-gray-700 hover:text-indigo-600 nav-link-hover-effect">Courses</a>
         <a href="coaches.html" class="text-gray-700 hover:text-indigo-600 nav-link-hover-effect">Coaches</a>
         <a href="#inquiry" class="text-gray-700 hover:text-indigo-600 nav-link-hover-effect">Inquiry</a>
-        <a href="contact.html" class="text-gray-700 hover:text-indigo-600 nav-link-hover-effect">Contact</a> </nav>
+        <a href="contact.html" class="text-gray-700 hover:text-indigo-600 nav-link-hover-effect">Contact</a> 
+      </nav>
     </div>
   </header>
 
@@ -198,7 +213,15 @@
     <div class="max-w-4xl mx-auto text-center relative z-10">
       <h2 class="text-4xl sm:text-5xl md:text-6xl font-extrabold mb-4 animate-fade-in-up-1 tracking-tight leading-tight">Become a Grandmaster of Your Mind</h2>
       <p class="text-xl sm:text-2xl mb-8 animate-fade-in-up-2 opacity-90 leading-relaxed">Train with elite chess lessons. Whether you're a beginner or advanced, we’ve got something for you.</p>
-      <a href="#courses" class="bg-white text-indigo-600 font-semibold py-3 px-8 rounded-full shadow-lg hero-button inline-block animate-fade-in-up-3">Explore Courses</a>
+      
+      <div class="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-6 animate-fade-in-up-3">
+        <a href="#inquiry" class="demo-button" data-course-interest="demo-class">
+          <i class="fas fa-calendar-alt"></i> Book a Free Demo Class
+        </a>
+        <a href="#courses" class="bg-white text-indigo-600 font-semibold py-3 px-8 rounded-full shadow-lg hero-button">
+          Explore Courses
+        </a>
+      </div>
     </div>
   </section>
 
@@ -280,21 +303,21 @@
             <h4 class="text-xl font-semibold mb-2">Beginner's Tactics</h4>
             <p class="text-gray-700 mb-4">Master forks, pins, skewers & traps to dominate early games and build a strong foundation.</p>
           </div>
-          <a href="courses.html#beginner-tactics" class="text-indigo-600 hover:text-indigo-800 font-medium mt-4 self-start transition-colors duration-200">Learn More <i class="fas fa-arrow-right text-sm ml-1"></i></a>
+          <a href="courses.html" class="text-indigo-600 hover:text-indigo-800 font-medium mt-4 self-start transition-colors duration-200">Learn More <i class="fas fa-arrow-right text-sm ml-1"></i></a>
         </div>
         <div class="bg-gray-50 p-6 rounded-lg shadow course-card-hover course-card-2 flex flex-col justify-between">
           <div>
             <h4 class="text-xl font-semibold mb-2">Positional Strategy</h4>
             <p class="text-gray-700 mb-4">Learn pawn structures, weak squares, and subtle positional play for long-term advantages.</p>
           </div>
-          <a href="courses.html#positional-strategy" class="text-indigo-600 hover:text-indigo-800 font-medium mt-4 self-start transition-colors duration-200">Learn More <i class="fas fa-arrow-right text-sm ml-1"></i></a>
+          <a href="courses.html" class="text-indigo-600 hover:text-indigo-800 font-medium mt-4 self-start transition-colors duration-200">Learn More <i class="fas fa-arrow-right text-sm ml-1"></i></a>
         </div>
         <div class="bg-gray-50 p-6 rounded-lg shadow course-card-hover course-card-3 flex flex-col justify-between">
           <div>
             <h4 class="text-xl font-semibold mb-2">Openings Repertoire</h4>
             <p class="text-gray-700 mb-4">Build your white and black repertoire with sharp & solid openings.</p>
           </div>
-          <a href="courses.html#openings-repertoire" class="text-indigo-600 hover:text-indigo-800 font-medium mt-4 self-start transition-colors duration-200">Learn More <i class="fas fa-arrow-right text-sm ml-1"></i></a>
+          <a href="courses.html" class="text-indigo-600 hover:text-indigo-800 font-medium mt-4 self-start transition-colors duration-200">Learn More <i class="fas fa-arrow-right text-sm ml-1"></i></a>
         </div>
       </div>
     </div>
@@ -377,7 +400,7 @@
                 }
             } else {
                 // For external page links (like contact.html), allow default navigation
-                window.location.href = targetId; // Manually navigate if not smooth scrolling to anchor
+                window.location.href = targetId; 
             }
         });
     });
@@ -516,6 +539,28 @@
     });
 
 </script>
-<script src="script.js"></script>
+<script>
+  // Script for pre-filling form based on button click
+  document.addEventListener('DOMContentLoaded', () => {
+    const interestedCourseSelect = document.getElementById('course');
+    const prefillValue = sessionStorage.getItem('prefillCourse');
+
+    if (prefillValue && interestedCourseSelect) {
+      interestedCourseSelect.value = prefillValue;
+      sessionStorage.removeItem('prefillCourse'); // Clear it after use
+    }
+
+    // Attach click event listeners to demo buttons
+    const demoButtons = document.querySelectorAll('.demo-button');
+    demoButtons.forEach(button => {
+      button.addEventListener('click', (e) => {
+        const courseInterest = button.dataset.courseInterest; // Get value from data-course-interest attribute
+        if (courseInterest) {
+          sessionStorage.setItem('prefillCourse', courseInterest);
+        }
+      });
+    });
+  });
+</script>
 </body>
 </html>
