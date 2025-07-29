@@ -74,7 +74,6 @@
       animation-delay: 0.6s;
       opacity: 0; /* Start invisible */
     }
-    /* Removed .animate-bounce-in-logo and .animate-occasional-blink */
 
 
     /* For staggered card animations (handled by JS IntersectionObserver) */
@@ -195,7 +194,9 @@
 
   <header class="bg-white shadow-md py-6 flex justify-between items-center sticky top-0 z-50" id="main-header">
     <div class="max-w-7xl mx-auto flex justify-between items-center w-full">
-      <h1 class="text-3xl font-bold text-indigo-600">♟️ ChessDepth</h1>
+      <a href="index.html" class="inline-block hover:opacity-80 transition-opacity duration-200">
+        <h1 class="text-3xl font-bold text-indigo-600">♟️ ChessDepth</h1>
+      </a>
       <nav class="space-x-4">
         <a href="index.html" class="font-semibold text-indigo-700 underline underline-offset-4 decoration-2 nav-link-hover-effect">Home</a>
         <a href="about.html" class="text-gray-700 hover:text-indigo-600 nav-link-hover-effect">About</a>
@@ -203,8 +204,6 @@
         <a href="coaches.html" class="text-gray-700 hover:text-indigo-600 nav-link-hover-effect">Coaches</a>
         <a href="#inquiry" class="text-gray-700 hover:text-indigo-600 nav-link-hover-effect">Inquiry</a>
         <a href="contact.html" class="text-gray-700 hover:text-indigo-600 nav-link-hover-effect">Contact</a> 
-        <a href="careers.html" class="text-gray-700 hover:text-indigo-600 nav-link-hover-effect">Careers</a>
-        
       </nav>
     </div>
   </header>
@@ -236,14 +235,14 @@
         <h4 class="text-2xl font-semibold text-gray-900 mb-4 mt-8 text-center">Our Unique Approach to Learning</h4>
         <p class="mb-4">We've meticulously designed our curriculum with a step-by-step approach, ensuring that concepts are introduced logically and reinforced through practical exercises. Our instructors are not just highly rated chess players; they are experienced educators dedicated to making complex ideas accessible and engaging for students of all ages and skill levels.</p>
         <ul class="list-disc list-inside space-y-2 mb-6 ml-4">
-            <li>Personalized Learning Paths: We assess each student's current skill level and learning style to tailor a curriculum that maximizes their progress.</li>
-            <li>Interactive Sessions:Beyond lectures, our classes feature interactive puzzles, live game analysis, and guided play to apply theoretical knowledge.</li>
-            <li>Focus on Psychology: Understanding the mental game is crucial. We integrate lessons on emotional control, resilience, and maintaining focus under pressure.</li>
-            <li>Community and Support: Join a vibrant community of chess enthusiasts. Regular tournaments, study groups, and direct access to coaches provide unparalleled support.</li>
+            <li>**Personalized Learning Paths:** We assess each student's current skill level and learning style to tailor a curriculum that maximizes their progress.</li>
+            <li>**Interactive Sessions:** Beyond lectures, our classes feature interactive puzzles, live game analysis, and guided play to apply theoretical knowledge.</li>
+            <li>**Focus on Psychology:** Understanding the mental game is crucial. We integrate lessons on emotional control, resilience, and maintaining focus under pressure.</li>
+            <li>**Community and Support:** Join a vibrant community of chess enthusiasts. Regular tournaments, study groups, and direct access to coaches provide unparalleled support.</li>
         </ul>
 
         <blockquote class="border-l-4 border-indigo-500 pl-4 py-2 italic text-gray-600 mb-6 mt-8">
-            "ChessDepth Academy transformed my understanding of the game. I didn't just learn moves; I learned to think strategically and patiently. Highly recommended for anyone serious about improving!" <br> - Shiven Chimnani, Mumbai, India. Advanced Student.
+            "ChessDepth Academy transformed my understanding of the game. I didn't just learn moves; I learned to think strategically and patiently. Highly recommended for anyone serious about improving!" <br> - Alex M., Advanced Student
         </blockquote>
 
         <p class="mb-6">Whether you dream of achieving a master title or simply want to enjoy the intellectual challenge chess offers, ChessDepth Academy provides the environment, expertise, and resources to help you reach your goals. We believe in nurturing a love for the game that lasts a lifetime.</p>
@@ -562,7 +561,6 @@
         }
       });
     });
-  });
 </script>
 </body>
 </html>
