@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="google-adsense-account" content="ca-pub-1353516013773606">
+  <title>Careers | ChessDepth Academy</title>
+  
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1353516013773606"
+          crossorigin="anonymous"></script>
+
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css"> 
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+  <style>
+    /* Custom CSS (copied for consistent styling) */
+    body {
+        font-family: 'Poppins', sans-serif;
+    }
+
+    /* Navbar Link Hover Effect */
+    .nav-link-hover-effect {
+        transition: all 0.2s ease-in-out;
+        position: relative;
+    }
+    .nav-link-hover-effect:after {
+        content: '';
+        position: absolute;
+        width: 0%;
+        height: 2px;
+        bottom: -5px;
+        left: 0;
+        background-color: #4f46e5; /* indigo-600 */
+        transition: width 0.3s ease-out;
+    }
+    .nav-link-hover-effect:hover:after {
+        width: 100%;
+    }
+    .nav-link-hover-effect:hover {
+        color: #4f46e5; /* indigo-600 */
+    }
+
+    /* Fade-in animation for content on page load */
+    .fade-in-content {
+        opacity: 0;
+        animation: fadeIn 1s ease-out forwards;
+        animation-delay: 0.2s;
+    }
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+
+    /* Consistent Header/Footer specific styles */
+    .header-shadow-on-scroll {
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        transition: box-shadow 0.3s ease-in-out;
+    }
+    /* Specific styles for job cards if needed */
+    .job-card-hover:hover {
+        transform: translateY(-5px) scale(1.01);
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        transition: all 0.3s ease-in-out;
+    }
+  </style>
+</head>
+<body class="bg-gray-100 text-gray-800">
+
+  <header class="bg-white shadow-md py-6 flex justify-between items-center sticky top-0 z-50" id="main-header">
+    <div class="max-w-7xl mx-auto flex justify-between items-center w-full">
+      <h1 class="text-3xl font-bold text-indigo-700">♟️ ChessDepth</h1>
+      <nav class="space-x-4">
+        <a href="index.html" class="text-gray-700 hover:text-indigo-600 nav-link-hover-effect">Home</a>
+        <a href="about.html" class="text-gray-700 hover:text-indigo-600 nav-link-hover-effect">About</a>
+        <a href="courses.html" class="text-gray-700 hover:text-indigo-600 nav-link-hover-effect">Courses</a>
+        <a href="coaches.html" class="text-gray-700 hover:text-indigo-600 nav-link-hover-effect">Coaches</a>
+        <a href="careers.html" class="font-semibold text-indigo-700 underline underline-offset-4 decoration-2 nav-link-hover-effect">Careers</a>
+        <a href="index.html#inquiry" class="text-gray-700 hover:text-indigo-600 nav-link-hover-effect">Inquiry</a>
+        <a href="contact.html" class="text-gray-700 hover:text-indigo-600 nav-link-hover-effect">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="bg-gradient-to-br from-purple-600 to-indigo-700 text-white py-16 fade-in-content">
+    <div class="max-w-4xl mx-auto text-center px-4">
+      <h2 class="text-4xl font-bold mb-4">Join Our Team at ChessDepth Academy</h2>
+      <p class="text-xl">Passionate about chess and inspiring others? Explore exciting career opportunities with us.</p>
+    </div>
+  </section>
+
+  <section id="open-positions" class="py-16 bg-gray-100 px-4 fade-in-content">
+    <div class="max-w-6xl mx-auto">
+      <h3 class="text-3xl font-bold text-center text-indigo-700 mb-10">Current Open Positions</h3>
+      <p class="text-lg leading-relaxed text-center max-w-3xl mx-auto mb-12 text-gray-600">
+        We're always looking for talented individuals who share our love for chess and our commitment to excellence in education. If you believe you can contribute to our mission, check out our roles below:
+      </p>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="bg-white rounded-lg shadow-lg p-6 job-card-hover flex flex-col justify-between">
+          <div>
+            <h4 class="text-2xl font-bold text-indigo-800 mb-2">Online Chess Coach</h4>
+            <p class="text-indigo-600 font-semibold mb-3">Full-time / Part-time | Remote</p>
+            <p class="text-gray-700 text-base leading-relaxed mb-4">
+              Deliver high-quality online chess lessons to students of various skill levels. Develop personalized training plans and track student progress.
+            </p>
+            <h5 class="text-lg font-semibold text-gray-800 mb-2">Requirements:</h5>
+            <ul class="list-disc list-inside text-sm text-gray-600 mb-4">
+              <li>FIDE rated (CM, FM, IM, GM preferred) or equivalent strong playing strength.</li>
+              <li>Proven coaching experience with positive student testimonials.</li>
+              <li>Excellent communication and interpersonal skills.</li>
+              <li>Reliable internet connection and suitable teaching environment.</li>
+            </ul>
+          </div>
+          <a href="mailto:careers@chessdepth.com?subject=Application:%20Online%20Chess%20Coach" class="bg-indigo-600 text-white font-semibold py-2 px-4 rounded hover:bg-indigo-700 transition self-start mt-4">Apply Now</a>
+        </div>
+
+        <div class="bg-white rounded-lg shadow-lg p-6 job-card-hover flex flex-col justify-between">
+          <div>
+            <h4 class="text-2xl font-bold text-indigo-800 mb-2">Marketing Specialist</h4>
+            <p class="text-indigo-600 font-semibold mb-3">Full-time | Remote/Hybrid</p>
+            <p class="text-gray-700 text-base leading-relaxed mb-4">
+              Develop and execute marketing strategies to attract new students. Manage social media, email campaigns, and content creation.
+            </p>
+            <h5 class="text-lg font-semibold text-gray-800 mb-2">Requirements:</h5>
+            <ul class="list-disc list-inside text-sm text-gray-600 mb-4">
+              <li>2+ years experience in digital marketing, preferably in education.</li>
+              <li>Strong understanding of SEO, SEM, and social media platforms.</li>
+              <li>Excellent writing and creative thinking skills.</li>
+              <li>Passion for chess is a plus!</li>
+            </ul>
+          </div>
+          <a href="mailto:careers@chessdepth.com?subject=Application:%20Marketing%20Specialist" class="bg-indigo-600 text-white font-semibold py-2 px-4 rounded hover:bg-indigo-700 transition self-start mt-4">Apply Now</a>
+        </div>
+
+        <div class="bg-white rounded-lg shadow-lg p-6 job-card-hover flex flex-col justify-between">
+          <div>
+            <h4 class="text-2xl font-bold text-indigo-800 mb-2">Content Creator / Chess Analyst</h4>
+            <p class="text-indigo-600 font-semibold mb-3">Part-time | Remote</p>
+            <p class="text-gray-700 text-base leading-relaxed mb-4">
+              Create engaging chess content, including articles, puzzles, and video scripts. Analyze games and provide insightful commentary for educational materials.
+            </p>
+            <h5 class="text-lg font-semibold text-gray-800 mb-2">Requirements:</h5>
+            <ul class="list-disc list-inside text-sm text-gray-600 mb-4">
+              <li>Strong chess playing ability (e.g., 1800+ online rating).</li>
+              <li>Excellent writing and analytical skills.</li>
+              <li>Experience with chess databases and analysis tools.</li>
+              <li>Ability to explain complex chess concepts clearly.</li>
+            </ul>
+          </div>
+          <a href="mailto:careers@chessdepth.com?subject=Application:%20Content%20Creator" class="bg-indigo-600 text-white font-semibold py-2 px-4 rounded hover:bg-indigo-700 transition self-start mt-4">Apply Now</a>
+        </div>
+      </div>
+
+      <p class="text-center text-gray-600 mt-12 text-lg">
+        Don't see a role that fits? Send us your resume and a cover letter explaining how you can contribute to ChessDepth Academy at <a href="mailto:careers@chessdepth.com" class="text-indigo-600 hover:underline font-semibold">careers@chessdepth.com</a>.
+      </p>
+    </div>
+  </section>
+
+  <footer id="contact" class="bg-gray-800 text-white py-6 mt-10 fade-in-content">
+    <div class="max-w-5xl mx-auto text-center">
+      <p>© 2025 ChessDepth Academy. All rights reserved.</p>
+      <div class="mt-4 flex justify-center space-x-6">
+        <a href="https://www.instagram.com/chessdepthacademy1/" class="text-gray-300 hover:text-indigo-300 transition-colors duration-200 text-2xl" target="_blank" aria-label="Follow us on Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.facebook.com/chessdepthacademy/" class="text-gray-300 hover:text-indigo-300 transition-colors duration-200 text-2xl" target="_blank" aria-label="Follow us on Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" class="text-gray-300 hover:text-indigo-300 transition-colors duration-200 text-2xl" aria-label="Watch us on YouTube"><i class="fab fa-youtube"></i></a>
+      </div>
+      <p class="mt-4 text-sm text-gray-400">Made by Sourabh Joshi ❤️</p>
+    </div>
+  </footer>
+
+  <script>
+    // Fade-in animation for content on page load
+    document.addEventListener('DOMContentLoaded', () => {
+        const contentSections = document.querySelectorAll('.fade-in-content');
+        contentSections.forEach(section => {
+            section.style.animation = 'fadeIn 1s ease-out forwards';
+            section.style.opacity = '1';
+        });
+    });
+
+    // Handle Form Submission (included for consistency, though no form on this specific page currently)
+    async function handleSubmit(event) {
+        event.preventDefault(); // Prevent default form submission
+        // This function would typically submit data to a backend or Formspree
+        // As there is no form on this specific page content, this function is a placeholder
+        // If you add a form, ensure its target is updated.
+        alert('Thank you for your application! We will review it shortly.');
+        event.target.reset(); // Clear the form
+    }
+    
+    // Add/remove header shadow on scroll (for consistency with other pages)
+    const header = document.getElementById('main-header');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+            header.classList.add('shadow-xl');
+        } else {
+            header.classList.remove('shadow-xl');
+        }
+    });
+
+    // Smooth scroll for nav links (if any local anchors on this page)
+    document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            // Check if it's an internal anchor or an external page link
+            if (targetId.startsWith("#")) { 
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    const headerOffset = document.getElementById('main-header') ? document.getElementById('main-header').offsetHeight : 0;
+                    const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
+                    const offsetPosition = elementPosition - headerOffset - 20; // Added 20px padding
+
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: "smooth"
+                    });
+                }
+            } else {
+                // For external page links, allow default navigation
+                window.location.href = targetId; 
+            }
+        });
+    });
+
+    // Note: Intersection Observers for elements like stats or staggered cards are usually specific to index.html.
+    // They are not copied here unless similar dynamic content loading is implemented.
+  </script>
+</body>
+</html>
