@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -51,6 +52,7 @@
       }
     }
 
+    /* Removed @keyframes bounceIn and @keyframes blinkEffect as requested for logo stillness */
 
     /* Apply animations */
     .animate-gradient-shift {
@@ -73,6 +75,7 @@
       animation-delay: 0.6s;
       opacity: 0; /* Start invisible */
     }
+    /* Removed .animate-bounce-in-logo and .animate-occasional-blink */
 
 
     /* For staggered card animations (handled by JS IntersectionObserver) */
@@ -193,9 +196,7 @@
 
   <header class="bg-white shadow-md py-6 flex justify-between items-center sticky top-0 z-50" id="main-header">
     <div class="max-w-7xl mx-auto flex justify-between items-center w-full">
-      <a href="index.html" class="inline-block hover:opacity-80 transition-opacity duration-200">
-        <h1 class="text-3xl font-bold text-indigo-600">♟️ ChessDepth</h1>
-      </a>
+      <h1 class="text-3xl font-bold text-indigo-600">♟️ ChessDepth</h1>
       <nav class="space-x-4">
         <a href="index.html" class="font-semibold text-indigo-700 underline underline-offset-4 decoration-2 nav-link-hover-effect">Home</a>
         <a href="about.html" class="text-gray-700 hover:text-indigo-600 nav-link-hover-effect">About</a>
@@ -203,7 +204,6 @@
         <a href="coaches.html" class="text-gray-700 hover:text-indigo-600 nav-link-hover-effect">Coaches</a>
         <a href="#inquiry" class="text-gray-700 hover:text-indigo-600 nav-link-hover-effect">Inquiry</a>
         <a href="contact.html" class="text-gray-700 hover:text-indigo-600 nav-link-hover-effect">Contact</a> 
-        <a href="careers.html" class="text-gray-700 hover:text-indigo-600 nav-link-hover-effect">Careers</a>
       </nav>
     </div>
   </header>
@@ -216,7 +216,7 @@
       <p class="text-xl sm:text-2xl mb-8 animate-fade-in-up-2 opacity-90 leading-relaxed">Train with elite chess lessons. Whether you're a beginner or advanced, we’ve got something for you.</p>
       
       <div class="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-6 animate-fade-in-up-3">
-        <a href="https://wa.me/919660088773?text=Hi" target="_blank" rel="noopener noreferrer" class="demo-button">
+        <a href="#inquiry" class="demo-button" data-course-interest="demo-class">
           <i class="fas fa-calendar-alt"></i> Book a Free Demo Class
         </a>
         <a href="#courses" class="bg-white text-indigo-600 font-semibold py-3 px-8 rounded-full shadow-lg hero-button">
@@ -235,14 +235,14 @@
         <h4 class="text-2xl font-semibold text-gray-900 mb-4 mt-8 text-center">Our Unique Approach to Learning</h4>
         <p class="mb-4">We've meticulously designed our curriculum with a step-by-step approach, ensuring that concepts are introduced logically and reinforced through practical exercises. Our instructors are not just highly rated chess players; they are experienced educators dedicated to making complex ideas accessible and engaging for students of all ages and skill levels.</p>
         <ul class="list-disc list-inside space-y-2 mb-6 ml-4">
-            <li><strong>Personalized Learning Paths:</strong> We assess each student's current skill level and learning style to tailor a curriculum that maximizes their progress.</li>
-            <li><strong>Interactive Sessions:</strong> Beyond lectures, our classes feature interactive puzzles, live game analysis, and guided play to apply theoretical knowledge.</li>
-            <li><strong>Focus on Psychology:</strong> Understanding the mental game is crucial. We integrate lessons on emotional control, resilience, and maintaining focus under pressure.</li>
-            <li><strong>Community and Support:</strong> Join a vibrant community of chess enthusiasts. Regular tournaments, study groups, and direct access to coaches provide unparalleled support.</li>
+            <li>Personalized Learning Paths: We assess each student's current skill level and learning style to tailor a curriculum that maximizes their progress.</li>
+            <li>Interactive Sessions:Beyond lectures, our classes feature interactive puzzles, live game analysis, and guided play to apply theoretical knowledge.</li>
+            <li>Focus on Psychology: Understanding the mental game is crucial. We integrate lessons on emotional control, resilience, and maintaining focus under pressure.</li>
+            <li>Community and Support: Join a vibrant community of chess enthusiasts. Regular tournaments, study groups, and direct access to coaches provide unparalleled support.</li>
         </ul>
 
         <blockquote class="border-l-4 border-indigo-500 pl-4 py-2 italic text-gray-600 mb-6 mt-8">
-            "ChessDepth Academy transformed my understanding of the game. I didn't just learn moves; I learned to think strategically and patiently. Highly recommended for anyone serious about improving!" <br> - <strong>Shiven Chimnani, Mumbai, India. Advanced Student.</strong>
+            "ChessDepth Academy transformed my understanding of the game. I didn't just learn moves; I learned to think strategically and patiently. Highly recommended for anyone serious about improving!" <br> - Shiven Chimnani, Mumbai, India. Advanced Student.
         </blockquote>
 
         <p class="mb-6">Whether you dream of achieving a master title or simply want to enjoy the intellectual challenge chess offers, ChessDepth Academy provides the environment, expertise, and resources to help you reach your goals. We believe in nurturing a love for the game that lasts a lifetime.</p>
@@ -267,6 +267,59 @@
               <h4 class="text-xl font-semibold mb-2">Unleash Creativity</h4>
               <p class="text-gray-600 text-sm">Discover innovative solutions, unconventional ideas, and unique approaches on the board.</p>
           </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-indigo-700 text-white py-12 px-4 fade-in-section">
+    <div class="max-w-5xl mx-auto text-center">
+      <h3 class="text-3xl font-bold mb-8 text-indigo-100">Our Achievements Speak Volumes</h3>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div class="stat-item fade-in-section">
+          <div class="stat-number" data-target="50">+</div>
+          <p class="stat-label">Students Enrolled</p>
+        </div>
+        <div class="stat-item fade-in-section">
+          <div class="stat-number" data-target="500">+</div>
+          <p class="stat-label">Hours of Content</p>
+        </div>
+        <div class="stat-item fade-in-section">
+          <div class="stat-number" data-target="95">%</div>
+          <p class="stat-label">Student Satisfaction</p>
+        </div>
+        <div class="stat-item fade-in-section">
+          <div class="stat-number" data-target="5">+</div>
+          <p class="stat-label">Tutors</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="courses" class="py-16 bg-white px-4 fade-in-section">
+    <div class="max-w-6xl mx-auto">
+      <h3 class="text-3xl font-bold text-center mb-10 tracking-tight">Popular Courses</h3>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="bg-gray-50 p-6 rounded-lg shadow course-card-hover course-card-1 flex flex-col justify-between">
+          <div>
+            <h4 class="text-xl font-semibold mb-2">Beginner's Tactics</h4>
+            <p class="text-gray-700 mb-4">Master forks, pins, skewers & traps to dominate early games and build a strong foundation.</p>
+          </div>
+          <a href="courses.html" class="text-indigo-600 hover:text-indigo-800 font-medium mt-4 self-start transition-colors duration-200">Learn More <i class="fas fa-arrow-right text-sm ml-1"></i></a>
+        </div>
+        <div class="bg-gray-50 p-6 rounded-lg shadow course-card-hover course-card-2 flex flex-col justify-between">
+          <div>
+            <h4 class="text-xl font-semibold mb-2">Positional Strategy</h4>
+            <p class="text-gray-700 mb-4">Learn pawn structures, weak squares, and subtle positional play for long-term advantages.</p>
+          </div>
+          <a href="courses.html" class="text-indigo-600 hover:text-indigo-800 font-medium mt-4 self-start transition-colors duration-200">Learn More <i class="fas fa-arrow-right text-sm ml-1"></i></a>
+        </div>
+        <div class="bg-gray-50 p-6 rounded-lg shadow course-card-hover course-card-3 flex flex-col justify-between">
+          <div>
+            <h4 class="text-xl font-semibold mb-2">Openings Repertoire</h4>
+            <p class="text-gray-700 mb-4">Build your white and black repertoire with sharp & solid openings.</p>
+          </div>
+          <a href="courses.html" class="text-indigo-600 hover:text-indigo-800 font-medium mt-4 self-start transition-colors duration-200">Learn More <i class="fas fa-arrow-right text-sm ml-1"></i></a>
+        </div>
       </div>
     </div>
   </section>
@@ -328,8 +381,6 @@
 </footer>
 
 <script>
-  // Combined Script Block for all page-specific JS
-  document.addEventListener('DOMContentLoaded', () => {
     // Smooth scroll for nav links (if you have local anchors on this page)
     document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
@@ -488,27 +539,28 @@
         counterObserver.observe(number);
     });
 
+</script>
+<script>
   // Script for pre-filling form based on button click
-  // This part is now correctly inside the combined script block
   document.addEventListener('DOMContentLoaded', () => {
-      const interestedCourseSelect = document.getElementById('course');
-      const prefillValue = sessionStorage.getItem('prefillCourse');
+    const interestedCourseSelect = document.getElementById('course');
+    const prefillValue = sessionStorage.getItem('prefillCourse');
 
-      if (interestedCourseSelect && prefillValue) { // Check if select element exists
-        interestedCourseSelect.value = prefillValue;
-        sessionStorage.removeItem('prefillCourse'); // Clear it after use
-      }
+    if (prefillValue && interestedCourseSelect) {
+      interestedCourseSelect.value = prefillValue;
+      sessionStorage.removeItem('prefillCourse'); // Clear it after use
+    }
 
-      // Attach click event listeners to demo buttons
-      const demoButtons = document.querySelectorAll('.demo-button');
-      demoButtons.forEach(button => {
-        button.addEventListener('click', (e) => {
-          const courseInterest = button.dataset.courseInterest; // Get value from data-course-interest attribute
-          if (courseInterest) {
-            sessionStorage.setItem('prefillCourse', courseInterest);
-          }
-        });
+    // Attach click event listeners to demo buttons
+    const demoButtons = document.querySelectorAll('.demo-button');
+    demoButtons.forEach(button => {
+      button.addEventListener('click', (e) => {
+        const courseInterest = button.dataset.courseInterest; // Get value from data-course-interest attribute
+        if (courseInterest) {
+          sessionStorage.setItem('prefillCourse', courseInterest);
+        }
       });
+    });
   });
 </script>
 </body>
