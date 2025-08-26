@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+ <meta charset="UTF-8" /> 
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="google-adsense-account" content="ca-pub-1353516013773606">
+  <title>Courses - ChessDepth Academy</title>
   <title>Our Courses | ChessDepth Academy</title>
-  
+
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1353516013773606"
           crossorigin="anonymous"></script>
+
+  <link rel="icon" type="image/x-icon" href="https://github.com/Sourabhjoshi1/Chess-Depth/raw/main/favicon/favicon%20(4).ico">
 
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <link rel="stylesheet" href="style.css"> 
@@ -16,21 +19,95 @@
   <link rel="icon" type="image/x-icon" href="https://github.com/Sourabhjoshi1/Chess-Depth/raw/main/favicon/favicon%20(4).ico">
 
   <style>
+    /* Custom CSS for subtle animations and enhancements (copied from consistent header/footer setup) */
+
+    /* Font Global Change (if Poppins is preferred) */
     body {
         font-family: 'Poppins', sans-serif;
     }
 
+    /* Keyframe Animations (ensuring all are present for consistency) */
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes cardPop {
+      from {
+        opacity: 0;
+        transform: scale(0.95);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    /* Removed @keyframes bounceIn and @keyframes blinkEffect as requested for logo stillness */
+
+    /* Apply animations */
+    .animate-gradient-shift {
+      background-size: 200% 200%;
+      animation: gradientShift 18s ease infinite; /* Slower, more subtle */
+    }
+
+    .animate-fade-in-up-1 {
+      animation: fadeInUp 0.9s ease-out forwards;
+      animation-delay: 0.2s;
+      opacity: 0; /* Start invisible */
+    }
+    .animate-fade-in-up-2 {
+      animation: fadeInUp 0.9s ease-out forwards;
+      animation-delay: 0.4s;
+      opacity: 0; /* Start invisible */
+    }
+    .animate-fade-in-up-3 {
+      animation: fadeInUp 0.9s ease-out forwards;
+      animation-delay: 0.6s;
+      opacity: 0; /* Start invisible */
+    }
+    /* Removed .animate-bounce-in-logo and .animate-occasional-blink */
+
+
+    /* For staggered card animations (if used, JS needed to trigger) */
+    /* Starting opacity is set by JS for controlled animation */
+
+    /* General fade-in for sections and main content */
+    .fade-in-section, .fade-in-content { /* Added fade-in-content here */
+        opacity: 0;
+        /* Animation handled by JS IntersectionObserver for sections or DOMContentLoaded for content */
+    }
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+
+    /* Header improvements (Sticky shadow) */
+    .header-shadow-on-scroll {
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        transition: box-shadow 0.3s ease-in-out;
+    }
+    /* A subtle hover for nav links */
     .nav-link-hover-effect {
         transition: all 0.2s ease-in-out;
         position: relative;
-    }
-    .nav-link-hover-effect:after {
-        content: '';
-        position: absolute;
-        width: 0%;
+@@ -109,153 +31,51 @@
         height: 2px;
         bottom: -5px;
         left: 0;
+        background-color: #4f46e5; /* indigo-600 */
         background-color: #4f46e5;
         transition: width 0.3s ease-out;
     }
@@ -38,34 +115,124 @@
         width: 100%;
     }
     .nav-link-hover-effect:hover {
+        color: #4f46e5; /* indigo-600 */
         color: #4f46e5;
     }
 
+    /* Card hover effect */
+    .course-card-hover { /* This applies to the course cards on this page */
     .course-card-hover {
         transition: all 0.3s ease-in-out;
     }
     .course-card-hover:hover {
+        transform: translateY(-8px) scale(1.03); /* More pronounced lift */
+        box-shadow: 0 15px 25px -5px rgba(0, 0, 0, 0.15), 0 6px 10px -3px rgba(0, 0, 0, 0.08); /* Stronger shadow */
+    }
+
+    /* Hero Section Particle Overlay (Pure CSS) - for index.html hero, but included for consistency */
+    .hero-particles {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        z-index: 0; /* Below content */
+        opacity: 0.1; /* Subtle */
+        background-image: radial-gradient(#fff 1px, transparent 1px);
+        background-size: 20px 20px;
+        animation: moveParticles 20s linear infinite;
         transform: translateY(-8px) scale(1.03);
         box-shadow: 0 15px 25px -5px rgba(0, 0, 0, 0.15), 0 6px 10px -3px rgba(0, 0, 0, 0.08);
     }
 
+    @keyframes moveParticles {
+        0% { background-position: 0 0; }
+        100% { background-position: 200px 200px; } /* Adjust for desired movement */
+    }
+
+    /* Specific styles for the "Explore Courses" button - for index.html hero, but included for consistency */
+    .hero-button {
+        transition: all 0.3s ease-in-out;
+    }
+    .hero-button:hover {
+        background-color: #e0e7ff; /* lighter indigo */
+        color: #3730a3; /* darker indigo */
+        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+
+    /* For the new stats section numbers - for index.html, but included for consistency */
+    .stat-number {
+        font-size: 2.5rem; /* Increased size */
+        font-weight: 700;
+        color: #4f46e5; /* indigo-600 */
+        line-height: 1;
+    }
+    .stat-label {
+        font-size: 0.95rem;
+        color: #555;
+        margin-top: 0.25rem;
+    }
+
+    /* *** NEW/MODIFIED CSS FOR CARD ALIGNMENT *** */
+    .course-card-content {
+      display: flex;
+      flex-direction: column;
+      height: 100%; /* Ensure the flex container takes full height of the card */
+    }
+
+    .course-card-content > *:not(.flex-grow) {
+      flex-shrink: 0; /* Prevent these elements from shrinking */
     .fade-in-content {
         opacity: 0;
         animation: fadeIn 1s ease-out forwards;
         animation-delay: 0.2s;
     }
+
+    .course-description, .course-features {
+      flex-grow: 1; /* Allow description and features to take up available space */
     @keyframes fadeIn {
         from { opacity: 0; }
         to { opacity: 1; }
     }
+    /* *** END NEW/MODIFIED CSS FOR CARD ALIGNMENT *** */
   </style>
 </head>
 <body class="bg-gray-100 text-gray-800">
-  
+
+   <header class="bg-white shadow-md py-6 flex justify-between items-center sticky top-0 z-50 lg:py-4" id="main-header">
+  <div class="max-w-7xl mx-auto flex justify-between items-center w-full px-4 lg:px-0">
+
   <header class="bg-white shadow-md py-6 flex justify-between items-center sticky top-0 z-50">
     <a href="index.html" class="inline-block hover:opacity-80 transition-opacity duration-200">
+      <h1 class="text-3xl font-bold text-indigo-700">♟️ ChessDepth</h1>
       <h1 class="text-3xl font-bold text-indigo-700 ml-4">♟️ ChessDepth</h1>
     </a>
+
+    <button id="menu-toggle" class="lg:hidden p-2 text-gray-700 hover:text-indigo-600 focus:outline-none">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+      </svg>
+    </button>
+
+    <nav id="main-nav" class="hidden lg:flex space-x-4">
+      <a href="index" class="text-gray-700 hover:text-indigo-600 nav-link-hover-effect">Home</a>
+      <a href="about" class="text-gray-700 hover:text-indigo-600 nav-link-hover-effect">About</a>
+      <a href="courses" class="text-gray-700 hover:text-indigo-600 nav-link-hover-effect">Courses</a>
+      <a href="coaches" class="text-gray-700 hover:text-indigo-600 nav-link-hover-effect">Coaches</a>
+      <a href="contact" class="text-gray-700 hover:text-indigo-600 nav-link-hover-effect">Contact</a> 
+      <a href="careers" class="text-gray-700 hover:text-indigo-600 nav-link-hover-effect">Careers</a>
+    </nav>
+  </div>
+
+  <div id="mobile-menu" class="hidden lg:hidden absolute top-full left-0 w-full bg-white shadow-lg py-4 transition-all duration-300 transform -translate-y-full">
+    <div class="flex flex-col items-center space-y-4">
+      <a href="index.html" class="text-gray-700 hover:text-indigo-600">Home</a>
+      <a href="about" class="text-gray-700 hover:text-indigo-600">About</a>
+      <a href="courses" class="text-gray-700 hover:text-indigo-600">Courses</a>
+      <a href="coaches" class="text-gray-700 hover:text-indigo-600">Coaches</a>
+      <a href="contact" class="text-gray-700 hover:text-indigo-600">Contact</a>
+      <a href="careers" class="text-gray-700 hover:text-indigo-600">Careers</a>
     <div class="flex-grow flex justify-center space-x-6 text-gray-700">
       <a href="index.html" class="hover:text-indigo-600 transition-colors duration-200 nav-link-hover-effect">Home</a>
       <a href="about.html" class="hover:text-indigo-600 transition-colors duration-200 nav-link-hover-effect">About</a>
@@ -75,339 +242,235 @@
       <a href="careers.html" class="hover:text-indigo-600 transition-colors duration-200 nav-link-hover-effect">Careers</a>
       <a href="blog.html" class="hover:text-indigo-600 transition-colors duration-200 nav-link-hover-effect">Blog</a>
     </div>
+  </div>
+
+</header>
+<script>
+  // JavaScript for the Hamburger Menu
+  document.addEventListener('DOMContentLoaded', () => {
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    menuToggle.addEventListener('click', () => {
+      // Toggle visibility of the mobile menu
+      mobileMenu.classList.toggle('hidden');
+      mobileMenu.classList.toggle('-translate-y-full');
+
+      // Change the icon from hamburger to X
+      const menuIcon = menuToggle.querySelector('svg');
+      if (!mobileMenu.classList.contains('hidden')) {
+        menuIcon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>'; // X icon
+      } else {
+        menuIcon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>'; // Hamburger icon
+      }
+    });
+
+    // Close the mobile menu when a link is clicked
+    const mobileLinks = mobileMenu.querySelectorAll('a');
+    mobileLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+        mobileMenu.classList.add('-translate-y-full');
+        // Reset icon back to hamburger
+        menuToggle.querySelector('svg').innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>';
+      });
+    });
+  });
+</script>
   </header>
 
   <section class="bg-gradient-to-br from-indigo-500 to-purple-600 text-white py-16 fade-in-content">
     <div class="max-w-4xl mx-auto text-center px-4">
-      <h2 class="text-4xl font-bold mb-4">Explore Our Comprehensive Courses</h2>
-      <p class="text-xl">Unlock your potential with our expertly designed programs for every skill level.</p>
-    </div>
-  </section>
-
-  <section id="courses-listing" class="py-16 bg-gray-100 px-4 fade-in-content">
-    <div class="max-w-6xl mx-auto">
-      <h3 class="text-3xl font-bold text-center mb-10 text-gray-800">Our Popular Programs</h3>
-
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="courses-container">
-        
-        <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition course-card-hover flex flex-col">
-          <div class="course-card-content">
-            <div class="flex items-center mb-4 flex-shrink-0">
-              <span class="bg-green-100 text-green-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full">Beginner</span>
-              <span class="bg-indigo-100 text-indigo-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Tactics</span>
-            </div>
-            <h4 class="text-2xl font-bold text-indigo-700 mb-2 flex-shrink-0">Beginner's Blueprint: Master the Basics</h4>
-            <p class="text-gray-600 mb-4 course-description">
-              Start your chess journey right! Learn piece movements, basic checkmates, forks, pins, and essential opening principles. Perfect for absolute beginners.
-            </p>
-            <ul class="list-disc list-inside text-sm text-gray-500 mb-4 course-features flex-grow">
-              <li>Understanding the Chessboard</li>
-              <li>Basic Tactical Motifs</li>
-              <li>Fundamental Mates (King & Rook, King & Queen)</li>
-              <li>Introduction to Opening Strategy</li>
+@@ -288,7 +108,7 @@ <h4 class="text-2xl font-bold text-indigo-700 mb-2 flex-shrink-0">Beginner's Blu
             </ul>
             <div class="flex justify-between items-center text-gray-700 font-semibold flex-shrink-0 mt-auto">
               <span>Duration: 8 Weeks</span>
+              <a href="inquiry.html" class="bg-indigo-500 text-white px-4 py-2 rounded hover:bg-indigo-600 transition">Inquire</a>
               <a href="index.html#inquiry" class="bg-indigo-500 text-white px-4 py-2 rounded hover:bg-indigo-600 transition">Inquire</a>
             </div>
           </div>
         </div>
-
-        <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition course-card-hover flex flex-col">
-          <div class="course-card-content">
-            <div class="flex items-center mb-4 flex-shrink-0">
-              <span class="bg-blue-100 text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full">Advanced Beginner</span>
-              <span class="bg-orange-100 text-orange-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Foundations</span>
-            </div>
-            <h4 class="text-2xl font-bold text-teal-700 mb-2 flex-shrink-0">Beyond the Basics: Solidifying Your Foundation</h4>
-            <p class="text-gray-600 mb-4 course-description">
-              You know the rules, now learn to play! This course focuses on developing sound strategic thinking, improving tactical vision, and understanding simple endgames.
-            </p>
-            <ul class="list-disc list-inside text-sm text-gray-500 mb-4 course-features flex-grow">
-              <li>Developing Pieces Efficiently</li>
-              <li>Basic Positional Concepts</li>
-              <li>Common Tactical Patterns</li>
-              <li>Simple Endgame Techniques (Pawn, King & Queen vs King)</li>
+@@ -311,7 +131,7 @@ <h4 class="text-2xl font-bold text-teal-700 mb-2 flex-shrink-0">Beyond the Basic
             </ul>
             <div class="flex justify-between items-center text-gray-700 font-semibold flex-shrink-0 mt-auto">
               <span>Duration: 10 Weeks</span>
+              <a href="inquiry.html" class="bg-indigo-500 text-white px-4 py-2 rounded hover:bg-indigo-600 transition">Inquire</a>
               <a href="index.html#inquiry" class="bg-indigo-500 text-white px-4 py-2 rounded hover:bg-indigo-600 transition">Inquire</a>
             </div>
           </div>
         </div>
-
-        <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition course-card-hover flex flex-col">
-          <div class="course-card-content">
-            <div class="flex items-center mb-4 flex-shrink-0">
-              <span class="bg-yellow-100 text-yellow-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full">Intermediate</span>
-              <span class="bg-purple-100 text-purple-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Strategy</span>
-            </div>
-            <h4 class="text-2xl font-bold text-purple-700 mb-2 flex-shrink-0">Intermediate Positional Play: Beyond Tactics</h4>
-            <p class="text-gray-600 mb-4 course-description">
-              Move beyond simple tactics and delve into the art of positional chess. Learn about pawn structures, weak squares, piece activity, and prophylactic thinking.
-            </p>
-            <ul class="list-disc list-inside text-sm text-gray-500 mb-4 course-features flex-grow">
-              <li>Pawn Structures & Breaks</li>
-              <li>Understanding Piece Value & Activity</li>
-              <li>Evaluating Positions</li>
-              <li>Converting Small Advantages</li>
+@@ -334,7 +154,7 @@ <h4 class="text-2xl font-bold text-purple-700 mb-2 flex-shrink-0">Intermediate P
             </ul>
             <div class="flex justify-between items-center text-gray-700 font-semibold flex-shrink-0 mt-auto">
               <span>Duration: 12 Weeks</span>
+              <a href="inquiry.html" class="bg-indigo-500 text-white px-4 py-2 rounded hover:bg-indigo-600 transition">Inquire</a>
               <a href="index.html#inquiry" class="bg-indigo-500 text-white px-4 py-2 rounded hover:bg-indigo-600 transition">Inquire</a>
             </div>
           </div>
         </div>
-
-        <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition course-card-hover flex flex-col">
-          <div class="course-card-content">
-            <div class="flex items-center mb-4 flex-shrink-0">
-              <span class="bg-red-100 text-red-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full">Advanced</span>
-              <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Openings</span>
-            </div>
-            <h4 class="text-2xl font-bold text-blue-700 mb-2 flex-shrink-0">Advanced Opening Repertoire: Dominate from Move 1</h4>
-            <p class="text-gray-600 mb-4 course-description">
-              Build a robust and dynamic opening repertoire for both White and Black. Understand the ideas behind the moves and gain a significant edge early in the game.
-            </p>
-            <ul class="list-disc list-inside text-sm text-gray-500 mb-4 course-features flex-grow">
-              <li>Deep Dive into Main Lines</li>
-              <li>Understanding Transpositions</li>
-              <li>Preparing Novelties & Surprises</li>
-              <li>Analyzing Your Opening Play</li>
+@@ -357,7 +177,7 @@ <h4 class="text-2xl font-bold text-blue-700 mb-2 flex-shrink-0">Advanced Opening
             </ul>
             <div class="flex justify-between items-center text-gray-700 font-semibold flex-shrink-0 mt-auto">
               <span>Duration: 10 Weeks</span>
+              <a href="inquiry.html" class="bg-indigo-500 text-white px-4 py-2 rounded hover:bg-indigo-600 transition">Inquire</a>
               <a href="index.html#inquiry" class="bg-indigo-500 text-white px-4 py-2 rounded hover:bg-indigo-600 transition">Inquire</a>
             </div>
           </div>
         </div>
-
-        <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition course-card-hover flex flex-col">
-          <div class="course-card-content">
-            <div class="flex items-center mb-4 flex-shrink-0">
-              <span class="bg-yellow-100 text-yellow-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full">Intermediate</span>
-              <span class="bg-green-100 text-green-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Endgames</span>
-            </div>
-            <h4 class="text-2xl font-bold text-green-700 mb-2 flex-shrink-0">Endgame Mastery: The Art of Conversion</h4>
-            <p class="text-gray-600 mb-4 course-description">
-              Learn the critical techniques to convert advantages in the endgame. Study pawn endgames, rook endgames, and advanced king activity concepts.
-            </p>
-            <ul class="list-disc list-inside text-sm text-gray-500 mb-4 course-features flex-grow">
-              <li>King and Pawn Endgames</li>
-              <li>Rook Endgames Principles</li>
-              <li>Minor Piece Endgames</li>
-              <li>Practical Endgame Play</li>
+@@ -380,7 +200,7 @@ <h4 class="text-2xl font-bold text-green-700 mb-2 flex-shrink-0">Endgame Mastery
             </ul>
             <div class="flex justify-between items-center text-gray-700 font-semibold flex-shrink-0 mt-auto">
               <span>Duration: 6 Weeks</span>
+              <a href="inquiry.html" class="bg-indigo-500 text-white px-4 py-2 rounded hover:bg-indigo-600 transition">Inquire</a>
               <a href="index.html#inquiry" class="bg-indigo-500 text-white px-4 py-2 rounded hover:bg-indigo-600 transition">Inquire</a>
             </div>
           </div>
         </div>
-
-        <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition course-card-hover flex flex-col">
-          <div class="course-card-content">
-            <div class="flex items-center mb-4 flex-shrink-0">
-              <span class="bg-red-100 text-red-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full">Advanced</span>
-              <span class="bg-pink-100 text-pink-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Psychology</span>
-            </div>
-            <h4 class="text-2xl font-bold text-pink-700 mb-2 flex-shrink-0">Chess Psychology: Master Your Mind</h4>
-            <p class="text-gray-600 mb-4 course-description">
-              Develop mental resilience, improve concentration, and learn to handle pressure in crucial moments. Essential for competitive players.
-            </p>
-            <ul class="list-disc list-inside text-sm text-gray-500 mb-4 course-features flex-grow">
-              <li>Dealing with Tilt & Blunders</li>
-              <li>Concentration & Focus Techniques</li>
-              <li>Time Management Under Pressure</li>
-              <li>Understanding Opponent's Psychology</li>
+@@ -403,7 +223,7 @@ <h4 class="text-2xl font-bold text-pink-700 mb-2 flex-shrink-0">Chess Psychology
             </ul>
             <div class="flex justify-between items-center text-gray-700 font-semibold flex-shrink-0 mt-auto">
               <span>Duration: 4 Weeks</span>
+              <a href="inquiry.html" class="bg-indigo-500 text-white px-4 py-2 rounded hover:bg-indigo-600 transition">Inquire</a>
               <a href="index.html#inquiry" class="bg-indigo-500 text-white px-4 py-2 rounded hover:bg-indigo-600 transition">Inquire</a>
             </div>
           </div>
         </div>
-
-        <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition course-card-hover flex flex-col">
-          <div class="course-card-content">
-            <div class="flex items-center mb-4 flex-shrink-0">
-              <span class="bg-teal-100 text-teal-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full">Beginner</span>
-              <span class="bg-gray-100 text-gray-600 text-xs font-semibold px-2.5 py-0.5 rounded-full">Soft Skills</span>
-              <span class="bg-purple-100 text-purple-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Corporate</span>
-            </div>
-            <h4 class="text-2xl font-bold text-teal-700 mb-2 flex-shrink-0">Chess for Corporate Professionals: Strategy & Focus</h4>
-            <p class="text-gray-600 mb-4 course-description">
-              Enhance strategic thinking, problem-solving, and decision-making skills applicable to the corporate world. Learn the fundamentals of chess in a professional context.
-            </p>
-            <ul class="list-disc list-inside text-sm text-gray-500 mb-4 course-features flex-grow">
-              <li>Strategic Planning & Execution</li>
-              <li>Decision Making Under Pressure</li>
-              <li>Logical Thinking & Problem Solving</li>
-              <li>Team Building through Chess (Optional)</li>
+@@ -427,7 +247,7 @@ <h4 class="text-2xl font-bold text-teal-700 mb-2 flex-shrink-0">Chess for Corpor
             </ul>
             <div class="flex justify-between items-center text-gray-700 font-semibold flex-shrink-0 mt-auto">
               <span>Duration: 6 Weeks</span>
+              <a href="inquiry.html" class="bg-indigo-500 text-white px-4 py-2 rounded hover:bg-indigo-600 transition">Inquire</a>
               <a href="index.html#inquiry" class="bg-indigo-500 text-white px-4 py-2 rounded hover:bg-indigo-600 transition">Inquire</a>
             </div>
           </div>
         </div>
-
-        <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition course-card-hover flex flex-col">
-          <div class="course-card-content">
-            <div class="flex items-center mb-4 flex-shrink-0">
-              <span class="bg-indigo-100 text-indigo-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full">Kids</span>
-              <span class="bg-pink-100 text-pink-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Youth</span>
-            </div>
-            <h4 class="text-2xl font-bold text-indigo-700 mb-2 flex-shrink-0">Scholastic Chess: Nurturing Young Minds</h4>
-            <p class="text-gray-600 mb-4 course-description">
-              A fun and engaging program designed specifically for children and teenagers to develop critical thinking, patience, and sportsmanship through chess.
-            </p>
-            <ul class="list-disc list-inside text-sm text-gray-500 mb-4 course-features flex-grow">
-              <li>Interactive Lessons & Puzzles</li>
-              <li>Building Concentration & Focus</li>
-              <li>Introduction to Tournament Play</li>
-              <li>Fun Chess Variants</li>
+@@ -450,7 +270,7 @@ <h4 class="text-2xl font-bold text-indigo-700 mb-2 flex-shrink-0">Scholastic Che
             </ul>
             <div class="flex justify-between items-center text-gray-700 font-semibold flex-shrink-0 mt-auto">
               <span>Duration: Varies</span>
+              <a href="inquiry.html" class="bg-indigo-500 text-white px-4 py-2 rounded hover:bg-indigo-600 transition">Inquire</a>
               <a href="index.html#inquiry" class="bg-indigo-500 text-white px-4 py-2 rounded hover:bg-indigo-600 transition">Inquire</a>
             </div>
           </div>
         </div>
-
-        <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition course-card-hover flex flex-col">
-          <div class="course-card-content">
-            <div class="flex items-center mb-4 flex-shrink-0">
-              <span class="bg-purple-100 text-purple-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full">Personalized</span>
-              <span class="bg-yellow-100 text-yellow-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">All Levels</span>
-            </div>
-            <h4 class="text-2xl font-bold text-purple-700 mb-2 flex-shrink-0">Private Coaching & Game Analysis</h4>
-            <p class="text-gray-600 mb-4 course-description">
-              Receive one-on-one tailored coaching sessions and in-depth analysis of your games to identify strengths, weaknesses, and a personalized improvement plan.
-            </p>
-            <ul class="list-disc list-inside text-sm text-gray-500 mb-4 course-features flex-grow">
-              <li>Individualized Curriculum</li>
-              <li>Detailed Game Review</li>
-              <li>Personalized Drills & Homework</li>
-              <li>Flexible Scheduling</li>
+@@ -473,7 +293,7 @@ <h4 class="text-2xl font-bold text-purple-700 mb-2 flex-shrink-0">Private Coachi
             </ul>
             <div class="flex justify-between items-center text-gray-700 font-semibold flex-shrink-0 mt-auto">
               <span>Duration: Custom</span>
+              <a href="inquiry.html" class="bg-indigo-500 text-white px-4 py-2 rounded hover:bg-indigo-600 transition">Inquire</a>
               <a href="index.html#inquiry" class="bg-indigo-500 text-white px-4 py-2 rounded hover:bg-indigo-600 transition">Inquire</a>
             </div>
           </div>
         </div>
-
-        <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition course-card-hover flex flex-col">
-          <div class="course-card-content">
-            <div class="flex items-center mb-4 flex-shrink-0">
-              <span class="bg-blue-100 text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full">Competitive</span>
-              <span class="bg-red-100 text-red-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Advanced</span>
-            </div>
-            <h4 class="text-2xl font-bold text-blue-700 mb-2 flex-shrink-0">Tournament Preparation & Mindset</h4>
-            <p class="text-gray-600 mb-4 course-description">
-              Elevate your tournament performance. This course covers pre-game routines, in-game decision making, post-game analysis, and mental fortitude for competitive play.
-            </p>
-            <ul class="list-disc list-inside text-sm text-gray-500 mb-4 course-features flex-grow">
-              <li>Opening Preparation Strategies</li>
-              <li>Mid-Game Calculation Techniques</li>
-              <li>Endgame Conversion in Pressure</li>
-              <li>Psychological Preparedness</li>
+@@ -496,7 +316,7 @@ <h4 class="text-2xl font-bold text-blue-700 mb-2 flex-shrink-0">Tournament Prepa
             </ul>
             <div class="flex justify-between items-center text-gray-700 font-semibold flex-shrink-0 mt-auto">
               <span>Duration: 8 Weeks</span>
+              <a href="inquiry.html" class="bg-indigo-500 text-white px-4 py-2 rounded hover:bg-indigo-600 transition">Inquire</a>
               <a href="index.html#inquiry" class="bg-indigo-500 text-white px-4 py-2 rounded hover:bg-indigo-600 transition">Inquire</a>
             </div>
           </div>
         </div>
-
-        <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition course-card-hover flex flex-col">
-          <div class="course-card-content">
-            <div class="flex items-center mb-4 flex-shrink-0">
-              <span class="bg-orange-100 text-orange-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full">Speed Chess</span>
-              <span class="bg-gray-100 text-gray-600 text-xs font-semibold px-2.5 py-0.5 rounded-full">Tactics</span>
-            </div>
-            <h4 class="text-2xl font-bold text-orange-700 mb-2 flex-shrink-0">Blitz & Rapid Play Mastery: Think Fast, Play Smart</h4>
-            <p class="text-gray-600 mb-4 course-description">
-              Improve your performance in fast time controls. Focus on quick pattern recognition, time management, and practical decision-making under pressure.
-            </p>
-            <ul class="list-disc list-inside text-sm text-gray-500 mb-4 course-features flex-grow">
-              <li>Time Scramble Techniques</li>
-              <li>Blunder Prevention in Blitz</li>
-              <li>Opening Principles for Rapid Play</li>
-              <li>Psychological Traps & Tricks</li>
+@@ -519,7 +339,7 @@ <h4 class="text-2xl font-bold text-orange-700 mb-2 flex-shrink-0">Blitz & Rapid
             </ul>
             <div class="flex justify-between items-center text-gray-700 font-semibold flex-shrink-0 mt-auto">
               <span>Duration: 5 Weeks</span>
+              <a href="inquiry.html" class="bg-indigo-500 text-white px-4 py-2 rounded hover:bg-indigo-600 transition">Inquire</a>
               <a href="index.html#inquiry" class="bg-indigo-500 text-white px-4 py-2 rounded hover:bg-indigo-600 transition">Inquire</a>
             </div>
           </div>
         </div>
-
-        <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition course-card-hover flex flex-col">
-          <div class="course-card-content">
-            <div class="flex items-center mb-4 flex-shrink-0">
-              <span class="bg-purple-100 text-purple-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full">Advanced</span>
-              <span class="bg-yellow-100 text-yellow-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Tactics</span>
-            </div>
-            <h4 class="text-2xl font-bold text-purple-700 mb-2 flex-shrink-0">Advanced Tactics & Combinations: Unleash Your Inner Grandmaster</h4>
-            <p class="text-gray-600 mb-4 course-description">
-              Dive deep into complex tactical motifs, sacrifice patterns, and multi-move combinations. Sharpen your calculation and visualization skills.
-            </p>
-            <ul class="list-disc list-inside text-sm text-gray-500 mb-4 course-features flex-grow">
-              <li>Deep Calculation Techniques</li>
-              <li>Advanced Sacrifices & Attacks</li>
-              <li>Zugzwang & Prophylaxis</li>
-              <li>Mastering Famous Combinations</li>
+@@ -542,7 +362,7 @@ <h4 class="text-2xl font-bold text-purple-700 mb-2 flex-shrink-0">Advanced Tacti
             </ul>
             <div class="flex justify-between items-center text-gray-700 font-semibold flex-shrink-0 mt-auto">
               <span>Duration: 7 Weeks</span>
+              <a href="inquiry.html" class="bg-indigo-500 text-white px-4 py-2 rounded hover:bg-indigo-600 transition">Inquire</a>
               <a href="index.html#inquiry" class="bg-indigo-500 text-white px-4 py-2 rounded hover:bg-indigo-600 transition">Inquire</a>
             </div>
           </div>
         </div>
-
-        <div class="bg-white p-6 rounded-lg shadow-md border-2 border-dashed border-gray-300 flex flex-col">
-          <div class="course-card-content">
-            <div class="flex items-center mb-4 flex-shrink-0">
-              <span class="bg-red-100 text-red-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full">Seasonal</span>
-              <span class="bg-gray-100 text-gray-600 text-xs font-semibold px-2.5 py-0.5 rounded-full">All Levels</span>
-            </div>
-            <h4 class="text-2xl font-bold text-gray-500 mb-2 flex-shrink-0">Complete Summer Chess Course</h4>
-            <p class="text-gray-400 mb-4 course-description">
-              An intensive 3-month program covering all aspects of chess: openings, middlegames, endgames, and psychology. Designed for rapid improvement over the summer break.
-            </p>
-            <ul class="list-disc list-inside text-sm text-gray-400 mb-4 course-features flex-grow">
-              <li>Comprehensive Curriculum</li>
-              <li>Weekly Tournaments & Analysis</li>
-              <li>Personalized Feedback</li>
-              <li>Exclusive Study Materials</li>
-            </ul>
-            <div class="flex justify-between items-center text-gray-500 font-semibold flex-shrink-0 mt-auto">
-              <span>Duration: 3 Months</span>
-              <span class="text-red-500 font-bold">Not Available Now</span>
-            </div>
-          </div>
-        </div>
+@@ -572,21 +392,12 @@ <h4 class="text-2xl font-bold text-gray-500 mb-2 flex-shrink-0">Complete Summer
       </div>
 
       <p class="text-center text-gray-600 mt-12 text-lg">
+        Can't find what you're looking for? <a href="inquiry.html" class="text-indigo-600 hover:underline font-semibold">Contact us</a> for custom training plans!
         Can't find what you're looking for? <a href="index.html#inquiry" class="text-indigo-600 hover:underline font-semibold">Contact us</a> for custom training plans!
       </p>
+
     </div>
   </section>
 
+  <section class="bg-indigo-600 text-white py-12 text-center fade-in-content">
+    <div class="max-w-4xl mx-auto px-4">
+      <h3 class="text-3xl font-bold mb-4">Ready to Start Your ChessDepth Journey?</h3>
+      <p class="text-xl mb-6">Our next batch of courses is starting soon!</p>
+      <a href="inquiry.html" class="bg-white text-indigo-600 font-semibold py-3 px-8 rounded-full shadow hover:bg-gray-100 transition">Enroll Now</a>
+    </div>
+  </section>
+
+  <footer id="contact" class="bg-gray-800 text-white py-6 mt-10 fade-in-content">
   <footer class="bg-gray-800 text-white py-6 mt-10">
     <div class="max-w-5xl mx-auto text-center">
       <p>© 2025 ChessDepth Academy. All rights reserved.</p>
       <div class="mt-4 flex justify-center space-x-6">
-        <a href="https://www.instagram.com/chessdepthacademy1/" class="text-gray-300 hover:text-indigo-300 transition-colors duration-200 text-2xl" target="_blank" aria-label="Follow us on Instagram"><i class="fab fa-instagram"></i></a>
-        <a href="https://www.facebook.com/chessdepthacademy/" class="text-gray-300 hover:text-indigo-300 transition-colors duration-200 text-2xl" target="_blank" aria-label="Follow us on Facebook"><i class="fab fa-facebook-f"></i></a>
-        <a href="#" class="text-gray-300 hover:text-indigo-300 transition-colors duration-200 text-2xl" aria-label="Watch us on YouTube"><i class="fab fa-youtube"></i></a>
-      </div>
-      <p class="mt-4 text-sm text-gray-400">Made by Sourabh Joshi ❤️</p>
+@@ -598,60 +409,5 @@ <h3 class="text-3xl font-bold mb-4">Ready to Start Your ChessDepth Journey?</h3>
     </div>
   </footer>
 
+  <script>
+    // Fade-in animation for content on page load
+    document.addEventListener('DOMContentLoaded', () => {
+        const contentSections = document.querySelectorAll('.fade-in-content');
+        contentSections.forEach(section => {
+            section.style.animation = 'fadeIn 1s ease-out forwards';
+            section.style.opacity = '1';
+        });
+    });
+
+    // The rest of the common JS (smooth scroll, form handle, header shadow, intersection observers)
+    // You would typically include these from an external script.js file.
+    // For consistency with recent changes, I'll include the relevant common JS here too,
+    // assuming it's part of your single <script> block for the page.
+
+    // Smooth scroll for nav links (if you have local anchors on this page)
+    document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+                // Adjust headerOffset if you use a sticky header that changes height
+                const headerOffset = document.getElementById('main-header') ? document.getElementById('main-header').offsetHeight : 0;
+                const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
+                const offsetPosition = elementPosition - headerOffset - 20; // Added 20px padding
+
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: "smooth"
+                });
+            }
+        });
+    });
+
+    // Form submission handler (if you have a form on this page)
+    // async function handleSubmit(event) { /* ... Your handleSubmit function ... */ }
+
+    // Add/remove header shadow on scroll (if you want this on non-index pages too)
+    const header = document.getElementById('main-header');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+            header.classList.add('shadow-xl');
+        } else {
+            header.classList.remove('shadow-xl');
+        }
+    });
+
+    // Note: Intersection Observers for .fade-in-section and .course-card-X
+    // are typically used on index.html for elements below the fold.
+    // For a specific 'courses.html', the 'fade-in-content' on DOMContentLoaded is often sufficient.
+    // If you plan to load more content dynamically or have sections fade in only on scroll on this page,
+    // you would copy the full Intersection Observer setup from index.html here.
+
+  </script>
 </body>
 </html>
