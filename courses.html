@@ -99,6 +99,39 @@
     </div>
   </header>
 
+  <script>
+  // JavaScript for the Hamburger Menu
+  document.addEventListener('DOMContentLoaded', () => {
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    menuToggle.addEventListener('click', () => {
+      // Toggle visibility of the mobile menu
+      mobileMenu.classList.toggle('hidden');
+      mobileMenu.classList.toggle('-translate-y-full');
+
+      // Change the icon from hamburger to X
+      const menuIcon = menuToggle.querySelector('svg');
+      if (!mobileMenu.classList.contains('hidden')) {
+        menuIcon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>'; // X icon
+      } else {
+        menuIcon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>'; // Hamburger icon
+      }
+    });
+
+    // Close the mobile menu when a link is clicked
+    const mobileLinks = mobileMenu.querySelectorAll('a');
+    mobileLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+        mobileMenu.classList.add('-translate-y-full');
+        // Reset icon back to hamburger
+        menuToggle.querySelector('svg').innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>';
+      });
+    });
+  });
+</script>
+
   <section class="bg-gradient-to-br from-indigo-500 to-purple-600 text-white py-16 fade-in-content">
     <div class="max-w-4xl mx-auto text-center px-4">
       <h2 class="text-4xl font-bold mb-4">Explore Our Comprehensive Courses</h2>
