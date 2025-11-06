@@ -73,7 +73,8 @@
         <a href="courses.html" class="text-gray-700 hover:text-indigo-600 nav-link-hover-effect">Courses</a>
         <a href="coaches.html" class="text-gray-700 hover:text-indigo-600 nav-link-hover-effect">Coaches</a>
         <a href="blog.html" class="text-gray-700 hover:text-indigo-600 nav-link-hover-effect">Blog</a>
-        <a href="contact.html" class="text-gray-700 hover:text-indigo-600 nav-link-hover-effect">Contact</a>
+        <a href="contact.html" class="text-gray-700 hover:text-indigo-600 nav-link-hover-effect">Contact</a> 
+        <a href="index.html#inquiry" class="text-gray-700 hover:text-indigo-600 nav-link-hover-effect">Inquiry</a>
         <a href="resources.html" class="font-semibold text-indigo-700 underline underline-offset-4 decoration-2 nav-link-hover-effect">Resources</a>
         <a href="careers.html" class="text-gray-700 hover:text-indigo-600 nav-link-hover-effect">Careers</a>
       </nav>
@@ -87,6 +88,7 @@
         <a href="coaches.html" class="text-gray-700 hover:text-indigo-600">Coaches</a>
         <a href="blog.html" class="text-gray-700 hover:text-indigo-600">Blog</a>
         <a href="contact.html" class="text-gray-700 hover:text-indigo-600">Contact</a>
+        <a href="index.html#inquiry" class="text-gray-700 hover:text-indigo-600">Inquiry</a>
         <a href="resources.html" class="text-gray-700 hover:text-indigo-600">Resources</a>
         <a href="careers.html" class="text-gray-700 hover:text-indigo-600">Careers</a>
       </div>
@@ -236,7 +238,7 @@
     document.addEventListener('DOMContentLoaded', () => {
         const analyzeButton = document.getElementById('analyze-button');
         const usernameInput = document.getElementById('username-input');
-        const platformSelect = document.getElementById('platform-select'); // This will be hidden, but good to keep reference
+        const platformSelect = document.getElementById('platform-select'); 
         const resultsContainer = document.getElementById('analysis-results');
         const statusElement = document.getElementById('analysis-status');
 
@@ -244,9 +246,10 @@
             analyzeButton.addEventListener('click', handleAnalysis);
         }
 
+        // --- Core Logic Functions ---
         async function handleAnalysis() {
             const username = usernameInput.value.trim();
-            const platform = "lichess"; // Hardcode to Lichess as Chess.com is unavailable
+            const platform = "lichess";
             resultsContainer.innerHTML = '';
             
             if (!username) {
@@ -254,7 +257,7 @@
                 return;
             }
 
-            statusElement.textContent = `Analyzing ${username} on Lichess...`; // Updated status message
+            statusElement.textContent = `Analyzing ${username} on Lichess...`;
 
             await fetchLichessData(username);
         }
@@ -270,8 +273,6 @@
                 const userData = await userResponse.json();
 
                 // 2. Fetch recent 5 games (requesting PGN and headers for simple parsing)
-                // Added ?since=... to avoid fetching too much data, maybe last 30 days
-                // Lichess API has rate limits, be mindful if you increase max
                 const gamesResponse = await fetch(`https://lichess.org/api/games/user/${username}?max=5&perfType=rapid,blitz,classical&rated=true&pgnInJson=false`);
                 
                 if (!gamesResponse.ok) {
@@ -308,4 +309,51 @@
                     </ul>
 
                     <h4 class="text-xl font-semibold text-indigo-600 mb-2 mt-4">Latest 5 Games Summary:</h4>
-                    <div class="flex space-x-
+                    <div class="flex space-x-4 font-bold">
+                        <span class="text-green-600">Wins: ${wins}</span>
+                        <span class="text-yellow-600">Draws: ${draws}</span>
+                        <span class="text-red-600">Losses: ${losses}</span>
+                    </div>
+                    <p class="text-sm text-gray-500 mt-2">Data fetched from Lichess API.</p>
+                `;
+
+                resultsContainer.innerHTML = outputHTML;
+                statusElement.textContent = "Analysis complete!";
+
+            } catch (error) {
+                console.error("Lichess API Error:", error);
+                statusElement.textContent = "A technical error occurred during analysis.";
+            }
+        }
+
+        // --- Other Common JS (Hamburger Menu Logic) ---
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        if (menuToggle && mobileMenu) {
+            menuToggle.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+                mobileMenu.classList.toggle('-translate-y-full');
+                const menuIcon = menuToggle.querySelector('svg');
+                if (!mobileMenu.classList.contains('hidden')) {
+                    menuIcon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>'; // X icon
+                } else {
+                    menuIcon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>'; // Hamburger icon
+                }
+            });
+
+            const mobileLinks = mobileMenu.querySelectorAll('a');
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                    mobileMenu.classList.add('-translate-y-full');
+                    // Reset icon back to hamburger
+                    menuToggle.querySelector('svg').innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>';
+                });
+            });
+        }
+    }); 
+    // --- End Lichess Analysis Functionality & Hamburger JS ---
+  </script>
+</body>
+</html>
