@@ -15,6 +15,8 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <link rel="icon" type="image/x-icon" href="https://github.com/Sourabhjoshi1/Chess-Depth/raw/main/favicon/favicon%20(4).ico">
 
+  <script type="module" src="https://cdn.jsdelivr.net/npm/chessboard-element@1.19.5/dist/chessboard-element.js"></script>
+
   <style>
     /* Custom CSS for consistent styling across pages */
     body {
@@ -101,13 +103,27 @@
     </div>
   </section>
 
+  <nav aria-label="Resources Sections" class="bg-white/80 backdrop-filter backdrop-blur sticky top-16 z-40 shadow-sm">
+    <div class="max-w-6xl mx-auto px-4">
+      <ul class="flex flex-wrap items-center gap-4 py-3 text-sm">
+        <li><a href="#analysis-tool" class="text-gray-700 hover:text-indigo-600 nav-link-hover-effect">Analysis</a></li>
+        <li><a href="#live-board-editor" class="text-gray-700 hover:text-indigo-600 nav-link-hover-effect">Board Editor</a></li>
+        <li><a href="#openings-guide" class="text-gray-700 hover:text-indigo-600 nav-link-hover-effect">Openings</a></li>
+        <li><a href="#recommended-resources" class="text-gray-700 hover:text-indigo-600 nav-link-hover-effect">Tools & Books</a></li>
+        <li><a href="#blog" class="text-gray-700 hover:text-indigo-600 nav-link-hover-effect">Blog</a></li>
+        <li><a href="#resources-faq" class="text-gray-700 hover:text-indigo-600 nav-link-hover-effect">FAQ</a></li>
+      </ul>
+    </div>
+  </nav>
+
   <section id="analysis-tool" class="py-16 px-4 bg-gray-100 fade-in-content">
     <div class="max-w-xl mx-auto text-center">
       <h3 class="text-3xl font-bold text-indigo-700 mb-4">Deep Game Analysis Tool 🧠</h3>
-      <p class="text-gray-600 mb-6">Enter your Lichess username below for a quick evaluation of your latest games (5 games maximum).</p>
+      <p class="text-gray-600 mb-2">Enter your Lichess username for a quick evaluation of your latest games (max 5).</p>
+      <p class="text-sm text-gray-500 mb-6">Tip: Profiles must be public. Example: <button type="button" id="prefill-sample" class="text-indigo-600 hover:text-indigo-800 underline">lichess</button></p>
 
       <div class="bg-white p-6 rounded-lg shadow-xl">
-        <form id="analysis-form" onsubmit="event.preventDefault(); handleAnalysis()">
+        <form id="analysis-form">
           <div class="flex flex-col sm:flex-row gap-4 justify-center">
             <input type="text" id="username-input" placeholder="Enter Lichess Username"
                    aria-label="Enter Lichess Username"
@@ -119,14 +135,22 @@
               <option value="chesscom">Chess.com (Unavailable)</option>
             </select>
 
-            <button type="submit" id="analyze-button" class="bg-orange-500 text-white font-bold px-8 py-3 rounded-lg shadow-md hover:bg-orange-600 transition flex-shrink-0">
-              Get Analysis
+            <button type="submit" id="analyze-button" class="bg-orange-500 text-white font-bold px-8 py-3 rounded-lg shadow-md hover:bg-orange-600 transition flex-shrink-0 disabled:opacity-60 disabled:cursor-not-allowed">
+              <span class="inline-flex items-center gap-2">
+                <svg id="loading-spinner" class="hidden animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"></path></svg>
+                Get Analysis
+              </span>
+            </button>
+            <button type="button" id="reset-button" class="px-5 py-3 rounded-lg border border-gray-300 text-gray-700 hover:bg-gray-50 shadow-sm">
+              Reset
             </button>
           </div>
         </form>
 
-        <div id="analysis-results" class="mt-8 pt-4 border-t border-gray-100 text-left space-y-3">
-          <p class="text-gray-500 text-sm" id="analysis-status">Ready for analysis. Data will be fetched from Lichess.</p>
+        <div id="analysis-results" class="mt-8 pt-4 border-t border-gray-100 text-left space-y-4">
+          <p class="text-gray-500 text-sm" id="analysis-status" role="status" aria-live="polite">Ready for analysis. Data will be fetched from Lichess.</p>
+          <div id="ratings-summary" class="hidden grid grid-cols-1 sm:grid-cols-3 gap-3"></div>
+          <div id="games-summary" class="hidden"></div>
         </div>
       </div>
     </div>
@@ -137,15 +161,18 @@
       <h3 class="text-3xl font-bold text-indigo-700 mb-8">Practice, Analyze, and Create Positions ♟️</h3>
       <p class="text-lg text-gray-700 mb-8">Use the Lichess board editor below to analyze complex positions, test variations, or set up puzzles.</p>
 
-      <div class="bg-gray-100 rounded-lg shadow-xl overflow-hidden aspect-w-16 aspect-h-9" style="max-width: 800px; margin: 0 auto;">
-          <iframe 
-              src="https://lichess.org/editor" 
-              width="100%" 
-              height="600" 
-              allowtransparency="true" 
-              frameborder="0"
-              style="width: 100%; height: 600px;"
-          ></iframe>
+      <div class="bg-gray-100 rounded-lg shadow-xl" style="max-width: 800px; margin: 0 auto;">
+        <div class="bg-white p-4 border-b border-gray-100 flex flex-col sm:flex-row items-center gap-3 justify-center">
+          <input id="fen-input" type="text" placeholder="Paste FEN (optional)" class="w-full sm:w-auto flex-1 p-2 border rounded-md focus:ring-2 focus:ring-indigo-500" aria-label="FEN input">
+          <div class="flex gap-2">
+            <button id="load-fen" class="px-4 py-2 rounded-md bg-indigo-600 text-white hover:bg-indigo-700">Load FEN</button>
+            <button id="start-pos" class="px-4 py-2 rounded-md border border-gray-300 hover:bg-gray-50">Start</button>
+            <button id="clear-board" class="px-4 py-2 rounded-md border border-gray-300 hover:bg-gray-50">Clear</button>
+          </div>
+        </div>
+        <div class="p-3">
+          <chess-board id="play-board" draggable-pieces style="width: 100%; height: 600px;"></chess-board>
+        </div>
       </div>
     </div>
   </section>
@@ -243,6 +270,77 @@
     </div>
   </section>
 
+  <!-- Blog Section (merged from blog.html) -->
+  <section id="blog" class="py-16 bg-gray-100 px-4 fade-in-content">
+    <div class="max-w-6xl mx-auto">
+      <h3 class="text-3xl font-bold text-center mb-10 text-gray-800">Latest Articles</h3>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="bg-white p-6 rounded-lg shadow-md flex flex-col">
+          <img src="https://cdn.chessmood.com/chessmood/images/articles/826/1690099973_64bce105dc065.webp" alt="Tactics" class="rounded-t-lg mb-4 w-full h-48 object-cover">
+          <div class="flex items-center text-sm text-gray-500 mb-2">
+            <span class="mr-3"><i class="far fa-calendar-alt mr-1"></i> July 31, 2025</span>
+            <span><i class="fas fa-tag mr-1"></i> Tactics</span>
+          </div>
+          <h4 class="text-2xl font-bold text-indigo-700 mb-2">Mastering Basic Chess Tactics</h4>
+          <p class="text-gray-600 mb-4 flex-grow">Learn the fundamental tactical motifs like forks, pins, and skewers that can instantly turn the tide of a game. Essential for beginners to intermediate players.</p>
+          <a href="#" class="text-indigo-600 cursor-default font-medium self-start">Read More</a>
+        </div>
+
+        <div class="bg-white p-6 rounded-lg shadow-md flex flex-col">
+          <img src="https://www.shutterstock.com/image-photo/journey-business-success-chess-king-600nw-2510833689.jpg" alt="Strategy" class="rounded-t-lg mb-4 w-full h-48 object-cover">
+          <div class="flex items-center text-sm text-gray-500 mb-2">
+            <span class="mr-3"><i class="far fa-calendar-alt mr-1"></i> August 25, 2025</span>
+            <span><i class="fas fa-tag mr-1"></i> Strategy</span>
+          </div>
+          <h4 class="text-2xl font-bold text-purple-700 mb-2">The Importance of Positional Play</h4>
+          <p class="text-gray-600 mb-4 flex-grow">Beyond tactics, understanding positional nuances is key to long-term success. Discover how to improve your piece activity, pawn structure, and king safety.</p>
+          <a href="#" class="text-purple-600 cursor-default font-medium self-start">Read More</a>
+        </div>
+
+        <div class="bg-white p-6 rounded-lg shadow-md flex flex-col">
+          <img src="https://images.chesscomfiles.com/uploads/v1/chess_term/eb602e74-7272-11ee-82ed-8557328e796c.2bafefd3.5000x5000o.bd9d4fa936d4.jpg" alt="Openings" class="rounded-t-lg mb-4 w-full h-48 object-cover">
+          <div class="flex items-center text-sm text-gray-500 mb-2">
+            <span class="mr-3"><i class="far fa-calendar-alt mr-1"></i> October 10, 2025</span>
+            <span><i class="fas fa-tag mr-1"></i> Openings</span>
+          </div>
+          <h4 class="text-2xl font-bold text-teal-700 mb-2">Building a Solid Opening Repertoire</h4>
+          <p class="text-gray-600 mb-4 flex-grow">A good opening sets the tone for your game. Learn how to choose openings that suit your style and understand their underlying principles.</p>
+          <a href="#" class="text-teal-600 cursor-default font-medium self-start">Read More</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="resources-faq" class="py-16 px-4 bg-gray-100 fade-in-content">
+    <div class="max-w-4xl mx-auto">
+      <h3 class="text-3xl font-bold text-indigo-700 text-center mb-6">Resources FAQ</h3>
+      <div class="divide-y divide-gray-200 bg-white rounded-lg shadow">
+        <details class="p-6 group" aria-label="Is the analysis tool free?">
+          <summary class="cursor-pointer font-semibold text-gray-800 flex items-center justify-between">
+            Is the analysis tool free?
+            <span class="text-indigo-500 group-open:rotate-180 transform transition">▾</span>
+          </summary>
+          <p class="mt-3 text-gray-600">Yes. We fetch public data from Lichess for recent games. Private profiles or disabled history will not return results.</p>
+        </details>
+        <details class="p-6 group" aria-label="How accurate is the game summary?">
+          <summary class="cursor-pointer font-semibold text-gray-800 flex items-center justify-between">
+            How accurate is the game summary?
+            <span class="text-indigo-500 group-open:rotate-180 transform transition">▾</span>
+          </summary>
+          <p class="mt-3 text-gray-600">We provide a quick tally of wins/draws/losses. For deep engine evaluations, use the Lichess Study or Stockfish links above.</p>
+        </details>
+        <details class="p-6 group" aria-label="Which openings to start with?">
+          <summary class="cursor-pointer font-semibold text-gray-800 flex items-center justify-between">
+            Which openings should I start with?
+            <span class="text-indigo-500 group-open:rotate-180 transform transition">▾</span>
+          </summary>
+          <p class="mt-3 text-gray-600">Pick one main line for White and a solid response for Black against 1.e4 and 1.d4. Explore Ruy Lopez/Sicilian for tactics and Queen's Gambit/KID for strategy.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
   <footer class="bg-gray-800 text-white py-6 mt-10">
     <div class="max-w-5xl mx-auto text-center">
       <p>&copy; 2025 ChessDepth Academy. All rights reserved.</p>
@@ -267,6 +365,31 @@
         if (analyzeButton) {
             analyzeButton.addEventListener('click', handleAnalysis);
         }
+        const resetButton = document.getElementById('reset-button');
+        const sampleButton = document.getElementById('prefill-sample');
+        const analysisForm = document.getElementById('analysis-form');
+        if (analysisForm) {
+            analysisForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                handleAnalysis();
+            });
+        }
+        if (resetButton) {
+            resetButton.addEventListener('click', () => {
+                usernameInput.value = '';
+                resultsContainer.innerHTML = '<p class="text-gray-500 text-sm" id="analysis-status">Ready for analysis. Data will be fetched from Lichess.</p>';
+                const ratings = document.getElementById('ratings-summary');
+                const games = document.getElementById('games-summary');
+                if (ratings) ratings.classList.add('hidden');
+                if (games) games.classList.add('hidden');
+            });
+        }
+        if (sampleButton) {
+            sampleButton.addEventListener('click', () => {
+                usernameInput.value = 'lichess';
+                usernameInput.focus();
+            });
+        }
 
         // --- Core Logic Functions ---
         async function handleAnalysis() {
@@ -280,8 +403,14 @@
             }
 
             statusElement.textContent = `Analyzing ${username} on Lichess...`;
+            const spinner = document.getElementById('loading-spinner');
+            if (spinner) spinner.classList.remove('hidden');
+            analyzeButton.setAttribute('disabled', 'true');
 
             await fetchLichessData(username);
+
+            if (spinner) spinner.classList.add('hidden');
+            analyzeButton.removeAttribute('disabled');
         }
 
         async function fetchLichessData(username) {
@@ -322,24 +451,69 @@
 
                 // --- HTML OUTPUT ---
                 
-                let outputHTML = `
-                    <h4 class="text-xl font-semibold text-indigo-600 mb-2">Current Ratings:</h4>
-                    <ul class="list-disc list-inside ml-4 text-gray-700">
-                        <li>Standard: <strong>${standardRating}</strong> ${standardProg !== 'N/A' ? `(${standardProg > 0 ? '+' : ''}${standardProg} pts)` : ''}</li>
-                        <li>Rapid: <strong>${rapidRating}</strong> ${rapidProg !== 'N/A' ? `(${rapidProg > 0 ? '+' : ''}${rapidProg} pts)` : ''}</li>
-                        <li>Blitz: <strong>${blitzRating}</strong> ${blitzProg !== 'N/A' ? `(${blitzProg > 0 ? '+' : ''}${blitzProg} pts)` : ''}</li>
-                    </ul>
+                // Ratings badges
+                const ratingsEl = document.getElementById('ratings-summary');
+                if (ratingsEl) {
+                    ratingsEl.classList.remove('hidden');
+                    ratingsEl.innerHTML = `
+                        <div class="p-4 bg-indigo-50 rounded-md border border-indigo-100">
+                          <div class="text-sm font-semibold text-indigo-700 mb-1">Standard</div>
+                          <div class="flex items-center gap-2"><span class="text-xl font-bold text-gray-900">${standardRating}</span><span class="text-xs px-2 py-0.5 rounded-full ${standardProg > 0 ? 'bg-green-100 text-green-700' : standardProg < 0 ? 'bg-red-100 text-red-700' : 'bg-gray-100 text-gray-700'}">${standardProg !== 'N/A' ? (standardProg > 0 ? '+' : '') + standardProg + ' pts' : 'n/a'}</span></div>
+                        </div>
+                        <div class="p-4 bg-indigo-50 rounded-md border border-indigo-100">
+                          <div class="text-sm font-semibold text-indigo-700 mb-1">Rapid</div>
+                          <div class="flex items-center gap-2"><span class="text-xl font-bold text-gray-900">${rapidRating}</span><span class="text-xs px-2 py-0.5 rounded-full ${rapidProg > 0 ? 'bg-green-100 text-green-700' : rapidProg < 0 ? 'bg-red-100 text-red-700' : 'bg-gray-100 text-gray-700'}">${rapidProg !== 'N/A' ? (rapidProg > 0 ? '+' : '') + rapidProg + ' pts' : 'n/a'}</span></div>
+                        </div>
+                        <div class="p-4 bg-indigo-50 rounded-md border border-indigo-100">
+                          <div class="text-sm font-semibold text-indigo-700 mb-1">Blitz</div>
+                          <div class="flex items-center gap-2"><span class="text-xl font-bold text-gray-900">${blitzRating}</span><span class="text-xs px-2 py-0.5 rounded-full ${blitzProg > 0 ? 'bg-green-100 text-green-700' : blitzProg < 0 ? 'bg-red-100 text-red-700' : 'bg-gray-100 text-gray-700'}">${blitzProg !== 'N/A' ? (blitzProg > 0 ? '+' : '') + blitzProg + ' pts' : 'n/a'}</span></div>
+                        </div>
+                    `;
+                }
 
-                    <h4 class="text-xl font-semibold text-indigo-600 mb-2 mt-4">Latest 5 Games Summary:</h4>
-                    <div class="flex space-x-4 font-bold">
+                // Recent games compact list from PGN headers
+                const gamesEl = document.getElementById('games-summary');
+                if (gamesEl) {
+                    gamesEl.classList.remove('hidden');
+                    const gameBlocks = gamesText.split(/\n\n(?=\[Event )/g).slice(0,5);
+                    const parseHeaders = (pgn) => {
+                        const headers = {};
+                        (pgn.match(/\[[^\]]+\]/g) || []).forEach(h => {
+                            const m = h.match(/^\[(\w+)\s+"([^"]*)"\]$/);
+                            if (m) headers[m[1]] = m[2];
+                        });
+                        return headers;
+                    };
+                    const row = ({White, Black, Result, Opening, Site, UTCDate, UTCTime, ECO}) => {
+                        const emoji = Result === '1-0' ? '✅' : Result === '0-1' ? '❌' : '➖';
+                        const date = UTCDate ? UTCDate : '';
+                        const time = UTCTime ? (' ' + UTCTime) : '';
+                        const link = Site && Site.startsWith('http') ? Site : '#';
+                        const opening = Opening ? Opening : (ECO ? `ECO ${ECO}` : '');
+                        return `
+                          <a href="${link}" target="_blank" rel="noopener noreferrer" class="block p-3 rounded-md border border-gray-100 hover:border-indigo-200 hover:bg-indigo-50 transition">
+                            <div class="flex items-center justify-between">
+                              <div class="font-semibold text-gray-800 truncate">${White || ''} vs ${Black || ''}</div>
+                              <div class="ml-3 text-sm">${emoji} <span class="text-gray-600">${Result || ''}</span></div>
+                            </div>
+                            <div class="mt-1 text-sm text-gray-600 truncate">${opening}</div>
+                            <div class="mt-1 text-xs text-gray-500">${date}${time}</div>
+                          </a>
+                        `;
+                    };
+                    const cards = gameBlocks.map(g => row(parseHeaders(g))).join('');
+                    gamesEl.innerHTML = `
+                      <h4 class="text-xl font-semibold text-indigo-600 mb-2">Latest 5 Games</h4>
+                      <div class="grid gap-2">${cards}</div>
+                      <div class="mt-3 flex space-x-4 font-bold">
                         <span class="text-green-600">Wins: ${wins}</span>
                         <span class="text-yellow-600">Draws: ${draws}</span>
                         <span class="text-red-600">Losses: ${losses}</span>
-                    </div>
-                    <p class="text-sm text-gray-500 mt-2">Data fetched from Lichess API.</p>
-                `;
+                      </div>
+                      <p class="text-sm text-gray-500 mt-2">Data fetched from Lichess API.</p>
+                    `;
+                }
 
-                resultsContainer.innerHTML = outputHTML;
                 statusElement.textContent = "Analysis complete!";
 
             } catch (error) {
@@ -347,6 +521,22 @@
                 statusElement.textContent = "A technical error occurred during analysis.";
             }
         }
+
+        // --- Smooth scroll for in-page subnav links ---
+        document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const targetId = this.getAttribute('href');
+                if (!targetId || !targetId.startsWith('#')) return;
+                const targetEl = document.querySelector(targetId);
+                if (!targetEl) return;
+                e.preventDefault();
+                const headerOffset = document.getElementById('main-header') ? document.getElementById('main-header').offsetHeight : 0;
+                const subnav = this.closest('nav');
+                const subnavHeight = subnav ? subnav.offsetHeight : 0;
+                const y = targetEl.getBoundingClientRect().top + window.pageYOffset - headerOffset - subnavHeight - 12;
+                window.scrollTo({ top: Math.max(0, y), behavior: 'smooth' });
+            });
+        });
 
         // --- Header shadow on scroll ---
         const header = document.getElementById('main-header');
@@ -389,6 +579,34 @@
                     }
                 });
             });
+        }
+        
+        // --- Local board controls (for embedded chess-board element) ---
+        const boardEl = document.getElementById('play-board');
+        const fenInput = document.getElementById('fen-input');
+        const loadBtn = document.getElementById('load-fen');
+        const startBtn = document.getElementById('start-pos');
+        const clearBtn = document.getElementById('clear-board');
+
+        if (boardEl) {
+            if (startBtn) {
+                startBtn.addEventListener('click', () => {
+                    boardEl.setAttribute('position', 'start');
+                });
+            }
+            if (clearBtn) {
+                clearBtn.addEventListener('click', () => {
+                    boardEl.setAttribute('position', '8/8/8/8/8/8/8/8');
+                });
+            }
+            if (loadBtn && fenInput) {
+                loadBtn.addEventListener('click', () => {
+                    const fen = fenInput.value.trim();
+                    if (fen) {
+                        boardEl.setAttribute('position', fen);
+                    }
+                });
+            }
         }
     }); 
     // --- End Lichess Analysis Functionality & Hamburger JS ---
