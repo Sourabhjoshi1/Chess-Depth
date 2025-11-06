@@ -73,7 +73,7 @@
         <a href="courses.html" class="text-gray-700 hover:text-indigo-600 nav-link-hover-effect">Courses</a>
         <a href="coaches.html" class="text-gray-700 hover:text-indigo-600 nav-link-hover-effect">Coaches</a>
         <a href="blog.html" class="text-gray-700 hover:text-indigo-600 nav-link-hover-effect">Blog</a>
-        <a href="contact.html" class="text-gray-700 hover:text-indigo-600 nav-link-hover-effect">Contact</a> 
+        <a href="contact.html" class="text-gray-700 hover:text-indigo-600 nav-link-hover-effect">Contact</a>
         <a href="resources.html" class="font-semibold text-indigo-700 underline underline-offset-4 decoration-2 nav-link-hover-effect">Resources</a>
         <a href="careers.html" class="text-gray-700 hover:text-indigo-600 nav-link-hover-effect">Careers</a>
       </nav>
@@ -200,3 +200,112 @@
             <p class="text-gray-600 mb-4 flex-grow">By Irving Chernev. Explains master games in an accessible way, focusing on the reasoning behind each move.</p>
             <a href="https://www.amazon.com/Logical-Chess-Move-Chernev-Irving/dp/0671211339" target="_blank" rel="noopener noreferrer" class="text-purple-700 hover:text-purple-900 font-medium mt-auto">Find on Amazon <i class="fas fa-external-link-alt ml-1 text-sm"></i></a>
         </div>
+        
+        <div class="bg-white p-6 rounded-lg shadow-md flex flex-col items-center text-center hover:shadow-lg transition-shadow duration-300">
+            <i class="fas fa-brain text-4xl text-red-600 mb-4"></i>
+            <h4 class="text-xl font-semibold text-gray-800 mb-2">Stockfish Engine</h4>
+            <p class="text-gray-600 mb-4 flex-grow">The world's strongest open-source chess engine. Use it for deep analysis of your games and positions.</p>
+            <a href="https://stockfishchess.org/" target="_blank" rel="noopener noreferrer" class="text-red-600 hover:text-red-800 font-medium mt-auto">Visit Stockfish <i class="fas fa-external-link-alt ml-1 text-sm"></i></a>
+        </div>
+
+        <div class="bg-white p-6 rounded-lg shadow-md flex flex-col items-center text-center hover:shadow-lg transition-shadow duration-300">
+            <i class="fas fa-chalkboard-teacher text-4xl text-orange-600 mb-4"></i>
+            <h4 class="text-xl font-semibold text-gray-800 mb-2">Chessable</h4>
+            <p class="text-gray-600 mb-4 flex-grow">A unique platform using "MoveTrainer" technology to help you memorize openings, tactics, and endgames effectively.</p>
+            <a href="https://www.chessable.com/" target="_blank" rel="noopener noreferrer" class="text-orange-600 hover:text-orange-800 font-medium mt-auto">Visit Chessable <i class="fas fa-external-link-alt ml-1 text-sm"></i></a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <footer class="bg-gray-800 text-white py-6 mt-10">
+    <div class="max-w-5xl mx-auto text-center">
+      <p>&copy; 2025 ChessDepth Academy. All rights reserved.</p>
+      <div class="mt-4 flex justify-center space-x-6">
+        <a href="https://www.instagram.com/chessdepthacademy1/" class="text-gray-300 hover:text-indigo-300 transition-colors duration-200 text-2xl" target="_blank" aria-label="Follow us on Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.facebook.com/chessdepthacademy/" class="text-gray-300 hover:text-indigo-300 transition-colors duration-200 text-2xl" target="_blank" aria-label="Follow us on Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" class="text-gray-300 hover:text-indigo-300 transition-colors duration-200 text-2xl" aria-label="Watch us on YouTube"><i class="fab fa-youtube"></i></a>
+      </div>
+      <p class="mt-4 text-sm text-gray-400">Made by Sourabh Joshi ❤️</p>
+    </div>
+  </footer>
+
+  <script>
+    // --- Lichess Analysis Functionality ---
+    document.addEventListener('DOMContentLoaded', () => {
+        const analyzeButton = document.getElementById('analyze-button');
+        const usernameInput = document.getElementById('username-input');
+        const platformSelect = document.getElementById('platform-select'); // This will be hidden, but good to keep reference
+        const resultsContainer = document.getElementById('analysis-results');
+        const statusElement = document.getElementById('analysis-status');
+
+        if (analyzeButton) {
+            analyzeButton.addEventListener('click', handleAnalysis);
+        }
+
+        async function handleAnalysis() {
+            const username = usernameInput.value.trim();
+            const platform = "lichess"; // Hardcode to Lichess as Chess.com is unavailable
+            resultsContainer.innerHTML = '';
+            
+            if (!username) {
+                statusElement.textContent = "Please enter a username.";
+                return;
+            }
+
+            statusElement.textContent = `Analyzing ${username} on Lichess...`; // Updated status message
+
+            await fetchLichessData(username);
+        }
+
+        async function fetchLichessData(username) {
+            try {
+                // 1. Fetch User Profile and Ratings
+                const userResponse = await fetch(`https://lichess.org/api/user/${username}`);
+                if (!userResponse.ok) {
+                    statusElement.textContent = `Error: Lichess user '${username}' not found or profile is private.`;
+                    return;
+                }
+                const userData = await userResponse.json();
+
+                // 2. Fetch recent 5 games (requesting PGN and headers for simple parsing)
+                // Added ?since=... to avoid fetching too much data, maybe last 30 days
+                // Lichess API has rate limits, be mindful if you increase max
+                const gamesResponse = await fetch(`https://lichess.org/api/games/user/${username}?max=5&perfType=rapid,blitz,classical&rated=true&pgnInJson=false`);
+                
+                if (!gamesResponse.ok) {
+                    statusElement.textContent = "Error: Could not retrieve recent games for the provided Lichess username.";
+                    return;
+                }
+                
+                const gamesText = await gamesResponse.text();
+
+                // --- DATA PROCESSING ---
+                
+                // a. Ratings Display
+                const rapidRating = userData.perfs.rapid ? userData.perfs.rapid.rating : 'N/A';
+                const blitzRating = userData.perfs.blitz ? userData.perfs.blitz.rating : 'N/A';
+                const standardRating = userData.perfs.classical ? userData.perfs.classical.rating : 'N/A';
+                const rapidProg = userData.perfs.rapid ? userData.perfs.rapid.prog : 'N/A';
+                const blitzProg = userData.perfs.blitz ? userData.perfs.blitz.prog : 'N/A';
+                const standardProg = userData.perfs.classical ? userData.perfs.classical.prog : 'N/A';
+
+
+                // b. Game Score Calculation (Simple match count using Regex)
+                const wins = (gamesText.match(/1-0/g) || []).length;
+                const draws = (gamesText.match(/1\/2-1\/2/g) || []).length;
+                const losses = (gamesText.match(/0-1/g) || []).length;
+
+                // --- HTML OUTPUT ---
+                
+                let outputHTML = `
+                    <h4 class="text-xl font-semibold text-indigo-600 mb-2">Current Ratings:</h4>
+                    <ul class="list-disc list-inside ml-4 text-gray-700">
+                        <li>Standard: <strong>${standardRating}</strong> ${standardProg !== 'N/A' ? `(${standardProg > 0 ? '+' : ''}${standardProg} pts)` : ''}</li>
+                        <li>Rapid: <strong>${rapidRating}</strong> ${rapidProg !== 'N/A' ? `(${rapidProg > 0 ? '+' : ''}${rapidProg} pts)` : ''}</li>
+                        <li>Blitz: <strong>${blitzRating}</strong> ${blitzProg !== 'N/A' ? `(${blitzProg > 0 ? '+' : ''}${blitzProg} pts)` : ''}</li>
+                    </ul>
+
+                    <h4 class="text-xl font-semibold text-indigo-600 mb-2 mt-4">Latest 5 Games Summary:</h4>
+                    <div class="flex space-x-
