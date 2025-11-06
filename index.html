@@ -380,6 +380,33 @@
     </div>
   </section>
 
+  <section id="analysis-tool" class="py-16 px-4 bg-indigo-50">
+  <div class="max-w-xl mx-auto text-center">
+    <h3 class="text-3xl font-bold text-indigo-700 mb-4">Deep Game Analysis Tool 🧠</h3>
+    <p class="text-gray-600 mb-6">Enter your Chess.com or Lichess username below for a quick evaluation of your latest games.</p>
+
+    <div class="bg-white p-6 rounded-lg shadow-xl">
+      <div class="flex flex-col sm:flex-row gap-4">
+        <input type="text" id="username-input" placeholder="Enter Chess.com or Lichess Username"
+               class="w-full p-3 border-2 border-indigo-200 rounded-md focus:ring-2 focus:ring-indigo-500 transition" />
+        
+        <select id="platform-select" class="p-3 border-2 border-indigo-200 rounded-md flex-shrink-0">
+          <option value="chesscom">Chess.com</option>
+          <option value="lichess">Lichess</option>
+        </select>
+
+        <button id="analyze-button" class="bg-orange-500 text-white font-bold px-6 py-3 rounded-md hover:bg-orange-600 transition flex-shrink-0">
+          Analyze
+        </button>
+      </div>
+
+      <div id="analysis-results" class="mt-8 text-left space-y-3">
+        <p class="text-gray-500" id="analysis-status">Ready for analysis...</p>
+      </div>
+    </div>
+  </div>
+</section>
+
   <section id="inquiry" class="py-16 px-4 bg-gray-100 fade-in-section">
     <div class="max-w-xl mx-auto">
       <h3 class="text-3xl font-bold text-center mb-8 tracking-tight">Student Inquiry Form</h3>
@@ -442,6 +469,98 @@
     <p class="mt-4 text-sm text-gray-400">Made by Sourabh Joshi ❤️</p>
   </div>
 </footer>
+
+  // --- Start Lichess Analysis Functionality ---
+
+document.addEventListener('DOMContentLoaded', () => {
+    const analyzeButton = document.getElementById('analyze-button');
+    const usernameInput = document.getElementById('username-input');
+    const platformSelect = document.getElementById('platform-select');
+    const resultsContainer = document.getElementById('analysis-results');
+    const statusElement = document.getElementById('analysis-status');
+
+    if (analyzeButton) {
+        analyzeButton.addEventListener('click', handleAnalysis);
+    }
+
+    async function handleAnalysis() {
+        const username = usernameInput.value.trim();
+        const platform = platformSelect.value;
+        resultsContainer.innerHTML = '';
+        
+        if (!username) {
+            statusElement.textContent = "Please enter a username.";
+            return;
+        }
+
+        statusElement.textContent = `Analyzing ${username} on ${platform}...`;
+
+        if (platform === 'lichess') {
+            await fetchLichessData(username);
+        } else {
+            statusElement.textContent = "Chess.com analysis is currently unavailable. Please use Lichess.";
+            // Note: Chess.com's API requires more complex rate limits/setup.
+        }
+    }
+
+    async function fetchLichessData(username) {
+        try {
+            // Fetch the user's profile and ratings
+            const userResponse = await fetch(`https://lichess.org/api/user/${username}`);
+            if (!userResponse.ok) {
+                statusElement.textContent = "Error: Lichess user not found or profile is private.";
+                return;
+            }
+            const userData = await userResponse.json();
+
+            // Fetch recent 5 games (in PGN format)
+            // Lichess API allows fetching games in PGN, which we will parse for simple stats.
+            const gamesResponse = await fetch(`https://lichess.org/api/games/user/${username}?max=5&perfType=rapid,blitz&rated=true`);
+            
+            if (!gamesResponse.ok) {
+                statusElement.textContent = "Error: Could not retrieve recent games.";
+                return;
+            }
+            
+            const gamesText = await gamesResponse.text();
+
+            // 1. Display Current Ratings
+            let ratingsHTML = `
+                <h4 class="text-xl font-semibold text-indigo-600 mb-2">Current Ratings:</h4>
+                <ul class="list-disc list-inside ml-4 text-gray-700">
+                    <li>Rapid: <strong>${userData.perfs.rapid ? userData.perfs.rapid.rating : 'N/A'}</strong> (${userData.perfs.rapid ? userData.perfs.rapid.prog : 'N/A'} pts change)</li>
+                    <li>Blitz: <strong>${userData.perfs.blitz ? userData.perfs.blitz.rating : 'N/A'}</strong> (${userData.perfs.blitz ? userData.perfs.blitz.prog : 'N/A'} pts change)</li>
+                </ul>
+            `;
+            
+            // 2. Simple Game Summary (Parsing PGN is complex, so we'll do a simple match count)
+            const wins = (gamesText.match(/1-0/g) || []).length;
+            const draws = (gamesText.match(/1\/2-1\/2/g) || []).length;
+            const losses = (gamesText.match(/0-1/g) || []).length;
+
+            ratingsHTML += `
+                <h4 class="text-xl font-semibold text-indigo-600 mb-2 mt-4">Latest 5 Games:</h4>
+                <div class="flex space-x-4">
+                    <span class="text-green-600">Wins: ${wins}</span>
+                    <span class="text-yellow-600">Draws: ${draws}</span>
+                    <span class="text-red-600">Losses: ${losses}</span>
+                </div>
+            `;
+
+
+            resultsContainer.innerHTML = ratingsHTML;
+            statusElement.textContent = "Analysis complete!";
+
+        } catch (error) {
+            console.error("Lichess API Error:", error);
+            statusElement.textContent = "A technical error occurred during analysis.";
+        }
+    }
+    
+    // Note: If you want this to work, ensure the handleAnalysis function is defined
+    // before the DOMContentLoaded listener attempts to assign it to the button's click event.
+}); 
+// --- End Lichess Analysis Functionality ---
 
 <script>
     // Smooth scroll for nav links (if you have local anchors on this page)
