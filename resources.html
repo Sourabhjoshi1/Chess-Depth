@@ -73,8 +73,7 @@
         <a href="courses.html" class="text-gray-700 hover:text-indigo-600 nav-link-hover-effect">Courses</a>
         <a href="coaches.html" class="text-gray-700 hover:text-indigo-600 nav-link-hover-effect">Coaches</a>
         <a href="blog.html" class="text-gray-700 hover:text-indigo-600 nav-link-hover-effect">Blog</a>
-        <a href="contact.html" class="text-gray-700 hover:text-indigo-600 nav-link-hover-effect">Contact</a> 
-        <a href="index.html#inquiry" class="text-gray-700 hover:text-indigo-600 nav-link-hover-effect">Inquiry</a>
+        <a href="contact.html" class="text-gray-700 hover:text-indigo-600 nav-link-hover-effect">Contact</a>
         <a href="resources.html" class="font-semibold text-indigo-700 underline underline-offset-4 decoration-2 nav-link-hover-effect">Resources</a>
         <a href="careers.html" class="text-gray-700 hover:text-indigo-600 nav-link-hover-effect">Careers</a>
       </nav>
@@ -88,7 +87,6 @@
         <a href="coaches.html" class="text-gray-700 hover:text-indigo-600">Coaches</a>
         <a href="blog.html" class="text-gray-700 hover:text-indigo-600">Blog</a>
         <a href="contact.html" class="text-gray-700 hover:text-indigo-600">Contact</a>
-        <a href="index.html#inquiry" class="text-gray-700 hover:text-indigo-600">Inquiry</a>
         <a href="resources.html" class="text-gray-700 hover:text-indigo-600">Resources</a>
         <a href="careers.html" class="text-gray-700 hover:text-indigo-600">Careers</a>
       </div>
@@ -101,63 +99,82 @@
       <p class="text-xl">Unlock deep insights from your games, explore opening theory, and discover essential training materials.</p>
     </div>
   </section>
+
   <section id="analysis-tool" class="py-16 px-4 bg-gray-100 fade-in-content">
-  <div class="max-w-xl mx-auto text-center">
-    <h3 class="text-3xl font-bold text-indigo-700 mb-4">Deep Game Analysis Tool 🧠</h3>
-    <p class="text-gray-600 mb-6">Enter your Lichess username below for a quick evaluation of your latest games (5 games maximum).</p>
+    <div class="max-w-xl mx-auto text-center">
+      <h3 class="text-3xl font-bold text-indigo-700 mb-4">Deep Game Analysis Tool 🧠</h3>
+      <p class="text-gray-600 mb-6">Enter your Lichess username below for a quick evaluation of your latest games (5 games maximum).</p>
 
-    <div class="bg-white p-6 rounded-lg shadow-xl">
-        
-      <form id="analysis-form" class="flex flex-col gap-4" onsubmit="event.preventDefault(); handleAnalysis()">
-        
-        <label for="username-input" class="sr-only">Lichess Username</label>
-        <div class="flex flex-col sm:flex-row gap-3">
-          
-          <input type="text" 
-                 id="username-input" 
-                 placeholder="Enter Lichess Username"
-                 aria-label="Enter Lichess Username"
-                 class="w-full p-3 border-2 border-indigo-200 rounded-lg shadow-sm hover:border-indigo-400 focus:ring-2 focus:ring-indigo-500 transition duration-200" 
-                 required />
-          
-          <button type="submit" id="analyze-button" class="bg-orange-500 text-white font-bold px-8 py-3 rounded-lg shadow-md hover:bg-orange-600 transition flex-shrink-0">
-            Get Analysis
-          </button>
+      <div class="bg-white p-6 rounded-lg shadow-xl">
+        <form id="analysis-form" onsubmit="event.preventDefault(); handleAnalysis()">
+          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <input type="text" id="username-input" placeholder="Enter Lichess Username"
+                   aria-label="Enter Lichess Username"
+                   class="w-full p-3 border-2 border-indigo-200 rounded-lg shadow-sm hover:border-indigo-400 focus:ring-2 focus:ring-indigo-500 transition duration-200" 
+                   required />
+            
+            <select id="platform-select" class="p-3 border-2 border-indigo-200 rounded-md flex-shrink-0 hidden">
+              <option value="lichess">Lichess</option>
+              <option value="chesscom">Chess.com (Unavailable)</option>
+            </select>
+
+            <button type="submit" id="analyze-button" class="bg-orange-500 text-white font-bold px-8 py-3 rounded-lg shadow-md hover:bg-orange-600 transition flex-shrink-0">
+              Get Analysis
+            </button>
+          </div>
+        </form>
+
+        <div id="analysis-results" class="mt-8 pt-4 border-t border-gray-100 text-left space-y-3">
+          <p class="text-gray-500 text-sm" id="analysis-status">Ready for analysis. Data will be fetched from Lichess.</p>
         </div>
-      </form>
-
-      <div id="analysis-results" class="mt-8 pt-4 border-t border-gray-100 text-left space-y-3">
-        <p class="text-gray-500 text-sm" id="analysis-status">Ready for analysis. Data will be fetched from Lichess.</p>
       </div>
     </div>
-  </div>
-</section>
+  </section>
+  
+  <section id="live-board-editor" class="py-16 px-4 bg-white fade-in-content">
+    <div class="max-w-6xl mx-auto text-center">
+      <h3 class="text-3xl font-bold text-indigo-700 mb-8">Practice, Analyze, and Create Positions ♟️</h3>
+      <p class="text-lg text-gray-700 mb-8">Use the Lichess board editor below to analyze complex positions, test variations, or set up puzzles.</p>
 
-  <section id="openings-guide" class="py-16 px-4 bg-white fade-in-content">
+      <div class="bg-gray-100 rounded-lg shadow-xl overflow-hidden aspect-w-16 aspect-h-9" style="max-width: 800px; margin: 0 auto;">
+          <iframe 
+              src="https://lichess.org/editor" 
+              width="100%" 
+              height="600" 
+              allowtransparency="true" 
+              frameborder="0"
+              style="width: 100%; height: 600px;"
+          ></iframe>
+      </div>
+    </div>
+  </section>
+
+
+  <section id="openings-guide" class="py-16 px-4 bg-gray-100 fade-in-content">
     <div class="max-w-4xl mx-auto">
       <h3 class="text-3xl font-bold text-indigo-700 text-center mb-8">Know Your Openings 🚀</h3>
       <p class="text-lg text-gray-700 text-center mb-10">Understanding chess openings is crucial for setting the tone of your game. Explore popular opening lines and resources below.</p>
       
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <div class="bg-gray-50 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+        <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
           <h4 class="text-2xl font-semibold text-gray-800 mb-3 flex items-center"><i class="fas fa-book-open mr-2 text-indigo-500"></i> Ruy Lopez (Spanish Game)</h4>
           <p class="text-gray-600 mb-4">A classic and strategic opening, the Ruy Lopez is played by grandmasters and beginners alike. It leads to rich, complex positions.</p>
           <a href="https://www.chess.com/openings/Ruy-Lopez" target="_blank" rel="noopener noreferrer" class="text-indigo-600 hover:text-indigo-800 font-medium">Explore on Chess.com <i class="fas fa-external-link-alt ml-1 text-sm"></i></a>
         </div>
 
-        <div class="bg-gray-50 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+        <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
           <h4 class="text-2xl font-semibold text-gray-800 mb-3 flex items-center"><i class="fas fa-book-open mr-2 text-indigo-500"></i> Sicilian Defense</h4>
           <p class="text-gray-600 mb-4">One of Black's most aggressive and popular responses to 1.e4, leading to sharp, tactical battles.</p>
           <a href="https://www.chess.com/openings/Sicilian-Defense" target="_blank" rel="noopener noreferrer" class="text-indigo-600 hover:text-indigo-800 font-medium">Explore on Chess.com <i class="fas fa-external-link-alt ml-1 text-sm"></i></a>
         </div>
 
-        <div class="bg-gray-50 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+        <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
             <h4 class="text-2xl font-semibold text-gray-800 mb-3 flex items-center"><i class="fas fa-book-open mr-2 text-indigo-500"></i> Queen's Gambit</h4>
             <p class="text-gray-600 mb-4">A strategic and positional opening where White offers a pawn to gain central control. Leads to complex middlegames.</p>
             <a href="https://www.chess.com/openings/Queens-Gambit" target="_blank" rel="noopener noreferrer" class="text-indigo-600 hover:text-indigo-800 font-medium">Explore on Chess.com <i class="fas fa-external-link-alt ml-1 text-sm"></i></a>
         </div>
 
-        <div class="bg-gray-50 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+        <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
             <h4 class="text-2xl font-semibold text-gray-800 mb-3 flex items-center"><i class="fas fa-book-open mr-2 text-indigo-500"></i> King's Indian Defense</h4>
             <p class="text-gray-600 mb-4">A dynamic and counter-attacking defense where Black allows White central control early, aiming for a kingside attack later.</p>
             <a href="https://www.chess.com/openings/Kings-Indian-Defense" target="_blank" rel="noopener noreferrer" class="text-indigo-600 hover:text-indigo-800 font-medium">Explore on Chess.com <i class="fas fa-external-link-alt ml-1 text-sm"></i></a>
@@ -173,48 +190,48 @@
     </div>
   </section>
 
-  <section id="recommended-resources" class="py-16 px-4 bg-gray-100 fade-in-content">
+  <section id="recommended-resources" class="py-16 px-4 bg-white fade-in-content">
     <div class="max-w-4xl mx-auto">
       <h3 class="text-3xl font-bold text-indigo-700 text-center mb-8">Recommended Training Tools & Books 📚</h3>
       <p class="text-lg text-gray-700 text-center mb-10">Enhance your training with our curated list of essential chess tools and literature.</p>
       
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <div class="bg-white p-6 rounded-lg shadow-md flex flex-col items-center text-center hover:shadow-lg transition-shadow duration-300">
+        <div class="bg-gray-50 p-6 rounded-lg shadow-md flex flex-col items-center text-center hover:shadow-lg transition-shadow duration-300">
           <i class="fas fa-globe text-4xl text-blue-600 mb-4"></i>
           <h4 class="text-xl font-semibold text-gray-800 mb-2">Chess.com</h4>
           <p class="text-gray-600 mb-4 flex-grow">A leading online platform for playing, learning, and analyzing chess games. Offers lessons, puzzles, and a vibrant community.</p>
           <a href="https://www.chess.com/" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-800 font-medium mt-auto">Visit Chess.com <i class="fas fa-external-link-alt ml-1 text-sm"></i></a>
         </div>
 
-        <div class="bg-white p-6 rounded-lg shadow-md flex flex-col items-center text-center hover:shadow-lg transition-shadow duration-300">
+        <div class="bg-gray-50 p-6 rounded-lg shadow-md flex flex-col items-center text-center hover:shadow-lg transition-shadow duration-300">
           <i class="fas fa-chess text-4xl text-gray-800 mb-4"></i>
           <h4 class="text-xl font-semibold text-gray-800 mb-2">Lichess.org</h4>
           <p class="text-gray-600 mb-4 flex-grow">Free and open-source online chess platform. Great for analysis, puzzles, and a wide variety of game modes.</p>
           <a href="https://lichess.org/" target="_blank" rel="noopener noreferrer" class="text-gray-800 hover:text-gray-900 font-medium mt-auto">Visit Lichess.org <i class="fas fa-external-link-alt ml-1 text-sm"></i></a>
         </div>
 
-        <div class="bg-white p-6 rounded-lg shadow-md flex flex-col items-center text-center hover:shadow-lg transition-shadow duration-300">
+        <div class="bg-gray-50 p-6 rounded-lg shadow-md flex flex-col items-center text-center hover:shadow-lg transition-shadow duration-300">
           <i class="fas fa-book text-4xl text-green-700 mb-4"></i>
           <h4 class="text-xl font-semibold text-gray-800 mb-2">My System</h4>
           <p class="text-gray-600 mb-4 flex-grow">By Aron Nimzowitsch. A groundbreaking work on positional play and chess strategy, essential for intermediate players.</p>
           <a href="https://www.amazon.com/My-System-Aron-Nimzowitsch/dp/0486202028" target="_blank" rel="noopener noreferrer" class="text-green-700 hover:text-green-900 font-medium mt-auto">Find on Amazon <i class="fas fa-external-link-alt ml-1 text-sm"></i></a>
         </div>
 
-        <div class="bg-white p-6 rounded-lg shadow-md flex flex-col items-center text-center hover:shadow-lg transition-shadow duration-300">
+        <div class="bg-gray-50 p-6 rounded-lg shadow-md flex flex-col items-center text-center hover:shadow-lg transition-shadow duration-300">
             <i class="fas fa-book-reader text-4xl text-purple-700 mb-4"></i>
             <h4 class="text-xl font-semibold text-gray-800 mb-2">Logical Chess: Move By Move</h4>
             <p class="text-gray-600 mb-4 flex-grow">By Irving Chernev. Explains master games in an accessible way, focusing on the reasoning behind each move.</p>
             <a href="https://www.amazon.com/Logical-Chess-Move-Chernev-Irving/dp/0671211339" target="_blank" rel="noopener noreferrer" class="text-purple-700 hover:text-purple-900 font-medium mt-auto">Find on Amazon <i class="fas fa-external-link-alt ml-1 text-sm"></i></a>
         </div>
         
-        <div class="bg-white p-6 rounded-lg shadow-md flex flex-col items-center text-center hover:shadow-lg transition-shadow duration-300">
+        <div class="bg-gray-50 p-6 rounded-lg shadow-md flex flex-col items-center text-center hover:shadow-lg transition-shadow duration-300">
             <i class="fas fa-brain text-4xl text-red-600 mb-4"></i>
             <h4 class="text-xl font-semibold text-gray-800 mb-2">Stockfish Engine</h4>
             <p class="text-gray-600 mb-4 flex-grow">The world's strongest open-source chess engine. Use it for deep analysis of your games and positions.</p>
             <a href="https://stockfishchess.org/" target="_blank" rel="noopener noreferrer" class="text-red-600 hover:text-red-800 font-medium mt-auto">Visit Stockfish <i class="fas fa-external-link-alt ml-1 text-sm"></i></a>
         </div>
 
-        <div class="bg-white p-6 rounded-lg shadow-md flex flex-col items-center text-center hover:shadow-lg transition-shadow duration-300">
+        <div class="bg-gray-50 p-6 rounded-lg shadow-md flex flex-col items-center text-center hover:shadow-lg transition-shadow duration-300">
             <i class="fas fa-chalkboard-teacher text-4xl text-orange-600 mb-4"></i>
             <h4 class="text-xl font-semibold text-gray-800 mb-2">Chessable</h4>
             <p class="text-gray-600 mb-4 flex-grow">A unique platform using "MoveTrainer" technology to help you memorize openings, tactics, and endgames effectively.</p>
