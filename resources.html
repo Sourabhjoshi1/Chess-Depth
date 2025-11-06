@@ -1,68 +1,204 @@
-<header class="bg-white shadow-md py-6 flex justify-between items-center sticky top-0 z-50 lg:py-4" id="main-header">
-  <div class="max-w-7xl mx-auto flex justify-between items-center w-full px-4 lg:px-0">
-    <a href="index.html" class="inline-block hover:opacity-80 transition-opacity duration-200">
-      <h1 class="text-3xl font-bold text-indigo-700">♟️ ChessDepth</h1>
-    </a>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="google-adsense-account" content="ca-pub-1353516013773606">
+  <title>Resources & Analysis Tools | ChessDepth Academy</title>
+  <meta name="description" content="Explore advanced chess analysis tools, opening guides, and recommended resources to improve your game at ChessDepth Academy.">
+  
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1353516013773606"
+          crossorigin="anonymous"></script>
 
-    <button id="menu-toggle" class="lg:hidden p-2 text-gray-700 hover:text-indigo-600 focus:outline-none">
-      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
-      </svg>
-    </button>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="icon" type="image/x-icon" href="https://github.com/Sourabhjoshi1/Chess-Depth/raw/main/favicon/favicon%20(4).ico">
 
-    <nav id="main-nav" class="hidden lg:flex space-x-4">
-      <a href="index.html" class="text-gray-700 hover:text-indigo-600 nav-link-hover-effect">Home</a>
-      <a href="about.html" class="text-gray-700 hover:text-indigo-600 nav-link-hover-effect">About</a>
-      <a href="courses.html" class="text-gray-700 hover:text-indigo-600 nav-link-hover-effect">Courses</a>
-      <a href="coaches.html" class="text-gray-700 hover:text-indigo-600 nav-link-hover-effect">Coaches</a>
-      <a href="blog.html" class="text-gray-700 hover:text-indigo-600 nav-link-hover-effect">Blog</a>
-      <a href="contact.html" class="text-gray-700 hover:text-indigo-600 nav-link-hover-effect">Contact</a>
-      <a href="resources.html" class="text-gray-700 hover:text-indigo-600 nav-link-hover-effect">Resources</a>
-      <a href="careers.html" class="text-gray-700 hover:text-indigo-600 nav-link-hover-effect">Careers</a>
-    </nav>
-  </div>
-
-  <div id="mobile-menu" class="hidden lg:hidden absolute top-full left-0 w-full bg-white shadow-lg py-4 transition-all duration-300 transform -translate-y-full">
-    <div class="flex flex-col items-center space-y-4">
-      <a href="index.html" class="text-gray-700 hover:text-indigo-600">Home</a>
-      <a href="about.html" class="text-gray-700 hover:text-indigo-600">About</a>
-      <a href="courses.html" class="text-gray-700 hover:text-indigo-600">Courses</a>
-      <a href="coaches.html" class="text-gray-700 hover:text-indigo-600">Coaches</a>
-      <a href="blog.html" class="text-gray-700 hover:text-indigo-600">Blog</a>
-      <a href="contact.html" class="text-gray-700 hover:text-indigo-600">Contact</a>
-      <a href="resources.html" class="text-gray-700 hover:text-indigo-600">Resources</a>
-      <a href="careers.html" class="text-gray-700 hover:text-indigo-600">Careers</a>
-    </div>
-  </div>
-</header>
-
-<script>
-  // JavaScript for the Hamburger Menu
-  document.addEventListener('DOMContentLoaded', () => {
-    const menuToggle = document.getElementById('menu-toggle');
-    const mobileMenu = document.getElementById('mobile-menu');
-
-    if (menuToggle && mobileMenu) {
-        menuToggle.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-            mobileMenu.classList.toggle('-translate-y-full');
-            const menuIcon = menuToggle.querySelector('svg');
-            if (!mobileMenu.classList.contains('hidden')) {
-                menuIcon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>'; // X icon
-            } else {
-                menuIcon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>'; // Hamburger icon
-            }
-        });
-
-        const mobileLinks = mobileMenu.querySelectorAll('a');
-        mobileLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
-                mobileMenu.classList.add('-translate-y-full');
-                // Reset icon back to hamburger
-                menuToggle.querySelector('svg').innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>';
-            });
-        });
+  <style>
+    /* Custom CSS for consistent styling across pages */
+    body {
+        font-family: 'Poppins', sans-serif;
     }
-  });
-</script>
+
+    /* Navbar Link Hover Effect */
+    .nav-link-hover-effect {
+        transition: all 0.2s ease-in-out;
+        position: relative;
+    }
+    .nav-link-hover-effect:after {
+        content: '';
+        position: absolute;
+        width: 0%;
+        height: 2px;
+        bottom: -5px;
+        left: 0;
+        background-color: #4f46e5;
+        transition: width 0.3s ease-out;
+    }
+    .nav-link-hover-effect:hover:after {
+        width: 100%;
+    }
+    .nav-link-hover-effect:hover {
+        color: #4f46e5;
+    }
+
+    /* Fade-in animation for content on page load */
+    .fade-in-content {
+        opacity: 0;
+        animation: fadeIn 1s ease-out forwards;
+        animation-delay: 0.2s;
+    }
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+  </style>
+</head>
+<body class="bg-gray-100 text-gray-800">
+
+  <header class="bg-white shadow-md py-6 flex justify-between items-center sticky top-0 z-50 lg:py-4" id="main-header">
+    <div class="max-w-7xl mx-auto flex justify-between items-center w-full px-4 lg:px-0">
+      <a href="index.html" class="inline-block hover:opacity-80 transition-opacity duration-200">
+        <h1 class="text-3xl font-bold text-indigo-700">♟️ ChessDepth</h1>
+      </a>
+      <button id="menu-toggle" class="lg:hidden p-2 text-gray-700 hover:text-indigo-600 focus:outline-none">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+        </svg>
+      </button>
+      <nav id="main-nav" class="hidden lg:flex space-x-4">
+        <a href="index.html" class="text-gray-700 hover:text-indigo-600 nav-link-hover-effect">Home</a>
+        <a href="about.html" class="text-gray-700 hover:text-indigo-600 nav-link-hover-effect">About</a>
+        <a href="courses.html" class="text-gray-700 hover:text-indigo-600 nav-link-hover-effect">Courses</a>
+        <a href="coaches.html" class="text-gray-700 hover:text-indigo-600 nav-link-hover-effect">Coaches</a>
+        <a href="blog.html" class="text-gray-700 hover:text-indigo-600 nav-link-hover-effect">Blog</a>
+        <a href="contact.html" class="text-gray-700 hover:text-indigo-600 nav-link-hover-effect">Contact</a> 
+        <a href="index.html#inquiry" class="text-gray-700 hover:text-indigo-600 nav-link-hover-effect">Inquiry</a>
+        <a href="resources.html" class="font-semibold text-indigo-700 underline underline-offset-4 decoration-2 nav-link-hover-effect">Resources</a>
+        <a href="careers.html" class="text-gray-700 hover:text-indigo-600 nav-link-hover-effect">Careers</a>
+      </nav>
+    </div>
+
+    <div id="mobile-menu" class="hidden lg:hidden absolute top-full left-0 w-full bg-white shadow-lg py-4 transition-all duration-300 transform -translate-y-full">
+      <div class="flex flex-col items-center space-y-4">
+        <a href="index.html" class="text-gray-700 hover:text-indigo-600">Home</a>
+        <a href="about.html" class="text-gray-700 hover:text-indigo-600">About</a>
+        <a href="courses.html" class="text-gray-700 hover:text-indigo-600">Courses</a>
+        <a href="coaches.html" class="text-gray-700 hover:text-indigo-600">Coaches</a>
+        <a href="blog.html" class="text-gray-700 hover:text-indigo-600">Blog</a>
+        <a href="contact.html" class="text-gray-700 hover:text-indigo-600">Contact</a>
+        <a href="index.html#inquiry" class="text-gray-700 hover:text-indigo-600">Inquiry</a>
+        <a href="resources.html" class="text-gray-700 hover:text-indigo-600">Resources</a>
+        <a href="careers.html" class="text-gray-700 hover:text-indigo-600">Careers</a>
+      </div>
+    </div>
+  </header>
+
+  <section class="bg-gradient-to-br from-indigo-500 to-purple-600 text-white py-16 text-center">
+    <div class="max-w-4xl mx-auto px-4">
+      <h2 class="text-4xl font-bold mb-4">Your Personalized Chess Analysis Tools</h2>
+      <p class="text-xl">Unlock deep insights from your games, explore opening theory, and discover essential training materials.</p>
+    </div>
+  </section>
+
+  <section id="analysis-tool" class="py-16 px-4 bg-gray-100 fade-in-content">
+    <div class="max-w-xl mx-auto text-center">
+      <h3 class="text-3xl font-bold text-indigo-700 mb-4">Deep Game Analysis Tool 🧠</h3>
+      <p class="text-gray-600 mb-6">Enter your Lichess username below for a quick evaluation of your latest games (5 games maximum).</p>
+
+      <div class="bg-white p-6 rounded-lg shadow-xl">
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <input type="text" id="username-input" placeholder="Enter Lichess Username"
+                 class="w-full p-3 border-2 border-indigo-200 rounded-md focus:ring-2 focus:ring-indigo-500 transition" />
+          
+          <select id="platform-select" class="p-3 border-2 border-indigo-200 rounded-md flex-shrink-0 hidden">
+            <option value="lichess">Lichess</option>
+            <option value="chesscom">Chess.com (Unavailable)</option>
+          </select>
+
+          <button id="analyze-button" class="bg-orange-500 text-white font-bold px-6 py-3 rounded-md hover:bg-orange-600 transition flex-shrink-0">
+            Analyze
+          </button>
+        </div>
+
+        <div id="analysis-results" class="mt-8 text-left space-y-3">
+          <p class="text-gray-500" id="analysis-status">Ready for analysis...</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="openings-guide" class="py-16 px-4 bg-white fade-in-content">
+    <div class="max-w-4xl mx-auto">
+      <h3 class="text-3xl font-bold text-indigo-700 text-center mb-8">Know Your Openings 🚀</h3>
+      <p class="text-lg text-gray-700 text-center mb-10">Understanding chess openings is crucial for setting the tone of your game. Explore popular opening lines and resources below.</p>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div class="bg-gray-50 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+          <h4 class="text-2xl font-semibold text-gray-800 mb-3 flex items-center"><i class="fas fa-book-open mr-2 text-indigo-500"></i> Ruy Lopez (Spanish Game)</h4>
+          <p class="text-gray-600 mb-4">A classic and strategic opening, the Ruy Lopez is played by grandmasters and beginners alike. It leads to rich, complex positions.</p>
+          <a href="https://www.chess.com/openings/Ruy-Lopez" target="_blank" rel="noopener noreferrer" class="text-indigo-600 hover:text-indigo-800 font-medium">Explore on Chess.com <i class="fas fa-external-link-alt ml-1 text-sm"></i></a>
+        </div>
+
+        <div class="bg-gray-50 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+          <h4 class="text-2xl font-semibold text-gray-800 mb-3 flex items-center"><i class="fas fa-book-open mr-2 text-indigo-500"></i> Sicilian Defense</h4>
+          <p class="text-gray-600 mb-4">One of Black's most aggressive and popular responses to 1.e4, leading to sharp, tactical battles.</p>
+          <a href="https://www.chess.com/openings/Sicilian-Defense" target="_blank" rel="noopener noreferrer" class="text-indigo-600 hover:text-indigo-800 font-medium">Explore on Chess.com <i class="fas fa-external-link-alt ml-1 text-sm"></i></a>
+        </div>
+
+        <div class="bg-gray-50 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+            <h4 class="text-2xl font-semibold text-gray-800 mb-3 flex items-center"><i class="fas fa-book-open mr-2 text-indigo-500"></i> Queen's Gambit</h4>
+            <p class="text-gray-600 mb-4">A strategic and positional opening where White offers a pawn to gain central control. Leads to complex middlegames.</p>
+            <a href="https://www.chess.com/openings/Queens-Gambit" target="_blank" rel="noopener noreferrer" class="text-indigo-600 hover:text-indigo-800 font-medium">Explore on Chess.com <i class="fas fa-external-link-alt ml-1 text-sm"></i></a>
+        </div>
+
+        <div class="bg-gray-50 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+            <h4 class="text-2xl font-semibold text-gray-800 mb-3 flex items-center"><i class="fas fa-book-open mr-2 text-indigo-500"></i> King's Indian Defense</h4>
+            <p class="text-gray-600 mb-4">A dynamic and counter-attacking defense where Black allows White central control early, aiming for a kingside attack later.</p>
+            <a href="https://www.chess.com/openings/Kings-Indian-Defense" target="_blank" rel="noopener noreferrer" class="text-indigo-600 hover:text-indigo-800 font-medium">Explore on Chess.com <i class="fas fa-external-link-alt ml-1 text-sm"></i></a>
+        </div>
+      </div>
+
+      <div class="text-center mt-12">
+        <p class="text-lg text-gray-700 mb-4">Looking for deeper opening exploration?</p>
+        <a href="https://lichess.org/opening" target="_blank" rel="noopener noreferrer" class="inline-block bg-indigo-600 text-white font-bold py-3 px-8 rounded-md hover:bg-indigo-700 transition-colors duration-300">
+          Lichess Opening Explorer <i class="fas fa-chart-bar ml-2"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section id="recommended-resources" class="py-16 px-4 bg-gray-100 fade-in-content">
+    <div class="max-w-4xl mx-auto">
+      <h3 class="text-3xl font-bold text-indigo-700 text-center mb-8">Recommended Training Tools & Books 📚</h3>
+      <p class="text-lg text-gray-700 text-center mb-10">Enhance your training with our curated list of essential chess tools and literature.</p>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="bg-white p-6 rounded-lg shadow-md flex flex-col items-center text-center hover:shadow-lg transition-shadow duration-300">
+          <i class="fas fa-globe text-4xl text-blue-600 mb-4"></i>
+          <h4 class="text-xl font-semibold text-gray-800 mb-2">Chess.com</h4>
+          <p class="text-gray-600 mb-4 flex-grow">A leading online platform for playing, learning, and analyzing chess games. Offers lessons, puzzles, and a vibrant community.</p>
+          <a href="https://www.chess.com/" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-800 font-medium mt-auto">Visit Chess.com <i class="fas fa-external-link-alt ml-1 text-sm"></i></a>
+        </div>
+
+        <div class="bg-white p-6 rounded-lg shadow-md flex flex-col items-center text-center hover:shadow-lg transition-shadow duration-300">
+          <i class="fas fa-chess text-4xl text-gray-800 mb-4"></i>
+          <h4 class="text-xl font-semibold text-gray-800 mb-2">Lichess.org</h4>
+          <p class="text-gray-600 mb-4 flex-grow">Free and open-source online chess platform. Great for analysis, puzzles, and a wide variety of game modes.</p>
+          <a href="https://lichess.org/" target="_blank" rel="noopener noreferrer" class="text-gray-800 hover:text-gray-900 font-medium mt-auto">Visit Lichess.org <i class="fas fa-external-link-alt ml-1 text-sm"></i></a>
+        </div>
+
+        <div class="bg-white p-6 rounded-lg shadow-md flex flex-col items-center text-center hover:shadow-lg transition-shadow duration-300">
+          <i class="fas fa-book text-4xl text-green-700 mb-4"></i>
+          <h4 class="text-xl font-semibold text-gray-800 mb-2">My System</h4>
+          <p class="text-gray-600 mb-4 flex-grow">By Aron Nimzowitsch. A groundbreaking work on positional play and chess strategy, essential for intermediate players.</p>
+          <a href="https://www.amazon.com/My-System-Aron-Nimzowitsch/dp/0486202028" target="_blank" rel="noopener noreferrer" class="text-green-700 hover:text-green-900 font-medium mt-auto">Find on Amazon <i class="fas fa-external-link-alt ml-1 text-sm"></i></a>
+        </div>
+
+        <div class="bg-white p-6 rounded-lg shadow-md flex flex-col items-center text-center hover:shadow-lg transition-shadow duration-300">
+            <i class="fas fa-book-reader text-4xl text-purple-700 mb-4"></i>
+            <h4 class="text-xl font-semibold text-gray-800 mb-2">Logical Chess: Move By Move</h4>
+            <p class="text-gray-600 mb-4 flex-grow">By Irving Chernev. Explains master games in an accessible way, focusing on the reasoning behind each move.</p>
+            <a href="https://www.amazon.com/Logical-Chess-Move-Chernev-Irving/dp/0671211339" target="_blank" rel="noopener noreferrer" class="text-purple-700 hover:text-purple-900 font-medium mt-auto">Find on Amazon <i class="fas fa-external-link-alt ml-1 text-sm"></i></a>
+        </div>
