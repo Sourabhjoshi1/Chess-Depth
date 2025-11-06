@@ -6,8 +6,6 @@
   <meta name="google-adsense-account" content="ca-pub-1353516013773606">
   <title>ChessDepth Academy</title>
   
-  <link rel="icon" type="image/x-icon" href="https://github.com/Sourabhjoshi1/Chess-Depth/raw/main/favicon/favicon%20(4).ico">
-  
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1353516013773606"
           crossorigin="anonymous"></script>
 
@@ -15,6 +13,7 @@
   <link rel="stylesheet" href="style.css"> 
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="icon" type="image/x-icon" href="https://github.com/Sourabhjoshi1/Chess-Depth/raw/main/favicon/favicon%20(4).ico">
 
   <style>
     /* Custom CSS for subtle animations and enhancements */
@@ -53,8 +52,6 @@
       }
     }
 
-    /* Removed @keyframes bounceIn and @keyframes blinkEffect as requested for logo stillness */
-
     /* Apply animations */
     .animate-gradient-shift {
       background-size: 200% 200%;
@@ -76,16 +73,10 @@
       animation-delay: 0.6s;
       opacity: 0; /* Start invisible */
     }
-    /* Removed .animate-bounce-in-logo and .animate-occasional-blink */
-
-
-    /* For staggered card animations (handled by JS IntersectionObserver) */
-    /* Starting opacity is set by JS for controlled animation */
 
     /* General fade-in for sections */
     .fade-in-section { 
         opacity: 0;
-        /* Animation handled by JS IntersectionObserver */
     }
     @keyframes fadeIn {
         from { opacity: 0; }
@@ -183,7 +174,6 @@
     .stat-number {
         font-size: 2.5rem; /* Increased size */
         font-weight: 700;
-        color: #4f46e5; /* indigo-600 */
         line-height: 1;
     }
     .stat-label {
@@ -196,75 +186,40 @@
 <body class="bg-gray-100 text-gray-800">
 
   <header class="bg-white shadow-md py-6 flex justify-between items-center sticky top-0 z-50 lg:py-4" id="main-header">
-  <div class="max-w-7xl mx-auto flex justify-between items-center w-full px-4 lg:px-0">
-    <a href="index.html" class="inline-block hover:opacity-80 transition-opacity duration-200">
-      <h1 class="text-3xl font-bold text-indigo-700">♟️ ChessDepth</h1>
-    </a>
-
-    <button id="menu-toggle" class="lg:hidden p-2 text-gray-700 hover:text-indigo-600 focus:outline-none">
-      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
-      </svg>
-    </button>
-
-    <nav id="main-nav" class="hidden lg:flex space-x-4">
-      <a href="index" class="text-gray-700 hover:text-indigo-600 nav-link-hover-effect">Home</a>
-      <a href="about" class="text-gray-700 hover:text-indigo-600 nav-link-hover-effect">About</a>
-      <a href="courses" class="text-gray-700 hover:text-indigo-600 nav-link-hover-effect">Courses</a>
-      <a href="coaches" class="text-gray-700 hover:text-indigo-600 nav-link-hover-effect">Coaches</a>
-      <a href="blog.html" class="text-gray-700 hover:text-indigo-600 nav-link-hover-effect">Blog</a>
-      <a href="contact" class="text-gray-700 hover:text-indigo-600 nav-link-hover-effect">Contact</a>
-      <a href="resources" class="text-gray-700 hover:text-indigo-600 nav-link-hover-effect">Resources</a>
-      <a href="careers" class="text-gray-700 hover:text-indigo-600 nav-link-hover-effect">Careers</a>
-    </nav>
-  </div>
-
-  <div id="mobile-menu" class="hidden lg:hidden absolute top-full left-0 w-full bg-white shadow-lg py-4 transition-all duration-300 transform -translate-y-full">
-    <div class="flex flex-col items-center space-y-4">
-      <a href="index" class="text-gray-700 hover:text-indigo-600">Home</a>
-      <a href="about" class="text-gray-700 hover:text-indigo-600">About</a>
-      <a href="courses" class="text-gray-700 hover:text-indigo-600">Courses</a>
-      <a href="coaches" class="text-gray-700 hover:text-indigo-600">Coaches</a>
-      <a href="blog" class="text-gray-700 hover:text-indigo-600">Blog</a>
-      <a href="contact" class="text-gray-700 hover:text-indigo-600">Contact</a>
-       <a href="resources" class="text-gray-700 hover:text-indigo-600">Resources</a>
-      <a href="careers" class="text-gray-700 hover:text-indigo-600">Careers</a>
+    <div class="max-w-7xl mx-auto flex justify-between items-center w-full px-4 lg:px-0">
+      <a href="index.html" class="inline-block hover:opacity-80 transition-opacity duration-200">
+        <h1 class="text-3xl font-bold text-indigo-700">♟️ ChessDepth</h1>
+      </a>
+      <button id="menu-toggle" class="lg:hidden p-2 text-gray-700 hover:text-indigo-600 focus:outline-none">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+        </svg>
+      </button>
+      <nav id="main-nav" class="hidden lg:flex space-x-4">
+        <a href="index.html" class="font-semibold text-indigo-700 underline underline-offset-4 decoration-2 nav-link-hover-effect">Home</a>
+        <a href="about.html" class="text-gray-700 hover:text-indigo-600 nav-link-hover-effect">About</a>
+        <a href="courses.html" class="text-gray-700 hover:text-indigo-600 nav-link-hover-effect">Courses</a>
+        <a href="coaches.html" class="text-gray-700 hover:text-indigo-600 nav-link-hover-effect">Coaches</a>
+        <a href="blog.html" class="text-gray-700 hover:text-indigo-600 nav-link-hover-effect">Blog</a>
+        <a href="contact.html" class="text-gray-700 hover:text-indigo-600 nav-link-hover-effect">Contact</a> 
+        <a href="resources.html" class="text-gray-700 hover:text-indigo-600 nav-link-hover-effect">Resources</a>
+        <a href="careers.html" class="text-gray-700 hover:text-indigo-600 nav-link-hover-effect">Careers</a>
+      </nav>
     </div>
-  </div>
-</header>
 
-<script>
-  // JavaScript for the Hamburger Menu
-  document.addEventListener('DOMContentLoaded', () => {
-    const menuToggle = document.getElementById('menu-toggle');
-    const mobileMenu = document.getElementById('mobile-menu');
-
-    menuToggle.addEventListener('click', () => {
-      // Toggle visibility of the mobile menu
-      mobileMenu.classList.toggle('hidden');
-      mobileMenu.classList.toggle('-translate-y-full');
-
-      // Change the icon from hamburger to X
-      const menuIcon = menuToggle.querySelector('svg');
-      if (!mobileMenu.classList.contains('hidden')) {
-        menuIcon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>'; // X icon
-      } else {
-        menuIcon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>'; // Hamburger icon
-      }
-    });
-
-    // Close the mobile menu when a link is clicked
-    const mobileLinks = mobileMenu.querySelectorAll('a');
-    mobileLinks.forEach(link => {
-      link.addEventListener('click', () => {
-        mobileMenu.classList.add('hidden');
-        mobileMenu.classList.add('-translate-y-full');
-        // Reset icon back to hamburger
-        menuToggle.querySelector('svg').innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>';
-      });
-    });
-  });
-</script>
+    <div id="mobile-menu" class="hidden lg:hidden absolute top-full left-0 w-full bg-white shadow-lg py-4 transition-all duration-300 transform -translate-y-full">
+      <div class="flex flex-col items-center space-y-4">
+        <a href="index.html" class="text-gray-700 hover:text-indigo-600">Home</a>
+        <a href="about.html" class="text-gray-700 hover:text-indigo-600">About</a>
+        <a href="courses.html" class="text-gray-700 hover:text-indigo-600">Courses</a>
+        <a href="coaches.html" class="text-gray-700 hover:text-indigo-600">Coaches</a>
+        <a href="blog.html" class="text-gray-700 hover:text-indigo-600">Blog</a>
+        <a href="contact.html" class="text-gray-700 hover:text-indigo-600">Contact</a>
+        <a href="resources.html" class="text-gray-700 hover:text-indigo-600">Resources</a>
+        <a href="careers.html" class="text-gray-700 hover:text-indigo-600">Careers</a>
+      </div>
+    </div>
+  </header>
 
   <section class="relative bg-gradient-to-br from-indigo-500 to-purple-600 text-white py-20 fade-in-section animate-gradient-shift overflow-hidden">
     <div class="hero-particles"></div>
@@ -274,7 +229,7 @@
       <p class="text-xl sm:text-2xl mb-8 animate-fade-in-up-2 opacity-90 leading-relaxed">Train with elite chess lessons. Whether you're a beginner or advanced, we’ve got something for you.</p>
       
       <div class="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-6 animate-fade-in-up-3">
-        <a href="#inquiry" class="demo-button" data-course-interest="demo-class">
+        <a href="https://wa.me/919660088773?text=Hi" target="_blank" rel="noopener noreferrer" class="demo-button">
           <i class="fas fa-calendar-alt"></i> Book a Free Demo Class
         </a>
         <a href="#courses" class="bg-white text-indigo-600 font-semibold py-3 px-8 rounded-full shadow-lg hero-button">
@@ -293,14 +248,14 @@
         <h4 class="text-2xl font-semibold text-gray-900 mb-4 mt-8 text-center">Our Unique Approach to Learning</h4>
         <p class="mb-4">We've meticulously designed our curriculum with a step-by-step approach, ensuring that concepts are introduced logically and reinforced through practical exercises. Our instructors are not just highly rated chess players; they are experienced educators dedicated to making complex ideas accessible and engaging for students of all ages and skill levels.</p>
         <ul class="list-disc list-inside space-y-2 mb-6 ml-4">
-            <li>Personalized Learning Paths: We assess each student's current skill level and learning style to tailor a curriculum that maximizes their progress.</li>
-            <li>Interactive Sessions:Beyond lectures, our classes feature interactive puzzles, live game analysis, and guided play to apply theoretical knowledge.</li>
-            <li>Focus on Psychology: Understanding the mental game is crucial. We integrate lessons on emotional control, resilience, and maintaining focus under pressure.</li>
-            <li>Community and Support: Join a vibrant community of chess enthusiasts. Regular tournaments, study groups, and direct access to coaches provide unparalleled support.</li>
+            <li><strong>Personalized Learning Paths:</strong> We assess each student's current skill level and learning style to tailor a curriculum that maximizes their progress.</li>
+            <li><strong>Interactive Sessions:</strong> Beyond lectures, our classes feature interactive puzzles, live game analysis, and guided play to apply theoretical knowledge.</li>
+            <li><strong>Focus on Psychology:</strong> Understanding the mental game is crucial. We integrate lessons on emotional control, resilience, and maintaining focus under pressure.</li>
+            <li><strong>Community and Support:</strong> Join a vibrant community of chess enthusiasts. Regular tournaments, study groups, and direct access to coaches provide unparalleled support.</li>
         </ul>
 
-<blockquote class="border-l-4 border-indigo-500 pl-4 py-2 italic text-gray-600 mb-6 mt-8">
-            "ChessDepth Academy transformed my understanding of the game. I didn't just learn moves; I learned to think strategically and patiently. Highly recommended for anyone serious about improving!" <br> - Shiven Chimnani, Mumbai, India. Advanced Student.
+        <blockquote class="border-l-4 border-indigo-500 pl-4 py-2 italic text-gray-600 mb-6 mt-8">
+            "ChessDepth Academy transformed my understanding of the game. I didn't just learn moves; I learned to think strategically and patiently. Highly recommended for anyone serious about improving!" <br> - <strong>Shiven Chimnani, Mumbai, India. Advanced Student.</strong>
         </blockquote>
 
         <p class="mb-6">Whether you dream of achieving a master title or simply want to enjoy the intellectual challenge chess offers, ChessDepth Academy provides the environment, expertise, and resources to help you reach your goals. We believe in nurturing a love for the game that lasts a lifetime.</p>
@@ -329,7 +284,7 @@
     </div>
   </section>
 
-<section class="bg-indigo-700 text-white py-12 px-4">
+  <section class="bg-indigo-700 text-white py-12 px-4">
     <div class="max-w-5xl mx-auto text-center">
       <h3 class="text-3xl font-bold mb-8 text-indigo-100">Our Achievements Speak Volumes</h3>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -351,7 +306,7 @@
         </div>
       </div>
     </div>
-</section>
+  </section>
 
   <section id="courses" class="py-16 bg-white px-4 fade-in-section">
     <div class="max-w-6xl mx-auto">
@@ -382,33 +337,6 @@
     </div>
   </section>
 
-  <section id="analysis-tool" class="py-16 px-4 bg-indigo-50">
-  <div class="max-w-xl mx-auto text-center">
-    <h3 class="text-3xl font-bold text-indigo-700 mb-4">Deep Game Analysis Tool 🧠</h3>
-    <p class="text-gray-600 mb-6">Enter your Chess.com or Lichess username below for a quick evaluation of your latest games.</p>
-
-    <div class="bg-white p-6 rounded-lg shadow-xl">
-      <div class="flex flex-col sm:flex-row gap-4">
-        <input type="text" id="username-input" placeholder="Enter Chess.com or Lichess Username"
-               class="w-full p-3 border-2 border-indigo-200 rounded-md focus:ring-2 focus:ring-indigo-500 transition" />
-        
-        <select id="platform-select" class="p-3 border-2 border-indigo-200 rounded-md flex-shrink-0">
-          <option value="chesscom">Chess.com</option>
-          <option value="lichess">Lichess</option>
-        </select>
-
-        <button id="analyze-button" class="bg-orange-500 text-white font-bold px-6 py-3 rounded-md hover:bg-orange-600 transition flex-shrink-0">
-          Analyze
-        </button>
-      </div>
-
-      <div id="analysis-results" class="mt-8 text-left space-y-3">
-        <p class="text-gray-500" id="analysis-status">Ready for analysis...</p>
-      </div>
-    </div>
-  </div>
-</section>
-
   <section id="inquiry" class="py-16 px-4 bg-gray-100 fade-in-section">
     <div class="max-w-xl mx-auto">
       <h3 class="text-3xl font-bold text-center mb-8 tracking-tight">Student Inquiry Form</h3>
@@ -429,8 +357,8 @@
         </div>
 
         <div class="mb-4">
-          <label class="block text-gray-700 text-sm font-bold mb-2" for="rating">Contact Number</label>
-          <input type="text" id="rating" name="rating" class="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition duration-200 ease-in-out" placeholder="Required" />
+          <label class="block text-gray-700 text-sm font-bold mb-2" for="contactNumber">Contact Number</label>
+          <input type="tel" id="contactNumber" name="contactNumber" class="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition duration-200 ease-in-out" placeholder="Required" required/>
         </div>
 
         <div class="mb-4">
@@ -442,10 +370,10 @@
           <label class="block text-gray-700 text-sm font-bold mb-2" for="course">Interested Course</label>
           <select id="course" name="interestedCourse" class="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition duration-200 ease-in-out">
             <option value="beginner">Beginner's Tactics</option>
-            <option value="beginner">Intermediate</option>
-            <option value="positional">Advanced</option>
-            <option value="positional">Tournament Prepration</option>
-            <option value="openings">Summer Course</option>
+            <option value="intermediate">Intermediate</option>
+            <option value="advanced">Advanced</option>
+            <option value="tournament-preparation">Tournament Preparation</option>
+            <option value="summer-course">Summer Course</option>
             <option value="other">Not sure / Other</option>
           </select>
         </div>
@@ -473,32 +401,175 @@
 </footer>
 
 <script>
-    // Smooth scroll for nav links (if you have local anchors on this page)
-    document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const targetId = this.getAttribute('href');
-            // Check if it's an internal anchor or an external page link
-            if (targetId.startsWith("#")) { 
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    const headerOffset = document.getElementById('main-header') ? document.getElementById('main-header').offsetHeight : 0;
-                    const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
-                    const offsetPosition = elementPosition - headerOffset - 20; // Added 20px padding
+    // COMBINED SCRIPT BLOCK FOR ALL PAGE-SPECIFIC JS
+    document.addEventListener('DOMContentLoaded', () => {
+        // --- Smooth scroll for nav links ---
+        document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                // Check if it's an internal anchor or an external page link
+                if (targetId.startsWith("#")) { 
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        const headerOffset = document.getElementById('main-header') ? document.getElementById('main-header').offsetHeight : 0;
+                        const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
+                        const offsetPosition = elementPosition - headerOffset - 20; // Added 20px padding
 
-                    window.scrollTo({
-                        top: offsetPosition,
-                        behavior: "smooth"
-                    });
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: "smooth"
+                        });
+                    }
+                } else {
+                    // For external page links (like contact.html), allow default navigation
+                    window.location.href = targetId; 
                 }
+            });
+        });
+
+        // --- Intersection Observer for section fade-in ---
+        const faders = document.querySelectorAll('.fade-in-section');
+        const appearOptions = {
+          threshold: 0.15, 
+          rootMargin: "0px 0px -50px 0px"
+        };
+
+        const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
+          entries.forEach(entry => {
+            if (!entry.isIntersecting) {
+              return;
             } else {
-                // For external page links (like contact.html), allow default navigation
-                window.location.href = targetId; 
+              entry.target.style.animation = `fadeIn 1s ease-out forwards`;
+              entry.target.style.opacity = '1';
+              appearOnScroll.unobserve(entry.target);
+            }
+          });
+        }, appearOptions);
+
+        faders.forEach(fader => {
+          fader.style.opacity = '0';
+          appearOnScroll.observe(fader);
+        });
+
+        // --- Intersection Observer for staggered course card animation ---
+        const courseCards = document.querySelectorAll('.course-card-1, .course-card-2, .course-card-3');
+        const cardOptions = {
+          threshold: 0.3, // Cards animate when 30% in view
+        };
+
+        const cardAppearOnScroll = new IntersectionObserver(function(entries, cardAppearOnScroll) {
+          entries.forEach(entry => {
+            if (!entry.isIntersecting) {
+              return;
+            } else {
+              const delay = entry.target.classList.contains('course-card-1') ? '0s' :
+                            entry.target.classList.contains('course-card-2') ? '0.2s' :
+                            '0.4s';
+              entry.target.style.animation = `cardPop 0.6s ease-out forwards ${delay}`;
+              entry.target.style.opacity = '1';
+              cardAppearOnScroll.unobserve(entry.target);
+            }
+          });
+        }, cardOptions);
+
+        courseCards.forEach(card => {
+            card.style.opacity = '0';
+            cardAppearOnScroll.observe(card);
+        });
+
+
+        // --- Counter Animation for Trust Bar ---
+        const statNumbers = document.querySelectorAll('.stat-number');
+
+        const animateCounter = (entry) => {
+            if (entry.isIntersecting) {
+                const target = parseInt(entry.target.dataset.target);
+                let current = 0;
+                const increment = target / 200; // Adjust for speed
+
+                const updateCounter = () => {
+                    if (current < target) {
+                        current += increment;
+                        entry.target.textContent = Math.ceil(current) + entry.target.textContent.slice(-1); // Keep last char (+ or %)
+                        requestAnimationFrame(updateCounter);
+                    } else {
+                        entry.target.textContent = target + entry.target.textContent.slice(-1);
+                    }
+                };
+                updateCounter();
+                counterObserver.unobserve(entry.target); // Stop observing once counted
+            }
+        };
+
+        const counterObserver = new IntersectionObserver((entries) => {
+            entries.forEach(animateCounter);
+        }, { threshold: 0.5 }); // Trigger when 50% in view
+
+        statNumbers.forEach(number => {
+            counterObserver.observe(number);
+        });
+
+        // --- Script for pre-filling form based on button click ---
+        const interestedCourseSelect = document.getElementById('course');
+        const prefillValue = sessionStorage.getItem('prefillCourse');
+
+        if (interestedCourseSelect && prefillValue) {
+          interestedCourseSelect.value = prefillValue;
+          sessionStorage.removeItem('prefillCourse');
+        }
+
+        // Attach click event listeners to demo buttons
+        const demoButtons = document.querySelectorAll('.demo-button');
+        demoButtons.forEach(button => {
+          button.addEventListener('click', (e) => {
+            const courseInterest = button.dataset.courseInterest;
+            if (courseInterest) {
+              sessionStorage.setItem('prefillCourse', courseInterest);
+            }
+          });
+        });
+        
+        // --- Add/remove header shadow on scroll ---
+        const header = document.getElementById('main-header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('shadow-xl');
+            } else {
+                header.classList.remove('shadow-xl');
             }
         });
-    });
+        
+        // --- Hamburger Menu Logic ---
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
 
-    // Handle Form Submission (Updated for Formspree and in-page message)
+        if (menuToggle && mobileMenu) {
+            menuToggle.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+                mobileMenu.classList.toggle('-translate-y-full');
+                const menuIcon = menuToggle.querySelector('svg');
+                if (!mobileMenu.classList.contains('hidden')) {
+                    menuIcon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>'; // X icon
+                } else {
+                    menuIcon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>'; // Hamburger icon
+                }
+            });
+
+            const mobileLinks = mobileMenu.querySelectorAll('a');
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                    mobileMenu.classList.add('-translate-y-full');
+                    // Reset icon back to hamburger
+                    menuToggle.querySelector('svg').innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>';
+                });
+            });
+        }
+        
+    }); // End DOMContentLoaded for all setup
+    
+    // Handle Form Submission (outside DOMContentLoaded as it's directly called by the form's onsubmit)
     async function handleSubmit(event) {
         event.preventDefault(); // Prevent default form submission
 
@@ -538,122 +609,6 @@
             alert('An error occurred. Please check your internet connection and try again.');
         }
     }
-    
-    // Add/remove header shadow on scroll (if you want this on non-index pages too)
-    const header = document.getElementById('main-header');
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-            header.classList.add('shadow-xl');
-        } else {
-            header.classList.remove('shadow-xl');
-        }
-    });
-
-    // Intersection Observer for section fade-in
-    const faders = document.querySelectorAll('.fade-in-section');
-    const appearOptions = {
-      threshold: 0.15, // Increased threshold for better feel
-      rootMargin: "0px 0px -50px 0px"
-    };
-
-    const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
-      entries.forEach(entry => {
-        if (!entry.isIntersecting) {
-          return;
-        } else {
-          entry.target.style.animation = `fadeIn 1s ease-out forwards`;
-          entry.target.style.opacity = '1';
-          appearOnScroll.unobserve(entry.target);
-        }
-      });
-    }, appearOptions);
-
-    faders.forEach(fader => {
-      fader.style.opacity = '0';
-      appearOnScroll.observe(fader);
-    });
-
-    // Intersection Observer for staggered course card animation
-    const courseCards = document.querySelectorAll('.course-card-1, .course-card-2, .course-card-3');
-    const cardOptions = {
-      threshold: 0.3, // Cards animate when 30% in view
-    };
-
-    const cardAppearOnScroll = new IntersectionObserver(function(entries, cardAppearOnScroll) {
-      entries.forEach(entry => {
-        if (!entry.isIntersecting) {
-          return;
-        } else {
-          const delay = entry.target.classList.contains('course-card-1') ? '0s' :
-                        entry.target.classList.contains('course-card-2') ? '0.2s' :
-                        '0.4s';
-          entry.target.style.animation = `cardPop 0.6s ease-out forwards ${delay}`;
-          entry.target.style.opacity = '1';
-          cardAppearOnScroll.unobserve(entry.target);
-        }
-      });
-    }, cardOptions);
-
-    courseCards.forEach(card => {
-        card.style.opacity = '0';
-        cardAppearOnScroll.observe(card);
-    });
-
-
-    // Counter Animation for Trust Bar
-    const statNumbers = document.querySelectorAll('.stat-number');
-
-    const animateCounter = (entry) => {
-        if (entry.isIntersecting) {
-            const target = parseInt(entry.target.dataset.target);
-            let current = 0;
-            const increment = target / 200; // Adjust for speed
-
-            const updateCounter = () => {
-                if (current < target) {
-                    current += increment;
-                    entry.target.textContent = Math.ceil(current) + entry.target.textContent.slice(-1); // Keep last char (+ or %)
-                    requestAnimationFrame(updateCounter);
-                } else {
-                    entry.target.textContent = target + entry.target.textContent.slice(-1);
-                }
-            };
-            updateCounter();
-            counterObserver.unobserve(entry.target); // Stop observing once counted
-        }
-    };
-
-    const counterObserver = new IntersectionObserver((entries) => {
-        entries.forEach(animateCounter);
-    }, { threshold: 0.5 }); // Trigger when 50% in view
-
-    statNumbers.forEach(number => {
-        counterObserver.observe(number);
-    });
-
-</script>
-<script>
-  // Script for pre-filling form based on button click
-  document.addEventListener('DOMContentLoaded', () => {
-    const interestedCourseSelect = document.getElementById('course');
-    const prefillValue = sessionStorage.getItem('prefillCourse');
-
-    if (prefillValue && interestedCourseSelect) {
-      interestedCourseSelect.value = prefillValue;
-      sessionStorage.removeItem('prefillCourse'); // Clear it after use
-    }
-
-    // Attach click event listeners to demo buttons
-    const demoButtons = document.querySelectorAll('.demo-button');
-    demoButtons.forEach(button => {
-      button.addEventListener('click', (e) => {
-        const courseInterest = button.dataset.courseInterest; // Get value from data-course-interest attribute
-        if (courseInterest) {
-          sessionStorage.setItem('prefillCourse', courseInterest);
-        }
-      });
-    });
-  });
 </script>
 </body>
 </html>
