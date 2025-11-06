@@ -101,33 +101,37 @@
       <p class="text-xl">Unlock deep insights from your games, explore opening theory, and discover essential training materials.</p>
     </div>
   </section>
-
   <section id="analysis-tool" class="py-16 px-4 bg-gray-100 fade-in-content">
-    <div class="max-w-xl mx-auto text-center">
-      <h3 class="text-3xl font-bold text-indigo-700 mb-4">Deep Game Analysis Tool 🧠</h3>
-      <p class="text-gray-600 mb-6">Enter your Lichess username below for a quick evaluation of your latest games (5 games maximum).</p>
+  <div class="max-w-xl mx-auto text-center">
+    <h3 class="text-3xl font-bold text-indigo-700 mb-4">Deep Game Analysis Tool 🧠</h3>
+    <p class="text-gray-600 mb-6">Enter your Lichess username below for a quick evaluation of your latest games (5 games maximum).</p>
 
-      <div class="bg-white p-6 rounded-lg shadow-xl">
-        <div class="flex flex-col sm:flex-row gap-4 justify-center">
-          <input type="text" id="username-input" placeholder="Enter Lichess Username"
-                 class="w-full p-3 border-2 border-indigo-200 rounded-md focus:ring-2 focus:ring-indigo-500 transition" />
+    <div class="bg-white p-6 rounded-lg shadow-xl">
+        
+      <form id="analysis-form" class="flex flex-col gap-4" onsubmit="event.preventDefault(); handleAnalysis()">
+        
+        <label for="username-input" class="sr-only">Lichess Username</label>
+        <div class="flex flex-col sm:flex-row gap-3">
           
-          <select id="platform-select" class="p-3 border-2 border-indigo-200 rounded-md flex-shrink-0 hidden">
-            <option value="lichess">Lichess</option>
-            <option value="chesscom">Chess.com (Unavailable)</option>
-          </select>
-
-          <button id="analyze-button" class="bg-orange-500 text-white font-bold px-6 py-3 rounded-md hover:bg-orange-600 transition flex-shrink-0">
-            Analyze
+          <input type="text" 
+                 id="username-input" 
+                 placeholder="Enter Lichess Username"
+                 aria-label="Enter Lichess Username"
+                 class="w-full p-3 border-2 border-indigo-200 rounded-lg shadow-sm hover:border-indigo-400 focus:ring-2 focus:ring-indigo-500 transition duration-200" 
+                 required />
+          
+          <button type="submit" id="analyze-button" class="bg-orange-500 text-white font-bold px-8 py-3 rounded-lg shadow-md hover:bg-orange-600 transition flex-shrink-0">
+            Get Analysis
           </button>
         </div>
+      </form>
 
-        <div id="analysis-results" class="mt-8 text-left space-y-3">
-          <p class="text-gray-500" id="analysis-status">Ready for analysis...</p>
-        </div>
+      <div id="analysis-results" class="mt-8 pt-4 border-t border-gray-100 text-left space-y-3">
+        <p class="text-gray-500 text-sm" id="analysis-status">Ready for analysis. Data will be fetched from Lichess.</p>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
   <section id="openings-guide" class="py-16 px-4 bg-white fade-in-content">
     <div class="max-w-4xl mx-auto">
