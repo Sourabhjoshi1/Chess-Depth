@@ -6,6 +6,18 @@
   <meta name="google-adsense-account" content="ca-pub-1353516013773606">
   <title>ChessDepth Academy</title>
   
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link rel="canonical" href="https://www.chessdepth.in/">
+  <meta name="description" content="Elite chess lessons for all levels. Interactive coaching, tactical training, and tournament preparation at ChessDepth Academy.">
+  <meta property="og:title" content="ChessDepth Academy">
+  <meta property="og:description" content="Become a Grandmaster of your mind. Train with elite chess lessons.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.chessdepth.in/">
+  <meta property="og:image" content="https://www.chessdepth.in/og-image.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1353516013773606"
           crossorigin="anonymous"></script>
 
@@ -55,21 +67,21 @@
     /* Apply animations */
     .animate-gradient-shift {
       background-size: 200% 200%;
-      animation: gradientShift 18s ease infinite; /* Slower, more subtle */
+      animation: gradientShift 28s ease infinite; /* Slower, more subtle */
     }
 
     .animate-fade-in-up-1 {
-      animation: fadeInUp 0.9s ease-out forwards;
+      animation: fadeInUp 1.6s ease-out forwards;
       animation-delay: 0.2s;
       opacity: 0; /* Start invisible */
     }
     .animate-fade-in-up-2 {
-      animation: fadeInUp 0.9s ease-out forwards;
+      animation: fadeInUp 1.6s ease-out forwards;
       animation-delay: 0.4s;
       opacity: 0; /* Start invisible */
     }
     .animate-fade-in-up-3 {
-      animation: fadeInUp 0.9s ease-out forwards;
+      animation: fadeInUp 1.6s ease-out forwards;
       animation-delay: 0.6s;
       opacity: 0; /* Start invisible */
     }
@@ -86,11 +98,11 @@
     /* Header improvements (Sticky shadow) */
     .header-shadow-on-scroll {
         box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-        transition: box-shadow 0.3s ease-in-out;
+        transition: box-shadow 0.45s ease-in-out;
     }
     /* A subtle hover for nav links */
     .nav-link-hover-effect {
-        transition: all 0.2s ease-in-out;
+        transition: all 0.4s ease-in-out;
         position: relative;
     }
     .nav-link-hover-effect:after {
@@ -112,7 +124,7 @@
 
     /* Card hover effect */
     .course-card-hover {
-        transition: all 0.3s ease-in-out;
+        transition: all 0.6s ease-in-out;
     }
     .course-card-hover:hover {
         transform: translateY(-8px) scale(1.03); /* More pronounced lift */
@@ -141,7 +153,7 @@
 
     /* Specific styles for the "Explore Courses" button */
     .hero-button {
-        transition: all 0.3s ease-in-out;
+        transition: all 0.6s ease-in-out;
     }
     .hero-button:hover {
         background-color: #e0e7ff; /* lighter indigo */
@@ -157,7 +169,7 @@
         padding: 12px 32px; /* py-3 px-8 */
         border-radius: 9999px; /* rounded-full */
         box-shadow: 0 4px 6px rgba(0,0,0,0.1), 0 1px 3px rgba(0,0,0,0.08); /* shadow */
-        transition: all 0.3s ease-in-out;
+        transition: all 0.6s ease-in-out;
         display: inline-flex; /* for icon alignment */
         align-items: center;
         justify-content: center;
@@ -181,27 +193,77 @@
         color: #555;
         margin-top: 0.25rem;
     }
+    
+    /* Scroll progress bar */
+    #scroll-progress {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 4px;
+        width: 0;
+        z-index: 60;
+        background: linear-gradient(90deg, #4f46e5, #8b5cf6);
+        transition: width 0.6s ease-out;
+    }
+    
+    /* Floating WhatsApp button */
+    .whatsapp-float {
+        position: fixed;
+        right: 20px;
+        bottom: 20px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 56px;
+        height: 56px;
+        border-radius: 9999px;
+        background-color: #22c55e; /* green-500 */
+        color: white;
+        box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+        animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    }
+    .whatsapp-float:hover {
+        transform: translateY(-2px) scale(1.03);
+        box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1), 0 10px 10px -5px rgba(0,0,0,0.04);
+        background-color: #16a34a; /* green-600 */
+    }
+    @keyframes pulse {
+        0%, 100% { box-shadow: 0 0 0 0 rgba(34,197,94, 0.6); }
+        50% { box-shadow: 0 0 0 12px rgba(34,197,94, 0); }
+    }
+    
+    /* Native anchor offsets to account for sticky header */
+    [id] { scroll-margin-top: 90px; }
+    
+    /* Respect reduced motion preferences */
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+    }
   </style>
 </head>
 <body class="bg-gray-100 text-gray-800">
+  <div id="scroll-progress" aria-hidden="true"></div>
 
   <header class="bg-white shadow-md py-6 flex justify-between items-center sticky top-0 z-50 lg:py-4" id="main-header">
     <div class="max-w-7xl mx-auto flex justify-between items-center w-full px-4 lg:px-0">
       <a href="index.html" class="inline-block hover:opacity-80 transition-opacity duration-200">
         <h1 class="text-3xl font-bold text-indigo-700">♟️ ChessDepth</h1>
       </a>
-      <button id="menu-toggle" class="lg:hidden p-2 text-gray-700 hover:text-indigo-600 focus:outline-none">
+      <button id="menu-toggle" class="lg:hidden p-2 text-gray-700 hover:text-indigo-600 focus:outline-none" aria-controls="mobile-menu" aria-expanded="false" aria-label="Toggle navigation">
         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+          <path id="icon-hamburger" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+          <path id="icon-close" class="hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
         </svg>
       </button>
-      <nav id="main-nav" class="hidden lg:flex space-x-4">
+      <nav id="main-nav" role="navigation" aria-label="Primary" class="hidden lg:flex space-x-4">
         <a href="index.html" class="font-semibold text-indigo-700 underline underline-offset-4 decoration-2 nav-link-hover-effect">Home</a>
         <a href="about.html" class="text-gray-700 hover:text-indigo-600 nav-link-hover-effect">About</a>
         <a href="courses.html" class="text-gray-700 hover:text-indigo-600 nav-link-hover-effect">Courses</a>
         <a href="coaches.html" class="text-gray-700 hover:text-indigo-600 nav-link-hover-effect">Coaches</a>
         <a href="blog.html" class="text-gray-700 hover:text-indigo-600 nav-link-hover-effect">Blog</a>
         <a href="contact.html" class="text-gray-700 hover:text-indigo-600 nav-link-hover-effect">Contact</a> 
+        <a href="index.html#inquiry" class="text-gray-700 hover:text-indigo-600 nav-link-hover-effect">Inquiry</a>
         <a href="resources.html" class="text-gray-700 hover:text-indigo-600 nav-link-hover-effect">Resources</a>
         <a href="careers.html" class="text-gray-700 hover:text-indigo-600 nav-link-hover-effect">Careers</a>
       </nav>
@@ -215,6 +277,7 @@
         <a href="coaches.html" class="text-gray-700 hover:text-indigo-600">Coaches</a>
         <a href="blog.html" class="text-gray-700 hover:text-indigo-600">Blog</a>
         <a href="contact.html" class="text-gray-700 hover:text-indigo-600">Contact</a>
+        <a href="index.html#inquiry" class="text-gray-700 hover:text-indigo-600">Inquiry</a>
         <a href="resources.html" class="text-gray-700 hover:text-indigo-600">Resources</a>
         <a href="careers.html" class="text-gray-700 hover:text-indigo-600">Careers</a>
       </div>
@@ -229,7 +292,7 @@
       <p class="text-xl sm:text-2xl mb-8 animate-fade-in-up-2 opacity-90 leading-relaxed">Train with elite chess lessons. Whether you're a beginner or advanced, we’ve got something for you.</p>
       
       <div class="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-6 animate-fade-in-up-3">
-        <a href="https://wa.me/919660088773?text=Hi" target="_blank" rel="noopener noreferrer" class="demo-button">
+        <a href="https://wa.me/919660088773?text=Hi" target="_blank" rel="noopener noreferrer" class="demo-button" data-course-interest="beginner">
           <i class="fas fa-calendar-alt"></i> Book a Free Demo Class
         </a>
         <a href="#courses" class="bg-white text-indigo-600 font-semibold py-3 px-8 rounded-full shadow-lg hero-button">
@@ -238,6 +301,11 @@
       </div>
     </div>
   </section>
+
+  <!-- Floating WhatsApp chat button -->
+  <a href="https://wa.me/919660088773?text=Hi" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Chat with ChessDepth on WhatsApp" title="Chat with us on WhatsApp">
+    <i class="fab fa-whatsapp text-2xl"></i>
+  </a>
 
   <section id="about" class="py-16 px-4 fade-in-section">
     <div class="max-w-5xl mx-auto text-center">
@@ -289,19 +357,19 @@
       <h3 class="text-3xl font-bold mb-8 text-indigo-100">Our Achievements Speak Volumes</h3>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
         <div class="stat-item">
-          <div class="stat-number text-indigo-300" data-target="50">+</div>
+          <div class="stat-number text-indigo-900" data-target="50" data-suffix="+">0+</div>
           <p class="stat-label">Students Enrolled</p>
         </div>
         <div class="stat-item">
-          <div class="stat-number text-yellow-300" data-target="500">+</div>
+          <div class="stat-number text-indigo-900" data-target="500" data-suffix="+">0+</div>
           <p class="stat-label">Hours of Content</p>
         </div>
         <div class="stat-item">
-          <div class="stat-number text-teal-300" data-target="95">%</div>
+          <div class="stat-number text-indigo-900" data-target="95" data-suffix="%">0%</div>
           <p class="stat-label">Student Satisfaction</p>
         </div>
         <div class="stat-item">
-          <div class="stat-number text-purple-300" data-target="5">+</div>
+          <div class="stat-number text-indigo-900" data-target="5" data-suffix="+">0+</div>
           <p class="stat-label">FIDE Tutors</p>
         </div>
       </div>
@@ -358,7 +426,7 @@
 
         <div class="mb-4">
           <label class="block text-gray-700 text-sm font-bold mb-2" for="contactNumber">Contact Number</label>
-          <input type="tel" id="contactNumber" name="contactNumber" class="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition duration-200 ease-in-out" placeholder="Required" required/>
+          <input type="tel" id="contactNumber" name="contactNumber" pattern="^[0-9+\-\s()]{7,}$" inputmode="tel" class="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition duration-200 ease-in-out" placeholder="Required" required/>
         </div>
 
         <div class="mb-4">
@@ -381,7 +449,7 @@
         <button type="submit" class="w-full bg-indigo-600 text-white font-bold py-3 px-6 rounded-md hover:bg-indigo-700 transform hover:scale-105 transition duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Submit Inquiry</button>
       </form>
 
-      <div id="thankYouMessage" class="hidden bg-green-100 border-l-4 border-green-500 text-green-700 p-4 mt-8 rounded-md" role="alert">
+      <div id="thankYouMessage" class="hidden bg-green-100 border-l-4 border-green-500 text-green-700 p-4 mt-8 rounded-md" role="status" aria-live="polite">
           <p class="font-bold">Thank You!</p>
           <p>Your inquiry has been submitted successfully. We'll get back to you shortly.</p>
       </div>
@@ -403,6 +471,19 @@
 <script>
     // COMBINED SCRIPT BLOCK FOR ALL PAGE-SPECIFIC JS
     document.addEventListener('DOMContentLoaded', () => {
+        // --- Scroll progress bar ---
+        const progressBar = document.getElementById('scroll-progress');
+        const updateScrollProgress = () => {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop || 0;
+            const docHeight = Math.max(document.body.scrollHeight, document.documentElement.scrollHeight);
+            const winHeight = window.innerHeight;
+            const total = Math.max(1, docHeight - winHeight);
+            const percent = Math.min(100, Math.max(0, (scrollTop / total) * 100));
+            if (progressBar) progressBar.style.width = percent + '%';
+        };
+        updateScrollProgress();
+        window.addEventListener('scroll', updateScrollProgress, { passive: true });
+        window.addEventListener('resize', updateScrollProgress);
         // --- Smooth scroll for nav links ---
         document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -440,7 +521,7 @@
             if (!entry.isIntersecting) {
               return;
             } else {
-              entry.target.style.animation = `fadeIn 1s ease-out forwards`;
+              entry.target.style.animation = `fadeIn 1.6s ease-out forwards`;
               entry.target.style.opacity = '1';
               appearOnScroll.unobserve(entry.target);
             }
@@ -466,7 +547,7 @@
               const delay = entry.target.classList.contains('course-card-1') ? '0s' :
                             entry.target.classList.contains('course-card-2') ? '0.2s' :
                             '0.4s';
-              entry.target.style.animation = `cardPop 0.6s ease-out forwards ${delay}`;
+              entry.target.style.animation = `cardPop 1s ease-out forwards ${delay}`;
               entry.target.style.opacity = '1';
               cardAppearOnScroll.unobserve(entry.target);
             }
@@ -484,17 +565,19 @@
 
         const animateCounter = (entry) => {
             if (entry.isIntersecting) {
-                const target = parseInt(entry.target.dataset.target);
+                const target = parseInt(entry.target.dataset.target, 10);
+                const suffix = entry.target.dataset.suffix || '';
                 let current = 0;
-                const increment = target / 200; // Adjust for speed
+                const frames = 200;
+                const increment = Math.max(1, target / frames);
 
                 const updateCounter = () => {
                     if (current < target) {
-                        current += increment;
-                        entry.target.textContent = Math.ceil(current) + entry.target.textContent.slice(-1); // Keep last char (+ or %)
+                        current = Math.min(target, current + increment);
+                        entry.target.textContent = `${Math.ceil(current)}${suffix}`;
                         requestAnimationFrame(updateCounter);
                     } else {
-                        entry.target.textContent = target + entry.target.textContent.slice(-1);
+                        entry.target.textContent = `${target}${suffix}`;
                     }
                 };
                 updateCounter();
@@ -545,14 +628,17 @@
         const mobileMenu = document.getElementById('mobile-menu');
 
         if (menuToggle && mobileMenu) {
+            const iconHamburger = document.getElementById('icon-hamburger');
+            const iconClose = document.getElementById('icon-close');
+
             menuToggle.addEventListener('click', () => {
+                const isOpen = !mobileMenu.classList.contains('hidden');
                 mobileMenu.classList.toggle('hidden');
                 mobileMenu.classList.toggle('-translate-y-full');
-                const menuIcon = menuToggle.querySelector('svg');
-                if (!mobileMenu.classList.contains('hidden')) {
-                    menuIcon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>'; // X icon
-                } else {
-                    menuIcon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>'; // Hamburger icon
+                menuToggle.setAttribute('aria-expanded', String(!isOpen));
+                if (iconHamburger && iconClose) {
+                    iconHamburger.classList.toggle('hidden', !isOpen);
+                    iconClose.classList.toggle('hidden', isOpen);
                 }
             });
 
@@ -561,8 +647,11 @@
                 link.addEventListener('click', () => {
                     mobileMenu.classList.add('hidden');
                     mobileMenu.classList.add('-translate-y-full');
-                    // Reset icon back to hamburger
-                    menuToggle.querySelector('svg').innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>';
+                    menuToggle.setAttribute('aria-expanded', 'false');
+                    if (iconHamburger && iconClose) {
+                        iconHamburger.classList.remove('hidden');
+                        iconClose.classList.add('hidden');
+                    }
                 });
             });
         }
