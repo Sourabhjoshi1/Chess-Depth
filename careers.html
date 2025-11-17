@@ -68,28 +68,24 @@
 </head>
 <body class="bg-gray-100 text-gray-800">
 
-   <header class="bg-white shadow-md py-6 flex justify-between items-center sticky top-0 z-50 lg:py-4" id="main-header">
+    <header class="bg-white shadow-md py-6 flex justify-between items-center sticky top-0 z-50 lg:py-4" id="main-header">
   <div class="max-w-7xl mx-auto flex justify-between items-center w-full px-4 lg:px-0">
     <a href="index.html" class="inline-block hover:opacity-80 transition-opacity duration-200">
       <h1 class="text-3xl font-bold text-indigo-700">♟️ ChessDepth</h1>
     </a>
-
-    <button id="menu-toggle" class="lg:hidden p-2 text-gray-700 hover:text-indigo-600 focus:outline-none" aria-controls="mobile-menu" aria-expanded="false" aria-label="Toggle navigation">
+    <button id="menu-toggle" class="lg:hidden p-2 text-gray-700 hover:text-indigo-600 focus:outline-none">
       <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-        <path id="icon-hamburger" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
-        <path id="icon-close" class="hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
       </svg>
     </button>
-
-    <nav id="main-nav" role="navigation" aria-label="Primary" class="hidden lg:flex space-x-4">
+    <nav id="main-nav" class="hidden lg:flex space-x-4">
       <a href="index.html" class="text-gray-700 hover:text-indigo-600 nav-link-hover-effect">Home</a>
       <a href="about.html" class="text-gray-700 hover:text-indigo-600 nav-link-hover-effect">About</a>
       <a href="courses.html" class="text-gray-700 hover:text-indigo-600 nav-link-hover-effect">Courses</a>
       <a href="coaches.html" class="text-gray-700 hover:text-indigo-600 nav-link-hover-effect">Coaches</a>
-      <a href="resources.html#blog" class="text-gray-700 hover:text-indigo-600 nav-link-hover-effect">Blog</a>
       <a href="contact.html" class="text-gray-700 hover:text-indigo-600 nav-link-hover-effect">Contact</a> 
       <a href="resources.html" class="text-gray-700 hover:text-indigo-600 nav-link-hover-effect">Resources</a>
-      <a href="careers.html" class="font-semibold text-indigo-700 underline underline-offset-4 decoration-2 nav-link-hover-effect">Careers</a>
+      <a href="careers.html" class="text-gray-700 hover:text-indigo-600 nav-link-hover-effect">Careers</a>
     </nav>
   </div>
 
@@ -99,14 +95,13 @@
       <a href="about.html" class="text-gray-700 hover:text-indigo-600">About</a>
       <a href="courses.html" class="text-gray-700 hover:text-indigo-600">Courses</a>
       <a href="coaches.html" class="text-gray-700 hover:text-indigo-600">Coaches</a>
-      <a href="resources.html#blog" class="text-gray-700 hover:text-indigo-600">Blog</a>
       <a href="contact.html" class="text-gray-700 hover:text-indigo-600">Contact</a>
       <a href="resources.html" class="text-gray-700 hover:text-indigo-600">Resources</a>
       <a href="careers.html" class="text-gray-700 hover:text-indigo-600">Careers</a>
     </div>
   </div>
-     
 </header>
+  
 <script>
   document.addEventListener('DOMContentLoaded', () => {
     // Header shadow on scroll
