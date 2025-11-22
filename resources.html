@@ -10,12 +10,12 @@
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1353516013773606"
           crossorigin="anonymous"></script>
 
-  <script type="module" src="https://cdn.jsdelivr.net/npm/chessboard-element@1.19.5/dist/chessboard-element.js"></script>
-
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <link rel="icon" type="image/x-icon" href="https://github.com/Sourabhjoshi1/Chess-Depth/raw/main/favicon/favicon%20(4).ico">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  
+  <script type="module" src="https://cdn.jsdelivr.net/npm/chessboard-element@1.19.5/dist/chessboard-element.js"></script>
 
   <style>
     /* Custom CSS for consistent styling across pages */
@@ -307,35 +307,6 @@
     </div>
   </section>
 
-  <section id="resources-faq" class="py-16 px-4 bg-gray-100 fade-in-content">
-    <div class="max-w-4xl mx-auto">
-      <h3 class="text-3xl font-bold text-indigo-700 text-center mb-6">Resources FAQ</h3>
-      <div class="divide-y divide-gray-200 bg-white rounded-lg shadow">
-        <details class="p-6 group" aria-label="Is the analysis tool free?">
-          <summary class="cursor-pointer font-semibold text-gray-800 flex items-center justify-between">
-            Is the analysis tool free?
-            <span class="text-indigo-500 group-open:rotate-180 transform transition">▾</span>
-          </summary>
-          <p class="mt-3 text-gray-600">Yes. We fetch public data from Lichess for recent games. Private profiles or disabled history will not return results.</p>
-        </details>
-        <details class="p-6 group" aria-label="How accurate is the game summary?">
-          <summary class="cursor-pointer font-semibold text-gray-800 flex items-center justify-between">
-            How accurate is the game summary?
-            <span class="text-indigo-500 group-open:rotate-180 transform transition">▾</span>
-          </summary>
-          <p class="mt-3 text-gray-600">We provide a quick tally of wins/draws/losses. For deep engine evaluations, use the Lichess Study or Stockfish links above.</p>
-        </details>
-        <details class="p-6 group" aria-label="Which openings to start with?">
-          <summary class="cursor-pointer font-semibold text-gray-800 flex items-center justify-between">
-            Which openings should I start with?
-            <span class="text-indigo-500 group-open:rotate-180 transform transition">▾</span>
-          </summary>
-          <p class="mt-3 text-gray-600">Pick one main line for White and a solid response for Black against 1.e4 and 1.d4. Explore Ruy Lopez/Sicilian for tactics and Queen's Gambit/KID for strategy.</p>
-        </details>
-      </div>
-    </div>
-  </section>
-
   <footer class="bg-gray-800 text-white py-6 mt-10">
     <div class="max-w-5xl mx-auto text-center">
       <p>&copy; 2025 ChessDepth Academy. All rights reserved.</p>
@@ -356,10 +327,18 @@
         const resultsContainer = document.getElementById('analysis-results');
         const statusElement = document.getElementById('analysis-status');
         const prefillButton = document.getElementById('prefill-sample');
+        
+        // BOARD EDITOR CONTROLS
+        const boardEl = document.getElementById('play-board');
+        const fenInput = document.getElementById('fen-input');
+        const loadBtn = document.getElementById('load-fen');
+        const startBtn = document.getElementById('start-pos');
+        const clearBtn = document.getElementById('clear-board');
 
+        // --- PREFILL AND INPUT LOGIC ---
         if (prefillButton) {
             prefillButton.addEventListener('click', () => {
-                usernameInput.value = 'DrNykterstein'; // Sample Lichess user
+                usernameInput.value = 'DrNykterstein'; 
                 usernameInput.focus();
             });
         }
@@ -370,223 +349,6 @@
                 resultsContainer.innerHTML = '<p class="text-gray-500 text-sm" id="analysis-status">Ready for analysis. Data will be fetched from Lichess.</p>';
             });
         }
-
-        // Add Enter key submission
         if (usernameInput) {
             usernameInput.addEventListener('keypress', (e) => {
-                if (e.key === 'Enter') {
-                    e.preventDefault();
-                    handleAnalysis();
-                }
-            });
-        }
-
-        if (analyzeButton) {
-            analyzeButton.addEventListener('click', handleAnalysis);
-        }
-
-        async function handleAnalysis() {
-            const username = usernameInput.value.trim();
-            resultsContainer.innerHTML = '';
-            
-            if (!username) {
-                statusElement.textContent = "Please enter a username.";
-                return;
-            }
-
-            statusElement.textContent = `Analyzing ${username} on Lichess...`;
-            
-            const spinner = document.getElementById('loading-spinner');
-            const analyzeBtn = document.getElementById('analyze-button');
-            if (spinner) spinner.classList.remove('hidden');
-            if (analyzeBtn) analyzeBtn.setAttribute('disabled', 'true');
-
-            await fetchLichessData(username);
-
-            if (spinner) spinner.classList.add('hidden');
-            if (analyzeBtn) analyzeBtn.removeAttribute('disabled');
-        }
-
-        async function fetchLichessData(username) {
-            try {
-                // 1. Fetch User Profile and Ratings
-                const userResponse = await fetch(`https://lichess.org/api/user/${username}`);
-                if (!userResponse.ok) {
-                    statusElement.textContent = `Error: Lichess user '${username}' not found or profile is private.`;
-                    return;
-                }
-                const userData = await userResponse.json();
-
-                // 2. Fetch recent 5 games (requesting PGN and headers for simple parsing)
-                const gamesResponse = await fetch(`https://lichess.org/api/games/user/${username}?max=5&perfType=rapid,blitz,classical&rated=true&pgnInJson=false`);
-                
-                if (!gamesResponse.ok) {
-                    statusElement.textContent = "Error: Could not retrieve recent games for the provided Lichess username.";
-                    return;
-                }
-                
-                const gamesText = await gamesResponse.text();
-
-                // --- DATA PROCESSING ---
-                
-                const rapidRating = userData.perfs.rapid ? userData.perfs.rapid.rating : 'N/A';
-                const blitzRating = userData.perfs.blitz ? userData.perfs.blitz.rating : 'N/A';
-                const standardRating = userData.perfs.classical ? userData.perfs.classical.rating : 'N/A';
-                const rapidProg = userData.perfs.rapid ? userData.perfs.rapid.prog : 'N/A';
-                const blitzProg = userData.perfs.blitz ? userData.perfs.blitz.prog : 'N/A';
-                const standardProg = userData.perfs.classical ? userData.perfs.classical.prog : 'N/A';
-
-
-                const wins = (gamesText.match(/1-0/g) || []).length;
-                const draws = (gamesText.match(/1\/2-1\/2/g) || []).length;
-                const losses = (gamesText.match(/0-1/g) || []).length;
-
-                // --- HTML OUTPUT ---
-                
-                const ratingsEl = document.getElementById('ratings-summary');
-                const gamesEl = document.getElementById('games-summary');
-                
-                if (ratingsEl) {
-                    ratingsEl.classList.remove('hidden');
-                    ratingsEl.innerHTML = `
-                        <div class="p-4 bg-indigo-50 rounded-md border border-indigo-100">
-                          <div class="text-sm font-semibold text-indigo-700 mb-1">Standard</div>
-                          <div class="flex items-center gap-2"><span class="text-xl font-bold text-gray-900">${standardRating}</span><span class="text-xs px-2 py-0.5 rounded-full ${standardProg > 0 ? 'bg-green-100 text-green-700' : standardProg < 0 ? 'bg-red-100 text-red-700' : 'bg-gray-100 text-gray-700'}">${standardProg !== 'N/A' ? (standardProg > 0 ? '+' : '') + standardProg + ' pts' : 'n/a'}</span></div>
-                        </div>
-                        <div class="p-4 bg-indigo-50 rounded-md border border-indigo-100">
-                          <div class="text-sm font-semibold text-indigo-700 mb-1">Rapid</div>
-                          <div class="flex items-center gap-2"><span class="text-xl font-bold text-gray-900">${rapidRating}</span><span class="text-xs px-2 py-0.5 rounded-full ${rapidProg > 0 ? 'bg-green-100 text-green-700' : rapidProg < 0 ? 'bg-red-100 text-red-700' : 'bg-gray-100 text-gray-700'}">${rapidProg !== 'N/A' ? (rapidProg > 0 ? '+' : '') + rapidProg + ' pts' : 'n/a'}</span></div>
-                        </div>
-                        <div class="p-4 bg-indigo-50 rounded-md border border-indigo-100">
-                          <div class="text-sm font-semibold text-indigo-700 mb-1">Blitz</div>
-                          <div class="flex items-center gap-2"><span class="text-xl font-bold text-gray-900">${blitzRating}</span><span class="text-xs px-2 py-0.5 rounded-full ${blitzProg > 0 ? 'bg-green-100 text-green-700' : blitzProg < 0 ? 'bg-red-100 text-red-700' : 'bg-gray-100 text-gray-700'}">${blitzProg !== 'N/A' ? (blitzProg > 0 ? '+' : '') + blitzProg + ' pts' : 'n/a'}</span></div>
-                        </div>
-                    `;
-                }
-
-                if (gamesEl) {
-                    gamesEl.classList.remove('hidden');
-                    gamesEl.innerHTML = `
-                        <h4 class="text-xl font-semibold text-indigo-600 mb-2">Latest 5 Games Summary</h4>
-                        <div class="flex space-x-4 font-bold">
-                            <span class="text-green-600">Wins: ${wins}</span>
-                            <span class="text-yellow-600">Draws: ${draws}</span>
-                            <span class="text-red-600">Losses: ${losses}</span>
-                        </div>
-                    `;
-                }
-                
-                statusElement.textContent = "Analysis complete!";
-
-            } catch (error) {
-                console.error("Lichess API Error:", error);
-                statusElement.textContent = "A technical error occurred during analysis.";
-            }
-        }
-
-        // --- Other Common JS (Hamburger Menu Logic) ---
-        const menuToggle = document.getElementById('menu-toggle');
-        const mobileMenu = document.getElementById('mobile-menu');
-
-        if (menuToggle && mobileMenu) {
-            menuToggle.addEventListener('click', () => {
-                mobileMenu.classList.toggle('hidden');
-                mobileMenu.classList.toggle('-translate-y-full');
-                const iconHamburger = document.getElementById('icon-hamburger');
-                const iconClose = document.getElementById('icon-close');
-                
-                const isOpen = !mobileMenu.classList.contains('hidden');
-                
-                if (iconHamburger && iconClose) {
-                    iconHamburger.classList.toggle('hidden', isOpen);
-                    iconClose.classList.toggle('hidden', !isOpen);
-                }
-            });
-
-            const mobileLinks = mobileMenu.querySelectorAll('a');
-            mobileLinks.forEach(link => {
-                link.addEventListener('click', () => {
-                    mobileMenu.classList.add('hidden');
-                    mobileMenu.classList.add('-translate-y-full');
-                    
-                    const iconHamburger = document.getElementById('icon-hamburger');
-                    const iconClose = document.getElementById('icon-close');
-                    if (iconHamburger && iconClose) {
-                        iconHamburger.classList.remove('hidden');
-                        iconClose.classList.add('hidden');
-                    }
-                });
-            });
-        }
-
-        // --- Local board controls (for embedded chess-board element) ---
-        const boardEl = document.getElementById('play-board');
-        const fenInput = document.getElementById('fen-input');
-        const loadBtn = document.getElementById('load-fen');
-        const startBtn = document.getElementById('start-pos');
-        const clearBtn = document.getElementById('clear-board');
-
-        if (boardEl) {
-            if (startBtn) {
-                startBtn.addEventListener('click', () => {
-                    boardEl.setAttribute('position', 'start');
-                });
-            }
-            if (clearBtn) {
-                clearBtn.addEventListener('click', () => {
-                    boardEl.setAttribute('position', '8/8/8/8/8/8/8/8');
-                });
-            }
-            if (loadBtn && fenInput) {
-                loadBtn.addEventListener('click', () => {
-                    const fen = fenInput.value.trim();
-                    if (fen) {
-                        boardEl.setAttribute('position', fen);
-                    }
-                });
-            }
-        }
-        
-        // --- General JS for all pages (non-analysis specific) ---
-        
-        // Smooth scroll for nav links
-        document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href');
-                if (targetId.startsWith("#")) { 
-                    const targetElement = document.querySelector(targetId);
-                    if (targetElement) {
-                        const headerOffset = document.getElementById('main-header') ? document.getElementById('main-header').offsetHeight : 0;
-                        const subnav = document.querySelector('nav[aria-label="Resources Sections"]');
-                        const subnavHeight = subnav ? subnav.offsetHeight : 0;
-                        const offset = headerOffset + subnavHeight + 12; // Adjusted offset for main header + sticky subnav
-                        
-                        const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
-                        const offsetPosition = elementPosition - offset;
-
-                        window.scrollTo({
-                            top: Math.max(0, offsetPosition),
-                            behavior: "smooth"
-                        });
-                    }
-                } else {
-                    window.location.href = targetId; 
-                }
-            });
-        });
-
-        // Add/remove header shadow on scroll (if you want this on non-index pages too)
-        const header = document.getElementById('main-header');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
-                header.classList.add('shadow-xl');
-            } else {
-                header.classList.remove('shadow-xl');
-            }
-        });
-    }); 
-    // --- End All JS ---
-  </script>
-</body>
-</html>
+                if (e.key === 'Enter')
