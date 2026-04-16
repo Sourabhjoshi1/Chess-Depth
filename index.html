@@ -4,15 +4,15 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="google-adsense-account" content="ca-pub-1353516013773606">
-  <title>ChessDepth Academy</title>
+  <title>ChessDepth Academy | Elite Chess Coaching</title>
   
   <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
   <link rel="canonical" href="https://www.chessdepth.in/">
-  <meta name="description" content="Elite chess lessons for all levels. Interactive coaching, tactical training, and tournament preparation at ChessDepth Academy.">
-  <meta property="og:title" content="ChessDepth Academy">
-  <meta property="og:description" content="Become a Grandmaster of your mind. Train with elite chess lessons.">
+  <meta name="description" content="Elite chess lessons for all levels. Interactive coaching, tactical training, and tournament preparation at ChessDepth Academy. Summer Course starts May 1st!">
+  <meta property="og:title" content="ChessDepth Academy | Summer Course Now Live!">
+  <meta property="og:description" content="Become a Grandmaster of your mind. Our Summer Chess Course starts May 1st. Register now!">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.chessdepth.in/">
   <meta property="og:image" content="https://www.chessdepth.in/og-image.jpg">
@@ -28,224 +28,75 @@
   <link rel="icon" type="image/x-icon" href="https://github.com/Sourabhjoshi1/Chess-Depth/raw/main/favicon/favicon%20(4).ico">
 
   <style>
-    /* Custom CSS for subtle animations and enhancements */
-
-    /* Font Global Change (if Poppins is preferred) */
-    body {
-        font-family: 'Poppins', sans-serif;
-    }
+    /* Custom CSS */
+    body { font-family: 'Poppins', sans-serif; }
 
     /* Keyframe Animations */
-    @keyframes gradientShift {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
-
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    @keyframes cardPop {
-      from {
-        opacity: 0;
-        transform: scale(0.95);
-      }
-      to {
-        opacity: 1;
-        transform: scale(1);
-      }
-    }
+    @keyframes gradientShift { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+    @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes cardPop { from { opacity: 0; transform: scale(0.95); } to { opacity: 1; transform: scale(1); } }
+    @keyframes slideInDown { from { transform: translateY(-100%); } to { transform: translateY(0); } }
 
     /* Apply animations */
-    .animate-gradient-shift {
-      background-size: 200% 200%;
-      animation: gradientShift 28s ease infinite; /* Slower, more subtle */
-    }
-
-    .animate-fade-in-up-1 {
-      animation: fadeInUp 1.6s ease-out forwards;
-      animation-delay: 0.2s;
-      opacity: 0; /* Start invisible */
-    }
-    .animate-fade-in-up-2 {
-      animation: fadeInUp 1.6s ease-out forwards;
-      animation-delay: 0.4s;
-      opacity: 0; /* Start invisible */
-    }
-    .animate-fade-in-up-3 {
-      animation: fadeInUp 1.6s ease-out forwards;
-      animation-delay: 0.6s;
-      opacity: 0; /* Start invisible */
-    }
+    .animate-gradient-shift { background-size: 200% 200%; animation: gradientShift 28s ease infinite; }
+    .animate-fade-in-up-1 { animation: fadeInUp 1.6s ease-out forwards; animation-delay: 0.2s; opacity: 0; }
+    .animate-fade-in-up-2 { animation: fadeInUp 1.6s ease-out forwards; animation-delay: 0.4s; opacity: 0; }
+    .animate-fade-in-up-3 { animation: fadeInUp 1.6s ease-out forwards; animation-delay: 0.6s; opacity: 0; }
 
     /* General fade-in for sections */
-    .fade-in-section { 
-        opacity: 0;
-    }
-    @keyframes fadeIn {
-        from { opacity: 0; }
-        to { opacity: 1; }
-    }
+    .fade-in-section { opacity: 0; }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
-    /* Header improvements (Sticky shadow) */
-    .header-shadow-on-scroll {
-        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-        transition: box-shadow 0.45s ease-in-out;
-    }
-    /* A subtle hover for nav links */
-    .nav-link-hover-effect {
-        transition: all 0.4s ease-in-out;
-        position: relative;
-    }
-    .nav-link-hover-effect:after {
-        content: '';
-        position: absolute;
-        width: 0%;
-        height: 2px;
-        bottom: -5px;
-        left: 0;
-        background-color: #4f46e5; /* indigo-600 */
-        transition: width 0.3s ease-out;
-    }
-    .nav-link-hover-effect:hover:after {
-        width: 100%;
-    }
-    .nav-link-hover-effect:hover {
-        color: #4f46e5; /* indigo-600 */
-    }
+    /* Nav/Header enhancements */
+    .nav-link-hover-effect { transition: all 0.4s ease-in-out; position: relative; }
+    .nav-link-hover-effect:after { content: ''; position: absolute; width: 0%; height: 2px; bottom: -5px; left: 0; background-color: #4f46e5; transition: width 0.3s ease-out; }
+    .nav-link-hover-effect:hover:after { width: 100%; }
+    .nav-link-hover-effect:hover { color: #4f46e5; }
 
     /* Card hover effect */
-    .course-card-hover {
-        transition: all 0.6s ease-in-out;
-    }
-    .course-card-hover:hover {
-        transform: translateY(-8px) scale(1.03); /* More pronounced lift */
-        box-shadow: 0 15px 25px -5px rgba(0, 0, 0, 0.15), 0 6px 10px -3px rgba(0, 0, 0, 0.08); /* Stronger shadow */
-    }
+    .course-card-hover { transition: all 0.6s ease-in-out; }
+    .course-card-hover:hover { transform: translateY(-8px) scale(1.03); box-shadow: 0 15px 25px -5px rgba(0, 0, 0, 0.15), 0 6px 10px -3px rgba(0, 0, 0, 0.08); }
 
-    /* Hero Section Particle Overlay (Pure CSS) */
-    .hero-particles {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        overflow: hidden;
-        z-index: 0; /* Below content */
-        opacity: 0.1; /* Subtle */
-        background-image: radial-gradient(#fff 1px, transparent 1px);
-        background-size: 20px 20px;
-        animation: moveParticles 20s linear infinite;
-    }
+    /* Hero Particles */
+    .hero-particles { position: absolute; top: 0; left: 0; width: 100%; height: 100%; overflow: hidden; z-index: 0; opacity: 0.1; background-image: radial-gradient(#fff 1px, transparent 1px); background-size: 20px 20px; animation: moveParticles 20s linear infinite; }
+    @keyframes moveParticles { 0% { background-position: 0 0; } 100% { background-position: 200px 200px; } }
 
-    @keyframes moveParticles {
-        0% { background-position: 0 0; }
-        100% { background-position: 200px 200px; } /* Adjust for desired movement */
-    }
-
-    /* Specific styles for the "Explore Courses" button */
-    .hero-button {
-        transition: all 0.6s ease-in-out;
-    }
-    .hero-button:hover {
-        background-color: #e0e7ff; /* lighter indigo */
-        color: #3730a3; /* darker indigo */
-        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-    }
-
-    /* Styles for the Demo Class button */
-    .demo-button {
-        background-color: #f97316; /* Orange 500 */
-        color: white;
-        font-weight: 600;
-        padding: 12px 32px; /* py-3 px-8 */
-        border-radius: 9999px; /* rounded-full */
-        box-shadow: 0 4px 6px rgba(0,0,0,0.1), 0 1px 3px rgba(0,0,0,0.08); /* shadow */
-        transition: all 0.6s ease-in-out;
-        display: inline-flex; /* for icon alignment */
-        align-items: center;
-        justify-content: center;
-        gap: 0.5rem; /* space-x-2 */
-    }
-    .demo-button:hover {
-        background-color: #ea580c; /* Orange 600 */
-        transform: translateY(-2px) scale(1.02); /* slight lift and scale */
-        box-shadow: 0 10px 15px rgba(0,0,0,0.15), 0 4px 6px rgba(0,0,0,0.08); /* stronger shadow */
-    }
-
-
-    /* For the new stats section numbers */
-    .stat-number {
-        font-size: 2.5rem; /* Increased size */
-        font-weight: 700;
-        line-height: 1;
-    }
-    .stat-label {
-        font-size: 0.95rem;
-        color: #555;
-        margin-top: 0.25rem;
-    }
+    /* Button transitions */
+    .hero-button, .demo-button { transition: all 0.6s ease-in-out; }
+    .hero-button:hover { background-color: #e0e7ff; color: #3730a3; box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
     
-    /* Scroll progress bar */
-    #scroll-progress {
-        position: fixed;
-        top: 0;
-        left: 0;
-        height: 4px;
-        width: 0;
-        z-index: 60;
-        background: linear-gradient(90deg, #4f46e5, #8b5cf6);
-        transition: width 0.6s ease-out;
-    }
+    .demo-button { background-color: #f97316; color: white; display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; }
+    .demo-button:hover { background-color: #ea580c; transform: translateY(-2px) scale(1.02); box-shadow: 0 10px 15px rgba(0,0,0,0.15), 0 4px 6px rgba(0,0,0,0.08); }
+
+    /* Stats numbers */
+    .stat-number { font-size: 2.5rem; font-weight: 700; line-height: 1; }
+    
+    /* Sticky header adjustment for announcement bar */
+    .with-announcement #main-header { top: 40px; } /* Height of announcement bar */
     
     /* Floating WhatsApp button */
-    .whatsapp-float {
-        position: fixed;
-        right: 20px;
-        bottom: 20px;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        width: 56px;
-        height: 56px;
-        border-radius: 9999px;
-        background-color: #22c55e; /* green-500 */
-        color: white;
-        box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
-        transition: transform 0.2s ease, box-shadow 0.2s ease;
-        animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-    }
-    .whatsapp-float:hover {
-        transform: translateY(-2px) scale(1.03);
-        box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1), 0 10px 10px -5px rgba(0,0,0,0.04);
-        background-color: #16a34a; /* green-600 */
-    }
-    @keyframes pulse {
-        0%, 100% { box-shadow: 0 0 0 0 rgba(34,197,94, 0.6); }
-        50% { box-shadow: 0 0 0 12px rgba(34,197,94, 0); }
-    }
+    .whatsapp-float { position: fixed; right: 20px; bottom: 20px; display: inline-flex; align-items: center; justify-content: center; width: 56px; height: 56px; border-radius: 9999px; background-color: #22c55e; color: white; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); transition: transform 0.2s ease, box-shadow 0.2s ease; animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite; z-index: 40; }
+    .whatsapp-float:hover { transform: translateY(-2px) scale(1.03); box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1); background-color: #16a34a; }
+    @keyframes pulse { 0%, 100% { box-shadow: 0 0 0 0 rgba(34,197,94, 0.6); } 50% { box-shadow: 0 0 0 12px rgba(34,197,94, 0); } }
     
-    /* Native anchor offsets to account for sticky header */
-    [id] { scroll-margin-top: 90px; }
+    /* Native anchor offsets */
+    [id] { scroll-margin-top: 100px; }
     
-    /* Respect reduced motion preferences */
-    @media (prefers-reduced-motion: reduce) {
-      * { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
-    }
+    @media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; scroll-behavior: auto !important; } }
   </style>
 </head>
-<body class="bg-gray-100 text-gray-800">
-  <div id="scroll-progress" aria-hidden="true"></div>
+<body class="bg-gray-100 text-gray-800 with-announcement">
 
-  <header class="bg-white shadow-md py-6 flex justify-between items-center sticky top-0 z-50 lg:py-4" id="main-header">
+  <div id="announcement-bar" class="bg-orange-600 text-white py-2 px-4 text-center fixed top-0 left-0 w-full z-50 shadow-md flex justify-between items-center animate-slideInDown" role="alert">
+    <div class="flex-grow text-sm sm:text-base font-semibold">
+      ☀️ <span class="uppercase tracking-wide">Summer Chess Course:</span> Live from 1st May! <a href="courses.html#summer-course" class="underline hover:text-orange-100 transition-colors ml-1">Register Now &rarr;</a>
+    </div>
+    <button id="close-announcement" class="text-white hover:text-orange-200 focus:outline-none ml-2 p-1" aria-label="Close announcement">
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+    </button>
+  </div>
+
+  <header class="bg-white shadow-md py-6 flex justify-between items-center sticky top-0 z-40 lg:py-4 transition-all duration-300" id="main-header">
     <div class="max-w-7xl mx-auto flex justify-between items-center w-full px-4 lg:px-0">
       <a href="index.html" class="inline-block hover:opacity-80 transition-opacity duration-200">
         <h1 class="text-3xl font-bold text-indigo-700">♟️ ChessDepth</h1>
@@ -257,25 +108,25 @@
         </svg>
       </button>
       <nav id="main-nav" role="navigation" aria-label="Primary" class="hidden lg:flex space-x-4">
-        <a href="index" class="font-semibold text-indigo-700 underline underline-offset-4 decoration-2 nav-link-hover-effect">Home</a>
-        <a href="about" class="text-gray-700 hover:text-indigo-600 nav-link-hover-effect">About</a>
-        <a href="courses" class="text-gray-700 hover:text-indigo-600 nav-link-hover-effect">Courses</a>
-        <a href="coaches" class="text-gray-700 hover:text-indigo-600 nav-link-hover-effect">Coaches</a>
-        <a href="contact" class="text-gray-700 hover:text-indigo-600 nav-link-hover-effect">Contact</a> 
-        <a href="resources" class="text-gray-700 hover:text-indigo-600 nav-link-hover-effect">Resources</a>
-        <a href="careers" class="text-gray-700 hover:text-indigo-600 nav-link-hover-effect">Careers</a>
+        <a href="index.html" class="font-semibold text-indigo-700 underline underline-offset-4 decoration-2 nav-link-hover-effect">Home</a>
+        <a href="about.html" class="text-gray-700 hover:text-indigo-600 nav-link-hover-effect">About</a>
+        <a href="courses.html" class="text-gray-700 hover:text-indigo-600 nav-link-hover-effect">Courses</a>
+        <a href="coaches.html" class="text-gray-700 hover:text-indigo-600 nav-link-hover-effect">Coaches</a>
+        <a href="contact.html" class="text-gray-700 hover:text-indigo-600 nav-link-hover-effect">Contact</a> 
+        <a href="resources.html" class="text-gray-700 hover:text-indigo-600 nav-link-hover-effect">Resources</a>
+        <a href="careers.html" class="text-gray-700 hover:text-indigo-600 nav-link-hover-effect">Careers</a>
       </nav>
     </div>
 
     <div id="mobile-menu" class="hidden lg:hidden absolute top-full left-0 w-full bg-white shadow-lg py-4 transition-all duration-300 transform -translate-y-full">
       <div class="flex flex-col items-center space-y-4">
-        <a href="index" class="text-gray-700 hover:text-indigo-600">Home</a>
-        <a href="about" class="text-gray-700 hover:text-indigo-600">About</a>
-        <a href="courses" class="text-gray-700 hover:text-indigo-600">Courses</a>
-        <a href="coaches" class="text-gray-700 hover:text-indigo-600">Coaches</a>
-        <a href="contact" class="text-gray-700 hover:text-indigo-600">Contact</a>
-        <a href="resources" class="text-gray-700 hover:text-indigo-600">Resources</a>
-        <a href="careers" class="text-gray-700 hover:text-indigo-600">Careers</a>
+        <a href="index.html" class="text-indigo-700 font-semibold">Home</a>
+        <a href="about.html" class="text-gray-700 hover:text-indigo-600">About</a>
+        <a href="courses.html" class="text-gray-700 hover:text-indigo-600">Courses</a>
+        <a href="coaches.html" class="text-gray-700 hover:text-indigo-600">Coaches</a>
+        <a href="contact.html" class="text-gray-700 hover:text-indigo-600">Contact</a>
+        <a href="resources.html" class="text-gray-700 hover:text-indigo-600">Resources</a>
+        <a href="careers.html" class="text-gray-700 hover:text-indigo-600">Careers</a>
       </div>
     </div>
   </header>
@@ -285,20 +136,19 @@
 
     <div class="max-w-4xl mx-auto text-center relative z-10">
       <h2 class="text-4xl sm:text-5xl md:text-6xl font-extrabold mb-4 animate-fade-in-up-1 tracking-tight leading-tight">Become a Grandmaster of Your Mind</h2>
-      <p class="text-xl sm:text-2xl mb-8 animate-fade-in-up-2 opacity-90 leading-relaxed">Train with elite chess lessons. Whether you're a beginner or advanced, we’ve got something for you.</p>
+      <p class="text-xl sm:text-2xl mb-8 animate-fade-in-up-2 opacity-90 leading-relaxed">Train with elite chess lessons. From beginners to advanced, our FIDE coaches guide your journey.</p>
       
       <div class="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-6 animate-fade-in-up-3">
-        <a href="https://wa.me/919660088773?text=Hi" target="_blank" rel="noopener noreferrer" class="demo-button" data-course-interest="beginner">
+        <a href="https://wa.me/919660088773?text=Hi%20I%20am%20interested%20in%20a%20free%20demo%20class" target="_blank" rel="noopener noreferrer" class="demo-button shadow-lg rounded-full py-3 px-8 font-semibold">
           <i class="fas fa-calendar-alt"></i> Book a Free Demo Class
         </a>
-        <a href="#courses" class="bg-white text-indigo-600 font-semibold py-3 px-8 rounded-full shadow-lg hero-button">
-          Explore Courses
+        <a href="courses.html#summer-course" class="bg-white text-indigo-600 font-semibold py-3 px-8 rounded-full shadow-lg hero-button">
+          Explore Summer Course ☀️
         </a>
       </div>
     </div>
   </section>
 
-  <!-- Floating WhatsApp chat button -->
   <a href="https://wa.me/919660088773?text=Hello%2C%20I%20would%20like%20a%20demo%20class" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Chat with ChessDepth on WhatsApp" title="Chat with us on WhatsApp">
     <i class="fab fa-whatsapp text-2xl"></i>
   </a>
@@ -437,7 +287,7 @@
             <option value="intermediate">Intermediate</option>
             <option value="advanced">Advanced</option>
             <option value="tournament-preparation">Tournament Preparation</option>
-            <option value="summer-course">Summer Course</option>
+            <option value="summer-course">Summer Course ☀️</option>
             <option value="other">Not sure / Other</option>
           </select>
         </div>
@@ -467,29 +317,45 @@
 <script>
     // COMBINED SCRIPT BLOCK FOR ALL PAGE-SPECIFIC JS
     document.addEventListener('DOMContentLoaded', () => {
-        // --- Scroll progress bar ---
-        const progressBar = document.getElementById('scroll-progress');
-        const updateScrollProgress = () => {
-            const scrollTop = window.pageYOffset || document.documentElement.scrollTop || 0;
-            const docHeight = Math.max(document.body.scrollHeight, document.documentElement.scrollHeight);
-            const winHeight = window.innerHeight;
-            const total = Math.max(1, docHeight - winHeight);
-            const percent = Math.min(100, Math.max(0, (scrollTop / total) * 100));
-            if (progressBar) progressBar.style.width = percent + '%';
-        };
-        updateScrollProgress();
-        window.addEventListener('scroll', updateScrollProgress, { passive: true });
-        window.addEventListener('resize', updateScrollProgress);
+        // --- Announcement Bar Logic ---
+        const announcementBar = document.getElementById('announcement-bar');
+        const closeAnnouncement = document.getElementById('close-announcement');
+        const body = document.body;
+        const mainHeader = document.getElementById('main-header');
+
+        // Check if user previously closed the announcement
+        if (localStorage.getItem('chessDepthSummerAnnouncementClosed') === 'true') {
+            if (announcementBar) announcementBar.classList.add('hidden');
+            body.classList.remove('with-announcement');
+            if (mainHeader) mainHeader.style.top = '0';
+        }
+
+        if (closeAnnouncement && announcementBar) {
+            closeAnnouncement.addEventListener('click', () => {
+                announcementBar.classList.add('hidden');
+                body.classList.remove('with-announcement');
+                if (mainHeader) mainHeader.style.top = '0';
+                // Remember user preference
+                localStorage.setItem('chessDepthSummerAnnouncementClosed', 'true');
+            });
+        }
+
         // --- Smooth scroll for nav links ---
-        document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
+        document.querySelectorAll('nav a[href^="#"], .hero-button').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
-                e.preventDefault();
                 const targetId = this.getAttribute('href');
-                // Check if it's an internal anchor or an external page link
+                
+                // Only handle internal anchors
                 if (targetId.startsWith("#")) { 
+                    e.preventDefault();
                     const targetElement = document.querySelector(targetId);
                     if (targetElement) {
-                        const headerOffset = document.getElementById('main-header') ? document.getElementById('main-header').offsetHeight : 0;
+                        // Dynamic offset calculation based on announcement bar visibility
+                        let headerOffset = mainHeader ? mainHeader.offsetHeight : 0;
+                        if (body.classList.contains('with-announcement') && announcementBar && !announcementBar.classList.contains('hidden')) {
+                            headerOffset += announcementBar.offsetHeight;
+                        }
+
                         const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
                         const offsetPosition = elementPosition - headerOffset - 20; // Added 20px padding
 
@@ -498,9 +364,6 @@
                             behavior: "smooth"
                         });
                     }
-                } else {
-                    // For external page links (like contact.html), allow default navigation
-                    window.location.href = targetId; 
                 }
             });
         });
@@ -589,33 +452,14 @@
             counterObserver.observe(number);
         });
 
-        // --- Script for pre-filling form based on button click ---
-        const interestedCourseSelect = document.getElementById('course');
-        const prefillValue = sessionStorage.getItem('prefillCourse');
-
-        if (interestedCourseSelect && prefillValue) {
-          interestedCourseSelect.value = prefillValue;
-          sessionStorage.removeItem('prefillCourse');
-        }
-
-        // Attach click event listeners to demo buttons
-        const demoButtons = document.querySelectorAll('.demo-button');
-        demoButtons.forEach(button => {
-          button.addEventListener('click', (e) => {
-            const courseInterest = button.dataset.courseInterest;
-            if (courseInterest) {
-              sessionStorage.setItem('prefillCourse', courseInterest);
-            }
-          });
-        });
-        
         // --- Add/remove header shadow on scroll ---
-        const header = document.getElementById('main-header');
         window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
-                header.classList.add('shadow-xl');
-            } else {
-                header.classList.remove('shadow-xl');
+            if (mainHeader) {
+                if (window.scrollY > 50) {
+                    mainHeader.classList.add('shadow-xl');
+                } else {
+                    mainHeader.classList.remove('shadow-xl');
+                }
             }
         });
         
@@ -677,11 +521,11 @@
                 // Form submission successful
                 form.classList.add('hidden'); // Hide the form
                 const thankYouMessage = document.getElementById('thankYouMessage');
-                thankYouMessage.classList.remove('hidden'); // Show thank you message
+                if (thankYouMessage) thankYouMessage.classList.remove('hidden'); // Show thank you message
 
                 // Optional: Hide thank you message and show form again after a few seconds
                 setTimeout(() => {
-                    thankYouMessage.classList.add('hidden');
+                    if (thankYouMessage) thankYouMessage.classList.add('hidden');
                     form.classList.remove('hidden');
                     form.reset(); // Clear the form
                 }, 5000); // Hide after 5 seconds
@@ -696,7 +540,4 @@
     }
 </script>
 </body>
-
 </html>
-
-
