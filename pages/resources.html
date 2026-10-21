@@ -61,7 +61,7 @@ head_scripts:
       </div>
       <div class="grid md:grid-cols-2 lg:grid-cols-5 gap-5">
         <div class="rs-card rs-level p-5" style="--lv:#10b981">
-          <p class="text-xs font-bold text-green-600 uppercase">Stage 1 · New to chess</p>
+          <p class="text-xs font-bold text-green-700 uppercase">Stage 1 · New to chess</p>
           <p class="text-lg font-bold mt-1 mb-3">0 – 800</p>
           <ul class="rs-list"><li>How the pieces move, special rules</li><li>Basic mates: queen and rook vs king</li><li>Don't leave pieces undefended</li><li>Opening principles</li></ul>
           <p class="rs-focus">Focus: safety of your pieces</p>
@@ -79,7 +79,7 @@ head_scripts:
           <p class="rs-focus">Focus: calculation and plans</p>
         </div>
         <div class="rs-card rs-level p-5" style="--lv:#f59e0b">
-          <p class="text-xs font-bold text-yellow-600 uppercase">Stage 4 · Club player</p>
+          <p class="text-xs font-bold text-yellow-700 uppercase">Stage 4 · Club player</p>
           <p class="text-lg font-bold mt-1 mb-3">1600 – 2000</p>
           <ul class="rs-list"><li>Pawn structures and typical plans</li><li>A deeper opening repertoire</li><li>Practical rook endgames</li><li>Time management, tournament play</li></ul>
           <p class="rs-focus">Focus: strategy and endgames</p>
@@ -270,7 +270,7 @@ head_scripts:
           </tbody>
         </table>
       </div>
-      <p class="text-sm text-gray-500 text-center mt-4">ChessDepth students get a personal plan from their coach, adjusted after every quiz.</p>
+      <p class="text-sm text-gray-600 text-center mt-4">ChessDepth students get a personal plan from their coach, adjusted after every quiz.</p>
     </div>
   </section>
 
@@ -343,7 +343,7 @@ head_scripts:
           <p class="text-xs font-bold text-indigo-600 uppercase">{{ p.category }}</p>
           <p class="font-bold text-lg text-gray-900 mt-2 leading-snug">{{ p.title }}</p>
           <p class="text-sm text-gray-600 mt-2">{{ p.description }}</p>
-          <p class="text-xs text-gray-400 mt-4">{{ p.date | date: "%-d %b %Y" }}</p>
+          <p class="text-xs text-gray-500 mt-4">{{ p.date | date: "%-d %b %Y" }}</p>
         </a>
         {%- endfor %}
       </div>

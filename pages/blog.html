@@ -21,7 +21,7 @@ page_css: blog
       {%- endfor %}
     </div>
 
-    {%- assign colors = "Tactics:#f59e0b,Strategy:#3b82f6,Openings:#10b981,Endgames:#ef4444,Training:#8b5cf6,Psychology:#ec4899,Parents:#14b8a6" | split: "," -%}
+    {%- assign colors = "Tactics:#b45309,Strategy:#1d4ed8,Openings:#047857,Endgames:#b91c1c,Training:#6d28d9,Psychology:#be185d,Parents:#0f766e" | split: "," -%}
     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6" id="post-grid">
       {%- for p in site.posts %}
       {%- assign color = "#6366f1" %}{% for pair in colors %}{% assign kv = pair | split: ":" %}{% if kv[0] == p.category %}{% assign color = kv[1] %}{% endif %}{% endfor %}
@@ -32,7 +32,7 @@ page_css: blog
           <p class="text-xs font-bold uppercase tracking-wide mb-2" style="color: {{ color }}">{{ p.category }}</p>
           <h2 class="text-xl font-bold text-gray-900 leading-snug mb-3">{{ p.title }}</h2>
           <p class="text-gray-600 text-sm flex-grow">{{ p.description }}</p>
-          <p class="text-xs text-gray-400 mt-5">{{ p.date | date: "%-d %b %Y" }} · {{ minutes }} min read{% if p.level %} · {{ p.level }}{% endif %}</p>
+          <p class="text-xs text-gray-500 mt-5">{{ p.date | date: "%-d %b %Y" }} · {{ minutes }} min read{% if p.level %} · {{ p.level }}{% endif %}</p>
         </div>
       </a>
       {%- endfor %}

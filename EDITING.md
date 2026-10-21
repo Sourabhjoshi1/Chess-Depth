@@ -67,3 +67,13 @@ Posts dated in the future stay hidden until that date.
 **Chess diagrams:** put an SVG board in `assets/images/blog/` and add
 `{% include board.html img="file-name-without-.svg" caption="White to move." %}`.
 **Hidden answers:** `{% include answer.html text="**1.Nd6+!** wins the queen." %}`
+
+## SEO and analytics
+- **Page title and Google description:** the `title:` and `description:` lines at the top of each page or post.
+  Keep titles under about 60 characters and descriptions under about 155.
+- **Google Analytics:** paste your GA4 Measurement ID (G-XXXXXXXXXX) into `google_analytics` in `_config.yml`.
+- **Google Search Console:** paste the HTML-tag verification code into `google_site_verification` in `_config.yml`.
+- **Structured data** (what Google reads about the academy, courses, articles and breadcrumbs) is in `_includes/schema.html`.
+  The course list for Google is in `_data/courses.yml`; keep it in step with the Courses page.
+- **Styles:** the site uses a trimmed Tailwind CSS that is rebuilt automatically on every deploy
+  (see `tailwind.config.js` and `.github/workflows/jekyll-gh-pages.yml`). Any Tailwind class you add to a page is picked up automatically.
