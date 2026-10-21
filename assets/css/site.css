@@ -1,7 +1,7 @@
 /* ChessDepth Academy - shared styles (header, footer, WhatsApp button, form messages) */
 body { font-family: 'Poppins', sans-serif; }
-.cd-demo-btn { background: #f97316; color: #fff; font-weight: 600; border-radius: 9999px; padding: .5rem 1.1rem; transition: background .2s ease; white-space: nowrap; }
-.cd-demo-btn:hover { background: #ea580c; color: #fff; }
+.cd-demo-btn { background: #c2410c; color: #fff; font-weight: 600; border-radius: 9999px; padding: .5rem 1.1rem; transition: background .2s ease; white-space: nowrap; }
+.cd-demo-btn:hover { background: #9a3412; color: #fff; }
 .whatsapp-float { position: fixed; right: 20px; bottom: 20px; z-index: 40; display: inline-flex; align-items: center; justify-content: center; width: 56px; height: 56px; border-radius: 9999px; background: #22c55e; color: #fff; box-shadow: 0 10px 15px -3px rgba(0,0,0,.15); transition: transform .2s ease, background .2s ease; }
 .whatsapp-float:hover { transform: translateY(-2px) scale(1.04); background: #16a34a; color: #fff; }
 .cd-footer a { color: #d1d5db; transition: color .2s ease; }
@@ -13,9 +13,9 @@ body { font-family: 'Poppins', sans-serif; }
 @media (prefers-reduced-motion: reduce) { .whatsapp-float { transition: none; } }
 /* Orange colours used across the site (not included in Tailwind 2's default palette) */
 .bg-orange-100 { background-color: #ffedd5; }
-.bg-orange-500 { background-color: #f97316; }
-.hover\:bg-orange-600:hover { background-color: #ea580c; }
-.text-orange-600 { color: #ea580c; }
+.bg-orange-500 { background-color: #c2410c; }
+.hover\:bg-orange-600:hover { background-color: #9a3412; }
+.text-orange-600 { color: #9a3412; }
 .text-orange-700 { color: #c2410c; }
 .text-orange-800 { color: #9a3412; }
 .hover\:text-orange-800:hover { color: #9a3412; }

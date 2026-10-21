@@ -12,7 +12,7 @@
     {"@type":"WebSite","@id":"{{ site.url }}/#website","url":"{{ site.url }}/","name":"{{ site.title }}","publisher":{"@id":"{{ org_id }}"},"inLanguage":"en"}
   ]}
   </script>
-{%- else %}
+{%- elsif page.noindex != true %}
   {%- assign crumb_title = page.crumb | default: page.title | split: " | " | first %}
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
