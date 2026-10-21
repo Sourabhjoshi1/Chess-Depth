@@ -1,48 +1,15 @@
-/* Styles used only on the about page */
-body {
-        font-family: 'Poppins', sans-serif;
-    }
-    .profile-link:hover .fa-brands,
-    .profile-link:hover .fa-solid {
-        transform: scale(1.1);
-        color: #4f46e5; /* indigo-600 */
-        transition: transform 0.2s ease-in-out, color 0.2s ease-in-out;
-    }
-
-    /* New CSS for content fade-in */
-    .fade-in-content {
-        opacity: 0;
-        animation: fadeIn 1s ease-out forwards; /* 1 second duration */
-        animation-delay: 0.2s; /* Slight delay after page load */
-    }
-
-    @keyframes fadeIn {
-        from { opacity: 0; }
-        to { opacity: 1; }
-    }
-
-    /* Navbar Link Hover Effect (from previous iterations, ensure consistency) */
-    .nav-link-hover-effect {
-        transition: all 0.2s ease-in-out;
-        position: relative;
-    }
-    .nav-link-hover-effect:after {
-        content: '';
-        position: absolute;
-        width: 0%;
-        height: 2px;
-        bottom: -5px;
-        left: 0;
-        background-color: #4f46e5; /* indigo-600 */
-        transition: width 0.3s ease-out;
-    }
-    .nav-link-hover-effect:hover:after {
-        width: 100%;
-    }
-    .nav-link-hover-effect:hover {
-        color: #4f46e5; /* indigo-600 */
-    }
-    /* Pricing card specific styling */
-    .pricing-card {
-        border-top: 4px solid #4f46e5; /* Indigo accent border */
-    }
+/* Styles used only on the About page */
+.ab-hero { background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%); }
+.ab-hero.ab-board { background-image: linear-gradient(45deg, rgba(255,255,255,.06) 25%, transparent 25%, transparent 75%, rgba(255,255,255,.06) 75%), linear-gradient(45deg, rgba(255,255,255,.06) 25%, transparent 25%, transparent 75%, rgba(255,255,255,.06) 75%), linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%); background-size: 48px 48px, 48px 48px, auto; background-position: 0 0, 24px 24px, 0 0; }
+.ab-eyebrow { letter-spacing: .14em; font-size: .75rem; font-weight: 700; text-transform: uppercase; color: #6366f1; }
+.ab-card { background: #fff; border-radius: .75rem; box-shadow: 0 1px 3px rgba(0,0,0,.08); }
+.ab-step-num { width: 2.5rem; height: 2.5rem; border-radius: 9999px; background: #4f46e5; color: #fff; display: inline-flex; align-items: center; justify-content: center; font-weight: 700; }
+.ab-steps { counter-reset: step; }
+@media (min-width: 768px) { .ab-step { position: relative; } .ab-step:not(:last-child):after { content: ''; position: absolute; top: 1.25rem; left: calc(50% + 1.5rem); width: calc(100% - 3rem); height: 2px; background: #c7d2fe; } }
+.ab-level { border-left: 4px solid var(--lv, #4f46e5); }
+.ab-quote:before { content: '\201C'; font-size: 4rem; line-height: 1; color: #c7d2fe; position: absolute; top: .25rem; left: 1rem; font-family: Georgia, serif; }
+.ab-goal-status { font-size: .7rem; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; border-radius: 9999px; padding: .2rem .6rem; }
+details.ab-faq summary { cursor: pointer; list-style: none; }
+details.ab-faq summary::-webkit-details-marker { display: none; }
+details.ab-faq summary:after { content: '+'; float: right; font-weight: 700; color: #6366f1; }
+details.ab-faq[open] summary:after { content: '\2212'; }

@@ -1,0 +1,9 @@
+# Student & parent reviews shown on the About page.
+# Add real reviews only (with the person's permission). Copy a block and edit it.
+# Fields: name, detail (city / level / "Parent of ..."), quote. "since" is optional.
+- name: Shiven Chimnani
+  detail: Mumbai, India · Advanced Student
+  quote: >-
+    ChessDepth Academy transformed my understanding of the game. I didn't just learn
+    moves; I learned to think strategically and patiently. Highly recommended for anyone
+    serious about improving!
