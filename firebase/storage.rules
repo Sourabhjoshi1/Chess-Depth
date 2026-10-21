@@ -1,0 +1,12 @@
+rules_version = '2';
+// ChessDepth Academy - who can read files in Firebase Storage.
+// Any signed-in student can list and download PDFs inside "materials/".
+// Nobody can upload or delete from the website; you upload from the Firebase console.
+service firebase.storage {
+  match /b/{bucket}/o {
+    match /materials/{allPaths=**} {
+      allow read: if request.auth != null;
+      allow write: if false;
+    }
+  }
+}
