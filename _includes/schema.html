@@ -1,0 +1,44 @@
+{%- comment -%} Structured data (JSON-LD) that helps Google understand each page. {%- endcomment -%}
+{%- assign org_id = site.url | append: '/#organization' -%}
+{%- if page.url == "/" %}
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@graph":[
+    {"@type":"EducationalOrganization","@id":"{{ org_id }}","name":"{{ site.title }}","url":"{{ site.url }}/",
+     "logo":"{{ '/assets/images/icon-512.png' | absolute_url }}","image":"{{ '/assets/images/og-image.jpg' | absolute_url }}",
+     "description":{{ site.description | jsonify }},"telephone":"+{{ site.contact.phone_intl }}","email":"{{ site.contact.email }}",
+     "address":{"@type":"PostalAddress","addressLocality":"Bhopal","addressRegion":"Madhya Pradesh","addressCountry":"IN"},
+     "areaServed":"Worldwide","founder":{"@type":"Person","name":"Sourabh Joshi"},
+     "sameAs":["{{ site.contact.instagram }}","{{ site.contact.facebook }}"]},
+    {"@type":"WebSite","@id":"{{ site.url }}/#website","url":"{{ site.url }}/","name":"{{ site.title }}","publisher":{"@id":"{{ org_id }}"},"inLanguage":"en"}
+  ]}
+  </script>
+{%- else %}
+  {%- assign crumb_title = page.crumb | default: page.title | split: " | " | first %}
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+    {"@type":"ListItem","position":1,"name":"Home","item":"{{ site.url }}/"}
+    {%- if page.layout == "post" %},{"@type":"ListItem","position":2,"name":"Blog","item":"{{ '/blog/' | absolute_url }}"},{"@type":"ListItem","position":3,"name":{{ crumb_title | jsonify }},"item":"{{ page.url | absolute_url }}"}
+    {%- else %},{"@type":"ListItem","position":2,"name":{{ crumb_title | jsonify }},"item":"{{ page.url | absolute_url }}"}{% endif %}
+  ]}
+  </script>
+{%- endif %}
+{%- if page.layout == "post" %}
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"BlogPosting","headline":{{ page.title | jsonify }},"description":{{ page.description | jsonify }},
+   "datePublished":"{{ page.date | date_to_xmlschema }}","dateModified":"{{ page.last_modified_at | default: page.date | date_to_xmlschema }}",
+   "author":{"@type":"Organization","name":{{ page.author | default: site.title | jsonify }},"url":"{{ site.url }}/about/"},
+   "publisher":{"@type":"Organization","name":"{{ site.title }}","logo":{"@type":"ImageObject","url":"{{ '/assets/images/icon-512.png' | absolute_url }}"}},
+   "image":"{{ '/assets/images/og-image.jpg' | absolute_url }}","mainEntityOfPage":"{{ page.url | absolute_url }}",
+   "articleSection":{{ page.category | jsonify }},"inLanguage":"en"}
+  </script>
+{%- endif %}
+{%- if page.url == "/courses/" %}
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"ItemList","name":"ChessDepth Academy online chess courses","itemListElement":[
+    {%- for c in site.data.courses %}
+    {"@type":"ListItem","position":{{ forloop.index }},"item":{"@type":"Course","name":{{ c.name | jsonify }},"description":{{ c.description | jsonify }},
+      "provider":{"@type":"EducationalOrganization","name":"{{ site.title }}","sameAs":"{{ site.url }}/"}}}{% unless forloop.last %},{% endunless %}
+    {%- endfor %}
+  ]}
+  </script>
+{%- endif %}

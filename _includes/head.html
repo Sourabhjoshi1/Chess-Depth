@@ -7,28 +7,44 @@
       if (t === "dark") document.documentElement.classList.add("dark");
     })();
   </script>
-  <meta name="theme-color" content="#4338ca">
+  <meta name="theme-color" content="#1f2547">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{ page.title }}</title>
+  {%- capture seo_title %}{% if page.layout == "post" and page.title.size < 42 %}{{ page.title }} | ChessDepth Academy{% else %}{{ page.title }}{% endif %}{% endcapture %}
+  <title>{{ seo_title | strip }}</title>
   <meta name="description" content="{{ page.description | default: site.description }}">
   <link rel="canonical" href="{{ page.url | absolute_url }}">
-  <meta property="og:title" content="{{ page.title }}">
+  <meta property="og:title" content="{{ seo_title | strip }}">
+  <meta property="og:site_name" content="{{ site.title }}">
+  <meta property="og:locale" content="en_IN">
   <meta property="og:description" content="{{ page.description | default: site.description }}">
-  <meta property="og:type" content="website">
+  <meta property="og:type" content="{% if page.layout == "post" %}article{% else %}website{% endif %}">
   <meta property="og:url" content="{{ page.url | absolute_url }}">
   <meta property="og:image" content="{{ '/assets/images/og-image.jpg' | absolute_url }}">
   <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{ seo_title | strip }}">
+  <meta name="twitter:description" content="{{ page.description | default: site.description }}">
+  <meta name="twitter:image" content="{{ '/assets/images/og-image.jpg' | absolute_url }}">
+  {%- if page.layout == "post" %}
+  <meta property="article:published_time" content="{{ page.date | date_to_xmlschema }}">
+  <meta property="article:section" content="{{ page.category }}">
+  {%- endif %}
+  {%- if site.google_site_verification and site.google_site_verification != "" %}
+  <meta name="google-site-verification" content="{{ site.google_site_verification }}">
+  {%- endif %}
   {%- if page.noindex %}
   <meta name="robots" content="noindex">
   {%- endif %}
-  <link rel="icon" type="image/x-icon" href="/assets/images/favicon.ico">
+  <link rel="icon" href="/assets/images/favicon.ico" sizes="48x48">
+  <link rel="icon" href="/assets/images/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
   {%- if page.ads != false %}
   <meta name="google-adsense-account" content="{{ site.adsense_client }}">
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client={{ site.adsense_client }}" crossorigin="anonymous"></script>
   {%- endif %}
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link href="/assets/css/tailwind.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,500;0,600;1,400&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   {%- if page.page_css %}
@@ -39,8 +55,13 @@
   {%- for s in page.head_scripts %}
   <script {% if s.type %}type="{{ s.type }}" {% endif %}src="{{ s.src }}"></script>
   {%- endfor %}
-  {%- if page.url == "/" %}
-  <script type="application/ld+json">
-  {"@context": "https://schema.org", "@type": "EducationalOrganization", "name": "{{ site.title }}", "url": "{{ site.url }}/", "logo": "{{ '/assets/images/og-image.jpg' | absolute_url }}", "telephone": "+{{ site.contact.phone_intl }}", "email": "{{ site.contact.email }}", "address": {"@type": "PostalAddress", "addressLocality": "Bhopal", "addressRegion": "Madhya Pradesh", "addressCountry": "IN"}, "sameAs": ["{{ site.contact.instagram }}", "{{ site.contact.facebook }}"]}
+  {%- if site.google_analytics and site.google_analytics != "" %}
+  <script async src="https://www.googletagmanager.com/gtag/js?id={{ site.google_analytics }}"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', '{{ site.google_analytics }}');
   </script>
   {%- endif %}
+  {% include schema.html %}
