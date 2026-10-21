@@ -1,0 +1,74 @@
+---
+title: "ChessDepth AI: Chess Image to Board (Coming Soon) | ChessDepth"
+description: "ChessDepth AI turns any chess image (a screenshot, a book diagram or a photo) into a clean 2D board with coordinates and a FEN. Coming soon on chessdepth.in."
+permalink: /ai/
+page_css: ai
+crumb: ChessDepth AI
+---
+{%- capture notify %}https://wa.me/{{ site.contact.phone_intl }}?text=Hi%2C%20please%20let%20me%20know%20when%20ChessDepth%20AI%20launches{% endcapture -%}
+
+  <section class="ai-hero">
+    <div class="max-w-6xl mx-auto px-4 py-16 md:py-20 grid md:grid-cols-2 gap-12 items-center">
+      <div>
+        <p class="ai-status"><span class="ai-dot" aria-hidden="true"></span>Coming soon</p>
+        <h1 class="ai-title">ChessDepth AI</h1>
+        <p class="ai-lead">Turn any chess image into a clean board you can study. Take a screenshot, a photo of a book diagram or a picture of a real board, and get back the position: every piece on the right square, ready to analyse.</p>
+        <div class="flex flex-wrap gap-3 mt-8">
+          <a href="{{ notify | strip }}" target="_blank" rel="noopener noreferrer" class="cd-hdr-cta"><i class="fab fa-whatsapp mr-2"></i>Notify me at launch</a>
+          <a href="#how-it-works" class="ai-ghost">How it will work</a>
+        </div>
+      </div>
+
+      <figure class="ai-demo" aria-label="Example: a photographed board turned into a clean 2D board">
+        <div class="ai-demo-in">
+          <img src="/assets/images/ai-input.svg" alt="A chess position on a wooden-style board, photographed at an angle" width="360" height="360">
+          <figcaption>Your image</figcaption>
+        </div>
+        <div class="ai-demo-arrow" aria-hidden="true"><i class="fas fa-long-arrow-alt-right"></i></div>
+        <div class="ai-demo-out">
+          <img src="/assets/images/ai-output.svg" alt="The same position as a clean 2D board with coordinates" width="360" height="360">
+          <figcaption>Clean board + FEN</figcaption>
+        </div>
+      </figure>
+    </div>
+  </section>
+
+  <section class="max-w-6xl mx-auto px-4 py-16">
+    <h2 class="ai-h2">What you'll get</h2>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-8">
+      <div class="ai-feature"><i class="fas fa-chess-board"></i><h3>A clean 2D board</h3><p>Every piece recognised and placed on a standard ChessDepth board, whatever the original style.</p></div>
+      <div class="ai-feature"><i class="fas fa-th"></i><h3>Coordinates</h3><p>Files a–h and ranks 1–8, with the board turned the right way round for White and Black.</p></div>
+      <div class="ai-feature"><i class="fas fa-code"></i><h3>The FEN</h3><p>The position in standard notation, ready to copy into Lichess, Chess.com or any chess program.</p></div>
+      <div class="ai-feature"><i class="fas fa-microscope"></i><h3>One-click analysis</h3><p>Open the position on Lichess or in our board editor to analyse it, play it out or save it for practice.</p></div>
+    </div>
+    <p class="ai-fen-example">Example FEN for the position above: <code>{{ "r1bqk2r/1pppbppp/p1n2n2/4p3/B3P3/5N2/PPPP1PPP/RNBQ1RK1 w kq - 4 6" }}</code></p>
+  </section>
+
+  <section id="how-it-works" class="ai-band">
+    <div class="max-w-6xl mx-auto px-4 py-16">
+      <h2 class="ai-h2">How it will work</h2>
+      <p class="ai-sub">The same steps a strong player does in a second, broken into steps a computer can learn.</p>
+      <ol class="ai-steps">
+        <li><span>1</span><div><h3>Find the board</h3><p>Locate the chessboard and its four corners anywhere in the image.</p></div></li>
+        <li><span>2</span><div><h3>Straighten it</h3><p>Correct the angle so the board becomes a flat, top-down square.</p></div></li>
+        <li><span>3</span><div><h3>Split into 64 squares</h3><p>Cut the board into its 8 × 8 squares.</p></div></li>
+        <li><span>4</span><div><h3>Recognise the pieces</h3><p>Decide for every square whether it's empty or holds one of the 12 pieces.</p></div></li>
+        <li><span>5</span><div><h3>Check the chess rules</h3><p>Make sure the position is possible: one king each, no pawns on the back ranks, and so on.</p></div></li>
+        <li><span>6</span><div><h3>Draw the result</h3><p>Show the clean board with coordinates and the FEN, ready to analyse.</p></div></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="max-w-6xl mx-auto px-4 py-16 grid md:grid-cols-3 gap-8">
+    <div class="ai-note"><h3>Screenshots and diagrams first</h3><p>We're starting with clear 2D images (websites, apps and book diagrams), then moving on to photos of real boards.</p></div>
+    <div class="ai-note"><h3>Your images stay with you</h3><p>We plan to run the recognition inside your browser, so the pictures you check never need to be uploaded anywhere.</p></div>
+    <div class="ai-note"><h3>Made for coaches and students</h3><p>Turn positions from books, worksheets and games into boards you can study, share and practise from.</p></div>
+  </section>
+
+  <section class="px-4 pb-8">
+    <div class="max-w-4xl mx-auto ai-cta">
+      <h2>Be the first to try ChessDepth AI</h2>
+      <p>Send us a message and we'll tell you as soon as it's ready.</p>
+      <a href="{{ notify | strip }}" target="_blank" rel="noopener noreferrer" class="ai-cta-btn"><i class="fab fa-whatsapp mr-2"></i>Notify me at launch</a>
+    </div>
+  </section>

@@ -125,3 +125,4 @@ html.dark img.rounded-full { border-color: #334155; }
   html.cd-theme-anim body, html.cd-theme-anim body * { transition: background-color .25s ease, color .25s ease, border-color .25s ease !important; }
 }
 html.dark .cd-topbar .cd-theme-btn { background: transparent; border-color: rgba(255,255,255,.18); color: #e9dcc4; }
+html.dark .cd-soon { color: #e9dcc4; border-color: #b08a4e; }

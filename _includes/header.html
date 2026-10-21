@@ -23,7 +23,7 @@
       <nav id="main-nav" aria-label="Primary" class="cd-nav">
         {%- for item in site.data.navigation %}
         {%- assign is_active = false %}{% if page.url == item.url %}{% assign is_active = true %}{% elsif page.url contains item.url %}{% assign is_active = true %}{% endif %}
-        <a href="{{ item.url }}" class="cd-link"{% if is_active %} aria-current="page"{% endif %}>{{ item.title }}</a>
+        <a href="{{ item.url }}" class="cd-link{% if item.badge %} cd-link-ai{% endif %}"{% if is_active %} aria-current="page"{% endif %}>{{ item.title }}{% if item.badge %}<span class="cd-soon">{{ item.badge }}</span>{% endif %}</a>
         {%- endfor %}
         <a href="{{ wa }}" target="_blank" rel="noopener noreferrer" class="cd-hdr-cta">Book a free demo</a>
       </nav>
@@ -38,7 +38,7 @@
       <nav class="cd-wrap" aria-label="Mobile">
         <a href="/"{% if page.url == '/' %} aria-current="page"{% endif %}>Home</a>
         {%- for item in site.data.navigation %}
-        <a href="{{ item.url }}"{% if page.url contains item.url %} aria-current="page"{% endif %}>{{ item.title }}</a>
+        <a href="{{ item.url }}"{% if page.url contains item.url %} aria-current="page"{% endif %}>{{ item.title }}{% if item.badge %}<span class="cd-soon">Coming soon</span>{% endif %}</a>
         {%- endfor %}
         <a href="/careers/"{% if page.url contains '/careers/' %} aria-current="page"{% endif %}>Careers</a>
         <div class="cd-mobile-actions">
