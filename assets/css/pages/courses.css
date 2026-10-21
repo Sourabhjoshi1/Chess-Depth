@@ -47,5 +47,5 @@
     }
 
     /* Highlight style for Summer Course */
-    .featured-course { border: 2px solid #f97316; position: relative; overflow: hidden; }
-    .featured-badge { position: absolute; top: 12px; right: -35px; background: #f97316; color: white; padding: 5px 40px; transform: rotate(45deg); font-size: 0.75rem; font-weight: bold; box-shadow: 0 2px 4px rgba(0,0,0,0.2); z-index: 10; }
+    .featured-course { border: 2px solid #c2410c; position: relative; overflow: hidden; }
+    .featured-badge { position: absolute; top: 12px; right: -35px; background: #c2410c; color: white; padding: 5px 40px; transform: rotate(45deg); font-size: 0.75rem; font-weight: bold; box-shadow: 0 2px 4px rgba(0,0,0,0.2); z-index: 10; }
