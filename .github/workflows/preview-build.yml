@@ -15,8 +15,8 @@ jobs:
           node-version: 20
       - name: Build trimmed Tailwind CSS
         run: |
-          npm install --no-save --no-audit --no-fund tailwindcss@2.2.19 postcss@8 autoprefixer@10
-          NODE_ENV=production npx tailwindcss -c tailwind.config.js -i src/tailwind.css -o assets/css/tailwind.min.css --minify
+          npm install --prefix "$RUNNER_TEMP/tw" --no-audit --no-fund tailwindcss@2.2.19 postcss@8 autoprefixer@10
+          NODE_ENV=production "$RUNNER_TEMP/tw/node_modules/.bin/tailwindcss" -c tailwind.config.js -i src/tailwind.css -o assets/css/tailwind.min.css --minify
           ls -la assets/css/tailwind.min.css
       - uses: actions/jekyll-build-pages@v1
         with:

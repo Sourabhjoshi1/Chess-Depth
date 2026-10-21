@@ -52,3 +52,6 @@ exclude:
   - src
   - package.json
   - package-lock.json
+  - node_modules
+  - vendor
+  - .github
