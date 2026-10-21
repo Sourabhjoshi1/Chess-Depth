@@ -1,0 +1,37 @@
+# ChessDepth Academy - site settings
+# Change contact details here once and they update on every page.
+title: ChessDepth Academy
+description: Structured online chess coaching for beginners to tournament players.
+url: "https://www.chessdepth.in"
+baseurl: ""
+
+contact:
+  phone_display: "+91 98230 29262"
+  phone_intl: "919823029262"
+  email: "info@chessdepth.in"
+  address: "Bhopal, Madhya Pradesh, India"
+  instagram: "https://www.instagram.com/chessdepthacademy1/"
+  facebook: "https://www.facebook.com/chessdepthacademy/"
+  whatsapp_text: "Hi%2C%20I%20would%20like%20to%20book%20a%20free%20demo%20class"
+
+adsense_client: "ca-pub-1353516013773606"
+
+# Clean URLs: /about/ instead of /about.html
+permalink: pretty
+
+plugins:
+  - jekyll-redirect-from
+  - jekyll-sitemap
+
+defaults:
+  - scope: { path: "" }
+    values: { layout: default }
+
+exclude:
+  - README.md
+  - "README.md # Project documentation"
+  - Contributing.md
+  - LICENSE
+  - firebase
+  - Gemfile
+  - Gemfile.lock

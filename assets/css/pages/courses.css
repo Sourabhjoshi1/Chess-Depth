@@ -1,0 +1,51 @@
+/* Styles used only on the courses page */
+/* Custom CSS for consistent styling across pages */
+    body {
+        font-family: 'Poppins', sans-serif;
+    }
+
+    /* Navbar Link Hover Effect */
+    .nav-link-hover-effect {
+        transition: all 0.2s ease-in-out;
+        position: relative;
+    }
+    .nav-link-hover-effect:after {
+        content: '';
+        position: absolute;
+        width: 0%;
+        height: 2px;
+        bottom: -5px;
+        left: 0;
+        background-color: #4f46e5;
+        transition: width 0.3s ease-out;
+    }
+    .nav-link-hover-effect:hover:after {
+        width: 100%;
+    }
+    .nav-link-hover-effect:hover {
+        color: #4f46e5;
+    }
+
+    /* Course/Product Card Hover Effect */
+    .course-card-hover {
+        transition: all 0.3s ease-in-out;
+    }
+    .course-card-hover:hover {
+        transform: translateY(-8px) scale(1.03);
+        box-shadow: 0 15px 25px -5px rgba(0, 0, 0, 0.15), 0 6px 10px -3px rgba(0, 0, 0, 0.08);
+    }
+
+    /* General fade-in for sections and main content */
+    .fade-in-content {
+        opacity: 0;
+        animation: fadeIn 1s ease-out forwards;
+        animation-delay: 0.2s;
+    }
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+
+    /* Highlight style for Summer Course */
+    .featured-course { border: 2px solid #f97316; position: relative; overflow: hidden; }
+    .featured-badge { position: absolute; top: 12px; right: -35px; background: #f97316; color: white; padding: 5px 40px; transform: rotate(45deg); font-size: 0.75rem; font-weight: bold; box-shadow: 0 2px 4px rgba(0,0,0,0.2); z-index: 10; }

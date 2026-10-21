@@ -1,128 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="google-adsense-account" content="ca-pub-1353516013773606">
-  <title>ChessDepth Academy | Online Chess Coaching for All Levels</title>
-  <meta name="description" content="Online chess coaching from Bhopal for beginners to tournament players. One-to-one and group classes, structured worksheets, regular quizzes and a free demo class.">
-  <link rel="canonical" href="https://www.chessdepth.in/">
-  <meta property="og:title" content="ChessDepth Academy | Online Chess Coaching for All Levels">
-  <meta property="og:description" content="Online chess coaching from Bhopal for beginners to tournament players. One-to-one and group classes, structured worksheets, regular quizzes and a free demo class.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://www.chessdepth.in/">
-  <meta property="og:image" content="https://www.chessdepth.in/og-image.jpg">
-  <meta name="twitter:card" content="summary_large_image">
-  <link rel="stylesheet" href="site.css">
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "EducationalOrganization", "name": "ChessDepth Academy", "url": "https://www.chessdepth.in/", "logo": "https://www.chessdepth.in/og-image.jpg", "telephone": "+91-98230-29262", "email": "info@chessdepth.in", "address": {"@type": "PostalAddress", "addressLocality": "Bhopal", "addressRegion": "Madhya Pradesh", "addressCountry": "IN"}, "sameAs": ["https://www.instagram.com/chessdepthacademy1/", "https://www.facebook.com/chessdepthacademy/"]}</script>
-  
-  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1353516013773606"
-          crossorigin="anonymous"></script>
-
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <link rel="icon" type="image/x-icon" href="https://github.com/Sourabhjoshi1/Chess-Depth/raw/main/favicon/favicon%20(4).ico">
-
-  <style>
-    /* Custom CSS */
-    body { font-family: 'Poppins', sans-serif; }
-
-    /* Keyframe Animations */
-    @keyframes gradientShift { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
-    @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-    @keyframes cardPop { from { opacity: 0; transform: scale(0.95); } to { opacity: 1; transform: scale(1); } }
-    @keyframes slideInDown { from { transform: translateY(-100%); } to { transform: translateY(0); } }
-
-    /* Apply animations */
-    .animate-gradient-shift { background-size: 200% 200%; animation: gradientShift 28s ease infinite; }
-    .animate-fade-in-up-1 { animation: fadeInUp 1.6s ease-out forwards; animation-delay: 0.2s; opacity: 0; }
-    .animate-fade-in-up-2 { animation: fadeInUp 1.6s ease-out forwards; animation-delay: 0.4s; opacity: 0; }
-    .animate-fade-in-up-3 { animation: fadeInUp 1.6s ease-out forwards; animation-delay: 0.6s; opacity: 0; }
-
-    /* General fade-in for sections */
-    .fade-in-section { opacity: 0; }
-    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-
-    /* Nav/Header enhancements */
-    .nav-link-hover-effect { transition: all 0.4s ease-in-out; position: relative; }
-    .nav-link-hover-effect:after { content: ''; position: absolute; width: 0%; height: 2px; bottom: -5px; left: 0; background-color: #4f46e5; transition: width 0.3s ease-out; }
-    .nav-link-hover-effect:hover:after { width: 100%; }
-    .nav-link-hover-effect:hover { color: #4f46e5; }
-
-    /* Card hover effect */
-    .course-card-hover { transition: all 0.6s ease-in-out; }
-    .course-card-hover:hover { transform: translateY(-8px) scale(1.03); box-shadow: 0 15px 25px -5px rgba(0, 0, 0, 0.15), 0 6px 10px -3px rgba(0, 0, 0, 0.08); }
-
-    /* Hero Particles */
-    .hero-particles { position: absolute; top: 0; left: 0; width: 100%; height: 100%; overflow: hidden; z-index: 0; opacity: 0.1; background-image: radial-gradient(#fff 1px, transparent 1px); background-size: 20px 20px; animation: moveParticles 20s linear infinite; }
-    @keyframes moveParticles { 0% { background-position: 0 0; } 100% { background-position: 200px 200px; } }
-
-    /* Button transitions */
-    .hero-button, .demo-button { transition: all 0.6s ease-in-out; }
-    .hero-button:hover { background-color: #e0e7ff; color: #3730a3; box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
-    
-    .demo-button { background-color: #f97316; color: white; display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; }
-    .demo-button:hover { background-color: #ea580c; transform: translateY(-2px) scale(1.02); box-shadow: 0 10px 15px rgba(0,0,0,0.15), 0 4px 6px rgba(0,0,0,0.08); }
-
-    /* Stats numbers */
-    .stat-number { font-size: 2.5rem; font-weight: 700; line-height: 1; color: #fff; }
-    .stat-label { color: #e0e7ff; margin-top: .35rem; }
-    
-    /* Sticky header adjustment for announcement bar */
-    .with-announcement #main-header { top: 40px; } /* Height of announcement bar */
-    
-    /* Floating WhatsApp button */
-    .whatsapp-float { position: fixed; right: 20px; bottom: 20px; display: inline-flex; align-items: center; justify-content: center; width: 56px; height: 56px; border-radius: 9999px; background-color: #22c55e; color: white; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); transition: transform 0.2s ease, box-shadow 0.2s ease; animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite; z-index: 40; }
-    .whatsapp-float:hover { transform: translateY(-2px) scale(1.03); box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1); background-color: #16a34a; }
-    @keyframes pulse { 0%, 100% { box-shadow: 0 0 0 0 rgba(34,197,94, 0.6); } 50% { box-shadow: 0 0 0 12px rgba(34,197,94, 0); } }
-    
-    /* Native anchor offsets */
-    [id] { scroll-margin-top: 100px; }
-    
-    @media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; scroll-behavior: auto !important; } }
-  </style>
-</head>
-<body class="bg-gray-100 text-gray-800">
-
-  <header class="bg-white shadow-md py-4 sticky top-0 z-50" id="main-header">
-    <div class="max-w-7xl mx-auto flex justify-between items-center w-full px-4">
-      <a href="index.html" class="inline-block hover:opacity-80 transition-opacity duration-200">
-        <span class="text-3xl font-bold text-indigo-700">♟️ ChessDepth</span>
-      </a>
-      <button id="menu-toggle" class="lg:hidden p-2 text-gray-700 hover:text-indigo-600 focus:outline-none" aria-controls="mobile-menu" aria-expanded="false" aria-label="Toggle navigation">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
-        </svg>
-      </button>
-      <nav id="main-nav" aria-label="Primary" class="cd-nav hidden lg:flex items-center space-x-5">
-        <a href="index.html" class="cd-link cd-active font-semibold text-indigo-700" aria-current="page">Home</a>
-        <a href="about.html" class="cd-link text-gray-700">About</a>
-        <a href="courses.html" class="cd-link text-gray-700">Courses</a>
-        <a href="coaches.html" class="cd-link text-gray-700">Coaches</a>
-        <a href="resources.html" class="cd-link text-gray-700">Resources</a>
-        <a href="contact.html" class="cd-link text-gray-700">Contact</a>
-        <a href="careers.html" class="cd-link text-gray-700">Careers</a>
-        <a href="https://wa.me/919823029262?text=Hi%2C%20I%20would%20like%20to%20book%20a%20free%20demo%20class" target="_blank" rel="noopener noreferrer" class="cd-demo-btn">Free Demo</a>
-      </nav>
-    </div>
-    <div id="mobile-menu" class="hidden lg:hidden absolute top-full left-0 w-full bg-white shadow-lg py-4 transition-all duration-300 transform -translate-y-full">
-      <div class="flex flex-col items-center space-y-4">
-        <a href="index.html" class="text-indigo-700 font-semibold" aria-current="page">Home</a>
-        <a href="about.html" class="text-gray-700 hover:text-indigo-600">About</a>
-        <a href="courses.html" class="text-gray-700 hover:text-indigo-600">Courses</a>
-        <a href="coaches.html" class="text-gray-700 hover:text-indigo-600">Coaches</a>
-        <a href="resources.html" class="text-gray-700 hover:text-indigo-600">Resources</a>
-        <a href="contact.html" class="text-gray-700 hover:text-indigo-600">Contact</a>
-        <a href="careers.html" class="text-gray-700 hover:text-indigo-600">Careers</a>
-        <a href="https://wa.me/919823029262?text=Hi%2C%20I%20would%20like%20to%20book%20a%20free%20demo%20class" target="_blank" rel="noopener noreferrer" class="cd-demo-btn">Book a Free Demo</a>
-      </div>
-    </div>
-  </header>
-
+---
+title: "ChessDepth Academy | Online Chess Coaching for All Levels"
+description: "Online chess coaching from Bhopal for beginners to tournament players. One-to-one and group classes, structured worksheets, regular quizzes and a free demo class."
+permalink: /
+page_css: index
+---
   <section class="relative bg-gradient-to-br from-indigo-500 to-purple-600 text-white py-20 fade-in-section animate-gradient-shift overflow-hidden">
     <div class="hero-particles"></div>
 
@@ -134,7 +15,7 @@
         <a href="https://wa.me/919823029262?text=Hi%20I%20am%20interested%20in%20a%20free%20demo%20class" target="_blank" rel="noopener noreferrer" class="demo-button shadow-lg rounded-full py-3 px-8 font-semibold">
           <i class="fas fa-calendar-alt"></i> Book a Free Demo Class
         </a>
-        <a href="courses.html" class="bg-white text-indigo-600 font-semibold py-3 px-8 rounded-full shadow-lg hero-button">
+        <a href="/courses/" class="bg-white text-indigo-600 font-semibold py-3 px-8 rounded-full shadow-lg hero-button">
           Explore Courses
         </a>
       </div>
@@ -219,21 +100,21 @@
             <h4 class="text-xl font-semibold mb-2">Beginner's Tactics</h4>
             <p class="text-gray-700 mb-4">Master forks, pins, skewers & traps to dominate early games and build a strong foundation.</p>
           </div>
-          <a href="courses.html" class="text-indigo-600 hover:text-indigo-800 font-medium mt-4 self-start transition-colors duration-200">Learn More <i class="fas fa-arrow-right text-sm ml-1"></i></a>
+          <a href="/courses/" class="text-indigo-600 hover:text-indigo-800 font-medium mt-4 self-start transition-colors duration-200">Learn More <i class="fas fa-arrow-right text-sm ml-1"></i></a>
         </div>
         <div class="bg-gray-50 p-6 rounded-lg shadow course-card-hover course-card-2 flex flex-col justify-between">
           <div>
             <h4 class="text-xl font-semibold mb-2">Positional Strategy</h4>
             <p class="text-gray-700 mb-4">Learn pawn structures, weak squares, and subtle positional play for long-term advantages.</p>
           </div>
-          <a href="courses.html" class="text-indigo-600 hover:text-indigo-800 font-medium mt-4 self-start transition-colors duration-200">Learn More <i class="fas fa-arrow-right text-sm ml-1"></i></a>
+          <a href="/courses/" class="text-indigo-600 hover:text-indigo-800 font-medium mt-4 self-start transition-colors duration-200">Learn More <i class="fas fa-arrow-right text-sm ml-1"></i></a>
         </div>
         <div class="bg-gray-50 p-6 rounded-lg shadow course-card-hover course-card-3 flex flex-col justify-between">
           <div>
             <h4 class="text-xl font-semibold mb-2">Openings Repertoire</h4>
             <p class="text-gray-700 mb-4">Build your white and black repertoire with sharp & solid openings.</p>
           </div>
-          <a href="courses.html" class="text-indigo-600 hover:text-indigo-800 font-medium mt-4 self-start transition-colors duration-200">Learn More <i class="fas fa-arrow-right text-sm ml-1"></i></a>
+          <a href="/courses/" class="text-indigo-600 hover:text-indigo-800 font-medium mt-4 self-start transition-colors duration-200">Learn More <i class="fas fa-arrow-right text-sm ml-1"></i></a>
         </div>
       </div>
     </div>
@@ -289,42 +170,8 @@
     </div>
   </section>
 
-  <footer class="cd-footer bg-gray-800 text-gray-300 pt-10 pb-6 mt-10">
-    <div class="max-w-6xl mx-auto px-4 grid gap-8 md:grid-cols-3 text-center md:text-left">
-      <div>
-        <p class="text-2xl font-bold text-white mb-2">♟️ ChessDepth Academy</p>
-        <p class="text-sm text-gray-400">Structured online chess coaching for beginners to tournament players.</p>
-        <div class="mt-4 flex justify-center md:justify-start space-x-5 text-2xl">
-          <a href="https://www.instagram.com/chessdepthacademy1/" target="_blank" rel="noopener noreferrer" aria-label="ChessDepth on Instagram"><i class="fab fa-instagram"></i></a>
-          <a href="https://www.facebook.com/chessdepthacademy/" target="_blank" rel="noopener noreferrer" aria-label="ChessDepth on Facebook"><i class="fab fa-facebook-f"></i></a>
-          <a href="https://wa.me/919823029262?text=Hi%2C%20I%20would%20like%20to%20book%20a%20free%20demo%20class" target="_blank" rel="noopener noreferrer" aria-label="ChessDepth on WhatsApp"><i class="fab fa-whatsapp"></i></a>
-        </div>
-      </div>
-      <div>
-        <p class="font-semibold text-white mb-3">Explore</p>
-        <ul class="space-y-1 text-sm">
-          <li><a href="courses.html">Courses &amp; Fees</a></li>
-          <li><a href="coaches.html">Our Coaches</a></li>
-          <li><a href="resources.html">Free Resources</a></li>
-          <li><a href="careers.html">Careers</a></li>
-        </ul>
-      </div>
-      <div>
-        <p class="font-semibold text-white mb-3">Get in touch</p>
-        <ul class="space-y-1 text-sm">
-          <li><i class="fas fa-phone-alt mr-2"></i><a href="tel:+919823029262">+91 98230 29262</a></li>
-          <li><i class="fab fa-whatsapp mr-2"></i><a href="https://wa.me/919823029262?text=Hi%2C%20I%20would%20like%20to%20book%20a%20free%20demo%20class" target="_blank" rel="noopener noreferrer">WhatsApp us</a></li>
-          <li><i class="fas fa-envelope mr-2"></i><a href="mailto:info@chessdepth.in">info@chessdepth.in</a></li>
-          <li><i class="fas fa-map-marker-alt mr-2"></i>Bhopal, Madhya Pradesh, India</li>
-        </ul>
-      </div>
-    </div>
-    <div class="max-w-6xl mx-auto px-4 mt-8 pt-4 border-t border-gray-700 flex flex-col sm:flex-row justify-between text-xs text-gray-400 gap-2 text-center">
-      <p>&copy; <span data-year>2026</span> ChessDepth Academy. All rights reserved.</p>
-      <p>Made by Sourabh Joshi ❤️</p>
-    </div>
-  </footer>
-  <a href="https://wa.me/919823029262?text=Hi%2C%20I%20would%20like%20to%20book%20a%20free%20demo%20class" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Chat with ChessDepth on WhatsApp" title="Chat with us on WhatsApp"><i class="fab fa-whatsapp text-2xl"></i></a>
+  
+
 
 <script>
     // COMBINED SCRIPT BLOCK FOR ALL PAGE-SPECIFIC JS
@@ -551,6 +398,3 @@
         }
     }
 </script>
-<script src="site.js" defer></script>
-</body>
-</html>
