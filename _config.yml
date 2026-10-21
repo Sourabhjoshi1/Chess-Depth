@@ -31,6 +31,7 @@ exclude:
   - README.md
   - "README.md # Project documentation"
   - Contributing.md
+  - EDITING.md
   - LICENSE
   - firebase
   - Gemfile
