@@ -157,6 +157,7 @@ body_class: "bg-gray-50 text-gray-800"
             });
 
             if (response.ok) {
+                if (window.gtag) gtag('event', 'generate_lead', { form_name: 'contact_form' });
                 // Form submission successful
                 form.classList.add('hidden'); // Hide the form
                 const thankYouMessage = document.getElementById('thankYouMessage');

@@ -377,6 +377,7 @@ page_css: index
             });
 
             if (response.ok) {
+                if (window.gtag) gtag('event', 'generate_lead', { form_name: 'home_inquiry' });
                 // Form submission successful
                 form.classList.add('hidden'); // Hide the form
                 const thankYouMessage = document.getElementById('thankYouMessage');
