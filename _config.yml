@@ -26,6 +26,13 @@ plugins:
 defaults:
   - scope: { path: "" }
     values: { layout: default }
+  # Blog posts live in _posts/ as YYYY-MM-DD-title.md and appear at /blog/title/
+  - scope: { path: "", type: posts }
+    values:
+      layout: post
+      permalink: /blog/:title/
+      page_css: blog
+      author: ChessDepth Coaching Team
 
 exclude:
   - README.md

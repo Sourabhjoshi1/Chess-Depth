@@ -1,38 +1,32 @@
-/* Styles used only on the resources page */
-/* Custom CSS for consistent styling across pages */
-    body {
-        font-family: 'Poppins', sans-serif;
-    }
-
-    /* Navbar Link Hover Effect */
-    .nav-link-hover-effect {
-        transition: all 0.2s ease-in-out;
-        position: relative;
-    }
-    .nav-link-hover-effect:after {
-        content: '';
-        position: absolute;
-        width: 0%;
-        height: 2px;
-        bottom: -5px;
-        left: 0;
-        background-color: #4f46e5;
-        transition: width 0.3s ease-out;
-    }
-    .nav-link-hover-effect:hover:after {
-        width: 100%;
-    }
-    .nav-link-hover-effect:hover {
-        color: #4f46e5;
-    }
-
-    /* Fade-in animation for content on page load */
-    .fade-in-content {
-        opacity: 0;
-        animation: fadeIn 1s ease-out forwards;
-        animation-delay: 0.2s;
-    }
-    @keyframes fadeIn {
-        from { opacity: 0; }
-        to { opacity: 1; }
-    }
+/* Styles used only on the Resources page */
+.rs-hero { background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%); }
+.rs-eyebrow { letter-spacing: .14em; font-size: .75rem; font-weight: 700; text-transform: uppercase; color: #6366f1; }
+.rs-card { background: #fff; border-radius: .75rem; box-shadow: 0 1px 3px rgba(0,0,0,.08); }
+.rs-subnav { position: sticky; top: 72px; z-index: 40; background: rgba(255,255,255,.95); box-shadow: 0 1px 2px rgba(0,0,0,.06); }
+.rs-subnav a { color: #4b5563; font-weight: 500; }
+.rs-subnav a:hover, .rs-subnav a.is-current { color: #4338ca; }
+.rs-subnav a.is-current { font-weight: 700; }
+.rs-level { border-top: 4px solid var(--lv, #6366f1); display: flex; flex-direction: column; }
+.rs-list { list-style: disc; padding-left: 1.1rem; font-size: .875rem; color: #4b5563; flex-grow: 1; }
+.rs-list li + li { margin-top: .3rem; }
+.rs-focus { margin-top: 1rem; font-size: .8rem; font-weight: 700; color: #312e81; background: #eef2ff; border-radius: .375rem; padding: .4rem .6rem; }
+.rs-chip { font-size: .7rem; font-weight: 700; border-radius: 9999px; padding: .2rem .6rem; background: #eef2ff; color: #3730a3; }
+.rs-chip-gray { background: #f3f4f6; color: #374151; }
+.rs-tab { border: 1px solid #c7d2fe; color: #4338ca; border-radius: 9999px; padding: .5rem 1.1rem; font-weight: 600; font-size: .9rem; background: #fff; transition: all .2s; }
+.rs-tab:hover, .rs-tab.is-active { background: #4f46e5; color: #fff; border-color: #4f46e5; }
+.rs-btn { border: 1px solid #d1d5db; border-radius: .375rem; padding: .5rem .9rem; font-size: .875rem; font-weight: 600; color: #374151; background: #fff; transition: all .2s; }
+.rs-btn:hover { border-color: #6366f1; color: #4338ca; }
+.rs-btn-primary { background: #4f46e5; border-color: #4f46e5; color: #fff; }
+.rs-btn-primary:hover { background: #4338ca; color: #fff; }
+.rs-board-wrap { max-width: 520px; margin: 0 auto; }
+.rs-board-wrap chess-board { display: block; width: 100%; }
+.rs-check { display: flex; align-items: center; gap: .6rem; font-size: .9rem; color: #374151; padding: .35rem 0; cursor: pointer; }
+.rs-check input { width: 1.05rem; height: 1.05rem; accent-color: #4f46e5; flex-shrink: 0; }
+.rs-check input:checked + * , .rs-check:has(input:checked) { color: #9ca3af; text-decoration: line-through; }
+details.rs-faq summary { cursor: pointer; list-style: none; }
+details.rs-faq summary::-webkit-details-marker { display: none; }
+details.rs-faq summary:after { content: '+'; float: right; font-weight: 700; color: #6366f1; }
+details.rs-faq[open] summary:after { content: '\2212'; }
+.rs-stat { background: #eef2ff; border-radius: .5rem; padding: 1rem; text-align: center; }
+.rs-bar { height: .6rem; border-radius: 9999px; background: #e5e7eb; overflow: hidden; display: flex; }
+.rs-bar span { display: block; height: 100%; }

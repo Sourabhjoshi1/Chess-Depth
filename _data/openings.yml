@@ -1,0 +1,82 @@
+# Openings shown on the Resources page. "lichess" is the page name on lichess.org/opening/<name>
+white:
+  - name: Italian Game
+    moves: "1.e4 e5 2.Nf3 Nc6 3.Bc4"
+    style: Open & tactical
+    level: Beginner+
+    idea: Quick development and pressure on f7. Later White prepares c3 and d4 to build a big centre.
+    lichess: Italian_Game
+  - name: Ruy Lopez (Spanish Game)
+    moves: "1.e4 e5 2.Nf3 Nc6 3.Bb5"
+    style: Strategic
+    level: Intermediate+
+    idea: Long-term pressure on Black's e5 pawn and centre. Rich middlegames with slow manoeuvring.
+    lichess: Ruy_Lopez
+  - name: Queen's Gambit
+    moves: "1.d4 d5 2.c4"
+    style: Solid & strategic
+    level: Intermediate+
+    idea: White offers a wing pawn to remove Black's centre pawn and gain control of the centre.
+    lichess: Queens_Gambit
+  - name: London System
+    moves: "1.d4 d5 2.Bf4"
+    style: Solid system
+    level: Beginner+
+    idea: The same easy setup (d4, Bf4, e3, Nf3, c3) against almost anything. Less theory to learn.
+    lichess: London_System
+  - name: English Opening
+    moves: "1.c4"
+    style: Flexible
+    level: Advanced
+    idea: Control d5 from the side and keep many options open. Often transposes to other openings.
+    lichess: English_Opening
+black_e4:
+  - name: Open Game (1...e5)
+    moves: "1.e4 e5"
+    style: Classical
+    level: Beginner+
+    idea: Meet White in the centre and develop naturally. The best way to learn open positions.
+    lichess: Kings_Pawn_Game
+  - name: Sicilian Defence
+    moves: "1.e4 c5"
+    style: Sharp & combative
+    level: Intermediate+
+    idea: Unbalance the game. Black fights for d4 from the side and often counter-attacks on the queenside.
+    lichess: Sicilian_Defense
+  - name: Caro-Kann Defence
+    moves: "1.e4 c6"
+    style: Solid
+    level: Beginner+
+    idea: Prepare ...d5 with a strong pawn chain, and develop the light-squared bishop outside it.
+    lichess: Caro-Kann_Defense
+  - name: French Defence
+    moves: "1.e4 e6"
+    style: Solid & counter-attacking
+    level: Intermediate+
+    idea: Challenge the centre with ...d5, then attack White's pawn chain with ...c5 and ...f6.
+    lichess: French_Defense
+black_d4:
+  - name: Queen's Gambit Declined
+    moves: "1.d4 d5 2.c4 e6"
+    style: Classical & solid
+    level: Beginner+
+    idea: Hold the d5 point firmly, develop calmly, and free the position later with ...c5 or ...e5.
+    lichess: Queens_Gambit_Declined
+  - name: Slav Defence
+    moves: "1.d4 d5 2.c4 c6"
+    style: Solid
+    level: Intermediate+
+    idea: Defend d5 with the c-pawn, keeping the light-squared bishop free to develop.
+    lichess: Slav_Defense
+  - name: King's Indian Defence
+    moves: "1.d4 Nf6 2.c4 g6"
+    style: Dynamic & attacking
+    level: Advanced
+    idea: Let White take the centre, then strike back with ...e5 or ...c5 and often attack on the kingside.
+    lichess: Kings_Indian_Defense
+  - name: Nimzo-Indian Defence
+    moves: "1.d4 Nf6 2.c4 e6 3.Nc3 Bb4"
+    style: Strategic
+    level: Advanced
+    idea: Pin the c3 knight to control e4, and be ready to give the bishop pair for a better pawn structure.
+    lichess: Nimzo-Indian_Defense

@@ -1,0 +1,51 @@
+---
+layout: default
+---
+{%- assign words = content | strip_html | number_of_words -%}
+{%- assign minutes = words | divided_by: 200 | plus: 1 -%}
+{%- assign share_url = page.url | absolute_url -%}
+{%- capture share_text %}{{ page.title }} {{ share_url }}{% endcapture -%}
+{%- capture wa %}{% include whatsapp-url.html %}{% endcapture %}{% assign wa = wa | strip -%}
+<section class="blog-hero text-white">
+  <div class="max-w-3xl mx-auto px-4 py-14">
+    <a href="/blog/" class="text-indigo-200 hover:text-white text-sm font-semibold"><i class="fas fa-arrow-left mr-1"></i>All articles</a>
+    <p class="mt-5 mb-3"><span class="blog-tag">{{ page.category }}</span></p>
+    <h1 class="text-3xl md:text-4xl font-extrabold leading-tight">{{ page.headline | default: page.title }}</h1>
+    {%- if page.description %}<p class="text-indigo-100 text-lg mt-4">{{ page.description }}</p>{% endif %}
+    <p class="text-indigo-200 text-sm mt-5">{{ page.author }} · {{ page.date | date: "%-d %B %Y" }} · {{ minutes }} min read{% if page.level %} · {{ page.level }}{% endif %}</p>
+  </div>
+</section>
+
+<article class="max-w-3xl mx-auto px-4 py-12">
+  <div class="cd-prose">
+    {{ content }}
+  </div>
+
+  <div class="mt-12 rounded-2xl blog-hero text-white p-8 text-center">
+    <p class="text-2xl font-bold mb-2">Want a coach to guide you?</p>
+    <p class="text-indigo-100 mb-6">Book a free demo class with ChessDepth Academy and get a personal improvement plan.</p>
+    <a href="{{ wa }}" target="_blank" rel="noopener noreferrer" class="cd-demo-btn inline-block px-8 py-3"><i class="fab fa-whatsapp mr-2"></i>Book a Free Demo</a>
+  </div>
+
+  <div class="mt-8 flex flex-wrap items-center gap-3 text-sm">
+    <span class="text-gray-500 font-semibold">Share:</span>
+    <a class="blog-share" href="https://wa.me/?text={{ share_text | url_encode }}" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp mr-1"></i>WhatsApp</a>
+    <a class="blog-share" href="https://www.facebook.com/sharer/sharer.php?u={{ share_url | url_encode }}" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f mr-1"></i>Facebook</a>
+    <a class="blog-share" href="https://twitter.com/intent/tweet?text={{ page.title | url_encode }}&amp;url={{ share_url | url_encode }}" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter mr-1"></i>X</a>
+  </div>
+
+  {%- assign related = site.posts | where: "category", page.category | where_exp: "p", "p.url != page.url" -%}
+  {%- if related.size == 0 %}{% assign related = site.posts | where_exp: "p", "p.url != page.url" %}{% endif %}
+  <div class="mt-12">
+    <h2 class="text-xl font-bold text-gray-900 mb-4">Keep reading</h2>
+    <div class="grid sm:grid-cols-2 gap-4">
+      {%- for p in related limit: 2 %}
+      <a href="{{ p.url }}" class="block bg-white rounded-lg shadow-sm hover:shadow-md p-5 transition">
+        <span class="text-xs font-bold text-indigo-600 uppercase">{{ p.category }}</span>
+        <p class="font-bold text-gray-900 mt-1">{{ p.title }}</p>
+        <p class="text-sm text-gray-500 mt-1">{{ p.description | truncate: 110 }}</p>
+      </a>
+      {%- endfor %}
+    </div>
+  </div>
+</article>
