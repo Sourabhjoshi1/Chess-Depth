@@ -1,0 +1,15 @@
+# Main menu - add, remove or reorder pages here.
+- title: Home
+  url: /
+- title: About
+  url: /about/
+- title: Courses
+  url: /courses/
+- title: Coaches
+  url: /coaches/
+- title: Resources
+  url: /resources/
+- title: Contact
+  url: /contact/
+- title: Careers
+  url: /careers/

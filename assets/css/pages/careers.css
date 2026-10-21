@@ -1,0 +1,50 @@
+/* Styles used only on the careers page */
+/* Custom CSS (copied for consistent styling) */
+    body {
+        font-family: 'Poppins', sans-serif;
+    }
+
+    /* Navbar Link Hover Effect */
+    .nav-link-hover-effect {
+        transition: all 0.2s ease-in-out;
+        position: relative;
+    }
+    .nav-link-hover-effect:after {
+        content: '';
+        position: absolute;
+        width: 0%;
+        height: 2px;
+        bottom: -5px;
+        left: 0;
+        background-color: #4f46e5; /* indigo-600 */
+        transition: width 0.3s ease-out;
+    }
+    .nav-link-hover-effect:hover:after {
+        width: 100%;
+    }
+    .nav-link-hover-effect:hover {
+        color: #4f46e5; /* indigo-600 */
+    }
+
+    /* Fade-in animation for content on page load */
+    .fade-in-content {
+        opacity: 0;
+        animation: fadeIn 1s ease-out forwards;
+        animation-delay: 0.2s;
+    }
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+
+    /* Consistent Header/Footer specific styles */
+    .header-shadow-on-scroll {
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        transition: box-shadow 0.3s ease-in-out;
+    }
+    /* Specific styles for job cards if needed */
+    .job-card-hover:hover {
+        transform: translateY(-5px) scale(1.01);
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        transition: all 0.3s ease-in-out;
+    }

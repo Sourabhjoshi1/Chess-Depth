@@ -1,107 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="google-adsense-account" content="ca-pub-1353516013773606">
-  <title>Resources & Analysis Tools | ChessDepth Academy</title>
-  <meta name="description" content="Free chess analysis tools, opening guides and recommended books from ChessDepth Academy.">
-  <link rel="canonical" href="https://www.chessdepth.in/resources">
-  <meta property="og:title" content="Resources & Analysis Tools | ChessDepth Academy">
-  <meta property="og:description" content="Free chess analysis tools, opening guides and recommended books from ChessDepth Academy.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://www.chessdepth.in/resources">
-  <meta property="og:image" content="https://www.chessdepth.in/og-image.jpg">
-  <meta name="twitter:card" content="summary_large_image">
-  <link rel="stylesheet" href="site.css">
-  
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1353516013773606"
-          crossorigin="anonymous"></script>
-
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <link rel="icon" type="image/x-icon" href="https://github.com/Sourabhjoshi1/Chess-Depth/raw/main/favicon/favicon%20(4).ico">
-
-  <script type="module" src="https://cdn.jsdelivr.net/npm/chessboard-element@1.19.5/dist/chessboard-element.js"></script>
-
-  <style>
-    /* Custom CSS for consistent styling across pages */
-    body {
-        font-family: 'Poppins', sans-serif;
-    }
-
-    /* Navbar Link Hover Effect */
-    .nav-link-hover-effect {
-        transition: all 0.2s ease-in-out;
-        position: relative;
-    }
-    .nav-link-hover-effect:after {
-        content: '';
-        position: absolute;
-        width: 0%;
-        height: 2px;
-        bottom: -5px;
-        left: 0;
-        background-color: #4f46e5;
-        transition: width 0.3s ease-out;
-    }
-    .nav-link-hover-effect:hover:after {
-        width: 100%;
-    }
-    .nav-link-hover-effect:hover {
-        color: #4f46e5;
-    }
-
-    /* Fade-in animation for content on page load */
-    .fade-in-content {
-        opacity: 0;
-        animation: fadeIn 1s ease-out forwards;
-        animation-delay: 0.2s;
-    }
-    @keyframes fadeIn {
-        from { opacity: 0; }
-        to { opacity: 1; }
-    }
-  </style>
-</head>
-<body class="bg-gray-100 text-gray-800">
-
-  <header class="bg-white shadow-md py-4 sticky top-0 z-50" id="main-header">
-    <div class="max-w-7xl mx-auto flex justify-between items-center w-full px-4">
-      <a href="index.html" class="inline-block hover:opacity-80 transition-opacity duration-200">
-        <span class="text-3xl font-bold text-indigo-700">♟️ ChessDepth</span>
-      </a>
-      <button id="menu-toggle" class="lg:hidden p-2 text-gray-700 hover:text-indigo-600 focus:outline-none" aria-controls="mobile-menu" aria-expanded="false" aria-label="Toggle navigation">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
-        </svg>
-      </button>
-      <nav id="main-nav" aria-label="Primary" class="cd-nav hidden lg:flex items-center space-x-5">
-        <a href="index.html" class="cd-link text-gray-700">Home</a>
-        <a href="about.html" class="cd-link text-gray-700">About</a>
-        <a href="courses.html" class="cd-link text-gray-700">Courses</a>
-        <a href="coaches.html" class="cd-link text-gray-700">Coaches</a>
-        <a href="resources.html" class="cd-link cd-active font-semibold text-indigo-700" aria-current="page">Resources</a>
-        <a href="contact.html" class="cd-link text-gray-700">Contact</a>
-        <a href="careers.html" class="cd-link text-gray-700">Careers</a>
-        <a href="https://wa.me/919823029262?text=Hi%2C%20I%20would%20like%20to%20book%20a%20free%20demo%20class" target="_blank" rel="noopener noreferrer" class="cd-demo-btn">Free Demo</a>
-      </nav>
-    </div>
-    <div id="mobile-menu" class="hidden lg:hidden absolute top-full left-0 w-full bg-white shadow-lg py-4 transition-all duration-300 transform -translate-y-full">
-      <div class="flex flex-col items-center space-y-4">
-        <a href="index.html" class="text-gray-700 hover:text-indigo-600">Home</a>
-        <a href="about.html" class="text-gray-700 hover:text-indigo-600">About</a>
-        <a href="courses.html" class="text-gray-700 hover:text-indigo-600">Courses</a>
-        <a href="coaches.html" class="text-gray-700 hover:text-indigo-600">Coaches</a>
-        <a href="resources.html" class="text-indigo-700 font-semibold" aria-current="page">Resources</a>
-        <a href="contact.html" class="text-gray-700 hover:text-indigo-600">Contact</a>
-        <a href="careers.html" class="text-gray-700 hover:text-indigo-600">Careers</a>
-        <a href="https://wa.me/919823029262?text=Hi%2C%20I%20would%20like%20to%20book%20a%20free%20demo%20class" target="_blank" rel="noopener noreferrer" class="cd-demo-btn">Book a Free Demo</a>
-      </div>
-    </div>
-  </header>
-
+---
+title: "Resources & Analysis Tools | ChessDepth Academy"
+description: "Free chess analysis tools, opening guides and recommended books from ChessDepth Academy."
+permalink: /resources/
+redirect_from:
+  - /resources.html
+page_css: resources
+head_scripts:
+  - src: "https://cdn.jsdelivr.net/npm/chessboard-element@1.19.5/dist/chessboard-element.js"
+    type: module
+---
   <section class="bg-gradient-to-br from-indigo-500 to-purple-600 text-white py-16 text-center">
     <div class="max-w-4xl mx-auto px-4">
       <h2 class="text-4xl font-bold mb-4">Your Personalized Chess Analysis Tools</h2>
@@ -347,42 +254,8 @@
     </div>
   </section>
 
-  <footer class="cd-footer bg-gray-800 text-gray-300 pt-10 pb-6 mt-10">
-    <div class="max-w-6xl mx-auto px-4 grid gap-8 md:grid-cols-3 text-center md:text-left">
-      <div>
-        <p class="text-2xl font-bold text-white mb-2">♟️ ChessDepth Academy</p>
-        <p class="text-sm text-gray-400">Structured online chess coaching for beginners to tournament players.</p>
-        <div class="mt-4 flex justify-center md:justify-start space-x-5 text-2xl">
-          <a href="https://www.instagram.com/chessdepthacademy1/" target="_blank" rel="noopener noreferrer" aria-label="ChessDepth on Instagram"><i class="fab fa-instagram"></i></a>
-          <a href="https://www.facebook.com/chessdepthacademy/" target="_blank" rel="noopener noreferrer" aria-label="ChessDepth on Facebook"><i class="fab fa-facebook-f"></i></a>
-          <a href="https://wa.me/919823029262?text=Hi%2C%20I%20would%20like%20to%20book%20a%20free%20demo%20class" target="_blank" rel="noopener noreferrer" aria-label="ChessDepth on WhatsApp"><i class="fab fa-whatsapp"></i></a>
-        </div>
-      </div>
-      <div>
-        <p class="font-semibold text-white mb-3">Explore</p>
-        <ul class="space-y-1 text-sm">
-          <li><a href="courses.html">Courses &amp; Fees</a></li>
-          <li><a href="coaches.html">Our Coaches</a></li>
-          <li><a href="resources.html">Free Resources</a></li>
-          <li><a href="careers.html">Careers</a></li>
-        </ul>
-      </div>
-      <div>
-        <p class="font-semibold text-white mb-3">Get in touch</p>
-        <ul class="space-y-1 text-sm">
-          <li><i class="fas fa-phone-alt mr-2"></i><a href="tel:+919823029262">+91 98230 29262</a></li>
-          <li><i class="fab fa-whatsapp mr-2"></i><a href="https://wa.me/919823029262?text=Hi%2C%20I%20would%20like%20to%20book%20a%20free%20demo%20class" target="_blank" rel="noopener noreferrer">WhatsApp us</a></li>
-          <li><i class="fas fa-envelope mr-2"></i><a href="mailto:info@chessdepth.in">info@chessdepth.in</a></li>
-          <li><i class="fas fa-map-marker-alt mr-2"></i>Bhopal, Madhya Pradesh, India</li>
-        </ul>
-      </div>
-    </div>
-    <div class="max-w-6xl mx-auto px-4 mt-8 pt-4 border-t border-gray-700 flex flex-col sm:flex-row justify-between text-xs text-gray-400 gap-2 text-center">
-      <p>&copy; <span data-year>2026</span> ChessDepth Academy. All rights reserved.</p>
-      <p>Made by Sourabh Joshi ❤️</p>
-    </div>
-  </footer>
-  <a href="https://wa.me/919823029262?text=Hi%2C%20I%20would%20like%20to%20book%20a%20free%20demo%20class" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Chat with ChessDepth on WhatsApp" title="Chat with us on WhatsApp"><i class="fab fa-whatsapp text-2xl"></i></a>
+  
+
 
   <script>
     // --- Lichess Analysis Functionality ---
@@ -642,6 +515,3 @@
     }); 
     // --- End Lichess Analysis Functionality & Hamburger JS ---
   </script>
-<script src="site.js" defer></script>
-</body>
-</html>
