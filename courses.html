@@ -4,13 +4,21 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="google-adsense-account" content="ca-pub-1353516013773606">
-  <title>Our Courses | ChessDepth Academy</title>
+  <title>Courses & Fees | ChessDepth Academy</title>
+  <meta name="description" content="Chess courses from beginner to advanced: tactics, positional play, openings, endgames and psychology. One-to-one and group class fees.">
+  <link rel="canonical" href="https://www.chessdepth.in/courses">
+  <meta property="og:title" content="Courses & Fees | ChessDepth Academy">
+  <meta property="og:description" content="Chess courses from beginner to advanced: tactics, positional play, openings, endgames and psychology. One-to-one and group class fees.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.chessdepth.in/courses">
+  <meta property="og:image" content="https://www.chessdepth.in/og-image.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="stylesheet" href="site.css">
   
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1353516013773606"
           crossorigin="anonymous"></script>
 
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="style.css"> 
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <link rel="icon" type="image/x-icon" href="https://github.com/Sourabhjoshi1/Chess-Depth/raw/main/favicon/favicon%20(4).ico">
@@ -70,36 +78,37 @@
 </head>
 <body class="bg-gray-100 text-gray-800">
 
-  <header class="bg-white shadow-md py-6 flex justify-between items-center sticky top-0 z-50 lg:py-4" id="main-header">
-    <div class="max-w-7xl mx-auto flex justify-between items-center w-full px-4 lg:px-0">
+  <header class="bg-white shadow-md py-4 sticky top-0 z-50" id="main-header">
+    <div class="max-w-7xl mx-auto flex justify-between items-center w-full px-4">
       <a href="index.html" class="inline-block hover:opacity-80 transition-opacity duration-200">
-        <h1 class="text-3xl font-bold text-indigo-700">♟️ ChessDepth</h1>
+        <span class="text-3xl font-bold text-indigo-700">♟️ ChessDepth</span>
       </a>
-      <button id="menu-toggle" class="lg:hidden p-2 text-gray-700 hover:text-indigo-600 focus:outline-none">
+      <button id="menu-toggle" class="lg:hidden p-2 text-gray-700 hover:text-indigo-600 focus:outline-none" aria-controls="mobile-menu" aria-expanded="false" aria-label="Toggle navigation">
         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
         </svg>
       </button>
-      <nav id="main-nav" class="hidden lg:flex space-x-4">
-        <a href="index.html" class="text-gray-700 hover:text-indigo-600 nav-link-hover-effect">Home</a>
-        <a href="about.html" class="text-gray-700 hover:text-indigo-600 nav-link-hover-effect">About</a>
-        <a href="courses.html" class="font-semibold text-indigo-700 underline underline-offset-4 decoration-2 nav-link-hover-effect">Courses</a>
-        <a href="coaches.html" class="text-gray-700 hover:text-indigo-600 nav-link-hover-effect">Coaches</a>
-        <a href="contact.html" class="text-gray-700 hover:text-indigo-600 nav-link-hover-effect">Contact</a>
-        <a href="resources.html" class="text-gray-700 hover:text-indigo-600 nav-link-hover-effect">Resources</a>
-        <a href="careers.html" class="text-gray-700 hover:text-indigo-600 nav-link-hover-effect">Careers</a>
+      <nav id="main-nav" aria-label="Primary" class="cd-nav hidden lg:flex items-center space-x-5">
+        <a href="index.html" class="cd-link text-gray-700">Home</a>
+        <a href="about.html" class="cd-link text-gray-700">About</a>
+        <a href="courses.html" class="cd-link cd-active font-semibold text-indigo-700" aria-current="page">Courses</a>
+        <a href="coaches.html" class="cd-link text-gray-700">Coaches</a>
+        <a href="resources.html" class="cd-link text-gray-700">Resources</a>
+        <a href="contact.html" class="cd-link text-gray-700">Contact</a>
+        <a href="careers.html" class="cd-link text-gray-700">Careers</a>
+        <a href="https://wa.me/919823029262?text=Hi%2C%20I%20would%20like%20to%20book%20a%20free%20demo%20class" target="_blank" rel="noopener noreferrer" class="cd-demo-btn">Free Demo</a>
       </nav>
     </div>
-
     <div id="mobile-menu" class="hidden lg:hidden absolute top-full left-0 w-full bg-white shadow-lg py-4 transition-all duration-300 transform -translate-y-full">
       <div class="flex flex-col items-center space-y-4">
         <a href="index.html" class="text-gray-700 hover:text-indigo-600">Home</a>
         <a href="about.html" class="text-gray-700 hover:text-indigo-600">About</a>
-        <a href="courses.html" class="text-gray-700 hover:text-indigo-600">Courses</a>
+        <a href="courses.html" class="text-indigo-700 font-semibold" aria-current="page">Courses</a>
         <a href="coaches.html" class="text-gray-700 hover:text-indigo-600">Coaches</a>
-        <a href="contact.html" class="text-gray-700 hover:text-indigo-600">Contact</a>
         <a href="resources.html" class="text-gray-700 hover:text-indigo-600">Resources</a>
+        <a href="contact.html" class="text-gray-700 hover:text-indigo-600">Contact</a>
         <a href="careers.html" class="text-gray-700 hover:text-indigo-600">Careers</a>
+        <a href="https://wa.me/919823029262?text=Hi%2C%20I%20would%20like%20to%20book%20a%20free%20demo%20class" target="_blank" rel="noopener noreferrer" class="cd-demo-btn">Book a Free Demo</a>
       </div>
     </div>
   </header>
@@ -110,6 +119,32 @@
       <p class="text-xl">Unlock your potential with our expertly designed programs for every skill level.</p>
     </div>
   </section>
+  <section id="fees" class="py-14 px-4 bg-white">
+    <div class="max-w-5xl mx-auto">
+      <h3 class="text-3xl font-bold text-center mb-3 text-gray-800">Fees &amp; Class Formats</h3>
+      <p class="text-center text-gray-600 mb-10">Monthly fees for regular classes are below. Fixed-length programmes further down show the price for the complete programme. Your first demo class is free.</p>
+      <div class="grid md:grid-cols-2 gap-8 text-center">
+        <div class="bg-gray-50 rounded-lg shadow-lg p-6 border-t-4 border-indigo-600">
+          <i class="fas fa-user text-4xl text-indigo-600 mb-3"></i>
+          <h4 class="text-xl font-bold mb-2 text-indigo-700">One-to-One (Private) Classes</h4>
+          <p class="text-gray-600 mb-4">Lessons built entirely around your strengths, weaknesses and goals.</p>
+          <p><span class="text-3xl font-extrabold text-gray-900">&#8377;3,999 or $80</span><span class="text-xl text-gray-500"> / month</span></p>
+          <p class="text-sm text-gray-500 mt-2">Best for rapid improvement and tournament preparation.</p>
+        </div>
+        <div class="bg-gray-50 rounded-lg shadow-lg p-6 border-t-4 border-purple-600">
+          <i class="fas fa-users text-4xl text-purple-600 mb-3"></i>
+          <h4 class="text-xl font-bold mb-2 text-purple-700">Group Classes (2&ndash;4 Students)</h4>
+          <p class="text-gray-600 mb-4">Small batches with peer discussion and shared game analysis.</p>
+          <p><span class="text-3xl font-extrabold text-gray-900">&#8377;2,799 or $60</span><span class="text-xl text-gray-500"> / month</span></p>
+          <p class="text-sm text-gray-500 mt-2">Both formats include worksheets, regular quizzes, tournaments and community access.</p>
+        </div>
+      </div>
+      <div class="text-center mt-10">
+        <a href="https://wa.me/919823029262?text=Hi%2C%20I%20would%20like%20to%20book%20a%20free%20demo%20class" target="_blank" rel="noopener noreferrer" class="cd-demo-btn inline-block text-lg px-8 py-3"><i class="fab fa-whatsapp mr-2"></i>Book a Free Demo Class</a>
+      </div>
+    </div>
+  </section>
+
 
   <section id="courses-listing" class="py-16 bg-gray-100 px-4 fade-in-content">
     <div class="max-w-6xl mx-auto">
@@ -117,8 +152,8 @@
 
       <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="courses-container">
         
-        <div id="summer-course" class="bg-white p-6 rounded-lg shadow-md transition course-card-hover flex flex-col featured-course">
-          <div class="featured-badge">LIVE NOW</div>
+        <div id="summer-course" class="bg-white p-6 rounded-lg shadow-md transition course-card-hover flex flex-col">
+          
           <div class="course-card-content flex flex-col h-full">
             <div class="flex items-center mb-4 flex-shrink-0">
               <span class="bg-orange-100 text-orange-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full">Summer Special</span>
@@ -128,11 +163,11 @@
             <h4 class="text-2xl font-bold text-orange-600 mb-1 flex-shrink-0">Complete Summer Chess Course ☀️</h4>
             <div class="flex items-center text-yellow-500 mb-3">
                 <i class="fas fa-star text-sm"></i><i class="fas fa-star text-sm"></i><i class="fas fa-star text-sm"></i><i class="fas fa-star text-sm"></i><i class="fas fa-star text-sm"></i>
-                <span class="text-gray-500 text-xs ml-2">(New Season)</span>
+                <span class="text-gray-500 text-xs ml-2">(Summer 2026 batch)</span>
             </div>
             
             <p class="text-gray-600 mb-4 course-description flex-grow">
-              An intensive program starting <strong>May 1st</strong>. Covering openings, middlegames, and endgames. Designed for rapid improvement over the summer break with weekly tournaments.
+              Our intensive summer-break program covering openings, middlegames, and endgames, with weekly tournaments. The 2026 batch has finished &mdash; message us to be told when the next batch opens.
             </p>
             <ul class="list-disc list-inside text-sm text-gray-500 mb-4 course-features flex-grow">
               <li>Intensive 1-Month Curriculum</li>
@@ -143,9 +178,9 @@
             <div class="flex justify-between items-center text-gray-700 font-semibold flex-shrink-0 mt-auto border-t pt-3">
               <div class="flex flex-col text-left">
                   <span class="text-lg text-gray-800 font-bold">₹ 4,999 / $60</span>
-                  <span class="text-sm text-gray-500">Starts: May 1st</span>
+                  <span class="text-sm text-gray-500">Next batch: to be announced</span>
               </div>
-              <a href="index.html#inquiry" class="bg-orange-500 text-white px-4 py-2 rounded hover:bg-orange-600 transition shadow-md">Register Now</a>
+              <a href="https://wa.me/919823029262?text=Hi%2C%20please%20notify%20me%20about%20the%20next%20summer%20chess%20batch" target="_blank" rel="noopener noreferrer" class="bg-orange-500 text-white px-4 py-2 rounded hover:bg-orange-600 transition shadow-md whitespace-nowrap">Notify Me</a>
             </div>
           </div>
         </div>
@@ -642,17 +677,42 @@
     </div>
 </section>
 
-  <footer class="bg-gray-800 text-white py-6 mt-10">
-    <div class="max-w-5xl mx-auto text-center">
-      <p>&copy; 2025 ChessDepth Academy. All rights reserved.</p>
-      <div class="mt-4 flex justify-center space-x-6">
-        <a href="https://www.instagram.com/chessdepthacademy1/" class="text-gray-300 hover:text-indigo-300 transition-colors duration-200 text-2xl" target="_blank" aria-label="Follow us on Instagram"><i class="fab fa-instagram"></i></a>
-        <a href="https://www.facebook.com/chessdepthacademy/" class="text-gray-300 hover:text-indigo-300 transition-colors duration-200 text-2xl" target="_blank" aria-label="Follow us on Facebook"><i class="fab fa-facebook-f"></i></a>
-        <a href="#" class="text-gray-300 hover:text-indigo-300 transition-colors duration-200 text-2xl" aria-label="Watch us on YouTube"><i class="fab fa-youtube"></i></a>
+  <footer class="cd-footer bg-gray-800 text-gray-300 pt-10 pb-6 mt-10">
+    <div class="max-w-6xl mx-auto px-4 grid gap-8 md:grid-cols-3 text-center md:text-left">
+      <div>
+        <p class="text-2xl font-bold text-white mb-2">♟️ ChessDepth Academy</p>
+        <p class="text-sm text-gray-400">Structured online chess coaching for beginners to tournament players.</p>
+        <div class="mt-4 flex justify-center md:justify-start space-x-5 text-2xl">
+          <a href="https://www.instagram.com/chessdepthacademy1/" target="_blank" rel="noopener noreferrer" aria-label="ChessDepth on Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.facebook.com/chessdepthacademy/" target="_blank" rel="noopener noreferrer" aria-label="ChessDepth on Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://wa.me/919823029262?text=Hi%2C%20I%20would%20like%20to%20book%20a%20free%20demo%20class" target="_blank" rel="noopener noreferrer" aria-label="ChessDepth on WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        </div>
       </div>
-      <p class="mt-4 text-sm text-gray-400">Made by Sourabh Joshi ❤️</p>
+      <div>
+        <p class="font-semibold text-white mb-3">Explore</p>
+        <ul class="space-y-1 text-sm">
+          <li><a href="courses.html">Courses &amp; Fees</a></li>
+          <li><a href="coaches.html">Our Coaches</a></li>
+          <li><a href="resources.html">Free Resources</a></li>
+          <li><a href="careers.html">Careers</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="font-semibold text-white mb-3">Get in touch</p>
+        <ul class="space-y-1 text-sm">
+          <li><i class="fas fa-phone-alt mr-2"></i><a href="tel:+919823029262">+91 98230 29262</a></li>
+          <li><i class="fab fa-whatsapp mr-2"></i><a href="https://wa.me/919823029262?text=Hi%2C%20I%20would%20like%20to%20book%20a%20free%20demo%20class" target="_blank" rel="noopener noreferrer">WhatsApp us</a></li>
+          <li><i class="fas fa-envelope mr-2"></i><a href="mailto:info@chessdepth.in">info@chessdepth.in</a></li>
+          <li><i class="fas fa-map-marker-alt mr-2"></i>Bhopal, Madhya Pradesh, India</li>
+        </ul>
+      </div>
+    </div>
+    <div class="max-w-6xl mx-auto px-4 mt-8 pt-4 border-t border-gray-700 flex flex-col sm:flex-row justify-between text-xs text-gray-400 gap-2 text-center">
+      <p>&copy; <span data-year>2026</span> ChessDepth Academy. All rights reserved.</p>
+      <p>Made by Sourabh Joshi ❤️</p>
     </div>
   </footer>
+  <a href="https://wa.me/919823029262?text=Hi%2C%20I%20would%20like%20to%20book%20a%20free%20demo%20class" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Chat with ChessDepth on WhatsApp" title="Chat with us on WhatsApp"><i class="fab fa-whatsapp text-2xl"></i></a>
 
   <script>
     // JavaScript for the Hamburger Menu and general functionality
@@ -724,5 +784,6 @@
       });
     }); 
   </script>
+<script src="site.js" defer></script>
 </body>
 </html>
