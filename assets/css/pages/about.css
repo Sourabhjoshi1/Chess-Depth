@@ -1,6 +1,6 @@
 /* Styles used only on the About page */
 .ab-hero { background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%); }
-.ab-board { background-image: linear-gradient(45deg, rgba(255,255,255,.06) 25%, transparent 25%, transparent 75%, rgba(255,255,255,.06) 75%), linear-gradient(45deg, rgba(255,255,255,.06) 25%, transparent 25%, transparent 75%, rgba(255,255,255,.06) 75%); background-size: 48px 48px; background-position: 0 0, 24px 24px; }
+.ab-hero.ab-board { background-image: linear-gradient(45deg, rgba(255,255,255,.06) 25%, transparent 25%, transparent 75%, rgba(255,255,255,.06) 75%), linear-gradient(45deg, rgba(255,255,255,.06) 25%, transparent 25%, transparent 75%, rgba(255,255,255,.06) 75%), linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%); background-size: 48px 48px, 48px 48px, auto; background-position: 0 0, 24px 24px, 0 0; }
 .ab-eyebrow { letter-spacing: .14em; font-size: .75rem; font-weight: 700; text-transform: uppercase; color: #6366f1; }
 .ab-card { background: #fff; border-radius: .75rem; box-shadow: 0 1px 3px rgba(0,0,0,.08); }
 .ab-step-num { width: 2.5rem; height: 2.5rem; border-radius: 9999px; background: #4f46e5; color: #fff; display: inline-flex; align-items: center; justify-content: center; font-weight: 700; }
