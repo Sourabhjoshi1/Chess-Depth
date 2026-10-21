@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Student Area | ChessDepth Academy</title>
+  <meta name="description" content="Sign in to the ChessDepth Academy student area to download free PDF worksheets and study material for every course.">
+  <link rel="canonical" href="https://www.chessdepth.in/student">
+  <meta property="og:title" content="Student Area | ChessDepth Academy">
+  <meta property="og:description" content="Free PDF worksheets and study material for ChessDepth Academy students.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.chessdepth.in/student">
+  <meta property="og:image" content="https://www.chessdepth.in/og-image.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/x-icon" href="https://github.com/Sourabhjoshi1/Chess-Depth/raw/main/favicon/favicon%20(4).ico">
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="site.css">
+  <meta name="robots" content="noindex">
+</head>
+<body class="bg-gray-100 text-gray-800">
+  <header class="bg-white shadow-md py-4 sticky top-0 z-50" id="main-header">
+    <div class="max-w-7xl mx-auto flex justify-between items-center w-full px-4">
+      <a href="index.html" class="inline-block hover:opacity-80 transition-opacity duration-200">
+        <span class="text-3xl font-bold text-indigo-700">♟️ ChessDepth</span>
+      </a>
+      <button id="menu-toggle" class="xl:hidden p-2 text-gray-700 hover:text-indigo-600 focus:outline-none" aria-controls="mobile-menu" aria-expanded="false" aria-label="Toggle navigation">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+        </svg>
+      </button>
+      <nav id="main-nav" aria-label="Primary" class="cd-nav hidden xl:flex items-center space-x-5">
+        <a href="index.html" class="cd-link text-gray-700">Home</a>
+        <a href="about.html" class="cd-link text-gray-700">About</a>
+        <a href="courses.html" class="cd-link text-gray-700">Courses</a>
+        <a href="coaches.html" class="cd-link text-gray-700">Coaches</a>
+        <a href="resources.html" class="cd-link text-gray-700">Resources</a>
+        <a href="contact.html" class="cd-link text-gray-700">Contact</a>
+        <a href="careers.html" class="cd-link text-gray-700">Careers</a>
+        <a href="student.html" class="cd-login-btn cd-active-btn" aria-current="page"><i class="fas fa-user-circle mr-1"></i>Student Login</a>
+        <a href="https://wa.me/919823029262?text=Hi%2C%20I%20would%20like%20to%20book%20a%20free%20demo%20class" target="_blank" rel="noopener noreferrer" class="cd-demo-btn">Free Demo</a>
+      </nav>
+    </div>
+    <div id="mobile-menu" class="hidden xl:hidden absolute top-full left-0 w-full bg-white shadow-lg py-4 transition-all duration-300 transform -translate-y-full">
+      <div class="flex flex-col items-center space-y-4">
+        <a href="index.html" class="text-gray-700 hover:text-indigo-600">Home</a>
+        <a href="about.html" class="text-gray-700 hover:text-indigo-600">About</a>
+        <a href="courses.html" class="text-gray-700 hover:text-indigo-600">Courses</a>
+        <a href="coaches.html" class="text-gray-700 hover:text-indigo-600">Coaches</a>
+        <a href="resources.html" class="text-gray-700 hover:text-indigo-600">Resources</a>
+        <a href="contact.html" class="text-gray-700 hover:text-indigo-600">Contact</a>
+        <a href="careers.html" class="text-gray-700 hover:text-indigo-600">Careers</a>
+        <a href="student.html" class="cd-login-btn cd-active-btn" aria-current="page"><i class="fas fa-user-circle mr-1"></i>Student Login</a>
+        <a href="https://wa.me/919823029262?text=Hi%2C%20I%20would%20like%20to%20book%20a%20free%20demo%20class" target="_blank" rel="noopener noreferrer" class="cd-demo-btn">Book a Free Demo</a>
+      </div>
+    </div>
+  </header>
+
+  <section class="bg-gradient-to-br from-indigo-500 to-purple-600 text-white py-14 text-center">
+    <div class="max-w-4xl mx-auto px-4">
+      <h1 class="text-4xl font-bold mb-3">Student Area</h1>
+      <p class="text-lg text-indigo-100">Free PDF worksheets and study material for every ChessDepth course.</p>
+    </div>
+  </section>
+
+  <main class="max-w-5xl mx-auto px-4 py-12" style="min-height:40vh">
+
+    <!-- Shown while Firebase checks whether the student is signed in -->
+    <div id="state-loading" class="text-center text-gray-500 py-16">
+      <i class="fas fa-circle-notch fa-spin text-3xl text-indigo-500"></i>
+      <p class="mt-3">Loading&hellip;</p>
+    </div>
+
+    <!-- Shown if firebase-config.js has not been filled in yet -->
+    <div id="state-setup" class="hidden max-w-xl mx-auto bg-white rounded-lg shadow p-8 text-center">
+      <i class="fas fa-tools text-4xl text-indigo-500 mb-3"></i>
+      <h2 class="text-2xl font-bold mb-2">Student Area opening soon</h2>
+      <p class="text-gray-600">We&rsquo;re setting up student accounts. Meanwhile, ask your coach for your worksheets on WhatsApp.</p>
+    </div>
+
+    <!-- Signed out -->
+    <div id="state-signed-out" class="hidden max-w-md mx-auto bg-white rounded-lg shadow-lg p-8 text-center">
+      <i class="fas fa-chess-knight text-5xl text-indigo-600 mb-4"></i>
+      <h2 class="text-2xl font-bold mb-2">Sign in to get your material</h2>
+      <p class="text-gray-600 mb-6">Create a free student account with your Google account to download worksheets, concept books and quizzes for all our courses.</p>
+      <button id="btn-google" type="button" class="w-full inline-flex items-center justify-center gap-3 border border-gray-300 rounded-lg py-3 px-4 font-semibold text-gray-700 bg-white hover:bg-gray-50 shadow-sm transition">
+        <svg width="20" height="20" viewBox="0 0 48 48" aria-hidden="true"><path fill="#FFC107" d="M43.6 20.5H42V20H24v8h11.3C33.7 32.7 29.2 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34 6.1 29.3 4 24 4 12.9 4 4 12.9 4 24s8.9 20 20 20 20-8.9 20-20c0-1.3-.1-2.4-.4-3.5z"/><path fill="#FF3D00" d="M6.3 14.7l6.6 4.8C14.7 15.1 19 12 24 12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34 6.1 29.3 4 24 4 16.3 4 9.7 8.3 6.3 14.7z"/><path fill="#4CAF50" d="M24 44c5.2 0 9.9-2 13.4-5.2l-6.2-5.2C29.2 35.1 26.7 36 24 36c-5.2 0-9.6-3.3-11.3-7.9l-6.5 5C9.5 39.6 16.2 44 24 44z"/><path fill="#1976D2" d="M43.6 20.5H42V20H24v8h11.3c-.8 2.2-2.2 4.2-4.1 5.6l6.2 5.2C37 39.2 44 34 44 24c0-1.3-.1-2.4-.4-3.5z"/></svg>
+        Sign in with Google
+      </button>
+      <p id="signin-error" class="hidden mt-4 text-sm text-red-600"></p>
+      <p class="mt-6 text-xs text-gray-400">We only use your name and email to manage your student account.</p>
+    </div>
+
+    <!-- Signed in -->
+    <div id="state-signed-in" class="hidden">
+      <div class="bg-white rounded-lg shadow p-5 flex flex-col sm:flex-row items-center justify-between gap-4 mb-8">
+        <div class="flex items-center gap-4">
+          <img id="user-photo" src="" alt="" class="w-12 h-12 rounded-full bg-indigo-100 hidden" referrerpolicy="no-referrer">
+          <div class="text-center sm:text-left">
+            <p class="text-lg font-semibold">Welcome, <span id="user-name">Student</span>!</p>
+            <p id="user-email" class="text-sm text-gray-500"></p>
+          </div>
+        </div>
+        <button id="btn-signout" type="button" class="text-sm font-semibold text-gray-600 hover:text-red-600 border border-gray-300 rounded-full px-4 py-2 transition"><i class="fas fa-sign-out-alt mr-1"></i>Sign out</button>
+      </div>
+
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-6">
+        <h2 class="text-2xl font-bold">Your study material</h2>
+        <input id="search" type="search" placeholder="Search worksheets&hellip;" class="w-full sm:w-64 p-2.5 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500" aria-label="Search worksheets">
+      </div>
+
+      <div id="materials" class="space-y-6"></div>
+      <p id="materials-empty" class="hidden text-center text-gray-500 py-10">No material has been uploaded yet. Check back soon!</p>
+      <p id="materials-error" class="hidden text-center text-red-600 py-10"></p>
+    </div>
+  </main>
+
+  <footer class="cd-footer bg-gray-800 text-gray-300 pt-10 pb-6 mt-10">
+    <div class="max-w-6xl mx-auto px-4 grid gap-8 md:grid-cols-3 text-center md:text-left">
+      <div>
+        <p class="text-2xl font-bold text-white mb-2">♟️ ChessDepth Academy</p>
+        <p class="text-sm text-gray-400">Structured online chess coaching for beginners to tournament players.</p>
+        <div class="mt-4 flex justify-center md:justify-start space-x-5 text-2xl">
+          <a href="https://www.instagram.com/chessdepthacademy1/" target="_blank" rel="noopener noreferrer" aria-label="ChessDepth on Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.facebook.com/chessdepthacademy/" target="_blank" rel="noopener noreferrer" aria-label="ChessDepth on Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://wa.me/919823029262?text=Hi%2C%20I%20would%20like%20to%20book%20a%20free%20demo%20class" target="_blank" rel="noopener noreferrer" aria-label="ChessDepth on WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        </div>
+      </div>
+      <div>
+        <p class="font-semibold text-white mb-3">Explore</p>
+        <ul class="space-y-1 text-sm">
+          <li><a href="courses.html">Courses &amp; Fees</a></li>
+          <li><a href="coaches.html">Our Coaches</a></li>
+          <li><a href="resources.html">Free Resources</a></li>
+          <li><a href="careers.html">Careers</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="font-semibold text-white mb-3">Get in touch</p>
+        <ul class="space-y-1 text-sm">
+          <li><i class="fas fa-phone-alt mr-2"></i><a href="tel:+919823029262">+91 98230 29262</a></li>
+          <li><i class="fab fa-whatsapp mr-2"></i><a href="https://wa.me/919823029262?text=Hi%2C%20I%20would%20like%20to%20book%20a%20free%20demo%20class" target="_blank" rel="noopener noreferrer">WhatsApp us</a></li>
+          <li><i class="fas fa-envelope mr-2"></i><a href="mailto:info@chessdepth.in">info@chessdepth.in</a></li>
+          <li><i class="fas fa-map-marker-alt mr-2"></i>Bhopal, Madhya Pradesh, India</li>
+        </ul>
+      </div>
+    </div>
+    <div class="max-w-6xl mx-auto px-4 mt-8 pt-4 border-t border-gray-700 flex flex-col sm:flex-row justify-between text-xs text-gray-400 gap-2 text-center">
+      <p>&copy; <span data-year>2026</span> ChessDepth Academy. All rights reserved.</p>
+      <p>Made by Sourabh Joshi ❤️</p>
+    </div>
+  </footer>
+  <a href="https://wa.me/919823029262?text=Hi%2C%20I%20would%20like%20to%20book%20a%20free%20demo%20class" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Chat with ChessDepth on WhatsApp" title="Chat with us on WhatsApp"><i class="fab fa-whatsapp text-2xl"></i></a>
+<script src="site.js" defer></script>
+<script type="module" src="student.js"></script>
+</body>
+</html>
