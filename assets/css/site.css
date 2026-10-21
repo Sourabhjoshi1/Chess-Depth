@@ -73,8 +73,8 @@ body { font-family: 'Poppins', sans-serif; }
 .cd-mobile-contact a { color: #6b6f8a; }
 
 @media (max-width: 767px) { .cd-topbar { display: none; } :root { --cd-header-h: 66px; } .cd-brand-name { font-size: 1.6rem; } .cd-mark { width: 30px; height: 30px; } }
-@media (min-width: 1100px) { .cd-nav { display: flex; } .cd-header-mobile { display: none; } .cd-mobile-menu { display: none !important; } }
-@media (min-width: 1100px) and (max-width: 1240px) { .cd-nav { gap: 1.4rem; } }
+@media (min-width: 1200px) { .cd-nav { display: flex; } .cd-header-mobile { display: none; } .cd-mobile-menu { display: none !important; } }
+@media (min-width: 1200px) and (max-width: 1340px) { .cd-nav { gap: 1.35rem; } }
 @media (min-width: 768px) { .cd-header-mobile .cd-theme-btn { display: none; } }
 
 /* "Coming soon" label for ChessDepth AI in the menu */
