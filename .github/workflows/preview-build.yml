@@ -2,7 +2,7 @@
 name: Preview build (temporary)
 on:
   push:
-    branches: ["privacy-tracking"]
+    branches: ["preview-tmp"]
 permissions:
   contents: write
 jobs:
