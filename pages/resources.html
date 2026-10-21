@@ -1,517 +1,382 @@
 ---
-title: "Resources & Analysis Tools | ChessDepth Academy"
-description: "Free chess analysis tools, opening guides and recommended books from ChessDepth Academy."
+title: "Free Chess Resources | ChessDepth Academy"
+description: "Free chess resources from ChessDepth Academy: an improvement roadmap by rating, a Lichess game analyser, board editor, opening guide, tactics glossary, endgame checklist, training plans, books and tools."
 permalink: /resources/
 redirect_from:
   - /resources.html
 page_css: resources
 head_scripts:
-  - src: "https://cdn.jsdelivr.net/npm/chessboard-element@1.19.5/dist/chessboard-element.js"
+  - src: "https://cdn.jsdelivr.net/npm/chessboard-element@1.2.0/bundled/chessboard-element.bundled.js"
     type: module
 ---
-  <section class="bg-gradient-to-br from-indigo-500 to-purple-600 text-white py-16 text-center">
-    <div class="max-w-4xl mx-auto px-4">
-      <h2 class="text-4xl font-bold mb-4">Your Personalized Chess Analysis Tools</h2>
-      <p class="text-xl">Unlock deep insights from your games, explore opening theory, and discover essential training materials.</p>
+{%- capture wa %}{% include whatsapp-url.html %}{% endcapture %}{% assign wa = wa | strip -%}
+
+  <!-- ============ HERO ============ -->
+  <section class="rs-hero text-white">
+    <div class="max-w-5xl mx-auto px-4 py-16 text-center">
+      <p class="uppercase tracking-widest text-indigo-200 text-sm font-semibold mb-3">Free resources</p>
+      <h1 class="text-4xl md:text-5xl font-extrabold mb-4">Everything you need to improve at chess</h1>
+      <p class="text-lg text-indigo-100 max-w-3xl mx-auto">A study roadmap for your level, tools to analyse your games, opening and endgame guides, training plans and the best books, all free and chosen by our coaches.</p>
     </div>
   </section>
 
-  <nav aria-label="Resources Sections" class="bg-white/80 backdrop-filter backdrop-blur sticky top-16 z-40 shadow-sm">
+  <!-- ============ SECTION NAV ============ -->
+  <nav aria-label="Resources sections" class="rs-subnav">
     <div class="max-w-6xl mx-auto px-4">
-      <ul class="flex flex-wrap items-center gap-4 py-3 text-sm">
-        <li><a href="#analysis-tool" class="text-gray-700 hover:text-indigo-600 nav-link-hover-effect">Analysis</a></li>
-        <li><a href="#live-board-editor" class="text-gray-700 hover:text-indigo-600 nav-link-hover-effect">Board Editor</a></li>
-        <li><a href="#openings-guide" class="text-gray-700 hover:text-indigo-600 nav-link-hover-effect">Openings</a></li>
-        <li><a href="#recommended-resources" class="text-gray-700 hover:text-indigo-600 nav-link-hover-effect">Tools & Books</a></li>
-        <li><a href="#blog" class="text-gray-700 hover:text-indigo-600 nav-link-hover-effect">Blog</a></li>
-        <li><a href="#resources-faq" class="text-gray-700 hover:text-indigo-600 nav-link-hover-effect">FAQ</a></li>
+      <ul class="flex items-center gap-5 py-3 text-sm whitespace-nowrap overflow-x-auto">
+        <li><a href="#roadmap">Roadmap</a></li>
+        <li><a href="#analysis">Game Analyser</a></li>
+        <li><a href="#board-editor">Board Editor</a></li>
+        <li><a href="#openings">Openings</a></li>
+        <li><a href="#tactics">Tactics</a></li>
+        <li><a href="#endgames">Endgames</a></li>
+        <li><a href="#training-plan">Training Plan</a></li>
+        <li><a href="#books">Books</a></li>
+        <li><a href="#tools">Online Tools</a></li>
+        <li><a href="#blog">Blog</a></li>
+        <li><a href="#faq">FAQ</a></li>
       </ul>
     </div>
   </nav>
 
-  <section id="analysis-tool" class="py-16 px-4 bg-gray-100 fade-in-content">
-    <div class="max-w-xl mx-auto text-center">
-      <h3 class="text-3xl font-bold text-indigo-700 mb-4">Deep Game Analysis Tool 🧠</h3>
-      <p class="text-gray-600 mb-2">Enter your Lichess username for a quick evaluation of your latest games (max 5).</p>
-      <p class="text-sm text-gray-500 mb-6">Tip: Profiles must be public. Example: <button type="button" id="prefill-sample" class="text-indigo-600 hover:text-indigo-800 underline">lichess</button></p>
-
-      <div class="bg-white p-6 rounded-lg shadow-xl">
-        <form id="analysis-form">
-          <div class="flex flex-col sm:flex-row gap-4 justify-center">
-            <input type="text" id="username-input" placeholder="Enter Lichess Username"
-                   aria-label="Enter Lichess Username"
-                   class="w-full p-3 border-2 border-indigo-200 rounded-lg shadow-sm hover:border-indigo-400 focus:ring-2 focus:ring-indigo-500 transition duration-200" 
-                   required />
-            
-            <select id="platform-select" class="p-3 border-2 border-indigo-200 rounded-md flex-shrink-0 hidden">
-              <option value="lichess">Lichess</option>
-              <option value="chesscom">Chess.com (Unavailable)</option>
-            </select>
-
-            <button type="submit" id="analyze-button" class="bg-orange-500 text-white font-bold px-8 py-3 rounded-lg shadow-md hover:bg-orange-600 transition flex-shrink-0 disabled:opacity-60 disabled:cursor-not-allowed">
-              <span class="inline-flex items-center gap-2">
-                <svg id="loading-spinner" class="hidden animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"></path></svg>
-                Get Analysis
-              </span>
-            </button>
-            <button type="button" id="reset-button" class="px-5 py-3 rounded-lg border border-gray-300 text-gray-700 hover:bg-gray-50 shadow-sm">
-              Reset
-            </button>
-          </div>
-        </form>
-
-        <div id="analysis-results" class="mt-8 pt-4 border-t border-gray-100 text-left space-y-4">
-          <p class="text-gray-500 text-sm" id="analysis-status" role="status" aria-live="polite">Ready for analysis. Data will be fetched from Lichess.</p>
-          <div id="ratings-summary" class="hidden grid grid-cols-1 sm:grid-cols-3 gap-3"></div>
-          <div id="games-summary" class="hidden"></div>
-        </div>
+  <!-- ============ STUDENT AREA BANNER ============ -->
+  <section class="px-4 pt-10">
+    <div class="max-w-5xl mx-auto rounded-xl bg-white shadow p-6 flex flex-col md:flex-row items-center gap-5">
+      <i class="fas fa-file-pdf text-4xl text-red-500"></i>
+      <div class="flex-grow text-center md:text-left">
+        <p class="font-bold text-lg text-gray-900">Free PDF worksheets for ChessDepth students</p>
+        <p class="text-gray-600 text-sm">Sign in to the Student Area to download worksheets and concept books for every course.</p>
       </div>
-    </div>
-  </section>
-  
-  <section id="live-board-editor" class="py-16 px-4 bg-white fade-in-content">
-    <div class="max-w-6xl mx-auto text-center">
-      <h3 class="text-3xl font-bold text-indigo-700 mb-8">Practice, Analyze, and Create Positions ♟️</h3>
-      <p class="text-lg text-gray-700 mb-8">Use the Lichess board editor below to analyze complex positions, test variations, or set up puzzles.</p>
-
-      <div class="bg-gray-100 rounded-lg shadow-xl" style="max-width: 800px; margin: 0 auto;">
-        <div class="bg-white p-4 border-b border-gray-100 flex flex-col sm:flex-row items-center gap-3 justify-center">
-          <input id="fen-input" type="text" placeholder="Paste FEN (optional)" class="w-full sm:w-auto flex-1 p-2 border rounded-md focus:ring-2 focus:ring-indigo-500" aria-label="FEN input">
-          <div class="flex gap-2">
-            <button id="load-fen" class="px-4 py-2 rounded-md bg-indigo-600 text-white hover:bg-indigo-700">Load FEN</button>
-            <button id="start-pos" class="px-4 py-2 rounded-md border border-gray-300 hover:bg-gray-50">Start</button>
-            <button id="clear-board" class="px-4 py-2 rounded-md border border-gray-300 hover:bg-gray-50">Clear</button>
-          </div>
-        </div>
-        <div class="p-3">
-          <chess-board id="play-board" draggable-pieces style="width: 100%; height: 600px;"></chess-board>
-        </div>
-      </div>
+      <a href="/student/" class="cd-login-btn"><i class="fas fa-user-circle mr-1"></i>Go to Student Area</a>
     </div>
   </section>
 
-
-  <section id="openings-guide" class="py-16 px-4 bg-gray-100 fade-in-content">
-    <div class="max-w-4xl mx-auto">
-      <h3 class="text-3xl font-bold text-indigo-700 text-center mb-8">Know Your Openings 🚀</h3>
-      <p class="text-lg text-gray-700 text-center mb-10">Understanding chess openings is crucial for setting the tone of your game. Explore popular opening lines and resources below.</p>
-      
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
-          <h4 class="text-2xl font-semibold text-gray-800 mb-3 flex items-center"><i class="fas fa-book-open mr-2 text-indigo-500"></i> Ruy Lopez (Spanish Game)</h4>
-          <p class="text-gray-600 mb-4">A classic and strategic opening, the Ruy Lopez is played by grandmasters and beginners alike. It leads to rich, complex positions.</p>
-          <a href="https://www.chess.com/openings/Ruy-Lopez" target="_blank" rel="noopener noreferrer" class="text-indigo-600 hover:text-indigo-800 font-medium">Explore on Chess.com <i class="fas fa-external-link-alt ml-1 text-sm"></i></a>
-        </div>
-
-        <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
-          <h4 class="text-2xl font-semibold text-gray-800 mb-3 flex items-center"><i class="fas fa-book-open mr-2 text-indigo-500"></i> Sicilian Defense</h4>
-          <p class="text-gray-600 mb-4">One of Black's most aggressive and popular responses to 1.e4, leading to sharp, tactical battles.</p>
-          <a href="https://www.chess.com/openings/Sicilian-Defense" target="_blank" rel="noopener noreferrer" class="text-indigo-600 hover:text-indigo-800 font-medium">Explore on Chess.com <i class="fas fa-external-link-alt ml-1 text-sm"></i></a>
-        </div>
-
-        <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
-            <h4 class="text-2xl font-semibold text-gray-800 mb-3 flex items-center"><i class="fas fa-book-open mr-2 text-indigo-500"></i> Queen's Gambit</h4>
-            <p class="text-gray-600 mb-4">A strategic and positional opening where White offers a pawn to gain central control. Leads to complex middlegames.</p>
-            <a href="https://www.chess.com/openings/Queens-Gambit" target="_blank" rel="noopener noreferrer" class="text-indigo-600 hover:text-indigo-800 font-medium">Explore on Chess.com <i class="fas fa-external-link-alt ml-1 text-sm"></i></a>
-        </div>
-
-        <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
-            <h4 class="text-2xl font-semibold text-gray-800 mb-3 flex items-center"><i class="fas fa-book-open mr-2 text-indigo-500"></i> King's Indian Defense</h4>
-            <p class="text-gray-600 mb-4">A dynamic and counter-attacking defense where Black allows White central control early, aiming for a kingside attack later.</p>
-            <a href="https://www.chess.com/openings/Kings-Indian-Defense" target="_blank" rel="noopener noreferrer" class="text-indigo-600 hover:text-indigo-800 font-medium">Explore on Chess.com <i class="fas fa-external-link-alt ml-1 text-sm"></i></a>
-        </div>
-      </div>
-
-      <div class="text-center mt-12">
-        <p class="text-lg text-gray-700 mb-4">Looking for deeper opening exploration?</p>
-        <a href="https://lichess.org/opening" target="_blank" rel="noopener noreferrer" class="inline-block bg-indigo-600 text-white font-bold py-3 px-8 rounded-md hover:bg-indigo-700 transition-colors duration-300">
-          Lichess Opening Explorer <i class="fas fa-chart-bar ml-2"></i>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <section id="recommended-resources" class="py-16 px-4 bg-white fade-in-content">
-    <div class="max-w-4xl mx-auto">
-      <h3 class="text-3xl font-bold text-indigo-700 text-center mb-8">Recommended Training Tools & Books 📚</h3>
-      <p class="text-lg text-gray-700 text-center mb-10">Enhance your training with our curated list of essential chess tools and literature.</p>
-      
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <div class="bg-gray-50 p-6 rounded-lg shadow-md flex flex-col items-center text-center hover:shadow-lg transition-shadow duration-300">
-          <i class="fas fa-globe text-4xl text-blue-600 mb-4"></i>
-          <h4 class="text-xl font-semibold text-gray-800 mb-2">Chess.com</h4>
-          <p class="text-gray-600 mb-4 flex-grow">A leading online platform for playing, learning, and analyzing chess games. Offers lessons, puzzles, and a vibrant community.</p>
-          <a href="https://www.chess.com/" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-800 font-medium mt-auto">Visit Chess.com <i class="fas fa-external-link-alt ml-1 text-sm"></i></a>
-        </div>
-
-        <div class="bg-gray-50 p-6 rounded-lg shadow-md flex flex-col items-center text-center hover:shadow-lg transition-shadow duration-300">
-          <i class="fas fa-chess text-4xl text-gray-800 mb-4"></i>
-          <h4 class="text-xl font-semibold text-gray-800 mb-2">Lichess.org</h4>
-          <p class="text-gray-600 mb-4 flex-grow">Free and open-source online chess platform. Great for analysis, puzzles, and a wide variety of game modes.</p>
-          <a href="https://lichess.org/" target="_blank" rel="noopener noreferrer" class="text-gray-800 hover:text-gray-900 font-medium mt-auto">Visit Lichess.org <i class="fas fa-external-link-alt ml-1 text-sm"></i></a>
-        </div>
-
-        <div class="bg-gray-50 p-6 rounded-lg shadow-md flex flex-col items-center text-center hover:shadow-lg transition-shadow duration-300">
-          <i class="fas fa-book text-4xl text-green-700 mb-4"></i>
-          <h4 class="text-xl font-semibold text-gray-800 mb-2">My System</h4>
-          <p class="text-gray-600 mb-4 flex-grow">By Aron Nimzowitsch. A groundbreaking work on positional play and chess strategy, essential for intermediate players.</p>
-          <a href="https://www.amazon.com/My-System-Aron-Nimzowitsch/dp/0486202028" target="_blank" rel="noopener noreferrer" class="text-green-700 hover:text-green-900 font-medium mt-auto">Find on Amazon <i class="fas fa-external-link-alt ml-1 text-sm"></i></a>
-        </div>
-
-        <div class="bg-gray-50 p-6 rounded-lg shadow-md flex flex-col items-center text-center hover:shadow-lg transition-shadow duration-300">
-            <i class="fas fa-book-reader text-4xl text-purple-700 mb-4"></i>
-            <h4 class="text-xl font-semibold text-gray-800 mb-2">Logical Chess: Move By Move</h4>
-            <p class="text-gray-600 mb-4 flex-grow">By Irving Chernev. Explains master games in an accessible way, focusing on the reasoning behind each move.</p>
-            <a href="https://www.amazon.com/Logical-Chess-Move-Chernev-Irving/dp/0671211339" target="_blank" rel="noopener noreferrer" class="text-purple-700 hover:text-purple-900 font-medium mt-auto">Find on Amazon <i class="fas fa-external-link-alt ml-1 text-sm"></i></a>
-        </div>
-        
-        <div class="bg-gray-50 p-6 rounded-lg shadow-md flex flex-col items-center text-center hover:shadow-lg transition-shadow duration-300">
-            <i class="fas fa-brain text-4xl text-red-600 mb-4"></i>
-            <h4 class="text-xl font-semibold text-gray-800 mb-2">Stockfish Engine</h4>
-            <p class="text-gray-600 mb-4 flex-grow">The world's strongest open-source chess engine. Use it for deep analysis of your games and positions.</p>
-            <a href="https://stockfishchess.org/" target="_blank" rel="noopener noreferrer" class="text-red-600 hover:text-red-800 font-medium mt-auto">Visit Stockfish <i class="fas fa-external-link-alt ml-1 text-sm"></i></a>
-        </div>
-
-        <div class="bg-gray-50 p-6 rounded-lg shadow-md flex flex-col items-center text-center hover:shadow-lg transition-shadow duration-300">
-            <i class="fas fa-chalkboard-teacher text-4xl text-orange-600 mb-4"></i>
-            <h4 class="text-xl font-semibold text-gray-800 mb-2">Chessable</h4>
-            <p class="text-gray-600 mb-4 flex-grow">A unique platform using "MoveTrainer" technology to help you memorize openings, tactics, and endgames effectively.</p>
-            <a href="https://www.chessable.com/" target="_blank" rel="noopener noreferrer" class="text-orange-600 hover:text-orange-800 font-medium mt-auto">Visit Chessable <i class="fas fa-external-link-alt ml-1 text-sm"></i></a>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- Blog Section (merged from blog.html) -->
-  <section id="blog" class="py-16 bg-gray-100 px-4 fade-in-content">
+  <!-- ============ ROADMAP ============ -->
+  <section id="roadmap" class="py-16 px-4">
     <div class="max-w-6xl mx-auto">
-      <h3 class="text-3xl font-bold text-center mb-10 text-gray-800">Latest Articles</h3>
-
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <div class="bg-white p-6 rounded-lg shadow-md flex flex-col">
-          <img src="https://cdn.chessmood.com/chessmood/images/articles/826/1690099973_64bce105dc065.webp" alt="Tactics" class="rounded-t-lg mb-4 w-full h-48 object-cover">
-          <div class="flex items-center text-sm text-gray-500 mb-2">
-            <span class="mr-3"><i class="far fa-calendar-alt mr-1"></i> July 31, 2025</span>
-            <span><i class="fas fa-tag mr-1"></i> Tactics</span>
-          </div>
-          <h4 class="text-2xl font-bold text-indigo-700 mb-2">Mastering Basic Chess Tactics</h4>
-          <p class="text-gray-600 mb-4 flex-grow">Learn the fundamental tactical motifs like forks, pins, and skewers that can instantly turn the tide of a game. Essential for beginners to intermediate players.</p>
-          <span class="text-indigo-600 font-medium self-start text-sm">Full article coming soon</span>
+      <div class="text-center mb-10">
+        <p class="rs-eyebrow mb-2">Start here</p>
+        <h2 class="text-3xl font-bold text-gray-900 mb-3">Your improvement roadmap</h2>
+        <p class="text-gray-600 max-w-2xl mx-auto">Find your level and focus on what matters most right now. Ratings are rough guides (online rapid or FIDE).</p>
+      </div>
+      <div class="grid md:grid-cols-2 lg:grid-cols-5 gap-5">
+        <div class="rs-card rs-level p-5" style="--lv:#10b981">
+          <p class="text-xs font-bold text-green-600 uppercase">Stage 1 · New to chess</p>
+          <p class="text-lg font-bold mt-1 mb-3">0 – 800</p>
+          <ul class="rs-list"><li>How the pieces move, special rules</li><li>Basic mates: queen and rook vs king</li><li>Don't leave pieces undefended</li><li>Opening principles</li></ul>
+          <p class="rs-focus">Focus: safety of your pieces</p>
         </div>
-
-        <div class="bg-white p-6 rounded-lg shadow-md flex flex-col">
-          <img src="https://www.shutterstock.com/image-photo/journey-business-success-chess-king-600nw-2510833689.jpg" alt="Strategy" class="rounded-t-lg mb-4 w-full h-48 object-cover">
-          <div class="flex items-center text-sm text-gray-500 mb-2">
-            <span class="mr-3"><i class="far fa-calendar-alt mr-1"></i> August 25, 2025</span>
-            <span><i class="fas fa-tag mr-1"></i> Strategy</span>
-          </div>
-          <h4 class="text-2xl font-bold text-purple-700 mb-2">The Importance of Positional Play</h4>
-          <p class="text-gray-600 mb-4 flex-grow">Beyond tactics, understanding positional nuances is key to long-term success. Discover how to improve your piece activity, pawn structure, and king safety.</p>
-          <span class="text-purple-600 font-medium self-start text-sm">Full article coming soon</span>
+        <div class="rs-card rs-level p-5" style="--lv:#3b82f6">
+          <p class="text-xs font-bold text-blue-600 uppercase">Stage 2 · Beginner</p>
+          <p class="text-lg font-bold mt-1 mb-3">800 – 1200</p>
+          <ul class="rs-list"><li>Forks, pins, skewers, discoveries</li><li>The CCT habit before every move</li><li>King and pawn endgames, opposition</li><li>One simple opening per side</li></ul>
+          <p class="rs-focus">Focus: daily tactics</p>
         </div>
-
-        <div class="bg-white p-6 rounded-lg shadow-md flex flex-col">
-          <img src="https://images.chesscomfiles.com/uploads/v1/chess_term/eb602e74-7272-11ee-82ed-8557328e796c.2bafefd3.5000x5000o.bd9d4fa936d4.jpg" alt="Openings" class="rounded-t-lg mb-4 w-full h-48 object-cover">
-          <div class="flex items-center text-sm text-gray-500 mb-2">
-            <span class="mr-3"><i class="far fa-calendar-alt mr-1"></i> October 10, 2025</span>
-            <span><i class="fas fa-tag mr-1"></i> Openings</span>
-          </div>
-          <h4 class="text-2xl font-bold text-teal-700 mb-2">Building a Solid Opening Repertoire</h4>
-          <p class="text-gray-600 mb-4 flex-grow">A good opening sets the tone for your game. Learn how to choose openings that suit your style and understand their underlying principles.</p>
-          <span class="text-teal-600 font-medium self-start text-sm">Full article coming soon</span>
+        <div class="rs-card rs-level p-5" style="--lv:#8b5cf6">
+          <p class="text-xs font-bold text-purple-600 uppercase">Stage 3 · Improver</p>
+          <p class="text-lg font-bold mt-1 mb-3">1200 – 1600</p>
+          <ul class="rs-list"><li>Combinations of 2–3 moves</li><li>Piece activity and weak squares</li><li>Lucena and Philidor positions</li><li>Analysing your own games</li></ul>
+          <p class="rs-focus">Focus: calculation and plans</p>
+        </div>
+        <div class="rs-card rs-level p-5" style="--lv:#f59e0b">
+          <p class="text-xs font-bold text-yellow-600 uppercase">Stage 4 · Club player</p>
+          <p class="text-lg font-bold mt-1 mb-3">1600 – 2000</p>
+          <ul class="rs-list"><li>Pawn structures and typical plans</li><li>A deeper opening repertoire</li><li>Practical rook endgames</li><li>Time management, tournament play</li></ul>
+          <p class="rs-focus">Focus: strategy and endgames</p>
+        </div>
+        <div class="rs-card rs-level p-5" style="--lv:#ef4444">
+          <p class="text-xs font-bold text-red-600 uppercase">Stage 5 · Advanced</p>
+          <p class="text-lg font-bold mt-1 mb-3">2000+</p>
+          <ul class="rs-list"><li>Deep calculation training</li><li>Opponent-specific preparation</li><li>Complex endgames, master games</li><li>Psychology and consistency</li></ul>
+          <p class="rs-focus">Focus: depth and consistency</p>
         </div>
       </div>
     </div>
   </section>
 
-  <section id="resources-faq" class="py-16 px-4 bg-gray-100 fade-in-content">
+  <!-- ============ GAME ANALYSER ============ -->
+  <section id="analysis" class="py-16 px-4 bg-white">
     <div class="max-w-4xl mx-auto">
-      <h3 class="text-3xl font-bold text-indigo-700 text-center mb-6">Resources FAQ</h3>
-      <div class="divide-y divide-gray-200 bg-white rounded-lg shadow">
-        <details class="p-6 group" aria-label="Is the analysis tool free?">
-          <summary class="cursor-pointer font-semibold text-gray-800 flex items-center justify-between">
-            Is the analysis tool free?
-            <span class="text-indigo-500 group-open:rotate-180 transform transition">▾</span>
-          </summary>
-          <p class="mt-3 text-gray-600">Yes. We fetch public data from Lichess for recent games. Private profiles or disabled history will not return results.</p>
-        </details>
-        <details class="p-6 group" aria-label="How accurate is the game summary?">
-          <summary class="cursor-pointer font-semibold text-gray-800 flex items-center justify-between">
-            How accurate is the game summary?
-            <span class="text-indigo-500 group-open:rotate-180 transform transition">▾</span>
-          </summary>
-          <p class="mt-3 text-gray-600">We provide a quick tally of wins/draws/losses. For deep engine evaluations, use the Lichess Study or Stockfish links above.</p>
-        </details>
-        <details class="p-6 group" aria-label="Which openings to start with?">
-          <summary class="cursor-pointer font-semibold text-gray-800 flex items-center justify-between">
-            Which openings should I start with?
-            <span class="text-indigo-500 group-open:rotate-180 transform transition">▾</span>
-          </summary>
-          <p class="mt-3 text-gray-600">Pick one main line for White and a solid response for Black against 1.e4 and 1.d4. Explore Ruy Lopez/Sicilian for tactics and Queen's Gambit/KID for strategy.</p>
-        </details>
+      <div class="text-center mb-8">
+        <p class="rs-eyebrow mb-2">Free tool</p>
+        <h2 class="text-3xl font-bold text-gray-900 mb-3">Lichess game analyser</h2>
+        <p class="text-gray-600">Enter a Lichess username to see current ratings, recent results with White and Black, and the openings played most often. Profiles must be public.</p>
+      </div>
+      <form id="analysis-form" class="rs-card p-5 flex flex-col sm:flex-row gap-3">
+        <label for="username-input" class="sr-only">Lichess username</label>
+        <input type="text" id="username-input" placeholder="Lichess username" autocomplete="off" spellcheck="false" class="flex-grow p-3 border-2 border-indigo-200 rounded-md focus:outline-none focus:border-indigo-500">
+        <select id="games-count" class="p-3 border-2 border-indigo-200 rounded-md" aria-label="Number of games">
+          <option value="10">Last 10 games</option>
+          <option value="20" selected>Last 20 games</option>
+          <option value="50">Last 50 games</option>
+        </select>
+        <button type="submit" id="analyze-button" class="bg-orange-500 hover:bg-orange-600 text-white font-bold px-6 py-3 rounded-md shadow transition disabled:opacity-60">Analyse</button>
+      </form>
+      <p class="text-sm text-gray-500 mt-3 text-center">Want an example? <button type="button" id="prefill-sample" class="text-indigo-600 underline">Try "DrNykterstein"</button></p>
+      <div id="analysis-status" class="text-center text-gray-500 mt-6" role="status" aria-live="polite"></div>
+      <div id="analysis-results" class="hidden mt-6 space-y-6"></div>
+    </div>
+  </section>
+
+  <!-- ============ BOARD EDITOR ============ -->
+  <section id="board-editor" class="py-16 px-4">
+    <div class="max-w-4xl mx-auto">
+      <div class="text-center mb-8">
+        <p class="rs-eyebrow mb-2">Free tool</p>
+        <h2 class="text-3xl font-bold text-gray-900 mb-3">Board editor</h2>
+        <p class="text-gray-600">Drag pieces to set up a position, paste a FEN from a book or game, then copy it or open it on Lichess for engine analysis.</p>
+      </div>
+      <div class="rs-card p-4 md:p-6">
+        <div class="flex flex-col sm:flex-row gap-2 mb-4">
+          <label for="fen-input" class="sr-only">FEN</label>
+          <input id="fen-input" type="text" placeholder="Paste a FEN here (optional)" spellcheck="false" class="flex-grow p-2.5 border border-gray-300 rounded-md text-sm font-mono focus:outline-none focus:ring-2 focus:ring-indigo-500">
+          <button id="load-fen" type="button" class="px-4 py-2 rounded-md bg-indigo-600 text-white font-semibold hover:bg-indigo-700">Load FEN</button>
+        </div>
+        <div class="rs-board-wrap">
+          <chess-board id="play-board" position="start" draggable-pieces spare-pieces drop-off-board="trash"></chess-board>
+        </div>
+        <div class="flex flex-wrap justify-center gap-2 mt-4">
+          <button id="start-pos" type="button" class="rs-btn"><i class="fas fa-redo mr-1"></i>Start position</button>
+          <button id="clear-board" type="button" class="rs-btn"><i class="fas fa-eraser mr-1"></i>Clear</button>
+          <button id="flip-board" type="button" class="rs-btn"><i class="fas fa-sync-alt mr-1"></i>Flip</button>
+          <button id="copy-fen" type="button" class="rs-btn"><i class="fas fa-copy mr-1"></i>Copy FEN</button>
+          <button id="open-lichess" type="button" class="rs-btn rs-btn-primary"><i class="fas fa-external-link-alt mr-1"></i>Analyse on Lichess</button>
+        </div>
+        <p class="text-center text-xs text-gray-500 mt-3">Tip: drag a piece off the board to remove it. "Analyse on Lichess" opens the position with White to move.</p>
+        <p id="board-msg" class="text-center text-sm text-green-700 mt-2" role="status" aria-live="polite"></p>
       </div>
     </div>
   </section>
 
-  
+  <!-- ============ OPENINGS ============ -->
+  <section id="openings" class="py-16 px-4 bg-white">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-8">
+        <p class="rs-eyebrow mb-2">Opening guide</p>
+        <h2 class="text-3xl font-bold text-gray-900 mb-3">Know your openings</h2>
+        <p class="text-gray-600 max-w-2xl mx-auto">Popular openings, what they aim for and who they suit. Learn the ideas first; the moves follow. Read more in <a href="/blog/building-a-solid-opening-repertoire/" class="text-indigo-700 font-semibold hover:underline">Building a Solid Opening Repertoire</a>.</p>
+      </div>
+      <div class="flex justify-center flex-wrap gap-2 mb-8" role="tablist" aria-label="Opening groups">
+        <button type="button" class="rs-tab is-active" role="tab" aria-selected="true" data-tab="white">As White</button>
+        <button type="button" class="rs-tab" role="tab" aria-selected="false" data-tab="black_e4">As Black vs 1.e4</button>
+        <button type="button" class="rs-tab" role="tab" aria-selected="false" data-tab="black_d4">As Black vs 1.d4</button>
+      </div>
+      {%- assign groups = "white,black_e4,black_d4" | split: "," %}
+      {%- for g in groups %}
+      <div class="rs-tabpanel grid md:grid-cols-2 lg:grid-cols-3 gap-5{% unless forloop.first %} hidden{% endunless %}" data-panel="{{ g }}" role="tabpanel">
+        {%- for o in site.data.openings[g] %}
+        <div class="rs-card p-6 flex flex-col">
+          <h3 class="text-lg font-bold text-gray-900">{{ o.name }}</h3>
+          <p class="font-mono text-sm text-indigo-700 mt-1 mb-3">{{ o.moves }}</p>
+          <div class="flex flex-wrap gap-2 mb-3">
+            <span class="rs-chip">{{ o.style }}</span><span class="rs-chip rs-chip-gray">{{ o.level }}</span>
+          </div>
+          <p class="text-sm text-gray-600 flex-grow">{{ o.idea }}</p>
+          <a href="https://lichess.org/opening/{{ o.lichess }}" target="_blank" rel="noopener noreferrer" class="text-sm text-indigo-700 font-semibold mt-4 hover:underline">Explore on Lichess <i class="fas fa-external-link-alt text-xs ml-1"></i></a>
+        </div>
+        {%- endfor %}
+      </div>
+      {%- endfor %}
+    </div>
+  </section>
 
+  <!-- ============ TACTICS ============ -->
+  <section id="tactics" class="py-16 px-4">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-10">
+        <p class="rs-eyebrow mb-2">Tactics glossary</p>
+        <h2 class="text-3xl font-bold text-gray-900 mb-3">The tactical patterns to know</h2>
+        <p class="text-gray-600 max-w-2xl mx-auto">Almost every combination is built from these patterns. Learn to name them, and you will start to see them. Try them out in <a href="/blog/mastering-basic-chess-tactics/" class="text-indigo-700 font-semibold hover:underline">Mastering Basic Chess Tactics</a>.</p>
+      </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div class="rs-card p-5"><p class="font-bold">Fork</p><p class="text-sm text-gray-600 mt-1">One piece attacks two or more enemy pieces at once.</p></div>
+        <div class="rs-card p-5"><p class="font-bold">Pin</p><p class="text-sm text-gray-600 mt-1">A piece can't move without exposing a more valuable piece behind it.</p></div>
+        <div class="rs-card p-5"><p class="font-bold">Skewer</p><p class="text-sm text-gray-600 mt-1">A valuable piece is attacked and, when it moves, the piece behind it is lost.</p></div>
+        <div class="rs-card p-5"><p class="font-bold">Discovered attack</p><p class="text-sm text-gray-600 mt-1">Moving one piece uncovers an attack by the piece behind it.</p></div>
+        <div class="rs-card p-5"><p class="font-bold">Double check</p><p class="text-sm text-gray-600 mt-1">Two pieces give check at once, so the king must move.</p></div>
+        <div class="rs-card p-5"><p class="font-bold">Removing the defender</p><p class="text-sm text-gray-600 mt-1">Capture or chase away the piece that protects a target.</p></div>
+        <div class="rs-card p-5"><p class="font-bold">Deflection</p><p class="text-sm text-gray-600 mt-1">Force a defender to leave the square or piece it is guarding.</p></div>
+        <div class="rs-card p-5"><p class="font-bold">Decoy</p><p class="text-sm text-gray-600 mt-1">Lure a piece (often the king) onto a square where it can be attacked.</p></div>
+        <div class="rs-card p-5"><p class="font-bold">Overloading</p><p class="text-sm text-gray-600 mt-1">One piece has two defensive jobs and can't do both.</p></div>
+        <div class="rs-card p-5"><p class="font-bold">Interference</p><p class="text-sm text-gray-600 mt-1">Block the line between a defender and the piece it protects.</p></div>
+        <div class="rs-card p-5"><p class="font-bold">Zwischenzug</p><p class="text-sm text-gray-600 mt-1">An "in-between move": a stronger move played before the expected recapture.</p></div>
+        <div class="rs-card p-5"><p class="font-bold">X-ray</p><p class="text-sm text-gray-600 mt-1">A piece attacks or defends a square through another piece.</p></div>
+        <div class="rs-card p-5"><p class="font-bold">Back-rank mate</p><p class="text-sm text-gray-600 mt-1">A rook or queen mates a king trapped behind its own pawns.</p></div>
+        <div class="rs-card p-5"><p class="font-bold">Smothered mate</p><p class="text-sm text-gray-600 mt-1">A knight mates a king that is surrounded by its own pieces.</p></div>
+        <div class="rs-card p-5"><p class="font-bold">Desperado</p><p class="text-sm text-gray-600 mt-1">A piece that will be lost anyway grabs as much as it can first.</p></div>
+      </div>
+    </div>
+  </section>
 
-  <script>
-    // --- Lichess Analysis Functionality ---
-    document.addEventListener('DOMContentLoaded', () => {
-        const analyzeButton = document.getElementById('analyze-button');
-        const usernameInput = document.getElementById('username-input');
-        const platformSelect = document.getElementById('platform-select'); 
-        const resultsContainer = document.getElementById('analysis-results');
-        const statusElement = document.getElementById('analysis-status');
+  <!-- ============ ENDGAMES ============ -->
+  <section id="endgames" class="py-16 px-4 bg-white">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-center mb-10">
+        <p class="rs-eyebrow mb-2">Endgame checklist</p>
+        <h2 class="text-3xl font-bold text-gray-900 mb-3">Must-know endgames</h2>
+        <p class="text-gray-600 max-w-2xl mx-auto">Tick off each one when you can play it confidently from both sides. Your ticks are saved in this browser. Start with <a href="/blog/rook-endgames-lucena-and-philidor/" class="text-indigo-700 font-semibold hover:underline">the Lucena and Philidor positions</a>.</p>
+      </div>
+      <div class="grid md:grid-cols-3 gap-6" id="endgame-checklist">
+        <div class="rs-card p-6">
+          <p class="font-bold text-green-700 mb-3">Foundation</p>
+          <label class="rs-check"><input type="checkbox" data-eg="kq-k"> King + queen vs king mate</label>
+          <label class="rs-check"><input type="checkbox" data-eg="kr-k"> King + rook vs king mate</label>
+          <label class="rs-check"><input type="checkbox" data-eg="square"> Rule of the square</label>
+          <label class="rs-check"><input type="checkbox" data-eg="opposition"> The opposition</label>
+          <label class="rs-check"><input type="checkbox" data-eg="kp-k"> King + pawn vs king</label>
+        </div>
+        <div class="rs-card p-6">
+          <p class="font-bold text-blue-700 mb-3">Intermediate</p>
+          <label class="rs-check"><input type="checkbox" data-eg="key-squares"> Key squares</label>
+          <label class="rs-check"><input type="checkbox" data-eg="outside-passer"> Outside passed pawn</label>
+          <label class="rs-check"><input type="checkbox" data-eg="q-vs-pawn"> Queen vs pawn on the 7th</label>
+          <label class="rs-check"><input type="checkbox" data-eg="lucena"> Lucena position (win)</label>
+          <label class="rs-check"><input type="checkbox" data-eg="philidor"> Philidor position (draw)</label>
+        </div>
+        <div class="rs-card p-6">
+          <p class="font-bold text-purple-700 mb-3">Advanced</p>
+          <label class="rs-check"><input type="checkbox" data-eg="wrong-bishop"> Wrong-coloured bishop + rook pawn</label>
+          <label class="rs-check"><input type="checkbox" data-eg="vancura"> Vancura defence</label>
+          <label class="rs-check"><input type="checkbox" data-eg="bn-mate"> Bishop + knight mate</label>
+          <label class="rs-check"><input type="checkbox" data-eg="trebuchet"> Mutual zugzwang (trebuchet)</label>
+          <label class="rs-check"><input type="checkbox" data-eg="opp-bishops"> Opposite-coloured bishops</label>
+        </div>
+      </div>
+      <p class="text-center mt-5"><span id="eg-progress" class="text-sm font-semibold text-indigo-700"></span> <button type="button" id="eg-reset" class="text-sm text-gray-500 underline ml-2">Reset</button></p>
+    </div>
+  </section>
 
-        if (analyzeButton) {
-            analyzeButton.addEventListener('click', handleAnalysis);
-        }
-        const resetButton = document.getElementById('reset-button');
-        const sampleButton = document.getElementById('prefill-sample');
-        const analysisForm = document.getElementById('analysis-form');
-        if (analysisForm) {
-            analysisForm.addEventListener('submit', (e) => {
-                e.preventDefault();
-                handleAnalysis();
-            });
-        }
-        if (resetButton) {
-            resetButton.addEventListener('click', () => {
-                usernameInput.value = '';
-                resultsContainer.innerHTML = '<p class="text-gray-500 text-sm" id="analysis-status">Ready for analysis. Data will be fetched from Lichess.</p>';
-                const ratings = document.getElementById('ratings-summary');
-                const games = document.getElementById('games-summary');
-                if (ratings) ratings.classList.add('hidden');
-                if (games) games.classList.add('hidden');
-            });
-        }
-        if (sampleButton) {
-            sampleButton.addEventListener('click', () => {
-                usernameInput.value = 'lichess';
-                usernameInput.focus();
-            });
-        }
+  <!-- ============ TRAINING PLAN ============ -->
+  <section id="training-plan" class="py-16 px-4">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-center mb-10">
+        <p class="rs-eyebrow mb-2">Weekly training plan</p>
+        <h2 class="text-3xl font-bold text-gray-900 mb-3">How to split your study time</h2>
+        <p class="text-gray-600 max-w-2xl mx-auto">Pick the plan that matches the time you have. Consistency beats long, rare sessions.</p>
+      </div>
+      <div class="rs-card overflow-x-auto">
+        <table class="w-full text-sm">
+          <thead class="bg-indigo-50 text-indigo-900">
+            <tr><th class="text-left p-4">Activity</th><th class="text-left p-4">3 hours / week</th><th class="text-left p-4">6 hours / week</th><th class="text-left p-4">10+ hours / week</th></tr>
+          </thead>
+          <tbody class="text-gray-700">
+            <tr class="border-t"><td class="p-4 font-semibold">Tactics puzzles</td><td class="p-4">15 min, 5 days</td><td class="p-4">20 min daily</td><td class="p-4">30 min daily</td></tr>
+            <tr class="border-t"><td class="p-4 font-semibold">Serious games (15+ min)</td><td class="p-4">2 games</td><td class="p-4">3–4 games</td><td class="p-4">5+ games or a tournament</td></tr>
+            <tr class="border-t"><td class="p-4 font-semibold">Analyse your games</td><td class="p-4">30 min</td><td class="p-4">1 hour</td><td class="p-4">2 hours</td></tr>
+            <tr class="border-t"><td class="p-4 font-semibold">Endgames</td><td class="p-4">20 min</td><td class="p-4">45 min</td><td class="p-4">1.5 hours</td></tr>
+            <tr class="border-t"><td class="p-4 font-semibold">Openings (ideas &amp; model games)</td><td class="p-4">15 min</td><td class="p-4">30 min</td><td class="p-4">1.5 hours</td></tr>
+            <tr class="border-t"><td class="p-4 font-semibold">Strategy / master games</td><td class="p-4">–</td><td class="p-4">45 min</td><td class="p-4">1.5 hours</td></tr>
+            <tr class="border-t"><td class="p-4 font-semibold">Calculation exercises</td><td class="p-4">–</td><td class="p-4">30 min</td><td class="p-4">1 hour</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="text-sm text-gray-500 text-center mt-4">ChessDepth students get a personal plan from their coach, adjusted after every quiz.</p>
+    </div>
+  </section>
 
-        // --- Core Logic Functions ---
-        async function handleAnalysis() {
-            const username = usernameInput.value.trim();
-            const platform = "lichess";
-            resultsContainer.innerHTML = '';
-            
-            if (!username) {
-                statusElement.textContent = "Please enter a username.";
-                return;
-            }
+  <!-- ============ BOOKS ============ -->
+  <section id="books" class="py-16 px-4 bg-white">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-10">
+        <p class="rs-eyebrow mb-2">Reading list</p>
+        <h2 class="text-3xl font-bold text-gray-900 mb-3">Recommended chess books</h2>
+        <p class="text-gray-600 max-w-2xl mx-auto">Classics and modern favourites our coaches recommend, grouped by level.</p>
+      </div>
+      <div class="rounded-xl bg-yellow-50 border border-yellow-200 p-6 mb-10">
+        <p class="font-bold text-yellow-900 mb-3"><i class="fas fa-crown mr-2"></i>By our coach, GM Daniel Gormally</p>
+        <div class="grid md:grid-cols-3 gap-4">
+          {%- for b in site.data.books.coach_books %}
+          <a href="https://www.amazon.in/s?k={{ b.title | append: ' Gormally' | url_encode }}" target="_blank" rel="noopener noreferrer" class="bg-white rounded-lg p-4 shadow-sm hover:shadow transition block">
+            <p class="font-semibold text-gray-900">{{ b.title }}</p>
+            <p class="text-xs text-gray-500 mt-1">{{ b.detail }}</p>
+          </a>
+          {%- endfor %}
+        </div>
+      </div>
+      {%- for group in site.data.books.levels %}
+      <h3 class="text-xl font-bold text-gray-900 mb-4 mt-8">{{ group.level }}</h3>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+        {%- for b in group.books %}
+        <a href="https://www.amazon.in/s?k={{ b.title | append: ' ' | append: b.author | url_encode }}" target="_blank" rel="noopener noreferrer" class="rs-card p-5 block hover:shadow-md transition">
+          <p class="font-bold text-gray-900">{{ b.title }}</p>
+          <p class="text-xs text-indigo-700 font-semibold mt-1">{{ b.author }}</p>
+          <p class="text-sm text-gray-600 mt-2">{{ b.why }}</p>
+        </a>
+        {%- endfor %}
+      </div>
+      {%- endfor %}
+    </div>
+  </section>
 
-            statusElement.textContent = `Analyzing ${username} on Lichess...`;
-            const spinner = document.getElementById('loading-spinner');
-            if (spinner) spinner.classList.remove('hidden');
-            analyzeButton.setAttribute('disabled', 'true');
+  <!-- ============ TOOLS ============ -->
+  <section id="tools" class="py-16 px-4">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-10">
+        <p class="rs-eyebrow mb-2">Online tools</p>
+        <h2 class="text-3xl font-bold text-gray-900 mb-3">Free websites worth bookmarking</h2>
+      </div>
+      <div class="grid md:grid-cols-2 gap-6">
+        {%- for g in site.data.tools %}
+        <div class="rs-card p-6">
+          <p class="font-bold text-lg text-gray-900 mb-4"><i class="fas {{ g.icon }} text-indigo-500 mr-2"></i>{{ g.group }}</p>
+          <ul class="space-y-3">
+            {%- for t in g.items %}
+            <li><a href="{{ t.url }}" target="_blank" rel="noopener noreferrer" class="font-semibold text-indigo-700 hover:underline">{{ t.name }}</a><span class="block text-sm text-gray-600">{{ t.note }}</span></li>
+            {%- endfor %}
+          </ul>
+        </div>
+        {%- endfor %}
+      </div>
+    </div>
+  </section>
 
-            await fetchLichessData(username);
+  <!-- ============ BLOG ============ -->
+  <section id="blog" class="py-16 px-4 bg-white">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-10">
+        <p class="rs-eyebrow mb-2">From the blog</p>
+        <h2 class="text-3xl font-bold text-gray-900">Latest articles</h2>
+      </div>
+      <div class="grid md:grid-cols-3 gap-6">
+        {%- for p in site.posts limit: 3 %}
+        <a href="{{ p.url }}" class="rs-card p-6 block hover:shadow-md transition">
+          <p class="text-xs font-bold text-indigo-600 uppercase">{{ p.category }}</p>
+          <p class="font-bold text-lg text-gray-900 mt-2 leading-snug">{{ p.title }}</p>
+          <p class="text-sm text-gray-600 mt-2">{{ p.description }}</p>
+          <p class="text-xs text-gray-400 mt-4">{{ p.date | date: "%-d %b %Y" }}</p>
+        </a>
+        {%- endfor %}
+      </div>
+      <p class="text-center mt-8"><a href="/blog/" class="text-indigo-700 font-semibold hover:underline">See all {{ site.posts.size }} articles <i class="fas fa-arrow-right text-sm ml-1"></i></a></p>
+    </div>
+  </section>
 
-            if (spinner) spinner.classList.add('hidden');
-            analyzeButton.removeAttribute('disabled');
-        }
+  <!-- ============ FAQ ============ -->
+  <section id="faq" class="py-16 px-4">
+    <div class="max-w-3xl mx-auto">
+      <div class="text-center mb-10">
+        <p class="rs-eyebrow mb-2">FAQ</p>
+        <h2 class="text-3xl font-bold text-gray-900">Questions about these resources</h2>
+      </div>
+      <div class="space-y-3">
+        <details class="rs-faq rs-card p-5"><summary class="font-semibold">Is everything on this page free?</summary><p class="text-sm text-gray-600 mt-3">Yes. The analyser, board editor, guides and lists are free for everyone. Books are sold separately by their publishers.</p></details>
+        <details class="rs-faq rs-card p-5"><summary class="font-semibold">Why doesn't the game analyser find my account?</summary><p class="text-sm text-gray-600 mt-3">It works with public Lichess accounts only (Chess.com isn't supported yet). Check the spelling of the username and make sure the account has played rated games.</p></details>
+        <details class="rs-faq rs-card p-5"><summary class="font-semibold">Where should a complete beginner start?</summary><p class="text-sm text-gray-600 mt-3">Follow Stage 1 of the roadmap: learn the basic mates, use the Lichess Practice lessons, and solve a few easy puzzles every day. A coach makes this much faster.</p></details>
+        <details class="rs-faq rs-card p-5"><summary class="font-semibold">Which opening should I learn first?</summary><p class="text-sm text-gray-600 mt-3">Start with open games: the Italian Game as White and 1...e5 as Black. They teach development and centre control better than anything else.</p></details>
+        <details class="rs-faq rs-card p-5"><summary class="font-semibold">How much should I study to improve?</summary><p class="text-sm text-gray-600 mt-3">Even 3 hours a week works if it's regular and balanced. See the training plan above, and remember to analyse your own games.</p></details>
+        <details class="rs-faq rs-card p-5"><summary class="font-semibold">Should I use an engine to study?</summary><p class="text-sm text-gray-600 mt-3">Use it to check your analysis, not to replace it. Think first, write down your ideas, then compare with the engine. See <a href="/blog/how-to-analyse-your-own-games/" class="text-indigo-700 font-semibold hover:underline">How to Analyse Your Own Games</a>.</p></details>
+        <details class="rs-faq rs-card p-5"><summary class="font-semibold">How do I get the ChessDepth worksheets?</summary><p class="text-sm text-gray-600 mt-3">Students can download them from the <a href="/student/" class="text-indigo-700 font-semibold hover:underline">Student Area</a>. Not a student yet? Book a free demo class.</p></details>
+      </div>
+    </div>
+  </section>
 
-        async function fetchLichessData(username) {
-            try {
-                // 1. Fetch User Profile and Ratings
-                const userResponse = await fetch(`https://lichess.org/api/user/${username}`);
-                if (!userResponse.ok) {
-                    statusElement.textContent = `Error: Lichess user '${username}' not found or profile is private.`;
-                    return;
-                }
-                const userData = await userResponse.json();
+  <!-- ============ CTA ============ -->
+  <section class="px-4 pb-6">
+    <div class="max-w-5xl mx-auto rs-hero rounded-2xl text-white text-center px-6 py-12">
+      <h2 class="text-3xl font-bold mb-3">Resources help. A coach helps more.</h2>
+      <p class="text-indigo-100 mb-7">Get a personal study plan built around your games. Your first class is free.</p>
+      <a href="{{ wa }}" target="_blank" rel="noopener noreferrer" class="cd-demo-btn inline-block px-8 py-3 text-lg"><i class="fab fa-whatsapp mr-2"></i>Book a Free Demo</a>
+    </div>
+  </section>
 
-                // 2. Fetch recent 5 games (requesting PGN and headers for simple parsing)
-                const gamesResponse = await fetch(`https://lichess.org/api/games/user/${username}?max=5&perfType=rapid,blitz,classical&rated=true&pgnInJson=false`);
-                
-                if (!gamesResponse.ok) {
-                    statusElement.textContent = "Error: Could not retrieve recent games for the provided Lichess username.";
-                    return;
-                }
-                
-                const gamesText = await gamesResponse.text();
-
-                // --- DATA PROCESSING ---
-                
-                // a. Ratings Display
-                const rapidRating = userData.perfs.rapid ? userData.perfs.rapid.rating : 'N/A';
-                const blitzRating = userData.perfs.blitz ? userData.perfs.blitz.rating : 'N/A';
-                const standardRating = userData.perfs.classical ? userData.perfs.classical.rating : 'N/A';
-                const rapidProg = userData.perfs.rapid ? userData.perfs.rapid.prog : 'N/A';
-                const blitzProg = userData.perfs.blitz ? userData.perfs.blitz.prog : 'N/A';
-                const standardProg = userData.perfs.classical ? userData.perfs.classical.prog : 'N/A';
-
-
-                // b. Game Score Calculation (Simple match count using Regex)
-                const wins = (gamesText.match(/1-0/g) || []).length;
-                const draws = (gamesText.match(/1\/2-1\/2/g) || []).length;
-                const losses = (gamesText.match(/0-1/g) || []).length;
-
-                // --- HTML OUTPUT ---
-                
-                // Ratings badges
-                const ratingsEl = document.getElementById('ratings-summary');
-                if (ratingsEl) {
-                    ratingsEl.classList.remove('hidden');
-                    ratingsEl.innerHTML = `
-                        <div class="p-4 bg-indigo-50 rounded-md border border-indigo-100">
-                          <div class="text-sm font-semibold text-indigo-700 mb-1">Standard</div>
-                          <div class="flex items-center gap-2"><span class="text-xl font-bold text-gray-900">${standardRating}</span><span class="text-xs px-2 py-0.5 rounded-full ${standardProg > 0 ? 'bg-green-100 text-green-700' : standardProg < 0 ? 'bg-red-100 text-red-700' : 'bg-gray-100 text-gray-700'}">${standardProg !== 'N/A' ? (standardProg > 0 ? '+' : '') + standardProg + ' pts' : 'n/a'}</span></div>
-                        </div>
-                        <div class="p-4 bg-indigo-50 rounded-md border border-indigo-100">
-                          <div class="text-sm font-semibold text-indigo-700 mb-1">Rapid</div>
-                          <div class="flex items-center gap-2"><span class="text-xl font-bold text-gray-900">${rapidRating}</span><span class="text-xs px-2 py-0.5 rounded-full ${rapidProg > 0 ? 'bg-green-100 text-green-700' : rapidProg < 0 ? 'bg-red-100 text-red-700' : 'bg-gray-100 text-gray-700'}">${rapidProg !== 'N/A' ? (rapidProg > 0 ? '+' : '') + rapidProg + ' pts' : 'n/a'}</span></div>
-                        </div>
-                        <div class="p-4 bg-indigo-50 rounded-md border border-indigo-100">
-                          <div class="text-sm font-semibold text-indigo-700 mb-1">Blitz</div>
-                          <div class="flex items-center gap-2"><span class="text-xl font-bold text-gray-900">${blitzRating}</span><span class="text-xs px-2 py-0.5 rounded-full ${blitzProg > 0 ? 'bg-green-100 text-green-700' : blitzProg < 0 ? 'bg-red-100 text-red-700' : 'bg-gray-100 text-gray-700'}">${blitzProg !== 'N/A' ? (blitzProg > 0 ? '+' : '') + blitzProg + ' pts' : 'n/a'}</span></div>
-                        </div>
-                    `;
-                }
-
-                // Recent games compact list from PGN headers
-                const gamesEl = document.getElementById('games-summary');
-                if (gamesEl) {
-                    gamesEl.classList.remove('hidden');
-                    const gameBlocks = gamesText.split(/\n\n(?=\[Event )/g).slice(0,5);
-                    const parseHeaders = (pgn) => {
-                        const headers = {};
-                        (pgn.match(/\[[^\]]+\]/g) || []).forEach(h => {
-                            const m = h.match(/^\[(\w+)\s+"([^"]*)"\]$/);
-                            if (m) headers[m[1]] = m[2];
-                        });
-                        return headers;
-                    };
-                    const row = ({White, Black, Result, Opening, Site, UTCDate, UTCTime, ECO}) => {
-                        const emoji = Result === '1-0' ? '✅' : Result === '0-1' ? '❌' : '➖';
-                        const date = UTCDate ? UTCDate : '';
-                        const time = UTCTime ? (' ' + UTCTime) : '';
-                        const link = Site && Site.startsWith('http') ? Site : '#';
-                        const opening = Opening ? Opening : (ECO ? `ECO ${ECO}` : '');
-                        return `
-                          <a href="${link}" target="_blank" rel="noopener noreferrer" class="block p-3 rounded-md border border-gray-100 hover:border-indigo-200 hover:bg-indigo-50 transition">
-                            <div class="flex items-center justify-between">
-                              <div class="font-semibold text-gray-800 truncate">${White || ''} vs ${Black || ''}</div>
-                              <div class="ml-3 text-sm">${emoji} <span class="text-gray-600">${Result || ''}</span></div>
-                            </div>
-                            <div class="mt-1 text-sm text-gray-600 truncate">${opening}</div>
-                            <div class="mt-1 text-xs text-gray-500">${date}${time}</div>
-                          </a>
-                        `;
-                    };
-                    const cards = gameBlocks.map(g => row(parseHeaders(g))).join('');
-                    gamesEl.innerHTML = `
-                      <h4 class="text-xl font-semibold text-indigo-600 mb-2">Latest 5 Games</h4>
-                      <div class="grid gap-2">${cards}</div>
-                      <div class="mt-3 flex space-x-4 font-bold">
-                        <span class="text-green-600">Wins: ${wins}</span>
-                        <span class="text-yellow-600">Draws: ${draws}</span>
-                        <span class="text-red-600">Losses: ${losses}</span>
-                      </div>
-                      <p class="text-sm text-gray-500 mt-2">Data fetched from Lichess API.</p>
-                    `;
-                }
-
-                statusElement.textContent = "Analysis complete!";
-
-            } catch (error) {
-                console.error("Lichess API Error:", error);
-                statusElement.textContent = "A technical error occurred during analysis.";
-            }
-        }
-
-        // --- Smooth scroll for in-page subnav links ---
-        document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                const targetId = this.getAttribute('href');
-                if (!targetId || !targetId.startsWith('#')) return;
-                const targetEl = document.querySelector(targetId);
-                if (!targetEl) return;
-                e.preventDefault();
-                const headerOffset = document.getElementById('main-header') ? document.getElementById('main-header').offsetHeight : 0;
-                const subnav = this.closest('nav');
-                const subnavHeight = subnav ? subnav.offsetHeight : 0;
-                const y = targetEl.getBoundingClientRect().top + window.pageYOffset - headerOffset - subnavHeight - 12;
-                window.scrollTo({ top: Math.max(0, y), behavior: 'smooth' });
-            });
-        });
-
-        // --- Header shadow on scroll ---
-        const header = document.getElementById('main-header');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
-                header.classList.add('shadow-xl');
-            } else {
-                header.classList.remove('shadow-xl');
-            }
-        });
-
-        // --- Hamburger Menu Logic (aligned with index) ---
-        const menuToggle = document.getElementById('menu-toggle');
-        const mobileMenu = document.getElementById('mobile-menu');
-
-        if (menuToggle && mobileMenu) {
-            const iconHamburger = document.getElementById('icon-hamburger');
-            const iconClose = document.getElementById('icon-close');
-
-            menuToggle.addEventListener('click', () => {
-                const isOpen = !mobileMenu.classList.contains('hidden');
-                mobileMenu.classList.toggle('hidden');
-                mobileMenu.classList.toggle('-translate-y-full');
-                menuToggle.setAttribute('aria-expanded', String(!isOpen));
-                if (iconHamburger && iconClose) {
-                    iconHamburger.classList.toggle('hidden', !isOpen);
-                    iconClose.classList.toggle('hidden', isOpen);
-                }
-            });
-
-            const mobileLinks = mobileMenu.querySelectorAll('a');
-            mobileLinks.forEach(link => {
-                link.addEventListener('click', () => {
-                    mobileMenu.classList.add('hidden');
-                    mobileMenu.classList.add('-translate-y-full');
-                    menuToggle.setAttribute('aria-expanded', 'false');
-                    if (iconHamburger && iconClose) {
-                        iconHamburger.classList.remove('hidden');
-                        iconClose.classList.add('hidden');
-                    }
-                });
-            });
-        }
-        
-        // --- Local board controls (for embedded chess-board element) ---
-        const boardEl = document.getElementById('play-board');
-        const fenInput = document.getElementById('fen-input');
-        const loadBtn = document.getElementById('load-fen');
-        const startBtn = document.getElementById('start-pos');
-        const clearBtn = document.getElementById('clear-board');
-
-        if (boardEl) {
-            if (startBtn) {
-                startBtn.addEventListener('click', () => {
-                    boardEl.setAttribute('position', 'start');
-                });
-            }
-            if (clearBtn) {
-                clearBtn.addEventListener('click', () => {
-                    boardEl.setAttribute('position', '8/8/8/8/8/8/8/8');
-                });
-            }
-            if (loadBtn && fenInput) {
-                loadBtn.addEventListener('click', () => {
-                    const fen = fenInput.value.trim();
-                    if (fen) {
-                        boardEl.setAttribute('position', fen);
-                    }
-                });
-            }
-        }
-    }); 
-    // --- End Lichess Analysis Functionality & Hamburger JS ---
-  </script>
+  <script src="/assets/js/resources.js" defer></script>

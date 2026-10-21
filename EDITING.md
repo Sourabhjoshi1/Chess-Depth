@@ -16,6 +16,9 @@ The site is built by Jekyll on GitHub Pages. Every push to `main` rebuilds and p
 | Styles for one page                  | `assets/css/pages/<name>.css`          |
 | Shared JavaScript (menu, year, forms)| `assets/js/site.js`                    |
 | Images                               | `assets/images/`                       |
+| Blog articles                        | `_posts/YYYY-MM-DD-title.md`           |
+| Books / tools / openings lists       | `_data/books.yml`, `_data/tools.yml`, `_data/openings.yml` |
+| Student reviews (About page)         | `_data/reviews.yml`                    |
 | Student Area (login + PDF downloads) | `pages/student.html`, `assets/js/student.js` |
 | Firebase settings / course names     | `assets/js/firebase-config.js`         |
 | Firebase security rules              | `firebase/storage.rules`, `firebase/firestore.rules` |
@@ -42,3 +45,24 @@ from your computer will not show the header or footer.
 Students sign in with Google at `chessdepth.in/student/`. PDFs live in Firebase Storage
 under `materials/<course-folder>/`. Upload new PDFs in the Firebase console; they appear
 on the page automatically. Signed-in students are listed in Firestore under `students`.
+
+## Writing a blog post
+Create `_posts/2026-11-01-my-article-title.md` (date first, then the title in lowercase with dashes):
+
+```
+---
+title: "My Article Title"
+description: "One or two sentences shown on the blog list and in Google."
+category: Tactics        # Tactics, Strategy, Openings, Endgames, Training, Psychology or Parents
+level: Beginner          # optional
+---
+
+Write the article in Markdown. ## for headings, **bold**, - for lists.
+```
+
+It appears at `chessdepth.in/blog/my-article-title/` and on the blog list automatically.
+Posts dated in the future stay hidden until that date.
+
+**Chess diagrams:** put an SVG board in `assets/images/blog/` and add
+`{% include board.html img="file-name-without-.svg" caption="White to move." %}`.
+**Hidden answers:** `{% include answer.html text="**1.Nd6+!** wins the queen." %}`

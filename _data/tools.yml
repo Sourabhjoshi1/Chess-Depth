@@ -1,0 +1,29 @@
+# Free online tools on the Resources page.
+- group: Play & solve puzzles
+  icon: fa-chess-knight
+  items:
+    - { name: "Lichess", url: "https://lichess.org", note: "Free, open-source and ad-free. Play, solve puzzles and take lessons." }
+    - { name: "Lichess Puzzles", url: "https://lichess.org/training", note: "Unlimited rated puzzles, plus puzzle themes like forks and pins." }
+    - { name: "Chess.com", url: "https://www.chess.com", note: "The largest chess site: play, lessons, puzzles and a big community." }
+    - { name: "ChessTempo", url: "https://chesstempo.com", note: "A serious tactics and endgame trainer with detailed statistics." }
+- group: Study & learn
+  icon: fa-book-reader
+  items:
+    - { name: "Lichess Practice", url: "https://lichess.org/practice", note: "Interactive lessons on checkmates, tactics and basic endgames." }
+    - { name: "Lichess Studies", url: "https://lichess.org/study", note: "Build your own opening files and share analysis with your coach." }
+    - { name: "Coordinate Trainer", url: "https://lichess.org/training/coordinate", note: "Learn board coordinates quickly. Great for beginners." }
+    - { name: "Chessable", url: "https://www.chessable.com", note: "Courses with spaced-repetition training for openings, tactics and endgames." }
+- group: Analyse
+  icon: fa-microscope
+  items:
+    - { name: "Lichess Analysis Board", url: "https://lichess.org/analysis", note: "Free Stockfish analysis in your browser. Paste any game or position." }
+    - { name: "Opening Explorer", url: "https://lichess.org/analysis#explorer", note: "See what masters and club players play in any position." }
+    - { name: "Syzygy Tablebases", url: "https://syzygy-tables.info", note: "Perfect play for all endgames with up to 7 pieces." }
+    - { name: "Stockfish", url: "https://stockfishchess.org", note: "The strongest free chess engine, for your own computer." }
+- group: Tournaments & ratings
+  icon: fa-trophy
+  items:
+    - { name: "FIDE Ratings", url: "https://ratings.fide.com", note: "Look up any player's official FIDE rating and history." }
+    - { name: "All India Chess Federation", url: "https://aicf.in", note: "India's national federation: registration, rules and tournament calendar." }
+    - { name: "Chess-Results", url: "https://chess-results.com", note: "Live pairings, standings and results for tournaments worldwide." }
+    - { name: "ChessBase India", url: "https://chessbase.in", note: "News and stories about Indian chess and players." }

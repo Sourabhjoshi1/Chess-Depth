@@ -1,0 +1,31 @@
+# Recommended books on the Resources page, grouped by level.
+levels:
+  - level: Beginner
+    books:
+      - { title: "Bobby Fischer Teaches Chess", author: "Bobby Fischer, Stuart Margulies & Donn Mosenfelder", why: "Teaches back-rank mates and basic tactics through hundreds of short questions." }
+      - { title: "Logical Chess: Move by Move", author: "Irving Chernev", why: "Every single move of 33 master games explained in plain language." }
+      - { title: "The Steps Method (Step 1–3)", author: "Rob Brunia & Cor van Wijgerden", why: "Graded workbooks used by chess schools worldwide, ideal for children." }
+      - { title: "Chess Fundamentals", author: "José Raúl Capablanca", why: "A world champion's classic on endgames, middlegame planning and principles." }
+  - level: Intermediate
+    books:
+      - { title: "The Amateur's Mind", author: "Jeremy Silman", why: "Shows the typical thinking errors of club players and how to fix them." }
+      - { title: "Silman's Complete Endgame Course", author: "Jeremy Silman", why: "Endgames organised by rating, so you learn exactly what you need next." }
+      - { title: "Winning Chess Strategies", author: "Yasser Seirawan", why: "A friendly introduction to planning, weaknesses and piece play." }
+      - { title: "Chess Tactics for Champions", author: "Susan Polgar & Paul Truong", why: "Tactical patterns explained step by step with lots of practice." }
+  - level: Advanced
+    books:
+      - { title: "My System", author: "Aron Nimzowitsch", why: "The foundation of modern positional chess: blockade, prophylaxis, open files." }
+      - { title: "How to Reassess Your Chess", author: "Jeremy Silman", why: "Teaches you to evaluate positions through imbalances and make plans." }
+      - { title: "The Woodpecker Method", author: "Axel Smith & Hans Tikkanen", why: "A tactics training system based on solving the same puzzles faster and faster." }
+      - { title: "Chess Structures: A Grandmaster Guide", author: "Mauricio Flores Rios", why: "The typical plans and ideas in the most common pawn structures." }
+      - { title: "Think Like a Grandmaster", author: "Alexander Kotov", why: "The classic book on calculation and choosing candidate moves." }
+  - level: Elite
+    books:
+      - { title: "Dvoretsky's Endgame Manual", author: "Mark Dvoretsky", why: "The most complete endgame reference for serious tournament players." }
+      - { title: "Grandmaster Preparation (series)", author: "Jacob Aagaard", why: "Demanding calculation, strategy and attack exercises for strong players." }
+
+# Books by our coach, GM Daniel Gormally
+coach_books:
+  - { title: "The Comfort Zone: Keys to Your Chess Success", detail: "Thinkers Publishing, 2021" }
+  - { title: "Tournament Battleplan: Optimize Your Chess Results", detail: "Thinkers Publishing, 2024" }
+  - { title: "Mating the Castled King", detail: "Attacking the castled king" }
