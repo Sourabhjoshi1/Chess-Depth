@@ -1,301 +1,240 @@
 ---
 title: "About Us | ChessDepth Academy"
-description: "Learn how ChessDepth Academy teaches chess: structured curriculum, homework, simuls, quizzes every few sessions, and one-to-one or group classes."
+description: "ChessDepth Academy teaches chess with depth: a structured curriculum, worksheets, quizzes every eight sessions and titled coaches including a FIDE Grandmaster. Our mission, method, team and goals."
 permalink: /about/
 redirect_from:
   - /about.html
 page_css: about
 ---
-<script>
-  // Header shadow + hamburger behavior (aligned with other pages)
-  document.addEventListener('DOMContentLoaded', () => {
-    const header = document.getElementById('main-header');
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 50) {
-        header.classList.add('shadow-xl');
-      } else {
-        header.classList.remove('shadow-xl');
-      }
-    });
+{%- capture wa %}{% include whatsapp-url.html %}{% endcapture %}{% assign wa = wa | strip -%}
 
-    const menuToggle = document.getElementById('menu-toggle');
-    const mobileMenu = document.getElementById('mobile-menu');
-    if (menuToggle && mobileMenu) {
-      const iconHamburger = document.getElementById('icon-hamburger');
-      const iconClose = document.getElementById('icon-close');
-      menuToggle.addEventListener('click', () => {
-        const isOpen = !mobileMenu.classList.contains('hidden');
-        mobileMenu.classList.toggle('hidden');
-        mobileMenu.classList.toggle('-translate-y-full');
-        menuToggle.setAttribute('aria-expanded', String(!isOpen));
-        if (iconHamburger && iconClose) {
-          iconHamburger.classList.toggle('hidden', !isOpen);
-          iconClose.classList.toggle('hidden', isOpen);
-        }
-      });
-
-      const mobileLinks = mobileMenu.querySelectorAll('a');
-      mobileLinks.forEach(link => {
-        link.addEventListener('click', () => {
-          mobileMenu.classList.add('hidden');
-          mobileMenu.classList.add('-translate-y-full');
-          menuToggle.setAttribute('aria-expanded', 'false');
-          if (iconHamburger && iconClose) {
-            iconHamburger.classList.remove('hidden');
-            iconClose.classList.add('hidden');
-          }
-        });
-      });
-    }
-  });
-</script>
-
-  <section class="max-w-5xl mx-auto py-12 px-4 fade-in-content">
-    <h2 class="text-4xl font-bold text-center text-indigo-700 mb-10">About ChessDepth Academy</h2>
-
-    <div class="bg-white rounded-lg shadow-lg p-8 mb-10">
-      <p class="text-lg leading-relaxed mb-6">
-        Welcome to <strong>ChessDepth Academy</strong>, your online destination for mastering the intricacies of chess and breaking through your personal plateaus. Founded with a vision to cultivate deep understanding and strategic prowess, ChessDepth is more than just an academy – it's a community for dedicated players. We believe in merging the timeless art of chess with a rigorous, scientific, and technical background — bringing a unique and methodical approach to learning.
-      </p>
-
-      <p class="text-lg leading-relaxed mb-6">
-        Our core philosophy revolves around the "why" behind every move. We guide developing players to not just memorize sequences, but to truly grasp the underlying principles of tactics, strategy, and positional play. This approach empowers our students to make informed decisions, adapt to various game situations, and ultimately, become confident tournament players.
-      </p>
-
-      <h4 class="text-2xl font-semibold text-gray-900 mb-4 mt-8 text-center">Our Unique Learning Methodologies</h4>
-      <p class="text-lg leading-relaxed mb-4">
-        Inspired by our technical backgrounds, our teaching methodologies are designed for efficiency and long-term retention. Our structured approach includes a variety of rigorous training techniques that mirror real-world challenges:
-      </p>
-      <ul class="list-disc list-inside space-y-2 mb-6 ml-4 text-lg">
-          <li><strong>Homework & Assignments:</strong> Regular exercises to reinforce new concepts and ensure practical application.</li>
-          <li><strong>Simul Games:</strong> Opportunities to play against our coaches in simultaneous exhibitions to practice under pressure.</li>
-          <li><strong>Rigorous Quizzes & Exams:</strong> Regular assessments to track progress, identify weak points, and prepare students for competitive formats.</li>
-          <li><strong>Personalized Learning Paths:</strong> We assess each student's current skill level to tailor a curriculum that maximizes their progress.</li>
-          <li><strong>Interactive Sessions:</strong> Beyond lectures, our classes feature interactive puzzles, live game analysis, and guided play.</li>
-          <li><strong>Focus on Psychology:</strong> Understanding the mental game is crucial. We integrate lessons on emotional control, resilience, and maintaining focus.</li>
-      </ul>
-      
-      <h4 class="text-2xl font-semibold text-gray-900 mb-6 mt-12 text-center border-t pt-8">Pricing & Class Structure</h4>
-      <p class="text-lg leading-relaxed mb-8 text-center text-gray-600">
-        We offer flexible formats to suit every learning style, schedule, and budget.
-      </p>
-
-      <div class="grid md:grid-cols-2 gap-8 text-center">
-        <div class="bg-gray-50 rounded-lg shadow-lg p-6 pricing-card hover:shadow-xl transition duration-300">
-            <i class="fas fa-user text-4xl text-indigo-600 mb-3"></i>
-            <h5 class="text-xl font-bold mb-2 text-indigo-700">One-to-One (Private) Classes</h5>
-            <p class="text-gray-600 mb-4">Highly personalized lessons tailored exclusively to your specific strengths, weaknesses, and goals.</p>
-            <div class="mt-4">
-                <span class="text-3xl font-extrabold text-gray-900">₹3999 or $80</span>
-                <span class="text-xl text-gray-500"> / month</span>
-            </div>
-            <p class="text-sm text-gray-500 mt-2">Best for rapid improvement and customized preparation. Includes weekly lectures, tournaments, quizzes, and community access.
-
-</p>
-        </div>
-
-        <div class="bg-gray-50 rounded-lg shadow-lg p-6 pricing-card hover:shadow-xl transition duration-300">
-            <i class="fas fa-users text-4xl text-purple-600 mb-3"></i>
-            <h5 class="text-xl font-bold mb-2 text-purple-700">Group Classes (2-4 Students)</h5>
-            <p class="text-gray-600 mb-4">Affordable, interactive learning environment that encourages peer discussion and shared analysis.</p>
-            <div class="mt-4">
-                <span class="text-3xl font-extrabold text-gray-900">₹ 2799 or $60</span>
-                <span class="text-xl text-gray-500"> / month</span>
-            </div>
-            <p class="text-sm text-gray-500 mt-2">Includes weekly lectures, tournaments, quizzes, and community access.</p>
-        </div>
-      </div>
-      <blockquote class="border-l-4 border-indigo-500 pl-4 py-2 italic text-gray-600 mb-6 mt-8">
-          "ChessDepth Academy transformed my understanding of the game. I didn't just learn moves; I learned to think strategically and patiently. Highly recommended for anyone serious about improving!" <br> - <strong>Shiven Chimnani, Mumbai, India. Advanced Student.</strong>
-      </blockquote>
-
-      <p class="text-lg leading-relaxed mb-6">
-        Whether you dream of achieving a master title or simply want to enjoy the intellectual challenge chess offers, ChessDepth Academy provides the environment, expertise, and resources to help you reach your goals. We believe in nurturing a love for the game that lasts a lifetime.
-      </p>
-
-      <h4 class="text-2xl font-semibold text-gray-900 mb-4 mt-8 text-center">Why Choose ChessDepth?</h4>
-      <p class="mb-6">Our commitment to excellence is reflected in our structured courses, designed by grandmasters and highly rated players. We focus on a holistic development that includes:</p>
-
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center mt-8">
-          <div class="p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition group">
-              <i class="fas fa-brain text-4xl text-indigo-500 mb-3 group-hover:scale-110 transition-transform"></i>
-              <h4 class="text-xl font-semibold mb-2">Build Focus</h4>
-              <p class="text-gray-600 text-sm">Sharpen concentration and problem-solving skills, enhancing cognitive abilities.</p>
-          </div>
-          <div class="p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition group">
-              <i class="fas fa-chess-knight text-4xl text-indigo-500 mb-3 group-hover:scale-110 transition-transform"></i>
-              <h4 class="text-xl font-semibold mb-2">Master Strategy</h4>
-              <p class="text-gray-600 text-sm">Develop long-term planning, tactical vision, and a deep understanding of positional play.</p>
-          </div>
-          <div class="p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition group">
-              <i class="fas fa-lightbulb text-4xl text-indigo-500 mb-3 group-hover:scale-110 transition-transform"></i>
-              <h4 class="text-xl font-semibold mb-2">Unleash Creativity</h4>
-              <p class="text-gray-600 text-sm">Discover innovative solutions, unconventional ideas, and unique approaches on the board.</p>
-          </div>
-      </div>
+  <!-- ============ HERO ============ -->
+  <section class="ab-hero ab-board text-white">
+    <div class="max-w-5xl mx-auto px-4 py-20 text-center">
+      <p class="uppercase tracking-widest text-indigo-200 text-sm font-semibold mb-3">About ChessDepth Academy</p>
+      <h1 class="text-4xl md:text-5xl font-extrabold leading-tight mb-5">Chess, taught with depth.</h1>
+      <p class="text-lg md:text-xl text-indigo-100 max-w-3xl mx-auto">We teach students to understand the <em>why</em> behind every move, through a structured curriculum, regular testing and coaches who care about how each student thinks.</p>
     </div>
-
-    <div class="bg-indigo-50 rounded-lg shadow-lg p-8 mb-10 mt-12 text-center">
-      <h3 class="text-3xl font-bold text-indigo-800 mb-6">Meet the Founder: Sourabh Joshi</h3>
-      <div class="flex flex-col md:flex-row items-center md:items-start space-y-6 md:space-y-0 md:space-x-8">
-        <div class="flex-shrink-0">
-          <img src="https://github.com/Sourabhjoshi1/Chess-Depth/blob/main/favicon/download.jpeg?raw=true" alt="Sourabh Joshi Profile" class="rounded-full w-48 h-48 object-cover border-4 border-indigo-300 shadow-md mx-auto md:mx-0">
-          <p class="mt-4 text-sm text-gray-600 font-medium">Sourabh Joshi</p>
-        </div>
-
-        <div class="text-left flex-grow">
-          <p class="text-lg leading-relaxed mb-4">
-            Hello! I'm AFM Sourabh Joshi, the founder of ChessDepth Academy. Coming from a technical and engineering background, I've developed a methodical approach to chess, focusing on systematic learning and analytical thinking. As a FIDE-rated player (current FIDE rating: 1603, FIDE ID: 25798170), and with an online rating often exceeding 2200 on various platforms, I've dedicated years to understanding the nuances of chess and how to effectively teach them.
-          </p>
-          <p class="text-lg leading-relaxed mb-4">
-            My journey in chess has provided me with a deep appreciation for its strategic depth and the cognitive benefits it offers. Through ChessDepth, I aim to share this passion and knowledge, guiding students to not only improve their game but also develop essential life skills like critical thinking, problem-solving, and resilience.
-          </p>
-
-          <h4 class="text-xl font-semibold text-gray-800 mt-6 mb-3">Connect & Verify:</h4>
-          <div class="flex flex-wrap justify-center md:justify-start gap-4">
-            <a href="https://ratings.fide.com/profile/25798170" target="_blank" rel="noopener noreferrer" class="profile-link flex items-center bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700 transition duration-300 text-base shadow-md">
-              <i class="fas fa-chess-king text-lg mr-2"></i> FIDE Profile
-            </a>
-            <a href="https://www.chess.com/member/sourabhjoshi01" target="_blank" rel="noopener noreferrer" class="profile-link flex items-center bg-gray-700 text-white px-4 py-2 rounded-lg hover:bg-gray-800 transition duration-300 text-base shadow-md">
-              <i class="fas fa-chess-board text-lg mr-2"></i> Chess.com Profile
-            </a>
-            <a href="https://www.linkedin.com/in/sourabhk-nitb/" target="_blank" rel="noopener noreferrer" class="profile-link flex items-center bg-blue-700 text-white px-4 py-2 rounded-lg hover:bg-blue-800 transition duration-300 text-base shadow-md">
-              <i class="fab fa-linkedin-in text-lg mr-2"></i> LinkedIn Profile
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-
-
-    <p class="text-lg font-semibold mt-10 text-center text-gray-700">
-      Let's go beyond surface-level chess — let's go deep.
-    </p>
   </section>
 
-  <section id="inquiry" class="py-16 px-4 bg-gray-100 fade-in-content">
-    <div class="max-w-xl mx-auto">
-      <h3 class="text-3xl font-bold text-center mb-8 tracking-tight">Student Inquiry Form</h3>
-      <form class="bg-white p-8 rounded-lg shadow-lg" onsubmit="handleSubmit(event)">
-        <div class="mb-4">
-          <label class="block text-gray-700 text-sm font-bold mb-2" for="fullName">Full Name</label>
-          <input type="text" id="fullName" name="fullName" class="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition duration-200 ease-in-out" required />
-        </div>
-
-        <div class="mb-4">
-          <label class="block text-gray-700 text-sm font-bold mb-2" for="age">Age</label>
-          <input type="number" id="age" name="age" class="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition duration-200 ease-in-out" required min="5" max="99" />
-        </div>
-
-        <div class="mb-4">
-          <label class="block text-gray-700 text-sm font-bold mb-2" for="rating">Current Chess Rating (if any)</label>
-          <input type="text" id="rating" name="rating" class="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition duration-200 ease-in-out" placeholder="e.g., 1200 FIDE, Unrated" />
-        </div>
-
-        <div class="mb-4">
-          <label class="block text-gray-700 text-sm font-bold mb-2" for="email">Email</label>
-          <input type="email" id="email" name="email" class="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition duration-200 ease-in-out" required />
-        </div>
-
-        <div class="mb-6">
-          <label class="block text-gray-700 text-sm font-bold mb-2" for="course">Interested Course</label>
-          <select id="course" name="interestedCourse" class="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition duration-200 ease-in-out">
-            <option value="beginner">Beginner's Tactics</option>
-            <option value="positional">Positional Strategy</option>
-            <option value="openings">Openings Repertoire</option>
-            <option value="other">Not sure / Other</option>
-          </select>
-        </div>
-
-        <button type="submit" class="w-full bg-indigo-600 text-white font-bold py-3 px-6 rounded-md hover:bg-indigo-700 transform hover:scale-105 transition duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Submit Inquiry</button>
-      </form>
-
-      <div id="thankYouMessage" class="hidden bg-green-100 border-l-4 border-green-500 text-green-700 p-4 mt-8 rounded-md" role="alert">
-          <p class="font-bold">Thank You!</p>
-          <p>Your inquiry has been submitted successfully. We'll get back to you shortly.</p>
+  <!-- ============ OUR STORY ============ -->
+  <section class="py-16 px-4">
+    <div class="max-w-5xl mx-auto grid md:grid-cols-5 gap-10 items-center">
+      <div class="md:col-span-3">
+        <p class="ab-eyebrow mb-2">Our story</p>
+        <h2 class="text-3xl font-bold text-gray-900 mb-5">Built by engineers who love chess</h2>
+        <p class="text-gray-700 leading-relaxed mb-4">ChessDepth Academy was started by AFM Sourabh Joshi, a FIDE-rated player with an engineering background. He noticed that most students were memorising moves without understanding them. They knew <em>what</em> to play in familiar positions, and got lost as soon as the position changed.</p>
+        <p class="text-gray-700 leading-relaxed mb-4">So we built the academy the way an engineer would: a clear syllabus, worksheets that build on each other, tests that measure progress, and feedback based on real games. Every lesson answers one question: <strong>why does this move work?</strong></p>
+        <p class="text-gray-700 leading-relaxed">Today, ChessDepth coaches students online from Bhopal and beyond. Our coaching team includes a FIDE Grandmaster, a Candidate Master and rated specialists in tactics, endgames and openings.</p>
+      </div>
+      <div class="md:col-span-2 grid grid-cols-2 gap-4">
+        <div class="ab-card p-5 text-center"><p class="text-3xl font-extrabold text-indigo-700">50+</p><p class="text-sm text-gray-600 mt-1">Students coached</p></div>
+        <div class="ab-card p-5 text-center"><p class="text-3xl font-extrabold text-indigo-700">500+</p><p class="text-sm text-gray-600 mt-1">Hours of teaching content</p></div>
+        <div class="ab-card p-5 text-center"><p class="text-3xl font-extrabold text-indigo-700">5</p><p class="text-sm text-gray-600 mt-1">FIDE-rated coaches, incl. a GM</p></div>
+        <div class="ab-card p-5 text-center"><p class="text-3xl font-extrabold text-indigo-700">95%</p><p class="text-sm text-gray-600 mt-1">Student satisfaction</p></div>
       </div>
     </div>
   </section>
 
-  
+  <!-- ============ MISSION & VISION ============ -->
+  <section class="py-16 px-4 bg-white">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-center mb-10">
+        <p class="ab-eyebrow mb-2">Why we exist</p>
+        <h2 class="text-3xl font-bold text-gray-900">Our mission &amp; vision</h2>
+      </div>
+      <div class="grid md:grid-cols-2 gap-8">
+        <div class="rounded-xl p-8 bg-indigo-50 border border-indigo-100">
+          <i class="fas fa-bullseye text-3xl text-indigo-600 mb-4"></i>
+          <h3 class="text-xl font-bold text-indigo-900 mb-3">Mission</h3>
+          <p class="text-gray-700 leading-relaxed">To make every student a <strong>thinking</strong> chess player, one who understands positions instead of memorising moves, and who takes focus, patience and decision-making from the board into school, work and life.</p>
+        </div>
+        <div class="rounded-xl p-8 bg-purple-50 border border-purple-100">
+          <i class="fas fa-binoculars text-3xl text-purple-600 mb-4"></i>
+          <h3 class="text-xl font-bold text-purple-900 mb-3">Vision</h3>
+          <p class="text-gray-700 leading-relaxed">To build one of India&rsquo;s most trusted chess schools, where a complete, structured curriculum from first moves to elite level is available to every student, wherever they live.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
+  <!-- ============ VALUES ============ -->
+  <section class="py-16 px-4">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-10">
+        <p class="ab-eyebrow mb-2">What we believe</p>
+        <h2 class="text-3xl font-bold text-gray-900">Our values</h2>
+      </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="ab-card p-6"><i class="fas fa-lightbulb text-2xl text-yellow-500 mb-3"></i><h3 class="font-bold text-lg mb-2">Understanding first</h3><p class="text-sm text-gray-600">We explain ideas, plans and patterns, not just lines to memorise.</p></div>
+        <div class="ab-card p-6"><i class="fas fa-ruler-combined text-2xl text-indigo-500 mb-3"></i><h3 class="font-bold text-lg mb-2">Structure &amp; measurement</h3><p class="text-sm text-gray-600">A clear syllabus, regular quizzes and tracked progress, so nobody guesses whether they are improving.</p></div>
+        <div class="ab-card p-6"><i class="fas fa-comments text-2xl text-green-500 mb-3"></i><h3 class="font-bold text-lg mb-2">Honest feedback</h3><p class="text-sm text-gray-600">Clear, kind and specific feedback on games and tests, for students and parents.</p></div>
+        <div class="ab-card p-6"><i class="fas fa-handshake text-2xl text-pink-500 mb-3"></i><h3 class="font-bold text-lg mb-2">Character on the board</h3><p class="text-sm text-gray-600">Sportsmanship, resilience after losses and calm under pressure matter as much as rating.</p></div>
+      </div>
+    </div>
+  </section>
 
-  <script>
-    // JavaScript for fade-in on content sections (copied from other pages)
-    document.addEventListener('DOMContentLoaded', () => {
-        const contentSections = document.querySelectorAll('.fade-in-content');
-        contentSections.forEach(section => {
-            section.style.animation = 'fadeIn 1s ease-out forwards';
-            section.style.opacity = '1';
-        });
+  <!-- ============ THE METHOD ============ -->
+  <section class="py-16 px-4 bg-white">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-12">
+        <p class="ab-eyebrow mb-2">How we teach</p>
+        <h2 class="text-3xl font-bold text-gray-900 mb-3">The ChessDepth learning cycle</h2>
+        <p class="text-gray-600 max-w-2xl mx-auto">Every student goes through the same proven loop, at their own level and pace.</p>
+      </div>
+      <ol class="ab-steps grid md:grid-cols-5 gap-8 text-center">
+        <li class="ab-step"><span class="ab-step-num mb-3">1</span><h3 class="font-bold mb-1">Learn</h3><p class="text-sm text-gray-600">Live, interactive lessons with puzzles and guided analysis.</p></li>
+        <li class="ab-step"><span class="ab-step-num mb-3">2</span><h3 class="font-bold mb-1">Practise</h3><p class="text-sm text-gray-600">Structured worksheets and homework, from basic to advanced problems.</p></li>
+        <li class="ab-step"><span class="ab-step-num mb-3">3</span><h3 class="font-bold mb-1">Play</h3><p class="text-sm text-gray-600">Practice games, simuls against coaches and academy tournaments.</p></li>
+        <li class="ab-step"><span class="ab-step-num mb-3">4</span><h3 class="font-bold mb-1">Test</h3><p class="text-sm text-gray-600">A quiz every eight sessions to check what really stuck.</p></li>
+        <li class="ab-step"><span class="ab-step-num mb-3">5</span><h3 class="font-bold mb-1">Review</h3><p class="text-sm text-gray-600">Feedback on games and results, and a plan for the next block.</p></li>
+      </ol>
+    </div>
+  </section>
 
-        // --- Smooth scroll for nav links ---
-        document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href');
-                if (targetId.startsWith("#")) { 
-                    const targetElement = document.querySelector(targetId);
-                    if (targetElement) {
-                        const headerOffset = document.getElementById('main-header') ? document.getElementById('main-header').offsetHeight : 0;
-                        const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
-                        const offsetPosition = elementPosition - headerOffset - 20;
+  <!-- ============ CURRICULUM LEVELS ============ -->
+  <section class="py-16 px-4">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-center mb-10">
+        <p class="ab-eyebrow mb-2">A clear path</p>
+        <h2 class="text-3xl font-bold text-gray-900 mb-3">From first moves to elite level</h2>
+        <p class="text-gray-600 max-w-2xl mx-auto">Our curriculum is split into levels, each with its own worksheets, concept books and quizzes. Students move up when the tests show they are ready, not just when time has passed.</p>
+      </div>
+      <div class="grid md:grid-cols-2 gap-5">
+        <div class="ab-card ab-level p-6" style="--lv:#10b981"><p class="text-xs font-bold text-green-600 uppercase tracking-wide mb-1">Level 1</p><h3 class="text-lg font-bold mb-2">Foundation</h3><p class="text-sm text-gray-600">Rules, piece activity, basic checkmates, forks, pins and opening principles.</p></div>
+        <div class="ab-card ab-level p-6" style="--lv:#3b82f6"><p class="text-xs font-bold text-blue-600 uppercase tracking-wide mb-1">Level 2</p><h3 class="text-lg font-bold mb-2">Intermediate</h3><p class="text-sm text-gray-600">Calculation with checks, captures and threats, pawn structures, simple endgames and planning.</p></div>
+        <div class="ab-card ab-level p-6" style="--lv:#8b5cf6"><p class="text-xs font-bold text-purple-600 uppercase tracking-wide mb-1">Level 3</p><h3 class="text-lg font-bold mb-2">Advanced</h3><p class="text-sm text-gray-600">Positional play, rook endgames, an opening repertoire and converting advantages.</p></div>
+        <div class="ab-card ab-level p-6" style="--lv:#ef4444"><p class="text-xs font-bold text-red-600 uppercase tracking-wide mb-1">Level 4</p><h3 class="text-lg font-bold mb-2">Elite</h3><p class="text-sm text-gray-600">Deep calculation, tournament preparation, psychology and game analysis with titled coaches.</p></div>
+      </div>
+      <p class="text-center mt-8"><a href="/courses/" class="text-indigo-700 font-semibold hover:underline">See all courses &amp; fees <i class="fas fa-arrow-right text-sm ml-1"></i></a></p>
+    </div>
+  </section>
 
-                        window.scrollTo({
-                            top: offsetPosition,
-                            behavior: "smooth"
-                        });
-                    }
-                } else {
-                    window.location.href = targetId; 
-                }
-            });
-        });
-        
-        // Add/remove header shadow on scroll (for consistency)
-        const header = document.getElementById('main-header');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
-                header.classList.add('shadow-xl');
-            } else {
-                header.classList.remove('shadow-xl');
-            }
-        });
-    });
+  <!-- ============ WHO WE TEACH ============ -->
+  <section class="py-16 px-4 bg-white">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-10">
+        <p class="ab-eyebrow mb-2">Who we teach</p>
+        <h2 class="text-3xl font-bold text-gray-900">Chess for every kind of learner</h2>
+      </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 text-center">
+        <div class="ab-card p-6 border border-gray-100"><i class="fas fa-child text-3xl text-indigo-500 mb-3"></i><h3 class="font-bold mb-1">Kids &amp; teens</h3><p class="text-sm text-gray-600">Fun, structured classes that build focus, patience and confidence.</p></div>
+        <div class="ab-card p-6 border border-gray-100"><i class="fas fa-trophy text-3xl text-yellow-500 mb-3"></i><h3 class="font-bold mb-1">Tournament players</h3><p class="text-sm text-gray-600">Preparation, repertoire work and game analysis to gain rating.</p></div>
+        <div class="ab-card p-6 border border-gray-100"><i class="fas fa-user-graduate text-3xl text-green-500 mb-3"></i><h3 class="font-bold mb-1">Adult improvers</h3><p class="text-sm text-gray-600">Break plateaus with a clear plan, flexible timings and honest feedback.</p></div>
+        <div class="ab-card p-6 border border-gray-100"><i class="fas fa-briefcase text-3xl text-purple-500 mb-3"></i><h3 class="font-bold mb-1">Professionals &amp; teams</h3><p class="text-sm text-gray-600">Corporate chess sessions on strategy and decision-making.</p></div>
+      </div>
+    </div>
+  </section>
 
-    // Handle Form Submission (Updated for Formspree and in-page message)
-    async function handleSubmit(event) {
-        event.preventDefault();
+  <!-- ============ FOUNDER ============ -->
+  <section class="py-16 px-4">
+    <div class="max-w-5xl mx-auto ab-card p-8 md:p-10">
+      <div class="flex flex-col md:flex-row items-center md:items-start gap-8">
+        <img src="/favicon/download.jpeg" alt="AFM Sourabh Joshi, founder of ChessDepth Academy" class="rounded-full w-44 h-44 object-cover border-4 border-indigo-200 shadow flex-shrink-0">
+        <div>
+          <p class="ab-eyebrow mb-1">Meet the founder</p>
+          <h2 class="text-2xl font-bold text-gray-900 mb-1">AFM Sourabh Joshi</h2>
+          <p class="text-indigo-700 font-semibold mb-4">Founder &amp; Head Coach · FIDE ID 25798170</p>
+          <p class="text-gray-700 leading-relaxed mb-3">&ldquo;I come from an engineering background, and I teach chess the way I learned engineering: break a problem into principles, practise them deliberately, then test them. I&rsquo;m a FIDE-rated player and play regularly above 2100 online, but what I enjoy most is the moment a student stops guessing and starts <em>understanding</em>.</p>
+          <p class="text-gray-700 leading-relaxed mb-5">Through ChessDepth, I want every student to improve their chess and also build the thinking habits that help them everywhere else.&rdquo;</p>
+          <div class="flex flex-wrap gap-3">
+            <a href="https://ratings.fide.com/profile/25798170" target="_blank" rel="noopener noreferrer" class="inline-flex items-center bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700 transition text-sm font-semibold"><i class="fas fa-chess-king mr-2"></i>FIDE Profile</a>
+            <a href="https://www.chess.com/member/sourabhjoshi01" target="_blank" rel="noopener noreferrer" class="inline-flex items-center bg-gray-700 text-white px-4 py-2 rounded-lg hover:bg-gray-800 transition text-sm font-semibold"><i class="fas fa-chess-board mr-2"></i>Chess.com</a>
+            <a href="https://www.linkedin.com/in/sourabhk-nitb/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center bg-blue-700 text-white px-4 py-2 rounded-lg hover:bg-blue-800 transition text-sm font-semibold"><i class="fab fa-linkedin-in mr-2"></i>LinkedIn</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-        const form = event.target;
-        const formData = new FormData(form);
-        const formspreeEndpoint = 'https://formspree.io/f/xqaleznp'; 
+  <!-- ============ TEAM SNAPSHOT ============ -->
+  <section class="py-16 px-4 bg-white">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-10">
+        <p class="ab-eyebrow mb-2">The team</p>
+        <h2 class="text-3xl font-bold text-gray-900">Coaches who play and teach</h2>
+      </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-5 gap-5 text-center">
+        <div class="ab-card p-5 border border-gray-100"><p class="text-xs font-bold text-yellow-600 uppercase">Grandmaster</p><p class="font-bold mt-1">GM Daniel Gormally</p><p class="text-xs text-gray-500 mt-1">Strategy &amp; endgames</p></div>
+        <div class="ab-card p-5 border border-gray-100"><p class="text-xs font-bold text-indigo-600 uppercase">Candidate Master</p><p class="font-bold mt-1">CM Rajarishi Karthi</p><p class="text-xs text-gray-500 mt-1">Fundamentals &amp; tactics</p></div>
+        <div class="ab-card p-5 border border-gray-100"><p class="text-xs font-bold text-indigo-600 uppercase">Founder</p><p class="font-bold mt-1">AFM Sourabh Joshi</p><p class="text-xs text-gray-500 mt-1">Tactics &amp; planning</p></div>
+        <div class="ab-card p-5 border border-gray-100"><p class="text-xs font-bold text-indigo-600 uppercase">Co-Founder</p><p class="font-bold mt-1">Anunad Singh</p><p class="text-xs text-gray-500 mt-1">Positional play &amp; endgames</p></div>
+        <div class="ab-card p-5 border border-gray-100"><p class="text-xs font-bold text-indigo-600 uppercase">COO</p><p class="font-bold mt-1">Navodaya Kannojia</p><p class="text-xs text-gray-500 mt-1">Openings &amp; online play</p></div>
+      </div>
+      <p class="text-center mt-8"><a href="/coaches/" class="text-indigo-700 font-semibold hover:underline">Meet the coaches <i class="fas fa-arrow-right text-sm ml-1"></i></a></p>
+    </div>
+  </section>
 
-        try {
-            const response = await fetch(formspreeEndpoint, {
-                method: 'POST',
-                body: formData,
-                headers: {
-                    'Accept': 'application/json'
-                }
-            });
+  <!-- ============ REVIEWS ============ -->
+  <section id="reviews" class="py-16 px-4 bg-indigo-50">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-center mb-10">
+        <p class="ab-eyebrow mb-2">Student reviews</p>
+        <h2 class="text-3xl font-bold text-gray-900">What our students say</h2>
+      </div>
+      <div class="grid {% if site.data.reviews.size > 1 %}md:grid-cols-2{% endif %} gap-6 {% if site.data.reviews.size == 1 %}max-w-3xl mx-auto{% endif %}">
+        {%- for r in site.data.reviews %}
+        <figure class="ab-card ab-quote relative p-8 pt-12">
+          <blockquote class="text-gray-700 text-lg leading-relaxed italic">{{ r.quote }}</blockquote>
+          <figcaption class="mt-5">
+            <p class="font-bold text-gray-900">{{ r.name }}</p>
+            <p class="text-sm text-gray-500">{{ r.detail }}</p>
+          </figcaption>
+        </figure>
+        {%- endfor %}
+      </div>
+      <div class="text-center mt-10">
+        <p class="text-gray-600 mb-3">Are you a ChessDepth student or parent? We&rsquo;d love to hear from you.</p>
+        <a href="https://wa.me/{{ site.contact.phone_intl }}?text=Hi%2C%20I%27d%20like%20to%20share%20a%20review%20of%20ChessDepth%20Academy%3A%20" target="_blank" rel="noopener noreferrer" class="inline-flex items-center border-2 border-indigo-600 text-indigo-700 font-semibold rounded-full px-6 py-2 hover:bg-indigo-600 hover:text-white transition"><i class="fab fa-whatsapp mr-2"></i>Share your review</a>
+      </div>
+    </div>
+  </section>
 
-            if (response.ok) {
-                form.classList.add('hidden');
-                const thankYouMessage = document.getElementById('thankYouMessage');
-                thankYouMessage.classList.remove('hidden');
+  <!-- ============ FUTURE GOALS ============ -->
+  <section class="py-16 px-4 bg-white">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-center mb-10">
+        <p class="ab-eyebrow mb-2">Where we&rsquo;re going</p>
+        <h2 class="text-3xl font-bold text-gray-900 mb-3">Our goals for the future</h2>
+        <p class="text-gray-600 max-w-2xl mx-auto">ChessDepth is growing. Here&rsquo;s what we&rsquo;re building next for our students.</p>
+      </div>
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="ab-card p-6 border border-gray-100 flex gap-4"><i class="fas fa-book-open text-2xl text-indigo-500 mt-1"></i><div><div class="flex items-center gap-2 mb-1"><h3 class="font-bold">A complete curriculum library</h3><span class="ab-goal-status bg-green-100 text-green-800">In progress</span></div><p class="text-sm text-gray-600">Worksheets and concept books for every level, from Foundation to Elite, all written and checked by our coaches.</p></div></div>
+        <div class="ab-card p-6 border border-gray-100 flex gap-4"><i class="fas fa-user-circle text-2xl text-indigo-500 mt-1"></i><div><div class="flex items-center gap-2 mb-1"><h3 class="font-bold">Free Student Area</h3><span class="ab-goal-status bg-green-100 text-green-800">In progress</span></div><p class="text-sm text-gray-600">One place where every student can sign in and download PDF material for all our courses, free.</p></div></div>
+        <div class="ab-card p-6 border border-gray-100 flex gap-4"><i class="fas fa-chess text-2xl text-indigo-500 mt-1"></i><div><div class="flex items-center gap-2 mb-1"><h3 class="font-bold">Regular academy tournaments</h3><span class="ab-goal-status bg-yellow-100 text-yellow-800">Planned</span></div><p class="text-sm text-gray-600">Online events for every level, so students get regular tournament practice in a friendly setting.</p></div></div>
+        <div class="ab-card p-6 border border-gray-100 flex gap-4"><i class="fas fa-medal text-2xl text-indigo-500 mt-1"></i><div><div class="flex items-center gap-2 mb-1"><h3 class="font-bold">Students in rated play</h3><span class="ab-goal-status bg-yellow-100 text-yellow-800">Planned</span></div><p class="text-sm text-gray-600">Guide more students to their first FIDE rating and help them improve steadily from there.</p></div></div>
+        <div class="ab-card p-6 border border-gray-100 flex gap-4"><i class="fas fa-school text-2xl text-indigo-500 mt-1"></i><div><div class="flex items-center gap-2 mb-1"><h3 class="font-bold">Chess in schools</h3><span class="ab-goal-status bg-yellow-100 text-yellow-800">Planned</span></div><p class="text-sm text-gray-600">Partner with schools to bring structured chess classes to more children.</p></div></div>
+        <div class="ab-card p-6 border border-gray-100 flex gap-4"><i class="fas fa-language text-2xl text-indigo-500 mt-1"></i><div><div class="flex items-center gap-2 mb-1"><h3 class="font-bold">Classes in more languages</h3><span class="ab-goal-status bg-yellow-100 text-yellow-800">Planned</span></div><p class="text-sm text-gray-600">Teaching in Hindi and other languages so language is never a barrier to learning chess.</p></div></div>
+      </div>
+    </div>
+  </section>
 
-                setTimeout(() => {
-                    thankYouMessage.classList.add('hidden');
-                    form.classList.remove('hidden');
-                    form.reset();
-                }, 5000);
-            } else {
-                cdFormMessage(form, 'Sorry, your message could not be sent. Please try again, or WhatsApp us on +91 98230 29262.');
-            }
-        } catch (error) {
-            console.error('Error submitting form:', error);
-            cdFormMessage(form, 'Could not send your message. Please check your internet connection, or WhatsApp us on +91 98230 29262.');
-        }
-    }
-  </script>
+  <!-- ============ FAQ ============ -->
+  <section class="py-16 px-4">
+    <div class="max-w-3xl mx-auto">
+      <div class="text-center mb-10">
+        <p class="ab-eyebrow mb-2">Questions parents ask</p>
+        <h2 class="text-3xl font-bold text-gray-900">Frequently asked questions</h2>
+      </div>
+      <div class="space-y-3">
+        <details class="ab-faq ab-card p-5"><summary class="font-semibold">Are classes online or in person?</summary><p class="text-gray-600 mt-3 text-sm leading-relaxed">Classes are held online, so students can join from anywhere. We&rsquo;re based in Bhopal, Madhya Pradesh.</p></details>
+        <details class="ab-faq ab-card p-5"><summary class="font-semibold">What age can my child start?</summary><p class="text-gray-600 mt-3 text-sm leading-relaxed">Children can usually start from about 5 years old. We place every student by level, not age, after the free demo class.</p></details>
+        <details class="ab-faq ab-card p-5"><summary class="font-semibold">How will I know my child is improving?</summary><p class="text-gray-600 mt-3 text-sm leading-relaxed">Students get regular homework and a quiz every eight sessions. Coaches review the results and games and share clear feedback on strengths and what to work on next.</p></details>
+        <details class="ab-faq ab-card p-5"><summary class="font-semibold">One-to-one or group, which is better?</summary><p class="text-gray-600 mt-3 text-sm leading-relaxed">One-to-one classes (&#8377;3,999 or $80 / month) are fully personalised and best for fast improvement. Group classes of 2&ndash;4 students (&#8377;2,799 or $60 / month) are more affordable and great for discussion. The demo class helps you decide.</p></details>
+        <details class="ab-faq ab-card p-5"><summary class="font-semibold">Do students get study material?</summary><p class="text-gray-600 mt-3 text-sm leading-relaxed">Yes. Students receive worksheets and concept books for their level, and can download PDF material from our <a href="/student/" class="text-indigo-700 hover:underline">Student Area</a>.</p></details>
+        <details class="ab-faq ab-card p-5"><summary class="font-semibold">How do I book the free demo class?</summary><p class="text-gray-600 mt-3 text-sm leading-relaxed">Send us a message on WhatsApp at {{ site.contact.phone_display }} or use the button below. We&rsquo;ll find a time that suits you.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CALL TO ACTION ============ -->
+  <section class="px-4 pb-6">
+    <div class="max-w-5xl mx-auto ab-hero rounded-2xl text-white text-center px-6 py-12">
+      <h2 class="text-3xl font-bold mb-3">Let&rsquo;s go beyond surface-level chess.</h2>
+      <p class="text-indigo-100 mb-7">Book a free demo class and see how ChessDepth teaches.</p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="{{ wa }}" target="_blank" rel="noopener noreferrer" class="cd-demo-btn inline-block px-8 py-3 text-lg"><i class="fab fa-whatsapp mr-2"></i>Book a Free Demo</a>
+        <a href="/courses/" class="inline-block bg-white text-indigo-700 font-semibold rounded-full px-8 py-3 text-lg hover:bg-indigo-50 transition">Explore Courses</a>
+      </div>
+    </div>
+  </section>
