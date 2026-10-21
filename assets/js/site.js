@@ -32,6 +32,24 @@
     label();
   })();
 
+  // Google Analytics: record clicks on the ways visitors contact the academy
+  document.addEventListener("click", function (e) {
+    var a = e.target.closest && e.target.closest("a[href]");
+    if (!a || typeof window.gtag !== "function") return;
+    var href = a.getAttribute("href") || "", where = a.closest("header, .cd-topbar") ? "header" : a.closest("footer") ? "footer" : a.classList.contains("whatsapp-float") ? "floating_button" : "page";
+    var label = (a.textContent || a.getAttribute("aria-label") || "").trim().slice(0, 60);
+    if (href.indexOf("wa.me/") !== -1) {
+      var demo = /demo/i.test(label) || a.classList.contains("cd-demo-btn") || a.classList.contains("cd-hdr-cta") || a.classList.contains("demo-button");
+      gtag("event", demo ? "book_demo_click" : "whatsapp_click", { link_location: where, link_text: label, page_path: location.pathname });
+    } else if (href.indexOf("tel:") === 0) {
+      gtag("event", "phone_click", { link_location: where, page_path: location.pathname });
+    } else if (href.indexOf("mailto:") === 0) {
+      gtag("event", "email_click", { link_location: where, page_path: location.pathname });
+    } else if (href.indexOf("/student/") === 0) {
+      gtag("event", "student_login_click", { link_location: where, page_path: location.pathname });
+    }
+  }, true);
+
   // Inline form messages (replaces browser alert pop-ups)
   window.cdFormMessage = function (form, text, type) {
     if (!form) return;
