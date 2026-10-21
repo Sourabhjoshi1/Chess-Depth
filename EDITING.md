@@ -5,8 +5,9 @@ The site is built by Jekyll on GitHub Pages. Every push to `main` rebuilds and p
 | To change...                         | Edit this file                         |
 |--------------------------------------|----------------------------------------|
 | Phone, email, address, social links  | `_config.yml` (the `contact:` section) |
-| Menu items (add/remove/reorder)      | `_data/navigation.yml`                 |
-| Header (logo, menu, Free Demo button)| `_includes/header.html`                |
+| Menu items (add/remove/reorder)      | `_data/navigation.yml` (the logo links home) |
+| Header (top strip, logo, menu, demo button) | `_includes/header.html`, styles under "Header" in `assets/css/site.css` |
+| Rook logo symbol                     | `_includes/logo-mark.html`             |
 | Footer                               | `_includes/footer.html`                |
 | `<head>` tags (SEO, fonts, ads)      | `_includes/head.html`                  |
 | Overall page skeleton                | `_layouts/default.html`                |

@@ -1,6 +1,4 @@
-# Main menu - add, remove or reorder pages here.
-- title: Home
-  url: /
+# Main menu (the logo links to the home page).
 - title: About
   url: /about/
 - title: Courses
@@ -13,5 +11,3 @@
   url: /blog/
 - title: Contact
   url: /contact/
-- title: Careers
-  url: /careers/
