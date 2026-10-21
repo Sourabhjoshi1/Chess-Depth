@@ -16,6 +16,9 @@ The site is built by Jekyll on GitHub Pages. Every push to `main` rebuilds and p
 | Styles for one page                  | `assets/css/pages/<name>.css`          |
 | Shared JavaScript (menu, year, forms)| `assets/js/site.js`                    |
 | Images                               | `assets/images/`                       |
+| Student Area (login + PDF downloads) | `pages/student.html`, `assets/js/student.js` |
+| Firebase settings / course names     | `assets/js/firebase-config.js`         |
+| Firebase security rules              | `firebase/storage.rules`, `firebase/firestore.rules` |
 
 ## Adding a new page
 Create `pages/<name>.html` starting with:
@@ -34,3 +37,8 @@ Add it to `_data/navigation.yml` if it should appear in the menu.
 
 Note: the page files only work after Jekyll builds them, so opening them directly
 from your computer will not show the header or footer.
+
+## Student Area PDFs
+Students sign in with Google at `chessdepth.in/student/`. PDFs live in Firebase Storage
+under `materials/<course-folder>/`. Upload new PDFs in the Firebase console; they appear
+on the page automatically. Signed-in students are listed in Firestore under `students`.

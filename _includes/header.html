@@ -17,6 +17,7 @@
         <a href="{{ item.url }}" class="cd-link text-gray-700">{{ item.title }}</a>
         {%- endif %}
         {%- endfor %}
+        <a href="/student/" class="cd-login-btn{% if page.url == '/student/' %} cd-active-btn{% endif %}"{% if page.url == '/student/' %} aria-current="page"{% endif %}><i class="fas fa-user-circle mr-1"></i>Student Login</a>
         <a href="{{ wa }}" target="_blank" rel="noopener noreferrer" class="cd-demo-btn">Free Demo</a>
       </nav>
     </div>
@@ -29,6 +30,7 @@
         <a href="{{ item.url }}" class="text-gray-700 hover:text-indigo-600">{{ item.title }}</a>
         {%- endif %}
         {%- endfor %}
+        <a href="/student/" class="cd-login-btn{% if page.url == '/student/' %} cd-active-btn{% endif %}"{% if page.url == '/student/' %} aria-current="page"{% endif %}><i class="fas fa-user-circle mr-1"></i>Student Login</a>
         <a href="{{ wa }}" target="_blank" rel="noopener noreferrer" class="cd-demo-btn">Book a Free Demo</a>
       </div>
     </div>
