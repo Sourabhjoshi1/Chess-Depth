@@ -3,6 +3,35 @@
   // Current year in the footer
   document.querySelectorAll('[data-year]').forEach(function (el) { el.textContent = new Date().getFullYear(); });
 
+  // Night / day mode toggle (the initial theme is set in <head> to avoid a flash)
+  (function () {
+    var root = document.documentElement;
+    function label() {
+      var dark = root.classList.contains("dark");
+      document.querySelectorAll("[data-theme-toggle]").forEach(function (b) {
+        b.setAttribute("aria-label", dark ? "Switch to day mode" : "Switch to night mode");
+        b.setAttribute("aria-pressed", String(dark));
+      });
+    }
+    function set(theme, save) {
+      root.classList.add("cd-theme-anim");
+      root.classList.toggle("dark", theme === "dark");
+      if (save) { try { localStorage.setItem("cd-theme", theme); } catch (e) {} }
+      label();
+      setTimeout(function () { root.classList.remove("cd-theme-anim"); }, 350);
+    }
+    document.querySelectorAll("[data-theme-toggle]").forEach(function (b) {
+      b.addEventListener("click", function () { set(root.classList.contains("dark") ? "light" : "dark", true); });
+    });
+    // Follow the device setting live, until the visitor picks a mode themselves
+    if (window.matchMedia) {
+      var mq = matchMedia("(prefers-color-scheme: dark)");
+      var follow = function (e) { var saved = null; try { saved = localStorage.getItem("cd-theme"); } catch (x) {} if (!saved) set(e.matches ? "dark" : "light", false); };
+      if (mq.addEventListener) mq.addEventListener("change", follow); else if (mq.addListener) mq.addListener(follow);
+    }
+    label();
+  })();
+
   // Inline form messages (replaces browser alert pop-ups)
   window.cdFormMessage = function (form, text, type) {
     if (!form) return;

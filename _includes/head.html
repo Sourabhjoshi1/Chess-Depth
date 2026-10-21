@@ -1,4 +1,13 @@
 <meta charset="UTF-8">
+  <script>
+    /* Night/day mode: use the saved choice, otherwise follow the device setting */
+    (function () {
+      var t = null; try { t = localStorage.getItem("cd-theme"); } catch (e) {}
+      if (t !== "light" && t !== "dark") t = (window.matchMedia && matchMedia("(prefers-color-scheme: dark)").matches) ? "dark" : "light";
+      if (t === "dark") document.documentElement.classList.add("dark");
+    })();
+  </script>
+  <meta name="theme-color" content="#4338ca">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{{ page.title }}</title>
   <meta name="description" content="{{ page.description | default: site.description }}">
@@ -26,6 +35,7 @@
   <link rel="stylesheet" href="/assets/css/pages/{{ page.page_css }}.css">
   {%- endif %}
   <link rel="stylesheet" href="/assets/css/site.css">
+  <link rel="stylesheet" href="/assets/css/dark.css">
   {%- for s in page.head_scripts %}
   <script {% if s.type %}type="{{ s.type }}" {% endif %}src="{{ s.src }}"></script>
   {%- endfor %}

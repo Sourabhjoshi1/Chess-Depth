@@ -4,11 +4,14 @@
       <a href="/" class="inline-block hover:opacity-80 transition-opacity duration-200">
         <span class="text-3xl font-bold text-indigo-700">♟️ ChessDepth</span>
       </a>
-      <button id="menu-toggle" class="xl:hidden p-2 text-gray-700 hover:text-indigo-600 focus:outline-none" aria-controls="mobile-menu" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="flex items-center gap-2 xl:hidden">
+        <button type="button" class="cd-theme-btn" data-theme-toggle aria-label="Switch to night mode" title="Night / day mode"><i class="fas fa-moon cd-moon"></i><i class="fas fa-sun cd-sun"></i></button>
+        <button id="menu-toggle" class="p-2 text-gray-700 hover:text-indigo-600 focus:outline-none" aria-controls="mobile-menu" aria-expanded="false" aria-label="Toggle navigation">
         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
         </svg>
       </button>
+      </div>
       <nav id="main-nav" aria-label="Primary" class="cd-nav hidden xl:flex items-center space-x-5">
         {%- for item in site.data.navigation %}
         {%- assign is_active = false %}{% if page.url == item.url %}{% assign is_active = true %}{% elsif item.url != '/' and page.url contains item.url %}{% assign is_active = true %}{% endif %}
@@ -18,6 +21,7 @@
         <a href="{{ item.url }}" class="cd-link text-gray-700">{{ item.title }}</a>
         {%- endif %}
         {%- endfor %}
+        <button type="button" class="cd-theme-btn" data-theme-toggle aria-label="Switch to night mode" title="Night / day mode"><i class="fas fa-moon cd-moon"></i><i class="fas fa-sun cd-sun"></i></button>
         <a href="/student/" class="cd-login-btn{% if page.url == '/student/' %} cd-active-btn{% endif %}"{% if page.url == '/student/' %} aria-current="page"{% endif %}><i class="fas fa-user-circle mr-1"></i>Student Login</a>
         <a href="{{ wa }}" target="_blank" rel="noopener noreferrer" class="cd-demo-btn">Free Demo</a>
       </nav>
