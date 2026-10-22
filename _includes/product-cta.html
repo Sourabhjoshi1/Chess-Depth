@@ -1,6 +1,8 @@
 {%- comment -%} Buy button (Gumroad) or "Notify me" (WhatsApp) when the product isn't on Gumroad yet. {%- endcomment -%}
 {%- assign p = include.p -%}
-{%- if p.gumroad != "" and p.gumroad -%}
+{%- if p.download != "" and p.download -%}
+<a href="{{ p.download }}" class="sp-buy sp-download{% if include.small %} sp-buy-sm{% endif %}" data-product="{{ p.title | escape }}" download><i class="fas fa-download"></i> Download free</a>
+{%- elsif p.gumroad != "" and p.gumroad -%}
 <a href="{{ p.gumroad }}" class="sp-buy{% if include.small %} sp-buy-sm{% endif %}" data-product="{{ p.title | escape }}" data-gumroad-overlay-checkout="true" target="_blank" rel="noopener">
   {%- if p.price_inr == "0" %}<i class="fas fa-download"></i> Get it free{% else %}<i class="fas fa-shopping-bag"></i> Buy now{% endif %}</a>
 {%- else -%}

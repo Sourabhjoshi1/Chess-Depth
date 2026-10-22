@@ -8,6 +8,7 @@ size: 30 puzzles
 price_inr: "0"
 price_usd: ""
 gumroad: ""
+download: "/downloads/chessdepth-tactics-starter-pack.pdf"
 glyph: "♞"
 badge: Free
 description: "30 hand-picked puzzles in five themes: mate in one, mate in two, forks, pins and skewers, and discovered attacks, with hints and full explanations."

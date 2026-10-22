@@ -39,7 +39,7 @@
     var href = a.getAttribute("href") || "", where = a.closest("header, .cd-topbar") ? "header" : a.closest("footer") ? "footer" : a.classList.contains("whatsapp-float") ? "floating_button" : "page";
     var label = (a.textContent || a.getAttribute("aria-label") || "").trim().slice(0, 60);
     if (a.classList.contains("sp-buy") || a.classList.contains("sp-notify")) {
-      gtag("event", a.classList.contains("sp-buy") ? "begin_checkout" : "shop_notify_click", { item_name: a.getAttribute("data-product") || label, link_location: where, page_path: location.pathname });
+      gtag("event", a.classList.contains("sp-download") ? "shop_free_download" : a.classList.contains("sp-buy") ? "begin_checkout" : "shop_notify_click", { item_name: a.getAttribute("data-product") || label, link_location: where, page_path: location.pathname });
     } else if (href.indexOf("wa.me/") !== -1) {
       var demo = /demo/i.test(label) || a.classList.contains("cd-demo-btn") || a.classList.contains("cd-hdr-cta") || a.classList.contains("demo-button");
       gtag("event", demo ? "book_demo_click" : "whatsapp_click", { link_location: where, link_text: label, page_path: location.pathname });

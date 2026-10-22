@@ -108,5 +108,7 @@ Posts dated in the future stay hidden until that date.
   2. Copy the product's Gumroad link (looks like `https://chessdepth.gumroad.com/l/abcde`) into `gumroad:`.
   3. Put the price in `price_inr:` (and optionally `price_usd:`). For a free product use `price_inr: "0"` and set the price to 0+ on Gumroad.
   Until `gumroad:` is filled in, the product shows **Coming soon** with a **Notify me** WhatsApp button.
+- **Free direct download (no Gumroad):** put the PDF in the `downloads/` folder and set `download: "/downloads/file-name.pdf"` with `price_inr: "0"`. The page shows **Download free**. To move it to Gumroad later, clear `download:` and fill in `gumroad:`.
+- Analytics: free downloads are recorded as `shop_free_download`.
 - Your Gumroad store link can go in `shop: gumroad_profile:` in `_config.yml` to show "See all products on Gumroad".
 - Analytics: "Buy now" clicks are recorded as `begin_checkout` and "Notify me" clicks as `shop_notify_click`, with the product name.
