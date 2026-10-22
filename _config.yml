@@ -20,6 +20,7 @@ adsense_client: "ca-pub-1353516013773606"
 lab:
   price: ""            # e.g. "₹299 / month". Empty shows "Pricing announced at launch".
   payment_link: ""     # Razorpay payment link. Empty shows an "Ask to join on WhatsApp" button.
+  free_until: "2026-11-21"   # Launch offer: everything free for signed-in users until the end of this day. Empty = no offer.
   admins:              # Google accounts that can switch Lab access on/off at /lab/admin/
     - joshisourabh47@gmail.com
 

@@ -1,5 +1,5 @@
 // ChessDepth Chess Lab - page shell: access screens (gate), Lab bar (points/level), toasts.
-import { CFG, initLab, onChange, signIn, signOut, unlockDemo, exitDemo, loadProgress, levelFor, track } from "./lab-core.js";
+import { CFG, initLab, onChange, signIn, signOut, unlockDemo, exitDemo, loadProgress, levelFor, track, promoActive, promoLabel } from "./lab-core.js";
 
 const $ = (s, r = document) => r.querySelector(s);
 const esc = (s) => String(s == null ? "" : s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
@@ -14,10 +14,14 @@ function gateHTML(st, toolName) {
       <li><i class="fas fa-trophy"></i>Weekly leaderboard</li></ul>`;
   if (st.mode === "closed") {
     return `<div class="lab-gate-card"><p class="lab-gate-kicker">Opening soon</p><h2>The Chess Lab is almost ready</h2>
-      <p>Student accounts open shortly. Leave your number on WhatsApp and we'll tell you the day it launches.</p>${features}
+      <p>Student accounts open shortly. Leave your number on WhatsApp and we'll tell you the day it launches.</p>${promoActive() ? `<p class="lab-offer-note"><i class="fas fa-gift"></i> Launch offer: everything free until ${esc(promoLabel())}.</p>` : ""}${features}
       <a class="lab-btn" href="${esc(CFG.notifyUrl)}" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i>Notify me at launch</a></div>`;
   }
   if (!st.user) {
+    if (promoActive()) return `<div class="lab-gate-card"><p class="lab-gate-kicker"><i class="fas fa-gift"></i> Launch offer</p><h2>Free until ${esc(promoLabel())}</h2>
+      <p>Every Chess Lab feature is free during our launch. Just sign in with Google to open ${tool}.</p>${features}
+      <button type="button" class="lab-btn lab-google" data-act="signin">${googleIcon()}${st.mode === "demo" ? "Sign in (demo)" : "Sign in with Google"}</button>
+      <p class="lab-gate-small" data-msg>No payment needed. After the offer, your progress stays saved.</p></div>`;
     return `<div class="lab-gate-card"><p class="lab-gate-kicker"><i class="fas fa-lock"></i> Members only</p><h2>Sign in to open ${tool}</h2>
       <p>The Chess Lab is part of your ChessDepth student account. Sign in with Google to continue.</p>
       <button type="button" class="lab-btn lab-google" data-act="signin">${googleIcon()}${st.mode === "demo" ? "Sign in (demo)" : "Sign in with Google"}</button>
@@ -41,6 +45,8 @@ function googleIcon() {
 function renderBar(st, prog) {
   const bar = $("#lab-bar-status"); if (!bar) return;
   if (st.mode === "demo") $("#lab-demo-banner")?.classList.remove("hidden");
+  const offer = $("#lab-offer-banner");
+  if (offer) { const on = promoActive() && !st.paid; offer.classList.toggle("hidden", !on); if (on) offer.innerHTML = `<i class="fas fa-gift"></i> <b>Launch offer:</b> every Chess Lab feature is free until ${esc(promoLabel())}${st.user ? "." : ". Just sign in."}`; }
   if (!st.user) { bar.innerHTML = ""; return; }
   if (!st.access || !prog) { bar.innerHTML = `<span class="lab-chip">${esc((st.user.name || "").split(" ")[0])}</span>`; return; }
   const lv = levelFor(prog.points);

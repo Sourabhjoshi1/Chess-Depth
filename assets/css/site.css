@@ -81,3 +81,4 @@ body { font-family: 'Poppins', sans-serif; }
 .cd-soon { display: inline-block; margin-left: .4rem; padding: .05rem .4rem; border: 1px solid var(--cd-brass); border-radius: 4px; color: #8a6a37; font-size: .62rem; font-weight: 600; letter-spacing: .02em; vertical-align: .15rem; line-height: 1.4; }
 .cd-nav .cd-link-ai { white-space: nowrap; }
 .cd-mobile-menu .cd-soon { font-size: .7rem; vertical-align: .1rem; }
+.cd-free { display: inline-block; margin-left: .35rem; padding: 0 .35rem; border-radius: 4px; background: #b08a4e; color: #1f2547; font-size: .62rem; font-weight: 700; line-height: 1.5; }

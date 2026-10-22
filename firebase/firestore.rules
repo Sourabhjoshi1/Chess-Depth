@@ -8,8 +8,16 @@ service cloud.firestore {
     function isAdmin() {
       return request.auth != null && request.auth.token.email in ['joshisourabh47@gmail.com'];
     }
-    // A paid Lab member: lab == true and the end date (if any) not passed.
+    // Launch offer: every signed-in user has full access until this moment.
+    // Keep in step with `lab.free_until` in _config.yml (end of 21 Nov 2026, India time = 18:29:59 UTC).
+    function promoActive() {
+      return request.auth != null && request.time < timestamp.date(2026, 11, 21) + duration.value(18, 'h') + duration.value(30, 'm');
+    }
+    // A Lab member: lab == true and the end date (if any) not passed, or the launch offer is running.
     function hasLab() {
+      return promoActive() || paidLab();
+    }
+    function paidLab() {
       let s = get(/databases/$(database)/documents/students/$(request.auth.uid)).data;
       return request.auth != null && s.get('lab', false) == true
         && (s.get('labUntil', null) == null || s.labUntil > request.time);

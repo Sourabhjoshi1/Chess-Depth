@@ -237,3 +237,8 @@ html.dark .admin-table td, html.dark .admin-table th { border-color: #222a44; }
 html.dark .ps-scores > div { background: #162032; border-color: #2a3352; }
 html.dark .ps-score { color: #eef0fa; }
 html.dark .ps-rules { color: #b9bfd8; }
+/* Launch offer */
+.lab-offer { background: #1f2547; color: #e9dcc4; font-size: .85rem; text-align: center; padding: .5rem 1rem; }
+.lab-offer b { color: #fff; }
+.lab-offer-note { margin-top: .8rem; color: #8a6a37 !important; font-weight: 600; font-size: .92rem; }
+html.dark .lab-offer { background: #2a2416; }

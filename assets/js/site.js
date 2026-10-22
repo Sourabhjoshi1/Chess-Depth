@@ -50,6 +50,12 @@
     }
   }, true);
 
+  // Hide "Free" launch-offer labels once the offer has ended
+  document.querySelectorAll("[data-free-until]").forEach(function (el) {
+    var p = (el.getAttribute("data-free-until") || "").split("-").map(Number);
+    if (p.length === 3 && Date.now() > new Date(p[0], p[1] - 1, p[2], 23, 59, 59).getTime()) el.remove();
+  });
+
   // Inline form messages (replaces browser alert pop-ups)
   window.cdFormMessage = function (form, text, type) {
     if (!form) return;

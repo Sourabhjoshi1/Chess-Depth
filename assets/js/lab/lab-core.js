@@ -25,7 +25,15 @@ let mode = "closed", user = null, access = false, fb = null, progress = null, sa
 const listeners = [];
 function emit() { const s = state(); listeners.forEach((f) => { try { f(s); } catch (e) { console.error(e); } }); }
 export function onChange(f) { listeners.push(f); }
-export function state() { return { mode, user, access, admin: !!(user && isAdminEmail(user.email)) }; }
+// Launch offer: every signed-in visitor gets full access until the end of `freeUntil` (YYYY-MM-DD).
+export function promoEnd() {
+  if (!CFG.freeUntil || !/^\d{4}-\d{2}-\d{2}$/.test(CFG.freeUntil)) return null;
+  const [y, m, d] = CFG.freeUntil.split("-").map(Number); return new Date(y, m - 1, d, 23, 59, 59);
+}
+export function promoActive() { const e = promoEnd(); return !!e && Date.now() <= e.getTime(); }
+export function promoLabel() { const e = promoEnd(); return e ? e.toLocaleDateString("en-IN", { day: "numeric", month: "long", year: "numeric" }) : ""; }
+let paid = false;
+export function state() { return { mode, user, access, paid, promo: promoActive(), admin: !!(user && isAdminEmail(user.email)) }; }
 function isAdminEmail(email) { return !!email && (CFG.admins || []).map((x) => String(x).toLowerCase()).includes(String(email).toLowerCase()); }
 export function firstName(u) { return ((u && u.name) || "Student").trim().split(/\s+/)[0]; }
 
@@ -146,17 +154,17 @@ export async function leaderboard() {
 
 // ---------- sign in / access ----------
 export async function signIn() {
-  if (mode === "demo") { user = { uid: "demo", name: "Demo Student", email: "demo@chessdepth.in" }; LS.set("cd-lab-demo-user", JSON.stringify(user)); access = LS.get("cd-lab-demo-access") === "1"; progress = null; emit(); return; }
+  if (mode === "demo") { user = { uid: "demo", name: "Demo Student", email: "demo@chessdepth.in" }; LS.set("cd-lab-demo-user", JSON.stringify(user)); paid = LS.get("cd-lab-demo-access") === "1"; access = paid || promoActive(); progress = null; emit(); return; }
   if (mode !== "firebase") return;
   const provider = new fb.GoogleAuthProvider(); provider.setCustomParameters({ prompt: "select_account" });
   try { await fb.signInWithPopup(fb.auth, provider); }
   catch (e) { if (e.code === "auth/popup-blocked" || e.code === "auth/operation-not-supported-in-this-environment") await fb.signInWithRedirect(fb.auth, provider); else if (e.code !== "auth/popup-closed-by-user" && e.code !== "auth/cancelled-popup-request") throw e; }
 }
 export async function signOut() {
-  if (mode === "demo") { LS.del("cd-lab-demo-user"); user = null; access = false; progress = null; emit(); return; }
+  if (mode === "demo") { LS.del("cd-lab-demo-user"); user = null; access = false; paid = false; progress = null; emit(); return; }
   if (mode === "firebase") await fb.signOut(fb.auth);
 }
-export function unlockDemo() { if (mode !== "demo") return; LS.set("cd-lab-demo-access", "1"); access = true; emit(); }
+export function unlockDemo() { if (mode !== "demo") return; LS.set("cd-lab-demo-access", "1"); paid = true; access = true; emit(); }
 export function exitDemo() { ["cd-lab-demo", "cd-lab-demo-user", "cd-lab-demo-access"].forEach(LS.del); location.href = location.pathname; }
 export function resetDemoProgress() { LS.del("cd-lab-progress-demo"); progress = null; }
 
@@ -187,7 +195,8 @@ async function initFirebase() {
     let first = true;
     fb.onAuthStateChanged(fb.auth, async (u) => {
       user = u ? { uid: u.uid, name: u.displayName || "", email: u.email || "", photoURL: u.photoURL || "" } : null;
-      access = user ? await checkAccess(user) : false;
+      paid = user ? await checkAccess(user) : false;
+      access = !!user && (paid || promoActive());
       progress = null;
       if (first) { first = false; resolve(); } else emit();
     });
@@ -205,7 +214,8 @@ export async function initLab() {
   } else if (LS.get("cd-lab-demo") === "1") {
     mode = "demo";
     try { user = JSON.parse(LS.get("cd-lab-demo-user") || "null"); } catch (e) { user = null; }
-    access = !!user && LS.get("cd-lab-demo-access") === "1";
+    paid = !!user && LS.get("cd-lab-demo-access") === "1";
+    access = !!user && (paid || promoActive());
   } else {
     mode = "closed";
   }
