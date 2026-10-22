@@ -70,6 +70,7 @@ exclude:
   - LICENSE
   - firebase
   - shop-src
+  - scripts
   - Gemfile
   - Gemfile.lock
   - tailwind.config.js

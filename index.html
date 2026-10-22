@@ -91,6 +91,34 @@ page_css: index
     </div>
   </section>
 
+  <section id="daily" class="dp-section" aria-labelledby="dp-h">
+    <div class="cd-wrap dp-grid">
+      <div class="dp-board-col">
+        <chess-board id="dp-board" class="dp-board dp-loading" draggable-pieces></chess-board>
+        <p class="dp-credit">Position from a real game · Lichess puzzle database</p>
+      </div>
+      <div class="dp-side">
+        <p class="dp-eyebrow"><i class="fas fa-calendar-day"></i> Puzzle of the Day</p>
+        <h2 class="dp-h2" id="dp-h"><span id="dp-date">Today's puzzle</span></h2>
+        <p class="dp-chips"><span class="dp-level" id="dp-level">…</span><span class="dp-rating" id="dp-rating"></span><span class="dp-streak hidden" id="dp-streak"></span></p>
+        <p class="dp-goal" id="dp-goal">Loading today's position…</p>
+        <p class="dp-intro">A new position from a real game every day. Monday's puzzle is the gentlest, and by Sunday it's a real test. Solve it on the board, and use a hint only if you need one.</p>
+        <div class="dp-status" id="dp-status-box" aria-live="polite"><p class="dp-status-main" id="dp-status">Getting the board ready…</p><p class="dp-status-sub" id="dp-sub"></p></div>
+        <div class="dp-actions">
+          <button type="button" class="dp-btn" id="dp-hint"><i class="far fa-lightbulb"></i> Hint</button>
+          <button type="button" class="dp-btn" id="dp-show"><i class="far fa-eye"></i> Show solution</button>
+          <a class="dp-btn dp-share hidden" id="dp-share" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> Challenge a friend</a>
+        </div>
+        <div class="dp-explain hidden" id="dp-explain">
+          <p class="dp-theme-row"><span>Today's idea:</span> <b id="dp-theme"></b></p>
+          <p class="dp-idea" id="dp-idea"></p>
+          <p class="dp-solution-row hidden" id="dp-solution-row"><span>Solution:</span> <b id="dp-solution"></b></p>
+        </div>
+        <p class="dp-foot"><span id="dp-next"></span> · <a href="/lab/tactics/">Train more in the Chess Lab</a> · <a href="/shop/tactics-starter/">Free tactics pack</a></p>
+      </div>
+    </div>
+  </section>
+
   <section id="courses" class="py-16 bg-white px-4 fade-in-section">
     <div class="max-w-6xl mx-auto">
       <h2 class="text-3xl font-bold text-center mb-10 tracking-tight">Popular Courses</h2>
@@ -403,3 +431,4 @@ page_css: index
         }
     }
 </script>
+<script type="module" src="/assets/js/daily.js"></script>
