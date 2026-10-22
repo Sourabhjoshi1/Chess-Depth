@@ -67,3 +67,4 @@ html.dark .cr-process { background: #162032; }
 html.dark .cr-apply { background: #6366f1; }
 html.dark .cr-apply-o { background: transparent; color: #c7d2fe; border-color: #475569; }
 html.dark .cr-foot a { color: #a5b4fc; }
+.cr-apply.hidden, .cr-how.hidden, .cr-closed.hidden { display: none; }
