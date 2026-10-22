@@ -1,9 +1,40 @@
 rules_version = '2';
-// ChessDepth Academy - each student can only read/write their own sign-in record.
+// ChessDepth Academy - Firestore security rules (Student Area + Chess Lab).
+// Paste this whole file into Firebase console -> Firestore Database -> Rules -> Publish.
 service cloud.firestore {
   match /databases/{database}/documents {
+
+    // Admins can switch Lab access on/off. Keep in step with `lab.admins` in _config.yml.
+    function isAdmin() {
+      return request.auth != null && request.auth.token.email in ['joshisourabh47@gmail.com'];
+    }
+    // A paid Lab member: lab == true and the end date (if any) not passed.
+    function hasLab() {
+      let s = get(/databases/$(database)/documents/students/$(request.auth.uid)).data;
+      return request.auth != null && s.get('lab', false) == true
+        && (s.get('labUntil', null) == null || s.labUntil > request.time);
+    }
+
+    // Each student's own record. Students may update their name/email/login times,
+    // but never their own Lab access fields; only admins can change those.
     match /students/{uid} {
-      allow read, write: if request.auth != null && request.auth.uid == uid;
+      allow read: if (request.auth != null && request.auth.uid == uid) || isAdmin();
+      allow create: if request.auth != null && request.auth.uid == uid
+        && !request.resource.data.keys().hasAny(['lab', 'labUntil', 'labUpdated']);
+      allow update: if isAdmin() || (request.auth != null && request.auth.uid == uid
+        && !request.resource.data.diff(resource.data).affectedKeys().hasAny(['lab', 'labUntil', 'labUpdated']));
+      allow list: if isAdmin();
+    }
+
+    // Chess Lab progress: only the member themself, and only while their membership is active.
+    match /labProgress/{uid} {
+      allow read, write: if request.auth != null && request.auth.uid == uid && hasLab();
+    }
+
+    // Weekly leaderboard (first names only): readable by members, each member writes their own row.
+    match /leaderboard/{uid} {
+      allow read: if hasLab();
+      allow write: if request.auth != null && request.auth.uid == uid && hasLab();
     }
   }
 }

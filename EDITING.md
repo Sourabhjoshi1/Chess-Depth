@@ -77,3 +77,14 @@ Posts dated in the future stay hidden until that date.
   The course list for Google is in `_data/courses.yml`; keep it in step with the Courses page.
 - **Styles:** the site uses a trimmed Tailwind CSS that is rebuilt automatically on every deploy
   (see `tailwind.config.js` and `.github/workflows/jekyll-gh-pages.yml`). Any Tailwind class you add to a page is picked up automatically.
+
+## Chess Lab (paid membership)
+- Pages: `pages/lab/` (public page at `/lab/`, tools at `/lab/tactics/`, `/lab/openings/`, `/lab/progress/`, admin at `/lab/admin/`).
+- Price, payment link and admins: the `lab:` section in `_config.yml`.
+- **Giving someone access:** after they pay, open `chessdepth.in/lab/admin/`, sign in with an admin Google account, switch "Lab access" on for them (optional end date) and press Save.
+- Puzzles: `assets/lab/puzzles/*.json` (Lichess, CC0) and `assets/lab/originals.json` (ChessDepth Originals:
+  `[id, FEN with the solver to move, solution moves in UCI e.g. "e4d6 e8d8 d6b7", rating, themes, title]`).
+- Opening courses: `assets/lab/openings.json`.
+- Security rules: `firebase/firestore.rules` (paste into the Firebase console). The admin email is listed there too.
+- Before Firebase is connected the Lab shows "opening soon". Add `?demo=1` to any Lab address to try everything
+  in demo mode (stored only in that browser); `?demo=0` leaves demo mode.

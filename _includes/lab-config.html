@@ -1,0 +1,9 @@
+<script>
+  window.CD_LAB = {
+    price: {{ site.lab.price | jsonify }},
+    paymentLink: {{ site.lab.payment_link | jsonify }},
+    admins: {{ site.lab.admins | jsonify }},
+    notifyUrl: "https://wa.me/{{ site.contact.phone_intl }}?text=Hi%2C%20please%20tell%20me%20when%20the%20ChessDepth%20Chess%20Lab%20opens",
+    joinUrl: "https://wa.me/{{ site.contact.phone_intl }}?text=Hi%2C%20I%20would%20like%20to%20join%20the%20ChessDepth%20Chess%20Lab"
+  };
+</script>
