@@ -217,3 +217,14 @@ html.dark .lab-hero { background: #080b16; }
 html.dark .lab-demo { background: #2a2416; color: #e9dcc4; border-color: #3a3220; }
 html.dark .lab-lock { border-color: #2a3352; color: #b9bfd8; }
 html.dark .admin-table td, html.dark .admin-table th { border-color: #222a44; }
+.tt-layout > *, .op-layout > * { min-width: 0; }
+.tt-filters select { width: 100%; min-width: 0; }
+.tt-filters #tt-filters-lichess { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+.lab-bar-inner > * { min-width: 0; }
+@media (max-width: 520px) {
+  .lab-tabs a:not([aria-current]) span { display: none; }
+  .lab-tabs a { padding: .55rem .7rem; }
+  .tt-filters #tt-filters-lichess { grid-template-columns: 1fr; }
+}
+.lab-hero { overflow: hidden; }
+.lab-board { --light-color: #eef0fb; --dark-color: #8b93d6; }
