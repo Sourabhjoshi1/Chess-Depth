@@ -96,3 +96,9 @@ html.dark .ai-cta-btn { background: #6366f1; color: #fff; }
 .ai-title { font-size: clamp(2rem, 4.5vw, 3rem); line-height: 1.15; }
 @media (min-width: 768px) { .ai-demo-in, .ai-demo-out { max-width: 230px; } .ai-hero > div { min-height: 20rem; } }
 .ai-demo figcaption { margin-top: .4rem; }
+@media (max-width: 767px) {
+  .ai-demo { grid-template-columns: 1fr auto 1fr; gap: .5rem; }
+  .ai-demo-arrow { transform: none; font-size: 1.2rem; }
+  .ai-demo-in, .ai-demo-out { max-width: none; margin: 0; }
+  .ai-demo figcaption { font-size: .72rem; }
+}
