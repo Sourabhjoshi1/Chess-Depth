@@ -1,0 +1,89 @@
+@font-face{font-family:Poppins;font-weight:400;src:url(fonts/poppins-latin-400-normal.woff2) format('woff2')}
+@font-face{font-family:Poppins;font-weight:400;font-style:italic;src:url(fonts/poppins-latin-400-italic.woff2) format('woff2')}
+@font-face{font-family:Poppins;font-weight:500;src:url(fonts/poppins-latin-500-normal.woff2) format('woff2')}
+@font-face{font-family:Poppins;font-weight:600;src:url(fonts/poppins-latin-600-normal.woff2) format('woff2')}
+@font-face{font-family:Poppins;font-weight:700;src:url(fonts/poppins-latin-700-normal.woff2) format('woff2')}
+@font-face{font-family:Poppins;font-weight:800;src:url(fonts/poppins-latin-800-normal.woff2) format('woff2')}
+@page{size:A4;margin:0}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{font-family:Poppins,sans-serif;color:#111827;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.page{width:210mm;height:297mm;padding:14mm 14mm 16mm;position:relative;overflow:hidden;page-break-after:always;background:#fff}
+.foot{position:absolute;left:14mm;right:14mm;bottom:8mm;display:flex;justify-content:space-between;font-size:7.5pt;color:#9ca3af;border-top:1px solid #e5e7eb;padding-top:2.5mm}
+.logo{width:1em;height:1em;vertical-align:-.12em}
+.h2{font-size:20pt;font-weight:800;line-height:1.15;letter-spacing:-.01em}
+h3{font-size:11pt;font-weight:700}
+.lead{font-size:10.5pt;color:#374151;line-height:1.6;margin-top:3mm}
+.small{font-size:8pt;color:#6b7280;margin-top:2mm}
+i{font-style:italic}
+
+/* cover */
+.cover{padding:0;color:#fff;background-color:#5b3fe0;background-image:linear-gradient(45deg,rgba(255,255,255,.06) 25%,transparent 25%,transparent 75%,rgba(255,255,255,.06) 75%),linear-gradient(45deg,rgba(255,255,255,.06) 25%,transparent 25%,transparent 75%,rgba(255,255,255,.06) 75%),linear-gradient(150deg,#4f46e5 0%,#7c3aed 100%);background-size:16mm 16mm,16mm 16mm,auto;background-position:0 0,8mm 8mm,0 0}
+.cover-inner{position:relative;height:100%;padding:22mm 20mm}
+.cover-top{display:flex;align-items:center;gap:3mm;font-weight:700;font-size:13pt;letter-spacing:.01em}
+.cover-top .logo{width:9mm;height:9mm}
+.cover-glyph{position:absolute;right:6mm;top:44mm;font-size:200pt;line-height:1;opacity:.16;font-family:"DejaVu Sans",serif}
+.cover-kicker{margin-top:62mm;text-transform:uppercase;letter-spacing:.2em;font-size:10pt;font-weight:600;color:#c7d2fe}
+.cover-title{font-size:52pt;font-weight:800;line-height:1.02;margin-top:4mm;letter-spacing:-.02em}
+.cover-sub{font-size:14pt;color:#e0e7ff;margin-top:7mm;max-width:140mm;line-height:1.45}
+.cover-topics{list-style:none;display:flex;flex-wrap:wrap;gap:2.5mm;margin-top:10mm;max-width:150mm}
+.cover-topics li{font-size:10pt;font-weight:600;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.35);padding:1.6mm 4mm;border-radius:20mm}
+.cover-level{position:absolute;left:20mm;bottom:30mm;font-size:10pt;color:#e0e7ff}
+.cover-url{position:absolute;left:20mm;bottom:20mm;font-size:12pt;font-weight:700}
+
+/* how to */
+.steps{display:grid;grid-template-columns:1fr 1fr;gap:5mm;margin-top:8mm}
+.step{display:flex;gap:3.5mm;background:#f9fafb;border-radius:3mm;padding:4.5mm}
+.step>b{flex-shrink:0;width:8mm;height:8mm;border-radius:50%;background:#4f46e5;color:#fff;display:flex;align-items:center;justify-content:center;font-size:10pt}
+.step p{font-size:9pt;color:#4b5563;line-height:1.55;margin-top:1mm}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:5mm;margin-top:6mm}
+.box{border:1px solid #e5e7eb;border-radius:3mm;padding:5mm}
+.plain{list-style:none;margin-top:2.5mm;display:grid;gap:2.2mm;font-size:9pt;color:#374151}
+.sw{display:inline-block;width:3.2mm;height:3.2mm;border-radius:.6mm;vertical-align:-.4mm;margin-right:1mm}.sw.y{background:#f4cf5a}
+.dot{display:inline-block;width:3.2mm;height:3.2mm;border-radius:50%;border:1.2px solid #111827;vertical-align:-.4mm;margin-right:1.2mm}.dot.w{background:#fff}.dot.b{background:#111827}
+.toc{list-style:none;margin-top:2.5mm;display:grid;gap:2mm}
+.toc li{display:flex;align-items:center;gap:2.5mm;font-size:9pt}
+.toc-n{width:5.5mm;height:5.5mm;border-radius:50%;background:#eef2ff;color:#4f46e5;font-weight:700;font-size:8pt;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.toc-t{font-weight:600;flex:1}.toc-p{color:#6b7280;font-size:8pt}
+.score{margin-top:6mm;background:#eef2ff;border-radius:3mm;padding:5mm}
+.score p{font-size:9pt;color:#374151;margin-top:1mm}
+.score-row{display:grid;grid-template-columns:repeat(3,1fr);gap:3mm;margin-top:3mm;font-size:8.5pt;color:#374151;line-height:1.45}
+.score-row b{color:#4338ca;display:block;font-size:11pt}
+
+/* puzzle pages */
+.sec-head{display:flex;gap:4mm;align-items:flex-start;padding-bottom:4mm;border-bottom:2px solid #eef2ff}
+.sec-n{flex-shrink:0;width:11mm;height:11mm;border-radius:2.5mm;background:linear-gradient(135deg,#4f46e5,#7c3aed);color:#fff;font-weight:800;font-size:15pt;display:flex;align-items:center;justify-content:center}
+.sec-head p{font-size:9pt;color:#4b5563;margin-top:1mm;line-height:1.5}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:3mm 8mm;margin-top:4mm}
+.pz{display:flex;flex-direction:column}
+.pz-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.5mm}
+.pz-n{display:inline-flex;align-items:center;justify-content:center;min-width:7mm;height:7mm;padding:0 1.5mm;border-radius:1.8mm;background:#4f46e5;color:#fff;font-weight:700;font-size:10pt;margin-right:2mm}
+.pz-side{font-size:8.5pt;font-weight:600;color:#374151}
+.pz-board svg{width:57mm;height:57mm;display:block;margin:0 auto}
+.pz-hint{font-size:7.8pt;color:#6b7280;margin-top:1.5mm;text-align:center;font-style:italic}
+.pz-line{font-size:8pt;color:#9ca3af;margin-top:2mm;border-bottom:1px dashed #d1d5db;padding-bottom:1mm}
+
+/* answers */
+.answers .h2{font-size:17pt}
+.ans-kicker{text-transform:uppercase;letter-spacing:.16em;font-size:8pt;font-weight:700;color:#4f46e5}
+.sols{display:grid;gap:2.6mm;margin-top:3.5mm}
+.sol{display:flex;gap:5mm;align-items:center;background:#f9fafb;border-radius:3mm;padding:2.2mm 3.5mm}
+.sol-board svg{width:34mm;height:34mm;display:block}
+.sol-text p{font-size:8.8pt;line-height:1.5;color:#374151}
+.sol-text b{color:#111827}
+.sol-h{display:flex;align-items:center;font-weight:600;color:#111827!important;margin-bottom:1mm;font-size:9pt!important}
+.sol-h .pz-n{min-width:6mm;height:6mm;font-size:8.5pt}
+.sol-r{margin-left:auto;font-size:7.5pt;color:#9ca3af;font-weight:500}
+
+/* closing */
+.next{display:grid;gap:4mm;margin-top:7mm}
+.nx{border-left:4px solid #6366f1;background:#f9fafb;border-radius:0 3mm 3mm 0;padding:4.5mm 5mm}
+.nx p{font-size:9.5pt;color:#4b5563;margin-top:1mm;line-height:1.55}
+.nx .url{color:#4f46e5;font-weight:700;margin-top:1.5mm}
+.tracker{margin-top:7mm}
+.tk{display:grid;grid-template-columns:repeat(10,1fr);gap:2.2mm;margin-top:3mm}
+.tk span{border:1.5px solid #c7d2fe;border-radius:2mm;height:11mm;position:relative}
+.tk b{position:absolute;left:1.5mm;top:1mm;font-size:7pt;color:#6366f1}
+.contact{margin-top:8mm;background:linear-gradient(135deg,#4f46e5,#7c3aed);color:#fff;border-radius:3mm;padding:5mm 6mm}
+.contact div{display:flex;align-items:center;gap:2.5mm;font-size:12pt}
+.contact p{font-size:9pt;color:#e0e7ff;margin-top:1.5mm}
+.credits{font-size:7.5pt;color:#9ca3af;margin-top:5mm;line-height:1.5}

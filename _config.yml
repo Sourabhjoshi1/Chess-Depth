@@ -67,6 +67,7 @@ exclude:
   - EDITING.md
   - LICENSE
   - firebase
+  - shop-src
   - Gemfile
   - Gemfile.lock
   - tailwind.config.js

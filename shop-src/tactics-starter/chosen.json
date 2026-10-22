@@ -1,0 +1,661 @@
+{
+ "mate1": [
+  {
+   "id": "hZK5p",
+   "rating": 782,
+   "fen": "2R1b1k1/1q3ppp/p3p3/3p4/8/6PP/PP3n2/3R2K1 w - - 0 31",
+   "side": "White",
+   "san": [
+    "Rxe8#"
+   ],
+   "uci": [
+    "c8e8"
+   ],
+   "themes": [
+    "backRankMate",
+    "endgame",
+    "hangingPiece",
+    "mateIn1"
+   ],
+   "orig_fen": "2R1b1k1/1q3ppp/p3p3/3p4/4n3/6PP/PP3Q2/3R2K1 b - - 0 30",
+   "first": "e4f2"
+  },
+  {
+   "id": "dFeRT",
+   "rating": 955,
+   "fen": "rn1qkb1r/pp2ppp1/2p2n1p/4N3/2B5/2NP4/PPP2PPP/R1BbK2R w KQkq - 0 9",
+   "side": "White",
+   "san": [
+    "Bxf7#"
+   ],
+   "uci": [
+    "c4f7"
+   ],
+   "themes": [
+    "mateIn1",
+    "opening"
+   ],
+   "orig_fen": "rn1qkb1r/pp2ppp1/2p2n1p/4N3/2B3b1/2NP4/PPP2PPP/R1BQK2R b KQkq - 3 8",
+   "first": "g4d1"
+  },
+  {
+   "id": "I7RL3",
+   "rating": 957,
+   "fen": "r1b2bkr/pp2pnpp/2npP3/q5N1/3P4/8/PP3PPP/RNB2RK1 w - - 0 14",
+   "side": "White",
+   "san": [
+    "exf7#"
+   ],
+   "uci": [
+    "e6f7"
+   ],
+   "themes": [
+    "advancedPawn",
+    "kingsideAttack",
+    "mateIn1",
+    "opening"
+   ],
+   "orig_fen": "r1b2bkr/pp2pQpp/2npP3/q3n1N1/3P4/8/PP3PPP/RNB2RK1 b - - 6 13",
+   "first": "e5f7"
+  },
+  {
+   "id": "RAlIG",
+   "rating": 956,
+   "fen": "6rk/pp3p1q/1bp5/5rNQ/8/6P1/P1P4P/5R1K w - - 2 27",
+   "side": "White",
+   "san": [
+    "Qxh7#"
+   ],
+   "uci": [
+    "h5h7"
+   ],
+   "themes": [
+    "mateIn1",
+    "middlegame"
+   ],
+   "orig_fen": "6rk/pp3pq1/1bp5/5rNQ/8/6P1/P1P4P/5R1K b - - 1 26",
+   "first": "g7h7"
+  },
+  {
+   "id": "wEF2Y",
+   "rating": 961,
+   "fen": "r5k1/p4ppp/b4n2/8/BNnP4/2N1P3/PP4qP/R1KQ3R b - - 0 18",
+   "side": "Black",
+   "san": [
+    "Qxb2#"
+   ],
+   "uci": [
+    "g2b2"
+   ],
+   "themes": [
+    "mateIn1",
+    "middlegame"
+   ],
+   "orig_fen": "r5k1/p4ppp/b4n2/8/BNnP4/2N1r3/PP3PqP/R1KQ3R w - - 0 18",
+   "first": "f2e3"
+  },
+  {
+   "id": "TJZuN",
+   "rating": 874,
+   "fen": "8/1p3pk1/5p1p/7b/P6P/1BB1R1P1/1PPK4/6r1 b - - 8 37",
+   "side": "Black",
+   "san": [
+    "Rd1#"
+   ],
+   "uci": [
+    "g1d1"
+   ],
+   "themes": [
+    "endgame",
+    "mateIn1"
+   ],
+   "orig_fen": "8/1p3pk1/5p1p/7b/P6P/1BB1R1P1/1PP5/2K3r1 w - - 7 37",
+   "first": "c1d2"
+  }
+ ],
+ "mate2": [
+  {
+   "id": "3uVpS",
+   "rating": 833,
+   "fen": "2r3kr/5ppp/p3bq2/1p1p4/8/2QB4/PPP2PPP/R3R1K1 w - - 0 19",
+   "side": "White",
+   "san": [
+    "Qxc8+",
+    "Bxc8",
+    "Re8#"
+   ],
+   "uci": [
+    "c3c8",
+    "e6c8",
+    "e1e8"
+   ],
+   "themes": [
+    "mateIn2",
+    "middlegame",
+    "sacrifice"
+   ],
+   "orig_fen": "2rq2kr/5ppp/p3bB2/1p1p4/8/2QB4/PPP2PPP/R3R1K1 b - - 0 18",
+   "first": "d8f6"
+  },
+  {
+   "id": "lq5yC",
+   "rating": 910,
+   "fen": "r1bqr1k1/2p2pp1/p1n2n1p/1p1p2N1/3P4/B1PBP3/P1Q2PPP/1R3RK1 w - - 0 15",
+   "side": "White",
+   "san": [
+    "Bh7+",
+    "Nxh7",
+    "Qxh7#"
+   ],
+   "uci": [
+    "d3h7",
+    "f6h7",
+    "c2h7"
+   ],
+   "themes": [
+    "kingsideAttack",
+    "mateIn2",
+    "middlegame"
+   ],
+   "orig_fen": "r1bqr1k1/2p2ppp/p1n2n2/1p1p2N1/3P4/B1PBP3/P1Q2PPP/1R3RK1 b - - 1 14",
+   "first": "h7h6"
+  },
+  {
+   "id": "A3TsZ",
+   "rating": 874,
+   "fen": "5r1k/pp4p1/3p3p/4r3/3qN3/3B1R1P/PP4P1/R6K w - - 0 25",
+   "side": "White",
+   "san": [
+    "Rxf8+",
+    "Kh7",
+    "Ng5#"
+   ],
+   "uci": [
+    "f3f8",
+    "h8h7",
+    "e4g5"
+   ],
+   "themes": [
+    "doubleCheck",
+    "mateIn2",
+    "middlegame"
+   ],
+   "orig_fen": "3r1Q1k/pp4p1/3p3p/4r3/3qN3/3B1R1P/PP4P1/R6K b - - 5 24",
+   "first": "d8f8"
+  },
+  {
+   "id": "49aOn",
+   "rating": 971,
+   "fen": "3rk3/Q5p1/2p1p2p/2Pn4/8/1q1BPK2/6P1/8 w - - 3 40",
+   "side": "White",
+   "san": [
+    "Bg6+",
+    "Kf8",
+    "Qf7#"
+   ],
+   "uci": [
+    "d3g6",
+    "e8f8",
+    "a7f7"
+   ],
+   "themes": [
+    "endgame",
+    "mateIn2"
+   ],
+   "orig_fen": "3r4/Q2k2p1/2p1p2p/2Pn4/8/1q1BPK2/6P1/8 b - - 2 39",
+   "first": "d7e8"
+  },
+  {
+   "id": "ROobg",
+   "rating": 1153,
+   "fen": "r1b1kb1r/3p2pp/p3pp2/q3P3/1n6/2N1B1P1/1PPQ1PBP/2KR3R b kq - 0 14",
+   "side": "Black",
+   "san": [
+    "Qa1+",
+    "Nb1",
+    "Na2#"
+   ],
+   "uci": [
+    "a5a1",
+    "c3b1",
+    "b4a2"
+   ],
+   "themes": [
+    "mateIn2",
+    "middlegame",
+    "smotheredMate"
+   ],
+   "orig_fen": "r1b1kb1r/3p2pp/p3pp2/q7/1n2P3/2N1B1P1/1PPQ1PBP/2KR3R w kq - 2 14",
+   "first": "e4e5"
+  },
+  {
+   "id": "nC36n",
+   "rating": 956,
+   "fen": "2k4r/p2r2bp/1pp1Q3/2q2p2/5Bn1/1NP3P1/PP4KP/R3R3 b - - 7 22",
+   "side": "Black",
+   "san": [
+    "Qf2+",
+    "Kh3",
+    "Qxh2#"
+   ],
+   "uci": [
+    "c5f2",
+    "g2h3",
+    "f2h2"
+   ],
+   "themes": [
+    "mateIn2",
+    "middlegame"
+   ],
+   "orig_fen": "2k4r/p2r2bp/1pp1Q3/2q2p2/5Bn1/2P3P1/PP1N2KP/R3R3 w - - 6 22",
+   "first": "d2b3"
+  }
+ ],
+ "fork": [
+  {
+   "id": "defui",
+   "rating": 1125,
+   "fen": "2kr1b1r/pppb1p1p/n1q2pp1/1N6/2B5/1P3Q1N/P1PP1PPP/R3K2R w KQ - 2 11",
+   "side": "White",
+   "san": [
+    "Nxa7+",
+    "Kb8",
+    "Nxc6+"
+   ],
+   "uci": [
+    "b5a7",
+    "c8b8",
+    "a7c6"
+   ],
+   "themes": [
+    "fork",
+    "middlegame"
+   ],
+   "orig_fen": "r3kb1r/pppb1p1p/n1q2pp1/1N6/2B5/1P3Q1N/P1PP1PPP/R3K2R b KQkq - 1 10",
+   "first": "e8c8"
+  },
+  {
+   "id": "oorYJ",
+   "rating": 977,
+   "fen": "r5k1/ppp3p1/3p1n1p/1P3r2/5p1q/3P3P/P3QP1K/R1B2R2 w - - 0 21",
+   "side": "White",
+   "san": [
+    "Qe6+",
+    "Kf8",
+    "Qxf5"
+   ],
+   "uci": [
+    "e2e6",
+    "g8f8",
+    "e6f5"
+   ],
+   "themes": [
+    "fork",
+    "middlegame"
+   ],
+   "orig_fen": "r5k1/ppp3p1/3p1n1p/1P2pr2/5P1q/3P3P/P3QP1K/R1B2R2 b - - 0 20",
+   "first": "e5f4"
+  },
+  {
+   "id": "EoeiW",
+   "rating": 1169,
+   "fen": "r4r2/4qppk/p2p3p/3n4/1P2pQ2/8/P4PPP/R1B2RK1 w - - 0 24",
+   "side": "White",
+   "san": [
+    "Qf5+",
+    "Kg8",
+    "Qxd5"
+   ],
+   "uci": [
+    "f4f5",
+    "h7g8",
+    "f5d5"
+   ],
+   "themes": [
+    "fork",
+    "middlegame"
+   ],
+   "orig_fen": "r4r2/4qppk/p2p1n1p/3P4/1P2pQ2/8/P4PPP/R1B2RK1 b - - 3 23",
+   "first": "f6d5"
+  },
+  {
+   "id": "xX7Uc",
+   "rating": 887,
+   "fen": "r3kbnr/pp1bpppp/8/8/1n1P4/P1N2N2/1P2PPPP/R1B1KB1R b KQkq - 0 9",
+   "side": "Black",
+   "san": [
+    "Nc2+",
+    "Kd1",
+    "Nxa1"
+   ],
+   "uci": [
+    "b4c2",
+    "e1d1",
+    "c2a1"
+   ],
+   "themes": [
+    "fork",
+    "opening"
+   ],
+   "orig_fen": "r3kbnr/pp1bpppp/8/8/1n1P4/2N2N2/PP2PPPP/R1B1KB1R w KQkq - 0 9",
+   "first": "a2a3"
+  },
+  {
+   "id": "u8B5b",
+   "rating": 773,
+   "fen": "1r3bk1/3p1ppp/b3p3/R3P3/1r6/5N1P/3P1PP1/Q5K1 b - - 0 26",
+   "side": "Black",
+   "san": [
+    "Rb1+",
+    "Kh2",
+    "Rxa1"
+   ],
+   "uci": [
+    "b4b1",
+    "g1h2",
+    "b1a1"
+   ],
+   "themes": [
+    "fork",
+    "middlegame"
+   ],
+   "orig_fen": "1r3bk1/3p1ppp/b3p3/R3P3/1r6/5N2/3P1PPP/Q5K1 w - - 2 26",
+   "first": "h2h3"
+  },
+  {
+   "id": "79aPu",
+   "rating": 920,
+   "fen": "r2qkb1r/4nppp/2n1p3/1BNpPb2/p2P4/8/1PP2PPP/R1BQK1NR b KQkq - 3 10",
+   "side": "Black",
+   "san": [
+    "Qa5+",
+    "c3",
+    "Qxb5"
+   ],
+   "uci": [
+    "d8a5",
+    "c2c3",
+    "a5b5"
+   ],
+   "themes": [
+    "fork",
+    "opening"
+   ],
+   "orig_fen": "r2qkb1r/4nppp/2n1p3/1B1pPb2/p2P4/1N6/1PP2PPP/R1BQK1NR w KQkq - 2 10",
+   "first": "b3c5"
+  }
+ ],
+ "pin": [
+  {
+   "id": "V1uLq",
+   "rating": 949,
+   "fen": "8/4r1p1/p4p1p/1p3P2/4k3/7P/PP4RK/8 w - - 8 38",
+   "side": "White",
+   "san": [
+    "Re2+",
+    "Kxf5",
+    "Rxe7"
+   ],
+   "uci": [
+    "g2e2",
+    "e4f5",
+    "e2e7"
+   ],
+   "themes": [
+    "endgame",
+    "rookEndgame",
+    "skewer"
+   ],
+   "orig_fen": "8/6p1/p4p1p/1p2rP2/4k3/7P/PP4RK/8 b - - 7 37",
+   "first": "e5e7"
+  },
+  {
+   "id": "AQfUV",
+   "rating": 1395,
+   "fen": "8/8/7p/1P1R2p1/2P1k1B1/r5pP/2n3K1/8 w - - 1 43",
+   "side": "White",
+   "san": [
+    "Bf5+",
+    "Kf4",
+    "Bxc2"
+   ],
+   "uci": [
+    "g4f5",
+    "e4f4",
+    "f5c2"
+   ],
+   "themes": [
+    "endgame",
+    "skewer"
+   ],
+   "orig_fen": "8/8/7p/1P1R2p1/2Pnk1B1/r5pP/6K1/8 b - - 0 42",
+   "first": "d4c2"
+  },
+  {
+   "id": "GOvJ9",
+   "rating": 945,
+   "fen": "r2k1b1r/pp2q2p/1nn5/4pp1Q/2pP4/2P5/PP3PPP/RNB2RK1 w - - 1 17",
+   "side": "White",
+   "san": [
+    "Bg5",
+    "Kc7",
+    "Bxe7"
+   ],
+   "uci": [
+    "c1g5",
+    "d8c7",
+    "g5e7"
+   ],
+   "themes": [
+    "middlegame",
+    "pin"
+   ],
+   "orig_fen": "r2k1b1r/ppq4p/1nn5/4pp1Q/2pP4/2P5/PP3PPP/RNB2RK1 b - d3 0 16",
+   "first": "c7e7"
+  },
+  {
+   "id": "5b82J",
+   "rating": 1164,
+   "fen": "3r4/5p1p/1P6/K4k2/5P2/6P1/R6P/8 b - - 0 42",
+   "side": "Black",
+   "san": [
+    "Ra8+",
+    "Kb5",
+    "Rxa2"
+   ],
+   "uci": [
+    "d8a8",
+    "a5b5",
+    "a8a2"
+   ],
+   "themes": [
+    "endgame",
+    "rookEndgame",
+    "skewer"
+   ],
+   "orig_fen": "3r4/5p1p/8/KP3k2/5P2/6P1/R6P/8 w - - 1 42",
+   "first": "b5b6"
+  },
+  {
+   "id": "Kxbcj",
+   "rating": 867,
+   "fen": "r1bqkb1r/pp1n3p/4p1p1/8/3QP3/8/PPP1B1PP/RNB2RK1 b kq - 0 12",
+   "side": "Black",
+   "san": [
+    "Bc5",
+    "Be3",
+    "Bxd4"
+   ],
+   "uci": [
+    "f8c5",
+    "c1e3",
+    "c5d4"
+   ],
+   "themes": [
+    "opening",
+    "pin"
+   ],
+   "orig_fen": "r1bqkb1r/pp1n3p/4p1p1/8/3pP3/8/PPP1B1PP/RNBQ1RK1 w kq - 0 12",
+   "first": "d1d4"
+  },
+  {
+   "id": "0LGTB",
+   "rating": 928,
+   "fen": "r1b3k1/pp3rpp/8/3Qn1q1/8/7P/PPB2PP1/RN3RK1 b - - 0 17",
+   "side": "Black",
+   "san": [
+    "Nf3+",
+    "Qxf3",
+    "Rxf3"
+   ],
+   "uci": [
+    "e5f3",
+    "d5f3",
+    "f7f3"
+   ],
+   "themes": [
+    "kingsideAttack",
+    "middlegame",
+    "pin"
+   ],
+   "orig_fen": "r1b3k1/pp3rpp/8/3pn1q1/8/7P/PPB2PP1/RN1Q1RK1 w - - 2 17",
+   "first": "d1d5"
+  }
+ ],
+ "disc": [
+  {
+   "id": "0RCUP",
+   "rating": 961,
+   "fen": "1k1r4/ppp2ppp/2n5/4p3/4q3/4BN2/PPP1QPPP/2K5 w - - 3 17",
+   "side": "White",
+   "san": [
+    "Bxa7+",
+    "Kxa7",
+    "Qxe4"
+   ],
+   "uci": [
+    "e3a7",
+    "b8a7",
+    "e2e4"
+   ],
+   "themes": [
+    "discoveredAttack",
+    "endgame"
+   ],
+   "orig_fen": "2kr4/ppp2ppp/2n5/4p3/4q3/4BN2/PPP1QPPP/2K5 b - - 2 16",
+   "first": "c8b8"
+  },
+  {
+   "id": "ATzJl",
+   "rating": 1001,
+   "fen": "2r2rk1/p4ppp/4p3/2pp3q/1b4N1/5Q1P/P4PP1/2RR2K1 w - - 4 23",
+   "side": "White",
+   "san": [
+    "Nf6+",
+    "gxf6",
+    "Qxh5"
+   ],
+   "uci": [
+    "g4f6",
+    "g7f6",
+    "f3h5"
+   ],
+   "themes": [
+    "discoveredAttack",
+    "kingsideAttack",
+    "middlegame"
+   ],
+   "orig_fen": "2r2rk1/p4ppp/4p3/2ppq3/1b4N1/5Q1P/P4PP1/2RR2K1 b - - 3 22",
+   "first": "e5h5"
+  },
+  {
+   "id": "cbINZ",
+   "rating": 830,
+   "fen": "8/5k2/5p2/b1p1p1p1/2P4p/4PP1P/r1B1R3/5K2 w - - 2 35",
+   "side": "White",
+   "san": [
+    "Bg6+",
+    "Kxg6",
+    "Rxa2"
+   ],
+   "uci": [
+    "c2g6",
+    "f7g6",
+    "e2a2"
+   ],
+   "themes": [
+    "discoveredAttack",
+    "endgame"
+   ],
+   "orig_fen": "8/6k1/5p2/b1p1p1p1/2P4p/4PP1P/r1B1R3/5K2 b - - 1 34",
+   "first": "g7f7"
+  },
+  {
+   "id": "m1HDe",
+   "rating": 978,
+   "fen": "5r2/1R2nkp1/2q1p1r1/p1Pp2PQ/3P1P2/4P3/P1p2K2/5R2 w - - 1 33",
+   "side": "White",
+   "san": [
+    "Rxe7+",
+    "Kxe7",
+    "Qxg6"
+   ],
+   "uci": [
+    "b7e7",
+    "f7e7",
+    "h5g6"
+   ],
+   "themes": [
+    "deflection",
+    "middlegame"
+   ],
+   "orig_fen": "5r2/1R2nkp1/3qp1r1/p1Pp2PQ/3P1P2/4P3/P1p2K2/5R2 b - - 0 32",
+   "first": "d6c6"
+  },
+  {
+   "id": "nZ0Yy",
+   "rating": 989,
+   "fen": "r2r2k1/1p3ppp/p1n5/q2b3Q/5B2/3B4/PPP3PP/R4R1K b - - 1 18",
+   "side": "Black",
+   "san": [
+    "Bxg2+",
+    "Kxg2",
+    "Qxh5"
+   ],
+   "uci": [
+    "d5g2",
+    "h1g2",
+    "a5h5"
+   ],
+   "themes": [
+    "discoveredAttack",
+    "kingsideAttack",
+    "middlegame"
+   ],
+   "orig_fen": "r2r2k1/1p3ppp/p1n5/q2b4/5B2/3B4/PPP3PP/R2Q1R1K w - - 0 18",
+   "first": "d1h5"
+  },
+  {
+   "id": "mVvpS",
+   "rating": 964,
+   "fen": "r4k1r/1p3p2/pQ1bq1pp/3p1p2/P2P4/2N1PN2/1P3PPP/R4RK1 b - - 0 18",
+   "side": "Black",
+   "san": [
+    "Bxh2+",
+    "Kxh2",
+    "Qxb6"
+   ],
+   "uci": [
+    "d6h2",
+    "g1h2",
+    "e6b6"
+   ],
+   "themes": [
+    "discoveredAttack",
+    "middlegame"
+   ],
+   "orig_fen": "r4k1r/1p3p2/pn1bq1pp/1Q1p1p2/P2P4/2N1PN2/1P3PPP/R4RK1 w - - 0 18",
+   "first": "b5b6"
+  }
+ ]
+}
