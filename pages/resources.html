@@ -12,13 +12,7 @@ head_scripts:
 {%- capture wa %}{% include whatsapp-url.html %}{% endcapture %}{% assign wa = wa | strip -%}
 
   <!-- ============ HERO ============ -->
-  <section class="rs-hero text-white">
-    <div class="max-w-5xl mx-auto px-4 py-16 text-center">
-      <p class="uppercase tracking-widest text-indigo-200 text-sm font-semibold mb-3">Free resources</p>
-      <h1 class="text-4xl md:text-5xl font-extrabold mb-4">Everything you need to improve at chess</h1>
-      <p class="text-lg text-indigo-100 max-w-3xl mx-auto">A study roadmap for your level, tools to analyse your games, opening and endgame guides, training plans and the best books, all free and chosen by our coaches.</p>
-    </div>
-  </section>
+  {% include page-hero.html eyebrow="Free resources" title="Everything you need to improve at chess" lead="A study roadmap for your level, tools to analyse your games, opening and endgame guides, training plans and the best books, all free and chosen by our coaches." %}
 
   <!-- ============ SECTION NAV ============ -->
   <nav aria-label="Resources sections" class="rs-subnav">
