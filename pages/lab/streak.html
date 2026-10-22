@@ -1,0 +1,43 @@
+---
+title: "Puzzle Streak | ChessDepth Chess Lab"
+description: "How many chess puzzles can you solve in a row? Puzzles get harder each time, one mistake ends the run. All-time leaderboard. Part of the ChessDepth Chess Lab."
+permalink: /lab/streak/
+page_css: lab
+ads: false
+crumb: Puzzle Streak
+head_scripts:
+  - src: "https://cdn.jsdelivr.net/npm/chessboard-element@1.2.0/bundled/chessboard-element.bundled.js"
+    type: module
+---
+{% include lab-bar.html %}
+<section class="cd-wrap lab-page">
+  <div id="lab-gate" class="lab-gate"><p class="lab-loading"><i class="fas fa-circle-notch fa-spin"></i> Loading…</p></div>
+  <div id="lab-app" class="hidden">
+    <div class="tt-layout">
+      <div class="tt-board-col">
+        <chess-board id="ps-board" class="lab-board" draggable-pieces></chess-board>
+      </div>
+      <aside class="tt-side">
+        <h1 class="lab-h1">Puzzle Streak</h1>
+        <div class="ps-scores">
+          <div><p class="pd-label">Streak</p><p class="ps-score" id="ps-score">0</p></div>
+          <div><p class="pd-label">Your best</p><p class="ps-best" id="ps-best">0</p></div>
+        </div>
+        <div class="tt-status"><p id="ps-status" class="tt-status-main">Ready?</p><p id="ps-sub" class="tt-status-sub"></p></div>
+        <div class="tt-actions">
+          <button type="button" id="ps-start" class="lab-btn"><i class="fas fa-play"></i>Start streak</button>
+          <button type="button" id="ps-skip" class="lab-btn-o hidden"><i class="fas fa-forward"></i>Skip (once)</button>
+          <button type="button" id="ps-again" class="lab-btn hidden"><i class="fas fa-redo"></i>Play again</button>
+        </div>
+        <div id="ps-recap" class="tt-info"></div>
+        <ul class="ps-rules">
+          <li>Puzzles start easy and get harder with every one you solve.</li>
+          <li>One wrong move ends the streak. You can skip one puzzle per run.</li>
+          <li>Points: 2 per puzzle, plus bonuses at 10, 20 and 30 in a row.</li>
+        </ul>
+        <section class="pd-card"><h2 class="pd-h2"><i class="fas fa-trophy" style="color:#b08a4e"></i> All-time leaderboard</h2><div id="ps-leaderboard"><p class="pd-small">Loading…</p></div></section>
+      </aside>
+    </div>
+  </div>
+</section>
+<script type="module" src="/assets/js/lab/streak.js"></script>

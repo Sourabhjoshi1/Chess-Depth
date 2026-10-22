@@ -50,11 +50,11 @@ export function levelFor(points) {
 function blankProgress() {
   return { v: 1, points: 0, week: { key: weekKey(), points: 0 }, streak: { last: null, count: 0, best: 0 },
     puzzle: { rating: 1000, solved: 0, attempted: 0, cleanRun: 0, bestRun: 0, byTheme: {}, history: [], seen: [] },
-    openings: {}, log: [] };
+    openings: {}, log: [], pstreak: { best: 0, runs: 0, last: 0, total: 0, history: [] } };
 }
 function normalise(p) {
   const b = blankProgress(); p = p || {};
-  const out = { ...b, ...p, puzzle: { ...b.puzzle, ...(p.puzzle || {}) }, streak: { ...b.streak, ...(p.streak || {}) }, week: { ...b.week, ...(p.week || {}) }, openings: p.openings || {}, log: p.log || [] };
+  const out = { ...b, ...p, puzzle: { ...b.puzzle, ...(p.puzzle || {}) }, streak: { ...b.streak, ...(p.streak || {}) }, pstreak: { ...b.pstreak, ...(p.pstreak || {}) }, week: { ...b.week, ...(p.week || {}) }, openings: p.openings || {}, log: p.log || [] };
   if (out.week.key !== weekKey()) out.week = { key: weekKey(), points: 0 };
   return out;
 }
@@ -105,6 +105,29 @@ export function award(points, reason) {
   const res = { added: total, streakBonus, levelUp: after.index > before.index ? after : null };
   document.dispatchEvent(new CustomEvent("cdlab:points", { detail: { progress: p, ...res } }));
   return res;
+}
+
+// ---------- Puzzle Streak ----------
+export function recordStreakRun(score) {
+  const s = progress.pstreak, newBest = score > (s.best || 0);
+  s.runs++; s.last = score; s.total += score; if (newBest) s.best = score;
+  s.history.push([Date.now(), score]); s.history = s.history.slice(-50);
+  saveProgress();
+  if (newBest && mode === "firebase" && user) {
+    fb.setDoc(fb.doc(fb.db, "streakBoard", user.uid), { name: firstName(user), best: score, updated: fb.serverTimestamp() })
+      .catch((e) => console.warn("Could not save best streak:", e.code || e));
+  }
+  return { newBest };
+}
+export async function streakLeaderboard() {
+  if (mode === "firebase") {
+    const snap = await fb.getDocs(fb.query(fb.collection(fb.db, "streakBoard"), fb.orderBy("best", "desc"), fb.limit(20)));
+    const rows = []; snap.forEach((d) => rows.push({ uid: d.id, ...d.data(), me: user && d.id === user.uid }));
+    return { sample: false, rows: rows.sort((a, b) => b.best - a.best).slice(0, 20) };
+  }
+  const me = { name: firstName(user) + " (you)", best: progress ? progress.pstreak.best : 0, me: true };
+  const sample = [["Kabir", 41], ["Aarav", 33], ["Diya", 27], ["Meera", 19], ["Anaya", 12], ["Vihaan", 8]].map(([n, b]) => ({ name: n, best: b }));
+  return { sample: true, rows: sample.concat([me]).sort((a, b) => b.best - a.best) };
 }
 
 // ---------- leaderboard ----------

@@ -18,6 +18,9 @@ async function run(st, prog) {
   set("pd-streak", `<p class="pd-label">Day streak</p><p class="pd-big"><i class="fas fa-fire"></i> ${prog.streak.count || 0}</p><p class="pd-small">Best: ${prog.streak.best || 0} days</p>`);
   set("pd-rating", `<p class="pd-label">Puzzle rating</p><p class="pd-big">${Math.round(P.rating)}</p><p class="pd-small">${P.solved} solved of ${P.attempted} tried · best run ${P.bestRun || 0}</p>`);
 
+  const PS = prog.pstreak || { best: 0, runs: 0, last: 0 };
+  set("pd-pstreak", `<p class="pd-label">Puzzle Streak best</p><p class="pd-big"><i class="fas fa-fire-alt"></i> ${PS.best}</p><p class="pd-small">${PS.runs ? `${PS.runs} runs · last ${PS.last}` : `<a href="/lab/streak/">Play your first streak</a>`}</p>`);
+
   // Rating chart
   const H = P.history;
   if (H.length >= 2) {

@@ -8,6 +8,7 @@ function gateHTML(st, toolName) {
   const tool = esc(toolName || "the Chess Lab");
   const features = `<ul class="lab-gate-list">
       <li><i class="fas fa-bolt"></i>Tactics trainer with thousands of rated puzzles</li>
+      <li><i class="fas fa-fire-alt"></i>Puzzle Streak with an all-time leaderboard</li>
       <li><i class="fas fa-book-open"></i>Opening courses you learn move by move</li>
       <li><i class="fas fa-chart-line"></i>Progress dashboard, points, levels and streaks</li>
       <li><i class="fas fa-trophy"></i>Weekly leaderboard</li></ul>`;

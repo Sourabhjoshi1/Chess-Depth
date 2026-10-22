@@ -97,7 +97,7 @@
 .op-mv.now { background: #fff3d6; color: #1f2547; font-weight: 700; }
 
 /* Progress dashboard */
-.pd-top { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr)); margin-top: 1.2rem; }
+.pd-top { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr)); margin-top: 1.2rem; }
 .pd-grid2 { display: grid; gap: 1rem; grid-template-columns: 1fr; margin-top: 1rem; }
 @media (min-width: 900px) { .pd-grid2 { grid-template-columns: 1fr 1fr; } }
 .pd-card { background: #fff; border: 1px solid #e6e3ef; border-radius: 10px; padding: 1.1rem 1.2rem; }
@@ -228,3 +228,12 @@ html.dark .admin-table td, html.dark .admin-table th { border-color: #222a44; }
 }
 .lab-hero { overflow: hidden; }
 .lab-board { --light-color: #eef0fb; --dark-color: #8b93d6; }
+/* Puzzle Streak */
+.ps-scores { display: grid; grid-template-columns: 1fr 1fr; gap: .6rem; }
+.ps-scores > div { background: #fff; border: 1px solid #e6e3ef; border-radius: 10px; padding: .7rem .9rem; }
+.ps-score { font-family: 'EB Garamond', Georgia, serif; font-size: 3rem; font-weight: 600; line-height: 1; color: #1f2547; }
+.ps-best { font-family: 'EB Garamond', Georgia, serif; font-size: 3rem; font-weight: 600; line-height: 1; color: #b08a4e; }
+.ps-rules { display: grid; gap: .3rem; font-size: .82rem; color: #4b4f6b; padding-left: 1rem; list-style: disc; }
+html.dark .ps-scores > div { background: #162032; border-color: #2a3352; }
+html.dark .ps-score { color: #eef0fa; }
+html.dark .ps-rules { color: #b9bfd8; }
