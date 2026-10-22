@@ -102,6 +102,7 @@ Posts dated in the future stay hidden until that date.
   - `includes`: the bullet list under "What's inside"; `for`: who it is for
   - `badge`: optional label on the cover, e.g. `Free` or `New`
   - The text below the second `---` is the longer description.
+  - If a line's text contains a colon (`:`), put the whole text in double quotes, e.g. `title: "90-Day Plan: 1200–1600"`. Otherwise the product's settings are ignored.
 - **To start selling a product:**
   1. Create the product on Gumroad, upload the PDF and set the price (Gumroad shows rupees to buyers in India).
   2. Copy the product's Gumroad link (looks like `https://chessdepth.gumroad.com/l/abcde`) into `gumroad:`.

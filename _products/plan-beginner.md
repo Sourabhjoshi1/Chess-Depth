@@ -9,7 +9,7 @@ price_inr: ""
 price_usd: ""
 gumroad: ""
 glyph: "♙"
-description: A day-by-day plan for new players: what to study, which puzzles to solve and how many games to play each week.
+description: "A day-by-day plan for new players: what to study, which puzzles to solve and how many games to play each week."
 includes:
   - 90 daily sessions of 30–45 minutes
   - Weekly tactics, endgame and opening goals
