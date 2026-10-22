@@ -45,6 +45,8 @@
       gtag("event", demo ? "book_demo_click" : "whatsapp_click", { link_location: where, link_text: label, page_path: location.pathname });
     } else if (href.indexOf("tel:") === 0) {
       gtag("event", "phone_click", { link_location: where, page_path: location.pathname });
+    } else if (a.classList.contains("cd-apply")) {
+      gtag("event", "careers_apply_click", { role: a.getAttribute("data-role") || label, page_path: location.pathname });
     } else if (href.indexOf("mailto:") === 0) {
       gtag("event", "email_click", { link_location: where, page_path: location.pathname });
     } else if (href.indexOf("/student/") === 0) {

@@ -1,0 +1,84 @@
+# Roles on the Careers page (/careers/). Delete a role to remove it; set open: false to hide it for a while.
+# Internships appear first in their own "Winter Internships" section.
+
+internships_heading: "Winter Internships 2026"
+internships_intro: "Spend this winter building a real chess product used by students and coaches. Both internships are remote, start in December 2026 and work directly with the founders."
+
+roles:
+  - id: product-intern
+    title: Product Management Intern
+    internship: true
+    open: true
+    type: Internship · Remote
+    start: December 2026
+    duration: 8–12 weeks
+    apply_by: 2026-11-30
+    posted: 2026-10-22
+    summary: Help decide what we build next for the Chess Lab, the Shop and ChessDepth AI, and make sure it ships.
+    you_will:
+      - Talk to students, parents and coaches to understand what they need
+      - Turn ideas into clear one-page specs with goals and success measures
+      - Plan and prioritise features for the Chess Lab and our training packs
+      - Track usage in Google Analytics and report what is working
+      - Research other chess and learning platforms for ideas
+    looking_for:
+      - Student or recent graduate in any field
+      - Clear writing and structured thinking
+      - Comfortable with spreadsheets and basic data
+      - Interest in chess (you don't need to be a strong player)
+    bonus:
+      - Experience with Figma, Notion or basic HTML
+  - id: quality-intern
+    title: Quality Assurance Intern
+    internship: true
+    open: true
+    type: Internship · Remote
+    start: December 2026
+    duration: 8–12 weeks
+    apply_by: 2026-11-30
+    posted: 2026-10-22
+    summary: Make sure everything we publish works and is correct, from the website and Chess Lab to every puzzle and PDF.
+    you_will:
+      - Test the website and Chess Lab on phones, tablets and computers
+      - Write test cases and report bugs with clear steps to reproduce
+      - Check puzzles, solutions and opening lines for chess accuracy
+      - Review training packs and worksheets before they are released
+      - Re-test fixes and keep a simple quality checklist up to date
+    looking_for:
+      - Sharp eye for detail and a methodical way of working
+      - Rated around 1400+ online, so you can check solutions with confidence
+      - Clear written English
+      - Any background welcome: computer science, engineering or none
+    bonus:
+      - Basic experience with automated testing (e.g. Playwright or Selenium)
+
+  - id: coach
+    title: Online Chess Coach
+    open: true
+    type: Full-time / Part-time · Remote
+    summary: Deliver high-quality online chess lessons to students of all levels, with personalised training plans and progress tracking.
+    looking_for:
+      - FIDE rated or equivalent strong playing strength
+      - Proven coaching experience with positive student feedback
+      - Excellent communication and interpersonal skills
+      - Reliable internet connection and a suitable teaching set-up
+  - id: marketing
+    title: Marketing Specialist
+    open: true
+    type: Full-time · Remote / Hybrid
+    summary: Plan and run marketing that brings in new students, across social media, email and content.
+    looking_for:
+      - 2+ years in digital marketing, ideally in education
+      - Strong understanding of SEO, ads and social media
+      - Excellent writing and creative thinking
+      - A passion for chess is a plus
+  - id: content
+    title: Content Creator / Chess Analyst
+    open: true
+    type: Part-time · Remote
+    summary: Create chess content, including articles, puzzles and video scripts, and analyse games for our training material.
+    looking_for:
+      - Strong chess playing ability (e.g. 1800+ online)
+      - Excellent writing and analytical skills
+      - Experience with chess databases and analysis tools
+      - Able to explain complex ideas simply

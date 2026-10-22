@@ -1,181 +1,113 @@
 ---
-title: "Chess Coach Jobs & Careers | ChessDepth Academy"
-description: "Work with ChessDepth Academy as an online chess coach or chess content creator. Remote roles for strong, passionate players."
+title: "Careers & Winter Internships 2026 | ChessDepth Academy"
+description: "Join ChessDepth Academy: remote Winter 2026 internships in product management and quality assurance, plus roles for online chess coaches, marketing and chess content."
 permalink: /careers/
 redirect_from:
   - /careers.html
 page_css: careers
 ---
-  
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-    // Header shadow on scroll
-    const header = document.getElementById('main-header');
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 50) header.classList.add('shadow-xl');
-      else header.classList.remove('shadow-xl');
-    });
 
-    // Hamburger toggle with icon swap and aria-expanded
-    const menuToggle = document.getElementById('menu-toggle');
-    const mobileMenu = document.getElementById('mobile-menu');
-    if (menuToggle && mobileMenu) {
-      const iconHamburger = document.getElementById('icon-hamburger');
-      const iconClose = document.getElementById('icon-close');
-      menuToggle.addEventListener('click', () => {
-        const isOpen = !mobileMenu.classList.contains('hidden');
-        mobileMenu.classList.toggle('hidden');
-        mobileMenu.classList.toggle('-translate-y-full');
-        menuToggle.setAttribute('aria-expanded', String(!isOpen));
-        if (iconHamburger && iconClose) {
-          iconHamburger.classList.toggle('hidden', !isOpen);
-          iconClose.classList.toggle('hidden', isOpen);
-        }
-      });
-      mobileMenu.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', () => {
-          mobileMenu.classList.add('hidden');
-          mobileMenu.classList.add('-translate-y-full');
-          menuToggle.setAttribute('aria-expanded', 'false');
-          if (iconHamburger && iconClose) {
-            iconHamburger.classList.remove('hidden');
-            iconClose.classList.add('hidden');
-          }
-        });
-      });
+{%- assign roles = site.data.jobs.roles | where: "open", true -%}
+{%- assign interns = roles | where: "internship", true -%}
+{%- assign others = roles | where_exp: "r", "r.internship != true" -%}
+{%- assign mail = site.contact.careers_email | default: site.contact.email -%}
+{% include page-hero.html eyebrow="Careers at ChessDepth" title="Join our team" lead="Help us build the way chess is taught. We're hiring winter interns in product management and quality, as well as coaches and content creators." %}
+
+{%- if interns.size > 0 %}
+<section class="cr-interns" id="internships">
+  <div class="cd-wrap">
+    <p class="cr-badge"><span class="cr-pulse"></span> Now hiring · Applications open</p>
+    <h2 class="cr-h2">{{ site.data.jobs.internships_heading }}</h2>
+    <p class="cr-intro">{{ site.data.jobs.internships_intro }}</p>
+    <div class="cr-intern-grid">
+      {%- for r in interns %}
+      {%- capture subj %}Application: {{ r.title }} (Winter 2026){% endcapture -%}
+      {%- capture bodytxt %}Name:
+College and course / current role:
+LinkedIn or CV link:
+Why ChessDepth, and why this internship (3-4 lines):
+Lichess or Chess.com username (optional):
+{% endcapture -%}
+      <article class="cr-card cr-intern" id="{{ r.id }}" data-apply-by="{{ r.apply_by }}">
+        <div class="cr-card-top">
+          <span class="cr-tag">Internship</span>
+          <h3 class="cr-title">{{ r.title }}</h3>
+          <p class="cr-summary">{{ r.summary }}</p>
+          <ul class="cr-meta">
+            <li><i class="fas fa-calendar-alt"></i> Starts {{ r.start }}</li>
+            <li><i class="fas fa-hourglass-half"></i> {{ r.duration }}</li>
+            <li><i class="fas fa-laptop-house"></i> Remote</li>
+            {%- if r.apply_by %}<li class="cr-deadline"><i class="fas fa-flag-checkered"></i> Apply by {{ r.apply_by | date: "%-d %B %Y" }}</li>{% endif %}
+          </ul>
+        </div>
+        <div class="cr-cols">
+          <div><h4>What you'll do</h4><ul class="cr-list">{% for x in r.you_will %}<li>{{ x }}</li>{% endfor %}</ul></div>
+          <div><h4>Who we're looking for</h4><ul class="cr-list">{% for x in r.looking_for %}<li>{{ x }}</li>{% endfor %}</ul>
+            {%- if r.bonus %}<p class="cr-bonus"><b>Nice to have:</b> {{ r.bonus | join: "; " }}</p>{% endif %}</div>
+        </div>
+        <div class="cr-actions">
+          <a class="cr-apply cd-apply" data-role="{{ r.title | escape }}" href="mailto:{{ mail }}?subject={{ subj | uri_escape }}&amp;body={{ bodytxt | uri_escape }}"><i class="fas fa-paper-plane"></i> Apply now</a>
+          <span class="cr-closed hidden">Applications for this internship have closed.</span>
+          <span class="cr-how">Opens an email to {{ mail }} with a short form to fill in.</span>
+        </div>
+      </article>
+      {%- endfor %}
+    </div>
+    <div class="cr-process">
+      <h3>How it works</h3>
+      <ol>
+        <li><b>1</b><div><h4>Apply by email</h4><p>Fill in the short form in the email and attach your CV.</p></div></li>
+        <li><b>2</b><div><h4>Short task</h4><p>Shortlisted applicants get a small take-home task related to the role.</p></div></li>
+        <li><b>3</b><div><h4>Video call</h4><p>A 30-minute conversation with the founders.</p></div></li>
+        <li><b>4</b><div><h4>Start in December</h4><p>You join the team and start on a real project from week one.</p></div></li>
+      </ol>
+    </div>
+  </div>
+</section>
+{%- endif %}
+
+<section id="open-positions" class="cr-section">
+  <div class="cd-wrap">
+    <h2 class="cr-h2">Other open roles</h2>
+    <p class="cr-intro">We're always looking for people who share our love for chess and our commitment to great teaching.</p>
+    <div class="cr-grid">
+      {%- for r in others %}
+      {%- capture subj %}Application: {{ r.title }}{% endcapture -%}
+      <article class="cr-card" id="{{ r.id }}">
+        <h3 class="cr-title cr-title-sm">{{ r.title }}</h3>
+        <p class="cr-type">{{ r.type }}</p>
+        <p class="cr-summary">{{ r.summary }}</p>
+        <h4>Requirements</h4>
+        <ul class="cr-list">{% for x in r.looking_for %}<li>{{ x }}</li>{% endfor %}</ul>
+        <a class="cr-apply cr-apply-o cd-apply" data-role="{{ r.title | escape }}" href="mailto:{{ mail }}?subject={{ subj | uri_escape }}">Apply now</a>
+      </article>
+      {%- endfor %}
+    </div>
+    <p class="cr-foot">Don't see a role that fits? Send your CV and a short note on how you'd contribute to <a href="mailto:{{ mail }}?subject={{ 'General application' | uri_escape }}">{{ mail }}</a>.</p>
+  </div>
+</section>
+
+{%- if interns.size > 0 %}
+<script type="application/ld+json">
+[{%- for r in interns %}
+{%- capture jd %}<p>{{ r.summary }}</p><p>Starts {{ r.start }}, {{ r.duration }}, remote.</p><p>What you'll do:</p><ul>{% for x in r.you_will %}<li>{{ x }}</li>{% endfor %}</ul><p>Who we're looking for:</p><ul>{% for x in r.looking_for %}<li>{{ x }}</li>{% endfor %}</ul>{% endcapture %}
+{"@context":"https://schema.org","@type":"JobPosting","title":{{ r.title | jsonify }},
+ "description":{{ jd | jsonify }},
+ "datePosted":"{{ r.posted }}","validThrough":"{{ r.apply_by }}T23:59:59+05:30","employmentType":"INTERN",
+ "hiringOrganization":{"@type":"Organization","name":"{{ site.title }}","sameAs":"{{ site.url }}/","logo":"{{ '/assets/images/icon-512.png' | absolute_url }}"},
+ "jobLocationType":"TELECOMMUTE","applicantLocationRequirements":{"@type":"Country","name":"India"},
+ "directApply":false}{% unless forloop.last %},{% endunless %}
+{%- endfor %}]
+</script>
+{%- endif %}
+<script>
+  // Hide the Apply button once an internship's deadline has passed
+  document.querySelectorAll("[data-apply-by]").forEach(function (card) {
+    var p = (card.getAttribute("data-apply-by") || "").split("-").map(Number);
+    if (p.length === 3 && Date.now() > new Date(p[0], p[1] - 1, p[2], 23, 59, 59).getTime()) {
+      card.querySelector(".cr-apply").classList.add("hidden");
+      card.querySelector(".cr-how").classList.add("hidden");
+      card.querySelector(".cr-closed").classList.remove("hidden");
     }
   });
 </script>
-
-  {% include page-hero.html eyebrow="Careers at ChessDepth" title="Join our team" lead="Passionate about chess and inspiring others? Explore career opportunities with us." %}
-
-  <section id="open-positions" class="py-16 bg-gray-100 px-4 fade-in-content">
-    <div class="max-w-6xl mx-auto">
-      <h2 class="text-3xl font-bold text-center text-indigo-700 mb-10">Current Open Positions</h2>
-      <p class="text-lg leading-relaxed text-center max-w-3xl mx-auto mb-12 text-gray-600">
-        We're always looking for talented individuals who share our love for chess and our commitment to excellence in education. If you believe you can contribute to our mission, check out our roles below:
-      </p>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <div class="bg-white rounded-lg shadow-lg p-6 job-card-hover flex flex-col justify-between">
-          <div>
-            <h3 class="text-2xl font-bold text-indigo-800 mb-2">Online Chess Coach</h3>
-            <p class="text-indigo-600 font-semibold mb-3">Full-time / Part-time | Remote</p>
-            <p class="text-gray-700 text-base leading-relaxed mb-4">
-              Deliver high-quality online chess lessons to students of various skill levels. Develop personalized training plans and track student progress.
-            </p>
-            <h4 class="text-lg font-semibold text-gray-800 mb-2">Requirements:</h4>
-            <ul class="list-disc list-inside text-sm text-gray-600 mb-4">
-              <li>FIDE rated or equivalent strong playing strength.</li>
-              <li>Proven coaching experience with positive student testimonials.</li>
-              <li>Excellent communication and interpersonal skills.</li>
-              <li>Reliable internet connection and suitable teaching environment.</li>
-            </ul>
-          </div>
-          <a href="mailto:careers@chessdepth.in?subject=Application:%20Online%20Chess%20Coach" class="bg-indigo-600 text-white font-semibold py-2 px-4 rounded hover:bg-indigo-700 transition self-start mt-4">Apply Now</a>
-        </div>
-
-        <div class="bg-white rounded-lg shadow-lg p-6 job-card-hover flex flex-col justify-between">
-          <div>
-            <h3 class="text-2xl font-bold text-indigo-800 mb-2">Marketing Specialist</h3>
-            <p class="text-indigo-600 font-semibold mb-3">Full-time | Remote/Hybrid</p>
-            <p class="text-gray-700 text-base leading-relaxed mb-4">
-              Develop and execute marketing strategies to attract new students. Manage social media, email campaigns, and content creation.
-            </p>
-            <h4 class="text-lg font-semibold text-gray-800 mb-2">Requirements:</h4>
-            <ul class="list-disc list-inside text-sm text-gray-600 mb-4">
-              <li>2+ years experience in digital marketing, preferably in education.</li>
-              <li>Strong understanding of SEO, SEM, and social media platforms.</li>
-              <li>Excellent writing and creative thinking skills.</li>
-              <li>Passion for chess is a plus!</li>
-            </ul>
-          </div>
-          <a href="mailto:careers@chessdepth.in?subject=Application:%20Marketing%20Specialist" class="bg-indigo-600 text-white font-semibold py-2 px-4 rounded hover:bg-indigo-700 transition self-start mt-4">Apply Now</a>
-        </div>
-
-        <div class="bg-white rounded-lg shadow-lg p-6 job-card-hover flex flex-col justify-between">
-          <div>
-            <h3 class="text-2xl font-bold text-indigo-800 mb-2">Content Creator / Chess Analyst</h3>
-            <p class="text-indigo-600 font-semibold mb-3">Part-time | Remote</p>
-            <p class="text-gray-700 text-base leading-relaxed mb-4">
-              Create engaging chess content, including articles, puzzles, and video scripts. Analyze games and provide insightful commentary for educational materials.
-            </p>
-            <h4 class="text-lg font-semibold text-gray-800 mb-2">Requirements:</h4>
-            <ul class="list-disc list-inside text-sm text-gray-600 mb-4">
-              <li>Strong chess playing ability (e.g., 1800+ online rating).</li>
-              <li>Excellent writing and analytical skills.</li>
-              <li>Experience with chess databases and analysis tools.</li>
-              <li>Ability to explain complex chess concepts clearly.</li>
-            </ul>
-          </div>
-          <a href="mailto:careers@chessdepth.in?subject=Application:%20Content%20Creator" class="bg-indigo-600 text-white font-semibold py-2 px-4 rounded hover:bg-indigo-700 transition self-start mt-4">Apply Now</a>
-        </div>
-      </div>
-
-      <p class="text-center text-gray-600 mt-12 text-lg">
-        Don't see a role that fits? Send us your resume and a cover letter explaining how you can contribute to ChessDepth Academy at <a href="mailto:info@chessdepth.in" class="text-indigo-600 hover:underline font-semibold">careers@chessdepth.in</a>.
-      </p>
-    </div>
-  </section>
-
-  
-
-
-  <script>
-    // Fade-in animation for content on page load
-    document.addEventListener('DOMContentLoaded', () => {
-        const contentSections = document.querySelectorAll('.fade-in-content');
-        contentSections.forEach(section => {
-            section.style.animation = 'fadeIn 1s ease-out forwards';
-            section.style.opacity = '1';
-        });
-    });
-
-    // Handle Form Submission (included for consistency, though no form on this specific page currently)
-    async function handleSubmit(event) {
-        event.preventDefault(); // Prevent default form submission
-        // This function would typically submit data to a backend or Formspree
-        // As there is no form on this specific page content, this function is a placeholder
-        // If you add a form, ensure its target is updated.
-        cdFormMessage(event.target, 'Thank you for your application! We will review it shortly.', 'success');
-        event.target.reset(); // Clear the form
-    }
-    
-    // Add/remove header shadow on scroll (for consistency with other pages)
-    const header = document.getElementById('main-header');
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-            header.classList.add('shadow-xl');
-        } else {
-            header.classList.remove('shadow-xl');
-        }
-    });
-
-    // Smooth scroll for nav links (if any local anchors on this page)
-    document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const targetId = this.getAttribute('href');
-            // Check if it's an internal anchor or an external page link
-            if (targetId.startsWith("#")) { 
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    const headerOffset = document.getElementById('main-header') ? document.getElementById('main-header').offsetHeight : 0;
-                    const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
-                    const offsetPosition = elementPosition - headerOffset - 20; // Added 20px padding
-
-                    window.scrollTo({
-                        top: offsetPosition,
-                        behavior: "smooth"
-                    });
-                }
-            } else {
-                // For external page links, allow default navigation
-                window.location.href = targetId; 
-            }
-        });
-    });
-
-    // Note: Intersection Observers for elements like stats or staggered cards are usually specific to index.html.
-    // They are not copied here unless similar dynamic content loading is implemented.
-  </script>
