@@ -45,7 +45,8 @@ async function start() {
   const [y, m, d] = key.split("-").map(Number);
   const dateObj = new Date(Date.UTC(y, m - 1, d));
   const wd = (dateObj.getUTCDay() + 6) % 7; // Monday = 0
-  $("dp-date").textContent = dateObj.toLocaleDateString("en-IN", { weekday: "long", day: "numeric", month: "long", year: "numeric", timeZone: "UTC" });
+  const opt = (o) => dateObj.toLocaleDateString("en-GB", { ...o, timeZone: "UTC" });
+  $("dp-date").textContent = `${opt({ weekday: "long" })}, ${d} ${opt({ month: "long" })} ${y}`; // e.g. "Thursday, 22 October 2026"
   $("dp-level").textContent = LEVEL[wd];
   $("dp-level").dataset.level = LEVEL[wd].toLowerCase();
   $("dp-rating").textContent = "Rating " + rating;
