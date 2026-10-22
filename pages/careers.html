@@ -11,6 +11,7 @@ page_css: careers
 {%- assign interns = roles | where: "internship", true -%}
 {%- assign others = roles | where_exp: "r", "r.internship != true" -%}
 {%- assign mail = site.contact.careers_email | default: site.contact.email -%}
+{%- assign cc = "" -%}{%- if site.contact.careers_cc != "" and site.contact.careers_cc -%}{%- capture cc %}cc={{ site.contact.careers_cc }}&amp;{% endcapture -%}{%- endif -%}
 {% include page-hero.html eyebrow="Careers at ChessDepth" title="Join our team" lead="Help us build the way chess is taught. We're hiring winter interns in product management and quality, as well as coaches and content creators." %}
 
 {%- if interns.size > 0 %}
@@ -46,7 +47,7 @@ Lichess or Chess.com username (optional):
             {%- if r.bonus %}<p class="cr-bonus"><b>Nice to have:</b> {{ r.bonus | join: "; " }}</p>{% endif %}</div>
         </div>
         <div class="cr-actions">
-          <a class="cr-apply cd-apply" data-role="{{ r.title | escape }}" href="mailto:{{ mail }}?subject={{ subj | uri_escape }}&amp;body={{ bodytxt | uri_escape }}"><i class="fas fa-paper-plane"></i> Apply now</a>
+          <a class="cr-apply cd-apply" data-role="{{ r.title | escape }}" href="mailto:{{ mail }}?{{ cc }}subject={{ subj | uri_escape }}&amp;body={{ bodytxt | uri_escape }}"><i class="fas fa-paper-plane"></i> Apply now</a>
           <span class="cr-closed hidden">Applications for this internship have closed.</span>
           <span class="cr-how">Opens an email to {{ mail }} with a short form to fill in.</span>
         </div>
@@ -79,11 +80,11 @@ Lichess or Chess.com username (optional):
         <p class="cr-summary">{{ r.summary }}</p>
         <h4>Requirements</h4>
         <ul class="cr-list">{% for x in r.looking_for %}<li>{{ x }}</li>{% endfor %}</ul>
-        <a class="cr-apply cr-apply-o cd-apply" data-role="{{ r.title | escape }}" href="mailto:{{ mail }}?subject={{ subj | uri_escape }}">Apply now</a>
+        <a class="cr-apply cr-apply-o cd-apply" data-role="{{ r.title | escape }}" href="mailto:{{ mail }}?{{ cc }}subject={{ subj | uri_escape }}">Apply now</a>
       </article>
       {%- endfor %}
     </div>
-    <p class="cr-foot">Don't see a role that fits? Send your CV and a short note on how you'd contribute to <a href="mailto:{{ mail }}?subject={{ 'General application' | uri_escape }}">{{ mail }}</a>.</p>
+    <p class="cr-foot">Don't see a role that fits? Send your CV and a short note on how you'd contribute to <a href="mailto:{{ mail }}?{{ cc }}subject={{ 'General application' | uri_escape }}">{{ mail }}</a>.</p>
   </div>
 </section>
 
