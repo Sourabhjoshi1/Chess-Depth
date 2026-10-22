@@ -89,3 +89,23 @@ Posts dated in the future stay hidden until that date.
 - Security rules: `firebase/firestore.rules` (paste into the Firebase console). The admin email is listed there too.
 - Before Firebase is connected the Lab shows "opening soon". Add `?demo=1` to any Lab address to try everything
   in demo mode (stored only in that browser); `?demo=0` leaves demo mode.
+
+
+## Shop (digital products, sold through Gumroad)
+
+- The shop is at **/shop/**. Each product is one file in `_products/` (for example `_products/checkmate-patterns.md`) and gets its own page at `/shop/<file-name>/`.
+- To add a product, copy an existing file, rename it and change the details at the top:
+  - `title`, `description` (one sentence), `level`, `format`, `size` (leave `""` to hide)
+  - `category`: one of `worksheets`, `plans`, `puzzles`, `openings` (names and order are in `_data/shop.yml`)
+  - `order`: position inside its category
+  - `glyph`: the chess piece shown on the cover (♔♕♖♗♘♙♚♛♜♝♞♟)
+  - `includes`: the bullet list under "What's inside"; `for`: who it is for
+  - `badge`: optional label on the cover, e.g. `Free` or `New`
+  - The text below the second `---` is the longer description.
+- **To start selling a product:**
+  1. Create the product on Gumroad, upload the PDF and set the price (Gumroad shows rupees to buyers in India).
+  2. Copy the product's Gumroad link (looks like `https://chessdepth.gumroad.com/l/abcde`) into `gumroad:`.
+  3. Put the price in `price_inr:` (and optionally `price_usd:`). For a free product use `price_inr: "0"` and set the price to 0+ on Gumroad.
+  Until `gumroad:` is filled in, the product shows **Coming soon** with a **Notify me** WhatsApp button.
+- Your Gumroad store link can go in `shop: gumroad_profile:` in `_config.yml` to show "See all products on Gumroad".
+- Analytics: "Buy now" clicks are recorded as `begin_checkout` and "Notify me" clicks as `shop_notify_click`, with the product name.

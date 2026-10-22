@@ -1,0 +1,10 @@
+{%- assign p = include.p -%}
+<article class="sp-card">
+  <a href="{{ p.url }}" class="sp-card-cover" tabindex="-1" aria-hidden="true">{% include product-cover.html p=p %}{% if p.badge %}<span class="sp-badge">{{ p.badge }}</span>{% endif %}</a>
+  <div class="sp-card-body">
+    <h3 class="sp-card-title"><a href="{{ p.url }}">{{ p.title }}</a></h3>
+    <p class="sp-card-meta">{{ p.level }} · {{ p.format }}</p>
+    <p class="sp-card-desc">{{ p.description }}</p>
+    <div class="sp-card-foot">{% include product-price.html p=p %}<a href="{{ p.url }}" class="sp-more">Details <i class="fas fa-arrow-right"></i></a></div>
+  </div>
+</article>

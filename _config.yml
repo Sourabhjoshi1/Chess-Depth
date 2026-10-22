@@ -29,6 +29,15 @@ google_analytics: "G-2C73E30ZFX"
 # Google Search Console "HTML tag" verification code (only the content="..." value).
 google_site_verification: ""
 
+# Shop: digital products sold through Gumroad. Each product is one file in _products/.
+shop:
+  gumroad_profile: ""   # e.g. "https://chessdepth.gumroad.com" (shown as "See all on Gumroad"). Empty hides it.
+
+collections:
+  products:
+    output: true
+    permalink: /shop/:name/
+
 # Clean URLs: /about/ instead of /about.html
 permalink: pretty
 
@@ -46,6 +55,10 @@ defaults:
       permalink: /blog/:title/
       page_css: blog
       author: ChessDepth Coaching Team
+  - scope: { path: "", type: products }
+    values:
+      layout: product
+      page_css: shop
 
 exclude:
   - README.md

@@ -1,0 +1,17 @@
+# Shop categories, in the order they appear on /shop/.
+- id: worksheets
+  name: Worksheet packs
+  blurb: The printable worksheets we use in ChessDepth classes, bundled by level.
+  icon: fa-file-alt
+- id: plans
+  name: Improvement plans
+  blurb: Day-by-day study plans that tell you exactly what to work on and for how long.
+  icon: fa-calendar-check
+- id: puzzles
+  name: Puzzle collections
+  blurb: Hand-picked positions by theme, with full solutions and explanations.
+  icon: fa-puzzle-piece
+- id: openings
+  name: Opening repertoires
+  blurb: Complete, easy-to-remember repertoires with the ideas behind every move.
+  icon: fa-chess-knight

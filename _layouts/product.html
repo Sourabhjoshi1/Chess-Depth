@@ -1,0 +1,61 @@
+---
+layout: default
+---
+{%- assign p = page -%}
+{%- assign cat = site.data.shop | where: "id", page.category | first -%}
+<section class="sp-detail-hero cd-hero-bg">
+  <div class="cd-wrap sp-detail">
+    <div class="sp-detail-cover">{% include product-cover.html p=p %}{% if p.badge %}<span class="sp-badge">{{ p.badge }}</span>{% endif %}</div>
+    <div class="sp-detail-info">
+      <a href="/shop/#{{ page.category }}" class="sp-back"><i class="fas fa-arrow-left"></i> {{ cat.name }}</a>
+      <h1 class="sp-detail-title">{{ page.title }}</h1>
+      <p class="sp-detail-lead">{{ page.description }}</p>
+      <ul class="sp-facts">
+        <li><i class="fas fa-signal"></i> {{ page.level }}</li>
+        <li><i class="fas fa-file-download"></i> {{ page.format }}</li>
+        {%- if page.size != "" and page.size %}<li><i class="fas fa-layer-group"></i> {{ page.size }}</li>{% endif %}
+      </ul>
+      <div class="sp-detail-buy">{% include product-price.html p=p %}{% include product-cta.html p=p %}</div>
+      {%- if page.gumroad == "" or page.gumroad == nil %}<p class="sp-detail-note">This product is being prepared. Tap Notify me and we'll message you when it's ready.</p>{% else %}<p class="sp-detail-note">Secure checkout by Gumroad · Instant download</p>{% endif %}
+    </div>
+  </div>
+</section>
+
+<div class="cd-wrap sp-detail-body">
+  <div class="sp-detail-main">
+    <h2 class="sp-h2">About this product</h2>
+    <div class="sp-text">{{ content }}</div>
+    {%- if page.includes %}
+    <h2 class="sp-h2">What's inside</h2>
+    <ul class="sp-includes">{% for i in page.includes %}<li><i class="fas fa-check"></i> {{ i }}</li>{% endfor %}</ul>
+    {%- endif %}
+    {%- if page.for %}
+    <h2 class="sp-h2">Who it's for</h2>
+    <p class="sp-for">{{ page.for }}</p>
+    {%- endif %}
+  </div>
+  <aside class="sp-side">
+    <div class="sp-side-card">
+      <p class="sp-side-h">Want a coach to guide you?</p>
+      <p>Our classes use the same curriculum, with live feedback and game reviews.</p>
+      <a href="/courses/" class="sp-more">See courses and fees <i class="fas fa-arrow-right"></i></a>
+    </div>
+    <div class="sp-side-card">
+      <p class="sp-side-h">Questions about this product?</p>
+      <p>Message us on WhatsApp and a coach will reply.</p>
+      <a href="https://wa.me/{{ site.contact.phone_intl }}?text={{ 'Hi, I have a question about ' | append: page.title | url_encode }}" class="sp-more" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> Ask on WhatsApp</a>
+    </div>
+  </aside>
+</div>
+
+{%- assign related = site.products | where: "category", page.category | sort: "order" -%}
+{%- if related.size > 1 %}
+<section class="cd-wrap sp-related">
+  <h2 class="sp-h2">More {{ cat.name | downcase }}</h2>
+  <div class="sp-grid">{% for r in related %}{% if r.url != page.url %}{% include product-card.html p=r %}{% endif %}{% endfor %}</div>
+  <p class="sp-all"><a href="/shop/">Back to the shop <i class="fas fa-arrow-right"></i></a></p>
+</section>
+{%- endif %}
+{%- if page.gumroad != "" and page.gumroad %}
+<script src="https://gumroad.com/js/gumroad.js" defer></script>
+{%- endif %}

@@ -1,0 +1,69 @@
+---
+title: "Chess Shop: Worksheets, Plans, Puzzles & Openings | ChessDepth Academy"
+description: "Digital chess products from ChessDepth Academy: printable worksheet packs, 90-day improvement plans, puzzle collections and opening repertoires. Instant download."
+permalink: /shop/
+page_css: shop
+crumb: Shop
+---
+{%- assign products = site.products | sort: "order" -%}
+{%- assign live = products | where_exp: "p", "p.gumroad != ''" -%}
+{% include page-hero.html eyebrow="ChessDepth Shop" title="Train at home with our material" lead="Printable worksheet packs, day-by-day improvement plans, puzzle collections and opening repertoires, written by our coaches and used in our classes." %}
+
+<section class="sp-steps-wrap">
+  <ol class="sp-steps cd-wrap">
+    <li><i class="fas fa-shopping-bag"></i><div><b>Choose a product</b><span>Every product shows its level and what's inside.</span></div></li>
+    <li><i class="fas fa-lock"></i><div><b>Pay securely</b><span>UPI, cards and PayPal through Gumroad, in rupees or your own currency.</span></div></li>
+    <li><i class="fas fa-download"></i><div><b>Download instantly</b><span>The files arrive by email and stay in your Gumroad library.</span></div></li>
+  </ol>
+</section>
+
+<div class="cd-wrap sp-page">
+  <nav class="sp-filters" aria-label="Product categories">
+    <button type="button" class="sp-chip is-active" data-filter="all" aria-pressed="true">All</button>
+    {%- for c in site.data.shop %}
+    <button type="button" class="sp-chip" data-filter="{{ c.id }}" aria-pressed="false"><i class="fas {{ c.icon }}"></i> {{ c.name }}</button>
+    {%- endfor %}
+  </nav>
+
+  {%- for c in site.data.shop %}
+  {%- assign items = products | where: "category", c.id %}
+  {%- if items.size > 0 %}
+  <section class="sp-group" data-cat="{{ c.id }}" id="{{ c.id }}">
+    <div class="sp-group-head">
+      <h2 class="sp-h2"><i class="fas {{ c.icon }}"></i> {{ c.name }}</h2>
+      <p>{{ c.blurb }}</p>
+    </div>
+    <div class="sp-grid">
+      {%- for p in items %}{% include product-card.html p=p %}{% endfor %}
+    </div>
+  </section>
+  {%- endif %}
+  {%- endfor %}
+
+  {%- if site.shop.gumroad_profile != "" and site.shop.gumroad_profile %}
+  <p class="sp-all"><a href="{{ site.shop.gumroad_profile }}" target="_blank" rel="noopener">See all products on Gumroad <i class="fas fa-external-link-alt"></i></a></p>
+  {%- endif %}
+
+  <section class="sp-faq" aria-labelledby="sp-faq-h">
+    <h2 class="sp-h2" id="sp-faq-h">Questions</h2>
+    <details><summary>How do I receive the files?</summary><p>Right after payment you get a download link by email, and the files stay in your free Gumroad library so you can download them again any time.</p></details>
+    <details><summary>Can I pay in rupees with UPI?</summary><p>Yes. Prices are shown in rupees for buyers in India, and Gumroad also accepts cards and PayPal from other countries in your own currency.</p></details>
+    <details><summary>Can I print the worksheets?</summary><p>Yes. All PDFs are made to print on A4 paper, for your own use and your own students' practice.</p></details>
+    <details><summary>Are these the same as the material in your classes?</summary><p>They come from the same curriculum. Classes add a coach, live feedback and game reviews; the products are for practising on your own.</p></details>
+    <details><summary>A product says "Coming soon". Can I get it?</summary><p>Tap <b>Notify me</b> and send us the WhatsApp message. We'll tell you as soon as it's ready.</p></details>
+  </section>
+</div>
+{%- if live.size > 0 %}
+<script src="https://gumroad.com/js/gumroad.js" defer></script>
+{%- endif %}
+<script>
+(function () {
+  var chips = document.querySelectorAll(".sp-chip"), groups = document.querySelectorAll(".sp-group");
+  function show(f) {
+    chips.forEach(function (c) { var on = c.getAttribute("data-filter") === f; c.classList.toggle("is-active", on); c.setAttribute("aria-pressed", on); });
+    groups.forEach(function (g) { g.hidden = f !== "all" && g.getAttribute("data-cat") !== f; });
+  }
+  chips.forEach(function (c) { c.addEventListener("click", function () { var f = c.getAttribute("data-filter"); show(f); try { history.replaceState(null, "", f === "all" ? location.pathname : "#" + f); } catch (e) {} }); });
+  var h = location.hash.slice(1); if (h && document.querySelector('.sp-chip[data-filter="' + h + '"]')) show(h);
+})();
+</script>

@@ -1,0 +1,7 @@
+{%- comment -%} Generated cover for a product. Pass p=the product. {%- endcomment -%}
+<div class="sp-cover sp-{{ include.p.category }}" aria-hidden="true">
+  <span class="sp-cover-glyph">{{ include.p.glyph | default: "♞" }}</span>
+  <span class="sp-cover-brand">ChessDepth</span>
+  <span class="sp-cover-title">{{ include.p.title | remove: " (Free)" }}</span>
+  <span class="sp-cover-level">{{ include.p.level }}</span>
+</div>
