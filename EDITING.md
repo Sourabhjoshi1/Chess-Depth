@@ -112,3 +112,14 @@ Posts dated in the future stay hidden until that date.
 - Analytics: free downloads are recorded as `shop_free_download`.
 - Your Gumroad store link can go in `shop: gumroad_profile:` in `_config.yml` to show "See all products on Gumroad".
 - Analytics: "Buy now" clicks are recorded as `begin_checkout` and "Notify me" clicks as `shop_notify_click`, with the product name.
+
+
+## Important: the built stylesheet is committed
+
+`assets/css/tailwind.min.css` is generated from the Tailwind classes used in the pages and is **committed to the repository**.
+GitHub's automatic "pages build and deployment" also publishes the site and does not build this file, so it must be in the repo.
+If you add new Tailwind classes to a page, rebuild it before committing:
+
+    npx tailwindcss@2.2.19 -c tailwind.config.js -i src/tailwind.css -o assets/css/tailwind.min.css --minify
+
+(Best fix: in GitHub → Settings → Pages, set **Source** to **GitHub Actions**, so only the site's own workflow publishes.)
