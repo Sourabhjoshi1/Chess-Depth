@@ -1,4 +1,6 @@
+{%- comment -%} Price label. A product only shows its price (or "Free") once its Gumroad link is filled in. {%- endcomment -%}
 {%- assign p = include.p -%}
-{%- if p.price_inr == "0" -%}<span class="sp-price">Free</span>
+{%- if p.gumroad == "" or p.gumroad == nil -%}<span class="sp-price sp-soon">Coming soon</span>
+{%- elsif p.price_inr == "0" -%}<span class="sp-price">Free</span>
 {%- elsif p.price_inr != "" and p.price_inr -%}<span class="sp-price">₹{{ p.price_inr }}</span>{% if p.price_usd != "" and p.price_usd %}<span class="sp-price-usd"> · ${{ p.price_usd }}</span>{% endif %}
 {%- else -%}<span class="sp-price sp-soon">Coming soon</span>{%- endif -%}
