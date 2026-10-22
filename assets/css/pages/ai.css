@@ -94,3 +94,5 @@ html.dark .ai-cta-btn { background: #6366f1; color: #fff; }
 .ai-hero-btn:hover { background: #eef2ff; color: #3730a3; }
 
 .ai-title { font-size: clamp(2rem, 4.5vw, 3rem); line-height: 1.15; }
+@media (min-width: 768px) { .ai-demo-in, .ai-demo-out { max-width: 230px; } .ai-hero > div { min-height: 20rem; } }
+.ai-demo figcaption { margin-top: .4rem; }

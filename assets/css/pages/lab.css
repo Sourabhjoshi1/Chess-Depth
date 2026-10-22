@@ -295,3 +295,5 @@ html.dark .lab-price-line { color: #a8b3c4; }
 html.dark .lab-price-line b, html.dark .lab-price-line strong { color: #f1f5f9; }
 
 .lab-hero-title { font-size: clamp(2rem, 4.5vw, 3rem); line-height: 1.15; }
+.lab-hero-inner { min-height: 20rem; padding-top: 2.5rem; padding-bottom: 2.5rem; }
+.lab-hero-art img { max-width: 240px; }
