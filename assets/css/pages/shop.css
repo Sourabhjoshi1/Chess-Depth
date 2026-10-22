@@ -108,3 +108,10 @@ html.dark .sp-card-foot { border-color: #273449; }
 html.dark .sp-price.sp-soon { background: #1e293b; color: #a8b3c4; }
 html.dark .sp-detail-buy .sp-price { color: #fff; }
 html.dark .sp-detail-buy .sp-price.sp-soon { background: rgba(255,255,255,.16); color: #fff; }
+/* .cd-wrap sets padding: 0 1.25rem, so vertical spacing needs the combined selector */
+.cd-wrap.sp-steps { padding-top: 1.4rem; padding-bottom: 1.4rem; }
+.cd-wrap.sp-page { padding-top: 2.2rem; padding-bottom: 3rem; }
+.cd-wrap.sp-detail { padding-top: 3rem; padding-bottom: 3rem; }
+.cd-wrap.sp-detail-body { padding-top: 2.5rem; padding-bottom: 1rem; }
+.cd-wrap.sp-related { padding-top: 1.5rem; padding-bottom: 3rem; }
+@media (min-width: 860px) { .sp-detail-cover .sp-cover { aspect-ratio: 4 / 5; } .sp-detail { grid-template-columns: 19rem 1fr; } .sp-detail-cover { max-width: 19rem; } .sp-detail-cover .sp-cover-glyph { font-size: 10rem; } }
