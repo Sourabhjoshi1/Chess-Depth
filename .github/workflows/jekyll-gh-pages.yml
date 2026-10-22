@@ -30,6 +30,23 @@ jobs:
         uses: actions/checkout@v4
       - name: Setup Pages
         uses: actions/configure-pages@v5
+      - name: Check Shop product files
+        run: |
+          ruby -ryaml -e '
+            ok = YAML.safe_load(File.read("_data/shop.yml", encoding: "UTF-8")).map { |c| c["id"] }
+            bad = []
+            Dir["_products/*.md"].sort.each do |f|
+              fm = File.read(f, encoding: "UTF-8")[/\A---\s*\n(.*?)\n---/m, 1]
+              begin
+                d = YAML.safe_load(fm.to_s) || {}
+              rescue => e
+                bad << "#{f}: settings could not be read (put text containing a colon in double quotes) - #{e.message.lines.first.strip}"
+                next
+              end
+              bad << "#{f}: missing title" if d["title"].to_s.empty?
+              bad << "#{f}: category must be one of #{ok.join(", ")}" unless ok.include?(d["category"])
+            end
+            if bad.any? then puts bad; exit 1 else puts "All #{Dir["_products/*.md"].size} products OK" end'
       - name: Setup Node (for the trimmed Tailwind CSS)
         uses: actions/setup-node@v4
         with:
