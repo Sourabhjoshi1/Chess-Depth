@@ -1,0 +1,12 @@
+{%- comment -%}
+  Shared page banner. Use the same one on every page so they all look alike.
+  {% include page-hero.html eyebrow="Small label" title="Main heading" lead="One or two sentences." note="Optional small line" %}
+{%- endcomment -%}
+<section class="cd-hero cd-hero-bg">
+  <div class="cd-hero-inner">
+    {%- if include.eyebrow %}<p class="cd-hero-eyebrow">{{ include.eyebrow }}</p>{% endif %}
+    <h1 class="cd-hero-title">{{ include.title }}</h1>
+    {%- if include.lead %}<p class="cd-hero-lead">{{ include.lead }}</p>{% endif %}
+    {%- if include.note %}<p class="cd-hero-note">{{ include.note }}</p>{% endif %}
+  </div>
+</section>

@@ -6,7 +6,7 @@ layout: default
 {%- assign share_url = page.url | absolute_url -%}
 {%- capture share_text %}{{ page.title }} {{ share_url }}{% endcapture -%}
 {%- capture wa %}{% include whatsapp-url.html %}{% endcapture %}{% assign wa = wa | strip -%}
-<section class="blog-hero text-white">
+<section class="blog-hero cd-hero-bg text-white">
   <div class="max-w-3xl mx-auto px-4 py-14">
     <a href="/blog/" class="text-indigo-200 hover:text-white text-sm font-semibold"><i class="fas fa-arrow-left mr-1"></i>All articles</a>
     <p class="mt-5 mb-3"><span class="blog-tag">{{ page.category }}</span></p>

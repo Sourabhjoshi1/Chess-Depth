@@ -9,13 +9,7 @@ page_css: about
 {%- capture wa %}{% include whatsapp-url.html %}{% endcapture %}{% assign wa = wa | strip -%}
 
   <!-- ============ HERO ============ -->
-  <section class="ab-hero ab-board text-white">
-    <div class="max-w-5xl mx-auto px-4 py-20 text-center">
-      <p class="uppercase tracking-widest text-indigo-200 text-sm font-semibold mb-3">About ChessDepth Academy</p>
-      <h1 class="text-4xl md:text-5xl font-extrabold leading-tight mb-5">Chess, taught with depth.</h1>
-      <p class="text-lg md:text-xl text-indigo-100 max-w-3xl mx-auto">We teach students to understand the <em>why</em> behind every move, through a structured curriculum, regular testing and coaches who care about how each student thinks.</p>
-    </div>
-  </section>
+  {% include page-hero.html eyebrow="About ChessDepth Academy" title="Chess, taught with depth." lead="We teach students to understand the <em>why</em> behind every move, through a structured curriculum, regular testing and coaches who care about how each student thinks." %}
 
   <!-- ============ OUR STORY ============ -->
   <section class="py-16 px-4">

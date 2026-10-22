@@ -82,3 +82,13 @@ body { font-family: 'Poppins', sans-serif; }
 .cd-nav .cd-link-ai { white-space: nowrap; }
 .cd-mobile-menu .cd-soon { font-size: .7rem; vertical-align: .1rem; }
 .cd-free { display: inline-block; margin-left: .35rem; padding: 0 .35rem; border-radius: 4px; background: #b08a4e; color: #1f2547; font-size: .62rem; font-weight: 700; line-height: 1.5; }
+/* Shared page banner: same colour, pattern, height and type on every page */
+.cd-hero-bg, .blog-hero, .rs-hero, .ab-hero { background-color: #5b3fe0; background-image: linear-gradient(45deg, rgba(255,255,255,.06) 25%, transparent 25%, transparent 75%, rgba(255,255,255,.06) 75%), linear-gradient(45deg, rgba(255,255,255,.06) 25%, transparent 25%, transparent 75%, rgba(255,255,255,.06) 75%), linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%) !important; background-size: 48px 48px, 48px 48px, auto !important; background-position: 0 0, 24px 24px, 0 0 !important; animation: none !important; }
+.cd-hero { color: #fff; }
+.cd-hero-inner { max-width: 56rem; margin: 0 auto; padding: 3.5rem 1rem; min-height: 20rem; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
+.cd-hero-eyebrow { text-transform: uppercase; letter-spacing: .14em; font-size: .8rem; font-weight: 600; color: #c7d2fe; margin-bottom: .8rem; }
+.cd-hero-title { font-weight: 800; font-size: clamp(2rem, 4.5vw, 3rem); line-height: 1.15; letter-spacing: -.01em; color: #fff; }
+.cd-hero-lead { font-size: 1.125rem; line-height: 1.7; color: #e0e7ff; max-width: 46rem; margin-top: 1rem; }
+.cd-hero-note { font-size: .85rem; color: #c7d2fe; margin-top: 1rem; }
+@media (min-width: 768px) { .cd-hero-lead { font-size: 1.2rem; } }
+html.dark .cd-hero-title { color: #fff !important; }
