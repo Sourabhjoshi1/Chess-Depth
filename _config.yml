@@ -16,6 +16,13 @@ contact:
 
 adsense_client: "ca-pub-1353516013773606"
 
+# Chess Lab (paid membership)
+lab:
+  price: ""            # e.g. "₹299 / month". Empty shows "Pricing announced at launch".
+  payment_link: ""     # Razorpay payment link. Empty shows an "Ask to join on WhatsApp" button.
+  admins:              # Google accounts that can switch Lab access on/off at /lab/admin/
+    - joshisourabh47@gmail.com
+
 # Google Analytics 4 "Measurement ID" (looks like G-XXXXXXXXXX). Leave empty to switch analytics off.
 google_analytics: "G-2C73E30ZFX"
 # Google Search Console "HTML tag" verification code (only the content="..." value).

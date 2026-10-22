@@ -1,0 +1,40 @@
+---
+title: "Opening Courses | ChessDepth Chess Lab"
+description: "Learn chess openings move by move with explanations, then practise them from memory and earn points. Part of the ChessDepth Chess Lab."
+permalink: /lab/openings/
+page_css: lab
+ads: false
+crumb: Opening Courses
+head_scripts:
+  - src: "https://cdn.jsdelivr.net/npm/chessboard-element@1.2.0/bundled/chessboard-element.bundled.js"
+    type: module
+---
+{% include lab-bar.html %}
+<section class="cd-wrap lab-page">
+  <div id="lab-gate" class="lab-gate"><p class="lab-loading"><i class="fas fa-circle-notch fa-spin"></i> Loading…</p></div>
+  <div id="lab-app" class="hidden">
+    <div class="op-layout">
+      <aside class="op-courses">
+        <h1 class="lab-h1">Opening courses</h1>
+        <div id="op-list" class="op-list"></div>
+      </aside>
+      <div class="op-board-col">
+        <chess-board id="op-board" class="lab-board"></chess-board>
+      </div>
+      <div class="op-side">
+        <h2 id="op-title" class="op-title"></h2>
+        <p id="op-intro" class="op-intro"></p>
+        <div class="op-modes" role="group" aria-label="Mode">
+          <button type="button" id="op-learn" class="op-mode is-active"><i class="fas fa-graduation-cap"></i>Learn</button>
+          <button type="button" id="op-practice" class="op-mode"><i class="fas fa-dumbbell"></i>Practice</button>
+          <button type="button" id="op-restart" class="op-mode" title="Start again"><i class="fas fa-redo"></i><span class="sr-only">Restart</span></button>
+        </div>
+        <p id="op-status" class="op-status"></p>
+        <div id="op-note" class="op-note"></div>
+        <div id="op-moves" class="op-moves" aria-label="Moves of this line"></div>
+        <p class="tt-points-note">Points: 20 for learning a course, 30 for a perfect practice run (40 when it's a review after 3+ days), and a 50-point bonus when a line is mastered.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<script type="module" src="/assets/js/lab/openings.js"></script>

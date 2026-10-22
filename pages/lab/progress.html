@@ -1,0 +1,32 @@
+---
+title: "My Progress | ChessDepth Chess Lab"
+description: "Your ChessDepth Chess Lab progress: points, level, streak, puzzle rating, tactical strengths, openings and the weekly leaderboard."
+permalink: /lab/progress/
+page_css: lab
+ads: false
+crumb: My Progress
+---
+{% include lab-bar.html %}
+<section class="cd-wrap lab-page">
+  <div id="lab-gate" class="lab-gate"><p class="lab-loading"><i class="fas fa-circle-notch fa-spin"></i> Loading…</p></div>
+  <div id="lab-app" class="hidden">
+    <h1 class="lab-h1">My progress</h1>
+    <div class="pd-top">
+      <div class="pd-card pd-level" id="pd-level"></div>
+      <div class="pd-card" id="pd-points"></div>
+      <div class="pd-card" id="pd-streak"></div>
+      <div class="pd-card" id="pd-rating"></div>
+    </div>
+    <div class="pd-grid2">
+      <section class="pd-card"><h2 class="pd-h2">Puzzle rating</h2><div id="pd-chart"></div></section>
+      <section class="pd-card"><h2 class="pd-h2">Weekly leaderboard</h2><div id="pd-leaderboard"></div></section>
+      <section class="pd-card"><h2 class="pd-h2">Tactical themes</h2><div id="pd-themes"></div></section>
+      <section class="pd-card"><h2 class="pd-h2">Openings</h2><div id="pd-openings"></div></section>
+      <section class="pd-card"><h2 class="pd-h2">Recent points</h2><div id="pd-activity"></div></section>
+      <section class="pd-card"><h2 class="pd-h2">Levels</h2><div id="pd-levels" class="pd-levels"></div>
+        <p class="pd-small">Earn points in the Tactics trainer and Opening courses. Practising on consecutive days adds a streak bonus.</p>
+        <button type="button" id="pd-reset" class="lab-link hidden">Reset demo progress</button></section>
+    </div>
+  </div>
+</section>
+<script type="module" src="/assets/js/lab/progress.js"></script>

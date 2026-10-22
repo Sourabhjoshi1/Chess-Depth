@@ -1,0 +1,13 @@
+{%- include lab-config.html -%}
+<div class="lab-bar">
+  <div class="cd-wrap lab-bar-inner">
+    <nav class="lab-tabs" aria-label="Chess Lab">
+      <a href="/lab/" {% if page.url == '/lab/' %}aria-current="page"{% endif %}><i class="fas fa-flask"></i><span>Chess Lab</span></a>
+      <a href="/lab/tactics/" {% if page.url == '/lab/tactics/' %}aria-current="page"{% endif %}><i class="fas fa-bolt"></i><span>Tactics</span></a>
+      <a href="/lab/openings/" {% if page.url == '/lab/openings/' %}aria-current="page"{% endif %}><i class="fas fa-book-open"></i><span>Openings</span></a>
+      <a href="/lab/progress/" {% if page.url == '/lab/progress/' %}aria-current="page"{% endif %}><i class="fas fa-chart-line"></i><span>Progress</span></a>
+    </nav>
+    <div id="lab-bar-status" class="lab-bar-status" aria-live="polite"></div>
+  </div>
+  <div id="lab-demo-banner" class="lab-demo hidden">Demo mode: progress is saved only in this browser. <button type="button" data-act="exit-demo">Leave demo</button></div>
+</div>

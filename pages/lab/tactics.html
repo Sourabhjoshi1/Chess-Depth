@@ -1,0 +1,50 @@
+---
+title: "Tactics Trainer | ChessDepth Chess Lab"
+description: "Train chess tactics with thousands of rated puzzles that adapt to your level. Part of the ChessDepth Chess Lab membership."
+permalink: /lab/tactics/
+page_css: lab
+ads: false
+crumb: Tactics Trainer
+head_scripts:
+  - src: "https://cdn.jsdelivr.net/npm/chessboard-element@1.2.0/bundled/chessboard-element.bundled.js"
+    type: module
+---
+{% include lab-bar.html %}
+<section class="cd-wrap lab-page">
+  <div id="lab-gate" class="lab-gate"><p class="lab-loading"><i class="fas fa-circle-notch fa-spin"></i> Loading…</p></div>
+  <div id="lab-app" class="hidden">
+    <div class="tt-layout">
+      <div class="tt-board-col">
+        <chess-board id="tt-board" class="lab-board"></chess-board>
+      </div>
+      <aside class="tt-side">
+        <h1 class="lab-h1">Tactics trainer</h1>
+        <div class="tt-status"><p id="tt-status" class="tt-status-main">Loading puzzle…</p><p id="tt-sub" class="tt-status-sub"></p></div>
+        <div class="tt-actions">
+          <button type="button" id="tt-hint" class="lab-btn-o"><i class="far fa-lightbulb"></i>Hint</button>
+          <button type="button" id="tt-show" class="lab-btn-o"><i class="far fa-eye"></i>Show solution</button>
+          <button type="button" id="tt-next" class="lab-btn hidden">Next puzzle <i class="fas fa-arrow-right"></i></button>
+        </div>
+        <div id="tt-info" class="tt-info"></div>
+        <dl class="tt-stats">
+          <div><dt>Puzzle rating</dt><dd id="tt-rating">–</dd></div>
+          <div><dt>Solved</dt><dd id="tt-solved">–</dd></div>
+          <div><dt>Clean run</dt><dd id="tt-run">–</dd></div>
+        </dl>
+        <div class="tt-filters">
+          <label>Puzzle set
+            <select id="tt-set"><option value="lichess">All puzzles (adapts to you)</option><option value="originals">ChessDepth Originals</option></select>
+          </label>
+          <div id="tt-filters-lichess">
+            <label>Theme <select id="tt-theme"></select></label>
+            <label>Difficulty
+              <select id="tt-level"><option value="">Match my rating</option><option value="beginner">Beginner (under 1000)</option><option value="intermediate">Intermediate (1000–1500)</option><option value="advanced">Advanced (1500–2000)</option><option value="expert">Expert (2000+)</option></select>
+            </label>
+          </div>
+        </div>
+        <p class="tt-points-note">Points: solve without mistakes for full points (more for harder puzzles), half with a hint, and a bonus for every 5 in a row.</p>
+      </aside>
+    </div>
+  </div>
+</section>
+<script type="module" src="/assets/js/lab/tactics.js"></script>

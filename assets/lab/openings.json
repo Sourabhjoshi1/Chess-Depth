@@ -1,0 +1,981 @@
+{
+"courses": [
+{
+"id": "italian-giuoco",
+"name": "Italian Game: Giuoco Piano",
+"group": "white",
+"side": "w",
+"level": "Beginner",
+"intro": "The classical way to play 1.e4 e5: quick development, pressure on f7 and a big pawn centre with c3 and d4.",
+"line": [
+{
+"san": "e4",
+"uci": "e2e4",
+"note": "Take the centre and open lines for the queen and bishop."
+},
+{
+"san": "e5",
+"uci": "e7e5",
+"note": ""
+},
+{
+"san": "Nf3",
+"uci": "g1f3",
+"note": "Develop with a threat: the knight attacks e5."
+},
+{
+"san": "Nc6",
+"uci": "b8c6",
+"note": ""
+},
+{
+"san": "Bc4",
+"uci": "f1c4",
+"note": "The bishop aims at f7, the weakest point near Black's king."
+},
+{
+"san": "Bc5",
+"uci": "f8c5",
+"note": ""
+},
+{
+"san": "c3",
+"uci": "c2c3",
+"note": "Preparing d4 to build a strong pawn centre."
+},
+{
+"san": "Nf6",
+"uci": "g8f6",
+"note": ""
+},
+{
+"san": "d4",
+"uci": "d2d4",
+"note": "Strike in the centre now that d4 is supported."
+},
+{
+"san": "exd4",
+"uci": "e5d4",
+"note": ""
+},
+{
+"san": "cxd4",
+"uci": "c3d4",
+"note": "Recapture with a pawn and keep two big centre pawns."
+},
+{
+"san": "Bb4+",
+"uci": "c5b4",
+"note": ""
+},
+{
+"san": "Bd2",
+"uci": "c1d2",
+"note": "Block the check while developing a piece."
+},
+{
+"san": "Bxd2+",
+"uci": "b4d2",
+"note": ""
+},
+{
+"san": "Nbxd2",
+"uci": "b1d2",
+"note": "Recapture towards the centre. White has more space; Black hits back with ...d5."
+},
+{
+"san": "d5",
+"uci": "d7d5",
+"note": "Black challenges the centre at once. This is the main line of the Giuoco Piano."
+}
+],
+"final": "r1bqk2r/ppp2ppp/2n2n2/3p4/2BPP3/5N2/PP1N1PPP/R2QK2R w KQkq - 0 9"
+},
+{
+"id": "italian-pianissimo",
+"name": "Italian Game: Quiet Plan (d3)",
+"group": "white",
+"side": "w",
+"level": "Beginner",
+"intro": "A calm, modern way to play the Italian: protect e4 with d3, castle, and prepare d4 later.",
+"line": [
+{
+"san": "e4",
+"uci": "e2e4",
+"note": ""
+},
+{
+"san": "e5",
+"uci": "e7e5",
+"note": ""
+},
+{
+"san": "Nf3",
+"uci": "g1f3",
+"note": ""
+},
+{
+"san": "Nc6",
+"uci": "b8c6",
+"note": ""
+},
+{
+"san": "Bc4",
+"uci": "f1c4",
+"note": ""
+},
+{
+"san": "Nf6",
+"uci": "g8f6",
+"note": ""
+},
+{
+"san": "d3",
+"uci": "d2d3",
+"note": "A solid move that defends e4 and avoids sharp tactics."
+},
+{
+"san": "Be7",
+"uci": "f8e7",
+"note": ""
+},
+{
+"san": "O-O",
+"uci": "e1g1",
+"note": "King safety first."
+},
+{
+"san": "O-O",
+"uci": "e8g8",
+"note": ""
+},
+{
+"san": "Re1",
+"uci": "f1e1",
+"note": "The rook supports e4 and prepares a later d4 break."
+},
+{
+"san": "d6",
+"uci": "d7d6",
+"note": ""
+},
+{
+"san": "c3",
+"uci": "c2c3",
+"note": "Gives the bishop a retreat to c2 and prepares d4. A typical slow-build setup."
+}
+],
+"final": "r1bq1rk1/ppp1bppp/2np1n2/4p3/2B1P3/2PP1N2/PP3PPP/RNBQR1K1 b - - 0 7"
+},
+{
+"id": "london",
+"name": "London System",
+"group": "white",
+"side": "w",
+"level": "Beginner",
+"intro": "A system you can play against almost anything: d4, Bf4, e3, Nf3, c3, Nbd2 and Bd3.",
+"line": [
+{
+"san": "d4",
+"uci": "d2d4",
+"note": ""
+},
+{
+"san": "d5",
+"uci": "d7d5",
+"note": ""
+},
+{
+"san": "Bf4",
+"uci": "c1f4",
+"note": "Develop the dark-squared bishop before playing e3, so it is not shut in."
+},
+{
+"san": "Nf6",
+"uci": "g8f6",
+"note": ""
+},
+{
+"san": "e3",
+"uci": "e2e3",
+"note": "Solid pawn chain; the bishop on f4 stays active."
+},
+{
+"san": "e6",
+"uci": "e7e6",
+"note": ""
+},
+{
+"san": "Nf3",
+"uci": "g1f3",
+"note": ""
+},
+{
+"san": "c5",
+"uci": "c7c5",
+"note": ""
+},
+{
+"san": "c3",
+"uci": "c2c3",
+"note": "The c3, d4, e3 triangle makes the centre hard to break."
+},
+{
+"san": "Nc6",
+"uci": "b8c6",
+"note": ""
+},
+{
+"san": "Nbd2",
+"uci": "b1d2",
+"note": ""
+},
+{
+"san": "Bd6",
+"uci": "f8d6",
+"note": ""
+},
+{
+"san": "Bg3",
+"uci": "f4g3",
+"note": "Keep the good bishop: retreat rather than allowing ...Bxf4."
+},
+{
+"san": "O-O",
+"uci": "e8g8",
+"note": ""
+},
+{
+"san": "Bd3",
+"uci": "f1d3",
+"note": "All pieces developed. Next comes castling, then play for e4 or a kingside attack."
+}
+],
+"final": "r1bq1rk1/pp3ppp/2nbpn2/2pp4/3P4/2PBPNB1/PP1N1PPP/R2QK2R b KQ - 6 8"
+},
+{
+"id": "qgd-white",
+"name": "Queen's Gambit Declined (as White)",
+"group": "white",
+"side": "w",
+"level": "Intermediate",
+"intro": "Classical central play: pressure on d5, a pin with Bg5, and slow, strategic manoeuvring.",
+"line": [
+{
+"san": "d4",
+"uci": "d2d4",
+"note": ""
+},
+{
+"san": "d5",
+"uci": "d7d5",
+"note": ""
+},
+{
+"san": "c4",
+"uci": "c2c4",
+"note": "The Queen's Gambit: offer a wing pawn to remove Black's centre pawn."
+},
+{
+"san": "e6",
+"uci": "e7e6",
+"note": ""
+},
+{
+"san": "Nc3",
+"uci": "b1c3",
+"note": "Add pressure on d5."
+},
+{
+"san": "Nf6",
+"uci": "g8f6",
+"note": ""
+},
+{
+"san": "Bg5",
+"uci": "c1g5",
+"note": "Pin the knight that defends d5."
+},
+{
+"san": "Be7",
+"uci": "f8e7",
+"note": ""
+},
+{
+"san": "e3",
+"uci": "e2e3",
+"note": "Solid development; the f1 bishop can now come out."
+},
+{
+"san": "O-O",
+"uci": "e8g8",
+"note": ""
+},
+{
+"san": "Nf3",
+"uci": "g1f3",
+"note": ""
+},
+{
+"san": "h6",
+"uci": "h7h6",
+"note": ""
+},
+{
+"san": "Bh4",
+"uci": "g5h4",
+"note": "Keep the pin."
+},
+{
+"san": "b6",
+"uci": "b7b6",
+"note": "The Tartakower setup: Black prepares ...Bb7 to fight for the light squares."
+}
+],
+"final": "rnbq1rk1/p1p1bpp1/1p2pn1p/3p4/2PP3B/2N1PN2/PP3PPP/R2QKB1R w KQ - 0 8"
+},
+{
+"id": "open-game-black",
+"name": "1...e5 against the Italian (as Black)",
+"group": "black_e4",
+"side": "b",
+"level": "Beginner",
+"intro": "Meet 1.e4 with 1...e5 and develop naturally: a great way to learn open positions.",
+"line": [
+{
+"san": "e4",
+"uci": "e2e4",
+"note": ""
+},
+{
+"san": "e5",
+"uci": "e7e5",
+"note": "Take your share of the centre."
+},
+{
+"san": "Nf3",
+"uci": "g1f3",
+"note": ""
+},
+{
+"san": "Nc6",
+"uci": "b8c6",
+"note": "Defend e5 while developing."
+},
+{
+"san": "Bc4",
+"uci": "f1c4",
+"note": ""
+},
+{
+"san": "Bc5",
+"uci": "f8c5",
+"note": "Mirror White: the bishop aims at f2."
+},
+{
+"san": "c3",
+"uci": "c2c3",
+"note": ""
+},
+{
+"san": "Nf6",
+"uci": "g8f6",
+"note": "Develop with an attack on e4."
+},
+{
+"san": "d3",
+"uci": "d2d3",
+"note": ""
+},
+{
+"san": "d6",
+"uci": "d7d6",
+"note": "Support e5 and open the c8 bishop's diagonal."
+},
+{
+"san": "O-O",
+"uci": "e1g1",
+"note": ""
+},
+{
+"san": "O-O",
+"uci": "e8g8",
+"note": "Castled and fully developed. A healthy, balanced position."
+}
+],
+"final": "r1bq1rk1/ppp2ppp/2np1n2/2b1p3/2B1P3/2PP1N2/PP3PPP/RNBQ1RK1 w - - 2 7"
+},
+{
+"id": "caro-classical",
+"name": "Caro-Kann: Classical",
+"group": "black_e4",
+"side": "b",
+"level": "Beginner",
+"intro": "A solid answer to 1.e4: support ...d5 with ...c6 and develop the light-squared bishop outside the pawn chain.",
+"line": [
+{
+"san": "e4",
+"uci": "e2e4",
+"note": ""
+},
+{
+"san": "c6",
+"uci": "c7c6",
+"note": "Prepare ...d5 with pawn support."
+},
+{
+"san": "d4",
+"uci": "d2d4",
+"note": ""
+},
+{
+"san": "d5",
+"uci": "d7d5",
+"note": "Challenge the centre immediately."
+},
+{
+"san": "Nc3",
+"uci": "b1c3",
+"note": ""
+},
+{
+"san": "dxe4",
+"uci": "d5e4",
+"note": ""
+},
+{
+"san": "Nxe4",
+"uci": "c3e4",
+"note": ""
+},
+{
+"san": "Bf5",
+"uci": "c8f5",
+"note": "The key Caro-Kann idea: the bishop gets out before ...e6."
+},
+{
+"san": "Ng3",
+"uci": "e4g3",
+"note": ""
+},
+{
+"san": "Bg6",
+"uci": "f5g6",
+"note": "Keep the bishop on the long diagonal."
+},
+{
+"san": "h4",
+"uci": "h2h4",
+"note": ""
+},
+{
+"san": "h6",
+"uci": "h7h6",
+"note": "Give the bishop a safe square on h7."
+},
+{
+"san": "Nf3",
+"uci": "g1f3",
+"note": ""
+},
+{
+"san": "Nd7",
+"uci": "b8d7",
+"note": "Prepare ...Ngf6 without allowing doubled pawns."
+},
+{
+"san": "h5",
+"uci": "h4h5",
+"note": ""
+},
+{
+"san": "Bh7",
+"uci": "g6h7",
+"note": "The bishop is safe on h7. Black is solid and will finish with ...Ngf6 and ...e6."
+}
+],
+"final": "r2qkbnr/pp1npppb/2p4p/7P/3P4/5NN1/PPP2PP1/R1BQKB1R w KQkq - 1 9"
+},
+{
+"id": "caro-advance",
+"name": "Caro-Kann: Advance Variation",
+"group": "black_e4",
+"side": "b",
+"level": "Intermediate",
+"intro": "When White pushes e5, develop the bishop first, then attack the d4 pawn with ...c5.",
+"line": [
+{
+"san": "e4",
+"uci": "e2e4",
+"note": ""
+},
+{
+"san": "c6",
+"uci": "c7c6",
+"note": ""
+},
+{
+"san": "d4",
+"uci": "d2d4",
+"note": ""
+},
+{
+"san": "d5",
+"uci": "d7d5",
+"note": ""
+},
+{
+"san": "e5",
+"uci": "e4e5",
+"note": ""
+},
+{
+"san": "Bf5",
+"uci": "c8f5",
+"note": "Develop the bishop before closing it in with ...e6."
+},
+{
+"san": "Nf3",
+"uci": "g1f3",
+"note": ""
+},
+{
+"san": "e6",
+"uci": "e7e6",
+"note": "Solid: now the f8 bishop can develop."
+},
+{
+"san": "Be2",
+"uci": "f1e2",
+"note": ""
+},
+{
+"san": "c5",
+"uci": "c6c5",
+"note": "Hit the base of White's pawn chain."
+},
+{
+"san": "Be3",
+"uci": "c1e3",
+"note": ""
+},
+{
+"san": "Nd7",
+"uci": "b8d7",
+"note": "Develop and add pressure; Black often follows with ...Ne7 and ...Nc6."
+}
+],
+"final": "r2qkbnr/pp1n1ppp/4p3/2ppPb2/3P4/4BN2/PPP1BPPP/RN1QK2R w KQkq - 2 7"
+},
+{
+"id": "french-advance",
+"name": "French Defence: Advance",
+"group": "black_e4",
+"side": "b",
+"level": "Intermediate",
+"intro": "After 3.e5, attack the base of White's pawn chain on d4 with ...c5, ...Nc6 and ...Qb6.",
+"line": [
+{
+"san": "e4",
+"uci": "e2e4",
+"note": ""
+},
+{
+"san": "e6",
+"uci": "e7e6",
+"note": "Prepare ...d5 with a solid pawn."
+},
+{
+"san": "d4",
+"uci": "d2d4",
+"note": ""
+},
+{
+"san": "d5",
+"uci": "d7d5",
+"note": "Challenge e4."
+},
+{
+"san": "e5",
+"uci": "e4e5",
+"note": ""
+},
+{
+"san": "c5",
+"uci": "c7c5",
+"note": "Attack the d4 pawn: the base of White's chain."
+},
+{
+"san": "c3",
+"uci": "c2c3",
+"note": ""
+},
+{
+"san": "Nc6",
+"uci": "b8c6",
+"note": "More pressure on d4."
+},
+{
+"san": "Nf3",
+"uci": "g1f3",
+"note": ""
+},
+{
+"san": "Qb6",
+"uci": "d8b6",
+"note": "The queen joins the attack on d4 and b2."
+},
+{
+"san": "a3",
+"uci": "a2a3",
+"note": ""
+},
+{
+"san": "c4",
+"uci": "c5c4",
+"note": "Gain queenside space and stop White's b4 ideas."
+}
+],
+"final": "r1b1kbnr/pp3ppp/1qn1p3/3pP3/2pP4/P1P2N2/1P3PPP/RNBQKB1R w KQkq - 0 7"
+},
+{
+"id": "najdorf",
+"name": "Sicilian Najdorf: English Attack",
+"group": "black_e4",
+"side": "b",
+"level": "Advanced",
+"intro": "The most famous Sicilian. Black fights for d5 and plays on the queenside, while White often castles long and attacks.",
+"line": [
+{
+"san": "e4",
+"uci": "e2e4",
+"note": ""
+},
+{
+"san": "c5",
+"uci": "c7c5",
+"note": "Unbalance the game from move one."
+},
+{
+"san": "Nf3",
+"uci": "g1f3",
+"note": ""
+},
+{
+"san": "d6",
+"uci": "d7d6",
+"note": ""
+},
+{
+"san": "d4",
+"uci": "d2d4",
+"note": ""
+},
+{
+"san": "cxd4",
+"uci": "c5d4",
+"note": "Trade a wing pawn for White's centre pawn."
+},
+{
+"san": "Nxd4",
+"uci": "f3d4",
+"note": ""
+},
+{
+"san": "Nf6",
+"uci": "g8f6",
+"note": ""
+},
+{
+"san": "Nc3",
+"uci": "b1c3",
+"note": ""
+},
+{
+"san": "a6",
+"uci": "a7a6",
+"note": "The Najdorf move: controls b5 and prepares ...e5 or ...b5."
+},
+{
+"san": "Be3",
+"uci": "c1e3",
+"note": ""
+},
+{
+"san": "e5",
+"uci": "e7e5",
+"note": "Gain space and chase the knight."
+},
+{
+"san": "Nb3",
+"uci": "d4b3",
+"note": ""
+},
+{
+"san": "Be6",
+"uci": "c8e6",
+"note": "Fight for the key d5 square."
+},
+{
+"san": "f3",
+"uci": "f2f3",
+"note": "White prepares Qd2, long castling and g4. Sharp play ahead."
+}
+],
+"final": "rn1qkb1r/1p3ppp/p2pbn2/4p3/4P3/1NN1BP2/PPP3PP/R2QKB1R b KQkq - 0 8"
+},
+{
+"id": "qgd-black",
+"name": "Queen's Gambit Declined (as Black)",
+"group": "black_d4",
+"side": "b",
+"level": "Beginner",
+"intro": "Hold the d5 point firmly, develop calmly, and free your game later with ...c5 or ...e5.",
+"line": [
+{
+"san": "d4",
+"uci": "d2d4",
+"note": ""
+},
+{
+"san": "d5",
+"uci": "d7d5",
+"note": "Claim the centre."
+},
+{
+"san": "c4",
+"uci": "c2c4",
+"note": ""
+},
+{
+"san": "e6",
+"uci": "e7e6",
+"note": "Decline the gambit and keep a strong pawn on d5."
+},
+{
+"san": "Nc3",
+"uci": "b1c3",
+"note": ""
+},
+{
+"san": "Nf6",
+"uci": "g8f6",
+"note": ""
+},
+{
+"san": "Bg5",
+"uci": "c1g5",
+"note": ""
+},
+{
+"san": "Be7",
+"uci": "f8e7",
+"note": "Break the pin by developing."
+},
+{
+"san": "e3",
+"uci": "e2e3",
+"note": ""
+},
+{
+"san": "O-O",
+"uci": "e8g8",
+"note": "King safety first."
+},
+{
+"san": "Nf3",
+"uci": "g1f3",
+"note": ""
+},
+{
+"san": "Nbd7",
+"uci": "b8d7",
+"note": "Support a later ...c5 or ...e5 break."
+},
+{
+"san": "Rc1",
+"uci": "a1c1",
+"note": ""
+},
+{
+"san": "c6",
+"uci": "c7c6",
+"note": "Rock-solid. Black is ready for ...dxc4 and ...Nd5 to free the position."
+}
+],
+"final": "r1bq1rk1/pp1nbppp/2p1pn2/3p2B1/2PP4/2N1PN2/PP3PPP/2RQKB1R w K - 0 8"
+},
+{
+"id": "slav",
+"name": "Slav Defence",
+"group": "black_d4",
+"side": "b",
+"level": "Intermediate",
+"intro": "Defend d5 with the c-pawn and keep the light-squared bishop free.",
+"line": [
+{
+"san": "d4",
+"uci": "d2d4",
+"note": ""
+},
+{
+"san": "d5",
+"uci": "d7d5",
+"note": ""
+},
+{
+"san": "c4",
+"uci": "c2c4",
+"note": ""
+},
+{
+"san": "c6",
+"uci": "c7c6",
+"note": "Support d5 without blocking the c8 bishop."
+},
+{
+"san": "Nf3",
+"uci": "g1f3",
+"note": ""
+},
+{
+"san": "Nf6",
+"uci": "g8f6",
+"note": ""
+},
+{
+"san": "Nc3",
+"uci": "b1c3",
+"note": ""
+},
+{
+"san": "dxc4",
+"uci": "d5c4",
+"note": "Take the pawn now that White can't easily win it back with b4."
+},
+{
+"san": "a4",
+"uci": "a2a4",
+"note": ""
+},
+{
+"san": "Bf5",
+"uci": "c8f5",
+"note": "The bishop develops outside the pawn chain."
+},
+{
+"san": "e3",
+"uci": "e2e3",
+"note": ""
+},
+{
+"san": "e6",
+"uci": "e7e6",
+"note": "Open the f8 bishop."
+},
+{
+"san": "Bxc4",
+"uci": "f1c4",
+"note": ""
+},
+{
+"san": "Bb4",
+"uci": "f8b4",
+"note": "Pin the knight and fight for e4. A classical main line."
+}
+],
+"final": "rn1qk2r/pp3ppp/2p1pn2/5b2/PbBP4/2N1PN2/1P3PPP/R1BQK2R w KQkq - 1 8"
+},
+{
+"id": "kid",
+"name": "King's Indian Defence: Classical",
+"group": "black_d4",
+"side": "b",
+"level": "Advanced",
+"intro": "Let White take the centre, then strike back with ...e5 and attack on the kingside.",
+"line": [
+{
+"san": "d4",
+"uci": "d2d4",
+"note": ""
+},
+{
+"san": "Nf6",
+"uci": "g8f6",
+"note": ""
+},
+{
+"san": "c4",
+"uci": "c2c4",
+"note": ""
+},
+{
+"san": "g6",
+"uci": "g7g6",
+"note": "Prepare to fianchetto the bishop."
+},
+{
+"san": "Nc3",
+"uci": "b1c3",
+"note": ""
+},
+{
+"san": "Bg7",
+"uci": "f8g7",
+"note": "The bishop on g7 will be Black's best piece."
+},
+{
+"san": "e4",
+"uci": "e2e4",
+"note": ""
+},
+{
+"san": "d6",
+"uci": "d7d6",
+"note": "Control e5 before striking."
+},
+{
+"san": "Nf3",
+"uci": "g1f3",
+"note": ""
+},
+{
+"san": "O-O",
+"uci": "e8g8",
+"note": "Castle quickly."
+},
+{
+"san": "Be2",
+"uci": "f1e2",
+"note": ""
+},
+{
+"san": "e5",
+"uci": "e7e5",
+"note": "The key counter-strike in the centre."
+},
+{
+"san": "O-O",
+"uci": "e1g1",
+"note": ""
+},
+{
+"san": "Nc6",
+"uci": "b8c6",
+"note": "Add pressure on d4."
+},
+{
+"san": "d5",
+"uci": "d4d5",
+"note": ""
+},
+{
+"san": "Ne7",
+"uci": "c6e7",
+"note": "The knight heads for the kingside, ready for ...Nd7 and ...f5."
+}
+],
+"final": "r1bq1rk1/ppp1npbp/3p1np1/3Pp3/2P1P3/2N2N2/PP2BPPP/R1BQ1RK1 w - - 1 9"
+}
+]
+}
