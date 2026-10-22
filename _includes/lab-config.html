@@ -1,3 +1,18 @@
+{%- comment -%} Version stamps so visitors never mix old and new Lab scripts after an update. {%- endcomment -%}
+<script type="importmap">
+  { "imports": {
+      "/assets/js/lab/admin.js": "/assets/js/lab/admin.js?v={{ site.time | date: "%s" }}",
+      "/assets/js/lab/board.js": "/assets/js/lab/board.js?v={{ site.time | date: "%s" }}",
+      "/assets/js/lab/lab-core.js": "/assets/js/lab/lab-core.js?v={{ site.time | date: "%s" }}",
+      "/assets/js/lab/lab-home.js": "/assets/js/lab/lab-home.js?v={{ site.time | date: "%s" }}",
+      "/assets/js/lab/openings.js": "/assets/js/lab/openings.js?v={{ site.time | date: "%s" }}",
+      "/assets/js/lab/progress.js": "/assets/js/lab/progress.js?v={{ site.time | date: "%s" }}",
+      "/assets/js/lab/shell.js": "/assets/js/lab/shell.js?v={{ site.time | date: "%s" }}",
+      "/assets/js/lab/streak.js": "/assets/js/lab/streak.js?v={{ site.time | date: "%s" }}",
+      "/assets/js/lab/tactics.js": "/assets/js/lab/tactics.js?v={{ site.time | date: "%s" }}",
+      "/assets/js/firebase-config.js": "/assets/js/firebase-config.js?v={{ site.time | date: "%s" }}"
+  } }
+</script>
 <script>
   window.CD_LAB = {
     price: {{ site.lab.price | jsonify }},
