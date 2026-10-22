@@ -288,3 +288,6 @@ html.dark .ps-best { color: #c4b5fd; }
 html.dark .lab-offer { background: rgba(99,102,241,.14); color: #c7d2fe; border-color: #273449; }
 html.dark .lab-offer b { color: #fff; }
 html.dark .lab-hero .lab-btn { background: #fff; color: #4338ca; }
+.cd-wrap.lab-section { padding-top: 3.5rem; padding-bottom: 3.5rem; }
+.lab-hero-inner { padding-top: 4rem; padding-bottom: 4rem; }
+.lab-hero-art img { max-width: 280px; }
