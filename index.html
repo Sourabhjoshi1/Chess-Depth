@@ -72,20 +72,20 @@ page_css: index
       <h2 class="text-3xl font-bold mb-8 text-indigo-100">Our Achievements Speak Volumes</h2>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
         <div class="stat-item">
-          <div class="stat-number">50+</div>
+          <div class="stat-number" data-target="50" data-suffix="+">50+</div>
           <p class="stat-label">Students Enrolled</p>
         </div>
         <div class="stat-item">
-          <div class="stat-number">500+</div>
-          <p class="stat-label">Hours of Content</p>
+          <div class="stat-number" data-target="1000" data-suffix="+">1000+</div>
+          <p class="stat-label">Hours of Teaching</p>
         </div>
         <div class="stat-item">
-          <div class="stat-number">95%</div>
-          <p class="stat-label">Student Satisfaction</p>
+          <div class="stat-number" data-target="90" data-suffix="%">90%</div>
+          <p class="stat-label">Student Success Rate</p>
         </div>
         <div class="stat-item">
-          <div class="stat-number">5+</div>
-          <p class="stat-label">FIDE-Rated Coaches (incl. a GM)</p>
+          <div class="stat-number" data-target="10" data-suffix="">10</div>
+          <p class="stat-label">Coaches (incl. a Grandmaster)</p>
         </div>
       </div>
     </div>
@@ -283,8 +283,12 @@ page_css: index
 
         const animateCounter = (entry) => {
             if (entry.isIntersecting) {
-                const target = parseInt(entry.target.dataset.target, 10);
-                const suffix = entry.target.dataset.suffix || '';
+                // Read the number from data-target, or from the visible text (e.g. "1000+"), so it never shows NaN
+                const shown = entry.target.textContent.trim();
+                let target = parseInt(entry.target.dataset.target, 10);
+                if (isNaN(target)) target = parseInt(shown.replace(/[^0-9]/g, ''), 10);
+                const suffix = entry.target.dataset.suffix !== undefined ? entry.target.dataset.suffix : shown.replace(/[0-9,]/g, '');
+                if (isNaN(target)) { counterObserver.unobserve(entry.target); return; }
                 let current = 0;
                 const frames = 200;
                 const increment = Math.max(1, target / frames);
