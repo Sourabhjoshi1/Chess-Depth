@@ -44,10 +44,13 @@
   </script>
 {%- endif %}
 
-{%- if page.collection == "products" and page.price_inr != "" and page.price_inr %}{% if page.gumroad != "" and page.gumroad or page.download != "" and page.download %}
+{%- assign sp_live = false -%}
+{%- if page.gumroad != "" and page.gumroad -%}{%- assign sp_live = true -%}{%- endif -%}
+{%- if page.download != "" and page.download -%}{%- assign sp_live = true -%}{%- endif -%}
+{%- if page.collection == "products" and sp_live and page.price_inr != "" and page.price_inr %}
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"Product","name":{{ page.title | jsonify }},"description":{{ page.description | jsonify }},
    "image":"{{ '/assets/images/og-image.jpg' | absolute_url }}","brand":{"@type":"Brand","name":"{{ site.title }}"},
    "offers":{"@type":"Offer","url":"{{ page.url | absolute_url }}","price":"{{ page.price_inr }}","priceCurrency":"INR","availability":"https://schema.org/InStock"}}
   </script>
-{%- endif %}{% endif %}
+{%- endif %}
