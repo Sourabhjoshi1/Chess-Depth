@@ -123,3 +123,8 @@ If you add new Tailwind classes to a page, rebuild it before committing:
     npx tailwindcss@2.2.19 -c tailwind.config.js -i src/tailwind.css -o assets/css/tailwind.min.css --minify
 
 (Best fix: in GitHub → Settings → Pages, set **Source** to **GitHub Actions**, so only the site's own workflow publishes.)
+
+
+## Dollar prices
+
+All dollar prices use **₹100 = $1**, rounded to the nearest dollar (e.g. ₹5,999 → $60).
