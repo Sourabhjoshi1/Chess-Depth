@@ -127,4 +127,4 @@ If you add new Tailwind classes to a page, rebuild it before committing:
 
 ## Dollar prices
 
-All dollar prices use **₹100 = $1**, rounded to the nearest dollar (e.g. ₹5,999 → $60).
+Dollar prices are adjusted for purchasing power: **1.5 × (₹ ÷ 100)**, i.e. about ₹67 = $1, rounded to a clean price (e.g. ₹5,999 → $90, ₹4,500 → $69, ₹19,999 → $299).
