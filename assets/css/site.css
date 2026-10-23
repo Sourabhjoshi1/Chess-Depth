@@ -92,3 +92,9 @@ body { font-family: 'Poppins', sans-serif; }
 .cd-hero-note { font-size: .85rem; color: #c7d2fe; margin-top: 1rem; }
 @media (min-width: 768px) { .cd-hero-lead { font-size: 1.2rem; } }
 html.dark .cd-hero-title { color: #fff !important; }
+/* Chess boards (all products): no page scroll while dragging a piece; tap-to-move highlights */
+chess-board { touch-action: none; -webkit-user-select: none; user-select: none; }
+.cd-board-overlay .cd-sq-last { background: rgba(250, 204, 21, .5); mix-blend-mode: multiply; }
+.cd-board-overlay .cd-sq-sel { background: rgba(99, 102, 241, .45); mix-blend-mode: multiply; }
+.cd-board-overlay .cd-sq-dot::after { content: ""; position: absolute; left: 50%; top: 50%; width: 30%; height: 30%; transform: translate(-50%, -50%); border-radius: 50%; background: rgba(30, 27, 75, .35); }
+.cd-board-overlay .cd-sq-cap { box-shadow: inset 0 0 0 4px rgba(30, 27, 75, .35); border-radius: 50%; }

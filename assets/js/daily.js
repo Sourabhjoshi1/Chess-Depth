@@ -72,7 +72,7 @@ async function start() {
 
   const prev = store("cd-daily");
   if (prev && prev.date === key && prev.solved) showSolved(prev.tries, true);
-  else setTimeout(() => { board.play(moves[0]); status(`${side} to move`, "Drag a piece to make your move.", ""); }, 600);
+  else setTimeout(() => { board.play(moves[0]); status(`${side} to move`, "Drag or tap a piece to make your move.", ""); }, 600);
   renderStreak();
 
   function uciObj(u) { return { from: u.slice(0, 2), to: u.slice(2, 4), promotion: u[4] }; }
