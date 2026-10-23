@@ -17,7 +17,7 @@ To maintain code quality and consistency across the project, please adhere to th
 
 ### General Rules
 
-* **Technology Stack:** The core technology stack is **HTML5, Tailwind CSS (v2.x), and Vanilla JavaScript.** Please avoid introducing new frameworks or large libraries unless absolutely necessary and first approved by a core maintainer.
+* **Technology Stack:** The core technology stack is **Jekyll (GitHub Pages), HTML5, Tailwind CSS (v2.x), and Vanilla JavaScript.** See [README.md](README.md) and [EDITING.md](EDITING.md). Please avoid introducing new frameworks or large libraries unless absolutely necessary and first approved by a core maintainer.
 * **File Structure:** All contributions must respect the existing file structure:
     * Core pages (`.html`) remain in the root directory.
     * Custom CSS styles should be placed within the `<style>` tags of the respective HTML file (or in `style.css` if we centralize it later).
