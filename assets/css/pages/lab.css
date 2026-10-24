@@ -328,3 +328,4 @@ html.dark .lab-enroll-msg.bad { color: #fca5a5; }
 html.dark .lab-enroll-panel { background: #0f172a; border-color: #273449; }
 html.dark .lab-chip-link { color: #c7d2fe; border-color: #475569; }
 html.dark .lab-chip-academy { background: rgba(34,197,94,.15); color: #86efac; border-color: rgba(34,197,94,.3); }
+.lab-enroll-compact { max-width: 40rem; }
