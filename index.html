@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <script>
+    /* Night/day mode: use the saved choice, otherwise follow the device setting */
+    (function () {
+      var t = null; try { t = localStorage.getItem("cd-theme"); } catch (e) {}
+      if (t !== "light" && t !== "dark") t = (window.matchMedia && matchMedia("(prefers-color-scheme: dark)").matches) ? "dark" : "light";
+      if (t === "dark") document.documentElement.classList.add("dark");
+    })();
+  </script>
+  <meta name="theme-color" content="#1f2547">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Online Chess Classes for Kids & Adults | ChessDepth Academy</title>
+  <meta name="description" content="Live online chess classes for kids and adults, from beginner to tournament level. FIDE-rated coaches incl. a Grandmaster. Book a free demo class.">
+  <link rel="canonical" href="https://www.chessdepth.in/">
+  <meta property="og:title" content="Online Chess Classes for Kids & Adults | ChessDepth Academy">
+  <meta property="og:site_name" content="ChessDepth Academy">
+  <meta property="og:locale" content="en_IN">
+  <meta property="og:description" content="Live online chess classes for kids and adults, from beginner to tournament level. FIDE-rated coaches incl. a Grandmaster. Book a free demo class.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.chessdepth.in/">
+  <meta property="og:image" content="https://www.chessdepth.in/assets/images/og-image.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Online Chess Classes for Kids & Adults | ChessDepth Academy">
+  <meta name="twitter:description" content="Live online chess classes for kids and adults, from beginner to tournament level. FIDE-rated coaches incl. a Grandmaster. Book a free demo class.">
+  <meta name="twitter:image" content="https://www.chessdepth.in/assets/images/og-image.jpg">
+  <link rel="icon" href="/assets/images/favicon.ico" sizes="48x48">
+  <link rel="icon" href="/assets/images/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="/assets/css/tailwind.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,500;0,600;1,400&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="/assets/css/pages/index.css">
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <link rel="stylesheet" href="/assets/css/dark.css">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-2C73E30ZFX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-2C73E30ZFX');
+  </script>
+  
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@graph":[
+    {"@type":"EducationalOrganization","@id":"https://www.chessdepth.in/#organization","name":"ChessDepth Academy","url":"https://www.chessdepth.in/",
+     "logo":"https://www.chessdepth.in/assets/images/icon-512.png","image":"https://www.chessdepth.in/assets/images/og-image.jpg",
+     "description":"Structured online chess coaching for beginners to tournament players.","telephone":"+919823029262","email":"info@chessdepth.in",
+     "address":{"@type":"PostalAddress","addressLocality":"Bhopal","addressRegion":"Madhya Pradesh","addressCountry":"IN"},
+     "areaServed":"Worldwide","founder":{"@type":"Person","name":"Sourabh Joshi"},
+     "sameAs":["https://www.instagram.com/chessdepthacademy1/","https://www.facebook.com/chessdepthacademy/"]},
+    {"@type":"WebSite","@id":"https://www.chessdepth.in/#website","url":"https://www.chessdepth.in/","name":"ChessDepth Academy","publisher":{"@id":"https://www.chessdepth.in/#organization"},"inLanguage":"en"}
+  ]}
+  </script>
+
+
+</head>
+<body class="bg-gray-100 text-gray-800">
+  <div class="cd-topbar">
+    <div class="cd-wrap cd-topbar-inner">
+      <p class="cd-topbar-contact">
+        <a href="tel:+919823029262"><i class="fas fa-phone-alt"></i>+91 98230 29262</a>
+        <a href="mailto:info@chessdepth.in"><i class="far fa-envelope"></i>info@chessdepth.in</a>
+      </p>
+      <p class="cd-topbar-links">
+        <a href="/lab/"><i class="fas fa-flask"></i>Chess Lab<span class="cd-free" data-free-until="2026-11-21">Free</span></a>
+        <a href="/careers/">Careers</a>
+        <a href="/student/"><i class="far fa-user-circle"></i>Student login</a>
+        <button type="button" class="cd-theme-btn" data-theme-toggle aria-label="Switch to night mode" title="Night / day mode"><i class="fas fa-moon cd-moon"></i><i class="fas fa-sun cd-sun"></i></button>
+      </p>
+    </div>
+  </div>
+  <header class="cd-header" id="main-header">
+    <div class="cd-wrap cd-header-inner">
+      <a href="/" class="cd-brand">
+        <svg class="cd-mark" viewBox="0 0 32 32" aria-hidden="true" focusable="false"><path fill="currentColor" d="M8 5h3v3h2.5V5h5v3H21V5h3v7.2l-2.4 1.8.9 9H9.5l.9-9L8 12.2zM8.5 24.5h15l1.5 2.5H7zM6 28h20v2.5H6z"/></svg>
+
+        <span class="cd-brand-text"><span class="cd-brand-name">ChessDepth</span><span class="cd-brand-sub">Chess Academy</span></span>
+      </a>
+      <nav id="main-nav" aria-label="Primary" class="cd-nav">
+        <a href="/about/" class="cd-link">About</a>
+        <a href="/courses/" class="cd-link">Courses</a>
+        <a href="/coaches/" class="cd-link">Coaches</a>
+        <a href="/resources/" class="cd-link">Resources</a>
+        <a href="/shop/" class="cd-link">Shop</a>
+        <a href="/ai/" class="cd-link cd-link-ai">ChessDepth AI<span class="cd-soon">Soon</span></a>
+        <a href="/blog/" class="cd-link">Blog</a>
+        <a href="/contact/" class="cd-link">Contact</a>
+        <a href="https://wa.me/919823029262?text=Hi%2C%20I%20would%20like%20to%20book%20a%20free%20demo%20class" target="_blank" rel="noopener noreferrer" class="cd-hdr-cta">Book a free demo</a>
+      </nav>
+      <div class="cd-header-mobile">
+        <button type="button" class="cd-theme-btn" data-theme-toggle aria-label="Switch to night mode" title="Night / day mode"><i class="fas fa-moon cd-moon"></i><i class="fas fa-sun cd-sun"></i></button>
+        <button id="menu-toggle" class="cd-menu-btn" aria-controls="mobile-menu" aria-expanded="false" aria-label="Open menu">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+        </button>
+      </div>
+    </div>
+    <div id="mobile-menu" class="cd-mobile-menu hidden">
+      <nav class="cd-wrap" aria-label="Mobile">
+        <a href="/" aria-current="page">Home</a>
+        <a href="/about/">About</a>
+        <a href="/courses/">Courses</a>
+        <a href="/coaches/">Coaches</a>
+        <a href="/resources/">Resources</a>
+        <a href="/shop/">Shop</a>
+        <a href="/ai/">ChessDepth AI<span class="cd-soon">Coming soon</span></a>
+        <a href="/blog/">Blog</a>
+        <a href="/contact/">Contact</a>
+        <a href="/lab/">Chess Lab <i class="fas fa-crown" style="color:#b08a4e;font-size:.8em"></i><span class="cd-soon" data-free-until="2026-11-21">Free launch offer</span></a>
+        <a href="/careers/">Careers</a>
+        <div class="cd-mobile-actions">
+          <a href="/student/" class="cd-mobile-login"><i class="far fa-user-circle"></i>Student login</a>
+          <a href="https://wa.me/919823029262?text=Hi%2C%20I%20would%20like%20to%20book%20a%20free%20demo%20class" target="_blank" rel="noopener noreferrer" class="cd-hdr-cta">Book a free demo</a>
+        </div>
+        <p class="cd-mobile-contact"><a href="tel:+919823029262">+91 98230 29262</a><a href="mailto:info@chessdepth.in">info@chessdepth.in</a></p>
+      </nav>
+    </div>
+  </header>
+
+
+  <section class="relative cd-hero-bg text-white py-20 fade-in-section overflow-hidden">
+    <div class="hero-particles"></div>
+
+    <div class="max-w-4xl mx-auto text-center relative z-10">
+      <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold mb-4 animate-fade-in-up-1 tracking-tight leading-tight">Become a Grandmaster of Your Mind</h1>
+      <p class="text-xl sm:text-2xl mb-8 animate-fade-in-up-2 opacity-90 leading-relaxed">Live online chess classes for kids and adults, from first moves to tournament play, with FIDE-rated coaches including a Grandmaster.</p>
+      
+      <div class="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-6 animate-fade-in-up-3">
+        <a href="https://wa.me/919823029262?text=Hi%20I%20am%20interested%20in%20a%20free%20demo%20class" target="_blank" rel="noopener noreferrer" class="demo-button shadow-lg rounded-full py-3 px-8 font-semibold">
+          <i class="fas fa-calendar-alt"></i> Book a Free Demo Class
+        </a>
+        <a href="/courses/" class="bg-white text-indigo-600 font-semibold py-3 px-8 rounded-full shadow-lg hero-button">
+          Explore Courses
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="py-16 px-4 fade-in-section">
+    <div class="max-w-5xl mx-auto text-center">
+      <h2 class="text-3xl font-bold mb-8 tracking-tight">About Our Academy</h2>
+      <div class="text-gray-700 leading-relaxed text-left max-w-3xl mx-auto">
+        <p class="mb-6">At ChessDepth Academy, we are passionate about unlocking the strategic potential within every individual. Our philosophy centers on the belief that chess is more than just a game; it's a powerful tool for cognitive development, fostering critical thinking, pattern recognition, and decision-making skills that extend far beyond the chessboard.</p>
+
+        <h3 class="text-2xl font-semibold text-gray-900 mb-4 mt-8 text-center">Our Unique Approach to Learning</h3>
+        <p class="mb-4">We've meticulously designed our curriculum with a step-by-step approach, ensuring that concepts are introduced logically and reinforced through practical exercises. Our instructors are not just highly rated chess players; they are experienced educators dedicated to making complex ideas accessible and engaging for students of all ages and skill levels.</p>
+        <ul class="list-disc list-inside space-y-2 mb-6 ml-4">
+            <li><strong>Personalized Learning Paths:</strong> We assess each student's current skill level and learning style to tailor a curriculum that maximizes their progress.</li>
+            <li><strong>Interactive Sessions:</strong> Beyond lectures, our classes feature interactive puzzles, live game analysis, and guided play to apply theoretical knowledge.</li>
+            <li><strong>Focus on Psychology:</strong> Understanding the mental game is crucial. We integrate lessons on emotional control, resilience, and maintaining focus under pressure.</li>
+            <li><strong>Community and Support:</strong> Join a vibrant community of chess enthusiasts. Regular tournaments, study groups, and direct access to coaches provide unparalleled support.</li>
+        </ul>
+
+        <blockquote class="border-l-4 border-indigo-500 pl-4 py-2 italic text-gray-600 mb-6 mt-8">
+            "ChessDepth Academy transformed my understanding of the game. I didn't just learn moves; I learned to think strategically and patiently. Highly recommended for anyone serious about improving!" <br> - <strong>Shiven Chimnani, Mumbai, India. Advanced Student.</strong>
+        </blockquote>
+
+        <p class="mb-6">Whether you dream of achieving a master title or simply want to enjoy the intellectual challenge chess offers, ChessDepth Academy provides the environment, expertise, and resources to help you reach your goals. We believe in nurturing a love for the game that lasts a lifetime.</p>
+
+        <h3 class="text-2xl font-semibold text-gray-900 mb-4 mt-8 text-center">Why Choose ChessDepth?</h3>
+        <p class="mb-6">Our commitment to excellence is reflected in our structured courses, designed by grandmasters and highly rated players. We focus on a holistic development that includes:</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center mt-8">
+          <div class="p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition group">
+              <i class="fas fa-brain text-4xl text-indigo-500 mb-3 group-hover:scale-110 transition-transform"></i>
+              <h3 class="text-xl font-semibold mb-2">Build Focus</h3>
+              <p class="text-gray-600 text-sm">Sharpen concentration and problem-solving skills, enhancing cognitive abilities.</p>
+          </div>
+          <div class="p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition group">
+              <i class="fas fa-chess-knight text-4xl text-indigo-500 mb-3 group-hover:scale-110 transition-transform"></i>
+              <h3 class="text-xl font-semibold mb-2">Master Strategy</h3>
+              <p class="text-gray-600 text-sm">Develop long-term planning, tactical vision, and a deep understanding of positional play.</p>
+          </div>
+          <div class="p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition group">
+              <i class="fas fa-lightbulb text-4xl text-indigo-500 mb-3 group-hover:scale-110 transition-transform"></i>
+              <h3 class="text-xl font-semibold mb-2">Unleash Creativity</h3>
+              <p class="text-gray-600 text-sm">Discover innovative solutions, unconventional ideas, and unique approaches on the board.</p>
+          </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-indigo-700 text-white py-12 px-4">
+    <div class="max-w-5xl mx-auto text-center">
+      <h2 class="text-3xl font-bold mb-8 text-indigo-100">Our Achievements Speak Volumes</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div class="stat-item">
+          <div class="stat-number" data-target="50" data-suffix="+">50+</div>
+          <p class="stat-label">Students Enrolled</p>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number" data-target="1000" data-suffix="+">1000+</div>
+          <p class="stat-label">Hours of Teaching</p>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number" data-target="90" data-suffix="%">90%</div>
+          <p class="stat-label">Student Success Rate</p>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number" data-target="10" data-suffix="">10</div>
+          <p class="stat-label">Coaches (incl. a Grandmaster)</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="daily" class="dp-section" aria-labelledby="dp-h">
+    <div class="cd-wrap dp-grid">
+      <div class="dp-board-col">
+        <chess-board id="dp-board" class="dp-board dp-loading" draggable-pieces></chess-board>
+        <p class="dp-credit">Position from a real game · with thanks to the free <a href="https://database.lichess.org/#puzzles" target="_blank" rel="noopener">Lichess puzzle database</a></p>
+      </div>
+      <div class="dp-side">
+        <p class="dp-eyebrow"><i class="fas fa-calendar-day"></i> Puzzle of the Day</p>
+        <h2 class="dp-h2" id="dp-h"><span id="dp-date">Today's puzzle</span></h2>
+        <p class="dp-chips"><span class="dp-level" id="dp-level">…</span><span class="dp-rating" id="dp-rating"></span><span class="dp-streak hidden" id="dp-streak"></span></p>
+        <p class="dp-goal" id="dp-goal">Loading today's position…</p>
+        <p class="dp-intro">A new position from a real game every day. Monday's puzzle is the gentlest, and by Sunday it's a real test. Solve it on the board, and use a hint only if you need one.</p>
+        <div class="dp-status" id="dp-status-box" aria-live="polite"><p class="dp-status-main" id="dp-status">Getting the board ready…</p><p class="dp-status-sub" id="dp-sub"></p></div>
+        <div class="dp-actions">
+          <button type="button" class="dp-btn" id="dp-hint"><i class="far fa-lightbulb"></i> Hint</button>
+          <button type="button" class="dp-btn" id="dp-show"><i class="far fa-eye"></i> Show solution</button>
+          <a class="dp-btn dp-share hidden" id="dp-share" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> Challenge a friend</a>
+        </div>
+        <div class="dp-explain hidden" id="dp-explain">
+          <p class="dp-theme-row"><span>Today's idea:</span> <b id="dp-theme"></b></p>
+          <p class="dp-idea" id="dp-idea"></p>
+          <p class="dp-solution-row hidden" id="dp-solution-row"><span>Solution:</span> <b id="dp-solution"></b></p>
+        </div>
+        <p class="dp-foot"><span id="dp-next"></span> · <a href="/lab/tactics/">Train more in the Chess Lab</a> · <a href="/shop/tactics-starter/">Free tactics pack</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section id="reviews" class="hr-section" data-rv-section hidden>
+    <div class="cd-wrap hr-wrap">
+      <div class="hr-head">
+        <div><p class="hr-eyebrow"><i class="fas fa-star"></i> Live reviews</p><h2 class="hr-h2">What students and parents say</h2><p class="hr-stats" data-rv-latest-stats="academy"></p></div>
+        <a href="/about/#reviews" class="hr-all">Read all or write a review <i class="fas fa-arrow-right"></i></a>
+      </div>
+      <div class="rv-latest" data-rv-latest="academy" data-rv-count="3"></div>
+<script>window.CD_RV = window.CD_RV || { wa: "919823029262" };</script>
+<script type="module" src="/assets/js/reviews.js?v=1792825109"></script>
+
+    </div>
+  </section>
+
+  <section id="courses" class="py-16 bg-white px-4 fade-in-section">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-3xl font-bold text-center mb-10 tracking-tight">Popular Courses</h2>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="bg-gray-50 p-6 rounded-lg shadow course-card-hover course-card-1 flex flex-col justify-between">
+          <div>
+            <h3 class="text-xl font-semibold mb-2">Beginner's Tactics</h3>
+            <p class="text-gray-700 mb-4">Master forks, pins, skewers & traps to dominate early games and build a strong foundation.</p>
+          </div>
+          <a href="/courses/" class="text-indigo-600 hover:text-indigo-800 font-medium mt-4 self-start transition-colors duration-200">Explore tactics courses <i class="fas fa-arrow-right text-sm ml-1"></i></a>
+        </div>
+        <div class="bg-gray-50 p-6 rounded-lg shadow course-card-hover course-card-2 flex flex-col justify-between">
+          <div>
+            <h3 class="text-xl font-semibold mb-2">Positional Strategy</h3>
+            <p class="text-gray-700 mb-4">Learn pawn structures, weak squares, and subtle positional play for long-term advantages.</p>
+          </div>
+          <a href="/courses/" class="text-indigo-600 hover:text-indigo-800 font-medium mt-4 self-start transition-colors duration-200">Explore strategy courses <i class="fas fa-arrow-right text-sm ml-1"></i></a>
+        </div>
+        <div class="bg-gray-50 p-6 rounded-lg shadow course-card-hover course-card-3 flex flex-col justify-between">
+          <div>
+            <h3 class="text-xl font-semibold mb-2">Openings Repertoire</h3>
+            <p class="text-gray-700 mb-4">Build your white and black repertoire with sharp & solid openings.</p>
+          </div>
+          <a href="/courses/" class="text-indigo-600 hover:text-indigo-800 font-medium mt-4 self-start transition-colors duration-200">Explore opening courses <i class="fas fa-arrow-right text-sm ml-1"></i></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="inquiry" class="py-16 px-4 bg-gray-100 fade-in-section">
+    <div class="max-w-xl mx-auto">
+      <h2 class="text-3xl font-bold text-center mb-8 tracking-tight">Student Inquiry Form</h2>
+      <form class="bg-white p-8 rounded-lg shadow-lg" onsubmit="handleSubmit(event)">
+        <div class="mb-4">
+          <label class="block text-gray-700 text-sm font-bold mb-2" for="fullName">Full Name</label>
+          <input type="text" id="fullName" name="fullName" class="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition duration-200 ease-in-out" required />
+        </div>
+
+        <div class="mb-4">
+          <label class="block text-gray-700 text-sm font-bold mb-2" for="age">Age</label>
+          <input type="number" id="age" name="age" class="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition duration-200 ease-in-out" required min="5" max="99" />
+        </div>
+
+        <div class="mb-4">
+          <label class="block text-gray-700 text-sm font-bold mb-2" for="rating">Current Chess Rating (if any)</label>
+          <input type="text" id="rating" name="rating" class="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition duration-200 ease-in-out" placeholder="e.g., 1200 FIDE, Unrated" />
+        </div>
+
+        <div class="mb-4">
+          <label class="block text-gray-700 text-sm font-bold mb-2" for="contactNumber">Contact Number</label>
+          <input type="tel" id="contactNumber" name="contactNumber" pattern="^[0-9+\-\s()]{7,}$" inputmode="tel" class="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition duration-200 ease-in-out" placeholder="Required" required/>
+        </div>
+
+        <div class="mb-4">
+          <label class="block text-gray-700 text-sm font-bold mb-2" for="email">Email</label>
+          <input type="email" id="email" name="email" class="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition duration-200 ease-in-out" required />
+        </div>
+
+        <div class="mb-6">
+          <label class="block text-gray-700 text-sm font-bold mb-2" for="course">Interested Course</label>
+          <select id="course" name="interestedCourse" class="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition duration-200 ease-in-out">
+            <option value="beginner">Beginner's Tactics</option>
+            <option value="intermediate">Intermediate</option>
+            <option value="advanced">Advanced</option>
+            <option value="tournament-preparation">Tournament Preparation</option>
+            <option value="other">Not sure / Other</option>
+          </select>
+        </div>
+
+        <button type="submit" class="w-full bg-indigo-600 text-white font-bold py-3 px-6 rounded-md hover:bg-indigo-700 transform hover:scale-105 transition duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Submit Inquiry</button>
+      </form>
+
+      <div id="thankYouMessage" class="hidden bg-green-100 border-l-4 border-green-500 text-green-700 p-4 mt-8 rounded-md" role="status" aria-live="polite">
+          <p class="font-bold">Thank You!</p>
+          <p>Your inquiry has been submitted successfully. We'll get back to you shortly.</p>
+      </div>
+    </div>
+  </section>
+
+  
+
+
+<script>
+    // COMBINED SCRIPT BLOCK FOR ALL PAGE-SPECIFIC JS
+    document.addEventListener('DOMContentLoaded', () => {
+        // --- Announcement Bar Logic ---
+        const announcementBar = document.getElementById('announcement-bar');
+        const closeAnnouncement = document.getElementById('close-announcement');
+        const body = document.body;
+        const mainHeader = document.getElementById('main-header');
+
+        // Check if user previously closed the announcement
+        if (localStorage.getItem('chessDepthSummerAnnouncementClosed') === 'true') {
+            if (announcementBar) announcementBar.classList.add('hidden');
+            body.classList.remove('with-announcement');
+            if (mainHeader) mainHeader.style.top = '0';
+        }
+
+        if (closeAnnouncement && announcementBar) {
+            closeAnnouncement.addEventListener('click', () => {
+                announcementBar.classList.add('hidden');
+                body.classList.remove('with-announcement');
+                if (mainHeader) mainHeader.style.top = '0';
+                // Remember user preference
+                localStorage.setItem('chessDepthSummerAnnouncementClosed', 'true');
+            });
+        }
+
+        // --- Smooth scroll for nav links ---
+        document.querySelectorAll('nav a[href^="#"], .hero-button').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const targetId = this.getAttribute('href');
+                
+                // Only handle internal anchors
+                if (targetId.startsWith("#")) { 
+                    e.preventDefault();
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        // Dynamic offset calculation based on announcement bar visibility
+                        let headerOffset = mainHeader ? mainHeader.offsetHeight : 0;
+                        if (body.classList.contains('with-announcement') && announcementBar && !announcementBar.classList.contains('hidden')) {
+                            headerOffset += announcementBar.offsetHeight;
+                        }
+
+                        const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
+                        const offsetPosition = elementPosition - headerOffset - 20; // Added 20px padding
+
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: "smooth"
+                        });
+                    }
+                }
+            });
+        });
+
+        // --- Intersection Observer for section fade-in ---
+        const faders = document.querySelectorAll('.fade-in-section');
+        const appearOptions = {
+          threshold: 0.15, 
+          rootMargin: "0px 0px -50px 0px"
+        };
+
+        const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
+          entries.forEach(entry => {
+            if (!entry.isIntersecting) {
+              return;
+            } else {
+              entry.target.style.animation = `fadeIn 1.6s ease-out forwards`;
+              entry.target.style.opacity = '1';
+              appearOnScroll.unobserve(entry.target);
+            }
+          });
+        }, appearOptions);
+
+        faders.forEach(fader => {
+          fader.style.opacity = '0';
+          appearOnScroll.observe(fader);
+        });
+
+        // --- Intersection Observer for staggered course card animation ---
+        const courseCards = document.querySelectorAll('.course-card-1, .course-card-2, .course-card-3');
+        const cardOptions = {
+          threshold: 0.3, // Cards animate when 30% in view
+        };
+
+        const cardAppearOnScroll = new IntersectionObserver(function(entries, cardAppearOnScroll) {
+          entries.forEach(entry => {
+            if (!entry.isIntersecting) {
+              return;
+            } else {
+              const delay = entry.target.classList.contains('course-card-1') ? '0s' :
+                            entry.target.classList.contains('course-card-2') ? '0.2s' :
+                            '0.4s';
+              entry.target.style.animation = `cardPop 1s ease-out forwards ${delay}`;
+              entry.target.style.opacity = '1';
+              cardAppearOnScroll.unobserve(entry.target);
+            }
+          });
+        }, cardOptions);
+
+        courseCards.forEach(card => {
+            card.style.opacity = '0';
+            cardAppearOnScroll.observe(card);
+        });
+
+
+        // --- Counter Animation for Trust Bar ---
+        const statNumbers = document.querySelectorAll('.stat-number');
+
+        const animateCounter = (entry) => {
+            if (entry.isIntersecting) {
+                // Read the number from data-target, or from the visible text (e.g. "1000+"), so it never shows NaN
+                const shown = entry.target.textContent.trim();
+                let target = parseInt(entry.target.dataset.target, 10);
+                if (isNaN(target)) target = parseInt(shown.replace(/[^0-9]/g, ''), 10);
+                const suffix = entry.target.dataset.suffix !== undefined ? entry.target.dataset.suffix : shown.replace(/[0-9,]/g, '');
+                if (isNaN(target)) { counterObserver.unobserve(entry.target); return; }
+                let current = 0;
+                const frames = 200;
+                const increment = Math.max(1, target / frames);
+
+                const updateCounter = () => {
+                    if (current < target) {
+                        current = Math.min(target, current + increment);
+                        entry.target.textContent = `${Math.ceil(current)}${suffix}`;
+                        requestAnimationFrame(updateCounter);
+                    } else {
+                        entry.target.textContent = `${target}${suffix}`;
+                    }
+                };
+                updateCounter();
+                counterObserver.unobserve(entry.target); // Stop observing once counted
+            }
+        };
+
+        const counterObserver = new IntersectionObserver((entries) => {
+            entries.forEach(animateCounter);
+        }, { threshold: 0.5 }); // Trigger when 50% in view
+
+        statNumbers.forEach(number => {
+            counterObserver.observe(number);
+        });
+
+        // --- Add/remove header shadow on scroll ---
+        window.addEventListener('scroll', () => {
+            if (mainHeader) {
+                if (window.scrollY > 50) {
+                    mainHeader.classList.add('shadow-xl');
+                } else {
+                    mainHeader.classList.remove('shadow-xl');
+                }
+            }
+        });
+        
+        // --- Hamburger Menu Logic ---
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        if (menuToggle && mobileMenu) {
+            const iconHamburger = document.getElementById('icon-hamburger');
+            const iconClose = document.getElementById('icon-close');
+
+            menuToggle.addEventListener('click', () => {
+                const isOpen = !mobileMenu.classList.contains('hidden');
+                mobileMenu.classList.toggle('hidden');
+                mobileMenu.classList.toggle('-translate-y-full');
+                menuToggle.setAttribute('aria-expanded', String(!isOpen));
+                if (iconHamburger && iconClose) {
+                    iconHamburger.classList.toggle('hidden', !isOpen);
+                    iconClose.classList.toggle('hidden', isOpen);
+                }
+            });
+
+            const mobileLinks = mobileMenu.querySelectorAll('a');
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                    mobileMenu.classList.add('-translate-y-full');
+                    menuToggle.setAttribute('aria-expanded', 'false');
+                    if (iconHamburger && iconClose) {
+                        iconHamburger.classList.remove('hidden');
+                        iconClose.classList.add('hidden');
+                    }
+                });
+            });
+        }
+        
+    }); // End DOMContentLoaded for all setup
+    
+    // Handle Form Submission (outside DOMContentLoaded as it's directly called by the form's onsubmit)
+    async function handleSubmit(event) {
+        event.preventDefault(); // Prevent default form submission
+
+        const form = event.target;
+        const formData = new FormData(form);
+
+        // Your Formspree endpoint (make sure this is correct)
+        const formspreeEndpoint = 'https://formspree.io/f/xqaleznp'; 
+
+        try {
+            const response = await fetch(formspreeEndpoint, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            });
+
+            if (response.ok) {
+                if (window.gtag) gtag('event', 'generate_lead', { form_name: 'home_inquiry' });
+                // Form submission successful
+                form.classList.add('hidden'); // Hide the form
+                const thankYouMessage = document.getElementById('thankYouMessage');
+                if (thankYouMessage) thankYouMessage.classList.remove('hidden'); // Show thank you message
+
+                // Optional: Hide thank you message and show form again after a few seconds
+                setTimeout(() => {
+                    if (thankYouMessage) thankYouMessage.classList.add('hidden');
+                    form.classList.remove('hidden');
+                    form.reset(); // Clear the form
+                }, 5000); // Hide after 5 seconds
+            } else {
+                // Form submission failed
+                cdFormMessage(form, 'Sorry, your message could not be sent. Please try again, or WhatsApp us on +91 98230 29262.');
+            }
+        } catch (error) {
+            console.error('Error submitting form:', error);
+            cdFormMessage(form, 'Could not send your message. Please check your internet connection, or WhatsApp us on +91 98230 29262.');
+        }
+    }
+</script>
+<script type="module" src="/assets/js/daily.js"></script>
+
+
+  
+<footer class="cd-footer bg-gray-800 text-gray-300 pt-10 pb-6 mt-10">
+    <div class="max-w-6xl mx-auto px-4 grid gap-8 md:grid-cols-3 text-center md:text-left">
+      <div>
+        <p class="text-2xl font-bold text-white mb-2">♟️ ChessDepth Academy</p>
+        <p class="text-sm text-gray-400">Structured online chess coaching for beginners to tournament players.</p>
+        <div class="mt-4 flex justify-center md:justify-start space-x-5 text-2xl">
+          <a href="https://www.instagram.com/chessdepthacademy1/" target="_blank" rel="noopener noreferrer" aria-label="ChessDepth on Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.facebook.com/chessdepthacademy/" target="_blank" rel="noopener noreferrer" aria-label="ChessDepth on Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://wa.me/919823029262?text=Hi%2C%20I%20would%20like%20to%20book%20a%20free%20demo%20class" target="_blank" rel="noopener noreferrer" aria-label="ChessDepth on WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        </div>
+      </div>
+      <div>
+        <p class="font-semibold text-white mb-3">Explore</p>
+        <ul class="space-y-1 text-sm">
+          <li><a href="/courses/">Courses &amp; Fees</a></li>
+          <li><a href="/coaches/">Our Coaches</a></li>
+          <li><a href="/resources/">Free Resources</a></li>
+          <li><a href="/shop/">Shop</a></li>
+          <li><a href="/lab/">Chess Lab</a></li>
+          <li><a href="/careers/">Careers</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="font-semibold text-white mb-3">Get in touch</p>
+        <ul class="space-y-1 text-sm">
+          <li><i class="fas fa-phone-alt mr-2"></i><a href="tel:+919823029262">+91 98230 29262</a></li>
+          <li><i class="fab fa-whatsapp mr-2"></i><a href="https://wa.me/919823029262?text=Hi%2C%20I%20would%20like%20to%20book%20a%20free%20demo%20class" target="_blank" rel="noopener noreferrer">WhatsApp us</a></li>
+          <li><i class="fas fa-envelope mr-2"></i><a href="mailto:info@chessdepth.in">info@chessdepth.in</a></li>
+          <li><i class="fas fa-map-marker-alt mr-2"></i>Bhopal, Madhya Pradesh, India</li>
+        </ul>
+      </div>
+    </div>
+    <div class="max-w-6xl mx-auto px-4 mt-8 pt-4 border-t border-gray-700 flex flex-col sm:flex-row justify-between text-xs text-gray-400 gap-2 text-center">
+      <p>&copy; <span data-year>2026</span> ChessDepth Academy. All rights reserved.</p>
+      <p class="cd-legal"><a href="/terms/">Terms</a> · <a href="/refunds/">Refunds &amp; cancellations</a> · <a href="/privacy/">Privacy policy</a></p>
+    </div>
+  </footer>
+  <a href="https://wa.me/919823029262?text=Hi%2C%20I%20would%20like%20to%20book%20a%20free%20demo%20class" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Chat with ChessDepth on WhatsApp" title="Chat with us on WhatsApp"><i class="fab fa-whatsapp text-2xl"></i></a>
+
+  <script src="/assets/js/site.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <script>
+    /* Night/day mode: use the saved choice, otherwise follow the device setting */
+    (function () {
+      var t = null; try { t = localStorage.getItem("cd-theme"); } catch (e) {}
+      if (t !== "light" && t !== "dark") t = (window.matchMedia && matchMedia("(prefers-color-scheme: dark)").matches) ? "dark" : "light";
+      if (t === "dark") document.documentElement.classList.add("dark");
+    })();
+  </script>
+  <meta name="theme-color" content="#1f2547">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Area | ChessDepth Academy</title>
+  <meta name="description" content="Sign in to the ChessDepth Academy student area to download free PDF worksheets and study material for every course.">
+  <link rel="canonical" href="https://www.chessdepth.in/student/">
+  <meta property="og:title" content="Student Area | ChessDepth Academy">
+  <meta property="og:site_name" content="ChessDepth Academy">
+  <meta property="og:locale" content="en_IN">
+  <meta property="og:description" content="Sign in to the ChessDepth Academy student area to download free PDF worksheets and study material for every course.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.chessdepth.in/student/">
+  <meta property="og:image" content="https://www.chessdepth.in/assets/images/og-image.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Student Area | ChessDepth Academy">
+  <meta name="twitter:description" content="Sign in to the ChessDepth Academy student area to download free PDF worksheets and study material for every course.">
+  <meta name="twitter:image" content="https://www.chessdepth.in/assets/images/og-image.jpg">
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="/assets/images/favicon.ico" sizes="48x48">
+  <link rel="icon" href="/assets/images/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="/assets/css/tailwind.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,500;0,600;1,400&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <link rel="stylesheet" href="/assets/css/dark.css">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-2C73E30ZFX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-2C73E30ZFX');
+  </script>
+  
+
+
+</head>
+<body class="bg-gray-100 text-gray-800">
+  <div class="cd-topbar">
+    <div class="cd-wrap cd-topbar-inner">
+      <p class="cd-topbar-contact">
+        <a href="tel:+919823029262"><i class="fas fa-phone-alt"></i>+91 98230 29262</a>
+        <a href="mailto:info@chessdepth.in"><i class="far fa-envelope"></i>info@chessdepth.in</a>
+      </p>
+      <p class="cd-topbar-links">
+        <a href="/lab/"><i class="fas fa-flask"></i>Chess Lab<span class="cd-free" data-free-until="2026-11-21">Free</span></a>
+        <a href="/careers/">Careers</a>
+        <a href="/student/" aria-current="page"><i class="far fa-user-circle"></i>Student login</a>
+        <button type="button" class="cd-theme-btn" data-theme-toggle aria-label="Switch to night mode" title="Night / day mode"><i class="fas fa-moon cd-moon"></i><i class="fas fa-sun cd-sun"></i></button>
+      </p>
+    </div>
+  </div>
+  <header class="cd-header" id="main-header">
+    <div class="cd-wrap cd-header-inner">
+      <a href="/" class="cd-brand">
+        <svg class="cd-mark" viewBox="0 0 32 32" aria-hidden="true" focusable="false"><path fill="currentColor" d="M8 5h3v3h2.5V5h5v3H21V5h3v7.2l-2.4 1.8.9 9H9.5l.9-9L8 12.2zM8.5 24.5h15l1.5 2.5H7zM6 28h20v2.5H6z"/></svg>
+
+        <span class="cd-brand-text"><span class="cd-brand-name">ChessDepth</span><span class="cd-brand-sub">Chess Academy</span></span>
+      </a>
+      <nav id="main-nav" aria-label="Primary" class="cd-nav">
+        <a href="/about/" class="cd-link">About</a>
+        <a href="/courses/" class="cd-link">Courses</a>
+        <a href="/coaches/" class="cd-link">Coaches</a>
+        <a href="/resources/" class="cd-link">Resources</a>
+        <a href="/shop/" class="cd-link">Shop</a>
+        <a href="/ai/" class="cd-link cd-link-ai">ChessDepth AI<span class="cd-soon">Soon</span></a>
+        <a href="/blog/" class="cd-link">Blog</a>
+        <a href="/contact/" class="cd-link">Contact</a>
+        <a href="https://wa.me/919823029262?text=Hi%2C%20I%20would%20like%20to%20book%20a%20free%20demo%20class" target="_blank" rel="noopener noreferrer" class="cd-hdr-cta">Book a free demo</a>
+      </nav>
+      <div class="cd-header-mobile">
+        <button type="button" class="cd-theme-btn" data-theme-toggle aria-label="Switch to night mode" title="Night / day mode"><i class="fas fa-moon cd-moon"></i><i class="fas fa-sun cd-sun"></i></button>
+        <button id="menu-toggle" class="cd-menu-btn" aria-controls="mobile-menu" aria-expanded="false" aria-label="Open menu">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+        </button>
+      </div>
+    </div>
+    <div id="mobile-menu" class="cd-mobile-menu hidden">
+      <nav class="cd-wrap" aria-label="Mobile">
+        <a href="/">Home</a>
+        <a href="/about/">About</a>
+        <a href="/courses/">Courses</a>
+        <a href="/coaches/">Coaches</a>
+        <a href="/resources/">Resources</a>
+        <a href="/shop/">Shop</a>
+        <a href="/ai/">ChessDepth AI<span class="cd-soon">Coming soon</span></a>
+        <a href="/blog/">Blog</a>
+        <a href="/contact/">Contact</a>
+        <a href="/lab/">Chess Lab <i class="fas fa-crown" style="color:#b08a4e;font-size:.8em"></i><span class="cd-soon" data-free-until="2026-11-21">Free launch offer</span></a>
+        <a href="/careers/">Careers</a>
+        <div class="cd-mobile-actions">
+          <a href="/student/" class="cd-mobile-login"><i class="far fa-user-circle"></i>Student login</a>
+          <a href="https://wa.me/919823029262?text=Hi%2C%20I%20would%20like%20to%20book%20a%20free%20demo%20class" target="_blank" rel="noopener noreferrer" class="cd-hdr-cta">Book a free demo</a>
+        </div>
+        <p class="cd-mobile-contact"><a href="tel:+919823029262">+91 98230 29262</a><a href="mailto:info@chessdepth.in">info@chessdepth.in</a></p>
+      </nav>
+    </div>
+  </header>
+
+
+  <section class="cd-hero cd-hero-bg">
+  <div class="cd-hero-inner"><p class="cd-hero-eyebrow">Student area</p>
+    <h1 class="cd-hero-title">Student Area</h1><p class="cd-hero-lead">Free PDF worksheets and study material for every ChessDepth course.</p>
+  </div>
+</section>
+
+
+  <main class="max-w-5xl mx-auto px-4 py-12" style="min-height:40vh">
+
+    <!-- Shown while Firebase checks whether the student is signed in -->
+    <div id="state-loading" class="text-center text-gray-500 py-16">
+      <i class="fas fa-circle-notch fa-spin text-3xl text-indigo-500"></i>
+      <p class="mt-3">Loading&hellip;</p>
+    </div>
+
+    <!-- Shown if firebase-config.js has not been filled in yet -->
+    <div id="state-setup" class="hidden max-w-xl mx-auto bg-white rounded-lg shadow p-8 text-center">
+      <i class="fas fa-tools text-4xl text-indigo-500 mb-3"></i>
+      <h2 class="text-2xl font-bold mb-2">Student Area opening soon</h2>
+      <p class="text-gray-600">We&rsquo;re setting up student accounts. Meanwhile, ask your coach for your worksheets on WhatsApp.</p>
+    </div>
+
+    <!-- Signed out -->
+    <div id="state-signed-out" class="hidden max-w-md mx-auto bg-white rounded-lg shadow-lg p-8 text-center">
+      <i class="fas fa-chess-knight text-5xl text-indigo-600 mb-4"></i>
+      <h2 class="text-2xl font-bold mb-2">Sign in to get your material</h2>
+      <p class="text-gray-600 mb-6">Create a free student account with your Google account to download worksheets, concept books and quizzes for all our courses.</p>
+      <button id="btn-google" type="button" class="w-full inline-flex items-center justify-center gap-3 border border-gray-300 rounded-lg py-3 px-4 font-semibold text-gray-700 bg-white hover:bg-gray-50 shadow-sm transition">
+        <svg width="20" height="20" viewBox="0 0 48 48" aria-hidden="true"><path fill="#FFC107" d="M43.6 20.5H42V20H24v8h11.3C33.7 32.7 29.2 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34 6.1 29.3 4 24 4 12.9 4 4 12.9 4 24s8.9 20 20 20 20-8.9 20-20c0-1.3-.1-2.4-.4-3.5z"/><path fill="#FF3D00" d="M6.3 14.7l6.6 4.8C14.7 15.1 19 12 24 12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34 6.1 29.3 4 24 4 16.3 4 9.7 8.3 6.3 14.7z"/><path fill="#4CAF50" d="M24 44c5.2 0 9.9-2 13.4-5.2l-6.2-5.2C29.2 35.1 26.7 36 24 36c-5.2 0-9.6-3.3-11.3-7.9l-6.5 5C9.5 39.6 16.2 44 24 44z"/><path fill="#1976D2" d="M43.6 20.5H42V20H24v8h11.3c-.8 2.2-2.2 4.2-4.1 5.6l6.2 5.2C37 39.2 44 34 44 24c0-1.3-.1-2.4-.4-3.5z"/></svg>
+        Sign in with Google
+      </button>
+      <p id="signin-error" class="hidden mt-4 text-sm text-red-600"></p>
+      <p class="mt-6 text-xs text-gray-400">We only use your name and email to manage your student account.</p>
+    </div>
+
+    <!-- Signed in -->
+    <div id="state-signed-in" class="hidden">
+      <div class="bg-white rounded-lg shadow p-5 flex flex-col sm:flex-row items-center justify-between gap-4 mb-8">
+        <div class="flex items-center gap-4">
+          <img id="user-photo" src="" alt="" class="w-12 h-12 rounded-full bg-indigo-100 hidden" referrerpolicy="no-referrer">
+          <div class="text-center sm:text-left">
+            <p class="text-lg font-semibold">Welcome, <span id="user-name">Student</span>!</p>
+            <p id="user-email" class="text-sm text-gray-500"></p>
+          </div>
+        </div>
+        <button id="btn-signout" type="button" class="text-sm font-semibold text-gray-600 hover:text-red-600 border border-gray-300 rounded-full px-4 py-2 transition"><i class="fas fa-sign-out-alt mr-1"></i>Sign out</button>
+      </div>
+
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-6">
+        <h2 class="text-2xl font-bold">Your study material</h2>
+        <input id="search" type="search" placeholder="Search worksheets&hellip;" class="w-full sm:w-64 p-2.5 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500" aria-label="Search worksheets">
+      </div>
+
+      <a href="/lab/" class="block rounded-lg p-5 mb-6 border border-yellow-200 bg-yellow-50 hover:shadow transition"><p class="font-bold text-gray-900"><i class="fas fa-flask mr-2"></i>Chess Lab</p><p class="text-sm text-gray-600 mt-1">Tactics trainer, opening courses and your progress dashboard. A separate membership.</p></a>
+      <div id="materials" class="space-y-6"></div>
+      <p id="materials-empty" class="hidden text-center text-gray-500 py-10">No material has been uploaded yet. Check back soon!</p>
+      <p id="materials-error" class="hidden text-center text-indigo-700 bg-indigo-50 rounded-lg px-6 py-10"></p>
+    </div>
+  </main>
+
+  
+
+  <script type="module" src="/assets/js/student.js"></script>
+
+
+  
+<footer class="cd-footer bg-gray-800 text-gray-300 pt-10 pb-6 mt-10">
+    <div class="max-w-6xl mx-auto px-4 grid gap-8 md:grid-cols-3 text-center md:text-left">
+      <div>
+        <p class="text-2xl font-bold text-white mb-2">♟️ ChessDepth Academy</p>
+        <p class="text-sm text-gray-400">Structured online chess coaching for beginners to tournament players.</p>
+        <div class="mt-4 flex justify-center md:justify-start space-x-5 text-2xl">
+          <a href="https://www.instagram.com/chessdepthacademy1/" target="_blank" rel="noopener noreferrer" aria-label="ChessDepth on Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.facebook.com/chessdepthacademy/" target="_blank" rel="noopener noreferrer" aria-label="ChessDepth on Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://wa.me/919823029262?text=Hi%2C%20I%20would%20like%20to%20book%20a%20free%20demo%20class" target="_blank" rel="noopener noreferrer" aria-label="ChessDepth on WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        </div>
+      </div>
+      <div>
+        <p class="font-semibold text-white mb-3">Explore</p>
+        <ul class="space-y-1 text-sm">
+          <li><a href="/courses/">Courses &amp; Fees</a></li>
+          <li><a href="/coaches/">Our Coaches</a></li>
+          <li><a href="/resources/">Free Resources</a></li>
+          <li><a href="/shop/">Shop</a></li>
+          <li><a href="/lab/">Chess Lab</a></li>
+          <li><a href="/careers/">Careers</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="font-semibold text-white mb-3">Get in touch</p>
+        <ul class="space-y-1 text-sm">
+          <li><i class="fas fa-phone-alt mr-2"></i><a href="tel:+919823029262">+91 98230 29262</a></li>
+          <li><i class="fab fa-whatsapp mr-2"></i><a href="https://wa.me/919823029262?text=Hi%2C%20I%20would%20like%20to%20book%20a%20free%20demo%20class" target="_blank" rel="noopener noreferrer">WhatsApp us</a></li>
+          <li><i class="fas fa-envelope mr-2"></i><a href="mailto:info@chessdepth.in">info@chessdepth.in</a></li>
+          <li><i class="fas fa-map-marker-alt mr-2"></i>Bhopal, Madhya Pradesh, India</li>
+        </ul>
+      </div>
+    </div>
+    <div class="max-w-6xl mx-auto px-4 mt-8 pt-4 border-t border-gray-700 flex flex-col sm:flex-row justify-between text-xs text-gray-400 gap-2 text-center">
+      <p>&copy; <span data-year>2026</span> ChessDepth Academy. All rights reserved.</p>
+      <p class="cd-legal"><a href="/terms/">Terms</a> · <a href="/refunds/">Refunds &amp; cancellations</a> · <a href="/privacy/">Privacy policy</a></p>
+    </div>
+  </footer>
+  <a href="https://wa.me/919823029262?text=Hi%2C%20I%20would%20like%20to%20book%20a%20free%20demo%20class" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Chat with ChessDepth on WhatsApp" title="Chat with us on WhatsApp"><i class="fab fa-whatsapp text-2xl"></i></a>
+
+  <script src="/assets/js/site.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <script>
+    /* Night/day mode: use the saved choice, otherwise follow the device setting */
+    (function () {
+      var t = null; try { t = localStorage.getItem("cd-theme"); } catch (e) {}
+      if (t !== "light" && t !== "dark") t = (window.matchMedia && matchMedia("(prefers-color-scheme: dark)").matches) ? "dark" : "light";
+      if (t === "dark") document.documentElement.classList.add("dark");
+    })();
+  </script>
+  <meta name="theme-color" content="#1f2547">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chess Shop: Worksheets, Plans, Puzzles & Openings | ChessDepth Academy</title>
+  <meta name="description" content="Digital chess products from ChessDepth Academy: printable worksheet packs, 90-day improvement plans, puzzle collections and opening repertoires. Instant download.">
+  <link rel="canonical" href="https://www.chessdepth.in/shop/">
+  <meta property="og:title" content="Chess Shop: Worksheets, Plans, Puzzles & Openings | ChessDepth Academy">
+  <meta property="og:site_name" content="ChessDepth Academy">
+  <meta property="og:locale" content="en_IN">
+  <meta property="og:description" content="Digital chess products from ChessDepth Academy: printable worksheet packs, 90-day improvement plans, puzzle collections and opening repertoires. Instant download.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.chessdepth.in/shop/">
+  <meta property="og:image" content="https://www.chessdepth.in/assets/images/og-image.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Chess Shop: Worksheets, Plans, Puzzles & Openings | ChessDepth Academy">
+  <meta name="twitter:description" content="Digital chess products from ChessDepth Academy: printable worksheet packs, 90-day improvement plans, puzzle collections and opening repertoires. Instant download.">
+  <meta name="twitter:image" content="https://www.chessdepth.in/assets/images/og-image.jpg">
+  <link rel="icon" href="/assets/images/favicon.ico" sizes="48x48">
+  <link rel="icon" href="/assets/images/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="/assets/css/tailwind.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,500;0,600;1,400&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="/assets/css/pages/shop.css">
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <link rel="stylesheet" href="/assets/css/dark.css">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-2C73E30ZFX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-2C73E30ZFX');
+  </script>
+  
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+    {"@type":"ListItem","position":1,"name":"Home","item":"https://www.chessdepth.in/"},{"@type":"ListItem","position":2,"name":"Shop","item":"https://www.chessdepth.in/shop/"}
+  ]}
+  </script>
+
+
+</head>
+<body class="bg-gray-100 text-gray-800">
+  <div class="cd-topbar">
+    <div class="cd-wrap cd-topbar-inner">
+      <p class="cd-topbar-contact">
+        <a href="tel:+919823029262"><i class="fas fa-phone-alt"></i>+91 98230 29262</a>
+        <a href="mailto:info@chessdepth.in"><i class="far fa-envelope"></i>info@chessdepth.in</a>
+      </p>
+      <p class="cd-topbar-links">
+        <a href="/lab/"><i class="fas fa-flask"></i>Chess Lab<span class="cd-free" data-free-until="2026-11-21">Free</span></a>
+        <a href="/careers/">Careers</a>
+        <a href="/student/"><i class="far fa-user-circle"></i>Student login</a>
+        <button type="button" class="cd-theme-btn" data-theme-toggle aria-label="Switch to night mode" title="Night / day mode"><i class="fas fa-moon cd-moon"></i><i class="fas fa-sun cd-sun"></i></button>
+      </p>
+    </div>
+  </div>
+  <header class="cd-header" id="main-header">
+    <div class="cd-wrap cd-header-inner">
+      <a href="/" class="cd-brand">
+        <svg class="cd-mark" viewBox="0 0 32 32" aria-hidden="true" focusable="false"><path fill="currentColor" d="M8 5h3v3h2.5V5h5v3H21V5h3v7.2l-2.4 1.8.9 9H9.5l.9-9L8 12.2zM8.5 24.5h15l1.5 2.5H7zM6 28h20v2.5H6z"/></svg>
+
+        <span class="cd-brand-text"><span class="cd-brand-name">ChessDepth</span><span class="cd-brand-sub">Chess Academy</span></span>
+      </a>
+      <nav id="main-nav" aria-label="Primary" class="cd-nav">
+        <a href="/about/" class="cd-link">About</a>
+        <a href="/courses/" class="cd-link">Courses</a>
+        <a href="/coaches/" class="cd-link">Coaches</a>
+        <a href="/resources/" class="cd-link">Resources</a>
+        <a href="/shop/" class="cd-link" aria-current="page">Shop</a>
+        <a href="/ai/" class="cd-link cd-link-ai">ChessDepth AI<span class="cd-soon">Soon</span></a>
+        <a href="/blog/" class="cd-link">Blog</a>
+        <a href="/contact/" class="cd-link">Contact</a>
+        <a href="https://wa.me/919823029262?text=Hi%2C%20I%20would%20like%20to%20book%20a%20free%20demo%20class" target="_blank" rel="noopener noreferrer" class="cd-hdr-cta">Book a free demo</a>
+      </nav>
+      <div class="cd-header-mobile">
+        <button type="button" class="cd-theme-btn" data-theme-toggle aria-label="Switch to night mode" title="Night / day mode"><i class="fas fa-moon cd-moon"></i><i class="fas fa-sun cd-sun"></i></button>
+        <button id="menu-toggle" class="cd-menu-btn" aria-controls="mobile-menu" aria-expanded="false" aria-label="Open menu">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+        </button>
+      </div>
+    </div>
+    <div id="mobile-menu" class="cd-mobile-menu hidden">
+      <nav class="cd-wrap" aria-label="Mobile">
+        <a href="/">Home</a>
+        <a href="/about/">About</a>
+        <a href="/courses/">Courses</a>
+        <a href="/coaches/">Coaches</a>
+        <a href="/resources/">Resources</a>
+        <a href="/shop/" aria-current="page">Shop</a>
+        <a href="/ai/">ChessDepth AI<span class="cd-soon">Coming soon</span></a>
+        <a href="/blog/">Blog</a>
+        <a href="/contact/">Contact</a>
+        <a href="/lab/">Chess Lab <i class="fas fa-crown" style="color:#b08a4e;font-size:.8em"></i><span class="cd-soon" data-free-until="2026-11-21">Free launch offer</span></a>
+        <a href="/careers/">Careers</a>
+        <div class="cd-mobile-actions">
+          <a href="/student/" class="cd-mobile-login"><i class="far fa-user-circle"></i>Student login</a>
+          <a href="https://wa.me/919823029262?text=Hi%2C%20I%20would%20like%20to%20book%20a%20free%20demo%20class" target="_blank" rel="noopener noreferrer" class="cd-hdr-cta">Book a free demo</a>
+        </div>
+        <p class="cd-mobile-contact"><a href="tel:+919823029262">+91 98230 29262</a><a href="mailto:info@chessdepth.in">info@chessdepth.in</a></p>
+      </nav>
+    </div>
+  </header>
+
+
+<section class="cd-hero cd-hero-bg">
+  <div class="cd-hero-inner"><p class="cd-hero-eyebrow">ChessDepth Shop</p>
+    <h1 class="cd-hero-title">Train at home with our material</h1><p class="cd-hero-lead">Printable worksheet packs, day-by-day improvement plans, puzzle collections and opening repertoires, written by our coaches and used in our classes.</p>
+  </div>
+</section>
+
+
+<section class="sp-steps-wrap">
+  <ol class="sp-steps cd-wrap">
+    <li><i class="fas fa-shopping-bag"></i><div><b>Choose a product</b><span>Every product shows its level and what's inside.</span></div></li>
+    <li><i class="fas fa-lock"></i><div><b>Free or secure checkout</b><span>Free packs download straight away. Paid packs: UPI, cards or PayPal via Gumroad.</span></div></li>
+    <li><i class="fas fa-download"></i><div><b>Print and train</b><span>Every PDF is made for A4, with full solutions and explanations.</span></div></li>
+  </ol>
+</section>
+
+<div class="cd-wrap sp-page">
+  <section class="sp-group" data-cat="puzzles" id="puzzles">
+    <div class="sp-group-head">
+      <h2 class="sp-h2"><i class="fas fa-puzzle-piece"></i> Puzzle collections</h2>
+      <p>Hand-picked positions by theme, with full solutions and explanations.</p>
+    </div>
+    <div class="sp-grid"><article class="sp-card">
+  <a href="/shop/tactics-starter/" class="sp-card-cover" tabindex="-1" aria-hidden="true"><div class="sp-cover sp-puzzles" aria-hidden="true">
+  <span class="sp-cover-glyph">♞</span>
+  <span class="sp-cover-brand">ChessDepth</span>
+  <span class="sp-cover-title">Tactics Starter Pack</span>
+  <span class="sp-cover-level">600–1400 rating</span>
+</div>
+<span class="sp-badge">Free</span></a>
+  <div class="sp-card-body">
+    <h3 class="sp-card-title"><a href="/shop/tactics-starter/">Tactics Starter Pack (Free)</a></h3>
+    <p class="sp-card-meta">600–1400 rating · PDF · 13 pages</p>
+    <p class="sp-card-desc">30 hand-picked puzzles in five themes: mate in one, mate in two, forks, pins and skewers, and discovered attacks, with hints and full explanations.</p>
+    <div class="sp-card-foot"><span class="sp-price">Free</span><a href="/shop/tactics-starter/" class="sp-more">Details <i class="fas fa-arrow-right"></i></a></div>
+  </div>
+</article>
+
+    </div>
+  </section>
+  <section class="sp-soon" aria-labelledby="sp-soon-h">
+    <h2 class="sp-h2" id="sp-soon-h"><i class="fas fa-pen-nib"></i> Coming soon</h2>
+    <p class="sp-soon-lead">These packs are on the way. Tap <b>Notify me</b> and we'll WhatsApp you the day one is ready.</p>
+    <ul class="sp-soon-list">
+      <li><span class="sp-soon-glyph" aria-hidden="true">♙</span><span class="sp-soon-text"><b>Foundation Worksheet Pack</b><small>Worksheet packs · Level 1 · Beginners</small></span><a href="https://wa.me/919823029262?text=Hi%2C+please+tell+me+when+%22Foundation+Worksheet+Pack%22+is+available+in+the+ChessDepth+Shop." class="sp-notify sp-buy-sm" data-product="Foundation Worksheet Pack" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> Notify me</a></li>
+      <li><span class="sp-soon-glyph" aria-hidden="true">♘</span><span class="sp-soon-text"><b>Intermediate Worksheet Pack</b><small>Worksheet packs · Level 2 · Club players</small></span><a href="https://wa.me/919823029262?text=Hi%2C+please+tell+me+when+%22Intermediate+Worksheet+Pack%22+is+available+in+the+ChessDepth+Shop." class="sp-notify sp-buy-sm" data-product="Intermediate Worksheet Pack" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> Notify me</a></li>
+      <li><span class="sp-soon-glyph" aria-hidden="true">♗</span><span class="sp-soon-text"><b>Advanced Worksheet Pack</b><small>Worksheet packs · Level 3 · Tournament players</small></span><a href="https://wa.me/919823029262?text=Hi%2C+please+tell+me+when+%22Advanced+Worksheet+Pack%22+is+available+in+the+ChessDepth+Shop." class="sp-notify sp-buy-sm" data-product="Advanced Worksheet Pack" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> Notify me</a></li>
+      <li><span class="sp-soon-glyph" aria-hidden="true">♙</span><span class="sp-soon-text"><b>90-Day Improvement Plan: Beginner to 1200</b><small>Improvement plans · Unrated to 1200</small></span><a href="https://wa.me/919823029262?text=Hi%2C+please+tell+me+when+%2290-Day+Improvement+Plan%3A+Beginner+to+1200%22+is+available+in+the+ChessDepth+Shop." class="sp-notify sp-buy-sm" data-product="90-Day Improvement Plan: Beginner to 1200" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> Notify me</a></li>
+      <li><span class="sp-soon-glyph" aria-hidden="true">♘</span><span class="sp-soon-text"><b>90-Day Improvement Plan: 1200–1600</b><small>Improvement plans · 1200–1600 rating</small></span><a href="https://wa.me/919823029262?text=Hi%2C+please+tell+me+when+%2290-Day+Improvement+Plan%3A+1200%E2%80%931600%22+is+available+in+the+ChessDepth+Shop." class="sp-notify sp-buy-sm" data-product="90-Day Improvement Plan: 1200–1600" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> Notify me</a></li>
+      <li><span class="sp-soon-glyph" aria-hidden="true">♗</span><span class="sp-soon-text"><b>90-Day Improvement Plan: 1600–1900</b><small>Improvement plans · 1600–1900 rating</small></span><a href="https://wa.me/919823029262?text=Hi%2C+please+tell+me+when+%2290-Day+Improvement+Plan%3A+1600%E2%80%931900%22+is+available+in+the+ChessDepth+Shop." class="sp-notify sp-buy-sm" data-product="90-Day Improvement Plan: 1600–1900" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> Notify me</a></li>
+      <li><span class="sp-soon-glyph" aria-hidden="true">♚</span><span class="sp-soon-text"><b>100 Checkmate Patterns</b><small>Puzzle collections · Beginners to 1600</small></span><a href="https://wa.me/919823029262?text=Hi%2C+please+tell+me+when+%22100+Checkmate+Patterns%22+is+available+in+the+ChessDepth+Shop." class="sp-notify sp-buy-sm" data-product="100 Checkmate Patterns" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> Notify me</a></li>
+      <li><span class="sp-soon-glyph" aria-hidden="true">♛</span><span class="sp-soon-text"><b>150 Tactics by Theme</b><small>Puzzle collections · 1000–1800 rating</small></span><a href="https://wa.me/919823029262?text=Hi%2C+please+tell+me+when+%22150+Tactics+by+Theme%22+is+available+in+the+ChessDepth+Shop." class="sp-notify sp-buy-sm" data-product="150 Tactics by Theme" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> Notify me</a></li>
+      <li><span class="sp-soon-glyph" aria-hidden="true">♜</span><span class="sp-soon-text"><b>Essential Endgames Workbook</b><small>Puzzle collections · 1000–1800 rating</small></span><a href="https://wa.me/919823029262?text=Hi%2C+please+tell+me+when+%22Essential+Endgames+Workbook%22+is+available+in+the+ChessDepth+Shop." class="sp-notify sp-buy-sm" data-product="Essential Endgames Workbook" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> Notify me</a></li>
+      <li><span class="sp-soon-glyph" aria-hidden="true">♔</span><span class="sp-soon-text"><b>1.e4 Starter Repertoire: The Italian Game</b><small>Opening repertoires · Beginners to 1600</small></span><a href="https://wa.me/919823029262?text=Hi%2C+please+tell+me+when+%221.e4+Starter+Repertoire%3A+The+Italian+Game%22+is+available+in+the+ChessDepth+Shop." class="sp-notify sp-buy-sm" data-product="1.e4 Starter Repertoire: The Italian Game" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> Notify me</a></li>
+      <li><span class="sp-soon-glyph" aria-hidden="true">♚</span><span class="sp-soon-text"><b>Black Repertoire: Caro-Kann and Queen's Gambit Declined</b><small>Opening repertoires · 1200–1900 rating</small></span><a href="https://wa.me/919823029262?text=Hi%2C+please+tell+me+when+%22Black+Repertoire%3A+Caro-Kann+and+Queen%27s+Gambit+Declined%22+is+available+in+the+ChessDepth+Shop." class="sp-notify sp-buy-sm" data-product="Black Repertoire: Caro-Kann and Queen&#39;s Gambit Declined" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> Notify me</a></li>
+      <li><span class="sp-soon-glyph" aria-hidden="true">♕</span><span class="sp-soon-text"><b>The London System for Club Players</b><small>Opening repertoires · 1000–1800 rating</small></span><a href="https://wa.me/919823029262?text=Hi%2C+please+tell+me+when+%22The+London+System+for+Club+Players%22+is+available+in+the+ChessDepth+Shop." class="sp-notify sp-buy-sm" data-product="The London System for Club Players" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> Notify me</a></li>
+    </ul>
+  </section>
+
+  <section class="sp-faq" aria-labelledby="sp-faq-h">
+    <h2 class="sp-h2" id="sp-faq-h">Questions</h2>
+    <details><summary>How do I receive the files?</summary><p>Right after payment you get a download link by email, and the files stay in your free Gumroad library so you can download them again any time.</p></details>
+    <details><summary>Can I pay in rupees with UPI?</summary><p>Yes. Prices are shown in rupees for buyers in India, and Gumroad also accepts cards and PayPal from other countries in your own currency.</p></details>
+    <details><summary>Can I print the worksheets?</summary><p>Yes. All PDFs are made to print on A4 paper, for your own use and your own students' practice.</p></details>
+    <details><summary>Are these the same as the material in your classes?</summary><p>They come from the same curriculum. Classes add a coach, live feedback and game reviews; the products are for practising on your own.</p></details>
+    <details><summary>A product says "Coming soon". Can I get it?</summary><p>Tap <b>Notify me</b> and send us the WhatsApp message. We'll tell you as soon as it's ready.</p></details>
+  </section>
+</div>
+<script>
+(function () {
+  var chips = document.querySelectorAll(".sp-chip"), groups = document.querySelectorAll(".sp-group");
+  function show(f) {
+    chips.forEach(function (c) { var on = c.getAttribute("data-filter") === f; c.classList.toggle("is-active", on); c.setAttribute("aria-pressed", on); });
+    groups.forEach(function (g) { g.hidden = f !== "all" && g.getAttribute("data-cat") !== f; });
+  }
+  chips.forEach(function (c) { c.addEventListener("click", function () { var f = c.getAttribute("data-filter"); show(f); try { history.replaceState(null, "", f === "all" ? location.pathname : "#" + f); } catch (e) {} }); });
+  var h = location.hash.slice(1); if (h && document.querySelector('.sp-chip[data-filter="' + h + '"]')) show(h);
+})();
+</script>
+
+
+  
+<footer class="cd-footer bg-gray-800 text-gray-300 pt-10 pb-6 mt-10">
+    <div class="max-w-6xl mx-auto px-4 grid gap-8 md:grid-cols-3 text-center md:text-left">
+      <div>
+        <p class="text-2xl font-bold text-white mb-2">♟️ ChessDepth Academy</p>
+        <p class="text-sm text-gray-400">Structured online chess coaching for beginners to tournament players.</p>
+        <div class="mt-4 flex justify-center md:justify-start space-x-5 text-2xl">
+          <a href="https://www.instagram.com/chessdepthacademy1/" target="_blank" rel="noopener noreferrer" aria-label="ChessDepth on Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.facebook.com/chessdepthacademy/" target="_blank" rel="noopener noreferrer" aria-label="ChessDepth on Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://wa.me/919823029262?text=Hi%2C%20I%20would%20like%20to%20book%20a%20free%20demo%20class" target="_blank" rel="noopener noreferrer" aria-label="ChessDepth on WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        </div>
+      </div>
+      <div>
+        <p class="font-semibold text-white mb-3">Explore</p>
+        <ul class="space-y-1 text-sm">
+          <li><a href="/courses/">Courses &amp; Fees</a></li>
+          <li><a href="/coaches/">Our Coaches</a></li>
+          <li><a href="/resources/">Free Resources</a></li>
+          <li><a href="/shop/">Shop</a></li>
+          <li><a href="/lab/">Chess Lab</a></li>
+          <li><a href="/careers/">Careers</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="font-semibold text-white mb-3">Get in touch</p>
+        <ul class="space-y-1 text-sm">
+          <li><i class="fas fa-phone-alt mr-2"></i><a href="tel:+919823029262">+91 98230 29262</a></li>
+          <li><i class="fab fa-whatsapp mr-2"></i><a href="https://wa.me/919823029262?text=Hi%2C%20I%20would%20like%20to%20book%20a%20free%20demo%20class" target="_blank" rel="noopener noreferrer">WhatsApp us</a></li>
+          <li><i class="fas fa-envelope mr-2"></i><a href="mailto:info@chessdepth.in">info@chessdepth.in</a></li>
+          <li><i class="fas fa-map-marker-alt mr-2"></i>Bhopal, Madhya Pradesh, India</li>
+        </ul>
+      </div>
+    </div>
+    <div class="max-w-6xl mx-auto px-4 mt-8 pt-4 border-t border-gray-700 flex flex-col sm:flex-row justify-between text-xs text-gray-400 gap-2 text-center">
+      <p>&copy; <span data-year>2026</span> ChessDepth Academy. All rights reserved.</p>
+      <p class="cd-legal"><a href="/terms/">Terms</a> · <a href="/refunds/">Refunds &amp; cancellations</a> · <a href="/privacy/">Privacy policy</a></p>
+    </div>
+  </footer>
+  <a href="https://wa.me/919823029262?text=Hi%2C%20I%20would%20like%20to%20book%20a%20free%20demo%20class" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Chat with ChessDepth on WhatsApp" title="Chat with us on WhatsApp"><i class="fab fa-whatsapp text-2xl"></i></a>
+
+  <script src="/assets/js/site.js" defer></script>
+</body>
+</html>

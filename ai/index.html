@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <script>
+    /* Night/day mode: use the saved choice, otherwise follow the device setting */
+    (function () {
+      var t = null; try { t = localStorage.getItem("cd-theme"); } catch (e) {}
+      if (t !== "light" && t !== "dark") t = (window.matchMedia && matchMedia("(prefers-color-scheme: dark)").matches) ? "dark" : "light";
+      if (t === "dark") document.documentElement.classList.add("dark");
+    })();
+  </script>
+  <meta name="theme-color" content="#1f2547">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ChessDepth AI: Chess Image to Board (Coming Soon) | ChessDepth</title>
+  <meta name="description" content="ChessDepth AI turns any chess image (a screenshot, a book diagram or a photo) into a clean 2D board with coordinates and a FEN. Coming soon on chessdepth.in.">
+  <link rel="canonical" href="https://www.chessdepth.in/ai/">
+  <meta property="og:title" content="ChessDepth AI: Chess Image to Board (Coming Soon) | ChessDepth">
+  <meta property="og:site_name" content="ChessDepth Academy">
+  <meta property="og:locale" content="en_IN">
+  <meta property="og:description" content="ChessDepth AI turns any chess image (a screenshot, a book diagram or a photo) into a clean 2D board with coordinates and a FEN. Coming soon on chessdepth.in.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.chessdepth.in/ai/">
+  <meta property="og:image" content="https://www.chessdepth.in/assets/images/og-image.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="ChessDepth AI: Chess Image to Board (Coming Soon) | ChessDepth">
+  <meta name="twitter:description" content="ChessDepth AI turns any chess image (a screenshot, a book diagram or a photo) into a clean 2D board with coordinates and a FEN. Coming soon on chessdepth.in.">
+  <meta name="twitter:image" content="https://www.chessdepth.in/assets/images/og-image.jpg">
+  <link rel="icon" href="/assets/images/favicon.ico" sizes="48x48">
+  <link rel="icon" href="/assets/images/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="/assets/css/tailwind.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,500;0,600;1,400&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="/assets/css/pages/ai.css">
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <link rel="stylesheet" href="/assets/css/dark.css">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-2C73E30ZFX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-2C73E30ZFX');
+  </script>
+  
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+    {"@type":"ListItem","position":1,"name":"Home","item":"https://www.chessdepth.in/"},{"@type":"ListItem","position":2,"name":"ChessDepth AI","item":"https://www.chessdepth.in/ai/"}
+  ]}
+  </script>
+
+
+</head>
+<body class="bg-gray-100 text-gray-800">
+  <div class="cd-topbar">
+    <div class="cd-wrap cd-topbar-inner">
+      <p class="cd-topbar-contact">
+        <a href="tel:+919823029262"><i class="fas fa-phone-alt"></i>+91 98230 29262</a>
+        <a href="mailto:info@chessdepth.in"><i class="far fa-envelope"></i>info@chessdepth.in</a>
+      </p>
+      <p class="cd-topbar-links">
+        <a href="/lab/"><i class="fas fa-flask"></i>Chess Lab<span class="cd-free" data-free-until="2026-11-21">Free</span></a>
+        <a href="/careers/">Careers</a>
+        <a href="/student/"><i class="far fa-user-circle"></i>Student login</a>
+        <button type="button" class="cd-theme-btn" data-theme-toggle aria-label="Switch to night mode" title="Night / day mode"><i class="fas fa-moon cd-moon"></i><i class="fas fa-sun cd-sun"></i></button>
+      </p>
+    </div>
+  </div>
+  <header class="cd-header" id="main-header">
+    <div class="cd-wrap cd-header-inner">
+      <a href="/" class="cd-brand">
+        <svg class="cd-mark" viewBox="0 0 32 32" aria-hidden="true" focusable="false"><path fill="currentColor" d="M8 5h3v3h2.5V5h5v3H21V5h3v7.2l-2.4 1.8.9 9H9.5l.9-9L8 12.2zM8.5 24.5h15l1.5 2.5H7zM6 28h20v2.5H6z"/></svg>
+
+        <span class="cd-brand-text"><span class="cd-brand-name">ChessDepth</span><span class="cd-brand-sub">Chess Academy</span></span>
+      </a>
+      <nav id="main-nav" aria-label="Primary" class="cd-nav">
+        <a href="/about/" class="cd-link">About</a>
+        <a href="/courses/" class="cd-link">Courses</a>
+        <a href="/coaches/" class="cd-link">Coaches</a>
+        <a href="/resources/" class="cd-link">Resources</a>
+        <a href="/shop/" class="cd-link">Shop</a>
+        <a href="/ai/" class="cd-link cd-link-ai" aria-current="page">ChessDepth AI<span class="cd-soon">Soon</span></a>
+        <a href="/blog/" class="cd-link">Blog</a>
+        <a href="/contact/" class="cd-link">Contact</a>
+        <a href="https://wa.me/919823029262?text=Hi%2C%20I%20would%20like%20to%20book%20a%20free%20demo%20class" target="_blank" rel="noopener noreferrer" class="cd-hdr-cta">Book a free demo</a>
+      </nav>
+      <div class="cd-header-mobile">
+        <button type="button" class="cd-theme-btn" data-theme-toggle aria-label="Switch to night mode" title="Night / day mode"><i class="fas fa-moon cd-moon"></i><i class="fas fa-sun cd-sun"></i></button>
+        <button id="menu-toggle" class="cd-menu-btn" aria-controls="mobile-menu" aria-expanded="false" aria-label="Open menu">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+        </button>
+      </div>
+    </div>
+    <div id="mobile-menu" class="cd-mobile-menu hidden">
+      <nav class="cd-wrap" aria-label="Mobile">
+        <a href="/">Home</a>
+        <a href="/about/">About</a>
+        <a href="/courses/">Courses</a>
+        <a href="/coaches/">Coaches</a>
+        <a href="/resources/">Resources</a>
+        <a href="/shop/">Shop</a>
+        <a href="/ai/" aria-current="page">ChessDepth AI<span class="cd-soon">Coming soon</span></a>
+        <a href="/blog/">Blog</a>
+        <a href="/contact/">Contact</a>
+        <a href="/lab/">Chess Lab <i class="fas fa-crown" style="color:#b08a4e;font-size:.8em"></i><span class="cd-soon" data-free-until="2026-11-21">Free launch offer</span></a>
+        <a href="/careers/">Careers</a>
+        <div class="cd-mobile-actions">
+          <a href="/student/" class="cd-mobile-login"><i class="far fa-user-circle"></i>Student login</a>
+          <a href="https://wa.me/919823029262?text=Hi%2C%20I%20would%20like%20to%20book%20a%20free%20demo%20class" target="_blank" rel="noopener noreferrer" class="cd-hdr-cta">Book a free demo</a>
+        </div>
+        <p class="cd-mobile-contact"><a href="tel:+919823029262">+91 98230 29262</a><a href="mailto:info@chessdepth.in">info@chessdepth.in</a></p>
+      </nav>
+    </div>
+  </header>
+
+
+<section class="ai-hero cd-hero-bg">
+    <div class="max-w-6xl mx-auto px-4 py-10 grid md:grid-cols-2 gap-10 items-center">
+      <div>
+        <p class="ai-status"><span class="ai-dot" aria-hidden="true"></span>Coming soon</p>
+        <h1 class="ai-title">ChessDepth AI</h1>
+        <p class="ai-lead">Turn any chess image into a clean board you can study. Take a screenshot, a photo of a book diagram or a picture of a real board, and get back the position: every piece on the right square, ready to analyse.</p>
+        <div class="flex flex-wrap gap-3 mt-8">
+          <a href="https://wa.me/919823029262?text=Hi%2C%20please%20let%20me%20know%20when%20ChessDepth%20AI%20launches" target="_blank" rel="noopener noreferrer" class="ai-hero-btn"><i class="fab fa-whatsapp mr-2"></i>Notify me at launch</a>
+          <a href="#how-it-works" class="ai-ghost">How it will work</a>
+        </div>
+      </div>
+
+      <figure class="ai-demo" aria-label="Example: a photographed board turned into a clean 2D board">
+        <div class="ai-demo-in">
+          <img src="/assets/images/ai-input.svg" alt="A chess position on a wooden-style board, photographed at an angle" width="360" height="360">
+          <figcaption>Your image</figcaption>
+        </div>
+        <div class="ai-demo-arrow" aria-hidden="true"><i class="fas fa-long-arrow-alt-right"></i></div>
+        <div class="ai-demo-out">
+          <img src="/assets/images/ai-output.svg" alt="The same position as a clean 2D board with coordinates" width="360" height="360">
+          <figcaption>Clean board + FEN</figcaption>
+        </div>
+      </figure>
+    </div>
+  </section>
+
+  <section class="max-w-6xl mx-auto px-4 py-16">
+    <h2 class="ai-h2">What you'll get</h2>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-8">
+      <div class="ai-feature"><i class="fas fa-chess-board"></i><h3>A clean 2D board</h3><p>Every piece recognised and placed on a standard ChessDepth board, whatever the original style.</p></div>
+      <div class="ai-feature"><i class="fas fa-th"></i><h3>Coordinates</h3><p>Files a–h and ranks 1–8, with the board turned the right way round for White and Black.</p></div>
+      <div class="ai-feature"><i class="fas fa-code"></i><h3>The FEN</h3><p>The position in standard notation, ready to copy into Lichess, Chess.com or any chess program.</p></div>
+      <div class="ai-feature"><i class="fas fa-microscope"></i><h3>One-click analysis</h3><p>Open the position on Lichess or in our board editor to analyse it, play it out or save it for practice.</p></div>
+    </div>
+    <p class="ai-fen-example">Example FEN for the position above: <code>r1bqk2r/1pppbppp/p1n2n2/4p3/B3P3/5N2/PPPP1PPP/RNBQ1RK1 w kq - 4 6</code></p>
+  </section>
+
+  <section id="how-it-works" class="ai-band">
+    <div class="max-w-6xl mx-auto px-4 py-16">
+      <h2 class="ai-h2">How it will work</h2>
+      <p class="ai-sub">The same steps a strong player does in a second, broken into steps a computer can learn.</p>
+      <ol class="ai-steps">
+        <li><span>1</span><div><h3>Find the board</h3><p>Locate the chessboard and its four corners anywhere in the image.</p></div></li>
+        <li><span>2</span><div><h3>Straighten it</h3><p>Correct the angle so the board becomes a flat, top-down square.</p></div></li>
+        <li><span>3</span><div><h3>Split into 64 squares</h3><p>Cut the board into its 8 × 8 squares.</p></div></li>
+        <li><span>4</span><div><h3>Recognise the pieces</h3><p>Decide for every square whether it's empty or holds one of the 12 pieces.</p></div></li>
+        <li><span>5</span><div><h3>Check the chess rules</h3><p>Make sure the position is possible: one king each, no pawns on the back ranks, and so on.</p></div></li>
+        <li><span>6</span><div><h3>Draw the result</h3><p>Show the clean board with coordinates and the FEN, ready to analyse.</p></div></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="max-w-6xl mx-auto px-4 py-16 grid md:grid-cols-3 gap-8">
+    <div class="ai-note"><h3>Screenshots and diagrams first</h3><p>We're starting with clear 2D images (websites, apps and book diagrams), then moving on to photos of real boards.</p></div>
+    <div class="ai-note"><h3>Your images stay with you</h3><p>We plan to run the recognition inside your browser, so the pictures you check never need to be uploaded anywhere.</p></div>
+    <div class="ai-note"><h3>Made for coaches and students</h3><p>Turn positions from books, worksheets and games into boards you can study, share and practise from.</p></div>
+  </section>
+
+  <section class="px-4 pb-8">
+    <div class="max-w-4xl mx-auto ai-cta">
+      <h2>Be the first to try ChessDepth AI</h2>
+      <p>Send us a message and we'll tell you as soon as it's ready.</p>
+      <a href="https://wa.me/919823029262?text=Hi%2C%20please%20let%20me%20know%20when%20ChessDepth%20AI%20launches" target="_blank" rel="noopener noreferrer" class="ai-cta-btn"><i class="fab fa-whatsapp mr-2"></i>Notify me at launch</a>
+    </div>
+  </section>
+
+
+  
+<footer class="cd-footer bg-gray-800 text-gray-300 pt-10 pb-6 mt-10">
+    <div class="max-w-6xl mx-auto px-4 grid gap-8 md:grid-cols-3 text-center md:text-left">
+      <div>
+        <p class="text-2xl font-bold text-white mb-2">♟️ ChessDepth Academy</p>
+        <p class="text-sm text-gray-400">Structured online chess coaching for beginners to tournament players.</p>
+        <div class="mt-4 flex justify-center md:justify-start space-x-5 text-2xl">
+          <a href="https://www.instagram.com/chessdepthacademy1/" target="_blank" rel="noopener noreferrer" aria-label="ChessDepth on Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.facebook.com/chessdepthacademy/" target="_blank" rel="noopener noreferrer" aria-label="ChessDepth on Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://wa.me/919823029262?text=Hi%2C%20I%20would%20like%20to%20book%20a%20free%20demo%20class" target="_blank" rel="noopener noreferrer" aria-label="ChessDepth on WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        </div>
+      </div>
+      <div>
+        <p class="font-semibold text-white mb-3">Explore</p>
+        <ul class="space-y-1 text-sm">
+          <li><a href="/courses/">Courses &amp; Fees</a></li>
+          <li><a href="/coaches/">Our Coaches</a></li>
+          <li><a href="/resources/">Free Resources</a></li>
+          <li><a href="/shop/">Shop</a></li>
+          <li><a href="/lab/">Chess Lab</a></li>
+          <li><a href="/careers/">Careers</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="font-semibold text-white mb-3">Get in touch</p>
+        <ul class="space-y-1 text-sm">
+          <li><i class="fas fa-phone-alt mr-2"></i><a href="tel:+919823029262">+91 98230 29262</a></li>
+          <li><i class="fab fa-whatsapp mr-2"></i><a href="https://wa.me/919823029262?text=Hi%2C%20I%20would%20like%20to%20book%20a%20free%20demo%20class" target="_blank" rel="noopener noreferrer">WhatsApp us</a></li>
+          <li><i class="fas fa-envelope mr-2"></i><a href="mailto:info@chessdepth.in">info@chessdepth.in</a></li>
+          <li><i class="fas fa-map-marker-alt mr-2"></i>Bhopal, Madhya Pradesh, India</li>
+        </ul>
+      </div>
+    </div>
+    <div class="max-w-6xl mx-auto px-4 mt-8 pt-4 border-t border-gray-700 flex flex-col sm:flex-row justify-between text-xs text-gray-400 gap-2 text-center">
+      <p>&copy; <span data-year>2026</span> ChessDepth Academy. All rights reserved.</p>
+      <p class="cd-legal"><a href="/terms/">Terms</a> · <a href="/refunds/">Refunds &amp; cancellations</a> · <a href="/privacy/">Privacy policy</a></p>
+    </div>
+  </footer>
+  <a href="https://wa.me/919823029262?text=Hi%2C%20I%20would%20like%20to%20book%20a%20free%20demo%20class" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Chat with ChessDepth on WhatsApp" title="Chat with us on WhatsApp"><i class="fab fa-whatsapp text-2xl"></i></a>
+
+  <script src="/assets/js/site.js" defer></script>
+</body>
+</html>

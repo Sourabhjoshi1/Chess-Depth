@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <script>
+    /* Night/day mode: use the saved choice, otherwise follow the device setting */
+    (function () {
+      var t = null; try { t = localStorage.getItem("cd-theme"); } catch (e) {}
+      if (t !== "light" && t !== "dark") t = (window.matchMedia && matchMedia("(prefers-color-scheme: dark)").matches) ? "dark" : "light";
+      if (t === "dark") document.documentElement.classList.add("dark");
+    })();
+  </script>
+  <meta name="theme-color" content="#1f2547">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chess Coaches incl. GM Daniel Gormally | ChessDepth Academy</title>
+  <meta name="description" content="Meet the ChessDepth coaching team: FIDE Grandmaster Daniel Gormally, CM Rajarishi Karthi and FIDE-rated specialists in tactics, endgames and openings.">
+  <link rel="canonical" href="https://www.chessdepth.in/coaches/">
+  <meta property="og:title" content="Chess Coaches incl. GM Daniel Gormally | ChessDepth Academy">
+  <meta property="og:site_name" content="ChessDepth Academy">
+  <meta property="og:locale" content="en_IN">
+  <meta property="og:description" content="Meet the ChessDepth coaching team: FIDE Grandmaster Daniel Gormally, CM Rajarishi Karthi and FIDE-rated specialists in tactics, endgames and openings.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.chessdepth.in/coaches/">
+  <meta property="og:image" content="https://www.chessdepth.in/assets/images/og-image.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Chess Coaches incl. GM Daniel Gormally | ChessDepth Academy">
+  <meta name="twitter:description" content="Meet the ChessDepth coaching team: FIDE Grandmaster Daniel Gormally, CM Rajarishi Karthi and FIDE-rated specialists in tactics, endgames and openings.">
+  <meta name="twitter:image" content="https://www.chessdepth.in/assets/images/og-image.jpg">
+  <link rel="icon" href="/assets/images/favicon.ico" sizes="48x48">
+  <link rel="icon" href="/assets/images/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="/assets/css/tailwind.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,500;0,600;1,400&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="/assets/css/pages/coaches.css">
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <link rel="stylesheet" href="/assets/css/dark.css">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-2C73E30ZFX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-2C73E30ZFX');
+  </script>
+  
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+    {"@type":"ListItem","position":1,"name":"Home","item":"https://www.chessdepth.in/"},{"@type":"ListItem","position":2,"name":"Chess Coaches incl. GM Daniel Gormally","item":"https://www.chessdepth.in/coaches/"}
+  ]}
+  </script>
+
+
+</head>
+<body class="bg-gray-50 text-gray-800">
+  <div class="cd-topbar">
+    <div class="cd-wrap cd-topbar-inner">
+      <p class="cd-topbar-contact">
+        <a href="tel:+919823029262"><i class="fas fa-phone-alt"></i>+91 98230 29262</a>
+        <a href="mailto:info@chessdepth.in"><i class="far fa-envelope"></i>info@chessdepth.in</a>
+      </p>
+      <p class="cd-topbar-links">
+        <a href="/lab/"><i class="fas fa-flask"></i>Chess Lab<span class="cd-free" data-free-until="2026-11-21">Free</span></a>
+        <a href="/careers/">Careers</a>
+        <a href="/student/"><i class="far fa-user-circle"></i>Student login</a>
+        <button type="button" class="cd-theme-btn" data-theme-toggle aria-label="Switch to night mode" title="Night / day mode"><i class="fas fa-moon cd-moon"></i><i class="fas fa-sun cd-sun"></i></button>
+      </p>
+    </div>
+  </div>
+  <header class="cd-header" id="main-header">
+    <div class="cd-wrap cd-header-inner">
+      <a href="/" class="cd-brand">
+        <svg class="cd-mark" viewBox="0 0 32 32" aria-hidden="true" focusable="false"><path fill="currentColor" d="M8 5h3v3h2.5V5h5v3H21V5h3v7.2l-2.4 1.8.9 9H9.5l.9-9L8 12.2zM8.5 24.5h15l1.5 2.5H7zM6 28h20v2.5H6z"/></svg>
+
+        <span class="cd-brand-text"><span class="cd-brand-name">ChessDepth</span><span class="cd-brand-sub">Chess Academy</span></span>
+      </a>
+      <nav id="main-nav" aria-label="Primary" class="cd-nav">
+        <a href="/about/" class="cd-link">About</a>
+        <a href="/courses/" class="cd-link">Courses</a>
+        <a href="/coaches/" class="cd-link" aria-current="page">Coaches</a>
+        <a href="/resources/" class="cd-link">Resources</a>
+        <a href="/shop/" class="cd-link">Shop</a>
+        <a href="/ai/" class="cd-link cd-link-ai">ChessDepth AI<span class="cd-soon">Soon</span></a>
+        <a href="/blog/" class="cd-link">Blog</a>
+        <a href="/contact/" class="cd-link">Contact</a>
+        <a href="https://wa.me/919823029262?text=Hi%2C%20I%20would%20like%20to%20book%20a%20free%20demo%20class" target="_blank" rel="noopener noreferrer" class="cd-hdr-cta">Book a free demo</a>
+      </nav>
+      <div class="cd-header-mobile">
+        <button type="button" class="cd-theme-btn" data-theme-toggle aria-label="Switch to night mode" title="Night / day mode"><i class="fas fa-moon cd-moon"></i><i class="fas fa-sun cd-sun"></i></button>
+        <button id="menu-toggle" class="cd-menu-btn" aria-controls="mobile-menu" aria-expanded="false" aria-label="Open menu">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+        </button>
+      </div>
+    </div>
+    <div id="mobile-menu" class="cd-mobile-menu hidden">
+      <nav class="cd-wrap" aria-label="Mobile">
+        <a href="/">Home</a>
+        <a href="/about/">About</a>
+        <a href="/courses/">Courses</a>
+        <a href="/coaches/" aria-current="page">Coaches</a>
+        <a href="/resources/">Resources</a>
+        <a href="/shop/">Shop</a>
+        <a href="/ai/">ChessDepth AI<span class="cd-soon">Coming soon</span></a>
+        <a href="/blog/">Blog</a>
+        <a href="/contact/">Contact</a>
+        <a href="/lab/">Chess Lab <i class="fas fa-crown" style="color:#b08a4e;font-size:.8em"></i><span class="cd-soon" data-free-until="2026-11-21">Free launch offer</span></a>
+        <a href="/careers/">Careers</a>
+        <div class="cd-mobile-actions">
+          <a href="/student/" class="cd-mobile-login"><i class="far fa-user-circle"></i>Student login</a>
+          <a href="https://wa.me/919823029262?text=Hi%2C%20I%20would%20like%20to%20book%20a%20free%20demo%20class" target="_blank" rel="noopener noreferrer" class="cd-hdr-cta">Book a free demo</a>
+        </div>
+        <p class="cd-mobile-contact"><a href="tel:+919823029262">+91 98230 29262</a><a href="mailto:info@chessdepth.in">info@chessdepth.in</a></p>
+      </nav>
+    </div>
+  </header>
+
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    // Header shadow on scroll
+    const header = document.getElementById('main-header');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) header.classList.add('shadow-xl');
+      else header.classList.remove('shadow-xl');
+    });
+
+    // Hamburger toggle with icon swap and aria-expanded
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    if (menuToggle && mobileMenu) {
+      const iconHamburger = document.getElementById('icon-hamburger');
+      const iconClose = document.getElementById('icon-close');
+      menuToggle.addEventListener('click', () => {
+        const isOpen = !mobileMenu.classList.contains('hidden');
+        mobileMenu.classList.toggle('hidden');
+        mobileMenu.classList.toggle('-translate-y-full');
+        menuToggle.setAttribute('aria-expanded', String(!isOpen));
+        if (iconHamburger && iconClose) {
+          iconHamburger.classList.toggle('hidden', !isOpen);
+          iconClose.classList.toggle('hidden', isOpen);
+        }
+      });
+      mobileMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          mobileMenu.classList.add('hidden');
+          mobileMenu.classList.add('-translate-y-full');
+          menuToggle.setAttribute('aria-expanded', 'false');
+          if (iconHamburger && iconClose) {
+            iconHamburger.classList.remove('hidden');
+            iconClose.classList.add('hidden');
+          }
+        });
+      });
+    }
+  });
+</script>
+  <section class="cd-hero cd-hero-bg">
+  <div class="cd-hero-inner"><p class="cd-hero-eyebrow">Our coaches</p>
+    <h1 class="cd-hero-title">Meet our chess coaches</h1><p class="cd-hero-lead">Titled, FIDE-rated coaches who teach the <em>why</em> behind every move and give every student personal attention, from beginners to tournament players.</p>
+  </div>
+</section>
+
+  <section class="max-w-6xl mx-auto py-14 px-4 fade-in-content">
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+    <div class="bg-white rounded-lg shadow-lg p-6 text-center transition-all duration-300 hover:shadow-xl hover:scale-[1.02]">
+        <img loading="lazy" decoding="async" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPo_nyQNmNmPpv8UzSfl7OsjbtQ3RsVCz6MLI_sbOea9sjp0uf-EZYwCX6v63wmcqtX4qodu8-1-6mGYnBLDGmIQ" alt="Grandmaster Daniel W Gormally" class="rounded-full w-32 h-32 object-cover mx-auto mb-4 border-4 border-indigo-500">
+        <h2 class="text-2xl font-bold text-indigo-800 mb-2">Grandmaster Daniel Gormally</h2>
+        <p class="text-indigo-600 font-semibold mb-3">FIDE Grandmaster, Strategic Analyst</p>
+        <div class="rv-summary-slot" data-rv-summary="coach:daniel-gormally" data-rv-title="GM Daniel Gormally"></div>
+<script>window.CD_RV = window.CD_RV || { wa: "919823029262" };</script>
+<script type="module" src="/assets/js/reviews.js?v=1792825109"></script>
+
+        
+        <div class="flex justify-center space-x-4 mb-4 text-gray-700">
+            <span class="flex items-center text-sm" title="Standard Rating"><i class="fas fa-chess-board mr-1"></i> Std: 2382</span>
+            <span class="flex items-center text-sm" title="Rapid Rating"><i class="fas fa-clock mr-1"></i> Rapid: 2454</span>
+            <span class="flex items-center text-sm" title="Blitz Rating"><i class="fas fa-bolt mr-1"></i> Blitz: 2498</span>
+        </div>
+        <p class="text-xs text-gray-500 mb-4">FIDE ratings, October 2026 · <a href="https://ratings.fide.com/profile/406465" target="_blank" rel="noopener noreferrer" class="text-indigo-600 font-semibold hover:underline"><i class="fas fa-check-circle mr-1"></i>Verify on FIDE (ID 406465)</a></p>
+        
+        <p class="text-gray-700 text-base leading-relaxed mb-4">
+          A FIDE Grandmaster since 2005, Daniel brings a wealth of experience from the highest levels of competitive chess. He specializes in deep strategic analysis, advanced endgame theory, and rigorous competitive preparation.
+        </p>
+        
+        <div class="text-gray-500 text-sm mb-4">
+            <span class="font-semibold">Languages:</span> English, Spanish, German
+        </div>
+
+        <div class="flex justify-center space-x-4 mt-4">
+            <a href="https://ratings.fide.com/profile/406465" target="_blank" rel="noopener noreferrer" class="coach-profile-link text-gray-500 hover:text-indigo-600 text-2xl" aria-label="Daniel Gormally's FIDE Profile"><i class="fas fa-chess-king"></i></a>
+        </div>
+    </div>
+
+    <div class="bg-white rounded-lg shadow-lg p-6 text-center transition-all duration-300 hover:shadow-xl hover:scale-[1.02]">
+        <img loading="lazy" decoding="async" src="https://images.chesscomfiles.com/uploads/v1/user/17020464.c7cec1ba.160x160o.0b7abcbfd832@2x.jpg" alt="CM Rishi" class="rounded-full w-32 h-32 object-cover mx-auto mb-4 border-4 border-indigo-200">
+        <h2 class="text-2xl font-bold text-indigo-800 mb-2">CM Rajarishi Karthi</h2>
+        <p class="text-indigo-600 font-semibold mb-3">FIDE Candidate Master</p>
+        <div class="rv-summary-slot" data-rv-summary="coach:rajarishi-karthi" data-rv-title="CM Rajarishi Karthi"></div>
+<script>window.CD_RV = window.CD_RV || { wa: "919823029262" };</script>
+<script type="module" src="/assets/js/reviews.js?v=1792825109"></script>
+
+        
+        <div class="flex justify-center space-x-4 mb-4 text-gray-700">
+            <span class="flex items-center text-sm" title="FIDE Standard Rating"><i class="fas fa-chess-board mr-1"></i> Std: 2152</span>
+            <span class="flex items-center text-sm" title="Rapid Rating"><i class="fas fa-clock mr-1"></i> Rapid: 2041</span>
+            <span class="flex items-center text-sm" title="Blitz Rating"><i class="fas fa-bolt mr-1"></i> Blitz: 2136</span>
+        </div>
+        
+        <p class="text-gray-700 text-base leading-relaxed mb-4">
+            CM Rajarishi Karthi, a FIDE Candidate Master, is known for his deep strategic understanding and exceptional communication skills. Fluent in multiple languages, CM Rishi connects with students globally, focusing on building solid fundamentals, advanced tactical patterns, and competitive psychology for rigorous training.
+        </p>
+        
+        <div class="text-gray-500 text-sm mb-4">
+            <span class="font-semibold">Languages:</span> English, Tamil, Spanish
+        </div>
+        
+        <div class="flex justify-center space-x-4 mt-4">
+            <a href="https://ratings.fide.com/profile/5092523" target="_blank" rel="noopener noreferrer" class="coach-profile-link text-gray-500 hover:text-indigo-600 text-2xl" aria-label="Rishi's FIDE Profile"><i class="fas fa-chess-king"></i></a>
+        </div>
+    </div>
+
+    <div class="bg-white rounded-lg shadow-lg p-6 text-center transition-all duration-300 hover:shadow-xl hover:scale-[1.02]">
+        <img loading="lazy" decoding="async" src="/favicon/download.jpeg" alt="AFM Sourabh Joshi" class="rounded-full w-32 h-32 object-cover mx-auto mb-4 border-4 border-indigo-200">
+        
+        <h2 class="text-2xl font-bold text-indigo-800 mb-2">AFM Sourabh Joshi</h2>
+        <p class="text-indigo-600 font-semibold mb-3">Founder, CTO, Head Coach & Tactics Expert</p>
+        <div class="rv-summary-slot" data-rv-summary="coach:sourabh-joshi" data-rv-title="AFM Sourabh Joshi"></div>
+<script>window.CD_RV = window.CD_RV || { wa: "919823029262" };</script>
+<script type="module" src="/assets/js/reviews.js?v=1792825109"></script>
+
+        
+        <div class="flex justify-center space-x-4 mb-4 text-gray-700">
+            <span class="flex items-center text-sm" title="FIDE Standard Rating"><i class="fas fa-chess-board mr-1"></i> Std: 1603</span>
+            <span class="flex items-center text-sm" title="Online Rapid Rating"><i class="fas fa-clock mr-1"></i> Rapid: 2100+</span>
+            <span class="flex items-center text-sm" title="Online Blitz Rating"><i class="fas fa-bolt mr-1"></i> Blitz: 2100+</span>
+        </div>
+        
+        <p class="text-gray-700 text-base leading-relaxed mb-4">
+            As the founder of ChessDepth Academy, AFM Sourabh Joshi brings extensive competitive experience and a deep understanding of chess pedagogy. He specializes in helping players overcome plateaus through sharp tactical insights and robust strategic planning.
+        </p>
+
+        <div class="text-gray-500 text-sm mb-4">
+            <span class="font-semibold">Technical Background:</span> Engineering & Systematic Analysis
+        </div>
+
+        <div class="flex justify-center space-x-4 mt-4">
+            <a href="https://ratings.fide.com/profile/25798170" target="_blank" rel="noopener noreferrer" class="coach-profile-link text-gray-500 hover:text-indigo-600 text-2xl" aria-label="Sourabh Joshi's FIDE Profile"><i class="fas fa-chess-king"></i></a>
+            <a href="https://www.chess.com/member/sourabhjoshi01" target="_blank" rel="noopener noreferrer" class="coach-profile-link text-gray-500 hover:text-gray-800 text-2xl" aria-label="Sourabh Joshi's Chess.com Profile"><i class="fas fa-chess-board"></i></a>
+            <a href="https://www.linkedin.com/in/sourabhk-nitb/" target="_blank" rel="noopener noreferrer" class="coach-profile-link text-gray-500 hover:text-blue-700 text-2xl" aria-label="Sourabh Joshi's LinkedIn Profile"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+    </div>
+
+    <div class="bg-white rounded-lg shadow-lg p-6 text-center transition-all duration-300 hover:shadow-xl hover:scale-[1.02]">
+        <img loading="lazy" decoding="async" src="https://images.chesscomfiles.com/uploads/v1/user/48439352.045f9bba.160x160o.2a2018b3fd8b@2x.jpg" alt="Anunaad Singh" class="rounded-full w-32 h-32 object-cover mx-auto mb-4 border-4 border-purple-200">
+        <h2 class="text-2xl font-bold text-indigo-800 mb-2">Anunad Singh</h2>
+        <p class="text-indigo-600 font-semibold mb-3">Co-Founder, Positional Play & Endgame Specialist</p>
+        <div class="rv-summary-slot" data-rv-summary="coach:anunad-singh" data-rv-title="Anunad Singh"></div>
+<script>window.CD_RV = window.CD_RV || { wa: "919823029262" };</script>
+<script type="module" src="/assets/js/reviews.js?v=1792825109"></script>
+
+
+        <div class="flex justify-center space-x-4 mb-4 text-gray-700">
+            <span class="flex items-center text-sm" title="FIDE Standard Rating"><i class="fas fa-chess-board mr-1"></i> Std: 1703</span>
+            <span class="flex items-center text-sm" title="Online Rapid Rating"><i class="fas fa-clock mr-1"></i> Rapid: 2000+</span>
+            <span class="flex items-center text-sm" title="Online Blitz Rating"><i class="fas fa-bolt mr-1"></i> Blitz: 1900+</span>
+        </div>
+
+        <p class="text-gray-700 text-base leading-relaxed mb-4">
+          Anunad brings a methodical approach to chess, focusing on the subtle nuances of positional play and the critical art of endgames. His coaching helps students develop a deeper understanding of piece coordination and long-term strategic advantages.
+        </p>
+        <div class="text-gray-500 text-sm mb-4">
+            <span class="font-semibold">Languages:</span> English, Hindi
+        </div>
+        <div class="flex justify-center space-x-4 mt-4">
+        </div>
+    </div>
+
+    <div class="bg-white rounded-lg shadow-lg p-6 text-center transition-all duration-300 hover:shadow-xl hover:scale-[1.02]">
+        <img loading="lazy" decoding="async" src="/favicon/navodaya.jpg" alt="Navodaya Kannojia" class="rounded-full w-32 h-32 object-cover mx-auto mb-4 border-4 border-pink-200">
+        <h2 class="text-2xl font-bold text-indigo-800 mb-2">Navodaya Kannojia</h2>
+        <p class="text-indigo-600 font-semibold mb-3">Chief Operating Officer, Opening Repertoire & Online Play Strategist</p>
+        <div class="rv-summary-slot" data-rv-summary="coach:navodaya-kannojia" data-rv-title="Navodaya Kannojia"></div>
+<script>window.CD_RV = window.CD_RV || { wa: "919823029262" };</script>
+<script type="module" src="/assets/js/reviews.js?v=1792825109"></script>
+
+
+        <div class="flex justify-center space-x-4 mb-4 text-gray-700">
+            <span class="flex items-center text-sm" title="FIDE Standard Rating"><i class="fas fa-chess-board mr-1"></i> Std: 1680</span>
+            <span class="flex items-center text-sm" title="Online Rapid Rating"><i class="fas fa-clock mr-1"></i> Rapid: 1800+</span>
+            <span class="flex items-center text-sm" title="Online Blitz Rating"><i class="fas fa-bolt mr-1"></i> Blitz: 1700+</span>
+        </div>
+
+        <p class="text-gray-700 text-base leading-relaxed mb-4">
+          Navodaya is an expert in crafting effective opening repertoires and adapting to the fast-paced world of online chess. He guides students through modern opening theory and helps them develop sharper instincts for rapid play scenarios.
+        </p>
+        <div class="text-gray-500 text-sm mb-4">
+            <span class="font-semibold">Languages:</span> English, Hindi
+        </div>
+        
+        <div class="flex justify-center space-x-4 mt-4">
+        </div>
+    </div>
+</div>
+  </section>
+
+  
+
+
+  <script>
+    // Fade-in animation for content on page load
+    document.addEventListener('DOMContentLoaded', () => {
+        const contentSections = document.querySelectorAll('.fade-in-content');
+        contentSections.forEach(section => {
+            section.style.animation = 'fadeIn 1s ease-out forwards';
+            section.style.opacity = '1';
+        });
+    });
+
+    // Handle Form Submission (if applicable on a page)
+    // The handleSubmit function is currently defined in index.html and about.html.
+    // If a form is added to coaches.html, copy the handleSubmit function here too.
+
+    // Smooth scroll for nav links
+    document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            // Check if it's an internal anchor or an external page link
+            if (targetId.startsWith("#")) { 
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    const headerOffset = document.getElementById('main-header') ? document.getElementById('main-header').offsetHeight : 0;
+                    const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
+                    const offsetPosition = elementPosition - headerOffset - 20; // Added 20px padding
+
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: "smooth"
+                    });
+                }
+            } else {
+                // For external page links (like contact.html), allow default navigation
+                window.location.href = targetId; // Manually navigate if not smooth scrolling to anchor
+            }
+        });
+    });
+
+    // Add/remove header shadow on scroll
+    const header = document.getElementById('main-header');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+            header.classList.add('shadow-xl');
+        } else {
+            header.classList.remove('shadow-xl');
+        }
+    });
+
+    // Note: Intersection Observers for .fade-in-section and .course-card-X 
+    // are specific to index.html and are not copied here unless similar behavior is desired.
+  </script>
+
+
+  
+<footer class="cd-footer bg-gray-800 text-gray-300 pt-10 pb-6 mt-10">
+    <div class="max-w-6xl mx-auto px-4 grid gap-8 md:grid-cols-3 text-center md:text-left">
+      <div>
+        <p class="text-2xl font-bold text-white mb-2">♟️ ChessDepth Academy</p>
+        <p class="text-sm text-gray-400">Structured online chess coaching for beginners to tournament players.</p>
+        <div class="mt-4 flex justify-center md:justify-start space-x-5 text-2xl">
+          <a href="https://www.instagram.com/chessdepthacademy1/" target="_blank" rel="noopener noreferrer" aria-label="ChessDepth on Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.facebook.com/chessdepthacademy/" target="_blank" rel="noopener noreferrer" aria-label="ChessDepth on Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://wa.me/919823029262?text=Hi%2C%20I%20would%20like%20to%20book%20a%20free%20demo%20class" target="_blank" rel="noopener noreferrer" aria-label="ChessDepth on WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        </div>
+      </div>
+      <div>
+        <p class="font-semibold text-white mb-3">Explore</p>
+        <ul class="space-y-1 text-sm">
+          <li><a href="/courses/">Courses &amp; Fees</a></li>
+          <li><a href="/coaches/">Our Coaches</a></li>
+          <li><a href="/resources/">Free Resources</a></li>
+          <li><a href="/shop/">Shop</a></li>
+          <li><a href="/lab/">Chess Lab</a></li>
+          <li><a href="/careers/">Careers</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="font-semibold text-white mb-3">Get in touch</p>
+        <ul class="space-y-1 text-sm">
+          <li><i class="fas fa-phone-alt mr-2"></i><a href="tel:+919823029262">+91 98230 29262</a></li>
+          <li><i class="fab fa-whatsapp mr-2"></i><a href="https://wa.me/919823029262?text=Hi%2C%20I%20would%20like%20to%20book%20a%20free%20demo%20class" target="_blank" rel="noopener noreferrer">WhatsApp us</a></li>
+          <li><i class="fas fa-envelope mr-2"></i><a href="mailto:info@chessdepth.in">info@chessdepth.in</a></li>
+          <li><i class="fas fa-map-marker-alt mr-2"></i>Bhopal, Madhya Pradesh, India</li>
+        </ul>
+      </div>
+    </div>
+    <div class="max-w-6xl mx-auto px-4 mt-8 pt-4 border-t border-gray-700 flex flex-col sm:flex-row justify-between text-xs text-gray-400 gap-2 text-center">
+      <p>&copy; <span data-year>2026</span> ChessDepth Academy. All rights reserved.</p>
+      <p class="cd-legal"><a href="/terms/">Terms</a> · <a href="/refunds/">Refunds &amp; cancellations</a> · <a href="/privacy/">Privacy policy</a></p>
+    </div>
+  </footer>
+  <a href="https://wa.me/919823029262?text=Hi%2C%20I%20would%20like%20to%20book%20a%20free%20demo%20class" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Chat with ChessDepth on WhatsApp" title="Chat with us on WhatsApp"><i class="fab fa-whatsapp text-2xl"></i></a>
+
+  <script src="/assets/js/site.js" defer></script>
+</body>
+</html>

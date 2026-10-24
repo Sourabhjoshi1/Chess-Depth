@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <script>
+    /* Night/day mode: use the saved choice, otherwise follow the device setting */
+    (function () {
+      var t = null; try { t = localStorage.getItem("cd-theme"); } catch (e) {}
+      if (t !== "light" && t !== "dark") t = (window.matchMedia && matchMedia("(prefers-color-scheme: dark)").matches) ? "dark" : "light";
+      if (t === "dark") document.documentElement.classList.add("dark");
+    })();
+  </script>
+  <meta name="theme-color" content="#1f2547">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chess Blog: Tactics, Strategy & Training | ChessDepth Academy</title>
+  <meta name="description" content="Practical chess articles from ChessDepth coaches: tactics, positional play, openings, rook endgames, game analysis and advice for parents.">
+  <link rel="canonical" href="https://www.chessdepth.in/blog/">
+  <meta property="og:title" content="Chess Blog: Tactics, Strategy & Training | ChessDepth Academy">
+  <meta property="og:site_name" content="ChessDepth Academy">
+  <meta property="og:locale" content="en_IN">
+  <meta property="og:description" content="Practical chess articles from ChessDepth coaches: tactics, positional play, openings, rook endgames, game analysis and advice for parents.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.chessdepth.in/blog/">
+  <meta property="og:image" content="https://www.chessdepth.in/assets/images/og-image.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Chess Blog: Tactics, Strategy & Training | ChessDepth Academy">
+  <meta name="twitter:description" content="Practical chess articles from ChessDepth coaches: tactics, positional play, openings, rook endgames, game analysis and advice for parents.">
+  <meta name="twitter:image" content="https://www.chessdepth.in/assets/images/og-image.jpg">
+  <link rel="icon" href="/assets/images/favicon.ico" sizes="48x48">
+  <link rel="icon" href="/assets/images/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="/assets/css/tailwind.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,500;0,600;1,400&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="/assets/css/pages/blog.css">
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <link rel="stylesheet" href="/assets/css/dark.css">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-2C73E30ZFX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-2C73E30ZFX');
+  </script>
+  
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+    {"@type":"ListItem","position":1,"name":"Home","item":"https://www.chessdepth.in/"},{"@type":"ListItem","position":2,"name":"Chess Blog: Tactics, Strategy & Training","item":"https://www.chessdepth.in/blog/"}
+  ]}
+  </script>
+
+
+</head>
+<body class="bg-gray-100 text-gray-800">
+  <div class="cd-topbar">
+    <div class="cd-wrap cd-topbar-inner">
+      <p class="cd-topbar-contact">
+        <a href="tel:+919823029262"><i class="fas fa-phone-alt"></i>+91 98230 29262</a>
+        <a href="mailto:info@chessdepth.in"><i class="far fa-envelope"></i>info@chessdepth.in</a>
+      </p>
+      <p class="cd-topbar-links">
+        <a href="/lab/"><i class="fas fa-flask"></i>Chess Lab<span class="cd-free" data-free-until="2026-11-21">Free</span></a>
+        <a href="/careers/">Careers</a>
+        <a href="/student/"><i class="far fa-user-circle"></i>Student login</a>
+        <button type="button" class="cd-theme-btn" data-theme-toggle aria-label="Switch to night mode" title="Night / day mode"><i class="fas fa-moon cd-moon"></i><i class="fas fa-sun cd-sun"></i></button>
+      </p>
+    </div>
+  </div>
+  <header class="cd-header" id="main-header">
+    <div class="cd-wrap cd-header-inner">
+      <a href="/" class="cd-brand">
+        <svg class="cd-mark" viewBox="0 0 32 32" aria-hidden="true" focusable="false"><path fill="currentColor" d="M8 5h3v3h2.5V5h5v3H21V5h3v7.2l-2.4 1.8.9 9H9.5l.9-9L8 12.2zM8.5 24.5h15l1.5 2.5H7zM6 28h20v2.5H6z"/></svg>
+
+        <span class="cd-brand-text"><span class="cd-brand-name">ChessDepth</span><span class="cd-brand-sub">Chess Academy</span></span>
+      </a>
+      <nav id="main-nav" aria-label="Primary" class="cd-nav">
+        <a href="/about/" class="cd-link">About</a>
+        <a href="/courses/" class="cd-link">Courses</a>
+        <a href="/coaches/" class="cd-link">Coaches</a>
+        <a href="/resources/" class="cd-link">Resources</a>
+        <a href="/shop/" class="cd-link">Shop</a>
+        <a href="/ai/" class="cd-link cd-link-ai">ChessDepth AI<span class="cd-soon">Soon</span></a>
+        <a href="/blog/" class="cd-link" aria-current="page">Blog</a>
+        <a href="/contact/" class="cd-link">Contact</a>
+        <a href="https://wa.me/919823029262?text=Hi%2C%20I%20would%20like%20to%20book%20a%20free%20demo%20class" target="_blank" rel="noopener noreferrer" class="cd-hdr-cta">Book a free demo</a>
+      </nav>
+      <div class="cd-header-mobile">
+        <button type="button" class="cd-theme-btn" data-theme-toggle aria-label="Switch to night mode" title="Night / day mode"><i class="fas fa-moon cd-moon"></i><i class="fas fa-sun cd-sun"></i></button>
+        <button id="menu-toggle" class="cd-menu-btn" aria-controls="mobile-menu" aria-expanded="false" aria-label="Open menu">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+        </button>
+      </div>
+    </div>
+    <div id="mobile-menu" class="cd-mobile-menu hidden">
+      <nav class="cd-wrap" aria-label="Mobile">
+        <a href="/">Home</a>
+        <a href="/about/">About</a>
+        <a href="/courses/">Courses</a>
+        <a href="/coaches/">Coaches</a>
+        <a href="/resources/">Resources</a>
+        <a href="/shop/">Shop</a>
+        <a href="/ai/">ChessDepth AI<span class="cd-soon">Coming soon</span></a>
+        <a href="/blog/" aria-current="page">Blog</a>
+        <a href="/contact/">Contact</a>
+        <a href="/lab/">Chess Lab <i class="fas fa-crown" style="color:#b08a4e;font-size:.8em"></i><span class="cd-soon" data-free-until="2026-11-21">Free launch offer</span></a>
+        <a href="/careers/">Careers</a>
+        <div class="cd-mobile-actions">
+          <a href="/student/" class="cd-mobile-login"><i class="far fa-user-circle"></i>Student login</a>
+          <a href="https://wa.me/919823029262?text=Hi%2C%20I%20would%20like%20to%20book%20a%20free%20demo%20class" target="_blank" rel="noopener noreferrer" class="cd-hdr-cta">Book a free demo</a>
+        </div>
+        <p class="cd-mobile-contact"><a href="tel:+919823029262">+91 98230 29262</a><a href="mailto:info@chessdepth.in">info@chessdepth.in</a></p>
+      </nav>
+    </div>
+  </header>
+
+
+<section class="cd-hero cd-hero-bg">
+  <div class="cd-hero-inner"><p class="cd-hero-eyebrow">The ChessDepth Blog</p>
+    <h1 class="cd-hero-title">Learn something new about chess</h1><p class="cd-hero-lead">Practical articles from our coaches on tactics, strategy, openings, endgames and how to train, plus advice for parents.</p>
+  </div>
+</section>
+
+
+  <section class="max-w-6xl mx-auto px-4 py-12">
+    <div class="flex flex-wrap justify-center gap-2 mb-10" role="toolbar" aria-label="Filter articles by topic">
+      <button type="button" class="blog-filter is-active" data-filter="all">All articles</button>
+      <button type="button" class="blog-filter" data-filter="endgames">Endgames</button>
+      <button type="button" class="blog-filter" data-filter="openings">Openings</button>
+      <button type="button" class="blog-filter" data-filter="parents">Parents</button>
+      <button type="button" class="blog-filter" data-filter="psychology">Psychology</button>
+      <button type="button" class="blog-filter" data-filter="strategy">Strategy</button>
+      <button type="button" class="blog-filter" data-filter="tactics">Tactics</button>
+      <button type="button" class="blog-filter" data-filter="training">Training</button>
+    </div><div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6" id="post-grid">
+      <a href="/blog/chess-for-kids-a-parents-guide/" class="blog-card flex flex-col" data-cat="parents">
+        <div class="blog-card-top" style="background: #0f766e"></div>
+        <div class="p-6 flex flex-col flex-grow">
+          <p class="text-xs font-bold uppercase tracking-wide mb-2" style="color: #0f766e">Parents</p>
+          <h2 class="text-xl font-bold text-gray-900 leading-snug mb-3">Chess for Kids: A Parent's Guide</h2>
+          <p class="text-gray-600 text-sm flex-grow">What children gain from chess, when to start, how to support your child at home, and how to choose a good chess class.</p>
+          <p class="text-xs text-gray-500 mt-5">15 Oct 2026 · 3 min read · For parents</p>
+        </div>
+      </a>
+      <a href="/blog/cct-method-checks-captures-threats/" class="blog-card flex flex-col" data-cat="tactics">
+        <div class="blog-card-top" style="background: #b45309"></div>
+        <div class="p-6 flex flex-col flex-grow">
+          <p class="text-xs font-bold uppercase tracking-wide mb-2" style="color: #b45309">Tactics</p>
+          <h2 class="text-xl font-bold text-gray-900 leading-snug mb-3">The CCT Method: Checks, Captures and Threats</h2>
+          <p class="text-gray-600 text-sm flex-grow">A simple three-step habit that helps you find tactics faster and stop blundering. Used by strong players at every level.</p>
+          <p class="text-xs text-gray-500 mt-5">5 Oct 2026 · 4 min read · All levels</p>
+        </div>
+      </a>
+      <a href="/blog/rook-endgames-lucena-and-philidor/" class="blog-card flex flex-col" data-cat="endgames">
+        <div class="blog-card-top" style="background: #b91c1c"></div>
+        <div class="p-6 flex flex-col flex-grow">
+          <p class="text-xs font-bold uppercase tracking-wide mb-2" style="color: #b91c1c">Endgames</p>
+          <h2 class="text-xl font-bold text-gray-900 leading-snug mb-3">Rook Endgames You Must Know: The Lucena and Philidor Positions</h2>
+          <p class="text-gray-600 text-sm flex-grow">Rook endgames are the most common endgames in chess. These two positions show how to win with an extra pawn, and how to draw without one.</p>
+          <p class="text-xs text-gray-500 mt-5">15 Sep 2026 · 4 min read · Intermediate to Advanced</p>
+        </div>
+      </a>
+      <a href="/blog/how-to-analyse-your-own-games/" class="blog-card flex flex-col" data-cat="training">
+        <div class="blog-card-top" style="background: #6d28d9"></div>
+        <div class="p-6 flex flex-col flex-grow">
+          <p class="text-xs font-bold uppercase tracking-wide mb-2" style="color: #6d28d9">Training</p>
+          <h2 class="text-xl font-bold text-gray-900 leading-snug mb-3">How to Analyse Your Own Games (and Actually Improve)</h2>
+          <p class="text-gray-600 text-sm flex-grow">Your own games are your best teacher. A step-by-step method for reviewing them, so you learn from every loss without depending on the engine.</p>
+          <p class="text-xs text-gray-500 mt-5">1 Sep 2026 · 3 min read · All levels</p>
+        </div>
+      </a>
+      <a href="/blog/tournament-preparation-and-mindset/" class="blog-card flex flex-col" data-cat="psychology">
+        <div class="blog-card-top" style="background: #be185d"></div>
+        <div class="p-6 flex flex-col flex-grow">
+          <p class="text-xs font-bold uppercase tracking-wide mb-2" style="color: #be185d">Psychology</p>
+          <h2 class="text-xl font-bold text-gray-900 leading-snug mb-3">Tournament Preparation and the Chess Mindset</h2>
+          <p class="text-gray-600 text-sm flex-grow">How to prepare for a tournament, manage your clock and nerves during games, and bounce back after a loss.</p>
+          <p class="text-xs text-gray-500 mt-5">10 Aug 2026 · 3 min read · Intermediate to Advanced</p>
+        </div>
+      </a>
+      <a href="/blog/building-a-solid-opening-repertoire/" class="blog-card flex flex-col" data-cat="openings">
+        <div class="blog-card-top" style="background: #047857"></div>
+        <div class="p-6 flex flex-col flex-grow">
+          <p class="text-xs font-bold uppercase tracking-wide mb-2" style="color: #047857">Openings</p>
+          <h2 class="text-xl font-bold text-gray-900 leading-snug mb-3">Building a Solid Opening Repertoire</h2>
+          <p class="text-gray-600 text-sm flex-grow">How to choose openings that suit your style, what to play at each level, and how to study them through ideas instead of endless memorisation.</p>
+          <p class="text-xs text-gray-500 mt-5">10 Oct 2025 · 3 min read · All levels</p>
+        </div>
+      </a>
+      <a href="/blog/importance-of-positional-play/" class="blog-card flex flex-col" data-cat="strategy">
+        <div class="blog-card-top" style="background: #1d4ed8"></div>
+        <div class="p-6 flex flex-col flex-grow">
+          <p class="text-xs font-bold uppercase tracking-wide mb-2" style="color: #1d4ed8">Strategy</p>
+          <h2 class="text-xl font-bold text-gray-900 leading-snug mb-3">The Importance of Positional Play</h2>
+          <p class="text-gray-600 text-sm flex-grow">What to do when there is no tactic: piece activity, pawn structure, weak squares, open files and king safety, explained with practical rules of thumb.</p>
+          <p class="text-xs text-gray-500 mt-5">25 Aug 2025 · 5 min read · Intermediate</p>
+        </div>
+      </a>
+      <a href="/blog/mastering-basic-chess-tactics/" class="blog-card flex flex-col" data-cat="tactics">
+        <div class="blog-card-top" style="background: #b45309"></div>
+        <div class="p-6 flex flex-col flex-grow">
+          <p class="text-xs font-bold uppercase tracking-wide mb-2" style="color: #b45309">Tactics</p>
+          <h2 class="text-xl font-bold text-gray-900 leading-snug mb-3">Mastering Basic Chess Tactics: Forks, Pins, Skewers and More</h2>
+          <p class="text-gray-600 text-sm flex-grow">The six tactical patterns that decide most games below 1600, how to spot them, and a simple routine to train them every day.</p>
+          <p class="text-xs text-gray-500 mt-5">31 Jul 2025 · 5 min read · Beginner to Intermediate</p>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <script>
+    document.querySelectorAll('.blog-filter').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var f = btn.dataset.filter;
+        document.querySelectorAll('.blog-filter').forEach(function (b) { b.classList.toggle('is-active', b === btn); });
+        document.querySelectorAll('#post-grid [data-cat]').forEach(function (card) {
+          card.style.display = (f === 'all' || card.dataset.cat === f) ? '' : 'none';
+        });
+      });
+    });
+  </script>
+
+
+  
+<footer class="cd-footer bg-gray-800 text-gray-300 pt-10 pb-6 mt-10">
+    <div class="max-w-6xl mx-auto px-4 grid gap-8 md:grid-cols-3 text-center md:text-left">
+      <div>
+        <p class="text-2xl font-bold text-white mb-2">♟️ ChessDepth Academy</p>
+        <p class="text-sm text-gray-400">Structured online chess coaching for beginners to tournament players.</p>
+        <div class="mt-4 flex justify-center md:justify-start space-x-5 text-2xl">
+          <a href="https://www.instagram.com/chessdepthacademy1/" target="_blank" rel="noopener noreferrer" aria-label="ChessDepth on Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.facebook.com/chessdepthacademy/" target="_blank" rel="noopener noreferrer" aria-label="ChessDepth on Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://wa.me/919823029262?text=Hi%2C%20I%20would%20like%20to%20book%20a%20free%20demo%20class" target="_blank" rel="noopener noreferrer" aria-label="ChessDepth on WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        </div>
+      </div>
+      <div>
+        <p class="font-semibold text-white mb-3">Explore</p>
+        <ul class="space-y-1 text-sm">
+          <li><a href="/courses/">Courses &amp; Fees</a></li>
+          <li><a href="/coaches/">Our Coaches</a></li>
+          <li><a href="/resources/">Free Resources</a></li>
+          <li><a href="/shop/">Shop</a></li>
+          <li><a href="/lab/">Chess Lab</a></li>
+          <li><a href="/careers/">Careers</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="font-semibold text-white mb-3">Get in touch</p>
+        <ul class="space-y-1 text-sm">
+          <li><i class="fas fa-phone-alt mr-2"></i><a href="tel:+919823029262">+91 98230 29262</a></li>
+          <li><i class="fab fa-whatsapp mr-2"></i><a href="https://wa.me/919823029262?text=Hi%2C%20I%20would%20like%20to%20book%20a%20free%20demo%20class" target="_blank" rel="noopener noreferrer">WhatsApp us</a></li>
+          <li><i class="fas fa-envelope mr-2"></i><a href="mailto:info@chessdepth.in">info@chessdepth.in</a></li>
+          <li><i class="fas fa-map-marker-alt mr-2"></i>Bhopal, Madhya Pradesh, India</li>
+        </ul>
+      </div>
+    </div>
+    <div class="max-w-6xl mx-auto px-4 mt-8 pt-4 border-t border-gray-700 flex flex-col sm:flex-row justify-between text-xs text-gray-400 gap-2 text-center">
+      <p>&copy; <span data-year>2026</span> ChessDepth Academy. All rights reserved.</p>
+      <p class="cd-legal"><a href="/terms/">Terms</a> · <a href="/refunds/">Refunds &amp; cancellations</a> · <a href="/privacy/">Privacy policy</a></p>
+    </div>
+  </footer>
+  <a href="https://wa.me/919823029262?text=Hi%2C%20I%20would%20like%20to%20book%20a%20free%20demo%20class" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Chat with ChessDepth on WhatsApp" title="Chat with us on WhatsApp"><i class="fab fa-whatsapp text-2xl"></i></a>
+
+  <script src="/assets/js/site.js" defer></script>
+</body>
+</html>

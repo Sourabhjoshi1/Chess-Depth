@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <script>
+    /* Night/day mode: use the saved choice, otherwise follow the device setting */
+    (function () {
+      var t = null; try { t = localStorage.getItem("cd-theme"); } catch (e) {}
+      if (t !== "light" && t !== "dark") t = (window.matchMedia && matchMedia("(prefers-color-scheme: dark)").matches) ? "dark" : "light";
+      if (t === "dark") document.documentElement.classList.add("dark");
+    })();
+  </script>
+  <meta name="theme-color" content="#1f2547">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free Chess Resources, Tools & Guides | ChessDepth Academy</title>
+  <meta name="description" content="Free chess study roadmap, Lichess game analyser, board editor, opening guide, endgame checklist, training plans and book list.">
+  <link rel="canonical" href="https://www.chessdepth.in/resources/">
+  <meta property="og:title" content="Free Chess Resources, Tools & Guides | ChessDepth Academy">
+  <meta property="og:site_name" content="ChessDepth Academy">
+  <meta property="og:locale" content="en_IN">
+  <meta property="og:description" content="Free chess study roadmap, Lichess game analyser, board editor, opening guide, endgame checklist, training plans and book list.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.chessdepth.in/resources/">
+  <meta property="og:image" content="https://www.chessdepth.in/assets/images/og-image.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Free Chess Resources, Tools & Guides | ChessDepth Academy">
+  <meta name="twitter:description" content="Free chess study roadmap, Lichess game analyser, board editor, opening guide, endgame checklist, training plans and book list.">
+  <meta name="twitter:image" content="https://www.chessdepth.in/assets/images/og-image.jpg">
+  <link rel="icon" href="/assets/images/favicon.ico" sizes="48x48">
+  <link rel="icon" href="/assets/images/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="/assets/css/tailwind.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,500;0,600;1,400&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="/assets/css/pages/resources.css">
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <link rel="stylesheet" href="/assets/css/dark.css">
+  <script type="module" src="https://cdn.jsdelivr.net/npm/chessboard-element@1.2.0/bundled/chessboard-element.bundled.js"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-2C73E30ZFX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-2C73E30ZFX');
+  </script>
+  
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+    {"@type":"ListItem","position":1,"name":"Home","item":"https://www.chessdepth.in/"},{"@type":"ListItem","position":2,"name":"Free Chess Resources, Tools & Guides","item":"https://www.chessdepth.in/resources/"}
+  ]}
+  </script>
+
+
+</head>
+<body class="bg-gray-100 text-gray-800">
+  <div class="cd-topbar">
+    <div class="cd-wrap cd-topbar-inner">
+      <p class="cd-topbar-contact">
+        <a href="tel:+919823029262"><i class="fas fa-phone-alt"></i>+91 98230 29262</a>
+        <a href="mailto:info@chessdepth.in"><i class="far fa-envelope"></i>info@chessdepth.in</a>
+      </p>
+      <p class="cd-topbar-links">
+        <a href="/lab/"><i class="fas fa-flask"></i>Chess Lab<span class="cd-free" data-free-until="2026-11-21">Free</span></a>
+        <a href="/careers/">Careers</a>
+        <a href="/student/"><i class="far fa-user-circle"></i>Student login</a>
+        <button type="button" class="cd-theme-btn" data-theme-toggle aria-label="Switch to night mode" title="Night / day mode"><i class="fas fa-moon cd-moon"></i><i class="fas fa-sun cd-sun"></i></button>
+      </p>
+    </div>
+  </div>
+  <header class="cd-header" id="main-header">
+    <div class="cd-wrap cd-header-inner">
+      <a href="/" class="cd-brand">
+        <svg class="cd-mark" viewBox="0 0 32 32" aria-hidden="true" focusable="false"><path fill="currentColor" d="M8 5h3v3h2.5V5h5v3H21V5h3v7.2l-2.4 1.8.9 9H9.5l.9-9L8 12.2zM8.5 24.5h15l1.5 2.5H7zM6 28h20v2.5H6z"/></svg>
+
+        <span class="cd-brand-text"><span class="cd-brand-name">ChessDepth</span><span class="cd-brand-sub">Chess Academy</span></span>
+      </a>
+      <nav id="main-nav" aria-label="Primary" class="cd-nav">
+        <a href="/about/" class="cd-link">About</a>
+        <a href="/courses/" class="cd-link">Courses</a>
+        <a href="/coaches/" class="cd-link">Coaches</a>
+        <a href="/resources/" class="cd-link" aria-current="page">Resources</a>
+        <a href="/shop/" class="cd-link">Shop</a>
+        <a href="/ai/" class="cd-link cd-link-ai">ChessDepth AI<span class="cd-soon">Soon</span></a>
+        <a href="/blog/" class="cd-link">Blog</a>
+        <a href="/contact/" class="cd-link">Contact</a>
+        <a href="https://wa.me/919823029262?text=Hi%2C%20I%20would%20like%20to%20book%20a%20free%20demo%20class" target="_blank" rel="noopener noreferrer" class="cd-hdr-cta">Book a free demo</a>
+      </nav>
+      <div class="cd-header-mobile">
+        <button type="button" class="cd-theme-btn" data-theme-toggle aria-label="Switch to night mode" title="Night / day mode"><i class="fas fa-moon cd-moon"></i><i class="fas fa-sun cd-sun"></i></button>
+        <button id="menu-toggle" class="cd-menu-btn" aria-controls="mobile-menu" aria-expanded="false" aria-label="Open menu">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+        </button>
+      </div>
+    </div>
+    <div id="mobile-menu" class="cd-mobile-menu hidden">
+      <nav class="cd-wrap" aria-label="Mobile">
+        <a href="/">Home</a>
+        <a href="/about/">About</a>
+        <a href="/courses/">Courses</a>
+        <a href="/coaches/">Coaches</a>
+        <a href="/resources/" aria-current="page">Resources</a>
+        <a href="/shop/">Shop</a>
+        <a href="/ai/">ChessDepth AI<span class="cd-soon">Coming soon</span></a>
+        <a href="/blog/">Blog</a>
+        <a href="/contact/">Contact</a>
+        <a href="/lab/">Chess Lab <i class="fas fa-crown" style="color:#b08a4e;font-size:.8em"></i><span class="cd-soon" data-free-until="2026-11-21">Free launch offer</span></a>
+        <a href="/careers/">Careers</a>
+        <div class="cd-mobile-actions">
+          <a href="/student/" class="cd-mobile-login"><i class="far fa-user-circle"></i>Student login</a>
+          <a href="https://wa.me/919823029262?text=Hi%2C%20I%20would%20like%20to%20book%20a%20free%20demo%20class" target="_blank" rel="noopener noreferrer" class="cd-hdr-cta">Book a free demo</a>
+        </div>
+        <p class="cd-mobile-contact"><a href="tel:+919823029262">+91 98230 29262</a><a href="mailto:info@chessdepth.in">info@chessdepth.in</a></p>
+      </nav>
+    </div>
+  </header>
+
+
+<!-- ============ HERO ============ -->
+  <section class="cd-hero cd-hero-bg">
+  <div class="cd-hero-inner"><p class="cd-hero-eyebrow">Free resources</p>
+    <h1 class="cd-hero-title">Everything you need to improve</h1><p class="cd-hero-lead">A study roadmap for your level, tools to analyse your games, opening and endgame guides, training plans and the best books, all free and chosen by our coaches.</p>
+  </div>
+</section>
+
+
+  <!-- ============ SECTION NAV ============ -->
+  <nav aria-label="Resources sections" class="rs-subnav">
+    <div class="max-w-6xl mx-auto px-4">
+      <ul class="flex items-center gap-5 py-3 text-sm whitespace-nowrap overflow-x-auto">
+        <li><a href="#roadmap">Roadmap</a></li>
+        <li><a href="#analysis">Game Analyser</a></li>
+        <li><a href="#board-editor">Board Editor</a></li>
+        <li><a href="#openings">Openings</a></li>
+        <li><a href="#tactics">Tactics</a></li>
+        <li><a href="#endgames">Endgames</a></li>
+        <li><a href="#training-plan">Training Plan</a></li>
+        <li><a href="#books">Books</a></li>
+        <li><a href="#tools">Online Tools</a></li>
+        <li><a href="#blog">Blog</a></li>
+        <li><a href="#faq">FAQ</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ============ STUDENT AREA BANNER ============ -->
+  <section class="px-4 pt-10">
+    <div class="max-w-5xl mx-auto rounded-xl bg-white shadow p-6 flex flex-col md:flex-row items-center gap-5">
+      <i class="fas fa-file-pdf text-4xl text-red-500"></i>
+      <div class="flex-grow text-center md:text-left">
+        <p class="font-bold text-lg text-gray-900">Free PDF worksheets for ChessDepth students</p>
+        <p class="text-gray-600 text-sm">Sign in to the Student Area to download worksheets and concept books for every course.</p>
+      </div>
+      <a href="/student/" class="cd-login-btn"><i class="fas fa-user-circle mr-1"></i>Go to Student Area</a>
+    </div>
+  </section>
+
+  <!-- ============ ROADMAP ============ -->
+  <section id="roadmap" class="py-16 px-4">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-10">
+        <p class="rs-eyebrow mb-2">Start here</p>
+        <h2 class="text-3xl font-bold text-gray-900 mb-3">Your improvement roadmap</h2>
+        <p class="text-gray-600 max-w-2xl mx-auto">Find your level and focus on what matters most right now. Ratings are rough guides (online rapid or FIDE).</p>
+      </div>
+      <div class="grid md:grid-cols-2 lg:grid-cols-5 gap-5">
+        <div class="rs-card rs-level p-5" style="--lv:#10b981">
+          <p class="text-xs font-bold text-green-700 uppercase">Stage 1 · New to chess</p>
+          <p class="text-lg font-bold mt-1 mb-3">0 – 800</p>
+          <ul class="rs-list"><li>How the pieces move, special rules</li><li>Basic mates: queen and rook vs king</li><li>Don't leave pieces undefended</li><li>Opening principles</li></ul>
+          <p class="rs-focus">Focus: safety of your pieces</p>
+        </div>
+        <div class="rs-card rs-level p-5" style="--lv:#3b82f6">
+          <p class="text-xs font-bold text-blue-600 uppercase">Stage 2 · Beginner</p>
+          <p class="text-lg font-bold mt-1 mb-3">800 – 1200</p>
+          <ul class="rs-list"><li>Forks, pins, skewers, discoveries</li><li>The CCT habit before every move</li><li>King and pawn endgames, opposition</li><li>One simple opening per side</li></ul>
+          <p class="rs-focus">Focus: daily tactics</p>
+        </div>
+        <div class="rs-card rs-level p-5" style="--lv:#8b5cf6">
+          <p class="text-xs font-bold text-purple-600 uppercase">Stage 3 · Improver</p>
+          <p class="text-lg font-bold mt-1 mb-3">1200 – 1600</p>
+          <ul class="rs-list"><li>Combinations of 2–3 moves</li><li>Piece activity and weak squares</li><li>Lucena and Philidor positions</li><li>Analysing your own games</li></ul>
+          <p class="rs-focus">Focus: calculation and plans</p>
+        </div>
+        <div class="rs-card rs-level p-5" style="--lv:#f59e0b">
+          <p class="text-xs font-bold text-yellow-700 uppercase">Stage 4 · Club player</p>
+          <p class="text-lg font-bold mt-1 mb-3">1600 – 2000</p>
+          <ul class="rs-list"><li>Pawn structures and typical plans</li><li>A deeper opening repertoire</li><li>Practical rook endgames</li><li>Time management, tournament play</li></ul>
+          <p class="rs-focus">Focus: strategy and endgames</p>
+        </div>
+        <div class="rs-card rs-level p-5" style="--lv:#ef4444">
+          <p class="text-xs font-bold text-red-600 uppercase">Stage 5 · Advanced</p>
+          <p class="text-lg font-bold mt-1 mb-3">2000+</p>
+          <ul class="rs-list"><li>Deep calculation training</li><li>Opponent-specific preparation</li><li>Complex endgames, master games</li><li>Psychology and consistency</li></ul>
+          <p class="rs-focus">Focus: depth and consistency</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ GAME ANALYSER ============ -->
+  <section id="analysis" class="py-16 px-4 bg-white">
+    <div class="max-w-4xl mx-auto">
+      <div class="text-center mb-8">
+        <p class="rs-eyebrow mb-2">Free tool</p>
+        <h2 class="text-3xl font-bold text-gray-900 mb-3">Lichess game analyser</h2>
+        <p class="text-gray-600">Enter a Lichess username to see current ratings, recent results with White and Black, and the openings played most often. Profiles must be public.</p>
+      </div>
+      <form id="analysis-form" class="rs-card p-5 flex flex-col sm:flex-row gap-3">
+        <label for="username-input" class="sr-only">Lichess username</label>
+        <input type="text" id="username-input" placeholder="Lichess username" autocomplete="off" spellcheck="false" class="flex-grow p-3 border-2 border-indigo-200 rounded-md focus:outline-none focus:border-indigo-500">
+        <select id="games-count" class="p-3 border-2 border-indigo-200 rounded-md" aria-label="Number of games">
+          <option value="10">Last 10 games</option>
+          <option value="20" selected>Last 20 games</option>
+          <option value="50">Last 50 games</option>
+        </select>
+        <button type="submit" id="analyze-button" class="bg-orange-500 hover:bg-orange-600 text-white font-bold px-6 py-3 rounded-md shadow transition disabled:opacity-60">Analyse</button>
+      </form>
+      <p class="text-sm text-gray-500 mt-3 text-center">Want an example? <button type="button" id="prefill-sample" class="text-indigo-600 underline">Try "DrNykterstein"</button></p>
+      <div id="analysis-status" class="text-center text-gray-500 mt-6" role="status" aria-live="polite"></div>
+      <div id="analysis-results" class="hidden mt-6 space-y-6"></div>
+    </div>
+  </section>
+
+  <!-- ============ BOARD EDITOR ============ -->
+  <section id="board-editor" class="py-16 px-4">
+    <div class="max-w-4xl mx-auto">
+      <div class="text-center mb-8">
+        <p class="rs-eyebrow mb-2">Free tool</p>
+        <h2 class="text-3xl font-bold text-gray-900 mb-3">Board editor</h2>
+        <p class="text-gray-600">Drag pieces to set up a position, paste a FEN from a book or game, then copy it or open it on Lichess for engine analysis.</p>
+      </div>
+      <div class="rs-card p-4 md:p-6">
+        <div class="flex flex-col sm:flex-row gap-2 mb-4">
+          <label for="fen-input" class="sr-only">FEN</label>
+          <input id="fen-input" type="text" placeholder="Paste a FEN here (optional)" spellcheck="false" class="flex-grow p-2.5 border border-gray-300 rounded-md text-sm font-mono focus:outline-none focus:ring-2 focus:ring-indigo-500">
+          <button id="load-fen" type="button" class="px-4 py-2 rounded-md bg-indigo-600 text-white font-semibold hover:bg-indigo-700">Load FEN</button>
+        </div>
+        <div class="rs-board-wrap">
+          <chess-board id="play-board" position="start" draggable-pieces spare-pieces drop-off-board="trash"></chess-board>
+        </div>
+        <div class="flex flex-wrap justify-center gap-2 mt-4">
+          <button id="start-pos" type="button" class="rs-btn"><i class="fas fa-redo mr-1"></i>Start position</button>
+          <button id="clear-board" type="button" class="rs-btn"><i class="fas fa-eraser mr-1"></i>Clear</button>
+          <button id="flip-board" type="button" class="rs-btn"><i class="fas fa-sync-alt mr-1"></i>Flip</button>
+          <button id="copy-fen" type="button" class="rs-btn"><i class="fas fa-copy mr-1"></i>Copy FEN</button>
+          <button id="open-lichess" type="button" class="rs-btn rs-btn-primary"><i class="fas fa-external-link-alt mr-1"></i>Analyse on Lichess</button>
+        </div>
+        <p class="text-center text-xs text-gray-500 mt-3">Tip: drag a piece off the board to remove it. "Analyse on Lichess" opens the position with White to move.</p>
+        <p id="board-msg" class="text-center text-sm text-green-700 mt-2" role="status" aria-live="polite"></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ OPENINGS ============ -->
+  <section id="openings" class="py-16 px-4 bg-white">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-8">
+        <p class="rs-eyebrow mb-2">Opening guide</p>
+        <h2 class="text-3xl font-bold text-gray-900 mb-3">Know your openings</h2>
+        <p class="text-gray-600 max-w-2xl mx-auto">Popular openings, what they aim for and who they suit. Learn the ideas first; the moves follow. Read more in <a href="/blog/building-a-solid-opening-repertoire/" class="text-indigo-700 font-semibold hover:underline">Building a Solid Opening Repertoire</a>.</p>
+      </div>
+      <div class="flex justify-center flex-wrap gap-2 mb-8" role="tablist" aria-label="Opening groups">
+        <button type="button" class="rs-tab is-active" role="tab" aria-selected="true" data-tab="white">As White</button>
+        <button type="button" class="rs-tab" role="tab" aria-selected="false" data-tab="black_e4">As Black vs 1.e4</button>
+        <button type="button" class="rs-tab" role="tab" aria-selected="false" data-tab="black_d4">As Black vs 1.d4</button>
+      </div>
+      <div class="rs-tabpanel grid md:grid-cols-2 lg:grid-cols-3 gap-5" data-panel="white" role="tabpanel">
+        <div class="rs-card p-6 flex flex-col">
+          <h3 class="text-lg font-bold text-gray-900">Italian Game</h3>
+          <p class="font-mono text-sm text-indigo-700 mt-1 mb-3">1.e4 e5 2.Nf3 Nc6 3.Bc4</p>
+          <div class="flex flex-wrap gap-2 mb-3">
+            <span class="rs-chip">Open & tactical</span><span class="rs-chip rs-chip-gray">Beginner+</span>
+          </div>
+          <p class="text-sm text-gray-600 flex-grow">Quick development and pressure on f7. Later White prepares c3 and d4 to build a big centre.</p>
+          <a href="https://lichess.org/opening/Italian_Game" target="_blank" rel="noopener noreferrer" class="text-sm text-indigo-700 font-semibold mt-4 hover:underline">Explore on Lichess <i class="fas fa-external-link-alt text-xs ml-1"></i></a>
+        </div>
+        <div class="rs-card p-6 flex flex-col">
+          <h3 class="text-lg font-bold text-gray-900">Ruy Lopez (Spanish Game)</h3>
+          <p class="font-mono text-sm text-indigo-700 mt-1 mb-3">1.e4 e5 2.Nf3 Nc6 3.Bb5</p>
+          <div class="flex flex-wrap gap-2 mb-3">
+            <span class="rs-chip">Strategic</span><span class="rs-chip rs-chip-gray">Intermediate+</span>
+          </div>
+          <p class="text-sm text-gray-600 flex-grow">Long-term pressure on Black's e5 pawn and centre. Rich middlegames with slow manoeuvring.</p>
+          <a href="https://lichess.org/opening/Ruy_Lopez" target="_blank" rel="noopener noreferrer" class="text-sm text-indigo-700 font-semibold mt-4 hover:underline">Explore on Lichess <i class="fas fa-external-link-alt text-xs ml-1"></i></a>
+        </div>
+        <div class="rs-card p-6 flex flex-col">
+          <h3 class="text-lg font-bold text-gray-900">Queen's Gambit</h3>
+          <p class="font-mono text-sm text-indigo-700 mt-1 mb-3">1.d4 d5 2.c4</p>
+          <div class="flex flex-wrap gap-2 mb-3">
+            <span class="rs-chip">Solid & strategic</span><span class="rs-chip rs-chip-gray">Intermediate+</span>
+          </div>
+          <p class="text-sm text-gray-600 flex-grow">White offers a wing pawn to remove Black's centre pawn and gain control of the centre.</p>
+          <a href="https://lichess.org/opening/Queens_Gambit" target="_blank" rel="noopener noreferrer" class="text-sm text-indigo-700 font-semibold mt-4 hover:underline">Explore on Lichess <i class="fas fa-external-link-alt text-xs ml-1"></i></a>
+        </div>
+        <div class="rs-card p-6 flex flex-col">
+          <h3 class="text-lg font-bold text-gray-900">London System</h3>
+          <p class="font-mono text-sm text-indigo-700 mt-1 mb-3">1.d4 d5 2.Bf4</p>
+          <div class="flex flex-wrap gap-2 mb-3">
+            <span class="rs-chip">Solid system</span><span class="rs-chip rs-chip-gray">Beginner+</span>
+          </div>
+          <p class="text-sm text-gray-600 flex-grow">The same easy setup (d4, Bf4, e3, Nf3, c3) against almost anything. Less theory to learn.</p>
+          <a href="https://lichess.org/opening/London_System" target="_blank" rel="noopener noreferrer" class="text-sm text-indigo-700 font-semibold mt-4 hover:underline">Explore on Lichess <i class="fas fa-external-link-alt text-xs ml-1"></i></a>
+        </div>
+        <div class="rs-card p-6 flex flex-col">
+          <h3 class="text-lg font-bold text-gray-900">English Opening</h3>
+          <p class="font-mono text-sm text-indigo-700 mt-1 mb-3">1.c4</p>
+          <div class="flex flex-wrap gap-2 mb-3">
+            <span class="rs-chip">Flexible</span><span class="rs-chip rs-chip-gray">Advanced</span>
+          </div>
+          <p class="text-sm text-gray-600 flex-grow">Control d5 from the side and keep many options open. Often transposes to other openings.</p>
+          <a href="https://lichess.org/opening/English_Opening" target="_blank" rel="noopener noreferrer" class="text-sm text-indigo-700 font-semibold mt-4 hover:underline">Explore on Lichess <i class="fas fa-external-link-alt text-xs ml-1"></i></a>
+        </div>
+      </div>
+      <div class="rs-tabpanel grid md:grid-cols-2 lg:grid-cols-3 gap-5 hidden" data-panel="black_e4" role="tabpanel">
+        <div class="rs-card p-6 flex flex-col">
+          <h3 class="text-lg font-bold text-gray-900">Open Game (1...e5)</h3>
+          <p class="font-mono text-sm text-indigo-700 mt-1 mb-3">1.e4 e5</p>
+          <div class="flex flex-wrap gap-2 mb-3">
+            <span class="rs-chip">Classical</span><span class="rs-chip rs-chip-gray">Beginner+</span>
+          </div>
+          <p class="text-sm text-gray-600 flex-grow">Meet White in the centre and develop naturally. The best way to learn open positions.</p>
+          <a href="https://lichess.org/opening/Kings_Pawn_Game" target="_blank" rel="noopener noreferrer" class="text-sm text-indigo-700 font-semibold mt-4 hover:underline">Explore on Lichess <i class="fas fa-external-link-alt text-xs ml-1"></i></a>
+        </div>
+        <div class="rs-card p-6 flex flex-col">
+          <h3 class="text-lg font-bold text-gray-900">Sicilian Defence</h3>
+          <p class="font-mono text-sm text-indigo-700 mt-1 mb-3">1.e4 c5</p>
+          <div class="flex flex-wrap gap-2 mb-3">
+            <span class="rs-chip">Sharp & combative</span><span class="rs-chip rs-chip-gray">Intermediate+</span>
+          </div>
+          <p class="text-sm text-gray-600 flex-grow">Unbalance the game. Black fights for d4 from the side and often counter-attacks on the queenside.</p>
+          <a href="https://lichess.org/opening/Sicilian_Defense" target="_blank" rel="noopener noreferrer" class="text-sm text-indigo-700 font-semibold mt-4 hover:underline">Explore on Lichess <i class="fas fa-external-link-alt text-xs ml-1"></i></a>
+        </div>
+        <div class="rs-card p-6 flex flex-col">
+          <h3 class="text-lg font-bold text-gray-900">Caro-Kann Defence</h3>
+          <p class="font-mono text-sm text-indigo-700 mt-1 mb-3">1.e4 c6</p>
+          <div class="flex flex-wrap gap-2 mb-3">
+            <span class="rs-chip">Solid</span><span class="rs-chip rs-chip-gray">Beginner+</span>
+          </div>
+          <p class="text-sm text-gray-600 flex-grow">Prepare ...d5 with a strong pawn chain, and develop the light-squared bishop outside it.</p>
+          <a href="https://lichess.org/opening/Caro-Kann_Defense" target="_blank" rel="noopener noreferrer" class="text-sm text-indigo-700 font-semibold mt-4 hover:underline">Explore on Lichess <i class="fas fa-external-link-alt text-xs ml-1"></i></a>
+        </div>
+        <div class="rs-card p-6 flex flex-col">
+          <h3 class="text-lg font-bold text-gray-900">French Defence</h3>
+          <p class="font-mono text-sm text-indigo-700 mt-1 mb-3">1.e4 e6</p>
+          <div class="flex flex-wrap gap-2 mb-3">
+            <span class="rs-chip">Solid & counter-attacking</span><span class="rs-chip rs-chip-gray">Intermediate+</span>
+          </div>
+          <p class="text-sm text-gray-600 flex-grow">Challenge the centre with ...d5, then attack White's pawn chain with ...c5 and ...f6.</p>
+          <a href="https://lichess.org/opening/French_Defense" target="_blank" rel="noopener noreferrer" class="text-sm text-indigo-700 font-semibold mt-4 hover:underline">Explore on Lichess <i class="fas fa-external-link-alt text-xs ml-1"></i></a>
+        </div>
+      </div>
+      <div class="rs-tabpanel grid md:grid-cols-2 lg:grid-cols-3 gap-5 hidden" data-panel="black_d4" role="tabpanel">
+        <div class="rs-card p-6 flex flex-col">
+          <h3 class="text-lg font-bold text-gray-900">Queen's Gambit Declined</h3>
+          <p class="font-mono text-sm text-indigo-700 mt-1 mb-3">1.d4 d5 2.c4 e6</p>
+          <div class="flex flex-wrap gap-2 mb-3">
+            <span class="rs-chip">Classical & solid</span><span class="rs-chip rs-chip-gray">Beginner+</span>
+          </div>
+          <p class="text-sm text-gray-600 flex-grow">Hold the d5 point firmly, develop calmly, and free the position later with ...c5 or ...e5.</p>
+          <a href="https://lichess.org/opening/Queens_Gambit_Declined" target="_blank" rel="noopener noreferrer" class="text-sm text-indigo-700 font-semibold mt-4 hover:underline">Explore on Lichess <i class="fas fa-external-link-alt text-xs ml-1"></i></a>
+        </div>
+        <div class="rs-card p-6 flex flex-col">
+          <h3 class="text-lg font-bold text-gray-900">Slav Defence</h3>
+          <p class="font-mono text-sm text-indigo-700 mt-1 mb-3">1.d4 d5 2.c4 c6</p>
+          <div class="flex flex-wrap gap-2 mb-3">
+            <span class="rs-chip">Solid</span><span class="rs-chip rs-chip-gray">Intermediate+</span>
+          </div>
+          <p class="text-sm text-gray-600 flex-grow">Defend d5 with the c-pawn, keeping the light-squared bishop free to develop.</p>
+          <a href="https://lichess.org/opening/Slav_Defense" target="_blank" rel="noopener noreferrer" class="text-sm text-indigo-700 font-semibold mt-4 hover:underline">Explore on Lichess <i class="fas fa-external-link-alt text-xs ml-1"></i></a>
+        </div>
+        <div class="rs-card p-6 flex flex-col">
+          <h3 class="text-lg font-bold text-gray-900">King's Indian Defence</h3>
+          <p class="font-mono text-sm text-indigo-700 mt-1 mb-3">1.d4 Nf6 2.c4 g6</p>
+          <div class="flex flex-wrap gap-2 mb-3">
+            <span class="rs-chip">Dynamic & attacking</span><span class="rs-chip rs-chip-gray">Advanced</span>
+          </div>
+          <p class="text-sm text-gray-600 flex-grow">Let White take the centre, then strike back with ...e5 or ...c5 and often attack on the kingside.</p>
+          <a href="https://lichess.org/opening/Kings_Indian_Defense" target="_blank" rel="noopener noreferrer" class="text-sm text-indigo-700 font-semibold mt-4 hover:underline">Explore on Lichess <i class="fas fa-external-link-alt text-xs ml-1"></i></a>
+        </div>
+        <div class="rs-card p-6 flex flex-col">
+          <h3 class="text-lg font-bold text-gray-900">Nimzo-Indian Defence</h3>
+          <p class="font-mono text-sm text-indigo-700 mt-1 mb-3">1.d4 Nf6 2.c4 e6 3.Nc3 Bb4</p>
+          <div class="flex flex-wrap gap-2 mb-3">
+            <span class="rs-chip">Strategic</span><span class="rs-chip rs-chip-gray">Advanced</span>
+          </div>
+          <p class="text-sm text-gray-600 flex-grow">Pin the c3 knight to control e4, and be ready to give the bishop pair for a better pawn structure.</p>
+          <a href="https://lichess.org/opening/Nimzo-Indian_Defense" target="_blank" rel="noopener noreferrer" class="text-sm text-indigo-700 font-semibold mt-4 hover:underline">Explore on Lichess <i class="fas fa-external-link-alt text-xs ml-1"></i></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ TACTICS ============ -->
+  <section id="tactics" class="py-16 px-4">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-10">
+        <p class="rs-eyebrow mb-2">Tactics glossary</p>
+        <h2 class="text-3xl font-bold text-gray-900 mb-3">The tactical patterns to know</h2>
+        <p class="text-gray-600 max-w-2xl mx-auto">Almost every combination is built from these patterns. Learn to name them, and you will start to see them. Try them out in <a href="/blog/mastering-basic-chess-tactics/" class="text-indigo-700 font-semibold hover:underline">Mastering Basic Chess Tactics</a>.</p>
+      </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div class="rs-card p-5"><p class="font-bold">Fork</p><p class="text-sm text-gray-600 mt-1">One piece attacks two or more enemy pieces at once.</p></div>
+        <div class="rs-card p-5"><p class="font-bold">Pin</p><p class="text-sm text-gray-600 mt-1">A piece can't move without exposing a more valuable piece behind it.</p></div>
+        <div class="rs-card p-5"><p class="font-bold">Skewer</p><p class="text-sm text-gray-600 mt-1">A valuable piece is attacked and, when it moves, the piece behind it is lost.</p></div>
+        <div class="rs-card p-5"><p class="font-bold">Discovered attack</p><p class="text-sm text-gray-600 mt-1">Moving one piece uncovers an attack by the piece behind it.</p></div>
+        <div class="rs-card p-5"><p class="font-bold">Double check</p><p class="text-sm text-gray-600 mt-1">Two pieces give check at once, so the king must move.</p></div>
+        <div class="rs-card p-5"><p class="font-bold">Removing the defender</p><p class="text-sm text-gray-600 mt-1">Capture or chase away the piece that protects a target.</p></div>
+        <div class="rs-card p-5"><p class="font-bold">Deflection</p><p class="text-sm text-gray-600 mt-1">Force a defender to leave the square or piece it is guarding.</p></div>
+        <div class="rs-card p-5"><p class="font-bold">Decoy</p><p class="text-sm text-gray-600 mt-1">Lure a piece (often the king) onto a square where it can be attacked.</p></div>
+        <div class="rs-card p-5"><p class="font-bold">Overloading</p><p class="text-sm text-gray-600 mt-1">One piece has two defensive jobs and can't do both.</p></div>
+        <div class="rs-card p-5"><p class="font-bold">Interference</p><p class="text-sm text-gray-600 mt-1">Block the line between a defender and the piece it protects.</p></div>
+        <div class="rs-card p-5"><p class="font-bold">Zwischenzug</p><p class="text-sm text-gray-600 mt-1">An "in-between move": a stronger move played before the expected recapture.</p></div>
+        <div class="rs-card p-5"><p class="font-bold">X-ray</p><p class="text-sm text-gray-600 mt-1">A piece attacks or defends a square through another piece.</p></div>
+        <div class="rs-card p-5"><p class="font-bold">Back-rank mate</p><p class="text-sm text-gray-600 mt-1">A rook or queen mates a king trapped behind its own pawns.</p></div>
+        <div class="rs-card p-5"><p class="font-bold">Smothered mate</p><p class="text-sm text-gray-600 mt-1">A knight mates a king that is surrounded by its own pieces.</p></div>
+        <div class="rs-card p-5"><p class="font-bold">Desperado</p><p class="text-sm text-gray-600 mt-1">A piece that will be lost anyway grabs as much as it can first.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ENDGAMES ============ -->
+  <section id="endgames" class="py-16 px-4 bg-white">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-center mb-10">
+        <p class="rs-eyebrow mb-2">Endgame checklist</p>
+        <h2 class="text-3xl font-bold text-gray-900 mb-3">Must-know endgames</h2>
+        <p class="text-gray-600 max-w-2xl mx-auto">Tick off each one when you can play it confidently from both sides. Your ticks are saved in this browser. Start with <a href="/blog/rook-endgames-lucena-and-philidor/" class="text-indigo-700 font-semibold hover:underline">the Lucena and Philidor positions</a>.</p>
+      </div>
+      <div class="grid md:grid-cols-3 gap-6" id="endgame-checklist">
+        <div class="rs-card p-6">
+          <p class="font-bold text-green-700 mb-3">Foundation</p>
+          <label class="rs-check"><input type="checkbox" data-eg="kq-k"> King + queen vs king mate</label>
+          <label class="rs-check"><input type="checkbox" data-eg="kr-k"> King + rook vs king mate</label>
+          <label class="rs-check"><input type="checkbox" data-eg="square"> Rule of the square</label>
+          <label class="rs-check"><input type="checkbox" data-eg="opposition"> The opposition</label>
+          <label class="rs-check"><input type="checkbox" data-eg="kp-k"> King + pawn vs king</label>
+        </div>
+        <div class="rs-card p-6">
+          <p class="font-bold text-blue-700 mb-3">Intermediate</p>
+          <label class="rs-check"><input type="checkbox" data-eg="key-squares"> Key squares</label>
+          <label class="rs-check"><input type="checkbox" data-eg="outside-passer"> Outside passed pawn</label>
+          <label class="rs-check"><input type="checkbox" data-eg="q-vs-pawn"> Queen vs pawn on the 7th</label>
+          <label class="rs-check"><input type="checkbox" data-eg="lucena"> Lucena position (win)</label>
+          <label class="rs-check"><input type="checkbox" data-eg="philidor"> Philidor position (draw)</label>
+        </div>
+        <div class="rs-card p-6">
+          <p class="font-bold text-purple-700 mb-3">Advanced</p>
+          <label class="rs-check"><input type="checkbox" data-eg="wrong-bishop"> Wrong-coloured bishop + rook pawn</label>
+          <label class="rs-check"><input type="checkbox" data-eg="vancura"> Vancura defence</label>
+          <label class="rs-check"><input type="checkbox" data-eg="bn-mate"> Bishop + knight mate</label>
+          <label class="rs-check"><input type="checkbox" data-eg="trebuchet"> Mutual zugzwang (trebuchet)</label>
+          <label class="rs-check"><input type="checkbox" data-eg="opp-bishops"> Opposite-coloured bishops</label>
+        </div>
+      </div>
+      <p class="text-center mt-5"><span id="eg-progress" class="text-sm font-semibold text-indigo-700"></span> <button type="button" id="eg-reset" class="text-sm text-gray-500 underline ml-2">Reset</button></p>
+    </div>
+  </section>
+
+  <!-- ============ TRAINING PLAN ============ -->
+  <section id="training-plan" class="py-16 px-4">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-center mb-10">
+        <p class="rs-eyebrow mb-2">Weekly training plan</p>
+        <h2 class="text-3xl font-bold text-gray-900 mb-3">How to split your study time</h2>
+        <p class="text-gray-600 max-w-2xl mx-auto">Pick the plan that matches the time you have. Consistency beats long, rare sessions.</p>
+      </div>
+      <div class="rs-card overflow-x-auto">
+        <table class="w-full text-sm">
+          <thead class="bg-indigo-50 text-indigo-900">
+            <tr><th class="text-left p-4">Activity</th><th class="text-left p-4">3 hours / week</th><th class="text-left p-4">6 hours / week</th><th class="text-left p-4">10+ hours / week</th></tr>
+          </thead>
+          <tbody class="text-gray-700">
+            <tr class="border-t"><td class="p-4 font-semibold">Tactics puzzles</td><td class="p-4">15 min, 5 days</td><td class="p-4">20 min daily</td><td class="p-4">30 min daily</td></tr>
+            <tr class="border-t"><td class="p-4 font-semibold">Serious games (15+ min)</td><td class="p-4">2 games</td><td class="p-4">3–4 games</td><td class="p-4">5+ games or a tournament</td></tr>
+            <tr class="border-t"><td class="p-4 font-semibold">Analyse your games</td><td class="p-4">30 min</td><td class="p-4">1 hour</td><td class="p-4">2 hours</td></tr>
+            <tr class="border-t"><td class="p-4 font-semibold">Endgames</td><td class="p-4">20 min</td><td class="p-4">45 min</td><td class="p-4">1.5 hours</td></tr>
+            <tr class="border-t"><td class="p-4 font-semibold">Openings (ideas &amp; model games)</td><td class="p-4">15 min</td><td class="p-4">30 min</td><td class="p-4">1.5 hours</td></tr>
+            <tr class="border-t"><td class="p-4 font-semibold">Strategy / master games</td><td class="p-4">–</td><td class="p-4">45 min</td><td class="p-4">1.5 hours</td></tr>
+            <tr class="border-t"><td class="p-4 font-semibold">Calculation exercises</td><td class="p-4">–</td><td class="p-4">30 min</td><td class="p-4">1 hour</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="text-sm text-gray-600 text-center mt-4">ChessDepth students get a personal plan from their coach, adjusted after every quiz.</p>
+    </div>
+  </section>
+
+  <!-- ============ BOOKS ============ -->
+  <section id="books" class="py-16 px-4 bg-white">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-10">
+        <p class="rs-eyebrow mb-2">Reading list</p>
+        <h2 class="text-3xl font-bold text-gray-900 mb-3">Recommended chess books</h2>
+        <p class="text-gray-600 max-w-2xl mx-auto">Classics and modern favourites our coaches recommend, grouped by level.</p>
+      </div>
+      <div class="rounded-xl bg-yellow-50 border border-yellow-200 p-6 mb-10">
+        <p class="font-bold text-yellow-900 mb-3"><i class="fas fa-crown mr-2"></i>By our coach, GM Daniel Gormally</p>
+        <div class="grid md:grid-cols-3 gap-4">
+          <a href="https://www.amazon.in/s?k=The+Comfort+Zone%3A+Keys+to+Your+Chess+Success+Gormally" target="_blank" rel="noopener noreferrer" class="bg-white rounded-lg p-4 shadow-sm hover:shadow transition block">
+            <p class="font-semibold text-gray-900">The Comfort Zone: Keys to Your Chess Success</p>
+            <p class="text-xs text-gray-500 mt-1">Thinkers Publishing, 2021</p>
+          </a>
+          <a href="https://www.amazon.in/s?k=Tournament+Battleplan%3A+Optimize+Your+Chess+Results+Gormally" target="_blank" rel="noopener noreferrer" class="bg-white rounded-lg p-4 shadow-sm hover:shadow transition block">
+            <p class="font-semibold text-gray-900">Tournament Battleplan: Optimize Your Chess Results</p>
+            <p class="text-xs text-gray-500 mt-1">Thinkers Publishing, 2024</p>
+          </a>
+          <a href="https://www.amazon.in/s?k=Mating+the+Castled+King+Gormally" target="_blank" rel="noopener noreferrer" class="bg-white rounded-lg p-4 shadow-sm hover:shadow transition block">
+            <p class="font-semibold text-gray-900">Mating the Castled King</p>
+            <p class="text-xs text-gray-500 mt-1">Attacking the castled king</p>
+          </a>
+        </div>
+      </div>
+      <h3 class="text-xl font-bold text-gray-900 mb-4 mt-8">Beginner</h3>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <a href="https://www.amazon.in/s?k=Bobby+Fischer+Teaches+Chess+Bobby+Fischer%2C+Stuart+Margulies+%26+Donn+Mosenfelder" target="_blank" rel="noopener noreferrer" class="rs-card p-5 block hover:shadow-md transition">
+          <p class="font-bold text-gray-900">Bobby Fischer Teaches Chess</p>
+          <p class="text-xs text-indigo-700 font-semibold mt-1">Bobby Fischer, Stuart Margulies & Donn Mosenfelder</p>
+          <p class="text-sm text-gray-600 mt-2">Teaches back-rank mates and basic tactics through hundreds of short questions.</p>
+        </a>
+        <a href="https://www.amazon.in/s?k=Logical+Chess%3A+Move+by+Move+Irving+Chernev" target="_blank" rel="noopener noreferrer" class="rs-card p-5 block hover:shadow-md transition">
+          <p class="font-bold text-gray-900">Logical Chess: Move by Move</p>
+          <p class="text-xs text-indigo-700 font-semibold mt-1">Irving Chernev</p>
+          <p class="text-sm text-gray-600 mt-2">Every single move of 33 master games explained in plain language.</p>
+        </a>
+        <a href="https://www.amazon.in/s?k=The+Steps+Method+%28Step+1%E2%80%933%29+Rob+Brunia+%26+Cor+van+Wijgerden" target="_blank" rel="noopener noreferrer" class="rs-card p-5 block hover:shadow-md transition">
+          <p class="font-bold text-gray-900">The Steps Method (Step 1–3)</p>
+          <p class="text-xs text-indigo-700 font-semibold mt-1">Rob Brunia & Cor van Wijgerden</p>
+          <p class="text-sm text-gray-600 mt-2">Graded workbooks used by chess schools worldwide, ideal for children.</p>
+        </a>
+        <a href="https://www.amazon.in/s?k=Chess+Fundamentals+Jos%C3%A9+Ra%C3%BAl+Capablanca" target="_blank" rel="noopener noreferrer" class="rs-card p-5 block hover:shadow-md transition">
+          <p class="font-bold text-gray-900">Chess Fundamentals</p>
+          <p class="text-xs text-indigo-700 font-semibold mt-1">José Raúl Capablanca</p>
+          <p class="text-sm text-gray-600 mt-2">A world champion's classic on endgames, middlegame planning and principles.</p>
+        </a>
+      </div>
+      <h3 class="text-xl font-bold text-gray-900 mb-4 mt-8">Intermediate</h3>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <a href="https://www.amazon.in/s?k=The+Amateur%27s+Mind+Jeremy+Silman" target="_blank" rel="noopener noreferrer" class="rs-card p-5 block hover:shadow-md transition">
+          <p class="font-bold text-gray-900">The Amateur's Mind</p>
+          <p class="text-xs text-indigo-700 font-semibold mt-1">Jeremy Silman</p>
+          <p class="text-sm text-gray-600 mt-2">Shows the typical thinking errors of club players and how to fix them.</p>
+        </a>
+        <a href="https://www.amazon.in/s?k=Silman%27s+Complete+Endgame+Course+Jeremy+Silman" target="_blank" rel="noopener noreferrer" class="rs-card p-5 block hover:shadow-md transition">
+          <p class="font-bold text-gray-900">Silman's Complete Endgame Course</p>
+          <p class="text-xs text-indigo-700 font-semibold mt-1">Jeremy Silman</p>
+          <p class="text-sm text-gray-600 mt-2">Endgames organised by rating, so you learn exactly what you need next.</p>
+        </a>
+        <a href="https://www.amazon.in/s?k=Winning+Chess+Strategies+Yasser+Seirawan" target="_blank" rel="noopener noreferrer" class="rs-card p-5 block hover:shadow-md transition">
+          <p class="font-bold text-gray-900">Winning Chess Strategies</p>
+          <p class="text-xs text-indigo-700 font-semibold mt-1">Yasser Seirawan</p>
+          <p class="text-sm text-gray-600 mt-2">A friendly introduction to planning, weaknesses and piece play.</p>
+        </a>
+        <a href="https://www.amazon.in/s?k=Chess+Tactics+for+Champions+Susan+Polgar+%26+Paul+Truong" target="_blank" rel="noopener noreferrer" class="rs-card p-5 block hover:shadow-md transition">
+          <p class="font-bold text-gray-900">Chess Tactics for Champions</p>
+          <p class="text-xs text-indigo-700 font-semibold mt-1">Susan Polgar & Paul Truong</p>
+          <p class="text-sm text-gray-600 mt-2">Tactical patterns explained step by step with lots of practice.</p>
+        </a>
+      </div>
+      <h3 class="text-xl font-bold text-gray-900 mb-4 mt-8">Advanced</h3>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <a href="https://www.amazon.in/s?k=My+System+Aron+Nimzowitsch" target="_blank" rel="noopener noreferrer" class="rs-card p-5 block hover:shadow-md transition">
+          <p class="font-bold text-gray-900">My System</p>
+          <p class="text-xs text-indigo-700 font-semibold mt-1">Aron Nimzowitsch</p>
+          <p class="text-sm text-gray-600 mt-2">The foundation of modern positional chess: blockade, prophylaxis, open files.</p>
+        </a>
+        <a href="https://www.amazon.in/s?k=How+to+Reassess+Your+Chess+Jeremy+Silman" target="_blank" rel="noopener noreferrer" class="rs-card p-5 block hover:shadow-md transition">
+          <p class="font-bold text-gray-900">How to Reassess Your Chess</p>
+          <p class="text-xs text-indigo-700 font-semibold mt-1">Jeremy Silman</p>
+          <p class="text-sm text-gray-600 mt-2">Teaches you to evaluate positions through imbalances and make plans.</p>
+        </a>
+        <a href="https://www.amazon.in/s?k=The+Woodpecker+Method+Axel+Smith+%26+Hans+Tikkanen" target="_blank" rel="noopener noreferrer" class="rs-card p-5 block hover:shadow-md transition">
+          <p class="font-bold text-gray-900">The Woodpecker Method</p>
+          <p class="text-xs text-indigo-700 font-semibold mt-1">Axel Smith & Hans Tikkanen</p>
+          <p class="text-sm text-gray-600 mt-2">A tactics training system based on solving the same puzzles faster and faster.</p>
+        </a>
+        <a href="https://www.amazon.in/s?k=Chess+Structures%3A+A+Grandmaster+Guide+Mauricio+Flores+Rios" target="_blank" rel="noopener noreferrer" class="rs-card p-5 block hover:shadow-md transition">
+          <p class="font-bold text-gray-900">Chess Structures: A Grandmaster Guide</p>
+          <p class="text-xs text-indigo-700 font-semibold mt-1">Mauricio Flores Rios</p>
+          <p class="text-sm text-gray-600 mt-2">The typical plans and ideas in the most common pawn structures.</p>
+        </a>
+        <a href="https://www.amazon.in/s?k=Think+Like+a+Grandmaster+Alexander+Kotov" target="_blank" rel="noopener noreferrer" class="rs-card p-5 block hover:shadow-md transition">
+          <p class="font-bold text-gray-900">Think Like a Grandmaster</p>
+          <p class="text-xs text-indigo-700 font-semibold mt-1">Alexander Kotov</p>
+          <p class="text-sm text-gray-600 mt-2">The classic book on calculation and choosing candidate moves.</p>
+        </a>
+      </div>
+      <h3 class="text-xl font-bold text-gray-900 mb-4 mt-8">Elite</h3>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <a href="https://www.amazon.in/s?k=Dvoretsky%27s+Endgame+Manual+Mark+Dvoretsky" target="_blank" rel="noopener noreferrer" class="rs-card p-5 block hover:shadow-md transition">
+          <p class="font-bold text-gray-900">Dvoretsky's Endgame Manual</p>
+          <p class="text-xs text-indigo-700 font-semibold mt-1">Mark Dvoretsky</p>
+          <p class="text-sm text-gray-600 mt-2">The most complete endgame reference for serious tournament players.</p>
+        </a>
+        <a href="https://www.amazon.in/s?k=Grandmaster+Preparation+%28series%29+Jacob+Aagaard" target="_blank" rel="noopener noreferrer" class="rs-card p-5 block hover:shadow-md transition">
+          <p class="font-bold text-gray-900">Grandmaster Preparation (series)</p>
+          <p class="text-xs text-indigo-700 font-semibold mt-1">Jacob Aagaard</p>
+          <p class="text-sm text-gray-600 mt-2">Demanding calculation, strategy and attack exercises for strong players.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ TOOLS ============ -->
+  <section id="tools" class="py-16 px-4">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-10">
+        <p class="rs-eyebrow mb-2">Online tools</p>
+        <h2 class="text-3xl font-bold text-gray-900 mb-3">Free websites worth bookmarking</h2>
+      </div>
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="rs-card p-6">
+          <p class="font-bold text-lg text-gray-900 mb-4"><i class="fas fa-chess-knight text-indigo-500 mr-2"></i>Play & solve puzzles</p>
+          <ul class="space-y-3">
+            <li><a href="https://lichess.org" target="_blank" rel="noopener noreferrer" class="font-semibold text-indigo-700 hover:underline">Lichess</a><span class="block text-sm text-gray-600">Free, open-source and ad-free. Play, solve puzzles and take lessons.</span></li>
+            <li><a href="https://lichess.org/training" target="_blank" rel="noopener noreferrer" class="font-semibold text-indigo-700 hover:underline">Lichess Puzzles</a><span class="block text-sm text-gray-600">Unlimited rated puzzles, plus puzzle themes like forks and pins.</span></li>
+            <li><a href="https://www.chess.com" target="_blank" rel="noopener noreferrer" class="font-semibold text-indigo-700 hover:underline">Chess.com</a><span class="block text-sm text-gray-600">The largest chess site: play, lessons, puzzles and a big community.</span></li>
+            <li><a href="https://chesstempo.com" target="_blank" rel="noopener noreferrer" class="font-semibold text-indigo-700 hover:underline">ChessTempo</a><span class="block text-sm text-gray-600">A serious tactics and endgame trainer with detailed statistics.</span></li>
+          </ul>
+        </div>
+        <div class="rs-card p-6">
+          <p class="font-bold text-lg text-gray-900 mb-4"><i class="fas fa-book-reader text-indigo-500 mr-2"></i>Study & learn</p>
+          <ul class="space-y-3">
+            <li><a href="https://lichess.org/practice" target="_blank" rel="noopener noreferrer" class="font-semibold text-indigo-700 hover:underline">Lichess Practice</a><span class="block text-sm text-gray-600">Interactive lessons on checkmates, tactics and basic endgames.</span></li>
+            <li><a href="https://lichess.org/study" target="_blank" rel="noopener noreferrer" class="font-semibold text-indigo-700 hover:underline">Lichess Studies</a><span class="block text-sm text-gray-600">Build your own opening files and share analysis with your coach.</span></li>
+            <li><a href="https://lichess.org/training/coordinate" target="_blank" rel="noopener noreferrer" class="font-semibold text-indigo-700 hover:underline">Coordinate Trainer</a><span class="block text-sm text-gray-600">Learn board coordinates quickly. Great for beginners.</span></li>
+            <li><a href="https://www.chessable.com" target="_blank" rel="noopener noreferrer" class="font-semibold text-indigo-700 hover:underline">Chessable</a><span class="block text-sm text-gray-600">Courses with spaced-repetition training for openings, tactics and endgames.</span></li>
+          </ul>
+        </div>
+        <div class="rs-card p-6">
+          <p class="font-bold text-lg text-gray-900 mb-4"><i class="fas fa-microscope text-indigo-500 mr-2"></i>Analyse</p>
+          <ul class="space-y-3">
+            <li><a href="https://lichess.org/analysis" target="_blank" rel="noopener noreferrer" class="font-semibold text-indigo-700 hover:underline">Lichess Analysis Board</a><span class="block text-sm text-gray-600">Free Stockfish analysis in your browser. Paste any game or position.</span></li>
+            <li><a href="https://lichess.org/analysis#explorer" target="_blank" rel="noopener noreferrer" class="font-semibold text-indigo-700 hover:underline">Opening Explorer</a><span class="block text-sm text-gray-600">See what masters and club players play in any position.</span></li>
+            <li><a href="https://syzygy-tables.info" target="_blank" rel="noopener noreferrer" class="font-semibold text-indigo-700 hover:underline">Syzygy Tablebases</a><span class="block text-sm text-gray-600">Perfect play for all endgames with up to 7 pieces.</span></li>
+            <li><a href="https://stockfishchess.org" target="_blank" rel="noopener noreferrer" class="font-semibold text-indigo-700 hover:underline">Stockfish</a><span class="block text-sm text-gray-600">The strongest free chess engine, for your own computer.</span></li>
+          </ul>
+        </div>
+        <div class="rs-card p-6">
+          <p class="font-bold text-lg text-gray-900 mb-4"><i class="fas fa-trophy text-indigo-500 mr-2"></i>Tournaments & ratings</p>
+          <ul class="space-y-3">
+            <li><a href="https://ratings.fide.com" target="_blank" rel="noopener noreferrer" class="font-semibold text-indigo-700 hover:underline">FIDE Ratings</a><span class="block text-sm text-gray-600">Look up any player's official FIDE rating and history.</span></li>
+            <li><a href="https://aicf.in" target="_blank" rel="noopener noreferrer" class="font-semibold text-indigo-700 hover:underline">All India Chess Federation</a><span class="block text-sm text-gray-600">India's national federation: registration, rules and tournament calendar.</span></li>
+            <li><a href="https://chess-results.com" target="_blank" rel="noopener noreferrer" class="font-semibold text-indigo-700 hover:underline">Chess-Results</a><span class="block text-sm text-gray-600">Live pairings, standings and results for tournaments worldwide.</span></li>
+            <li><a href="https://chessbase.in" target="_blank" rel="noopener noreferrer" class="font-semibold text-indigo-700 hover:underline">ChessBase India</a><span class="block text-sm text-gray-600">News and stories about Indian chess and players.</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ BLOG ============ -->
+  <section id="blog" class="py-16 px-4 bg-white">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-10">
+        <p class="rs-eyebrow mb-2">From the blog</p>
+        <h2 class="text-3xl font-bold text-gray-900">Latest articles</h2>
+      </div>
+      <div class="grid md:grid-cols-3 gap-6">
+        <a href="/blog/chess-for-kids-a-parents-guide/" class="rs-card p-6 block hover:shadow-md transition">
+          <p class="text-xs font-bold text-indigo-600 uppercase">Parents</p>
+          <p class="font-bold text-lg text-gray-900 mt-2 leading-snug">Chess for Kids: A Parent's Guide</p>
+          <p class="text-sm text-gray-600 mt-2">What children gain from chess, when to start, how to support your child at home, and how to choose a good chess class.</p>
+          <p class="text-xs text-gray-500 mt-4">15 Oct 2026</p>
+        </a>
+        <a href="/blog/cct-method-checks-captures-threats/" class="rs-card p-6 block hover:shadow-md transition">
+          <p class="text-xs font-bold text-indigo-600 uppercase">Tactics</p>
+          <p class="font-bold text-lg text-gray-900 mt-2 leading-snug">The CCT Method: Checks, Captures and Threats</p>
+          <p class="text-sm text-gray-600 mt-2">A simple three-step habit that helps you find tactics faster and stop blundering. Used by strong players at every level.</p>
+          <p class="text-xs text-gray-500 mt-4">5 Oct 2026</p>
+        </a>
+        <a href="/blog/rook-endgames-lucena-and-philidor/" class="rs-card p-6 block hover:shadow-md transition">
+          <p class="text-xs font-bold text-indigo-600 uppercase">Endgames</p>
+          <p class="font-bold text-lg text-gray-900 mt-2 leading-snug">Rook Endgames You Must Know: The Lucena and Philidor Positions</p>
+          <p class="text-sm text-gray-600 mt-2">Rook endgames are the most common endgames in chess. These two positions show how to win with an extra pawn, and how to draw without one.</p>
+          <p class="text-xs text-gray-500 mt-4">15 Sep 2026</p>
+        </a>
+      </div>
+      <p class="text-center mt-8"><a href="/blog/" class="text-indigo-700 font-semibold hover:underline">See all 8 articles <i class="fas fa-arrow-right text-sm ml-1"></i></a></p>
+    </div>
+  </section>
+
+  <!-- ============ FAQ ============ -->
+  <section id="faq" class="py-16 px-4">
+    <div class="max-w-3xl mx-auto">
+      <div class="text-center mb-10">
+        <p class="rs-eyebrow mb-2">FAQ</p>
+        <h2 class="text-3xl font-bold text-gray-900">Questions about these resources</h2>
+      </div>
+      <div class="space-y-3">
+        <details class="rs-faq rs-card p-5"><summary class="font-semibold">Is everything on this page free?</summary><p class="text-sm text-gray-600 mt-3">Yes. The analyser, board editor, guides and lists are free for everyone. Books are sold separately by their publishers.</p></details>
+        <details class="rs-faq rs-card p-5"><summary class="font-semibold">Why doesn't the game analyser find my account?</summary><p class="text-sm text-gray-600 mt-3">It works with public Lichess accounts only (Chess.com isn't supported yet). Check the spelling of the username and make sure the account has played rated games.</p></details>
+        <details class="rs-faq rs-card p-5"><summary class="font-semibold">Where should a complete beginner start?</summary><p class="text-sm text-gray-600 mt-3">Follow Stage 1 of the roadmap: learn the basic mates, use the Lichess Practice lessons, and solve a few easy puzzles every day. A coach makes this much faster.</p></details>
+        <details class="rs-faq rs-card p-5"><summary class="font-semibold">Which opening should I learn first?</summary><p class="text-sm text-gray-600 mt-3">Start with open games: the Italian Game as White and 1...e5 as Black. They teach development and centre control better than anything else.</p></details>
+        <details class="rs-faq rs-card p-5"><summary class="font-semibold">How much should I study to improve?</summary><p class="text-sm text-gray-600 mt-3">Even 3 hours a week works if it's regular and balanced. See the training plan above, and remember to analyse your own games.</p></details>
+        <details class="rs-faq rs-card p-5"><summary class="font-semibold">Should I use an engine to study?</summary><p class="text-sm text-gray-600 mt-3">Use it to check your analysis, not to replace it. Think first, write down your ideas, then compare with the engine. See <a href="/blog/how-to-analyse-your-own-games/" class="text-indigo-700 font-semibold hover:underline">How to Analyse Your Own Games</a>.</p></details>
+        <details class="rs-faq rs-card p-5"><summary class="font-semibold">How do I get the ChessDepth worksheets?</summary><p class="text-sm text-gray-600 mt-3">Students can download them from the <a href="/student/" class="text-indigo-700 font-semibold hover:underline">Student Area</a>. Not a student yet? Book a free demo class.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CTA ============ -->
+  <section class="px-4 pb-6">
+    <div class="max-w-5xl mx-auto rs-hero rounded-2xl text-white text-center px-6 py-12">
+      <h2 class="text-3xl font-bold mb-3">Resources help. A coach helps more.</h2>
+      <p class="text-indigo-100 mb-7">Get a personal study plan built around your games. Your first class is free.</p>
+      <a href="https://wa.me/919823029262?text=Hi%2C%20I%20would%20like%20to%20book%20a%20free%20demo%20class" target="_blank" rel="noopener noreferrer" class="cd-demo-btn inline-block px-8 py-3 text-lg"><i class="fab fa-whatsapp mr-2"></i>Book a Free Demo</a>
+    </div>
+  </section>
+
+  <script src="/assets/js/resources.js" defer></script>
+
+
+  
+<footer class="cd-footer bg-gray-800 text-gray-300 pt-10 pb-6 mt-10">
+    <div class="max-w-6xl mx-auto px-4 grid gap-8 md:grid-cols-3 text-center md:text-left">
+      <div>
+        <p class="text-2xl font-bold text-white mb-2">♟️ ChessDepth Academy</p>
+        <p class="text-sm text-gray-400">Structured online chess coaching for beginners to tournament players.</p>
+        <div class="mt-4 flex justify-center md:justify-start space-x-5 text-2xl">
+          <a href="https://www.instagram.com/chessdepthacademy1/" target="_blank" rel="noopener noreferrer" aria-label="ChessDepth on Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.facebook.com/chessdepthacademy/" target="_blank" rel="noopener noreferrer" aria-label="ChessDepth on Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://wa.me/919823029262?text=Hi%2C%20I%20would%20like%20to%20book%20a%20free%20demo%20class" target="_blank" rel="noopener noreferrer" aria-label="ChessDepth on WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        </div>
+      </div>
+      <div>
+        <p class="font-semibold text-white mb-3">Explore</p>
+        <ul class="space-y-1 text-sm">
+          <li><a href="/courses/">Courses &amp; Fees</a></li>
+          <li><a href="/coaches/">Our Coaches</a></li>
+          <li><a href="/resources/">Free Resources</a></li>
+          <li><a href="/shop/">Shop</a></li>
+          <li><a href="/lab/">Chess Lab</a></li>
+          <li><a href="/careers/">Careers</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="font-semibold text-white mb-3">Get in touch</p>
+        <ul class="space-y-1 text-sm">
+          <li><i class="fas fa-phone-alt mr-2"></i><a href="tel:+919823029262">+91 98230 29262</a></li>
+          <li><i class="fab fa-whatsapp mr-2"></i><a href="https://wa.me/919823029262?text=Hi%2C%20I%20would%20like%20to%20book%20a%20free%20demo%20class" target="_blank" rel="noopener noreferrer">WhatsApp us</a></li>
+          <li><i class="fas fa-envelope mr-2"></i><a href="mailto:info@chessdepth.in">info@chessdepth.in</a></li>
+          <li><i class="fas fa-map-marker-alt mr-2"></i>Bhopal, Madhya Pradesh, India</li>
+        </ul>
+      </div>
+    </div>
+    <div class="max-w-6xl mx-auto px-4 mt-8 pt-4 border-t border-gray-700 flex flex-col sm:flex-row justify-between text-xs text-gray-400 gap-2 text-center">
+      <p>&copy; <span data-year>2026</span> ChessDepth Academy. All rights reserved.</p>
+      <p class="cd-legal"><a href="/terms/">Terms</a> · <a href="/refunds/">Refunds &amp; cancellations</a> · <a href="/privacy/">Privacy policy</a></p>
+    </div>
+  </footer>
+  <a href="https://wa.me/919823029262?text=Hi%2C%20I%20would%20like%20to%20book%20a%20free%20demo%20class" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Chat with ChessDepth on WhatsApp" title="Chat with us on WhatsApp"><i class="fab fa-whatsapp text-2xl"></i></a>
+
+  <script src="/assets/js/site.js" defer></script>
+</body>
+</html>

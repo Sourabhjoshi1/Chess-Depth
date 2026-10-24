@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <script>
+    /* Night/day mode: use the saved choice, otherwise follow the device setting */
+    (function () {
+      var t = null; try { t = localStorage.getItem("cd-theme"); } catch (e) {}
+      if (t !== "light" && t !== "dark") t = (window.matchMedia && matchMedia("(prefers-color-scheme: dark)").matches) ? "dark" : "light";
+      if (t === "dark") document.documentElement.classList.add("dark");
+    })();
+  </script>
+  <meta name="theme-color" content="#1f2547">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How to Analyse Your Own Games (and Actually Improve)</title>
+  <meta name="description" content="Your own games are your best teacher. A step-by-step method for reviewing them, so you learn from every loss without depending on the engine.">
+  <link rel="canonical" href="https://www.chessdepth.in/blog/how-to-analyse-your-own-games/">
+  <meta property="og:title" content="How to Analyse Your Own Games (and Actually Improve)">
+  <meta property="og:site_name" content="ChessDepth Academy">
+  <meta property="og:locale" content="en_IN">
+  <meta property="og:description" content="Your own games are your best teacher. A step-by-step method for reviewing them, so you learn from every loss without depending on the engine.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://www.chessdepth.in/blog/how-to-analyse-your-own-games/">
+  <meta property="og:image" content="https://www.chessdepth.in/assets/images/og-image.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="How to Analyse Your Own Games (and Actually Improve)">
+  <meta name="twitter:description" content="Your own games are your best teacher. A step-by-step method for reviewing them, so you learn from every loss without depending on the engine.">
+  <meta name="twitter:image" content="https://www.chessdepth.in/assets/images/og-image.jpg">
+  <meta property="article:published_time" content="2026-09-01T00:00:00+00:00">
+  <meta property="article:section" content="Training">
+  <link rel="icon" href="/assets/images/favicon.ico" sizes="48x48">
+  <link rel="icon" href="/assets/images/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="/assets/css/tailwind.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,500;0,600;1,400&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="/assets/css/pages/blog.css">
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <link rel="stylesheet" href="/assets/css/dark.css">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-2C73E30ZFX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-2C73E30ZFX');
+  </script>
+  
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+    {"@type":"ListItem","position":1,"name":"Home","item":"https://www.chessdepth.in/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://www.chessdepth.in/blog/"},{"@type":"ListItem","position":3,"name":"How to Analyse Your Own Games (and Actually Improve)","item":"https://www.chessdepth.in/blog/how-to-analyse-your-own-games/"}
+  ]}
+  </script>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"BlogPosting","headline":"How to Analyse Your Own Games (and Actually Improve)","description":"Your own games are your best teacher. A step-by-step method for reviewing them, so you learn from every loss without depending on the engine.",
+   "datePublished":"2026-09-01T00:00:00+00:00","dateModified":"2026-09-01T00:00:00+00:00",
+   "author":{"@type":"Organization","name":"ChessDepth Coaching Team","url":"https://www.chessdepth.in/about/"},
+   "publisher":{"@type":"Organization","name":"ChessDepth Academy","logo":{"@type":"ImageObject","url":"https://www.chessdepth.in/assets/images/icon-512.png"}},
+   "image":"https://www.chessdepth.in/assets/images/og-image.jpg","mainEntityOfPage":"https://www.chessdepth.in/blog/how-to-analyse-your-own-games/",
+   "articleSection":"Training","inLanguage":"en"}
+  </script>
+
+
+</head>
+<body class="bg-gray-100 text-gray-800">
+  <div class="cd-topbar">
+    <div class="cd-wrap cd-topbar-inner">
+      <p class="cd-topbar-contact">
+        <a href="tel:+919823029262"><i class="fas fa-phone-alt"></i>+91 98230 29262</a>
+        <a href="mailto:info@chessdepth.in"><i class="far fa-envelope"></i>info@chessdepth.in</a>
+      </p>
+      <p class="cd-topbar-links">
+        <a href="/lab/"><i class="fas fa-flask"></i>Chess Lab<span class="cd-free" data-free-until="2026-11-21">Free</span></a>
+        <a href="/careers/">Careers</a>
+        <a href="/student/"><i class="far fa-user-circle"></i>Student login</a>
+        <button type="button" class="cd-theme-btn" data-theme-toggle aria-label="Switch to night mode" title="Night / day mode"><i class="fas fa-moon cd-moon"></i><i class="fas fa-sun cd-sun"></i></button>
+      </p>
+    </div>
+  </div>
+  <header class="cd-header" id="main-header">
+    <div class="cd-wrap cd-header-inner">
+      <a href="/" class="cd-brand">
+        <svg class="cd-mark" viewBox="0 0 32 32" aria-hidden="true" focusable="false"><path fill="currentColor" d="M8 5h3v3h2.5V5h5v3H21V5h3v7.2l-2.4 1.8.9 9H9.5l.9-9L8 12.2zM8.5 24.5h15l1.5 2.5H7zM6 28h20v2.5H6z"/></svg>
+
+        <span class="cd-brand-text"><span class="cd-brand-name">ChessDepth</span><span class="cd-brand-sub">Chess Academy</span></span>
+      </a>
+      <nav id="main-nav" aria-label="Primary" class="cd-nav">
+        <a href="/about/" class="cd-link">About</a>
+        <a href="/courses/" class="cd-link">Courses</a>
+        <a href="/coaches/" class="cd-link">Coaches</a>
+        <a href="/resources/" class="cd-link">Resources</a>
+        <a href="/shop/" class="cd-link">Shop</a>
+        <a href="/ai/" class="cd-link cd-link-ai">ChessDepth AI<span class="cd-soon">Soon</span></a>
+        <a href="/blog/" class="cd-link" aria-current="page">Blog</a>
+        <a href="/contact/" class="cd-link">Contact</a>
+        <a href="https://wa.me/919823029262?text=Hi%2C%20I%20would%20like%20to%20book%20a%20free%20demo%20class" target="_blank" rel="noopener noreferrer" class="cd-hdr-cta">Book a free demo</a>
+      </nav>
+      <div class="cd-header-mobile">
+        <button type="button" class="cd-theme-btn" data-theme-toggle aria-label="Switch to night mode" title="Night / day mode"><i class="fas fa-moon cd-moon"></i><i class="fas fa-sun cd-sun"></i></button>
+        <button id="menu-toggle" class="cd-menu-btn" aria-controls="mobile-menu" aria-expanded="false" aria-label="Open menu">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+        </button>
+      </div>
+    </div>
+    <div id="mobile-menu" class="cd-mobile-menu hidden">
+      <nav class="cd-wrap" aria-label="Mobile">
+        <a href="/">Home</a>
+        <a href="/about/">About</a>
+        <a href="/courses/">Courses</a>
+        <a href="/coaches/">Coaches</a>
+        <a href="/resources/">Resources</a>
+        <a href="/shop/">Shop</a>
+        <a href="/ai/">ChessDepth AI<span class="cd-soon">Coming soon</span></a>
+        <a href="/blog/" aria-current="page">Blog</a>
+        <a href="/contact/">Contact</a>
+        <a href="/lab/">Chess Lab <i class="fas fa-crown" style="color:#b08a4e;font-size:.8em"></i><span class="cd-soon" data-free-until="2026-11-21">Free launch offer</span></a>
+        <a href="/careers/">Careers</a>
+        <div class="cd-mobile-actions">
+          <a href="/student/" class="cd-mobile-login"><i class="far fa-user-circle"></i>Student login</a>
+          <a href="https://wa.me/919823029262?text=Hi%2C%20I%20would%20like%20to%20book%20a%20free%20demo%20class" target="_blank" rel="noopener noreferrer" class="cd-hdr-cta">Book a free demo</a>
+        </div>
+        <p class="cd-mobile-contact"><a href="tel:+919823029262">+91 98230 29262</a><a href="mailto:info@chessdepth.in">info@chessdepth.in</a></p>
+      </nav>
+    </div>
+  </header>
+
+
+<section class="blog-hero cd-hero-bg text-white">
+  <div class="max-w-3xl mx-auto px-4 py-14">
+    <a href="/blog/" class="text-indigo-200 hover:text-white text-sm font-semibold"><i class="fas fa-arrow-left mr-1"></i>All articles</a>
+    <p class="mt-5 mb-3"><span class="blog-tag">Training</span></p>
+    <h1 class="text-3xl md:text-4xl font-extrabold leading-tight">How to Analyse Your Own Games (and Actually Improve)</h1><p class="text-indigo-100 text-lg mt-4">Your own games are your best teacher. A step-by-step method for reviewing them, so you learn from every loss without depending on the engine.</p>
+    <p class="text-indigo-200 text-sm mt-5">ChessDepth Coaching Team · 1 September 2026 · 3 min read · All levels</p>
+  </div>
+</section>
+
+<article class="max-w-3xl mx-auto px-4 py-12">
+  <div class="cd-prose">
+    <p>Playing more games doesn’t make you better on its own. <strong>Learning from the games you play does.</strong> The fastest-improving students at ChessDepth all have one habit in common: they analyse every serious game they play, especially their losses.</p>
+
+<p>The problem is that most players “analyse” by switching on the engine, watching the evaluation bar, and moving on. That teaches very little. Here is a better method.</p>
+
+<h2 id="step-1-write-down-your-thoughts-right-after-the-game">Step 1: Write down your thoughts right after the game</h2>
+
+<p>As soon as the game ends, while it is fresh, write a few notes:</p>
+
+<ul>
+  <li>What was my plan in the middlegame?</li>
+  <li>Where did I spend a lot of time, and why?</li>
+  <li>Which moment did I feel the game turn?</li>
+  <li>What did I miss that my opponent saw?</li>
+</ul>
+
+<p>These notes are gold. Later, they show you <em>how you were thinking</em>, not just which moves were wrong.</p>
+
+<h2 id="step-2-analyse-alone-first-without-the-engine">Step 2: Analyse alone first, without the engine</h2>
+
+<p>Go through the game slowly on a board or in a Lichess study. At each important moment, ask:</p>
+
+<ul>
+  <li><strong>What were the threats</strong> (for both sides)?</li>
+  <li><strong>What were my candidate moves?</strong> Which did I choose, and why?</li>
+  <li><strong>Was there a check, capture or threat I missed?</strong> (See our <a href="/blog/cct-method-checks-captures-threats/">CCT method</a>.)</li>
+</ul>
+
+<p>Write your conclusions next to the moves. Yes, some of them will be wrong. That is the point: the engine will correct you later, and the correction will stick much better because you thought about it first.</p>
+
+<h2 id="step-3-check-the-opening">Step 3: Check the opening</h2>
+
+<p>Compare your opening with your repertoire file or the opening explorer:</p>
+
+<ul>
+  <li>Where did you leave known theory?</li>
+  <li>Was your move a reasonable one, or a mistake?</li>
+  <li>Add the correct line to your repertoire so you are ready next time.</li>
+</ul>
+
+<h2 id="step-4-now-use-the-engine-as-a-checker">Step 4: Now use the engine, as a checker</h2>
+
+<p>Turn on the engine and look <strong>only at the critical moments</strong>: where the evaluation changed a lot. For each one:</p>
+
+<ol>
+  <li>Find out <em>why</em> the engine’s move is better. Play it out a few moves.</li>
+  <li>If you don’t understand the engine’s suggestion, don’t just accept it. Ask your coach, or move on. A move you don’t understand will not help you in a game.</li>
+  <li>Compare the engine’s verdict with your own notes from Step 2.</li>
+</ol>
+
+<h2 id="step-5-find-the-lesson">Step 5: Find the lesson</h2>
+
+<p>Every game should leave you with <strong>one or two lessons</strong>, written in a single sentence. For example:</p>
+
+<ul>
+  <li><em>“I keep pushing my h-pawn in front of my castled king without a reason.”</em></li>
+  <li><em>“When I am short of time I stop checking my opponent’s threats.”</em></li>
+  <li><em>“I don’t know what to do in the Carlsbad structure after the opening.”</em></li>
+</ul>
+
+<p>Keep these lessons in one notebook or document. After 20 games, read them all. You will see your <strong>recurring weaknesses</strong>, and those tell you exactly what to study next.</p>
+
+<h2 id="classify-your-mistakes">Classify your mistakes</h2>
+
+<p>It helps to put each mistake into a category:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Type of mistake</th>
+      <th>Typical cause</th>
+      <th>What to train</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Tactical oversight</td>
+      <td>Didn’t check forcing moves</td>
+      <td>Daily puzzles, the CCT habit</td>
+    </tr>
+    <tr>
+      <td>Opening problem</td>
+      <td>Didn’t know the ideas</td>
+      <td>Model games in your opening</td>
+    </tr>
+    <tr>
+      <td>Wrong plan</td>
+      <td>Misread the position</td>
+      <td>Positional study, pawn structures</td>
+    </tr>
+    <tr>
+      <td>Endgame technique</td>
+      <td>Missing knowledge</td>
+      <td>Basic endgame positions</td>
+    </tr>
+    <tr>
+      <td>Time trouble</td>
+      <td>Slow decisions</td>
+      <td>Thinking routine, practice games</td>
+    </tr>
+    <tr>
+      <td>Psychological</td>
+      <td>Tilt, overconfidence, fear</td>
+      <td>Mental routines, more rated games</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="show-your-games-to-a-coach">Show your games to a coach</h2>
+
+<p>A coach sees patterns you cannot see yourself. At ChessDepth, students regularly share games with their coach and go through them together, and the lessons go straight into the next block of classes.</p>
+
+<p><strong>Analysing one game properly is worth more than playing ten more without thinking.</strong> Make it a habit, and your rating will follow.</p>
+
+  </div>
+
+  <div class="mt-12 rounded-2xl blog-hero text-white p-8 text-center">
+    <p class="text-2xl font-bold mb-2">Want a coach to guide you?</p>
+    <p class="text-indigo-100 mb-6">Book a free demo class with ChessDepth Academy and get a personal improvement plan.</p>
+    <a href="https://wa.me/919823029262?text=Hi%2C%20I%20would%20like%20to%20book%20a%20free%20demo%20class" target="_blank" rel="noopener noreferrer" class="cd-demo-btn inline-block px-8 py-3"><i class="fab fa-whatsapp mr-2"></i>Book a Free Demo</a>
+  </div>
+
+  <div class="mt-8 flex flex-wrap items-center gap-3 text-sm">
+    <span class="text-gray-600 font-semibold">Share:</span>
+    <a class="blog-share" href="https://wa.me/?text=How+to+Analyse+Your+Own+Games+%28and+Actually+Improve%29+https%3A%2F%2Fwww.chessdepth.in%2Fblog%2Fhow-to-analyse-your-own-games%2F" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp mr-1"></i>WhatsApp</a>
+    <a class="blog-share" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.chessdepth.in%2Fblog%2Fhow-to-analyse-your-own-games%2F" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f mr-1"></i>Facebook</a>
+    <a class="blog-share" href="https://twitter.com/intent/tweet?text=How+to+Analyse+Your+Own+Games+%28and+Actually+Improve%29&amp;url=https%3A%2F%2Fwww.chessdepth.in%2Fblog%2Fhow-to-analyse-your-own-games%2F" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter mr-1"></i>X</a>
+  </div>
+  <div class="mt-12">
+    <h2 class="text-xl font-bold text-gray-900 mb-4">Keep reading</h2>
+    <div class="grid sm:grid-cols-2 gap-4">
+      <a href="/blog/chess-for-kids-a-parents-guide/" class="block bg-white rounded-lg shadow-sm hover:shadow-md p-5 transition">
+        <span class="text-xs font-bold text-indigo-600 uppercase">Parents</span>
+        <p class="font-bold text-gray-900 mt-1">Chess for Kids: A Parent's Guide</p>
+        <p class="text-sm text-gray-500 mt-1">What children gain from chess, when to start, how to support your child at home, and how to choose a good c...</p>
+      </a>
+      <a href="/blog/cct-method-checks-captures-threats/" class="block bg-white rounded-lg shadow-sm hover:shadow-md p-5 transition">
+        <span class="text-xs font-bold text-indigo-600 uppercase">Tactics</span>
+        <p class="font-bold text-gray-900 mt-1">The CCT Method: Checks, Captures and Threats</p>
+        <p class="text-sm text-gray-500 mt-1">A simple three-step habit that helps you find tactics faster and stop blundering. Used by strong players at...</p>
+      </a>
+    </div>
+  </div>
+</article>
+
+
+  
+<footer class="cd-footer bg-gray-800 text-gray-300 pt-10 pb-6 mt-10">
+    <div class="max-w-6xl mx-auto px-4 grid gap-8 md:grid-cols-3 text-center md:text-left">
+      <div>
+        <p class="text-2xl font-bold text-white mb-2">♟️ ChessDepth Academy</p>
+        <p class="text-sm text-gray-400">Structured online chess coaching for beginners to tournament players.</p>
+        <div class="mt-4 flex justify-center md:justify-start space-x-5 text-2xl">
+          <a href="https://www.instagram.com/chessdepthacademy1/" target="_blank" rel="noopener noreferrer" aria-label="ChessDepth on Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.facebook.com/chessdepthacademy/" target="_blank" rel="noopener noreferrer" aria-label="ChessDepth on Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://wa.me/919823029262?text=Hi%2C%20I%20would%20like%20to%20book%20a%20free%20demo%20class" target="_blank" rel="noopener noreferrer" aria-label="ChessDepth on WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        </div>
+      </div>
+      <div>
+        <p class="font-semibold text-white mb-3">Explore</p>
+        <ul class="space-y-1 text-sm">
+          <li><a href="/courses/">Courses &amp; Fees</a></li>
+          <li><a href="/coaches/">Our Coaches</a></li>
+          <li><a href="/resources/">Free Resources</a></li>
+          <li><a href="/shop/">Shop</a></li>
+          <li><a href="/lab/">Chess Lab</a></li>
+          <li><a href="/careers/">Careers</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="font-semibold text-white mb-3">Get in touch</p>
+        <ul class="space-y-1 text-sm">
+          <li><i class="fas fa-phone-alt mr-2"></i><a href="tel:+919823029262">+91 98230 29262</a></li>
+          <li><i class="fab fa-whatsapp mr-2"></i><a href="https://wa.me/919823029262?text=Hi%2C%20I%20would%20like%20to%20book%20a%20free%20demo%20class" target="_blank" rel="noopener noreferrer">WhatsApp us</a></li>
+          <li><i class="fas fa-envelope mr-2"></i><a href="mailto:info@chessdepth.in">info@chessdepth.in</a></li>
+          <li><i class="fas fa-map-marker-alt mr-2"></i>Bhopal, Madhya Pradesh, India</li>
+        </ul>
+      </div>
+    </div>
+    <div class="max-w-6xl mx-auto px-4 mt-8 pt-4 border-t border-gray-700 flex flex-col sm:flex-row justify-between text-xs text-gray-400 gap-2 text-center">
+      <p>&copy; <span data-year>2026</span> ChessDepth Academy. All rights reserved.</p>
+      <p class="cd-legal"><a href="/terms/">Terms</a> · <a href="/refunds/">Refunds &amp; cancellations</a> · <a href="/privacy/">Privacy policy</a></p>
+    </div>
+  </footer>
+  <a href="https://wa.me/919823029262?text=Hi%2C%20I%20would%20like%20to%20book%20a%20free%20demo%20class" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Chat with ChessDepth on WhatsApp" title="Chat with us on WhatsApp"><i class="fab fa-whatsapp text-2xl"></i></a>
+
+  <script src="/assets/js/site.js" defer></script>
+</body>
+</html>
