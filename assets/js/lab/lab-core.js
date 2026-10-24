@@ -1,6 +1,7 @@
 // ChessDepth Chess Lab - accounts, access, points and progress.
 // Three modes:
-//   "firebase" - real Google sign-in; access granted by an admin in Firestore (students/{uid}.lab).
+//   "firebase" - real Google sign-in; access = admin-granted membership (students/{uid}.lab),
+//                a claimed ChessDepth Academy enrollment number (free forever), or the launch offer.
 //   "demo"     - everything stored in this browser; open with ?demo=1 (for testing before launch).
 //   "closed"   - Firebase not set up yet and no demo requested: the Lab shows "opening soon".
 import { firebaseConfig } from "../firebase-config.js";
@@ -21,7 +22,7 @@ const LS = {
   del(k) { try { localStorage.removeItem(k); } catch (e) { /* storage unavailable */ } },
 };
 
-let mode = "closed", user = null, access = false, fb = null, progress = null, saveTimer = null;
+let mode = "closed", user = null, access = false, fb = null, progress = null, saveTimer = null, academy = false, enrollmentNo = null;
 const listeners = [];
 function emit() { const s = state(); listeners.forEach((f) => { try { f(s); } catch (e) { console.error(e); } }); }
 export function onChange(f) { listeners.push(f); }
@@ -33,7 +34,7 @@ export function promoEnd() {
 export function promoActive() { const e = promoEnd(); return !!e && Date.now() <= e.getTime(); }
 export function promoLabel() { const e = promoEnd(); return e ? e.toLocaleDateString("en-IN", { day: "numeric", month: "long", year: "numeric" }) : ""; }
 let paid = false;
-export function state() { return { mode, user, access, paid, promo: promoActive(), admin: !!(user && isAdminEmail(user.email)) }; }
+export function state() { return { mode, user, access, paid, academy, enrollment: enrollmentNo, promo: promoActive(), admin: !!(user && isAdminEmail(user.email)) }; }
 function isAdminEmail(email) { return !!email && (CFG.admins || []).map((x) => String(x).toLowerCase()).includes(String(email).toLowerCase()); }
 export function firstName(u) { return ((u && u.name) || "Student").trim().split(/\s+/)[0]; }
 
@@ -154,18 +155,18 @@ export async function leaderboard() {
 
 // ---------- sign in / access ----------
 export async function signIn() {
-  if (mode === "demo") { user = { uid: "demo", name: "Demo Student", email: "demo@chessdepth.in" }; LS.set("cd-lab-demo-user", JSON.stringify(user)); paid = LS.get("cd-lab-demo-access") === "1"; access = paid || promoActive(); progress = null; emit(); return; }
+  if (mode === "demo") { user = { uid: "demo", name: "Demo Student", email: "demo@chessdepth.in" }; LS.set("cd-lab-demo-user", JSON.stringify(user)); paid = LS.get("cd-lab-demo-access") === "1"; enrollmentNo = LS.get("cd-lab-demo-enrollment"); academy = !!enrollmentNo; access = paid || academy || promoActive(); progress = null; emit(); return; }
   if (mode !== "firebase") return;
   const provider = new fb.GoogleAuthProvider(); provider.setCustomParameters({ prompt: "select_account" });
   try { await fb.signInWithPopup(fb.auth, provider); }
   catch (e) { if (e.code === "auth/popup-blocked" || e.code === "auth/operation-not-supported-in-this-environment") await fb.signInWithRedirect(fb.auth, provider); else if (e.code !== "auth/popup-closed-by-user" && e.code !== "auth/cancelled-popup-request") throw e; }
 }
 export async function signOut() {
-  if (mode === "demo") { LS.del("cd-lab-demo-user"); user = null; access = false; paid = false; progress = null; emit(); return; }
+  if (mode === "demo") { LS.del("cd-lab-demo-user"); user = null; access = false; paid = false; academy = false; enrollmentNo = null; progress = null; emit(); return; }
   if (mode === "firebase") await fb.signOut(fb.auth);
 }
 export function unlockDemo() { if (mode !== "demo") return; LS.set("cd-lab-demo-access", "1"); paid = true; access = true; emit(); }
-export function exitDemo() { ["cd-lab-demo", "cd-lab-demo-user", "cd-lab-demo-access"].forEach(LS.del); location.href = location.pathname; }
+export function exitDemo() { ["cd-lab-demo", "cd-lab-demo-user", "cd-lab-demo-access", "cd-lab-demo-enrollment"].forEach(LS.del); location.href = location.pathname; }
 export function resetDemoProgress() { LS.del("cd-lab-progress-demo"); progress = null; }
 
 async function checkAccess(u) {
@@ -177,8 +178,36 @@ async function checkAccess(u) {
     if (!snap.exists()) base.firstLogin = fb.serverTimestamp();
     fb.setDoc(ref, base, { merge: true }).catch(() => {});
     const until = d.labUntil && d.labUntil.toMillis ? d.labUntil.toMillis() : null;
-    return d.lab === true && (!until || until > Date.now());
-  } catch (e) { console.warn("Access check failed:", e.code || e); return false; }
+    const isPaid = d.lab === true && (!until || until > Date.now());
+    let isAcademy = false;
+    if (d.enrollment) {
+      try {
+        const e = await fb.getDoc(fb.doc(fb.db, "enrollments", d.enrollment));
+        isAcademy = e.exists() && e.data().claimedBy === u.uid && e.data().active !== false;
+      } catch (err) { /* not linked to this account */ }
+    }
+    return { paid: isPaid, academy: isAcademy, enrollment: isAcademy ? d.enrollment : null };
+  } catch (e) { console.warn("Access check failed:", e.code || e); return { paid: false, academy: false, enrollment: null }; }
+}
+
+// ChessDepth Academy students unlock the Lab for free, forever, with their enrollment number.
+export function normalizeEnrollment(raw) { return String(raw || "").trim().toUpperCase().replace(/\s+/g, "").replace(/\//g, "-"); }
+export async function claimEnrollment(raw) {
+  const no = normalizeEnrollment(raw);
+  if (!/^[A-Z0-9][A-Z0-9_.-]{1,39}$/.test(no)) throw new Error("Please enter your enrollment number exactly as given by the academy.");
+  if (!user) throw new Error("Please sign in first.");
+  if (mode === "demo") { LS.set("cd-lab-demo-enrollment", no); enrollmentNo = no; academy = true; access = true; progress = null; emit(); return no; }
+  if (mode !== "firebase") throw new Error("The Chess Lab isn't connected yet.");
+  try {
+    await fb.updateDoc(fb.doc(fb.db, "enrollments", no), { claimedBy: user.uid, claimedEmail: user.email || "", claimedAt: fb.serverTimestamp() });
+  } catch (e) {
+    throw new Error("We couldn't find that enrollment number, or it's already linked to another account. Check the number, or WhatsApp us on +91 98230 29262.");
+  }
+  await fb.setDoc(fb.doc(fb.db, "students", user.uid), { enrollment: no }, { merge: true });
+  const r = await checkAccess(user);
+  paid = r.paid; academy = r.academy; enrollmentNo = r.enrollment; access = paid || academy || promoActive(); progress = null; emit();
+  track("lab_enrollment_linked", {});
+  return no;
 }
 
 async function initFirebase() {
@@ -195,8 +224,9 @@ async function initFirebase() {
     let first = true;
     fb.onAuthStateChanged(fb.auth, async (u) => {
       user = u ? { uid: u.uid, name: u.displayName || "", email: u.email || "", photoURL: u.photoURL || "" } : null;
-      paid = user ? await checkAccess(user) : false;
-      access = !!user && (paid || promoActive());
+      const r = user ? await checkAccess(user) : { paid: false, academy: false, enrollment: null };
+      paid = r.paid; academy = r.academy; enrollmentNo = r.enrollment;
+      access = !!user && (paid || academy || promoActive());
       progress = null;
       if (first) { first = false; resolve(); } else emit();
     });
@@ -215,7 +245,8 @@ export async function initLab() {
     mode = "demo";
     try { user = JSON.parse(LS.get("cd-lab-demo-user") || "null"); } catch (e) { user = null; }
     paid = !!user && LS.get("cd-lab-demo-access") === "1";
-    access = !!user && (paid || promoActive());
+    enrollmentNo = user ? LS.get("cd-lab-demo-enrollment") : null; academy = !!enrollmentNo;
+    access = !!user && (paid || academy || promoActive());
   } else {
     mode = "closed";
   }
@@ -231,5 +262,18 @@ export async function adminSetAccess(uid, on, untilDate) {
   const data = { lab: !!on, labUntil: untilDate ? fb.Timestamp.fromDate(untilDate) : null, labUpdated: fb.serverTimestamp() };
   await fb.setDoc(fb.doc(fb.db, "students", uid), data, { merge: true });
 }
+
+// Enrollment numbers (admin only; the rules enforce it).
+export async function adminListEnrollments() {
+  const snap = await fb.getDocs(fb.collection(fb.db, "enrollments"));
+  const rows = []; snap.forEach((d) => rows.push({ no: d.id, ...d.data() })); return rows;
+}
+export async function adminAddEnrollments(list) {
+  const batch = fb.writeBatch(fb.db);
+  list.forEach(({ no, name }) => batch.set(fb.doc(fb.db, "enrollments", no), { name: name || "", active: true, addedAt: fb.serverTimestamp() }, { merge: true }));
+  await batch.commit();
+}
+export async function adminSetEnrollment(no, data) { await fb.setDoc(fb.doc(fb.db, "enrollments", no), data, { merge: true }); }
+export async function adminReleaseEnrollment(no) { await fb.setDoc(fb.doc(fb.db, "enrollments", no), { claimedBy: null, claimedEmail: null, claimedAt: null }, { merge: true }); }
 
 export function track(name, params) { try { if (typeof window.gtag === "function") window.gtag("event", name, params || {}); } catch (e) { /* ignore */ } }

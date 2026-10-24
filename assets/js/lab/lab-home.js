@@ -7,7 +7,7 @@ startLabPage({
     const cta = document.getElementById("lab-hero-cta"), price = document.getElementById("lab-price-line");
     const unlocked = st.user && st.access;
     document.querySelectorAll("[data-lock]").forEach((e) => { e.innerHTML = unlocked ? '<i class="fas fa-unlock"></i> Unlocked' : promoActive() ? '<i class="fas fa-gift"></i> Free now' : '<i class="fas fa-lock"></i> Members'; e.classList.toggle("is-open", !!unlocked || promoActive()); });
-    price.innerHTML = (promoActive() ? `<b>Launch offer:</b> every feature is free until ${esc(promoLabel())}, just sign in. ` : "") + (CFG.price ? `Membership: <b>${esc(CFG.price)}</b>` : "Pricing will be announced at launch.");
+    price.innerHTML = (promoActive() ? `<b>Launch offer:</b> every feature is free until ${esc(promoLabel())}, just sign in. ` : "") + `<b>ChessDepth Academy students: free forever</b> with your enrollment number. ` + (CFG.price ? `Membership for everyone else: <b>${esc(CFG.price)}</b>` : "Membership pricing for everyone else will be announced soon.");
     if (st.mode === "closed") {
       cta.innerHTML = `<a class="lab-btn" href="${esc(CFG.notifyUrl)}" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i>Notify me at launch</a><span class="lab-hero-note">Opening soon</span>`;
     } else if (!st.user) {

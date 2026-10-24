@@ -13,14 +13,25 @@ service cloud.firestore {
     function promoActive() {
       return request.auth != null && request.time < timestamp.date(2026, 11, 21) + duration.value(18, 'h') + duration.value(30, 'm');
     }
-    // A Lab member: lab == true and the end date (if any) not passed, or the launch offer is running.
+    // A Lab member: the launch offer is running, a paid membership is active,
+    // or the student has linked a ChessDepth Academy enrollment number (free forever).
     function hasLab() {
-      return promoActive() || paidLab();
+      return promoActive() || paidLab() || academyStudent();
     }
     function paidLab() {
       let s = get(/databases/$(database)/documents/students/$(request.auth.uid)).data;
       return request.auth != null && s.get('lab', false) == true
         && (s.get('labUntil', null) == null || s.labUntil > request.time);
+    }
+
+    // Academy student: students/{uid}.enrollment points at an enrollment number claimed by this same account.
+    function academyStudent() {
+      let sp = /databases/$(database)/documents/students/$(request.auth.uid);
+      let no = exists(sp) ? get(sp).data.get('enrollment', '') : '';
+      let ep = /databases/$(database)/documents/enrollments/$(no == '' ? '_none' : no);
+      return request.auth != null && no != '' && exists(ep)
+        && get(ep).data.get('claimedBy', null) == request.auth.uid
+        && get(ep).data.get('active', true) == true;
     }
 
     // Each student's own record. Students may update their name/email/login times,
@@ -32,6 +43,19 @@ service cloud.firestore {
       allow update: if isAdmin() || (request.auth != null && request.auth.uid == uid
         && !request.resource.data.diff(resource.data).affectedKeys().hasAny(['lab', 'labUntil', 'labUpdated']));
       allow list: if isAdmin();
+    }
+
+    // Academy enrollment numbers. Only admins add, edit or list them.
+    // A signed-in student may claim an unclaimed, active number for themself (once);
+    // after that they can read their own number, and nobody else can claim it.
+    match /enrollments/{no} {
+      allow read: if isAdmin() || (request.auth != null && resource.data.get('claimedBy', null) == request.auth.uid);
+      allow create, delete: if isAdmin();
+      allow update: if isAdmin() || (request.auth != null
+        && resource.data.get('claimedBy', null) == null
+        && resource.data.get('active', true) == true
+        && request.resource.data.claimedBy == request.auth.uid
+        && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['claimedBy', 'claimedEmail', 'claimedAt']));
     }
 
     // Chess Lab progress: only the member themself, and only while their membership is active.

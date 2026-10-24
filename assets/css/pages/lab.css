@@ -297,3 +297,34 @@ html.dark .lab-price-line b, html.dark .lab-price-line strong { color: #f1f5f9; 
 .lab-hero-title { font-size: clamp(2rem, 4.5vw, 3rem); line-height: 1.15; }
 .lab-hero-inner { min-height: 20rem; padding-top: 2.5rem; padding-bottom: 2.5rem; }
 .lab-hero-art img { max-width: 240px; }
+/* Academy students: enrollment number unlock */
+.lab-enroll { text-align: left; background: #eef2ff; border-radius: .75rem; padding: 1rem 1.1rem; margin: 1.1rem 0 .4rem; }
+.lab-enroll label { display: block; font-size: .88rem; color: #312e81; line-height: 1.5; }
+.lab-enroll label i { color: #4f46e5; margin-right: .2rem; }
+.lab-enroll-row { display: flex; gap: .5rem; margin-top: .6rem; }
+.lab-enroll-row input { flex: 1; min-width: 0; border: 1.5px solid #c7d2fe; border-radius: .5rem; padding: .6rem .75rem; font-size: .95rem; text-transform: uppercase; letter-spacing: .04em; background: #fff; color: #111827; }
+.lab-enroll-row input:focus { outline: 2px solid #6366f1; outline-offset: 1px; }
+.lab-gate-card .lab-enroll .lab-btn { width: auto; margin-top: 0; }
+.lab-enroll-msg { font-size: .82rem; margin-top: .45rem; color: #4b5563; min-height: 1em; }
+.lab-enroll-msg.ok { color: #15803d; font-weight: 600; }
+.lab-enroll-msg.bad { color: #b91c1c; }
+.lab-enroll-compact { margin: .7rem 0; }
+.lab-enroll-panel { background: #f9fafb; border-top: 1px solid #e5e7eb; }
+.lab-gate-or { font-size: .85rem; color: #6b7280; margin-top: 1rem; }
+.lab-gate-academy { font-size: .82rem; color: #4338ca; background: #eef2ff; border-radius: .5rem; padding: .55rem .7rem; margin-top: .9rem; }
+.lab-chip-link { cursor: pointer; color: #4338ca; border-color: #c7d2fe; }
+.lab-chip-link:hover { background: #eef2ff; }
+.lab-chip-academy { background: #dcfce7; color: #166534; border-color: #bbf7d0; }
+.lab-chip-academy i, .lab-chip-link i { color: inherit; }
+.admin-block { margin-bottom: 2.5rem; }
+.admin-add { margin: .8rem 0 1rem; }
+.admin-text { display: block; width: 100%; max-width: 34rem; border: 1px solid #d1d5db; border-radius: .5rem; padding: .6rem .7rem; font-family: ui-monospace, Menlo, Consolas, monospace; font-size: .85rem; margin: .4rem 0 .6rem; }
+html.dark .lab-enroll, html.dark .lab-gate-academy { background: rgba(99,102,241,.14); }
+html.dark .lab-enroll label, html.dark .lab-gate-academy { color: #c7d2fe; }
+html.dark .lab-enroll-row input { background: #0b1120; color: #e2e8f0; border-color: #475569; }
+html.dark .lab-enroll-msg { color: #a8b3c4; }
+html.dark .lab-enroll-msg.ok { color: #86efac; }
+html.dark .lab-enroll-msg.bad { color: #fca5a5; }
+html.dark .lab-enroll-panel { background: #0f172a; border-color: #273449; }
+html.dark .lab-chip-link { color: #c7d2fe; border-color: #475569; }
+html.dark .lab-chip-academy { background: rgba(34,197,94,.15); color: #86efac; border-color: rgba(34,197,94,.3); }

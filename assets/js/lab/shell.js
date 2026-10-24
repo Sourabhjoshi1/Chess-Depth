@@ -1,9 +1,16 @@
 // ChessDepth Chess Lab - page shell: access screens (gate), Lab bar (points/level), toasts.
-import { CFG, initLab, onChange, signIn, signOut, unlockDemo, exitDemo, loadProgress, levelFor, track, promoActive, promoLabel } from "./lab-core.js";
+import { CFG, initLab, onChange, signIn, signOut, unlockDemo, exitDemo, loadProgress, levelFor, track, promoActive, promoLabel, claimEnrollment } from "./lab-core.js";
 
 const $ = (s, r = document) => r.querySelector(s);
 const esc = (s) => String(s == null ? "" : s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
 
+function enrollForm(compact) {
+  return `<form class="lab-enroll${compact ? " lab-enroll-compact" : ""}" data-enroll>
+    <label for="enroll-no-${compact ? "b" : "g"}"><i class="fas fa-graduation-cap"></i> <b>ChessDepth Academy student?</b> The Chess Lab is free forever for you. Enter your enrollment number:</label>
+    <div class="lab-enroll-row"><input id="enroll-no-${compact ? "b" : "g"}" name="no" autocomplete="off" autocapitalize="characters" spellcheck="false" placeholder="Your enrollment number" required>
+    <button type="submit" class="lab-btn">Unlock</button></div>
+    <p class="lab-enroll-msg" role="status"></p></form>`;
+}
 function gateHTML(st, toolName) {
   const tool = esc(toolName || "the Chess Lab");
   const features = `<ul class="lab-gate-list">
@@ -21,9 +28,10 @@ function gateHTML(st, toolName) {
     if (promoActive()) return `<div class="lab-gate-card"><p class="lab-gate-kicker"><i class="fas fa-gift"></i> Launch offer</p><h2>Free until ${esc(promoLabel())}</h2>
       <p>Every Chess Lab feature is free during our launch. Just sign in with Google to open ${tool}.</p>${features}
       <button type="button" class="lab-btn lab-google" data-act="signin">${googleIcon()}${st.mode === "demo" ? "Sign in (demo)" : "Sign in with Google"}</button>
-      <p class="lab-gate-small" data-msg>No payment needed. After the offer, your progress stays saved.</p></div>`;
+      <p class="lab-gate-small" data-msg>No payment needed. After the offer, your progress stays saved.</p>
+      <p class="lab-gate-academy"><i class="fas fa-graduation-cap"></i> ChessDepth Academy students: after signing in, link your enrollment number to keep the Lab free forever.</p></div>`;
     return `<div class="lab-gate-card"><p class="lab-gate-kicker"><i class="fas fa-lock"></i> Members only</p><h2>Sign in to open ${tool}</h2>
-      <p>The Chess Lab is part of your ChessDepth student account. Sign in with Google to continue.</p>
+      <p>Sign in with Google to continue. ChessDepth Academy students unlock everything free with their enrollment number.</p>
       <button type="button" class="lab-btn lab-google" data-act="signin">${googleIcon()}${st.mode === "demo" ? "Sign in (demo)" : "Sign in with Google"}</button>
       <p class="lab-gate-small" data-msg></p></div>`;
   }
@@ -34,7 +42,9 @@ function gateHTML(st, toolName) {
       ? `<a class="lab-btn" data-act="pay" href="${esc(CFG.paymentLink)}" target="_blank" rel="noopener noreferrer"><i class="fas fa-crown"></i>Join the Chess Lab</a>`
       : `<a class="lab-btn" data-act="pay" href="${esc(CFG.joinUrl)}" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i>Ask to join on WhatsApp</a>`;
   return `<div class="lab-gate-card lab-gate-upgrade"><p class="lab-gate-kicker"><i class="fas fa-crown"></i> Chess Lab membership</p>
-    <h2>Unlock ${tool}</h2><p>Hi ${esc((st.user.name || "there").split(" ")[0])}! The Chess Lab is a paid membership. It includes:</p>${features}${price}${pay}
+    <h2>Unlock ${tool}</h2><p>Hi ${esc((st.user.name || "there").split(" ")[0])}! The Chess Lab includes:</p>${features}
+    ${enrollForm(false)}
+    <p class="lab-gate-or">Not an academy student yet? Join the Chess Lab membership:</p>${price}${pay}
     <p class="lab-gate-small">${st.mode === "demo" ? "This is a demo: nothing is charged." : "After you pay, your access is switched on, usually within a few hours. Signed in as " + esc(st.user.email) + "."}</p>
     <button type="button" class="lab-link" data-act="signout">Use a different account</button></div>`;
 }
@@ -47,12 +57,16 @@ function renderBar(st, prog) {
   if (st.mode === "demo") $("#lab-demo-banner")?.classList.remove("hidden");
   const offer = $("#lab-offer-banner");
   if (offer) { const on = promoActive() && !st.paid; offer.classList.toggle("hidden", !on); if (on) offer.innerHTML = `<i class="fas fa-gift"></i> <b>Launch offer:</b> every Chess Lab feature is free until ${esc(promoLabel())}${st.user ? "." : ". Just sign in."}`; }
+  const panel = $("#lab-enroll-panel");
+  if (panel && (!st.user || st.academy)) { panel.classList.add("hidden"); panel.innerHTML = ""; }
   if (!st.user) { bar.innerHTML = ""; return; }
   if (!st.access || !prog) { bar.innerHTML = `<span class="lab-chip">${esc((st.user.name || "").split(" ")[0])}</span>`; return; }
   const lv = levelFor(prog.points);
   bar.innerHTML = `<span class="lab-chip" title="Your level"><span class="lab-lv">${lv.icon}</span>${lv.name}</span>
     <span class="lab-chip lab-chip-pts" title="Total points"><i class="fas fa-star"></i><b data-points>${prog.points}</b></span>
-    <span class="lab-chip" title="Day streak"><i class="fas fa-fire"></i>${prog.streak.count || 0}</span>`;
+    <span class="lab-chip" title="Day streak"><i class="fas fa-fire"></i>${prog.streak.count || 0}</span>
+    ${st.academy ? `<span class="lab-chip lab-chip-academy" title="Linked to enrollment ${esc(st.enrollment || "")}"><i class="fas fa-graduation-cap"></i>Academy</span>`
+      : `<button type="button" class="lab-chip lab-chip-link" data-act="enroll-open"><i class="fas fa-graduation-cap"></i>Academy student?</button>`}`;
 }
 
 export function toast(html, kind) {
@@ -86,6 +100,21 @@ export async function startLabPage({ toolName, ready, publicPage }) {
     if (act === "unlock") { e.preventDefault(); unlockDemo(); }
     if (act === "pay") track("lab_upgrade_click", { page_path: location.pathname, method: CFG.paymentLink ? "payment_link" : "whatsapp" });
     if (act === "exit-demo") { e.preventDefault(); exitDemo(); }
+    if (act === "enroll-open") {
+      e.preventDefault(); const panel = $("#lab-enroll-panel"); if (!panel) return;
+      const open = panel.classList.contains("hidden"); panel.classList.toggle("hidden", !open);
+      panel.innerHTML = open ? `<div class="cd-wrap">${enrollForm(true)}</div>` : "";
+      if (open) panel.querySelector("input").focus();
+    }
+  });
+  document.addEventListener("submit", async (e) => {
+    const f = e.target.closest("[data-enroll]"); if (!f) return;
+    e.preventDefault();
+    const msg = f.querySelector(".lab-enroll-msg"), btn = f.querySelector("button");
+    btn.disabled = true; msg.className = "lab-enroll-msg"; msg.textContent = "Checking…";
+    try { const no = await claimEnrollment(f.no.value); msg.classList.add("ok"); msg.textContent = `Linked to ${no}. The Chess Lab is now free for you, forever.`; toast(`<b>🎓 Welcome, academy student!</b> Everything is unlocked.`); }
+    catch (err) { msg.classList.add("bad"); msg.textContent = err.message; }
+    finally { btn.disabled = false; }
   });
   document.addEventListener("cdlab:points", (e) => {
     const p = e.detail.progress; renderBar(st, p);
