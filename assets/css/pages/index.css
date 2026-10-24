@@ -115,3 +115,6 @@ html.dark .dp-btn:hover:not(:disabled) { background: #1e293b; }
 html.dark .dp-share { background: #16a34a; color: #fff; border-color: #16a34a; }
 html.dark .dp-explain { background: #162032; }
 html.dark .dp-theme-row b { color: #c7d2fe; }
+/* .cd-wrap sets padding: 0 1.25rem, so the section's vertical space needs the combined selector */
+.cd-wrap.dp-grid { padding-top: 4rem; padding-bottom: 4rem; }
+@media (max-width: 899px) { .cd-wrap.dp-grid { padding-top: 2.5rem; padding-bottom: 3rem; } }
