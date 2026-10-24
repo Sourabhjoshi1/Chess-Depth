@@ -101,7 +101,8 @@ async function start() {
       nonEmpty.forEach((g) => box.appendChild(renderGroup(g)));
     } catch (e) {
       box.innerHTML = "";
-      $("materials-error").textContent = "Could not load the material right now. Please refresh the page, or WhatsApp us on +91 98230 29262.";
+      // Storage not set up yet (or no files): show a friendly note instead of an error
+      $("materials-error").innerHTML = 'Your course PDFs are being uploaded and will appear here soon. Meanwhile, train in the <a href="/lab/" class="underline font-semibold">Chess Lab</a> (free for students right now) or download the free <a href="/shop/tactics-starter/" class="underline font-semibold">Tactics Starter Pack</a>.';
       $("materials-error").classList.remove("hidden");
       console.error(e);
     }
