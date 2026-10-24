@@ -119,6 +119,16 @@ page_css: index
     </div>
   </section>
 
+  <section id="reviews" class="hr-section" data-rv-section hidden>
+    <div class="cd-wrap hr-wrap">
+      <div class="hr-head">
+        <div><p class="hr-eyebrow"><i class="fas fa-star"></i> Live reviews</p><h2 class="hr-h2">What students and parents say</h2><p class="hr-stats" data-rv-latest-stats="academy"></p></div>
+        <a href="/about/#reviews" class="hr-all">Read all or write a review <i class="fas fa-arrow-right"></i></a>
+      </div>
+      {% include reviews.html latest=true target="academy" count=3 %}
+    </div>
+  </section>
+
   <section id="courses" class="py-16 bg-white px-4 fade-in-section">
     <div class="max-w-6xl mx-auto">
       <h2 class="text-3xl font-bold text-center mb-10 tracking-tight">Popular Courses</h2>

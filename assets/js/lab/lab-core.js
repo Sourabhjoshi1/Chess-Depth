@@ -276,4 +276,15 @@ export async function adminAddEnrollments(list) {
 export async function adminSetEnrollment(no, data) { await fb.setDoc(fb.doc(fb.db, "enrollments", no), data, { merge: true }); }
 export async function adminReleaseEnrollment(no) { await fb.setDoc(fb.doc(fb.db, "enrollments", no), { claimedBy: null, claimedEmail: null, claimedAt: null }, { merge: true }); }
 
+// Reviews (admin only): list every review, hide/unhide, reply publicly.
+export async function adminListReviews() {
+  const snap = await fb.getDocs(fb.collection(fb.db, "reviews"));
+  const rows = []; snap.forEach((d) => rows.push({ id: d.id, ...d.data() })); return rows;
+}
+export async function adminUpdateReview(id, data) {
+  const body = { ...data };
+  if ("reply" in body) body.replyAt = fb.serverTimestamp();
+  await fb.updateDoc(fb.doc(fb.db, "reviews", id), body);
+}
+
 export function track(name, params) { try { if (typeof window.gtag === "function") window.gtag("event", name, params || {}); } catch (e) { /* ignore */ } }

@@ -1,5 +1,5 @@
 // ChessDepth Chess Lab - admin page: academy enrollment numbers, and Lab access for students.
-import { initLab, onChange, signIn, state, adminListStudents, adminSetAccess, adminListEnrollments, adminAddEnrollments, adminSetEnrollment, adminReleaseEnrollment, normalizeEnrollment } from "./lab-core.js";
+import { initLab, onChange, signIn, state, adminListStudents, adminSetAccess, adminListEnrollments, adminAddEnrollments, adminSetEnrollment, adminReleaseEnrollment, normalizeEnrollment, adminListReviews, adminUpdateReview } from "./lab-core.js";
 import { esc } from "./shell.js";
 
 const box = document.getElementById("admin-app");
@@ -9,13 +9,29 @@ async function render() {
   if (!st.user) { box.innerHTML = `<button type="button" class="lab-btn" id="admin-signin">Sign in with Google</button>`; document.getElementById("admin-signin").onclick = () => signIn(); return; }
   if (!st.admin) { box.innerHTML = `<p class="pd-empty">Signed in as ${esc(st.user.email)}. This account is not an admin.</p>`; return; }
   box.innerHTML = `<p class="pd-small">Loading…</p>`;
-  let rows = [], enr = [];
-  try { [rows, enr] = await Promise.all([adminListStudents(), adminListEnrollments()]); }
+  let rows = [], enr = [], revs = [];
+  try { [rows, enr] = await Promise.all([adminListStudents(), adminListEnrollments()]); revs = await adminListReviews().catch(() => null); }
   catch (e) { box.innerHTML = `<p class="pd-empty">Couldn't load data (${esc(e.code || e.message)}). Check that the latest rules from <code>firebase/firestore.rules</code> are published in Firebase.</p>`; return; }
   rows.sort((a, b) => (b.lab === true) - (a.lab === true) || String(a.name).localeCompare(String(b.name)));
   enr.sort((a, b) => String(a.no).localeCompare(String(b.no), undefined, { numeric: true }));
   const linked = enr.filter((x) => x.claimedBy).length;
+  const ms = (t) => (t && t.toMillis ? t.toMillis() : 0);
+  const label = (t) => t === "academy" ? "The academy" : t === "lab" ? "Chess Lab" : t.replace(":", ": ").replace(/-/g, " ");
+  if (revs) revs.sort((a, b) => ms(b.created) - ms(a.created));
+  const hiddenN = revs ? revs.filter((r) => r.hidden).length : 0;
   box.innerHTML = `
+  <section class="admin-block">
+    <h2 class="pd-h2"><i class="fas fa-star"></i> Reviews</h2>
+    ${revs === null ? `<p class="pd-empty">Couldn't load reviews. Publish the latest rules from <code>firebase/firestore.rules</code> (they include the reviews section).</p>` : `
+    <p class="pd-small">Reviews go live as soon as they're posted. Hide only abuse, spam, advertising or personal details, never a review just because it's negative. A public reply is the fair way to answer criticism. ${revs.length} reviews · ${hiddenN} hidden.</p>
+    <input type="search" id="rev-q" placeholder="Search name, item or words" class="admin-search">
+    <table class="admin-table"><thead><tr><th>Review</th><th>Your public reply</th><th>Shown</th></tr></thead><tbody id="rev-body">
+    ${revs.map((r) => `<tr data-id="${esc(r.id)}" data-q="${esc((r.name + " " + r.target + " " + r.text).toLowerCase())}">
+      <td style="max-width:28rem"><b>${esc(label(r.target))}</b> · ${"★".repeat(r.rating)}${"☆".repeat(5 - r.rating)}<br><small>${esc(r.name)}${r.verified ? " · Verified student" : ""} · ${ms(r.created) ? new Date(ms(r.created)).toLocaleDateString("en-IN") : ""}</small><p style="white-space:pre-line;margin-top:.3rem">${esc(r.text)}</p></td>
+      <td><textarea class="admin-text" rows="3" data-reply placeholder="Optional reply, shown under the review">${esc(r.reply || "")}</textarea><button type="button" class="lab-btn lab-btn-sm" data-save-reply>Save reply</button></td>
+      <td><label class="admin-switch"><input type="checkbox" data-shown ${r.hidden ? "" : "checked"}> <span>${r.hidden ? "Hidden" : "Shown"}</span></label> <span class="admin-msg"></span></td></tr>`).join("") || `<tr><td colspan="3"><p class="pd-empty">No reviews yet.</p></td></tr>`}
+    </tbody></table>`}
+  </section>
   <section class="admin-block">
     <h2 class="pd-h2"><i class="fas fa-graduation-cap"></i> Academy enrollment numbers</h2>
     <p class="pd-small">Students who enter one of these numbers get the Chess Lab free, forever. Each number can be linked to one Google account. ${enr.length} numbers · ${linked} linked.</p>
@@ -73,7 +89,14 @@ async function render() {
       catch (e) { msg.textContent = "Failed: " + (e.code || e.message); }
     };
   });
+  document.querySelectorAll("#rev-body tr[data-id]").forEach((tr) => {
+    const msg = tr.querySelector(".admin-msg"), cb = tr.querySelector("[data-shown]");
+    cb.onchange = async () => { cb.nextElementSibling.textContent = cb.checked ? "Shown" : "Hidden"; msg.textContent = "Saving…";
+      try { await adminUpdateReview(tr.dataset.id, { hidden: !cb.checked }); msg.textContent = "Saved"; } catch (e) { msg.textContent = "Failed: " + (e.code || e.message); } };
+    tr.querySelector("[data-save-reply]").onclick = async () => { msg.textContent = "Saving…";
+      try { await adminUpdateReview(tr.dataset.id, { reply: tr.querySelector("[data-reply]").value.trim().slice(0, 1500) }); msg.textContent = "Reply saved"; } catch (e) { msg.textContent = "Failed: " + (e.code || e.message); } };
+  });
   const filter = (inputId, bodyId) => { document.getElementById(inputId).oninput = (e) => { const q = e.target.value.toLowerCase(); document.querySelectorAll(`#${bodyId} tr[data-q]`).forEach((tr) => { tr.style.display = tr.dataset.q.includes(q) ? "" : "none"; }); }; };
-  filter("enr-q", "enr-body"); filter("admin-q", "stu-body");
+  filter("enr-q", "enr-body"); filter("admin-q", "stu-body"); if (revs) filter("rev-q", "rev-body");
 }
 (async () => { await initLab(); onChange(render); render(); })();

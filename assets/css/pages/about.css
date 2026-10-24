@@ -13,3 +13,10 @@ details.ab-faq summary { cursor: pointer; list-style: none; }
 details.ab-faq summary::-webkit-details-marker { display: none; }
 details.ab-faq summary:after { content: '+'; float: right; font-weight: 700; color: #6366f1; }
 details.ab-faq[open] summary:after { content: '\2212'; }
+
+/* Live reviews */
+.ab-live-reviews { background: #fff; border-radius: 1rem; padding: 1.75rem; box-shadow: 0 1px 3px rgba(0,0,0,.06); max-width: 56rem; margin-left: auto; margin-right: auto; }
+@media (max-width: 640px) { .ab-live-reviews { padding: 1.25rem 1rem; } }
+html.dark .ab-live-reviews { background: #162032; }
+html.dark .ab-live-reviews h3 { color: #f1f5f9; }
+html.dark .ab-live-reviews > p { color: #a8b3c4; }

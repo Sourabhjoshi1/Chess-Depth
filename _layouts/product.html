@@ -34,6 +34,14 @@ layout: default
     <h2 class="sp-h2">Who it's for</h2>
     <p class="sp-for">{{ page.for }}</p>
     {%- endif %}
+    {%- assign rv_ok = false -%}
+    {%- if page.download and page.download != "" %}{% assign rv_ok = true %}{% endif -%}
+    {%- if page.gumroad and page.gumroad != "" %}{% assign rv_ok = true %}{% endif -%}
+    {%- if rv_ok %}
+    {%- capture rv_target %}product:{{ page.slug }}{% endcapture %}
+    <h2 class="sp-h2" id="reviews">Reviews</h2>
+    <div class="sp-reviews">{% include reviews.html target=rv_target title=page.title %}</div>
+    {%- endif %}
   </div>
   <aside class="sp-side">
     <div class="sp-side-card">

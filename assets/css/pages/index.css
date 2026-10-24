@@ -120,3 +120,19 @@ html.dark .dp-theme-row b { color: #c7d2fe; }
 @media (max-width: 899px) { .cd-wrap.dp-grid { padding-top: 2.5rem; padding-bottom: 3rem; } }
 .dp-credit a { color: inherit; text-decoration: underline; text-underline-offset: 2px; }
 .dp-credit a:hover { color: #4f46e5; }
+
+/* Live reviews (shown once there is at least one) */
+.hr-section { background: #f9fafb; }
+.cd-wrap.hr-wrap { padding-top: 3.5rem; padding-bottom: 3.5rem; }
+.hr-head { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: .75rem 2rem; margin-bottom: 1.5rem; }
+.hr-eyebrow { font-size: .8rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: #4f46e5; }
+.hr-eyebrow i { color: #f59e0b; }
+.hr-h2 { font-size: 1.9rem; font-weight: 700; color: #111827; margin-top: .25rem; }
+.hr-stats { margin-top: .35rem; color: #4b5563; font-size: .92rem; display: flex; align-items: center; gap: .4rem; flex-wrap: wrap; }
+.hr-stats b { color: #111827; }
+.hr-all { font-weight: 600; color: #4f46e5; white-space: nowrap; }
+.hr-all:hover { color: #3730a3; }
+html.dark .hr-section { background: #0b1220; }
+html.dark .hr-h2, html.dark .hr-stats b { color: #f1f5f9; }
+html.dark .hr-stats { color: #a8b3c4; }
+html.dark .hr-eyebrow, html.dark .hr-all { color: #a5b4fc; }

@@ -1,0 +1,17 @@
+{%- comment -%}
+  Live reviews (Firebase). Use one of:
+    {% include reviews.html target="coach:daniel-gormally" title="GM Daniel Gormally" %}             full widget
+    {% include reviews.html summary=true target="course:endgame-mastery" title="Endgame Mastery" %}  stars + count, opens a pop-up
+    {% include reviews.html latest=true target="academy" count=3 %}                                   newest reviews
+  Targets: academy, lab, coach:<slug>, course:<slug>, product:<slug>  (lowercase letters, digits and -).
+  Keep a target the same forever, or its reviews will no longer show.
+{%- endcomment -%}
+{%- if include.summary -%}
+<div class="rv-summary-slot" data-rv-summary="{{ include.target }}" data-rv-title="{{ include.title | escape }}"></div>
+{%- elsif include.latest -%}
+<div class="rv-latest" data-rv-latest="{{ include.target }}" data-rv-count="{{ include.count | default: 3 }}"></div>
+{%- else -%}
+<div data-rv="{{ include.target }}" data-rv-title="{{ include.title | escape }}"{% if include.limit %} data-rv-limit="{{ include.limit }}"{% endif %}></div>
+{%- endif %}
+<script>window.CD_RV = window.CD_RV || { wa: "{{ site.contact.phone_intl }}" };</script>
+<script type="module" src="/assets/js/reviews.js?v={{ site.time | date: "%s" }}"></script>

@@ -91,6 +91,16 @@ Posts dated in the future stay hidden until that date.
   in demo mode (stored only in that browser); `?demo=0` leaves demo mode.
 
 
+## Reviews (live, from Firebase)
+
+- Anyone signed in with Google can leave **one review per item** (stars + text), edit it or delete it. Reviews appear straight away.
+- Reviews by students who linked their enrollment number in the Chess Lab show a **Verified student** badge automatically.
+- Moderate at **/lab/admin/** → *Reviews*: hide only abuse, spam, advertising or personal details, never a review for being negative. Reply publicly instead.
+- Where they appear: coach cards (Coaches), course cards (Courses), the Chess Lab page, free/available Shop products, the About page (academy), and the home page (newest academy reviews, hidden until there is at least one).
+- To add reviews to something new: `{% include reviews.html target="course:my-new-course" title="My New Course" %}` (full) or add `summary=true` (stars + count with a pop-up). Targets look like `academy`, `lab`, `coach:<slug>`, `course:<slug>`, `product:<slug>`. **Never rename a target**, or its reviews disappear.
+- Never type ratings or review counts into a page by hand. They must come from real reviews.
+- After changing `firebase/firestore.rules`, paste it into Firebase console → Firestore → Rules → Publish.
+
 ## Shop (digital products, sold through Gumroad)
 
 - The shop is at **/shop/**. Each product is one file in `_products/` (for example `_products/checkmate-patterns.md`) and gets its own page at `/shop/<file-name>/`.

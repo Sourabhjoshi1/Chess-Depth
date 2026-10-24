@@ -69,6 +69,39 @@ service cloud.firestore {
       allow write: if request.auth != null && request.auth.uid == uid && hasLab();
     }
 
+    // Public reviews of the academy, coaches, courses, the Chess Lab and Shop products.
+    // Anyone signed in with Google may post ONE review per item (doc id = target + "__" + uid),
+    // edit or delete it. Reviews are public straight away. "verified" must match academyStudent().
+    // Admins can only hide/unhide a review and add a public reply; they can't change its words or stars.
+    function validReview(d) {
+      return d.target is string && d.target.matches('^((coach|course|product):[a-z0-9-]{1,60}|lab|academy)$')
+        && d.uid == request.auth.uid
+        && d.rating is int && d.rating >= 1 && d.rating <= 5
+        && d.text is string && d.text.size() >= 10 && d.text.size() <= 1500
+        && d.name is string && d.name.size() >= 1 && d.name.size() <= 40
+        && d.role in ['student', 'parent', 'other']
+        && d.verified == academyStudent()
+        && d.updated == request.time;
+    }
+    match /reviews/{id} {
+      allow read: if resource.data.hidden == false
+        || (request.auth != null && resource.data.uid == request.auth.uid) || isAdmin();
+      allow create: if request.auth != null
+        && id == request.resource.data.target + '__' + request.auth.uid
+        && request.resource.data.keys().hasOnly(['target', 'uid', 'name', 'rating', 'text', 'role', 'verified', 'created', 'updated', 'hidden'])
+        && validReview(request.resource.data)
+        && request.resource.data.created == request.time
+        && request.resource.data.hidden == false;
+      allow update: if (request.auth != null && resource.data.uid == request.auth.uid
+          && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['name', 'rating', 'text', 'role', 'verified', 'updated'])
+          && validReview(request.resource.data))
+        || (isAdmin()
+          && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['hidden', 'reply', 'replyAt'])
+          && request.resource.data.hidden is bool
+          && (!('reply' in request.resource.data) || (request.resource.data.reply is string && request.resource.data.reply.size() <= 1500)));
+      allow delete: if request.auth != null && resource.data.uid == request.auth.uid;
+    }
+
     // All-time Puzzle Streak leaderboard (first names + best streak).
     match /streakBoard/{uid} {
       allow read: if hasLab();

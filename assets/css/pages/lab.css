@@ -344,3 +344,9 @@ html.dark .lab-thanks-title { color: #f1f5f9; }
 html.dark .lab-thanks p { color: #a8b3c4; }
 html.dark .lab-thanks p a, html.dark .lab-thanks-link { color: #a5b4fc; }
 html.dark .lab-thanks-icon { background: rgba(219,39,119,.15); color: #f9a8d4; }
+
+/* Lab reviews */
+.cd-wrap.lab-reviews { padding-bottom: 1.5rem; }
+.lab-reviews > .rv, .lab-rv-lead { max-width: 52rem; }
+.lab-rv-lead { color: #4b5563; margin: .4rem 0 1.25rem; line-height: 1.6; }
+html.dark .lab-rv-lead { color: #a8b3c4; }
