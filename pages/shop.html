@@ -7,26 +7,33 @@ crumb: Shop
 ---
 {%- assign products = site.products | sort: "order" -%}
 {%- assign live = products | where_exp: "p", "p.gumroad != ''" -%}
+{%- assign avail = "" | split: "" -%}{%- assign soon = "" | split: "" -%}
+{%- for p in products -%}{%- if p.gumroad != blank or p.download != blank -%}{%- assign avail = avail | push: p -%}{%- else -%}{%- assign soon = soon | push: p -%}{%- endif -%}{%- endfor -%}
+{%- assign avail_cats = avail | map: "category" | uniq -%}
 {% include page-hero.html eyebrow="ChessDepth Shop" title="Train at home with our material" lead="Printable worksheet packs, day-by-day improvement plans, puzzle collections and opening repertoires, written by our coaches and used in our classes." %}
 
 <section class="sp-steps-wrap">
   <ol class="sp-steps cd-wrap">
     <li><i class="fas fa-shopping-bag"></i><div><b>Choose a product</b><span>Every product shows its level and what's inside.</span></div></li>
-    <li><i class="fas fa-lock"></i><div><b>Pay securely</b><span>UPI, cards and PayPal through Gumroad, in rupees or your own currency.</span></div></li>
-    <li><i class="fas fa-download"></i><div><b>Download instantly</b><span>The files arrive by email and stay in your Gumroad library.</span></div></li>
+    <li><i class="fas fa-lock"></i><div><b>Free or secure checkout</b><span>Free packs download straight away. Paid packs: UPI, cards or PayPal via Gumroad.</span></div></li>
+    <li><i class="fas fa-download"></i><div><b>Print and train</b><span>Every PDF is made for A4, with full solutions and explanations.</span></div></li>
   </ol>
 </section>
 
 <div class="cd-wrap sp-page">
+  {%- if avail_cats.size > 1 %}
   <nav class="sp-filters" aria-label="Product categories">
     <button type="button" class="sp-chip is-active" data-filter="all" aria-pressed="true">All</button>
     {%- for c in site.data.shop %}
+    {%- if avail_cats contains c.id %}
     <button type="button" class="sp-chip" data-filter="{{ c.id }}" aria-pressed="false"><i class="fas {{ c.icon }}"></i> {{ c.name }}</button>
+    {%- endif %}
     {%- endfor %}
   </nav>
+  {%- endif %}
 
   {%- for c in site.data.shop %}
-  {%- assign items = products | where: "category", c.id %}
+  {%- assign items = avail | where: "category", c.id %}
   {%- if items.size > 0 %}
   <section class="sp-group" data-cat="{{ c.id }}" id="{{ c.id }}">
     <div class="sp-group-head">
@@ -39,6 +46,19 @@ crumb: Shop
   </section>
   {%- endif %}
   {%- endfor %}
+
+  {%- if soon.size > 0 %}
+  <section class="sp-soon" aria-labelledby="sp-soon-h">
+    <h2 class="sp-h2" id="sp-soon-h"><i class="fas fa-pen-nib"></i> Coming soon</h2>
+    <p class="sp-soon-lead">These packs are on the way. Tap <b>Notify me</b> and we'll WhatsApp you the day one is ready.</p>
+    <ul class="sp-soon-list">
+      {%- for p in soon %}
+      {%- assign cat = site.data.shop | where: "id", p.category | first %}
+      <li><span class="sp-soon-glyph" aria-hidden="true">{{ p.glyph | default: "♞" }}</span><span class="sp-soon-text"><b>{{ p.title }}</b><small>{{ cat.name }} · {{ p.level }}</small></span>{% include product-cta.html p=p small=true %}</li>
+      {%- endfor %}
+    </ul>
+  </section>
+  {%- endif %}
 
   {%- if site.shop.gumroad_profile != "" and site.shop.gumroad_profile %}
   <p class="sp-all"><a href="{{ site.shop.gumroad_profile }}" target="_blank" rel="noopener">See all products on Gumroad <i class="fas fa-external-link-alt"></i></a></p>

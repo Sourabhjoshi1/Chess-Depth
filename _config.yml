@@ -16,7 +16,7 @@ contact:
   facebook: "https://www.facebook.com/chessdepthacademy/"
   whatsapp_text: "Hi%2C%20I%20would%20like%20to%20book%20a%20free%20demo%20class"
 
-adsense_client: "ca-pub-1353516013773606"
+adsense_client: ""   # Google AdSense publisher ID (was ca-pub-1353516013773606). Empty = no ads anywhere.
 
 # Chess Lab (paid membership)
 lab:

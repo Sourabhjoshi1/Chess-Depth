@@ -31,14 +31,16 @@
   {%- if site.google_site_verification and site.google_site_verification != "" %}
   <meta name="google-site-verification" content="{{ site.google_site_verification }}">
   {%- endif %}
-  {%- if page.noindex %}
+  {%- assign cd_hide = page.noindex -%}
+  {%- if page.collection == "products" and page.download == blank and page.gumroad == blank -%}{%- assign cd_hide = true -%}{%- endif -%}
+  {%- if cd_hide %}
   <meta name="robots" content="noindex">
   {%- endif %}
   <link rel="icon" href="/assets/images/favicon.ico" sizes="48x48">
   <link rel="icon" href="/assets/images/favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png">
   <link rel="manifest" href="/site.webmanifest">
-  {%- if page.ads != false %}
+  {%- if page.ads != false and site.adsense_client and site.adsense_client != "" %}
   <meta name="google-adsense-account" content="{{ site.adsense_client }}">
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client={{ site.adsense_client }}" crossorigin="anonymous"></script>
   {%- endif %}

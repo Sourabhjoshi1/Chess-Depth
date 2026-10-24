@@ -116,3 +116,20 @@ html.dark .sp-detail-buy .sp-price.sp-soon { background: rgba(255,255,255,.16); 
 .cd-wrap.sp-related { padding-top: 1.5rem; padding-bottom: 3rem; }
 @media (min-width: 860px) { .sp-detail-cover .sp-cover { aspect-ratio: 4 / 5; } .sp-detail { grid-template-columns: 19rem 1fr; } .sp-detail-cover { max-width: 19rem; } .sp-detail-cover .sp-cover-glyph { font-size: 10rem; } }
 @media (max-width: 859px) { .sp-detail-cover { max-width: 13rem; } .sp-detail-cover .sp-cover { padding: 1.1rem; } .sp-detail-cover .sp-cover-title { font-size: 1.15rem; } .sp-detail-cover .sp-cover-glyph { font-size: 8rem; } .cd-wrap.sp-detail { padding-top: 2rem; padding-bottom: 2rem; gap: 1.5rem; } }
+
+/* Coming-soon list (unfinished products stay compact) */
+.sp-soon { margin-top: 3rem; }
+.sp-soon-lead { color: #4b5563; margin-top: .3rem; }
+.sp-soon-list { display: grid; gap: .6rem; margin-top: 1.1rem; grid-template-columns: repeat(auto-fill, minmax(21rem, 1fr)); }
+.sp-soon-list li { display: flex; align-items: center; gap: .9rem; background: #fff; border-radius: .75rem; padding: .7rem .9rem; box-shadow: 0 1px 3px rgba(0,0,0,.08); }
+.sp-soon-glyph { flex-shrink: 0; width: 2.6rem; height: 2.6rem; border-radius: .6rem; background: #eef2ff; color: #4f46e5; display: inline-flex; align-items: center; justify-content: center; font-size: 1.5rem; }
+.sp-soon-text { flex: 1; min-width: 0; }
+.sp-soon-text b { display: block; font-size: .92rem; color: #111827; line-height: 1.3; }
+.sp-soon-text small { display: block; font-size: .76rem; color: #6b7280; margin-top: .1rem; }
+.sp-soon-list .sp-notify { flex-shrink: 0; padding: .45rem .8rem; font-size: .8rem; box-shadow: none; border: 1.5px solid #c7d2fe; }
+html.dark .sp-soon-lead, html.dark .sp-soon-text small { color: #a8b3c4; }
+html.dark .sp-soon-list li { background: #162032; box-shadow: 0 1px 3px rgba(0,0,0,.5); }
+html.dark .sp-soon-text b { color: #f1f5f9; }
+html.dark .sp-soon-glyph { background: rgba(99,102,241,.18); color: #a5b4fc; }
+html.dark .sp-soon-list .sp-notify { background: transparent; color: #c7d2fe; border-color: #475569; }
+@media (max-width: 400px) { .sp-soon-list { grid-template-columns: 1fr; } }
