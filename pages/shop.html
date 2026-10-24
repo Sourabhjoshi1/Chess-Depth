@@ -57,10 +57,9 @@ crumb: Shop
     <h2 class="sp-h2" id="sp-soon-h"><i class="fas fa-pen-nib"></i> Coming soon</h2>
     <p class="sp-soon-lead">These packs are on the way. Tap <b>Notify me</b> and we'll WhatsApp you the day one is ready.</p>
     <ul class="sp-soon-list">
-      {%- for p in soon %}
-      {%- assign cat = site.data.shop | where: "id", p.category | first %}
+      {%- for cat in site.data.shop %}{% assign cat_soon = soon | where: "category", cat.id %}{% for p in cat_soon %}
       <li><span class="sp-soon-glyph" aria-hidden="true">{{ p.glyph | default: "♞" }}</span><span class="sp-soon-text"><b>{{ p.title }}</b><small>{{ cat.name }} · {{ p.level }}</small></span>{% include product-cta.html p=p small=true %}</li>
-      {%- endfor %}
+      {%- endfor %}{% endfor %}
     </ul>
   </section>
   {%- endif %}
