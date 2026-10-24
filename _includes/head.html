@@ -32,7 +32,12 @@
   <meta name="google-site-verification" content="{{ site.google_site_verification }}">
   {%- endif %}
   {%- assign cd_hide = page.noindex -%}
-  {%- if page.collection == "products" and page.download == blank and page.gumroad == blank -%}{%- assign cd_hide = true -%}{%- endif -%}
+  {%- if page.collection == "products" -%}
+    {%- assign cd_live = false -%}
+    {%- if page.gumroad and page.gumroad != "" -%}{%- assign cd_live = true -%}{%- endif -%}
+    {%- if page.download and page.download != "" -%}{%- assign cd_live = true -%}{%- endif -%}
+    {%- unless cd_live -%}{%- assign cd_hide = true -%}{%- endunless -%}
+  {%- endif -%}
   {%- if cd_hide %}
   <meta name="robots" content="noindex">
   {%- endif %}
