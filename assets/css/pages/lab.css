@@ -329,3 +329,18 @@ html.dark .lab-enroll-panel { background: #0f172a; border-color: #273449; }
 html.dark .lab-chip-link { color: #c7d2fe; border-color: #475569; }
 html.dark .lab-chip-academy { background: rgba(34,197,94,.15); color: #86efac; border-color: rgba(34,197,94,.3); }
 .lab-enroll-compact { max-width: 40rem; }
+
+/* Thank-you to Lichess */
+.cd-wrap.lab-thanks-wrap { padding-top: 1rem; padding-bottom: 0; }
+.lab-thanks { display: flex; gap: 1.1rem; align-items: flex-start; background: #fff; border-radius: .75rem; padding: 1.4rem 1.5rem; box-shadow: 0 1px 3px rgba(0,0,0,.08); border-left: 4px solid #6366f1; max-width: 52rem; }
+.lab-thanks-icon { flex-shrink: 0; width: 2.75rem; height: 2.75rem; border-radius: .6rem; background: #fdf2f8; color: #db2777; display: inline-flex; align-items: center; justify-content: center; font-size: 1.15rem; }
+.lab-thanks-title { font-size: 1.2rem; font-weight: 700; color: #111827; }
+.lab-thanks p { color: #4b5563; line-height: 1.7; margin-top: .35rem; font-size: .95rem; }
+.lab-thanks p a { color: #4f46e5; font-weight: 600; }
+.lab-thanks-link { display: inline-flex; align-items: center; gap: .4rem; margin-top: .7rem; font-weight: 600; color: #4f46e5; }
+.lab-thanks-link:hover { color: #3730a3; }
+html.dark .lab-thanks { background: #162032; box-shadow: 0 1px 3px rgba(0,0,0,.5); }
+html.dark .lab-thanks-title { color: #f1f5f9; }
+html.dark .lab-thanks p { color: #a8b3c4; }
+html.dark .lab-thanks p a, html.dark .lab-thanks-link { color: #a5b4fc; }
+html.dark .lab-thanks-icon { background: rgba(219,39,119,.15); color: #f9a8d4; }

@@ -118,3 +118,5 @@ html.dark .dp-theme-row b { color: #c7d2fe; }
 /* .cd-wrap sets padding: 0 1.25rem, so the section's vertical space needs the combined selector */
 .cd-wrap.dp-grid { padding-top: 4rem; padding-bottom: 4rem; }
 @media (max-width: 899px) { .cd-wrap.dp-grid { padding-top: 2.5rem; padding-bottom: 3rem; } }
+.dp-credit a { color: inherit; text-decoration: underline; text-underline-offset: 2px; }
+.dp-credit a:hover { color: #4f46e5; }
