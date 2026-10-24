@@ -5,12 +5,13 @@
 // These values are not secret: Firebase protects the PDFs with the
 // security rules in storage.rules, not by hiding this file.
 export const firebaseConfig = {
-  apiKey: "PASTE_API_KEY_HERE",
-  authDomain: "PASTE_PROJECT_ID.firebaseapp.com",
-  projectId: "PASTE_PROJECT_ID",
-  storageBucket: "PASTE_PROJECT_ID.firebasestorage.app",
-  messagingSenderId: "PASTE_SENDER_ID",
-  appId: "PASTE_APP_ID"
+  apiKey: "AIzaSyDQEgk8xpD8TM_MUQGQhAgg6nET15JKPLY",
+  authDomain: "chessdepth-58b83.firebaseapp.com",
+  projectId: "chessdepth-58b83",
+  storageBucket: "chessdepth-58b83.firebasestorage.app",
+  messagingSenderId: "137134134481",
+  appId: "1:137134134481:web:a19bc3874ab703418621f0",
+  measurementId: "G-TXG0NYJD0Y"
 };
 
 // Optional: nicer names and the display order for course folders.
