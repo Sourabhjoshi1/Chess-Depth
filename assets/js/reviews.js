@@ -286,10 +286,9 @@ function boot() {
   if (!("IntersectionObserver" in window)) return go();
   const io = new IntersectionObserver((es) => { if (es.some((e) => e.isIntersecting)) { io.disconnect(); go(); } }, { rootMargin: "600px 0px" });
   els.forEach((el) => { const sec = el.closest("[data-rv-section]"); if (!sec || !sec.hidden) io.observe(el); });
-  // A section kept hidden until it has reviews can't be "seen", so load it once the page has settled.
-  if (document.querySelector("[data-rv-section][hidden]")) {
-    const later = () => setTimeout(go, 1200);
-    if (document.readyState === "complete") later(); else window.addEventListener("load", later, { once: true });
-  }
+  // Also load once the page has settled: a section kept hidden until it has reviews can't be "seen",
+  // and some embedded browsers never report visibility.
+  const later = () => setTimeout(go, document.querySelector("[data-rv-section][hidden]") ? 1200 : 2500);
+  if (document.readyState === "complete") later(); else window.addEventListener("load", later, { once: true });
 }
 if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", boot); else boot();
