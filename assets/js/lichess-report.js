@@ -5,7 +5,7 @@ const API = "https://lichess.org/api";
 const SPEEDS = ["bullet", "blitz", "rapid", "classical"];
 const SPEED_NAME = { bullet: "Bullet", blitz: "Blitz", rapid: "Rapid", classical: "Classical", puzzle: "Puzzles" };
 const CACHE_HOURS = 3;
-const RECENT = 150, ANALYSED = 40;
+const RECENT = 100, ANALYSED = 30;
 
 const esc = (s) => String(s == null ? "" : s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
 const pct = (x) => Math.round(x * 100);
@@ -39,11 +39,22 @@ async function getJSON(url) {
   if (!r.ok) throw new Error("Lichess didn't respond (" + r.status + "). Please try again later.");
   return r.json();
 }
-async function getGames(username, params) {
+// Stream NDJSON games, reporting progress as each game arrives (Lichess sends about 5 games a second).
+async function getGames(username, params, onGame) {
   const r = await fetch(`${API}/games/user/${encodeURIComponent(username)}?${new URLSearchParams(params)}`, { headers: { Accept: "application/x-ndjson" } });
   if (r.status === 429) throw Object.assign(new Error("Lichess is busy right now. Please try again in a minute."), { code: "busy" });
   if (!r.ok) throw new Error("Couldn't load games from Lichess (" + r.status + ").");
-  return (await r.text()).split("\n").filter(Boolean).map((l) => { try { return JSON.parse(l); } catch (e) { return null; } }).filter(Boolean);
+  const out = [], parse = (l) => { if (!l.trim()) return; try { out.push(JSON.parse(l)); onGame && onGame(out.length); } catch (e) { /* skip */ } };
+  if (!r.body || !r.body.getReader) { (await r.text()).split("\n").forEach(parse); return out; }
+  const reader = r.body.getReader(), dec = new TextDecoder(); let buf = "";
+  for (;;) {
+    const { done, value } = await reader.read();
+    if (done) break;
+    buf += dec.decode(value, { stream: true });
+    const lines = buf.split("\n"); buf = lines.pop(); lines.forEach(parse);
+  }
+  parse(buf);
+  return out;
 }
 // Check a username exists and return its proper spelling (used when a student links an account).
 export async function lookupUser(username) {
@@ -54,69 +65,80 @@ export async function lookupUser(username) {
   if (user.tosViolation) throw Object.assign(new Error("That Lichess account can't be linked."), { code: "tos" });
   return { username: user.username || u, id: user.id };
 }
-export async function loadData(username, { fresh = false, onStep } = {}) {
-  const key = "cd-lichess-" + username.toLowerCase();
-  const cached = LS.get(key);
-  if (!fresh && cached && Date.now() - cached.at < CACHE_HOURS * 3600e3) return cached;
+// Games are kept in this browser in a slim form, so a later visit only downloads games played since.
+export async function loadData(username, { fresh = false, onStep, onProfile } = {}) {
+  const key = "cd-lichess2-" + username.toLowerCase();
+  let cached = LS.get(key);
+  if (cached && !fresh && Date.now() - cached.at < CACHE_HOURS * 3600e3) return finish(cached);
   onStep && onStep("Loading profile and ratings…");
   const [user, history] = await Promise.all([getJSON(`${API}/user/${encodeURIComponent(username)}`), getJSON(`${API}/user/${encodeURIComponent(username)}/rating-history`).catch(() => [])]);
-  onStep && onStep("Loading your recent games… (this can take a few seconds)");
-  const recent = await getGames(username, { max: RECENT, rated: "true", perfType: SPEEDS.join(","), opening: "true", moves: "true" });
-  onStep && onStep("Loading games with computer analysis…");
-  const analysed = await getGames(username, { max: ANALYSED, rated: "true", perfType: SPEEDS.join(","), analysed: "true", evals: "true", accuracy: "true", opening: "true" }).catch(() => []);
-  const data = { at: Date.now(), user, history, stats: analyse(user, recent, analysed) };
+  if (cached && cached.user && cached.user.id !== user.id) cached = null;
+  onProfile && onProfile({ at: Date.now(), user, history });
+  const me = user.id;
+  const since = (list) => (list && list.length ? Math.max(...list.map((g) => g.t)) + 1 : null);
+  const base = { rated: "true", perfType: SPEEDS.join(","), opening: "true" };
+  const sR = cached && since(cached.recent), sA = cached && since(cached.analysed);
+  let nR = 0, nA = 0;
+  const tell = () => onStep && onStep(cached ? `Checking for new games… ${nR + nA} found` : `Reading your recent games from Lichess… ${nR} of up to ${RECENT}`);
+  const [rec, ana] = await Promise.all([
+    getGames(username, { ...base, max: RECENT, moves: "true", ...(sR ? { since: sR } : {}) }, (n) => { nR = n; tell(); }),
+    getGames(username, { ...base, max: ANALYSED, analysed: "true", evals: "true", accuracy: "true", moves: "false", ...(sA ? { since: sA } : {}) }, (n) => { nA = n; tell(); }).catch(() => []),
+  ]);
+  const merge = (a, b, cap) => { const seen = new Set(); return a.concat(b).filter((g) => (seen.has(g.id) ? false : seen.add(g.id))).sort((x, y) => y.t - x.t).slice(0, cap); };
+  const data = {
+    at: Date.now(), user, history,
+    recent: merge(rec.map((g) => slimGame(g, me)).filter(Boolean), (cached && cached.recent) || [], RECENT),
+    analysed: merge(ana.map((g) => slimAnalysed(g, me)).filter(Boolean), (cached && cached.analysed) || [], ANALYSED),
+  };
   LS.set(key, data);
-  return data;
+  return finish(data);
+  function finish(d) { return { ...d, stats: analyse(d.recent, d.analysed) }; }
+}
+function sideOf(g, me) { return g.players.white.user && g.players.white.user.id === me ? "white" : "black"; }
+export function slimGame(g, me) {
+  if (!g.players || (g.variant && g.variant !== "standard")) return null;
+  const s = sideOf(g, me);
+  return { id: g.id, t: g.createdAt || 0, s, r: !g.winner ? 0.5 : g.winner === s ? 1 : 0, sp: g.speed, o: g.opening ? g.opening.name : "", st: g.status, p: g.moves ? g.moves.split(" ").length : 0 };
+}
+export function slimAnalysed(g, me) {
+  if (!g.players || !g.analysis) return null;
+  const s = sideOf(g, me), pa = g.players[s].analysis || {}, st = { early: [0, 0, 0], middle: [0, 0, 0], late: [0, 0, 0] };
+  g.analysis.forEach((a, i) => {
+    if ((i % 2 === 0) !== (s === "white")) return;
+    const x = st[i < 24 ? "early" : i < 60 ? "middle" : "late"]; x[0]++;
+    const j = a.judgment && a.judgment.name; if (j === "Blunder") x[1]++; else if (j === "Mistake") x[2]++;
+  });
+  return { id: g.id, t: g.createdAt || 0, b: pa.blunder || 0, m: pa.mistake || 0, i: pa.inaccuracy || 0, acc: typeof pa.accuracy === "number" ? pa.accuracy : null, st };
 }
 
 // ---------- analysis ----------
-export function analyse(user, games, analysedGames) {
-  const me = String(user.id || user.username || "").toLowerCase();
-  const side = (g) => (g.players.white.user && g.players.white.user.id === me ? "white" : "black");
-  const res = (g) => { const s = side(g); return !g.winner ? 0.5 : g.winner === s ? 1 : 0; };
+export function analyse(games, analysedGames) {
   const T = () => ({ n: 0, pts: 0, w: 0, d: 0, l: 0 });
   const add = (t, r) => { t.n++; t.pts += r; if (r === 1) t.w++; else if (r === 0) t.l++; else t.d++; };
-  const all = T(), color = { white: T(), black: T() }, speed = {}, openings = {}, lossHow = { time: 0, resign: 0, mate: 0, other: 0 }, lossLen = [];
-  let early = 0, longWins = 0;
-  const now = Date.now();
+  const all = T(), color = { white: T(), black: T() }, speed = {}, openings = {}, lossHow = { time: 0, resign: 0, mate: 0, other: 0 };
+  let early = 0;
   for (const g of games) {
-    if (!g.players || g.variant && g.variant !== "standard") continue;
-    const s = side(g), r = res(g);
-    add(all, r); add(color[s], r);
-    add(speed[g.speed] = speed[g.speed] || T(), r);
-    const fam = family(g.opening && g.opening.name), key = s + "|" + fam;
-    const o = (openings[key] = openings[key] || { side: s, name: fam, full: g.opening ? g.opening.name : fam, ...T() }); add(o, r);
-    const plies = g.moves ? g.moves.split(" ").length : 0;
-    if (r === 0) {
-      if (g.status === "outoftime" || g.status === "timeout") lossHow.time++;
-      else if (g.status === "resign") lossHow.resign++;
-      else if (g.status === "mate") lossHow.mate++;
+    add(all, g.r); add(color[g.s], g.r); add(speed[g.sp] = speed[g.sp] || T(), g.r);
+    const fam = family(g.o), key = g.s + "|" + fam;
+    add(openings[key] = openings[key] || { side: g.s, name: fam, full: g.o || fam, ...T() }, g.r);
+    if (g.r === 0) {
+      if (g.st === "outoftime" || g.st === "timeout") lossHow.time++;
+      else if (g.st === "resign") lossHow.resign++;
+      else if (g.st === "mate") lossHow.mate++;
       else lossHow.other++;
-      lossLen.push(plies);
-      if (plies && plies <= 50) early++;
+      if (g.p && g.p <= 50) early++;
     }
-    if (r === 1 && plies > 120) longWins++;
   }
   // errors by game stage, from games Lichess has analysed (own moves only)
   const stage = { early: { n: 0, b: 0, m: 0 }, middle: { n: 0, b: 0, m: 0 }, late: { n: 0, b: 0, m: 0 } };
   let aGames = 0, acc = 0, accN = 0, blunders = 0, mistakes = 0, inacc = 0;
-  for (const g of analysedGames || []) {
-    if (!g.players || !g.analysis) continue;
-    const s = side(g), pa = g.players[s].analysis || {};
-    aGames++; blunders += pa.blunder || 0; mistakes += pa.mistake || 0; inacc += pa.inaccuracy || 0;
-    if (typeof pa.accuracy === "number") { acc += pa.accuracy; accN++; }
-    g.analysis.forEach((a, i) => {
-      if ((i % 2 === 0) !== (s === "white")) return;
-      const st = i < 24 ? stage.early : i < 60 ? stage.middle : stage.late;
-      st.n++;
-      const j = a.judgment && a.judgment.name;
-      if (j === "Blunder") st.b++; else if (j === "Mistake") st.m++;
-    });
+  for (const a of analysedGames || []) {
+    aGames++; blunders += a.b; mistakes += a.m; inacc += a.i;
+    if (a.acc != null) { acc += a.acc; accN++; }
+    for (const k of ["early", "middle", "late"]) { stage[k].n += a.st[k][0]; stage[k].b += a.st[k][1]; stage[k].m += a.st[k][2]; }
   }
-  const ops = Object.values(openings).filter((o) => o.name !== "Unknown");
-  const recentSpan = games.length ? (now - (games[games.length - 1].createdAt || now)) / 86400000 : 0;
   return {
-    all, color, speed, openings: ops, lossHow, early, longWins, gamesCount: games.length, recentSpan,
+    all, color, speed, openings: Object.values(openings).filter((o) => o.name !== "Unknown"), lossHow, early, gamesCount: games.length,
     analysed: { games: aGames, blunders, mistakes, inacc, accuracy: accN ? acc / accN : null, stage },
   };
 }
@@ -234,7 +256,7 @@ export function renderReport(el, data, { username } = {}) {
   const top = (sideName) => s.openings.filter((o) => o.side === sideName).sort((a, b) => b.n - a.n).slice(0, 5);
   el.innerHTML = `
   <div class="lr">
-    <div class="lr-ratings">${rs.map((r) => `<div class="lr-rating"><span class="lr-rating-name">${r.name}</span><b>${r.rating}${r.prov ? "?" : ""}</b><span class="lr-trend ${r.trend > 0 ? "up" : r.trend < 0 ? "down" : ""}">${r.trend == null ? `${r.games} games` : (r.trend > 0 ? "+" : "") + r.trend + " in 90 days"}</span></div>`).join("") || `<p class="lr-muted">No rated games yet.</p>`}</div>
+    <div class="lr-ratings">${ratingCards(rs)}</div>
     ${graph(data.history, el.clientWidth)}
     ${ins.few ? `<p class="lr-note">We need at least 10 recent rated games (bullet, blitz, rapid or classical) to work out strengths and weaknesses. Play a few more and come back!</p>` : `
     <div class="lr-cols">
@@ -256,14 +278,20 @@ export function renderReport(el, data, { username } = {}) {
     <p class="lr-foot">Data from <a href="https://lichess.org/@/${encodeURIComponent(name)}" target="_blank" rel="noopener">lichess.org/@/${esc(name)}</a> · updated ${new Date(data.at).toLocaleString("en-IN", { day: "numeric", month: "short", hour: "2-digit", minute: "2-digit" })} · Thank you, Lichess, for the free and open API.</p>
   </div>`;
 }
+function ratingCards(rs) {
+  return rs.map((r) => `<div class="lr-rating"><span class="lr-rating-name">${r.name}</span><b>${r.rating}${r.prov ? "?" : ""}</b><span class="lr-trend ${r.trend > 0 ? "up" : r.trend < 0 ? "down" : ""}">${r.trend == null ? `${r.games} games` : (r.trend > 0 ? "+" : "") + r.trend + " in 90 days"}</span></div>`).join("") || `<p class="lr-muted">No rated games yet.</p>`;
+}
 function card(i) { return `<div class="lr-ins"><i class="fas ${i.icon}"></i><div><b>${esc(i.title)}</b><p>${esc(i.text)}</p>${i.link ? `<a href="${esc(i.link[0])}">${esc(i.link[1])} <i class="fas fa-arrow-right"></i></a>` : ""}</div></div>`; }
 
 // Load + render with progress and errors in one call.
 export async function showReport(el, username, opts = {}) {
   el.innerHTML = `<p class="lr-loading"><i class="fas fa-circle-notch fa-spin"></i> <span>Loading from Lichess…</span></p>`;
-  const step = (t) => { const s = el.querySelector(".lr-loading span"); if (s) s.textContent = t; };
+  const step = (t) => { const x = el.querySelector(".lr-loading span"); if (x) x.textContent = t; };
+  const profile = (p) => { // show ratings and the graph straight away while games stream in
+    el.innerHTML = `<div class="lr"><div class="lr-ratings">${ratingCards(ratings(p.user, p.history))}</div>${graph(p.history, el.clientWidth)}</div><p class="lr-loading"><i class="fas fa-circle-notch fa-spin"></i> <span>Reading your recent games…</span></p>`;
+  };
   try {
-    const data = await loadData(username, { fresh: !!opts.fresh, onStep: step });
+    const data = await loadData(username, { fresh: !!opts.fresh, onStep: step, onProfile: profile });
     renderReport(el, data, { username });
     return data;
   } catch (e) {
