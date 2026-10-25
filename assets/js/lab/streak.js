@@ -1,10 +1,10 @@
 // ChessDepth Chess Lab - Puzzle Streak: puzzles get harder each time; one mistake ends the run.
 import { startLabPage, toast, esc } from "./shell.js";
-import { award, recordStreakRun, streakLeaderboard, track } from "./lab-core.js";
+import { award, recordStreakRun, streakLeaderboard, track, saveProgress } from "./lab-core.js";
 import { makeBoard, uciToSan } from "./board.js";
+import { puzzlesNear, loadIndex } from "./puzzles.js";
 
 const START = 650, STEP = 50, MAX = 2700;
-const BANDS = ["beginner", "intermediate", "advanced", "expert"];
 
 startLabPage({ toolName: "Puzzle Streak", ready: run });
 
@@ -14,9 +14,9 @@ async function run(st, prog) {
     start: document.getElementById("ps-start"), skip: document.getElementById("ps-skip"), again: document.getElementById("ps-again"), board: document.getElementById("ps-board"),
     lb: document.getElementById("ps-leaderboard"), recap: document.getElementById("ps-recap"),
   };
-  const all = (await Promise.all(BANDS.map((b) => fetch(`/assets/lab/puzzles/${b}.json`).then((r) => r.json()))))
-    .flatMap((d) => d.puzzles.map(([id, fen, moves, rating, themes]) => ({ id, fen, moves: moves.split(" "), rating, themes: themes.split(" ") })))
-    .sort((a, b) => a.rating - b.rating);
+  await loadIndex(); puzzlesNear(START, 2);
+  // Puzzles shown in earlier runs are remembered (last 3,000), so a new run starts with fresh positions.
+  const PS = prog.pstreak; PS.seen = Array.isArray(PS.seen) ? PS.seen : [];
 
   let running = false, score = 0, skipUsed = false, cur = null, step = 0, busy = false, used = new Set(), solvedRatings = [];
   const board = await makeBoard(ui.board, { onUserMove, canDrag: () => running && cur && !busy });
@@ -24,16 +24,24 @@ async function run(st, prog) {
   function setStatus(t, sub, kind) { ui.status.textContent = t; ui.sub.textContent = sub || ""; ui.status.parentElement.className = "tt-status " + (kind || ""); }
   function renderScore() { ui.score.textContent = score; ui.best.textContent = prog.pstreak.best || 0; }
 
-  function pick() {
+  async function pick() {
     const target = Math.min(MAX, START + score * STEP);
-    const near = all.filter((p) => !used.has(p.id) && Math.abs(p.rating - target) <= 60);
-    const pool = near.length ? near : all.filter((p) => !used.has(p.id)).sort((a, b) => Math.abs(a.rating - target) - Math.abs(b.rating - target)).slice(0, 20);
-    if (!pool.length) { used = new Set(); return pick(); }
-    const p = pool[Math.floor(Math.random() * pool.length)]; used.add(p.id); return p;
+    const all = await puzzlesNear(target, 2);
+    puzzlesNear(Math.min(MAX, target + 2 * STEP), 2).catch(() => {}); // fetch the next level early
+    const old = new Set(PS.seen);
+    const fresh = (p) => !used.has(p.id) && !old.has(p.id);
+    let pool = all.filter((p) => fresh(p) && Math.abs(p.rating - target) <= 60);
+    if (!pool.length) pool = all.filter((p) => !used.has(p.id) && Math.abs(p.rating - target) <= 60);
+    if (!pool.length) pool = all.filter((p) => !used.has(p.id)).sort((a, b) => Math.abs(a.rating - target) - Math.abs(b.rating - target)).slice(0, 20);
+    if (!pool.length) { used = new Set(); pool = all; }
+    const p = pool[Math.floor(Math.random() * pool.length)];
+    used.add(p.id); PS.seen.push(p.id); if (PS.seen.length > 3000) PS.seen = PS.seen.slice(-3000);
+    saveProgress();
+    return p;
   }
 
   async function nextPuzzle() {
-    busy = true; cur = pick(); step = 0;
+    busy = true; cur = await pick(); step = 0;
     board.load(cur.fen);
     const solver = board.game.turn() === "w" ? "b" : "w";
     board.orient(solver);

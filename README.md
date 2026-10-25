@@ -17,7 +17,7 @@ This repository is the full website: a Jekyll site published with GitHub Pages.
 | **Courses & fees** | Monthly one-to-one and group classes, fixed-length programmes, INR and USD prices | `pages/courses.html` |
 | **About, Coaches, Contact** | Mission, story, coach profiles, contact details and map | `pages/` |
 | **Resources & Blog** | Study roadmap, free tools (board editor, Lichess analyser), guides, book list, articles | `pages/resources.html`, `_posts/` |
-| **Chess Lab** | Training membership: tactics trainer (4,800 rated puzzles), Puzzle Streak with all-time leaderboard, 12 opening courses, progress dashboard with points and levels. Free for signed-in users until 21 Nov 2026 (launch offer) | `pages/lab/`, `assets/js/lab/` |
+| **Chess Lab** | Training membership: tactics trainer (26,000+ rated Lichess puzzles in 100-point rating shards, `assets/lab/puzzles/shards/`), Puzzle Streak with all-time leaderboard, 26 opening courses, progress dashboard with points and levels. Free for signed-in users until 21 Nov 2026 (launch offer) | `pages/lab/`, `assets/js/lab/` |
 | **Student Area** | Google sign-in and free PDF study material for every course | `pages/student.html`, `assets/js/student.js` |
 | **Shop** | Digital products (worksheet packs, improvement plans, puzzle collections, opening repertoires). Free direct downloads or Gumroad checkout | `pages/shop.html`, `_products/` |
 | **Careers** | Open roles and Winter 2026 internships (Product Management, Quality Assurance) | `pages/careers.html`, `_data/jobs.yml` |

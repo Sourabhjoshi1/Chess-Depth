@@ -2,6 +2,7 @@
 import { startLabPage, toast, esc } from "./shell.js";
 import { award, saveProgress, track } from "./lab-core.js";
 import { makeBoard, uciToSan, PIECE_NAMES } from "./board.js";
+import { puzzlesNear } from "./puzzles.js";
 
 const BANDS = [["beginner", 0, 1000], ["intermediate", 1000, 1500], ["advanced", 1500, 2000], ["expert", 2000, 9999]];
 const THEME_LABELS = { fork: "Fork", pin: "Pin", skewer: "Skewer", discoveredAttack: "Discovered attack", doubleCheck: "Double check", deflection: "Deflection", attraction: "Decoy", hangingPiece: "Hanging piece", trappedPiece: "Trapped piece", backRankMate: "Back-rank mate", smotheredMate: "Smothered mate", mateIn1: "Mate in 1", mateIn2: "Mate in 2", mateIn3: "Mate in 3", sacrifice: "Sacrifice", intermezzo: "Zwischenzug", xRayAttack: "X-ray", clearance: "Clearance", interference: "Interference", quietMove: "Quiet move", defensiveMove: "Defensive move", promotion: "Promotion", advancedPawn: "Advanced pawn", endgame: "Endgame", rookEndgame: "Rook endgame", pawnEndgame: "Pawn endgame", opening: "Opening", middlegame: "Middlegame", kingsideAttack: "Kingside attack", capturingDefender: "Capture the defender", exposedKing: "Exposed king" };
@@ -9,10 +10,6 @@ const FILTER_THEMES = ["fork", "pin", "skewer", "discoveredAttack", "deflection"
 export const themeLabel = (t) => THEME_LABELS[t] || t;
 
 const cache = {};
-async function loadBand(name) {
-  if (!cache[name]) cache[name] = fetch(`/assets/lab/puzzles/${name}.json`).then((r) => r.json()).then((d) => d.puzzles.map(([id, fen, moves, rating, themes]) => ({ id, fen, moves: moves.split(" "), rating, themes: themes.split(" "), opponentFirst: true })));
-  return cache[name];
-}
 async function loadOriginals() {
   if (!cache.originals) cache.originals = fetch("/assets/lab/originals.json").then((r) => r.json()).then((d) => d.puzzles.map(([id, fen, moves, rating, themes, title]) => ({ id, fen, moves: moves.split(" "), rating, themes: themes.split(" "), title, opponentFirst: false })));
   return cache.originals;
@@ -49,14 +46,17 @@ async function run(st, prog) {
       return (unseen.length ? unseen : pool)[Math.floor(Math.random() * (unseen.length ? unseen.length : pool.length))];
     }
     let target = P.rating;
-    if (ui.level.value) { const b = BANDS.find((x) => x[0] === ui.level.value); target = (b[1] + Math.min(b[2], 2600)) / 2; }
-    const band = BANDS.find((b) => target >= b[1] && target < b[2]) || BANDS[0];
-    const near = [band[0]];
-    const i = BANDS.indexOf(band); if (i > 0) near.push(BANDS[i - 1][0]); if (i < BANDS.length - 1) near.push(BANDS[i + 1][0]);
-    let pool = []; for (const n of near) pool = pool.concat(await loadBand(n));
-    const theme = ui.theme.value;
-    let cand = pool.filter((p) => !P.seen.includes(p.id) && (!theme || p.themes.includes(theme)));
-    if (!cand.length) cand = pool.filter((p) => !theme || p.themes.includes(theme));
+    if (ui.level.value) { const b = BANDS.find((x) => x[0] === ui.level.value), lo = Math.max(b[1], 450), hi = Math.min(b[2], 2750); target = lo + Math.random() * (hi - lo); }
+    const theme = ui.theme.value, seen = new Set(P.seen);
+    const fits = (p) => !theme || p.themes.includes(theme);
+    // Look in the nearest rating shards first; widen if a theme filter leaves too few fresh puzzles.
+    let pool = [], cand = [];
+    for (const n of [2, 4, 7]) {
+      pool = await puzzlesNear(target, n);
+      cand = pool.filter((p) => !seen.has(p.id) && fits(p));
+      if (cand.length >= 25) break;
+    }
+    if (!cand.length) cand = pool.filter(fits);
     const sample = []; for (let k = 0; k < 40 && cand.length; k++) sample.push(cand[Math.floor(Math.random() * cand.length)]);
     sample.sort((a, b) => Math.abs(a.rating - target) - Math.abs(b.rating - target));
     return sample[0];
@@ -112,7 +112,7 @@ async function run(st, prog) {
     P.cleanRun = clean ? (P.cleanRun || 0) + 1 : 0; P.bestRun = Math.max(P.bestRun || 0, P.cleanRun);
     for (const t of cur.themes) { const r = (P.byTheme[t] = P.byTheme[t] || { s: 0, a: 0 }); r.a++; if (clean) r.s++; }
     P.history.push([Date.now(), Math.round(P.rating)]); P.history = P.history.slice(-120);
-    P.seen.push(cur.id); P.seen = P.seen.slice(-600);
+    P.seen.push(cur.id); P.seen = P.seen.slice(-3000);
     let pts = 0;
     if (clean) pts = 5 + Math.round(cur.rating / 200);
     else if (solved && hinted && mistakes === 0) pts = Math.round((5 + cur.rating / 200) / 2);
