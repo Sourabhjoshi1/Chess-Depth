@@ -94,6 +94,11 @@ export function enableDrawing(el, { onClear } = {}) {
     if (t === "touchstart" && penMode) { e.stopPropagation(); e.preventDefault(); }
   }, { capture: true, passive: false }));
   el.addEventListener("contextmenu", (e) => e.preventDefault());
+  // Closed hand everywhere while a piece is being dragged (even outside the board).
+  const root = document.documentElement, endGrab = () => root.classList.remove("cd-grabbing");
+  el.addEventListener("drag-start", (e) => { setTimeout(() => { if (!e.defaultPrevented) root.classList.add("cd-grabbing"); }, 0); });
+  ["drop", "snap-end", "snapback-end", "drag-cancel"].forEach((t) => el.addEventListener(t, endGrab));
+  window.addEventListener("mouseup", () => setTimeout(endGrab, 0));
 
   // Touch devices: a small pencil toggle under the board.
   let penBtn = null;

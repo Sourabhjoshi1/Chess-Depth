@@ -107,9 +107,10 @@ chess-board { touch-action: none; -webkit-user-select: none; user-select: none; 
 .cd-mobile-login.cd-signed-in .cd-acct-img, .cd-mobile-login.cd-signed-in .cd-acct-initial { width: 26px; height: 26px; }
 
 /* Boards: open-hand cursor, arrows/circles layer, phone "Draw arrows" toggle */
-chess-board.cd-drawable { cursor: grab; }
-chess-board.cd-drawable:active { cursor: grabbing; }
-chess-board.cd-pen-on { cursor: crosshair; touch-action: none; }
+chess-board.cd-drawable, chess-board.cd-drawable::part(board), chess-board.cd-drawable::part(square), chess-board.cd-drawable::part(piece), chess-board.cd-drawable::part(notation) { cursor: grab; }
+chess-board.cd-drawable:active, chess-board.cd-drawable:active::part(square), chess-board.cd-drawable:active::part(piece), chess-board.cd-drawable:active::part(notation) { cursor: grabbing; }
+html.cd-grabbing, html.cd-grabbing * { cursor: grabbing !important; }
+chess-board.cd-pen-on, chess-board.cd-pen-on::part(square), chess-board.cd-pen-on::part(piece), chess-board.cd-pen-on::part(notation) { cursor: crosshair; touch-action: none; }
 .cd-pen-bar { display: flex; justify-content: center; gap: .5rem; margin-top: .6rem; }
 .cd-pen-btn { display: inline-flex; align-items: center; gap: .4rem; font-size: .85rem; font-weight: 600; color: #4338ca; background: #eef2ff; border: 1px solid #c7d2fe; border-radius: 999px; padding: .4rem .9rem; }
 .cd-pen-btn[aria-pressed="true"] { background: #4f46e5; color: #fff; border-color: #4f46e5; }
