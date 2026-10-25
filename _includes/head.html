@@ -55,10 +55,10 @@
   <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,500;0,600;1,400&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   {%- if page.page_css %}
-  <link rel="stylesheet" href="/assets/css/pages/{{ page.page_css }}.css">
+  <link rel="stylesheet" href="/assets/css/pages/{{ page.page_css }}.css?v={{ site.time | date: "%s" }}">
   {%- endif %}
-  <link rel="stylesheet" href="/assets/css/site.css">
-  <link rel="stylesheet" href="/assets/css/dark.css">
+  <link rel="stylesheet" href="/assets/css/site.css?v={{ site.time | date: "%s" }}">
+  <link rel="stylesheet" href="/assets/css/dark.css?v={{ site.time | date: "%s" }}">
   {%- for s in page.head_scripts %}
   <script {% if s.type %}type="{{ s.type }}" {% endif %}src="{{ s.src }}"></script>
   {%- endfor %}
