@@ -23,6 +23,7 @@ if (!firebaseConfig.apiKey || firebaseConfig.apiKey.startsWith("PASTE")) {
   start().catch((err) => { console.error(err); show("state-setup"); });
 }
 
+const acct = (u) => { try { if (window.cdAccount) window.cdAccount.set(u); } catch (e) { /* header only */ } };
 async function start() {
   const V = "10.12.2";
   const [{ initializeApp }, authMod, storageMod, fsMod] = await Promise.all([
@@ -59,6 +60,7 @@ async function start() {
   $("btn-signout").addEventListener("click", () => signOut(auth));
 
   onAuthStateChanged(auth, async (user) => {
+    acct(user);
     if (!user) { show("state-signed-out"); return; }
     $("user-name").textContent = (user.displayName || "Student").split(" ")[0];
     $("user-email").textContent = user.email || "";

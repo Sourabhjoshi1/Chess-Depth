@@ -45,6 +45,7 @@ function statsFor(target) {
   return { n, avg, dist };
 }
 
+const acct = (u) => { try { if (window.cdAccount) window.cdAccount.set(u); } catch (e) { /* header only */ } };
 // ---------- Firebase ----------
 function loadCss() {
   return new Promise((res) => {
@@ -76,6 +77,7 @@ async function start() {
     }, (e) => { console.warn("Reviews unavailable:", e.code || e); failed = true; loaded = true; renderAll(false); });
     fb.onAuthStateChanged(fb.auth, async (u) => {
       user = u ? { uid: u.uid, name: u.displayName || "", email: u.email || "" } : null;
+      acct(u);
       [verified, own] = user ? await Promise.all([checkVerified(), loadOwn()]) : [false, {}];
       renderAll(true);
     });

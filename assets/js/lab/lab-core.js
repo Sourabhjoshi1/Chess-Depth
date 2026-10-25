@@ -210,6 +210,7 @@ export async function claimEnrollment(raw) {
   return no;
 }
 
+const acct = (u) => { try { if (window.cdAccount) window.cdAccount.set(u); } catch (e) { /* header only */ } };
 async function initFirebase() {
   const V = "10.12.2";
   const [appMod, authMod, fsMod] = await Promise.all([
@@ -224,6 +225,7 @@ async function initFirebase() {
     let first = true;
     fb.onAuthStateChanged(fb.auth, async (u) => {
       user = u ? { uid: u.uid, name: u.displayName || "", email: u.email || "", photoURL: u.photoURL || "" } : null;
+      acct(u);
       const r = user ? await checkAccess(user) : { paid: false, academy: false, enrollment: null };
       paid = r.paid; academy = r.academy; enrollmentNo = r.enrollment;
       access = !!user && (paid || academy || promoActive());

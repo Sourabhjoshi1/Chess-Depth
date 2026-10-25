@@ -9,7 +9,7 @@
       <p class="cd-topbar-links">
         <a href="/lab/"{% if page.url contains '/lab/' %} aria-current="page"{% endif %}><i class="fas fa-flask"></i>Chess Lab{% if site.lab.free_until and site.lab.free_until != "" %}<span class="cd-free" data-free-until="{{ site.lab.free_until }}">Free</span>{% endif %}</a>
         <a href="/careers/"{% if page.url contains '/careers/' %} aria-current="page"{% endif %}>Careers</a>
-        <a href="/student/"{% if page.url == '/student/' %} aria-current="page"{% endif %}><i class="far fa-user-circle"></i>Student login</a>
+        <a href="/student/" data-account{% if page.url == '/student/' %} aria-current="page"{% endif %}><i class="far fa-user-circle"></i>Student login</a>
         {{ theme_btn }}
       </p>
     </div>
@@ -43,7 +43,7 @@
         <a href="/lab/"{% if page.url contains '/lab/' %} aria-current="page"{% endif %}>Chess Lab <i class="fas fa-crown" style="color:#b08a4e;font-size:.8em"></i>{% if site.lab.free_until and site.lab.free_until != "" %}<span class="cd-soon" data-free-until="{{ site.lab.free_until }}">Free launch offer</span>{% endif %}</a>
         <a href="/careers/"{% if page.url contains '/careers/' %} aria-current="page"{% endif %}>Careers</a>
         <div class="cd-mobile-actions">
-          <a href="/student/" class="cd-mobile-login"><i class="far fa-user-circle"></i>Student login</a>
+          <a href="/student/" class="cd-mobile-login" data-account><i class="far fa-user-circle"></i>Student login</a>
           <a href="{{ wa }}" target="_blank" rel="noopener noreferrer" class="cd-hdr-cta">Book a free demo</a>
         </div>
         <p class="cd-mobile-contact"><a href="tel:+{{ site.contact.phone_intl }}">{{ site.contact.phone_display }}</a><a href="mailto:{{ site.contact.email }}">{{ site.contact.email }}</a></p>

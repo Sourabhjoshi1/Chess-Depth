@@ -96,4 +96,37 @@
     menu.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', function () { set(false); }); });
   }
   if (document.readyState === 'complete') setupMenu(); else window.addEventListener('load', setupMenu);
+
+  // Signed-in student: show their first name and Google photo instead of "Student login".
+  // Pages that use Google sign-in (Student Area, Chess Lab, reviews) call cdAccount.set(user);
+  // other pages show the last known account from this browser.
+  (function () {
+    var KEY = "cd-account";
+    function read() { try { return JSON.parse(localStorage.getItem(KEY) || "null"); } catch (e) { return null; } }
+    function esc(t) { return String(t || "").replace(/[&<>"']/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]; }); }
+    function render(a) {
+      document.querySelectorAll("[data-account]").forEach(function (el) {
+        if (!el.dataset.accountDefault) el.dataset.accountDefault = el.innerHTML;
+        if (!a || !a.name) { el.innerHTML = el.dataset.accountDefault; el.classList.remove("cd-signed-in"); el.removeAttribute("title"); return; }
+        var first = a.name.trim().split(/\s+/)[0];
+        var initial = '<span class="cd-acct-initial" aria-hidden="true">' + esc(first.charAt(0).toUpperCase()) + "</span>";
+        var pic = a.photo ? '<img class="cd-acct-img" src="' + esc(a.photo) + '" alt="" referrerpolicy="no-referrer" width="22" height="22">' : initial;
+        el.innerHTML = pic + '<span class="cd-acct-name">' + esc(first) + "</span>";
+        el.classList.add("cd-signed-in");
+        el.title = "Signed in" + (a.email ? " as " + a.email : "") + ". Open your Student Area";
+        el.setAttribute("aria-label", "Signed in as " + first + ". Open your Student Area");
+        var img = el.querySelector("img");
+        if (img) img.addEventListener("error", function () { img.outerHTML = initial; });
+      });
+    }
+    window.cdAccount = {
+      set: function (u) {
+        var a = u ? { name: u.displayName || u.name || "Student", photo: u.photoURL || "", email: u.email || "" } : null;
+        try { if (a) localStorage.setItem(KEY, JSON.stringify(a)); else localStorage.removeItem(KEY); } catch (e) {}
+        render(a);
+      }
+    };
+    render(read());
+    window.addEventListener("storage", function (e) { if (e.key === KEY) render(read()); });
+  })();
 })();
