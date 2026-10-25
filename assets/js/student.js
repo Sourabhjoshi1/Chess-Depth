@@ -1,5 +1,6 @@
 // ChessDepth Academy - Student Area (Google sign-in + PDF downloads from Firebase Storage)
 import { firebaseConfig, courseNames } from "./firebase-config.js";
+import { lookupUser, showReport } from "./lichess-report.js";
 
 const $ = (id) => document.getElementById(id);
 const STATES = ["state-loading", "state-setup", "state-signed-out", "state-signed-in"];
@@ -66,7 +67,8 @@ async function start() {
     $("user-email").textContent = user.email || "";
     if (user.photoURL) { $("user-photo").src = user.photoURL; $("user-photo").classList.remove("hidden"); }
     show("state-signed-in");
-    recordStudent(user);
+    const saved = await recordStudent(user);
+    setupLichess(user, saved && saved.lichess ? saved.lichess.username : "");
     loadMaterials();
   });
 
@@ -78,7 +80,47 @@ async function start() {
       const data = { name: user.displayName || "", email: user.email || "", photoURL: user.photoURL || "", lastLogin: serverTimestamp() };
       if (!snap.exists()) data.firstLogin = serverTimestamp();
       await setDoc(refDoc, data, { merge: true });
-    } catch (e) { console.warn("Could not record student sign-in:", e.code || e); }
+      return snap.exists() ? snap.data() : {};
+    } catch (e) { console.warn("Could not record student sign-in:", e.code || e); return {}; }
+  }
+
+  // ---------- My Lichess ----------
+  function setupLichess(user, linked) {
+    const form = $("lr-form"), input = $("lr-input"), msg = $("lr-msg"), body = $("lr-body"), actions = $("lr-actions"), cancel = $("lr-cancel");
+    const saveLink = (username) => setDoc(doc(db, "students", user.uid), { lichess: username ? { username, linkedAt: serverTimestamp() } : null }, { merge: true });
+    function showForm(editing) {
+      form.classList.remove("hidden"); cancel.classList.toggle("hidden", !editing); actions.innerHTML = "";
+      if (!editing) body.innerHTML = ""; msg.textContent = ""; input.value = editing ? linked : ""; if (editing) input.focus();
+    }
+    function showLinked(fresh) {
+      form.classList.add("hidden");
+      actions.innerHTML = `<button type="button" class="lr-link" data-refresh><i class="fas fa-sync-alt"></i> Refresh</button><button type="button" class="lr-link" data-change>Change</button><button type="button" class="lr-link lr-danger" data-unlink>Unlink</button>`;
+      $("lr-sub").innerHTML = `Linked to <a href="https://lichess.org/@/${encodeURIComponent(linked)}" target="_blank" rel="noopener"><b>${linked.replace(/[^\w-]/g, "")}</b></a>. Strengths and weaknesses come from your latest rated games.`;
+      actions.querySelector("[data-refresh]").onclick = () => showReport(body, linked, { fresh: true });
+      actions.querySelector("[data-change]").onclick = () => showForm(true);
+      const un = actions.querySelector("[data-unlink]");
+      un.onclick = async () => {
+        if (un.dataset.sure !== "1") { un.dataset.sure = "1"; un.textContent = "Tap again to unlink"; return; }
+        try { await saveLink(null); linked = ""; $("lr-sub").textContent = "Link your Lichess account to see your ratings, strengths and what to work on, updated from your latest games."; showForm(false); }
+        catch (e) { un.textContent = "Couldn't unlink. Try again"; un.dataset.sure = ""; }
+      };
+      showReport(body, linked, { fresh });
+    }
+    form.onsubmit = async (e) => {
+      e.preventDefault(); msg.textContent = "Checking Lichess…";
+      const btn = form.querySelector("button[type=submit]"); btn.disabled = true;
+      try {
+        const u = await lookupUser(input.value);
+        await saveLink(u.username);
+        linked = u.username; msg.textContent = "";
+        if (typeof window.gtag === "function") window.gtag("event", "lichess_linked", {});
+        showLinked(true);
+      } catch (err) {
+        msg.textContent = err.code ? err.message : (err.message && /lichess/i.test(err.message) ? err.message : "Couldn't link the account. Please try again.");
+      } finally { btn.disabled = false; }
+    };
+    cancel.onclick = () => showLinked(false);
+    if (linked) showLinked(false); else showForm(false);
   }
 
   async function loadMaterials() {

@@ -1,6 +1,7 @@
 // ChessDepth Chess Lab - admin page: academy enrollment numbers, and Lab access for students.
 import { initLab, onChange, signIn, state, adminListStudents, adminSetAccess, adminListEnrollments, adminAddEnrollments, adminSetEnrollment, adminReleaseEnrollment, normalizeEnrollment, adminListReviews, adminUpdateReview } from "./lab-core.js";
 import { esc } from "./shell.js";
+import { showReport } from "../lichess-report.js";
 
 const box = document.getElementById("admin-app");
 async function render() {
@@ -19,6 +20,7 @@ async function render() {
   const label = (t) => t === "academy" ? "The academy" : t === "lab" ? "Chess Lab" : t.replace(":", ": ").replace(/-/g, " ");
   if (revs) revs.sort((a, b) => ms(b.created) - ms(a.created));
   const hiddenN = revs ? revs.filter((r) => r.hidden).length : 0;
+  const lic = rows.filter((r) => r.lichess && r.lichess.username);
   box.innerHTML = `
   <section class="admin-block">
     <h2 class="pd-h2"><i class="fas fa-star"></i> Reviews</h2>
@@ -31,6 +33,16 @@ async function render() {
       <td><textarea class="admin-text" rows="3" data-reply placeholder="Optional reply, shown under the review">${esc(r.reply || "")}</textarea><button type="button" class="lab-btn lab-btn-sm" data-save-reply>Save reply</button></td>
       <td><label class="admin-switch"><input type="checkbox" data-shown ${r.hidden ? "" : "checked"}> <span>${r.hidden ? "Hidden" : "Shown"}</span></label> <span class="admin-msg"></span></td></tr>`).join("") || `<tr><td colspan="3"><p class="pd-empty">No reviews yet.</p></td></tr>`}
     </tbody></table>`}
+  </section>
+  <section class="admin-block">
+    <h2 class="pd-h2"><i class="fas fa-chess-knight"></i> Students' Lichess accounts</h2>
+    <p class="pd-small">Students link their Lichess username in the Student Area. Open a report to see their strengths and weak spots before a class. ${lic.length} linked.</p>
+    ${lic.length ? `<table class="admin-table"><thead><tr><th>Student</th><th>Lichess</th><th>Blitz</th><th>Rapid</th><th>Classical</th><th>Puzzles</th><th></th></tr></thead><tbody id="lic-body">
+    ${lic.map((r) => `<tr data-lichess="${esc(r.lichess.username)}"><td><b>${esc(r.name || "(no name)")}</b>${r.enrollment ? `<br><small>${esc(r.enrollment)}</small>` : ""}</td>
+      <td><a href="https://lichess.org/@/${encodeURIComponent(r.lichess.username)}" target="_blank" rel="noopener">${esc(r.lichess.username)}</a></td>
+      <td data-p="blitz">…</td><td data-p="rapid">…</td><td data-p="classical">…</td><td data-p="puzzle">…</td>
+      <td><button type="button" class="lab-btn lab-btn-sm" data-report>Report</button></td></tr>`).join("")}
+    </tbody></table>` : `<p class="pd-empty">No students have linked a Lichess account yet.</p>`}
   </section>
   <section class="admin-block">
     <h2 class="pd-h2"><i class="fas fa-graduation-cap"></i> Academy enrollment numbers</h2>
@@ -96,6 +108,31 @@ async function render() {
     tr.querySelector("[data-save-reply]").onclick = async () => { msg.textContent = "Saving…";
       try { await adminUpdateReview(tr.dataset.id, { reply: tr.querySelector("[data-reply]").value.trim().slice(0, 1500) }); msg.textContent = "Reply saved"; } catch (e) { msg.textContent = "Failed: " + (e.code || e.message); } };
   });
+  if (lic.length) {
+    // current ratings for everyone in one request (Lichess allows up to 300 names)
+    fetch("https://lichess.org/api/users", { method: "POST", body: lic.map((r) => r.lichess.username).join(",") })
+      .then((r) => r.json()).then((users) => {
+        const by = {}; users.forEach((u) => { by[u.id] = u; });
+        document.querySelectorAll("#lic-body tr").forEach((tr) => {
+          const u = by[tr.dataset.lichess.toLowerCase()];
+          tr.querySelectorAll("[data-p]").forEach((td) => { const p = u && u.perfs && u.perfs[td.dataset.p]; td.textContent = p && p.games ? p.rating + (p.prov ? "?" : "") : "–"; });
+        });
+      }).catch(() => document.querySelectorAll("#lic-body [data-p]").forEach((td) => { td.textContent = "–"; }));
+    document.querySelectorAll("#lic-body [data-report]").forEach((btn) => {
+      btn.onclick = () => {
+        const name = btn.closest("tr").dataset.lichess, who = btn.closest("tr").querySelector("b").textContent;
+        let dlg = document.getElementById("lr-dialog");
+        if (!dlg) {
+          dlg = document.createElement("dialog"); dlg.id = "lr-dialog"; dlg.className = "lr-dialog";
+          dlg.innerHTML = `<div class="lr-dialog-head"><h3></h3><button type="button" class="lr-x" aria-label="Close"><i class="fas fa-times"></i></button></div><div class="lr-dialog-body"></div>`;
+          document.body.appendChild(dlg); dlg.querySelector(".lr-x").onclick = () => dlg.close();
+          dlg.addEventListener("click", (e) => { if (e.target === dlg) dlg.close(); });
+        }
+        dlg.querySelector("h3").textContent = `${who} · Lichess: ${name}`;
+        dlg.showModal(); showReport(dlg.querySelector(".lr-dialog-body"), name);
+      };
+    });
+  }
   const filter = (inputId, bodyId) => { document.getElementById(inputId).oninput = (e) => { const q = e.target.value.toLowerCase(); document.querySelectorAll(`#${bodyId} tr[data-q]`).forEach((tr) => { tr.style.display = tr.dataset.q.includes(q) ? "" : "none"; }); }; };
   filter("enr-q", "enr-body"); filter("admin-q", "stu-body"); if (revs) filter("rev-q", "rev-body");
 }

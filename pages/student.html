@@ -52,6 +52,26 @@ ads: false
         <button id="btn-signout" type="button" class="text-sm font-semibold text-gray-600 hover:text-red-600 border border-gray-300 rounded-full px-4 py-2 transition"><i class="fas fa-sign-out-alt mr-1"></i>Sign out</button>
       </div>
 
+      <section id="lichess" class="lr-card mb-10" aria-labelledby="lr-h">
+        <div class="lr-card-head">
+          <div>
+            <h2 id="lr-h" class="text-2xl font-bold"><i class="fas fa-chess-knight lr-h-ic"></i> My Lichess</h2>
+            <p id="lr-sub" class="lr-card-sub">Link your Lichess account to see your ratings, strengths and what to work on, updated from your latest games.</p>
+          </div>
+          <div id="lr-actions" class="lr-actions"></div>
+        </div>
+        <form id="lr-form" class="lr-form hidden" novalidate>
+          <label for="lr-input" class="sr-only">Lichess username</label>
+          <span class="lr-prefix">lichess.org/@/</span>
+          <input id="lr-input" name="username" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="your username" maxlength="60" required>
+          <button type="submit" class="lr-btn">Link account</button>
+          <button type="button" id="lr-cancel" class="lr-link hidden">Cancel</button>
+          <p id="lr-msg" class="lr-msg" role="alert"></p>
+          <p class="lr-hint">No password needed: we only read your public games and ratings from Lichess. You can unlink at any time.</p>
+        </form>
+        <div id="lr-body"></div>
+      </section>
+
       <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-6">
         <h2 class="text-2xl font-bold">Your study material</h2>
         <input id="search" type="search" placeholder="Search worksheets&hellip;" class="w-full sm:w-64 p-2.5 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500" aria-label="Search worksheets">
@@ -66,4 +86,5 @@ ads: false
 
   
 
-  <script type="module" src="/assets/js/student.js"></script>
+  <link rel="stylesheet" href="/assets/css/lichess-report.css?v={{ site.time | date: "%s" }}">
+  <script type="module" src="/assets/js/student.js?v={{ site.time | date: "%s" }}"></script>

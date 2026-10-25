@@ -117,6 +117,9 @@ async function run(st, prog) {
   practiceBtn.addEventListener("click", () => course && startCourse(course, "practice"));
   restartBtn.addEventListener("click", () => course && startCourse(course, mode));
   renderList();
-  startCourse(courses[0], "learn");
+  // A link like /lab/openings/#scotch opens that course directly.
+  const fromHash = courses.find((c) => c.id === decodeURIComponent(location.hash.slice(1)));
+  if (fromHash) setTimeout(() => { const b = list.querySelector(`[data-id="${fromHash.id}"]`); if (b) b.scrollIntoView({ block: "nearest" }); }, 50);
+  startCourse(fromHash || courses[0], "learn");
 }
 const wait = (ms) => new Promise((r) => setTimeout(r, ms));
