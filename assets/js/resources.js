@@ -107,6 +107,7 @@
   var board = $("play-board");
   if (board && window.customElements) {
     customElements.whenDefined("chess-board").then(function () {
+      import("/assets/js/board-draw.js").then(function (m) { document.querySelectorAll("chess-board").forEach(function (b) { m.enableDrawing(b); }); }).catch(function () {});
       var msg = $("board-msg");
       function say(t, bad) { msg.textContent = t; msg.className = "text-center text-sm mt-2 " + (bad ? "text-red-600" : "text-green-700"); setTimeout(function () { msg.textContent = ""; }, 4000); }
       var validFen = /^([pnbrqkPNBRQK1-8]{1,8}\/){7}[pnbrqkPNBRQK1-8]{1,8}$/;

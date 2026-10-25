@@ -2,6 +2,7 @@
 // chessboard-element (display, drag & drop) + chess.js (rules) + tap-to-move, move hints and last-move highlights.
 import { Chess } from "https://cdn.jsdelivr.net/npm/chess.js@1.0.0/dist/esm/chess.js";
 export { Chess };
+import { enableDrawing } from "../board-draw.js";
 
 const FILES = "abcdefgh";
 
@@ -19,6 +20,8 @@ export async function makeBoard(el, { onUserMove, canDrag }) {
   overlay.setAttribute("aria-hidden", "true");
   overlay.style.cssText = "position:absolute;pointer-events:none;z-index:2;";
   el.insertAdjacentElement("afterend", overlay);
+  // Arrows and circles (right-click, or the pencil button on phones). Cleared after every move.
+  const draw = enableDrawing(el);
 
   const flipped = () => el.orientation === "black";
   function boardRect() { return el.getBoundingClientRect(); }
@@ -60,7 +63,7 @@ export async function makeBoard(el, { onUserMove, canDrag }) {
     const legal = game.moves({ square: source, verbose: true }).find((m) => m.to === target && (!promo || m.promotion === promo));
     if (!legal) return false;
     const ok = onUserMove({ from: source, to: target, promotion: legal.promotion, san: legal.san, uci: source + target + (legal.promotion || "") });
-    if (ok) lastMove = { from: source, to: target };
+    if (ok) { lastMove = { from: source, to: target }; draw.clear(); }
     return ok;
   }
 
@@ -99,15 +102,17 @@ export async function makeBoard(el, { onUserMove, canDrag }) {
 
   return {
     game,
-    load(fen) { game.load(fen); selected = null; lastMove = null; el.setPosition(game.fen().split(" ")[0], false); render(); },
-    orient(color) { el.orientation = color === "b" ? "black" : "white"; render(); },
+    load(fen) { game.load(fen); selected = null; lastMove = null; draw.clear(); el.setPosition(game.fen().split(" ")[0], false); render(); },
+    orient(color) { el.orientation = color === "b" ? "black" : "white"; render(); draw.render(); },
     play(uciOrSan) {
       const mv = /^[a-h][1-8][a-h][1-8][qrbn]?$/.test(uciOrSan) ? { from: uciOrSan.slice(0, 2), to: uciOrSan.slice(2, 4), promotion: uciOrSan[4] } : uciOrSan;
       const m = game.move(mv); selected = null; if (m) lastMove = { from: m.from, to: m.to };
+      draw.render();
       el.setPosition(game.fen().split(" ")[0], true); render(); return m;
     },
     sync() { selected = null; el.setPosition(game.fen().split(" ")[0], false); render(); },
-    undo() { game.undo(); selected = null; lastMove = null; el.setPosition(game.fen().split(" ")[0], true); render(); },
+    draw,
+    undo() { game.undo(); selected = null; lastMove = null; draw.clear(); el.setPosition(game.fen().split(" ")[0], true); render(); },
   };
 }
 
