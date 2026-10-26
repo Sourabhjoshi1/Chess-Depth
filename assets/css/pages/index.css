@@ -136,3 +136,9 @@ html.dark .hr-section { background: #0b1220; }
 html.dark .hr-h2, html.dark .hr-stats b { color: #f1f5f9; }
 html.dark .hr-stats { color: #a8b3c4; }
 html.dark .hr-eyebrow, html.dark .hr-all { color: #a5b4fc; }
+
+/* Community */
+.cm-section { background: #fff; }
+.cd-wrap.cm-wrap { padding-top: 3.5rem; padding-bottom: 3.5rem; }
+.cm-lead { color: #4b5563; margin: .5rem 0 1.5rem; max-width: 42rem; line-height: 1.6; }
+html.dark .cm-section { background: transparent; } html.dark .cm-lead { color: #a8b3c4; }

@@ -117,3 +117,17 @@ chess-board.cd-pen-on, chess-board.cd-pen-on::part(square), chess-board.cd-pen-o
 .cd-pen-clear { padding: .4rem .7rem; }
 html.dark .cd-pen-btn { background: #1e293b; color: #c7d2fe; border-color: #334155; }
 html.dark .cd-pen-btn[aria-pressed="true"] { background: #6366f1; color: #fff; }
+
+/* Community cards (_includes/community.html) */
+.cm-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+.cm-card { display: flex; flex-direction: column; gap: .7rem; background: #fff; border: 1px solid #e5e7eb; border-radius: .9rem; padding: 1.2rem 1.25rem; transition: box-shadow .15s, transform .15s, border-color .15s; color: #374151; }
+.cm-card:hover { box-shadow: 0 12px 28px -14px rgba(30,27,75,.35); transform: translateY(-2px); border-color: #c7d2fe; }
+.cm-ic { width: 2.9rem; height: 2.9rem; border-radius: .75rem; display: inline-flex; align-items: center; justify-content: center; font-size: 1.4rem; color: #fff; }
+.cm-wa .cm-ic { background: #22c55e; } .cm-li .cm-ic { background: #262421; } .cm-cc .cm-ic { background: #81b64c; }
+.cm-txt b { display: block; color: #111827; font-size: 1.05rem; } .cm-txt span { display: block; font-size: .9rem; line-height: 1.5; margin-top: .2rem; }
+.cm-go { margin-top: auto; font-weight: 600; font-size: .9rem; color: #4f46e5; display: inline-flex; align-items: center; gap: .35rem; } .cm-go i { font-size: .75rem; }
+@media (max-width: 760px) { .cm-grid { grid-template-columns: 1fr; } }
+html.dark .cm-card { background: #162032; border-color: #273449; color: #a8b3c4; }
+html.dark .cm-card:hover { border-color: #6366f1; }
+html.dark .cm-txt b { color: #f1f5f9; } html.dark .cm-go { color: #a5b4fc; } html.dark .cm-li .cm-ic { background: #0b0a09; }
+.cd-footer .cd-foot-social a { display: inline-flex; }

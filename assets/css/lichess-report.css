@@ -77,3 +77,6 @@ html.dark .lr-ins { border-color: rgba(255,255,255,.06); }
 html.dark .lr-note { background: rgba(99,102,241,.15); color: #c7d2fe; }
 html.dark .lr-dialog-head { border-color: #273449; } html.dark .lr-x { background: #1e293b; color: #cbd5e1; }
 html.dark .lr-danger { color: #f87171; } html.dark .lr-error, html.dark .lr-msg { color: #fca5a5; }
+.lr-team { margin-top: 1.1rem; padding-top: .9rem; border-top: 1px solid #e5e7eb; font-size: .88rem; color: #4b5563; }
+.lr-team i { color: #4f46e5; margin-right: .3rem; } .lr-team a { color: #4f46e5; font-weight: 600; }
+html.dark .lr-team { border-color: #273449; color: #a8b3c4; } html.dark .lr-team a, html.dark .lr-team i { color: #a5b4fc; }

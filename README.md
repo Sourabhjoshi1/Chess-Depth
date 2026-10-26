@@ -130,4 +130,4 @@ Code: [MIT](LICENSE) © 2026 Sourabh K. Joshi. Course content, worksheets and Sh
 
 ## Contact
 
-📞 +91 98230 29262 · ✉️ info@chessdepth.in · 📍 Bhopal, Madhya Pradesh, India · [Instagram](https://www.instagram.com/chessdepth/)
+📞 +91 98230 29262 · ✉️ info@chessdepth.in · 📍 Bhopal, Madhya Pradesh, India · [Instagram](https://www.instagram.com/chessdepth/) · [WhatsApp community](https://chat.whatsapp.com/FlMZyNdMU9SEyJlKKclmon) · [Lichess team](https://lichess.org/team/chessdepth) · [Chess.com club](https://www.chess.com/club/chessdepth)

@@ -350,3 +350,5 @@ html.dark .lab-thanks-icon { background: rgba(219,39,119,.15); color: #f9a8d4; }
 .lab-reviews > .rv, .lab-rv-lead { max-width: 52rem; }
 .lab-rv-lead { color: #4b5563; margin: .4rem 0 1.25rem; line-height: 1.6; }
 html.dark .lab-rv-lead { color: #a8b3c4; }
+
+.cd-wrap.lab-community { padding-bottom: 1rem; }
