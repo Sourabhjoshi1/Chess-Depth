@@ -12,9 +12,9 @@ async function render() {
   box.innerHTML = `<p class="pd-small">Loading…</p>`;
   let rows = [], enr = [], revs = [];
   try { [rows, enr] = await Promise.all([adminListStudents(), adminListEnrollments()]); revs = await adminListReviews().catch(() => null); }
+  catch (e) { box.innerHTML = `<p class="pd-empty">Couldn't load data (${esc(e.code || e.message)}). Check that the latest rules from <code>firebase/firestore.rules</code> are published in Firebase.</p>`; return; }
   let qlinks = null; try { qlinks = await adminListQuizLinks(); } catch (e) { qlinks = null; }
   let quizLevels = []; try { quizLevels = JSON.parse(document.getElementById("quiz-list").textContent || "[]"); } catch (e) { quizLevels = []; }
-  catch (e) { box.innerHTML = `<p class="pd-empty">Couldn't load data (${esc(e.code || e.message)}). Check that the latest rules from <code>firebase/firestore.rules</code> are published in Firebase.</p>`; return; }
   rows.sort((a, b) => (b.lab === true) - (a.lab === true) || String(a.name).localeCompare(String(b.name)));
   enr.sort((a, b) => String(a.no).localeCompare(String(b.no), undefined, { numeric: true }));
   const linked = enr.filter((x) => x.claimedBy).length;
