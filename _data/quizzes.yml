@@ -1,0 +1,20 @@
+# Weekly quizzes shown in the Student Area ("This week's quiz").
+# Add the newest quiz at the TOP. Fields:
+#   title    - name students see
+#   level    - Beginner / Intermediate / Advanced / All levels
+#   opens    - first day it shows as "this week's quiz" (YYYY-MM-DD)
+#   closes   - last day to submit (YYYY-MM-DD). After this it moves to "Past quizzes".
+#   url      - the Google Form link to send students (Send > link). Leave "" until the form is ready.
+#   questions, minutes, points - shown on the card
+#   topics   - one short line
+#   key      - optional link to the answer key or a review (shown only after the quiz closes)
+- title: "Intermediate Quiz 1"
+  level: Intermediate
+  opens: 2026-10-27
+  closes: 2026-11-02
+  url: ""
+  questions: 30
+  minutes: 45
+  points: 47
+  topics: "18 puzzles (forks, skewers, mates, endgames) + 12 questions on endgames, strategy and good habits"
+  key: ""

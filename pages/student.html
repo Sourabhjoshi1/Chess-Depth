@@ -52,6 +52,17 @@ ads: false
         <button id="btn-signout" type="button" class="text-sm font-semibold text-gray-600 hover:text-red-600 border border-gray-300 rounded-full px-4 py-2 transition"><i class="fas fa-sign-out-alt mr-1"></i>Sign out</button>
       </div>
 
+      <section id="quiz" class="qz-card mb-8" aria-labelledby="qz-h">
+        <div class="qz-head">
+          <h2 id="qz-h" class="text-2xl font-bold"><i class="fas fa-clipboard-check qz-h-ic"></i> This week's quiz</h2>
+          <p class="qz-sub">Test what you've learned in class. Your score and the explanations appear as soon as you submit.</p>
+        </div>
+        <div id="qz-now" class="qz-now"></div>
+        <details id="qz-past" class="qz-past hidden"><summary>Past quizzes</summary><ul id="qz-past-list"></ul></details>
+        <script>window.CD_WA_COMMUNITY = {{ site.contact.whatsapp_community | jsonify }};</script>
+        <script type="application/json" id="qz-data">{{ site.data.quizzes | jsonify }}</script>
+      </section>
+
       <section id="lichess" class="lr-card mb-10" aria-labelledby="lr-h">
         <div class="lr-card-head">
           <div>
@@ -87,5 +98,6 @@ ads: false
 
   
 
+  <script src="/assets/js/quiz.js?v={{ site.time | date: "%s" }}" defer></script>
   <link rel="stylesheet" href="/assets/css/lichess-report.css?v={{ site.time | date: "%s" }}">
   <script type="module" src="/assets/js/student.js?v={{ site.time | date: "%s" }}"></script>

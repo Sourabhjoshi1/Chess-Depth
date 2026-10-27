@@ -91,6 +91,13 @@ Posts dated in the future stay hidden until that date.
   in demo mode (stored only in that browser); `?demo=0` leaves demo mode.
 
 
+## This week's quiz (Student Area)
+
+Quizzes live in `_data/quizzes.yml`. Add the newest one at the top with its title, level, `opens` and `closes` dates and the Google Form link (`url`).
+- Between `opens` and `closes` it shows as **This week's quiz** with a Start button (several can be open at once, e.g. one per level).
+- After `closes` it moves to **Past quizzes**; add a `key` link if you want to share answers afterwards.
+- No quiz open → students see a friendly "no quiz this week" note.
+
 ## Reviews (live, from Firebase)
 
 - Anyone signed in with Google can leave **one review per item** (stars + text), edit it or delete it. Reviews appear straight away.
