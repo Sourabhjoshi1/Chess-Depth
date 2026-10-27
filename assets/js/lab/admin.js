@@ -1,5 +1,5 @@
 // ChessDepth Chess Lab - admin page: academy enrollment numbers, and Lab access for students.
-import { initLab, onChange, signIn, state, adminListStudents, adminSetAccess, adminListEnrollments, adminAddEnrollments, adminSetEnrollment, adminReleaseEnrollment, normalizeEnrollment, adminListReviews, adminUpdateReview } from "./lab-core.js";
+import { initLab, onChange, signIn, state, adminListStudents, adminSetAccess, adminListEnrollments, adminAddEnrollments, adminSetEnrollment, adminReleaseEnrollment, normalizeEnrollment, adminListReviews, adminUpdateReview, adminListQuizLinks, adminSetQuizLink } from "./lab-core.js";
 import { esc } from "./shell.js";
 import { showReport } from "../lichess-report.js";
 
@@ -12,6 +12,8 @@ async function render() {
   box.innerHTML = `<p class="pd-small">Loading…</p>`;
   let rows = [], enr = [], revs = [];
   try { [rows, enr] = await Promise.all([adminListStudents(), adminListEnrollments()]); revs = await adminListReviews().catch(() => null); }
+  let qlinks = null; try { qlinks = await adminListQuizLinks(); } catch (e) { qlinks = null; }
+  let quizLevels = []; try { quizLevels = JSON.parse(document.getElementById("quiz-list").textContent || "[]"); } catch (e) { quizLevels = []; }
   catch (e) { box.innerHTML = `<p class="pd-empty">Couldn't load data (${esc(e.code || e.message)}). Check that the latest rules from <code>firebase/firestore.rules</code> are published in Firebase.</p>`; return; }
   rows.sort((a, b) => (b.lab === true) - (a.lab === true) || String(a.name).localeCompare(String(b.name)));
   enr.sort((a, b) => String(a.no).localeCompare(String(b.no), undefined, { numeric: true }));
@@ -22,6 +24,16 @@ async function render() {
   const hiddenN = revs ? revs.filter((r) => r.hidden).length : 0;
   const lic = rows.filter((r) => r.lichess && r.lichess.username);
   box.innerHTML = `
+  <section class="admin-block">
+    <h2 class="pd-h2"><i class="fas fa-clipboard-check"></i> Quiz links</h2>
+    ${qlinks === null ? `<p class="pd-empty">Couldn't load quiz links. Publish the latest rules from <code>firebase/firestore.rules</code> (they include the quiz links section).</p>` : `
+    <p class="pd-small">Paste each quiz's Google Form link (Send &gt; link). Only academy students with a linked enrollment number can see these links in the Student Area. Leave a box empty to show "Coming soon".</p>
+    <table class="admin-table"><thead><tr><th>Quiz</th><th>Google Form link</th><th></th></tr></thead><tbody id="ql-body">
+    ${quizLevels.map((lv) => (lv.quizzes || []).map((q) => `<tr data-id="${esc(q.id)}"><td><b>${esc(q.title)}</b><br><small>${esc(lv.level)}</small></td>
+      <td><input type="url" class="admin-search" style="margin:0;width:100%" value="${esc(qlinks[q.id] || "")}" placeholder="https://docs.google.com/forms/d/e/.../viewform"></td>
+      <td><button type="button" class="lab-btn lab-btn-sm">Save</button> <span class="admin-msg"></span></td></tr>`).join("")).join("")}
+    </tbody></table>`}
+  </section>
   <section class="admin-block">
     <h2 class="pd-h2"><i class="fas fa-star"></i> Reviews</h2>
     ${revs === null ? `<p class="pd-empty">Couldn't load reviews. Publish the latest rules from <code>firebase/firestore.rules</code> (they include the reviews section).</p>` : `
@@ -99,6 +111,15 @@ async function render() {
       msg.textContent = "Saving…";
       try { await adminSetAccess(tr.dataset.uid, cb.checked, date.value ? new Date(date.value + "T23:59:59") : null); msg.textContent = "Saved"; }
       catch (e) { msg.textContent = "Failed: " + (e.code || e.message); }
+    };
+  });
+  document.querySelectorAll("#ql-body tr[data-id]").forEach((tr) => {
+    const msg = tr.querySelector(".admin-msg"), input = tr.querySelector("input");
+    tr.querySelector("button").onclick = async () => {
+      const url = input.value.trim();
+      if (url && !/^https:\/\/(docs\.google\.com\/forms\/|forms\.gle\/)/.test(url)) { msg.textContent = "Paste a Google Forms link"; return; }
+      msg.textContent = "Saving…";
+      try { await adminSetQuizLink(tr.dataset.id, url); msg.textContent = url ? "Saved" : "Removed"; } catch (e) { msg.textContent = "Failed: " + (e.code || e.message); }
     };
   });
   document.querySelectorAll("#rev-body tr[data-id]").forEach((tr) => {

@@ -278,6 +278,16 @@ export async function adminAddEnrollments(list) {
 export async function adminSetEnrollment(no, data) { await fb.setDoc(fb.doc(fb.db, "enrollments", no), data, { merge: true }); }
 export async function adminReleaseEnrollment(no) { await fb.setDoc(fb.doc(fb.db, "enrollments", no), { claimedBy: null, claimedEmail: null, claimedAt: null }, { merge: true }); }
 
+// Quiz links (admin only to write; academy students can read them in the Student Area).
+export async function adminListQuizLinks() {
+  const snap = await fb.getDocs(fb.collection(fb.db, "quizLinks"));
+  const out = {}; snap.forEach((d) => { out[d.id] = d.data().url || ""; }); return out;
+}
+export async function adminSetQuizLink(id, url) {
+  if (url) await fb.setDoc(fb.doc(fb.db, "quizLinks", id), { url, updated: fb.serverTimestamp() });
+  else await fb.deleteDoc(fb.doc(fb.db, "quizLinks", id));
+}
+
 // Reviews (admin only): list every review, hide/unhide, reply publicly.
 export async function adminListReviews() {
   const snap = await fb.getDocs(fb.collection(fb.db, "reviews"));

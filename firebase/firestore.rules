@@ -102,6 +102,13 @@ service cloud.firestore {
       allow delete: if request.auth != null && resource.data.uid == request.auth.uid;
     }
 
+    // Quiz links (Google Forms) for the Student Area: only academy students (linked enrollment number)
+    // and admins can read them; only admins can add or change them.
+    match /quizLinks/{id} {
+      allow read: if academyStudent() || isAdmin();
+      allow write: if isAdmin();
+    }
+
     // All-time Puzzle Streak leaderboard (first names + best streak).
     match /streakBoard/{uid} {
       allow read: if hasLab();

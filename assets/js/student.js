@@ -35,7 +35,7 @@ async function start() {
   ]);
   const { getAuth, GoogleAuthProvider, signInWithPopup, signInWithRedirect, getRedirectResult, onAuthStateChanged, signOut } = authMod;
   const { getStorage, ref, listAll, getMetadata, getDownloadURL } = storageMod;
-  const { getFirestore, doc, getDoc, setDoc, serverTimestamp } = fsMod;
+  const { getFirestore, doc, getDoc, setDoc, updateDoc, getDocs, collection, serverTimestamp } = fsMod;
 
   const app = initializeApp(firebaseConfig);
   const auth = getAuth(app);
@@ -69,6 +69,7 @@ async function start() {
     show("state-signed-in");
     const saved = await recordStudent(user);
     setupLichess(user, saved && saved.lichess ? saved.lichess.username : "");
+    setupQuizzes(user);
     loadMaterials();
   });
 
@@ -82,6 +83,59 @@ async function start() {
       await setDoc(refDoc, data, { merge: true });
       return snap.exists() ? snap.data() : {};
     } catch (e) { console.warn("Could not record student sign-in:", e.code || e); return {}; }
+  }
+
+  // ---------- Quizzes (academy students only) ----------
+  // The Google Form links live in Firestore (quizLinks/{id}); the security rules only let academy
+  // students (with a linked enrollment number) and admins read them.
+  async function setupQuizzes(user) {
+    const cards = document.querySelectorAll("[data-quiz]");
+    if (!cards.length) return;
+    let links = null;
+    try {
+      const snap = await getDocs(collection(db, "quizLinks"));
+      links = {}; snap.forEach((d) => { if (d.data().url) links[d.id] = d.data().url; });
+    } catch (e) { links = null; }
+    const gate = $("qz-gate");
+    if (links === null) {
+      gate.classList.remove("hidden");
+      cards.forEach((c) => { c.querySelector("[data-quiz-status]").innerHTML = '<i class="fas fa-lock"></i> Academy students only'; });
+      setupEnroll(user);
+      return;
+    }
+    gate.classList.add("hidden");
+    cards.forEach((c) => {
+      const url = links[c.dataset.quiz], st = c.querySelector("[data-quiz-status]");
+      if (url && /^https:\/\/(docs\.google\.com|forms\.gle)\//.test(url)) {
+        c.classList.remove("qz-off");
+        const a = document.createElement("a"); a.className = "qz-btn"; a.href = url; a.target = "_blank"; a.rel = "noopener";
+        a.innerHTML = '<i class="fas fa-play"></i> Start quiz'; st.replaceWith(a);
+      } else { st.innerHTML = '<i class="far fa-clock"></i> Coming soon'; }
+    });
+    document.querySelectorAll(".qz-tab").forEach((t) => {
+      const n = document.querySelectorAll(`.qz-panel[data-panel="${t.dataset.level}"] .qz-btn`).length, c = t.querySelector(".qz-count");
+      c.textContent = n; c.classList.remove("hidden");
+    });
+  }
+  function setupEnroll(user) {
+    const form = $("qz-enroll"), msg = $("qz-msg");
+    if (form.dataset.ready) return; form.dataset.ready = "1";
+    form.onsubmit = async (e) => {
+      e.preventDefault();
+      const no = String($("qz-no").value || "").trim().toUpperCase().replace(/\s+/g, "").replace(/\//g, "-");
+      if (!/^[A-Z0-9][A-Z0-9_.-]{1,39}$/.test(no)) { msg.textContent = "Please enter your enrollment number exactly as the academy gave it to you."; return; }
+      const btn = form.querySelector("button"); btn.disabled = true; msg.textContent = "";
+      try {
+        await updateDoc(doc(db, "enrollments", no), { claimedBy: user.uid, claimedEmail: user.email || "", claimedAt: serverTimestamp() });
+        await setDoc(doc(db, "students", user.uid), { enrollment: no }, { merge: true });
+        if (typeof window.gtag === "function") window.gtag("event", "quiz_enrollment_linked", {});
+        msg.textContent = "";
+        await setupQuizzes(user);
+        if (!$("qz-gate").classList.contains("hidden")) msg.textContent = "Linked! If the quizzes don't open, please refresh the page.";
+      } catch (err) {
+        msg.textContent = "We couldn't find that enrollment number, or it's already linked to another account. Check it, or WhatsApp us on +91 98230 29262.";
+      } finally { btn.disabled = false; }
+    };
   }
 
   // ---------- My Lichess ----------

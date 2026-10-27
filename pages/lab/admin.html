@@ -11,7 +11,8 @@ ads: false
 {% include lab-config.html %}
 <section class="cd-wrap lab-page">
   <h1 class="lab-h1">ChessDepth admin</h1>
-  <p class="pd-small">Moderate reviews, see students' Lichess reports, manage academy enrollment numbers, and switch Chess Lab access on or off.</p>
+  <p class="pd-small">Add quiz links, moderate reviews, see students' Lichess reports, manage academy enrollment numbers, and switch Chess Lab access on or off.</p>
+  <script type="application/json" id="quiz-list">{{ site.data.quizzes | jsonify }}</script>
   <div id="admin-app" class="pd-card" style="margin-top:1rem"><p class="pd-small">Loading…</p></div>
 </section>
 <link rel="stylesheet" href="/assets/css/lichess-report.css?v={{ site.time | date: "%s" }}">

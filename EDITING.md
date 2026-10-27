@@ -91,11 +91,12 @@ Posts dated in the future stay hidden until that date.
   in demo mode (stored only in that browser); `?demo=0` leaves demo mode.
 
 
-## Quizzes (Student Area)
+## Quizzes (Student Area, academy students only)
 
-All quizzes live in `_data/quizzes.yml`, grouped by level (Beginner, Intermediate, Advanced, Elite). Students pick a level tab and can take any quiz at any time.
-- To publish a quiz, paste its Google Form link (Send > link) into its `url`. Until then the card shows "Coming soon".
-- To add a quiz, copy an entry within its level. The number on each tab counts the quizzes that have a link.
+- The list of quizzes (titles, levels, topics) is in `_data/quizzes.yml`. Each quiz has a permanent `id`.
+- The Google Form **links are not in that file** (it is public). Paste them on **/lab/admin/ → Quiz links**: they are stored in Firebase and only students who linked their academy enrollment number can see them.
+- Students without an enrollment number see a lock and a box to enter their number (the same number also unlocks the Chess Lab free).
+- After changing `firebase/firestore.rules`, paste it into Firebase → Firestore → Rules → Publish.
 
 ## Reviews (live, from Firebase)
 

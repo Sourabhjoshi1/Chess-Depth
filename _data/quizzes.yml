@@ -1,27 +1,29 @@
-# Quizzes in the Student Area, grouped by level. Students can open any quiz at any time.
-# To add a quiz: find its level and fill in (or add) an entry. Fields:
+# Quizzes in the Student Area, grouped by level. Only ChessDepth Academy students (linked enrollment
+# number) can open them. The Google Form links are NOT stored here (this file is public): paste each
+# link on the admin page (/lab/admin/ > Quiz links), where it is saved in Firebase and only shown to
+# academy students. Fields:
+#   id        - permanent id used to store the link (lowercase, digits and -). Don't change it later.
 #   title     - name students see
-#   url       - the Google Form link (Send > link). Leave "" and the card shows "Coming soon".
 #   questions, minutes, points - shown on the card
 #   topics    - one short line about what it covers
 - level: Beginner
   ratings: "Up to 1000"
   icon: fa-chess-pawn
   quizzes:
-    - title: "Beginner Quiz 1"
-      url: "https://docs.google.com/forms/d/e/1FAIpQLSdm6A-XrTaXIsFneirdf5QXX3M4jYuMwNmS_LRhOag8MZ0FVQ/viewform"
+    - id: beginner-1
+      title: "Beginner Quiz 1"
       questions: 30
       minutes: 45
       points: 40
       topics: "Rules, piece values, checkmate and stalemate + simple tactics: mate in 1, free pieces, forks, pins"
-    - title: "Beginner Quiz 2"
-      url: ""
+    - id: beginner-2
+      title: "Beginner Quiz 2"
       questions: 30
       minutes: 45
       points: 43
       topics: "Check, notation, draws and opening habits + mates, forks, pins and skewers"
-    - title: "Beginner Quiz 3"
-      url: ""
+    - id: beginner-3
+      title: "Beginner Quiz 3"
       questions: 30
       minutes: 45
       points: 47
@@ -30,38 +32,38 @@
   ratings: "1000 to 1500"
   icon: fa-chess-knight
   quizzes:
-    - title: "Intermediate Quiz 1"
-      url: "https://docs.google.com/forms/d/e/1FAIpQLSdQIWENL8QdMxTotKxkRtk6Mzn0tlMx1Vc1vtkxdPNhssIdkw/viewform"
+    - id: intermediate-1
+      title: "Intermediate Quiz 1"
       questions: 30
       minutes: 45
       points: 47
       topics: "18 puzzles (forks, skewers, mates, endgames) + opposition, Lucena, Philidor, outposts and pawn structures"
-    - title: "Intermediate Quiz 2"
-      url: ""
+    - id: intermediate-2
+      title: "Intermediate Quiz 2"
       questions: 30
       minutes: 45
       points: 48
       topics: "18 puzzles + zugzwang, key squares, pawn majorities and rook endgames"
-    - title: "Intermediate Quiz 3"
-      url: ""
+    - id: intermediate-3
+      title: "Intermediate Quiz 3"
       topics: ""
 - level: Advanced
   ratings: "1500 to 1900"
   icon: fa-chess-rook
   quizzes:
-    - title: "Advanced Quiz 1"
-      url: ""
-    - title: "Advanced Quiz 2"
-      url: ""
-    - title: "Advanced Quiz 3"
-      url: ""
+    - id: advanced-1
+      title: "Advanced Quiz 1"
+    - id: advanced-2
+      title: "Advanced Quiz 2"
+    - id: advanced-3
+      title: "Advanced Quiz 3"
 - level: Elite
   ratings: "1900+"
   icon: fa-chess-king
   quizzes:
-    - title: "Elite Quiz 1"
-      url: ""
-    - title: "Elite Quiz 2"
-      url: ""
-    - title: "Elite Quiz 3"
-      url: ""
+    - id: elite-1
+      title: "Elite Quiz 1"
+    - id: elite-2
+      title: "Elite Quiz 2"
+    - id: elite-3
+      title: "Elite Quiz 3"

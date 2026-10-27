@@ -57,10 +57,20 @@ ads: false
           <h2 id="qz-h" class="text-2xl font-bold"><i class="fas fa-clipboard-check qz-h-ic"></i> Quizzes</h2>
           <p class="qz-sub">Test yourself at your level, any time. Your score and the explanations appear as soon as you submit.</p>
         </div>
+        <div id="qz-gate" class="qz-gate hidden">
+          <p class="qz-gate-h"><i class="fas fa-lock"></i> Quizzes are for ChessDepth Academy students</p>
+          <p class="qz-gate-p">Enter the enrollment number you got from the academy to unlock every quiz. You only need to do this once.</p>
+          <form id="qz-enroll" class="qz-enroll" novalidate>
+            <label for="qz-no" class="sr-only">Enrollment number</label>
+            <input id="qz-no" name="no" autocomplete="off" autocapitalize="characters" spellcheck="false" placeholder="e.g. CDA-014" maxlength="40">
+            <button type="submit" class="lr-btn">Unlock quizzes</button>
+            <p id="qz-msg" class="lr-msg" role="alert"></p>
+          </form>
+          <p class="qz-gate-p qz-gate-small">Not a student yet? <a href="/courses/">See our courses</a> or <a href="https://wa.me/{{ site.contact.phone_intl }}?text=Hi%2C%20I%27d%20like%20my%20enrollment%20number%20for%20the%20ChessDepth%20quizzes" target="_blank" rel="noopener">ask us on WhatsApp</a>.</p>
+        </div>
         <div class="qz-tabs" role="tablist" aria-label="Quiz level">
           {%- for lv in site.data.quizzes %}
-          {%- assign ready = lv.quizzes | where_exp: "q", "q.url != ''" | size %}
-          <button type="button" role="tab" class="qz-tab" data-level="{{ lv.level | slugify }}" aria-selected="{% if forloop.first %}true{% else %}false{% endif %}"><i class="fas {{ lv.icon }}"></i> {{ lv.level }}<span class="qz-count">{{ ready }}</span></button>
+          <button type="button" role="tab" class="qz-tab" data-level="{{ lv.level | slugify }}" aria-selected="{% if forloop.first %}true{% else %}false{% endif %}"><i class="fas {{ lv.icon }}"></i> {{ lv.level }}<span class="qz-count hidden"></span></button>
           {%- endfor %}
         </div>
         {%- for lv in site.data.quizzes %}
@@ -68,16 +78,12 @@ ads: false
           <p class="qz-band">{{ lv.level }} · ratings {{ lv.ratings }}</p>
           <div class="qz-grid">
           {%- for q in lv.quizzes %}
-            <article class="qz-item{% if q.url == '' or q.url == nil %} qz-off{% endif %}">
+            <article class="qz-item qz-off" data-quiz="{{ q.id }}">
               <p class="qz-num">Quiz {{ forloop.index }}</p>
               <h3>{{ q.title }}</h3>
               {%- if q.topics and q.topics != "" %}<p class="qz-topics">{{ q.topics }}</p>{% endif %}
               {%- if q.questions %}<p class="qz-facts">{{ q.questions }} questions{% if q.minutes %} · about {{ q.minutes }} min{% endif %}{% if q.points %} · {{ q.points }} points{% endif %}</p>{% endif %}
-              {%- if q.url and q.url != "" %}
-              <a class="qz-btn" href="{{ q.url }}" target="_blank" rel="noopener"><i class="fas fa-play"></i> Start quiz</a>
-              {%- else %}
-              <span class="qz-soon"><i class="far fa-clock"></i> Coming soon</span>
-              {%- endif %}
+              <span class="qz-soon" data-quiz-status><i class="fas fa-circle-notch fa-spin"></i> Checking…</span>
             </article>
           {%- endfor %}
           </div>
