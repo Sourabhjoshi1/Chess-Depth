@@ -1,60 +1,67 @@
-# Weekly quizzes shown in the Student Area ("This week's quiz").
-# Add the newest quiz at the TOP. Fields:
-#   title    - name students see
-#   level    - Beginner / Intermediate / Advanced / All levels
-#   opens    - first day it shows as "this week's quiz" (YYYY-MM-DD)
-#   closes   - last day to submit (YYYY-MM-DD). After this it moves to "Past quizzes".
-#   url      - the Google Form link to send students (Send > link). Leave "" until the form is ready.
+# Quizzes in the Student Area, grouped by level. Students can open any quiz at any time.
+# To add a quiz: find its level and fill in (or add) an entry. Fields:
+#   title     - name students see
+#   url       - the Google Form link (Send > link). Leave "" and the card shows "Coming soon".
 #   questions, minutes, points - shown on the card
-#   topics   - one short line
-#   key      - optional link to the answer key or a review (shown only after the quiz closes)
-- title: "Beginner Quiz 3"
-  level: Beginner
-  opens: 2026-11-10
-  closes: 2026-11-16
-  url: ""
-  questions: 30
-  minutes: 45
-  points: 47
-  topics: "Forks, pins, skewers, discovered attacks, back-rank danger and basic endgames"
-  key: ""
-- title: "Intermediate Quiz 2"
-  level: Intermediate
-  opens: 2026-11-03
-  closes: 2026-11-09
-  url: ""
-  questions: 30
-  minutes: 45
-  points: 48
-  topics: "18 puzzles + 12 questions on zugzwang, key squares, pawn structures and rook endgames"
-  key: ""
-- title: "Beginner Quiz 2"
-  level: Beginner
-  opens: 2026-11-03
-  closes: 2026-11-09
-  url: ""
-  questions: 30
-  minutes: 45
-  points: 43
-  topics: "Check, notation, draws and opening habits + tactics (mates, forks, pins, skewers)"
-  key: ""
-- title: "Beginner Quiz 1"
-  level: Beginner
-  opens: 2026-10-27
-  closes: 2026-11-02
-  url: "https://docs.google.com/forms/d/e/1FAIpQLSdm6A-XrTaXIsFneirdf5QXX3M4jYuMwNmS_LRhOag8MZ0FVQ/viewform"
-  questions: 30
-  minutes: 45
-  points: 40
-  topics: "Rules, piece values, checkmate and stalemate + simple tactics (mate in 1, free pieces, forks, pins)"
-  key: ""
-- title: "Intermediate Quiz 1"
-  level: Intermediate
-  opens: 2026-10-27
-  closes: 2026-11-02
-  url: "https://docs.google.com/forms/d/e/1FAIpQLSdQIWENL8QdMxTotKxkRtk6Mzn0tlMx1Vc1vtkxdPNhssIdkw/viewform"
-  questions: 30
-  minutes: 45
-  points: 47
-  topics: "18 puzzles (forks, skewers, mates, endgames) + 12 questions on endgames, strategy and good habits"
-  key: ""
+#   topics    - one short line about what it covers
+- level: Beginner
+  ratings: "Up to 1000"
+  icon: fa-chess-pawn
+  quizzes:
+    - title: "Beginner Quiz 1"
+      url: "https://docs.google.com/forms/d/e/1FAIpQLSdm6A-XrTaXIsFneirdf5QXX3M4jYuMwNmS_LRhOag8MZ0FVQ/viewform"
+      questions: 30
+      minutes: 45
+      points: 40
+      topics: "Rules, piece values, checkmate and stalemate + simple tactics: mate in 1, free pieces, forks, pins"
+    - title: "Beginner Quiz 2"
+      url: ""
+      questions: 30
+      minutes: 45
+      points: 43
+      topics: "Check, notation, draws and opening habits + mates, forks, pins and skewers"
+    - title: "Beginner Quiz 3"
+      url: ""
+      questions: 30
+      minutes: 45
+      points: 47
+      topics: "Forks, pins, skewers, discovered attacks, back-rank danger and basic endgames"
+- level: Intermediate
+  ratings: "1000 to 1500"
+  icon: fa-chess-knight
+  quizzes:
+    - title: "Intermediate Quiz 1"
+      url: "https://docs.google.com/forms/d/e/1FAIpQLSdQIWENL8QdMxTotKxkRtk6Mzn0tlMx1Vc1vtkxdPNhssIdkw/viewform"
+      questions: 30
+      minutes: 45
+      points: 47
+      topics: "18 puzzles (forks, skewers, mates, endgames) + opposition, Lucena, Philidor, outposts and pawn structures"
+    - title: "Intermediate Quiz 2"
+      url: ""
+      questions: 30
+      minutes: 45
+      points: 48
+      topics: "18 puzzles + zugzwang, key squares, pawn majorities and rook endgames"
+    - title: "Intermediate Quiz 3"
+      url: ""
+      topics: ""
+- level: Advanced
+  ratings: "1500 to 1900"
+  icon: fa-chess-rook
+  quizzes:
+    - title: "Advanced Quiz 1"
+      url: ""
+    - title: "Advanced Quiz 2"
+      url: ""
+    - title: "Advanced Quiz 3"
+      url: ""
+- level: Elite
+  ratings: "1900+"
+  icon: fa-chess-king
+  quizzes:
+    - title: "Elite Quiz 1"
+      url: ""
+    - title: "Elite Quiz 2"
+      url: ""
+    - title: "Elite Quiz 3"
+      url: ""

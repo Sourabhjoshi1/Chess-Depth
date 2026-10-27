@@ -52,15 +52,37 @@ ads: false
         <button id="btn-signout" type="button" class="text-sm font-semibold text-gray-600 hover:text-red-600 border border-gray-300 rounded-full px-4 py-2 transition"><i class="fas fa-sign-out-alt mr-1"></i>Sign out</button>
       </div>
 
-      <section id="quiz" class="qz-card mb-8" aria-labelledby="qz-h">
+      <section id="quizzes" class="qz-card mb-8" aria-labelledby="qz-h">
         <div class="qz-head">
-          <h2 id="qz-h" class="text-2xl font-bold"><i class="fas fa-clipboard-check qz-h-ic"></i> This week's quiz</h2>
-          <p class="qz-sub">Test what you've learned in class. Your score and the explanations appear as soon as you submit.</p>
+          <h2 id="qz-h" class="text-2xl font-bold"><i class="fas fa-clipboard-check qz-h-ic"></i> Quizzes</h2>
+          <p class="qz-sub">Test yourself at your level, any time. Your score and the explanations appear as soon as you submit.</p>
         </div>
-        <div id="qz-now" class="qz-now"></div>
-        <details id="qz-past" class="qz-past hidden"><summary>Past quizzes</summary><ul id="qz-past-list"></ul></details>
-        <script>window.CD_WA_COMMUNITY = {{ site.contact.whatsapp_community | jsonify }};</script>
-        <script type="application/json" id="qz-data">{{ site.data.quizzes | jsonify }}</script>
+        <div class="qz-tabs" role="tablist" aria-label="Quiz level">
+          {%- for lv in site.data.quizzes %}
+          {%- assign ready = lv.quizzes | where_exp: "q", "q.url != ''" | size %}
+          <button type="button" role="tab" class="qz-tab" data-level="{{ lv.level | slugify }}" aria-selected="{% if forloop.first %}true{% else %}false{% endif %}"><i class="fas {{ lv.icon }}"></i> {{ lv.level }}<span class="qz-count">{{ ready }}</span></button>
+          {%- endfor %}
+        </div>
+        {%- for lv in site.data.quizzes %}
+        <div class="qz-panel{% unless forloop.first %} hidden{% endunless %}" role="tabpanel" data-panel="{{ lv.level | slugify }}">
+          <p class="qz-band">{{ lv.level }} · ratings {{ lv.ratings }}</p>
+          <div class="qz-grid">
+          {%- for q in lv.quizzes %}
+            <article class="qz-item{% if q.url == '' or q.url == nil %} qz-off{% endif %}">
+              <p class="qz-num">Quiz {{ forloop.index }}</p>
+              <h3>{{ q.title }}</h3>
+              {%- if q.topics and q.topics != "" %}<p class="qz-topics">{{ q.topics }}</p>{% endif %}
+              {%- if q.questions %}<p class="qz-facts">{{ q.questions }} questions{% if q.minutes %} · about {{ q.minutes }} min{% endif %}{% if q.points %} · {{ q.points }} points{% endif %}</p>{% endif %}
+              {%- if q.url and q.url != "" %}
+              <a class="qz-btn" href="{{ q.url }}" target="_blank" rel="noopener"><i class="fas fa-play"></i> Start quiz</a>
+              {%- else %}
+              <span class="qz-soon"><i class="far fa-clock"></i> Coming soon</span>
+              {%- endif %}
+            </article>
+          {%- endfor %}
+          </div>
+        </div>
+        {%- endfor %}
       </section>
 
       <section id="lichess" class="lr-card mb-10" aria-labelledby="lr-h">
