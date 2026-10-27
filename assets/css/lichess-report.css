@@ -6,7 +6,7 @@
 .lr-card-sub a { color: #4f46e5; }
 .lr-actions { display: flex; gap: 1rem; align-items: center; flex-wrap: wrap; }
 .lr-form { display: flex; flex-wrap: wrap; align-items: center; gap: .6rem; margin-top: 1.1rem; }
-.lr-form.hidden { display: none; }
+.lr-form.hidden, .lr-link.hidden { display: none; }
 .lr-prefix { color: #6b7280; font-size: .95rem; }
 .lr-form input { flex: 1 1 12rem; max-width: 18rem; border: 1px solid #d1d5db; border-radius: .5rem; padding: .6rem .75rem; font-size: 1rem; color: #111827; background: #fff; }
 .lr-form input:focus { outline: 2px solid #a5b4fc; border-color: #818cf8; }
