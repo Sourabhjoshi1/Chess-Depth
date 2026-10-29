@@ -44,7 +44,7 @@ body { font-family: 'Poppins', sans-serif; }
 .cd-brand { display: inline-flex; align-items: center; gap: .7rem; color: var(--cd-ink); text-decoration: none; }
 .cd-mark { width: 34px; height: 34px; color: var(--cd-ink); flex-shrink: 0; }
 .cd-brand-text { display: flex; flex-direction: column; line-height: 1; }
-.cd-brand-name { font-family: 'EB Garamond', Georgia, 'Times New Roman', serif; font-weight: 600; font-size: 1.85rem; letter-spacing: -.01em; color: var(--cd-ink); }
+.cd-brand-name { font-family: 'EB Garamond', Georgia, 'Times New Roman', serif; font-weight: 600; font-size: 2rem; letter-spacing: -.01em; color: var(--cd-ink); }
 .cd-brand-sub { font-family: 'EB Garamond', Georgia, serif; font-style: italic; font-size: .95rem; color: #6b6f8a; margin-top: .2rem; }
 .cd-brand:hover .cd-brand-name { color: var(--cd-ink-2); }
 
