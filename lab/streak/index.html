@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <script>
+    /* Night/day mode: use the saved choice, otherwise follow the device setting */
+    (function () {
+      var t = null; try { t = localStorage.getItem("cd-theme"); } catch (e) {}
+      if (t !== "light" && t !== "dark") t = (window.matchMedia && matchMedia("(prefers-color-scheme: dark)").matches) ? "dark" : "light";
+      if (t === "dark") document.documentElement.classList.add("dark");
+    })();
+  </script>
+  <meta name="theme-color" content="#1f2547">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Puzzle Streak | ChessDepth Chess Lab</title>
+  <meta name="description" content="How many chess puzzles can you solve in a row? Puzzles get harder each time, one mistake ends the run. All-time leaderboard. Part of the ChessDepth Chess Lab.">
+  <link rel="canonical" href="https://www.chessdepth.in/lab/streak/">
+  <meta property="og:title" content="Puzzle Streak | ChessDepth Chess Lab">
+  <meta property="og:site_name" content="ChessDepth Academy">
+  <meta property="og:locale" content="en_IN">
+  <meta property="og:description" content="How many chess puzzles can you solve in a row? Puzzles get harder each time, one mistake ends the run. All-time leaderboard. Part of the ChessDepth Chess Lab.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.chessdepth.in/lab/streak/">
+  <meta property="og:image" content="https://www.chessdepth.in/assets/images/og-image.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Puzzle Streak | ChessDepth Chess Lab">
+  <meta name="twitter:description" content="How many chess puzzles can you solve in a row? Puzzles get harder each time, one mistake ends the run. All-time leaderboard. Part of the ChessDepth Chess Lab.">
+  <meta name="twitter:image" content="https://www.chessdepth.in/assets/images/og-image.jpg">
+  <link rel="icon" href="/assets/images/favicon.ico" sizes="48x48">
+  <link rel="icon" href="/assets/images/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="/assets/css/tailwind.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,500;0,600;1,400&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="/assets/css/pages/lab.css?v=1793258980">
+  <link rel="stylesheet" href="/assets/css/site.css?v=1793258980">
+  <link rel="stylesheet" href="/assets/css/dark.css?v=1793258980">
+  <script type="module" src="https://cdn.jsdelivr.net/npm/chessboard-element@1.2.0/bundled/chessboard-element.bundled.js"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-2C73E30ZFX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-2C73E30ZFX');
+  </script>
+  
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+    {"@type":"ListItem","position":1,"name":"Home","item":"https://www.chessdepth.in/"},{"@type":"ListItem","position":2,"name":"Puzzle Streak","item":"https://www.chessdepth.in/lab/streak/"}
+  ]}
+  </script>
+
+
+</head>
+<body class="bg-gray-100 text-gray-800">
+  <div class="cd-topbar">
+    <div class="cd-wrap cd-topbar-inner">
+      <p class="cd-topbar-contact">
+        <a href="tel:+919823029262"><i class="fas fa-phone-alt"></i>+91 98230 29262</a>
+        <a href="mailto:info@chessdepth.in"><i class="far fa-envelope"></i>info@chessdepth.in</a>
+      </p>
+      <p class="cd-topbar-links">
+        <a href="/lab/" aria-current="page"><i class="fas fa-flask"></i>Chess Lab<span class="cd-free" data-free-until="2026-11-21">Free</span></a>
+        <a href="/careers/">Careers</a>
+        <a href="/student/" data-account><i class="far fa-user-circle"></i>Student login</a>
+        <button type="button" class="cd-theme-btn" data-theme-toggle aria-label="Switch to night mode" title="Night / day mode"><i class="fas fa-moon cd-moon"></i><i class="fas fa-sun cd-sun"></i></button>
+      </p>
+    </div>
+  </div>
+  <header class="cd-header" id="main-header">
+    <div class="cd-wrap cd-header-inner">
+      <a href="/" class="cd-brand">
+        <svg class="cd-mark" viewBox="0 0 32 32" aria-hidden="true" focusable="false"><path fill="currentColor" d="M8 5h3v3h2.5V5h5v3H21V5h3v7.2l-2.4 1.8.9 9H9.5l.9-9L8 12.2zM8.5 24.5h15l1.5 2.5H7zM6 28h20v2.5H6z"/></svg>
+
+        <span class="cd-brand-text"><span class="cd-brand-name">ChessDepth</span></span>
+      </a>
+      <nav id="main-nav" aria-label="Primary" class="cd-nav">
+        <a href="/about/" class="cd-link">About</a>
+        <a href="/courses/" class="cd-link">Courses</a>
+        <a href="/coaches/" class="cd-link">Coaches</a>
+        <a href="/resources/" class="cd-link">Resources</a>
+        <a href="/shop/" class="cd-link">Shop</a>
+        <a href="/ai/" class="cd-link cd-link-ai">ChessDepth AI<span class="cd-soon">Soon</span></a>
+        <a href="/blog/" class="cd-link">Blog</a>
+        <a href="/contact/" class="cd-link">Contact</a>
+        <a href="https://wa.me/919823029262?text=Hi%2C%20I%20would%20like%20to%20book%20a%20free%20demo%20class" target="_blank" rel="noopener noreferrer" class="cd-hdr-cta">Book a free demo</a>
+      </nav>
+      <div class="cd-header-mobile">
+        <button type="button" class="cd-theme-btn" data-theme-toggle aria-label="Switch to night mode" title="Night / day mode"><i class="fas fa-moon cd-moon"></i><i class="fas fa-sun cd-sun"></i></button>
+        <button id="menu-toggle" class="cd-menu-btn" aria-controls="mobile-menu" aria-expanded="false" aria-label="Open menu">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+        </button>
+      </div>
+    </div>
+    <div id="mobile-menu" class="cd-mobile-menu hidden">
+      <nav class="cd-wrap" aria-label="Mobile">
+        <a href="/">Home</a>
+        <a href="/about/">About</a>
+        <a href="/courses/">Courses</a>
+        <a href="/coaches/">Coaches</a>
+        <a href="/resources/">Resources</a>
+        <a href="/shop/">Shop</a>
+        <a href="/ai/">ChessDepth AI<span class="cd-soon">Coming soon</span></a>
+        <a href="/blog/">Blog</a>
+        <a href="/contact/">Contact</a>
+        <a href="/lab/" aria-current="page">Chess Lab <i class="fas fa-crown" style="color:#b08a4e;font-size:.8em"></i><span class="cd-soon" data-free-until="2026-11-21">Free launch offer</span></a>
+        <a href="/careers/">Careers</a>
+        <div class="cd-mobile-actions">
+          <a href="/student/" class="cd-mobile-login" data-account><i class="far fa-user-circle"></i>Student login</a>
+          <a href="https://wa.me/919823029262?text=Hi%2C%20I%20would%20like%20to%20book%20a%20free%20demo%20class" target="_blank" rel="noopener noreferrer" class="cd-hdr-cta">Book a free demo</a>
+        </div>
+        <p class="cd-mobile-contact"><a href="tel:+919823029262">+91 98230 29262</a><a href="mailto:info@chessdepth.in">info@chessdepth.in</a></p>
+      </nav>
+    </div>
+  </header>
+
+
+<script type="importmap">
+  { "imports": {
+      "/assets/js/lab/admin.js": "/assets/js/lab/admin.js?v=1793258980",
+      "/assets/js/lab/board.js": "/assets/js/lab/board.js?v=1793258980",
+      "/assets/js/lab/lab-core.js": "/assets/js/lab/lab-core.js?v=1793258980",
+      "/assets/js/lab/lab-home.js": "/assets/js/lab/lab-home.js?v=1793258980",
+      "/assets/js/lab/openings.js": "/assets/js/lab/openings.js?v=1793258980",
+      "/assets/js/lab/progress.js": "/assets/js/lab/progress.js?v=1793258980",
+      "/assets/js/lab/puzzles.js": "/assets/js/lab/puzzles.js?v=1793258980",
+      "/assets/js/lab/shell.js": "/assets/js/lab/shell.js?v=1793258980",
+      "/assets/js/lab/streak.js": "/assets/js/lab/streak.js?v=1793258980",
+      "/assets/js/lab/tactics.js": "/assets/js/lab/tactics.js?v=1793258980",
+      "/assets/js/board-draw.js": "/assets/js/board-draw.js?v=1793258980",
+      "/assets/js/firebase-config.js": "/assets/js/firebase-config.js?v=1793258980"
+  } }
+</script>
+<script>
+  window.CD_LAB = {
+    price: "",
+    paymentLink: "",
+    freeUntil: "2026-11-21",
+    admins: ["joshisourabh47@gmail.com"],
+    notifyUrl: "https://wa.me/919823029262?text=Hi%2C%20please%20tell%20me%20when%20the%20ChessDepth%20Chess%20Lab%20opens",
+    joinUrl: "https://wa.me/919823029262?text=Hi%2C%20I%20would%20like%20to%20join%20the%20ChessDepth%20Chess%20Lab"
+  };
+</script>
+<div class="lab-bar">
+  <div class="cd-wrap lab-bar-inner">
+    <nav class="lab-tabs" aria-label="Chess Lab">
+      <a href="/lab/" ><i class="fas fa-flask"></i><span>Chess Lab</span></a>
+      <a href="/lab/tactics/" ><i class="fas fa-bolt"></i><span>Tactics</span></a>
+      <a href="/lab/streak/" aria-current="page"><i class="fas fa-fire-alt"></i><span>Streak</span></a>
+      <a href="/lab/openings/" ><i class="fas fa-book-open"></i><span>Openings</span></a>
+      <a href="/lab/progress/" ><i class="fas fa-chart-line"></i><span>Progress</span></a>
+    </nav>
+    <div id="lab-bar-status" class="lab-bar-status" aria-live="polite"></div>
+  </div>
+  <div id="lab-enroll-panel" class="lab-enroll-panel hidden"></div>
+  <div id="lab-offer-banner" class="lab-offer hidden" role="status"></div>
+  <div id="lab-demo-banner" class="lab-demo hidden">Demo mode: progress is saved only in this browser. <button type="button" data-act="exit-demo">Leave demo</button></div>
+</div>
+
+<section class="cd-wrap lab-page">
+  <div id="lab-gate" class="lab-gate"><p class="lab-loading"><i class="fas fa-circle-notch fa-spin"></i> Loading…</p></div>
+  <div id="lab-app" class="hidden">
+    <div class="tt-layout">
+      <div class="tt-board-col">
+        <chess-board id="ps-board" class="lab-board" draggable-pieces></chess-board>
+      </div>
+      <aside class="tt-side">
+        <h1 class="lab-h1">Puzzle Streak</h1>
+        <div class="ps-scores">
+          <div><p class="pd-label">Streak</p><p class="ps-score" id="ps-score">0</p></div>
+          <div><p class="pd-label">Your best</p><p class="ps-best" id="ps-best">0</p></div>
+        </div>
+        <div class="tt-status"><p id="ps-status" class="tt-status-main">Ready?</p><p id="ps-sub" class="tt-status-sub"></p></div>
+        <div class="tt-actions">
+          <button type="button" id="ps-start" class="lab-btn"><i class="fas fa-play"></i>Start streak</button>
+          <button type="button" id="ps-skip" class="lab-btn-o hidden"><i class="fas fa-forward"></i>Skip (once)</button>
+          <button type="button" id="ps-again" class="lab-btn hidden"><i class="fas fa-redo"></i>Play again</button>
+        </div>
+        <div id="ps-recap" class="tt-info"></div>
+        <ul class="ps-rules">
+          <li>Puzzles start easy and get harder with every one you solve.</li>
+          <li>One wrong move ends the streak. You can skip one puzzle per run.</li>
+          <li>Points: 2 per puzzle, plus bonuses at 10, 20 and 30 in a row.</li>
+        </ul>
+        <section class="pd-card"><h2 class="pd-h2"><i class="fas fa-trophy" style="color:#6366f1"></i> All-time leaderboard</h2><div id="ps-leaderboard"><p class="pd-small">Loading…</p></div></section>
+      </aside>
+    </div>
+  </div>
+</section>
+<script type="module" src="/assets/js/lab/streak.js?v=1793258980"></script>
+
+
+  
+<footer class="cd-footer bg-gray-800 text-gray-300 pt-10 pb-6 mt-10">
+    <div class="max-w-6xl mx-auto px-4 grid gap-8 md:grid-cols-4 text-center md:text-left">
+      <div>
+        <p class="text-2xl font-bold text-white mb-2">♟️ ChessDepth Academy</p>
+        <p class="text-sm text-gray-400">Structured online chess coaching for beginners to tournament players.</p>
+        <div class="mt-4 flex justify-center md:justify-start space-x-5 text-2xl">
+          <a href="https://www.instagram.com/chessdepth/" target="_blank" rel="noopener noreferrer" aria-label="ChessDepth on Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.facebook.com/chessdepthacademy/" target="_blank" rel="noopener noreferrer" aria-label="ChessDepth on Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://chat.whatsapp.com/FlMZyNdMU9SEyJlKKclmon" target="_blank" rel="noopener noreferrer" aria-label="ChessDepth WhatsApp community" title="WhatsApp community"><i class="fab fa-whatsapp"></i></a>
+          <a href="https://lichess.org/team/chessdepth" target="_blank" rel="noopener noreferrer" aria-label="ChessDepth team on Lichess" title="Lichess team"><i class="fas fa-chess-knight"></i></a>
+          <a href="https://www.chess.com/club/chessdepth" target="_blank" rel="noopener noreferrer" aria-label="ChessDepth club on Chess.com" title="Chess.com club"><i class="fas fa-chess-pawn"></i></a>
+        </div>
+      </div>
+      <div>
+        <p class="font-semibold text-white mb-3">Explore</p>
+        <ul class="space-y-1 text-sm">
+          <li><a href="/courses/">Courses &amp; Fees</a></li>
+          <li><a href="/coaches/">Our Coaches</a></li>
+          <li><a href="/resources/">Free Resources</a></li>
+          <li><a href="/shop/">Shop</a></li>
+          <li><a href="/lab/">Chess Lab</a></li>
+          <li><a href="/careers/">Careers</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="font-semibold text-white mb-3">Community</p>
+        <ul class="space-y-1 text-sm">
+          <li><i class="fab fa-whatsapp mr-2"></i><a href="https://chat.whatsapp.com/FlMZyNdMU9SEyJlKKclmon" target="_blank" rel="noopener noreferrer">WhatsApp community</a></li>
+          <li><i class="fas fa-chess-knight mr-2"></i><a href="https://lichess.org/team/chessdepth" target="_blank" rel="noopener noreferrer">Lichess team</a></li>
+          <li><i class="fas fa-chess-pawn mr-2"></i><a href="https://www.chess.com/club/chessdepth" target="_blank" rel="noopener noreferrer">Chess.com club</a></li>
+          <li><i class="fab fa-instagram mr-2"></i><a href="https://www.instagram.com/chessdepth/" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="font-semibold text-white mb-3">Get in touch</p>
+        <ul class="space-y-1 text-sm">
+          <li><i class="fas fa-phone-alt mr-2"></i><a href="tel:+919823029262">+91 98230 29262</a></li>
+          <li><i class="fab fa-whatsapp mr-2"></i><a href="https://wa.me/919823029262?text=Hi%2C%20I%20would%20like%20to%20book%20a%20free%20demo%20class" target="_blank" rel="noopener noreferrer">WhatsApp us</a></li>
+          <li><i class="fas fa-envelope mr-2"></i><a href="mailto:info@chessdepth.in">info@chessdepth.in</a></li>
+          <li><i class="fas fa-map-marker-alt mr-2"></i>Bhopal, Madhya Pradesh, India</li>
+        </ul>
+      </div>
+    </div>
+    <div class="max-w-6xl mx-auto px-4 mt-8 pt-4 border-t border-gray-700 flex flex-col sm:flex-row justify-between text-xs text-gray-400 gap-2 text-center">
+      <p>&copy; <span data-year>2026</span> ChessDepth Academy. All rights reserved.</p>
+      <p class="cd-legal"><a href="/terms/">Terms</a> · <a href="/refunds/">Refunds &amp; cancellations</a> · <a href="/privacy/">Privacy policy</a></p>
+    </div>
+  </footer>
+  <a href="https://wa.me/919823029262?text=Hi%2C%20I%20would%20like%20to%20book%20a%20free%20demo%20class" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Chat with ChessDepth on WhatsApp" title="Chat with us on WhatsApp"><i class="fab fa-whatsapp text-2xl"></i></a>
+
+  <script src="/assets/js/site.js?v=1793258980" defer></script>
+</body>
+</html>

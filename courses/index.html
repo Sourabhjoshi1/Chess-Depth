@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <script>
+    /* Night/day mode: use the saved choice, otherwise follow the device setting */
+    (function () {
+      var t = null; try { t = localStorage.getItem("cd-theme"); } catch (e) {}
+      if (t !== "light" && t !== "dark") t = (window.matchMedia && matchMedia("(prefers-color-scheme: dark)").matches) ? "dark" : "light";
+      if (t === "dark") document.documentElement.classList.add("dark");
+    })();
+  </script>
+  <meta name="theme-color" content="#1f2547">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Online Chess Courses & Fees | ChessDepth Academy</title>
+  <meta name="description" content="Online chess courses for every level: tactics, strategy, openings, endgames and psychology. One-to-one from ₹5,999/month, groups from ₹4,500.">
+  <link rel="canonical" href="https://www.chessdepth.in/courses/">
+  <meta property="og:title" content="Online Chess Courses & Fees | ChessDepth Academy">
+  <meta property="og:site_name" content="ChessDepth Academy">
+  <meta property="og:locale" content="en_IN">
+  <meta property="og:description" content="Online chess courses for every level: tactics, strategy, openings, endgames and psychology. One-to-one from ₹5,999/month, groups from ₹4,500.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.chessdepth.in/courses/">
+  <meta property="og:image" content="https://www.chessdepth.in/assets/images/og-image.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Online Chess Courses & Fees | ChessDepth Academy">
+  <meta name="twitter:description" content="Online chess courses for every level: tactics, strategy, openings, endgames and psychology. One-to-one from ₹5,999/month, groups from ₹4,500.">
+  <meta name="twitter:image" content="https://www.chessdepth.in/assets/images/og-image.jpg">
+  <link rel="icon" href="/assets/images/favicon.ico" sizes="48x48">
+  <link rel="icon" href="/assets/images/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="/assets/css/tailwind.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,500;0,600;1,400&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="/assets/css/pages/courses.css?v=1793258980">
+  <link rel="stylesheet" href="/assets/css/site.css?v=1793258980">
+  <link rel="stylesheet" href="/assets/css/dark.css?v=1793258980">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-2C73E30ZFX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-2C73E30ZFX');
+  </script>
+  
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+    {"@type":"ListItem","position":1,"name":"Home","item":"https://www.chessdepth.in/"},{"@type":"ListItem","position":2,"name":"Online Chess Courses & Fees","item":"https://www.chessdepth.in/courses/"}
+  ]}
+  </script>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"ItemList","name":"ChessDepth Academy online chess courses","itemListElement":[
+    {"@type":"ListItem","position":1,"item":{"@type":"Course","name":"Complete Summer Chess Course","description":"Our intensive summer-break program covering openings, middlegames, and endgames, with weekly tournaments. The 2026 batch has finished — message us to be told when the next batch opens.",
+      "provider":{"@type":"EducationalOrganization","name":"ChessDepth Academy","sameAs":"https://www.chessdepth.in/"}}},
+    {"@type":"ListItem","position":2,"item":{"@type":"Course","name":"Beginner's Blueprint: Master the Basics","description":"Start your chess journey right! Learn piece movements, basic checkmates, forks, pins, and essential opening principles. Perfect for absolute beginners.",
+      "provider":{"@type":"EducationalOrganization","name":"ChessDepth Academy","sameAs":"https://www.chessdepth.in/"}}},
+    {"@type":"ListItem","position":3,"item":{"@type":"Course","name":"Beyond the Basics: Solidifying Your Foundation","description":"You know the rules, now learn to play! This course focuses on developing sound strategic thinking, improving tactical vision, and understanding simple endgames.",
+      "provider":{"@type":"EducationalOrganization","name":"ChessDepth Academy","sameAs":"https://www.chessdepth.in/"}}},
+    {"@type":"ListItem","position":4,"item":{"@type":"Course","name":"Intermediate Positional Play: Beyond Tactics","description":"Move beyond simple tactics and delve into the art of positional chess. Learn about pawn structures, weak squares, piece activity, and prophylactic thinking.",
+      "provider":{"@type":"EducationalOrganization","name":"ChessDepth Academy","sameAs":"https://www.chessdepth.in/"}}},
+    {"@type":"ListItem","position":5,"item":{"@type":"Course","name":"Advanced Opening Repertoire: Dominate from Move 1","description":"Build a robust and dynamic opening repertoire for both White and Black. Understand the ideas behind the moves and gain a significant edge early in the game.",
+      "provider":{"@type":"EducationalOrganization","name":"ChessDepth Academy","sameAs":"https://www.chessdepth.in/"}}},
+    {"@type":"ListItem","position":6,"item":{"@type":"Course","name":"Endgame Mastery: The Art of Conversion","description":"Learn the critical techniques to convert advantages in the endgame. Study pawn endgames, rook endgames, and advanced king activity concepts.",
+      "provider":{"@type":"EducationalOrganization","name":"ChessDepth Academy","sameAs":"https://www.chessdepth.in/"}}},
+    {"@type":"ListItem","position":7,"item":{"@type":"Course","name":"Chess Psychology: Master Your Mind","description":"Develop mental resilience, improve concentration, and learn to handle pressure in crucial moments. Essential for competitive players.",
+      "provider":{"@type":"EducationalOrganization","name":"ChessDepth Academy","sameAs":"https://www.chessdepth.in/"}}},
+    {"@type":"ListItem","position":8,"item":{"@type":"Course","name":"Chess for Corporate Professionals","description":"Enhance strategic thinking, problem-solving, and decision-making skills applicable to the corporate world. Learn the fundamentals of chess in a professional context.",
+      "provider":{"@type":"EducationalOrganization","name":"ChessDepth Academy","sameAs":"https://www.chessdepth.in/"}}},
+    {"@type":"ListItem","position":9,"item":{"@type":"Course","name":"Scholastic Chess: Nurturing Young Minds","description":"A fun and engaging program designed specifically for children and teenagers to develop critical thinking, patience, and sportsmanship through chess.",
+      "provider":{"@type":"EducationalOrganization","name":"ChessDepth Academy","sameAs":"https://www.chessdepth.in/"}}},
+    {"@type":"ListItem","position":10,"item":{"@type":"Course","name":"Private Coaching & Game Analysis","description":"Receive one-on-one tailored coaching sessions and in-depth analysis of your games to identify strengths, weaknesses, and a personalized improvement plan.",
+      "provider":{"@type":"EducationalOrganization","name":"ChessDepth Academy","sameAs":"https://www.chessdepth.in/"}}},
+    {"@type":"ListItem","position":11,"item":{"@type":"Course","name":"Tournament Preparation & Mindset","description":"Elevate your tournament performance. This course covers pregame routines, in-game decision making, post-game analysis, and mental fortitude for competitive play.",
+      "provider":{"@type":"EducationalOrganization","name":"ChessDepth Academy","sameAs":"https://www.chessdepth.in/"}}},
+    {"@type":"ListItem","position":12,"item":{"@type":"Course","name":"Blitz & Rapid Play Mastery","description":"Improve your performance in fast time controls. Focus on quick pattern recognition, time management, and practical decision-making under pressure.",
+      "provider":{"@type":"EducationalOrganization","name":"ChessDepth Academy","sameAs":"https://www.chessdepth.in/"}}},
+    {"@type":"ListItem","position":13,"item":{"@type":"Course","name":"Advanced Tactics & Combinations","description":"Dive deep into complex tactical motifs, sacrifice patterns, and multi-move combinations. Sharpen your calculation and visualization skills.",
+      "provider":{"@type":"EducationalOrganization","name":"ChessDepth Academy","sameAs":"https://www.chessdepth.in/"}}}
+  ]}
+  </script>
+
+
+</head>
+<body class="bg-gray-100 text-gray-800">
+  <div class="cd-topbar">
+    <div class="cd-wrap cd-topbar-inner">
+      <p class="cd-topbar-contact">
+        <a href="tel:+919823029262"><i class="fas fa-phone-alt"></i>+91 98230 29262</a>
+        <a href="mailto:info@chessdepth.in"><i class="far fa-envelope"></i>info@chessdepth.in</a>
+      </p>
+      <p class="cd-topbar-links">
+        <a href="/lab/"><i class="fas fa-flask"></i>Chess Lab<span class="cd-free" data-free-until="2026-11-21">Free</span></a>
+        <a href="/careers/">Careers</a>
+        <a href="/student/" data-account><i class="far fa-user-circle"></i>Student login</a>
+        <button type="button" class="cd-theme-btn" data-theme-toggle aria-label="Switch to night mode" title="Night / day mode"><i class="fas fa-moon cd-moon"></i><i class="fas fa-sun cd-sun"></i></button>
+      </p>
+    </div>
+  </div>
+  <header class="cd-header" id="main-header">
+    <div class="cd-wrap cd-header-inner">
+      <a href="/" class="cd-brand">
+        <svg class="cd-mark" viewBox="0 0 32 32" aria-hidden="true" focusable="false"><path fill="currentColor" d="M8 5h3v3h2.5V5h5v3H21V5h3v7.2l-2.4 1.8.9 9H9.5l.9-9L8 12.2zM8.5 24.5h15l1.5 2.5H7zM6 28h20v2.5H6z"/></svg>
+
+        <span class="cd-brand-text"><span class="cd-brand-name">ChessDepth</span></span>
+      </a>
+      <nav id="main-nav" aria-label="Primary" class="cd-nav">
+        <a href="/about/" class="cd-link">About</a>
+        <a href="/courses/" class="cd-link" aria-current="page">Courses</a>
+        <a href="/coaches/" class="cd-link">Coaches</a>
+        <a href="/resources/" class="cd-link">Resources</a>
+        <a href="/shop/" class="cd-link">Shop</a>
+        <a href="/ai/" class="cd-link cd-link-ai">ChessDepth AI<span class="cd-soon">Soon</span></a>
+        <a href="/blog/" class="cd-link">Blog</a>
+        <a href="/contact/" class="cd-link">Contact</a>
+        <a href="https://wa.me/919823029262?text=Hi%2C%20I%20would%20like%20to%20book%20a%20free%20demo%20class" target="_blank" rel="noopener noreferrer" class="cd-hdr-cta">Book a free demo</a>
+      </nav>
+      <div class="cd-header-mobile">
+        <button type="button" class="cd-theme-btn" data-theme-toggle aria-label="Switch to night mode" title="Night / day mode"><i class="fas fa-moon cd-moon"></i><i class="fas fa-sun cd-sun"></i></button>
+        <button id="menu-toggle" class="cd-menu-btn" aria-controls="mobile-menu" aria-expanded="false" aria-label="Open menu">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+        </button>
+      </div>
+    </div>
+    <div id="mobile-menu" class="cd-mobile-menu hidden">
+      <nav class="cd-wrap" aria-label="Mobile">
+        <a href="/">Home</a>
+        <a href="/about/">About</a>
+        <a href="/courses/" aria-current="page">Courses</a>
+        <a href="/coaches/">Coaches</a>
+        <a href="/resources/">Resources</a>
+        <a href="/shop/">Shop</a>
+        <a href="/ai/">ChessDepth AI<span class="cd-soon">Coming soon</span></a>
+        <a href="/blog/">Blog</a>
+        <a href="/contact/">Contact</a>
+        <a href="/lab/">Chess Lab <i class="fas fa-crown" style="color:#b08a4e;font-size:.8em"></i><span class="cd-soon" data-free-until="2026-11-21">Free launch offer</span></a>
+        <a href="/careers/">Careers</a>
+        <div class="cd-mobile-actions">
+          <a href="/student/" class="cd-mobile-login" data-account><i class="far fa-user-circle"></i>Student login</a>
+          <a href="https://wa.me/919823029262?text=Hi%2C%20I%20would%20like%20to%20book%20a%20free%20demo%20class" target="_blank" rel="noopener noreferrer" class="cd-hdr-cta">Book a free demo</a>
+        </div>
+        <p class="cd-mobile-contact"><a href="tel:+919823029262">+91 98230 29262</a><a href="mailto:info@chessdepth.in">info@chessdepth.in</a></p>
+      </nav>
+    </div>
+  </header>
+
+
+  <section class="cd-hero cd-hero-bg">
+  <div class="cd-hero-inner"><p class="cd-hero-eyebrow">Courses &amp; fees</p>
+    <h1 class="cd-hero-title">Online chess courses for every level</h1><p class="cd-hero-lead">Structured programmes from your first moves to tournament play, with worksheets, regular tests and a free demo class.</p>
+  </div>
+</section>
+
+  <section id="fees" class="py-14 px-4 bg-white">
+    <div class="max-w-5xl mx-auto">
+      <h2 class="text-3xl font-bold text-center mb-3 text-gray-800">Fees &amp; Class Formats</h2>
+      <p class="text-center text-gray-600 mb-10">Monthly fees for regular classes are below. Every monthly plan includes <b>8&ndash;10 live classes of 60&ndash;70 minutes each</b>. Fixed-length programmes further down show the price for the complete programme. Your first demo class is free.</p>
+      <div class="grid md:grid-cols-2 gap-8 text-center">
+        <div class="bg-gray-50 rounded-lg shadow-lg p-6 border-t-4 border-indigo-600">
+          <i class="fas fa-user text-4xl text-indigo-600 mb-3"></i>
+          <h3 class="text-xl font-bold mb-2 text-indigo-700">One-to-One (Private) Classes</h3>
+          <p class="text-gray-600 mb-4">Lessons built entirely around your strengths, weaknesses and goals.</p>
+          <p><span class="text-3xl font-extrabold text-gray-900">&#8377;5,999 or $90</span><span class="text-xl text-gray-500"> / month</span></p>
+          <p class="text-sm font-semibold text-indigo-700 mt-2"><i class="far fa-calendar-check mr-1"></i>8&ndash;10 classes a month &middot; 60&ndash;70 minutes each</p>
+          <p class="text-sm text-gray-500 mt-2">Best for rapid improvement and tournament preparation.</p>
+        </div>
+        <div class="bg-gray-50 rounded-lg shadow-lg p-6 border-t-4 border-purple-600">
+          <i class="fas fa-users text-4xl text-purple-600 mb-3"></i>
+          <h3 class="text-xl font-bold mb-2 text-purple-700">Group Classes (2&ndash;4 Students)</h3>
+          <p class="text-gray-600 mb-4">Small batches with peer discussion and shared game analysis.</p>
+          <p><span class="text-3xl font-extrabold text-gray-900">&#8377;4,500 or $69</span><span class="text-xl text-gray-500"> / month</span></p>
+          <p class="text-sm font-semibold text-indigo-700 mt-2"><i class="far fa-calendar-check mr-1"></i>8&ndash;10 classes a month &middot; 60&ndash;70 minutes each</p>
+          <p class="text-sm text-gray-500 mt-2">Both formats include worksheets, regular quizzes, tournaments and community access.</p>
+        </div>
+      </div>
+      <div class="text-center mt-10">
+        <a href="https://wa.me/919823029262?text=Hi%2C%20I%20would%20like%20to%20book%20a%20free%20demo%20class" target="_blank" rel="noopener noreferrer" class="cd-demo-btn inline-block text-lg px-8 py-3"><i class="fab fa-whatsapp mr-2"></i>Book a Free Demo Class</a>
+      </div>
+    </div>
+  </section>
+
+
+  <section id="courses-listing" class="py-16 bg-gray-100 px-4 fade-in-content">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-3xl font-bold text-center mb-10 text-gray-800">Our Popular Programs</h2>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="courses-container">
+        
+        <div id="summer-course" class="bg-white p-6 rounded-lg shadow-md transition course-card-hover flex flex-col">
+          
+          <div class="course-card-content flex flex-col h-full">
+            <div class="flex items-center mb-4 flex-shrink-0">
+              <span class="bg-orange-100 text-orange-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full">Summer Special</span>
+              <span class="bg-indigo-100 text-indigo-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">All Levels</span>
+            </div>
+            
+            <h3 class="text-2xl font-bold text-orange-600 mb-1 flex-shrink-0">Complete Summer Chess Course ☀️</h3>
+            <div class="rv-summary-slot" data-rv-summary="course:summer-course" data-rv-title="Complete Summer Chess Course"></div>
+<script>window.CD_RV = window.CD_RV || { wa: "919823029262" };</script>
+<script type="module" src="/assets/js/reviews.js?v=1793258980"></script>
+
+            
+            <p class="text-gray-600 mb-4 course-description flex-grow">
+              Our intensive summer-break program covering openings, middlegames, and endgames, with weekly tournaments. The 2026 batch has finished &mdash; message us to be told when the next batch opens.
+            </p>
+            <ul class="list-disc list-inside text-sm text-gray-500 mb-4 course-features flex-grow">
+              <li>Intensive 1-Month Curriculum</li>
+              <li>Weekly Live Tournaments</li>
+              <li>Daily Puzzle & Strategy Kits</li>
+              <li>Direct Mentorship from Titled Coaches</li>
+            </ul>
+            <div class="flex justify-between items-center text-gray-700 font-semibold flex-shrink-0 mt-auto border-t pt-3">
+              <div class="flex flex-col text-left">
+                  <span class="text-lg text-gray-800 font-bold">₹ 4,999 / $75</span>
+                  <span class="text-sm text-gray-500">Next batch: to be announced</span>
+              </div>
+              <a href="https://wa.me/919823029262?text=Hi%2C%20please%20notify%20me%20about%20the%20next%20summer%20chess%20batch" target="_blank" rel="noopener noreferrer" class="bg-orange-500 text-white px-4 py-2 rounded hover:bg-orange-600 transition shadow-md whitespace-nowrap">Notify Me</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition course-card-hover flex flex-col">
+          <div class="course-card-content flex flex-col h-full">
+            <div class="flex items-center mb-4 flex-shrink-0">
+              <span class="bg-green-100 text-green-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full">Beginner</span>
+              <span class="bg-indigo-100 text-indigo-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Tactics</span>
+            </div>
+            
+            <h3 class="text-2xl font-bold text-indigo-700 mb-1 flex-shrink-0">Beginner's Blueprint: Master the Basics</h3>
+            <div class="rv-summary-slot" data-rv-summary="course:beginners-blueprint" data-rv-title="Beginner&#39;s Blueprint"></div>
+<script>window.CD_RV = window.CD_RV || { wa: "919823029262" };</script>
+<script type="module" src="/assets/js/reviews.js?v=1793258980"></script>
+
+            
+            <p class="text-gray-600 mb-4 course-description flex-grow">
+              Start your chess journey right! Learn piece movements, basic checkmates, forks, pins, and essential opening principles. Perfect for absolute beginners.
+            </p>
+            <ul class="list-disc list-inside text-sm text-gray-500 mb-4 course-features flex-grow">
+              <li>Understanding the Chessboard</li>
+              <li>Basic Tactical Motifs</li>
+              <li>Fundamental Mates (King & Rook, King & Queen)</li>
+              <li>Introduction to Opening Strategy</li>
+            </ul>
+            <div class="flex justify-between items-center text-gray-700 font-semibold flex-shrink-0 mt-auto border-t pt-3">
+              <div class="flex flex-col text-left">
+                  <span class="text-lg text-gray-800 font-bold">₹ 7,999 / $120</span>
+                  <span class="text-sm text-gray-500">Duration: 8 Weeks</span>
+              </div>
+              <a href="/#inquiry" class="bg-indigo-600 text-white px-4 py-2 rounded hover:bg-indigo-700 transition">Inquire</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition course-card-hover flex flex-col">
+          <div class="course-card-content flex flex-col h-full">
+            <div class="flex items-center mb-4 flex-shrink-0">
+              <span class="bg-blue-100 text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full">Advanced Beginner</span>
+              <span class="bg-orange-100 text-orange-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Foundations</span>
+            </div>
+            <h3 class="text-2xl font-bold text-teal-700 mb-1 flex-shrink-0">Beyond the Basics: Solidifying Your Foundation</h3>
+            <div class="rv-summary-slot" data-rv-summary="course:beyond-the-basics" data-rv-title="Beyond the Basics"></div>
+<script>window.CD_RV = window.CD_RV || { wa: "919823029262" };</script>
+<script type="module" src="/assets/js/reviews.js?v=1793258980"></script>
+
+            <p class="text-gray-600 mb-4 course-description flex-grow">
+              You know the rules, now learn to play! This course focuses on developing sound strategic thinking, improving tactical vision, and understanding simple endgames.
+            </p>
+            <ul class="list-disc list-inside text-sm text-gray-500 mb-4 course-features flex-grow">
+              <li>Developing Pieces Efficiently</li>
+              <li>Basic Positional Concepts</li>
+              <li>Common Tactical Patterns</li>
+              <li>Simple Endgame Techniques (Pawn, King & Queen vs King)</li>
+            </ul>
+            <div class="flex justify-between items-center text-gray-700 font-semibold flex-shrink-0 mt-auto border-t pt-3">
+              <div class="flex flex-col text-left">
+                  <span class="text-lg text-gray-800 font-bold">₹ 10,999 / $165</span>
+                  <span class="text-sm text-gray-500">Duration: 10 Weeks</span>
+              </div>
+              <a href="/#inquiry" class="bg-indigo-600 text-white px-4 py-2 rounded hover:bg-indigo-700 transition">Inquire</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition course-card-hover flex flex-col">
+          <div class="course-card-content flex flex-col h-full">
+            <div class="flex items-center mb-4 flex-shrink-0">
+              <span class="bg-yellow-100 text-yellow-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full">Intermediate</span>
+              <span class="bg-purple-100 text-purple-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Strategy</span>
+            </div>
+            <h3 class="text-2xl font-bold text-purple-700 mb-1 flex-shrink-0">Intermediate Positional Play: Beyond Tactics</h3>
+            <div class="rv-summary-slot" data-rv-summary="course:intermediate-positional-play" data-rv-title="Intermediate Positional Play"></div>
+<script>window.CD_RV = window.CD_RV || { wa: "919823029262" };</script>
+<script type="module" src="/assets/js/reviews.js?v=1793258980"></script>
+
+            <p class="text-gray-600 mb-4 course-description flex-grow">
+              Move beyond simple tactics and delve into the art of positional chess. Learn about pawn structures, weak squares, piece activity, and prophylactic thinking.
+            </p>
+            <ul class="list-disc list-inside text-sm text-gray-500 mb-4 course-features flex-grow">
+              <li>Pawn Structures & Breaks</li>
+              <li>Understanding Piece Value & Activity</li>
+              <li>Evaluating Positions</li>
+              <li>Converting Small Advantages</li>
+            </ul>
+            <div class="flex justify-between items-center text-gray-700 font-semibold flex-shrink-0 mt-auto border-t pt-3">
+              <div class="flex flex-col text-left">
+                  <span class="text-lg text-gray-800 font-bold">₹ 14,999 / $225</span>
+                  <span class="text-sm text-gray-500">Duration: 12 Weeks</span>
+              </div>
+              <a href="/#inquiry" class="bg-indigo-600 text-white px-4 py-2 rounded hover:bg-indigo-700 transition">Inquire</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition course-card-hover flex flex-col">
+          <div class="course-card-content flex flex-col h-full">
+            <div class="flex items-center mb-4 flex-shrink-0">
+              <span class="bg-red-100 text-red-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full">Advanced</span>
+              <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Openings</span>
+            </div>
+            <h3 class="text-2xl font-bold text-blue-700 mb-1 flex-shrink-0">Advanced Opening Repertoire: Dominate from Move 1</h3>
+            <div class="rv-summary-slot" data-rv-summary="course:advanced-opening-repertoire" data-rv-title="Advanced Opening Repertoire"></div>
+<script>window.CD_RV = window.CD_RV || { wa: "919823029262" };</script>
+<script type="module" src="/assets/js/reviews.js?v=1793258980"></script>
+
+            <p class="text-gray-600 mb-4 course-description flex-grow">
+              Build a robust and dynamic opening repertoire for both White and Black. Understand the ideas behind the moves and gain a significant edge early in the game.
+            </p>
+            <ul class="list-disc list-inside text-sm text-gray-500 mb-4 course-features flex-grow">
+              <li>Deep Dive into Main Lines</li>
+              <li>Understanding Transpositions</li>
+              <li>Preparing Novelties & Surprises</li>
+              <li>Analyzing Your Opening Play</li>
+            </ul>
+            <div class="flex justify-between items-center text-gray-700 font-semibold flex-shrink-0 mt-auto border-t pt-3">
+              <div class="flex flex-col text-left">
+                  <span class="text-lg text-gray-800 font-bold">₹ 15,999 / $240</span>
+                  <span class="text-sm text-gray-500">Duration: 10 Weeks</span>
+              </div>
+              <a href="/#inquiry" class="bg-indigo-600 text-white px-4 py-2 rounded hover:bg-indigo-700 transition">Inquire</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition course-card-hover flex flex-col">
+          <div class="course-card-content flex flex-col h-full">
+            <div class="flex items-center mb-4 flex-shrink-0">
+              <span class="bg-yellow-100 text-yellow-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full">Intermediate</span>
+              <span class="bg-green-100 text-green-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Endgames</span>
+            </div>
+            <h3 class="text-2xl font-bold text-green-700 mb-1 flex-shrink-0">Endgame Mastery: The Art of Conversion</h3>
+            <div class="rv-summary-slot" data-rv-summary="course:endgame-mastery" data-rv-title="Endgame Mastery"></div>
+<script>window.CD_RV = window.CD_RV || { wa: "919823029262" };</script>
+<script type="module" src="/assets/js/reviews.js?v=1793258980"></script>
+
+            <p class="text-gray-600 mb-4 course-description flex-grow">
+              Learn the critical techniques to convert advantages in the endgame. Study pawn endgames, rook endgames, and advanced king activity concepts.
+            </p>
+            <ul class="list-disc list-inside text-sm text-gray-500 mb-4 course-features flex-grow">
+              <li>King and Pawn Endgames</li>
+              <li>Rook Endgames Principles</li>
+              <li>Minor Piece Endgames</li>
+              <li>Practical Endgame Play</li>
+            </ul>
+            <div class="flex justify-between items-center text-gray-700 font-semibold flex-shrink-0 mt-auto border-t pt-3">
+              <div class="flex flex-col text-left">
+                  <span class="text-lg text-gray-800 font-bold">₹ 6,499 / $99</span>
+                  <span class="text-sm text-gray-500">Duration: 6 Weeks</span>
+              </div>
+              <a href="/#inquiry" class="bg-indigo-600 text-white px-4 py-2 rounded hover:bg-indigo-700 transition">Inquire</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition course-card-hover flex flex-col">
+          <div class="course-card-content flex flex-col h-full">
+            <div class="flex items-center mb-4 flex-shrink-0">
+              <span class="bg-red-100 text-red-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full">Advanced</span>
+              <span class="bg-pink-100 text-pink-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Psychology</span>
+            </div>
+            <h3 class="text-2xl font-bold text-pink-700 mb-1 flex-shrink-0">Chess Psychology: Master Your Mind</h3>
+            <div class="rv-summary-slot" data-rv-summary="course:chess-psychology" data-rv-title="Chess Psychology"></div>
+<script>window.CD_RV = window.CD_RV || { wa: "919823029262" };</script>
+<script type="module" src="/assets/js/reviews.js?v=1793258980"></script>
+
+            <p class="text-gray-600 mb-4 course-description flex-grow">
+              Develop mental resilience, improve concentration, and learn to handle pressure in crucial moments. Essential for competitive players.
+            </p>
+            <ul class="list-disc list-inside text-sm text-gray-500 mb-4 course-features flex-grow">
+              <li>Dealing with Tilt & Blunders</li>
+              <li>Concentration & Focus Techniques</li>
+              <li>Time Management Under Pressure</li>
+              <li>Understanding Opponent's Psychology</li>
+            </ul>
+            <div class="flex justify-between items-center text-gray-700 font-semibold flex-shrink-0 mt-auto border-t pt-3">
+              <div class="flex flex-col text-left">
+                  <span class="text-lg text-gray-800 font-bold">₹ 5,199 / $79</span>
+                  <span class="text-sm text-gray-500">Duration: 4 Weeks</span>
+              </div>
+              <a href="/#inquiry" class="bg-indigo-600 text-white px-4 py-2 rounded hover:bg-indigo-700 transition">Inquire</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition course-card-hover flex flex-col">
+          <div class="course-card-content flex flex-col h-full">
+            <div class="flex items-center mb-4 flex-shrink-0">
+              <span class="bg-teal-100 text-teal-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full">Beginner</span>
+              <span class="bg-gray-100 text-gray-600 text-xs font-semibold px-2.5 py-0.5 rounded-full">Soft Skills</span>
+              <span class="bg-purple-100 text-purple-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Corporate</span>
+            </div>
+            <h3 class="text-2xl font-bold text-teal-700 mb-1 flex-shrink-0">Chess for Corporate Professionals</h3>
+            <div class="rv-summary-slot" data-rv-summary="course:corporate-professionals" data-rv-title="Chess for Corporate Professionals"></div>
+<script>window.CD_RV = window.CD_RV || { wa: "919823029262" };</script>
+<script type="module" src="/assets/js/reviews.js?v=1793258980"></script>
+
+            <p class="text-gray-600 mb-4 course-description flex-grow">
+              Enhance strategic thinking, problem-solving, and decision-making skills applicable to the corporate world. Learn the fundamentals of chess in a professional context.
+            </p>
+            <ul class="list-disc list-inside text-sm text-gray-500 mb-4 course-features flex-grow">
+              <li>Strategic Planning & Execution</li>
+              <li>Decision Making Under Pressure</li>
+              <li>Logical Thinking & Problem Solving</li>
+              <li>Team Building through Chess (Optional)</li>
+            </ul>
+            <div class="flex justify-between items-center text-gray-700 font-semibold flex-shrink-0 mt-auto border-t pt-3">
+              <div class="flex flex-col text-left">
+                  <span class="text-lg text-gray-800 font-bold">₹ 11,999 / $180</span>
+                  <span class="text-sm text-gray-500">Duration: 6 Weeks</span>
+              </div>
+              <a href="/#inquiry" class="bg-indigo-600 text-white px-4 py-2 rounded hover:bg-indigo-700 transition">Inquire</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition course-card-hover flex flex-col">
+          <div class="course-card-content flex flex-col h-full">
+            <div class="flex items-center mb-4 flex-shrink-0">
+              <span class="bg-indigo-100 text-indigo-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full">Kids</span>
+              <span class="bg-pink-100 text-pink-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Youth</span>
+            </div>
+            <h3 class="text-2xl font-bold text-indigo-700 mb-1 flex-shrink-0">Scholastic Chess: Nurturing Young Minds</h3>
+            <div class="rv-summary-slot" data-rv-summary="course:scholastic-chess" data-rv-title="Scholastic Chess"></div>
+<script>window.CD_RV = window.CD_RV || { wa: "919823029262" };</script>
+<script type="module" src="/assets/js/reviews.js?v=1793258980"></script>
+
+            <p class="text-gray-600 mb-4 course-description flex-grow">
+              A fun and engaging program designed specifically for children and teenagers to develop critical thinking, patience, and sportsmanship through chess.
+            </p>
+            <ul class="list-disc list-inside text-sm text-gray-500 mb-4 course-features flex-grow">
+              <li>Interactive Lessons & Puzzles</li>
+              <li>Building Concentration & Focus</li>
+              <li>Introduction to Tournament Play</li>
+              <li>Fun Chess Variants</li>
+            </ul>
+            <div class="flex justify-between items-center text-gray-700 font-semibold flex-shrink-0 mt-auto border-t pt-3">
+              <div class="flex flex-col text-left">
+                  <span class="text-lg text-gray-800 font-bold">₹ 9,999 / $150</span>
+                  <span class="text-sm text-gray-500">Duration: Varies</span>
+              </div>
+              <a href="/#inquiry" class="bg-indigo-600 text-white px-4 py-2 rounded hover:bg-indigo-700 transition">Inquire</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition course-card-hover flex flex-col">
+          <div class="course-card-content flex flex-col h-full">
+            <div class="flex items-center mb-4 flex-shrink-0">
+              <span class="bg-purple-100 text-purple-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full">Personalized</span>
+              <span class="bg-yellow-100 text-yellow-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">All Levels</span>
+            </div>
+            <h3 class="text-2xl font-bold text-purple-700 mb-1 flex-shrink-0">Private Coaching & Game Analysis</h3>
+            <div class="rv-summary-slot" data-rv-summary="course:private-coaching" data-rv-title="Private Coaching &amp; Game Analysis"></div>
+<script>window.CD_RV = window.CD_RV || { wa: "919823029262" };</script>
+<script type="module" src="/assets/js/reviews.js?v=1793258980"></script>
+
+            <p class="text-gray-600 mb-4 course-description flex-grow">
+              Receive one-on-one tailored coaching sessions and in-depth analysis of your games to identify strengths, weaknesses, and a personalized improvement plan.
+            </p>
+            <ul class="list-disc list-inside text-sm text-gray-500 mb-4 course-features flex-grow">
+              <li>Individualized Curriculum</li>
+              <li>Detailed Game Review</li>
+              <li>Personalized Drills & Homework</li>
+              <li>Flexible Scheduling</li>
+            </ul>
+            <div class="flex justify-between items-center text-gray-700 font-semibold flex-shrink-0 mt-auto border-t pt-3">
+              <div class="flex flex-col text-left">
+                  <span class="text-lg text-gray-800 font-bold">₹ 19,999 / $299</span>
+                  <span class="text-sm text-gray-500">Duration: Custom</span>
+              </div>
+              <a href="/#inquiry" class="bg-indigo-600 text-white px-4 py-2 rounded hover:bg-indigo-700 transition">Inquire</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition course-card-hover flex flex-col">
+          <div class="course-card-content flex flex-col h-full">
+            <div class="flex items-center mb-4 flex-shrink-0">
+              <span class="bg-blue-100 text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full">Competitive</span>
+              <span class="bg-red-100 text-red-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Advanced</span>
+            </div>
+            <h3 class="text-2xl font-bold text-blue-700 mb-1 flex-shrink-0">Tournament Preparation & Mindset</h3>
+            <div class="rv-summary-slot" data-rv-summary="course:tournament-preparation" data-rv-title="Tournament Preparation &amp; Mindset"></div>
+<script>window.CD_RV = window.CD_RV || { wa: "919823029262" };</script>
+<script type="module" src="/assets/js/reviews.js?v=1793258980"></script>
+
+            <p class="text-gray-600 mb-4 course-description flex-grow">
+              Elevate your tournament performance. This course covers pregame routines, in-game decision making, post-game analysis, and mental fortitude for competitive play.
+            </p>
+            <ul class="list-disc list-inside text-sm text-gray-500 mb-4 course-features flex-grow">
+              <li>Opening Preparation Strategies</li>
+              <li>Mid-Game Calculation Techniques</li>
+              <li>Endgame Conversion in Pressure</li>
+              <li>Psychological Preparedness</li>
+            </ul>
+            <div class="flex justify-between items-center text-gray-700 font-semibold flex-shrink-0 mt-auto border-t pt-3">
+              <div class="flex flex-col text-left">
+                  <span class="text-lg text-gray-800 font-bold">₹ 16,999 / $255</span>
+                  <span class="text-sm text-gray-500">Duration: 8 Weeks</span>
+              </div>
+              <a href="/#inquiry" class="bg-indigo-600 text-white px-4 py-2 rounded hover:bg-indigo-700 transition">Inquire</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition course-card-hover flex flex-col">
+          <div class="course-card-content flex flex-col h-full">
+            <div class="flex items-center mb-4 flex-shrink-0">
+              <span class="bg-orange-100 text-orange-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full">Speed Chess</span>
+              <span class="bg-gray-100 text-gray-600 text-xs font-semibold px-2.5 py-0.5 rounded-full">Tactics</span>
+            </div>
+            <h3 class="text-2xl font-bold text-orange-700 mb-1 flex-shrink-0">Blitz & Rapid Play Mastery</h3>
+            <div class="rv-summary-slot" data-rv-summary="course:blitz-rapid" data-rv-title="Blitz &amp; Rapid Play Mastery"></div>
+<script>window.CD_RV = window.CD_RV || { wa: "919823029262" };</script>
+<script type="module" src="/assets/js/reviews.js?v=1793258980"></script>
+
+            <p class="text-gray-600 mb-4 course-description flex-grow">
+              Improve your performance in fast time controls. Focus on quick pattern recognition, time management, and practical decision-making under pressure.
+            </p>
+            <ul class="list-disc list-inside text-sm text-gray-500 mb-4 course-features flex-grow">
+              <li>Time Scramble Techniques</li>
+              <li>Blunder Prevention in Blitz</li>
+              <li>Opening Principles for Rapid Play</li>
+              <li>Psychological Traps & Tricks</li>
+            </ul>
+            <div class="flex justify-between items-center text-gray-700 font-semibold flex-shrink-0 mt-auto border-t pt-3">
+              <div class="flex flex-col text-left">
+                  <span class="text-lg text-gray-800 font-bold">₹ 5,499 / $85</span>
+                  <span class="text-sm text-gray-500">Duration: 5 Weeks</span>
+              </div>
+              <a href="/#inquiry" class="bg-indigo-600 text-white px-4 py-2 rounded hover:bg-indigo-700 transition">Inquire</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition course-card-hover flex flex-col">
+          <div class="course-card-content flex flex-col h-full">
+            <div class="flex items-center mb-4 flex-shrink-0">
+              <span class="bg-purple-100 text-purple-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full">Advanced</span>
+              <span class="bg-yellow-100 text-yellow-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Tactics</span>
+            </div>
+            <h3 class="text-2xl font-bold text-purple-700 mb-1 flex-shrink-0">Advanced Tactics & Combinations</h3>
+            <div class="rv-summary-slot" data-rv-summary="course:advanced-tactics" data-rv-title="Advanced Tactics &amp; Combinations"></div>
+<script>window.CD_RV = window.CD_RV || { wa: "919823029262" };</script>
+<script type="module" src="/assets/js/reviews.js?v=1793258980"></script>
+
+            <p class="text-gray-600 mb-4 course-description flex-grow">
+              Dive deep into complex tactical motifs, sacrifice patterns, and multi-move combinations. Sharpen your calculation and visualization skills.
+            </p>
+            <ul class="list-disc list-inside text-sm text-gray-500 mb-4 course-features flex-grow">
+              <li>Deep Calculation Techniques</li>
+              <li>Advanced Sacrifices & Attacks</li>
+              <li>Zugzwang & Prophylaxis</li>
+              <li>Mastering Famous Combinations</li>
+            </ul>
+            <div class="flex justify-between items-center text-gray-700 font-semibold flex-shrink-0 mt-auto border-t pt-3">
+              <div class="flex flex-col text-left">
+                  <span class="text-lg text-gray-800 font-bold">₹ 8,999 / $135</span>
+                  <span class="text-sm text-gray-500">Duration: 7 Weeks</span>
+              </div>
+              <a href="/#inquiry" class="bg-indigo-600 text-white px-4 py-2 rounded hover:bg-indigo-700 transition">Inquire</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <p class="text-center text-gray-600 mt-12 text-lg">
+        Can't find what you're looking for? <a href="/#inquiry" class="text-indigo-600 hover:underline font-semibold">Contact us</a> for custom training plans!
+      </p>
+
+    </div>
+  </section>
+  
+<section id="accessories" class="py-16 bg-white px-4 fade-in-content">
+    <div class="max-w-6xl mx-auto">
+        <h2 class="text-3xl font-bold text-center text-indigo-700 mb-4">Essential Chess Accessories 🛒</h2>
+        <p class="text-lg text-gray-600 text-center mb-10">Get the FIDE-approved gear used by our coaches for tournament preparation and play.</p>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+            <div class="bg-gray-50 rounded-lg shadow-lg p-6 text-center transition-all duration-300 hover:shadow-xl hover:scale-[1.02] flex flex-col h-full">
+                <img loading="lazy" decoding="async" src="https://github.com/Sourabhjoshi1/Chess-Depth/blob/main/favicon/f482bec9-8c5e-486e-ac66-92cbb4e5400d.png?raw=true" alt="FIDE Tournament Chess Set" class="w-full h-48 object-contain mx-auto mb-4 rounded-md flex-shrink-0">
+                
+                <h3 class="text-2xl font-bold text-gray-800 mb-2 flex-shrink-0">Official FIDE Tournament Chess Set (18")</h3>
+                
+                <div class="text-lg mb-4 flex-shrink-0">
+                    <span class="text-red-600 font-bold mr-3">₹ 799</span>
+                    <span class="text-gray-500 line-through">₹ 1299</span>
+                    <span class="text-green-700 text-sm ml-2">(38% OFF)</span>
+                </div>
+                
+                <p class="text-sm text-gray-600 mb-4 flex-grow">
+                    Official 18" x 18" vinyl mat and triple-weighted plastic pieces. Perfect for home study and tournament preparation.
+                </p>
+                
+                <a href="/contact/" class="w-full bg-indigo-600 text-white font-semibold py-3 rounded-lg hover:bg-indigo-700 transition flex items-center justify-center gap-2 mt-auto flex-shrink-0">
+                    <i class="fas fa-shopping-cart"></i> Order / Inquire
+                </a>
+            </div>
+
+            <div class="bg-gray-50 rounded-lg shadow-lg p-6 text-center transition-all duration-300 hover:shadow-xl hover:scale-[1.02] flex flex-col h-full">
+                <img loading="lazy" decoding="async" src="https://github.com/Sourabhjoshi1/Chess-Depth/blob/main/favicon/c9462090-aafd-4460-bfbd-6240608cb211.png?raw=true" alt="FIDE Digital Clock" class="w-full h-48 object-contain mx-auto mb-4 rounded-md flex-shrink-0">
+                
+                <h3 class="text-2xl font-bold text-gray-800 mb-2 flex-shrink-0">FIDE Tournament Digital Clock</h3>
+                
+                <div class="text-lg mb-4 flex-shrink-0">
+                    <span class="text-red-600 font-bold mr-3">₹ 3999</span>
+                    <span class="text-gray-500 line-through">₹ 4500</span>
+                    <span class="text-green-700 text-sm ml-2">(Save ₹501)</span>
+                </div>
+                
+                <p class="text-sm text-gray-600 mb-4 flex-grow">
+                    Essential digital clock compliant with all FIDE time controls, including delay and increment modes.
+                </p>
+                
+                <a href="/contact/" class="w-full bg-indigo-600 text-white font-semibold py-3 rounded-lg hover:bg-indigo-700 transition flex items-center justify-center gap-2 mt-auto flex-shrink-0">
+                    <i class="fas fa-shopping-cart"></i> Order / Inquire
+                </a>
+            </div>
+            
+            <div class="bg-gray-50 rounded-lg shadow-lg p-6 text-center transition-all duration-300 hover:shadow-xl hover:scale-[1.02] flex flex-col h-full">
+                <img loading="lazy" decoding="async" src="https://i.ebayimg.com/images/g/1LYAAOSwDF1mIuik/s-l400.jpg" alt="Premium Chess Book" class="w-full h-48 object-contain mx-auto mb-4 rounded-md flex-shrink-0">
+                
+                <h3 class="text-2xl font-bold text-gray-800 mb-2 flex-shrink-0">Complete Book of Chess Strategy</h3>
+                
+                <div class="text-lg mb-4 flex-shrink-0">
+                    <span class="text-gray-800 font-bold">₹ 850</span>
+                </div>
+                
+                <p class="text-sm text-gray-600 mb-4 flex-grow">
+                    A selection of high-level puzzle and analysis books chosen by our Grandmaster coach.
+                </p>
+                
+                <a href="/contact/" class="w-full bg-indigo-600 text-white font-semibold py-3 rounded-lg hover:bg-indigo-700 transition flex items-center justify-center gap-2 mt-auto flex-shrink-0">
+                    <i class="fas fa-shopping-cart"></i> Order / Inquire
+                </a>
+            </div>
+
+        </div>
+        <p class="text-center text-gray-600 mt-12 text-lg">
+            For bulk orders or specific accessory inquiries, please <a href="/contact/" class="text-indigo-600 hover:underline font-semibold">Contact Us Directly</a>.
+        </p>
+    </div>
+</section>
+
+  
+
+
+  <script>
+    // JavaScript for the Hamburger Menu and general functionality
+    document.addEventListener('DOMContentLoaded', () => {
+      const menuToggle = document.getElementById('menu-toggle');
+      const mobileMenu = document.getElementById('mobile-menu');
+
+      if (menuToggle && mobileMenu) {
+          menuToggle.addEventListener('click', () => {
+              mobileMenu.classList.toggle('hidden');
+              mobileMenu.classList.toggle('-translate-y-full');
+              const menuIcon = menuToggle.querySelector('svg');
+              if (!mobileMenu.classList.contains('hidden')) {
+                  menuIcon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>'; // X icon
+              } else {
+                  menuIcon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>'; // Hamburger icon
+              }
+          });
+
+          const mobileLinks = mobileMenu.querySelectorAll('a');
+          mobileLinks.forEach(link => {
+              link.addEventListener('click', () => {
+                  mobileMenu.classList.add('hidden');
+                  mobileMenu.classList.add('-translate-y-full');
+                  // Reset icon back to hamburger
+                  menuToggle.querySelector('svg').innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>';
+              });
+          });
+      }
+
+      // --- Simple Fade-in for Content Sections ---
+      const contentSections = document.querySelectorAll('.fade-in-content');
+      contentSections.forEach(section => {
+        section.style.animation = 'fadeIn 1s ease-out forwards';
+        section.style.opacity = '1';
+      });
+      
+      // --- Smooth Scroll Logic ---
+      document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+          const targetId = this.getAttribute('href');
+          if (targetId.startsWith("#")) { 
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+              const headerOffset = document.getElementById('main-header') ? document.getElementById('main-header').offsetHeight : 0;
+              const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
+              const offsetPosition = elementPosition - headerOffset - 20;
+
+              window.scrollTo({
+                top: offsetPosition,
+                behavior: "smooth"
+              });
+            }
+          } else {
+            window.location.href = targetId; 
+          }
+        });
+      });
+      
+      // --- Sticky Header Shadow Logic (You need to move this JS back to index.html if you want it on scroll) ---
+      const header = document.getElementById('main-header');
+      window.addEventListener('scroll', () => {
+          if (window.scrollY > 50) {
+              header.classList.add('shadow-xl');
+          } else {
+              header.classList.remove('shadow-xl');
+          }
+      });
+    }); 
+  </script>
+
+
+  
+<footer class="cd-footer bg-gray-800 text-gray-300 pt-10 pb-6 mt-10">
+    <div class="max-w-6xl mx-auto px-4 grid gap-8 md:grid-cols-4 text-center md:text-left">
+      <div>
+        <p class="text-2xl font-bold text-white mb-2">♟️ ChessDepth Academy</p>
+        <p class="text-sm text-gray-400">Structured online chess coaching for beginners to tournament players.</p>
+        <div class="mt-4 flex justify-center md:justify-start space-x-5 text-2xl">
+          <a href="https://www.instagram.com/chessdepth/" target="_blank" rel="noopener noreferrer" aria-label="ChessDepth on Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.facebook.com/chessdepthacademy/" target="_blank" rel="noopener noreferrer" aria-label="ChessDepth on Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://chat.whatsapp.com/FlMZyNdMU9SEyJlKKclmon" target="_blank" rel="noopener noreferrer" aria-label="ChessDepth WhatsApp community" title="WhatsApp community"><i class="fab fa-whatsapp"></i></a>
+          <a href="https://lichess.org/team/chessdepth" target="_blank" rel="noopener noreferrer" aria-label="ChessDepth team on Lichess" title="Lichess team"><i class="fas fa-chess-knight"></i></a>
+          <a href="https://www.chess.com/club/chessdepth" target="_blank" rel="noopener noreferrer" aria-label="ChessDepth club on Chess.com" title="Chess.com club"><i class="fas fa-chess-pawn"></i></a>
+        </div>
+      </div>
+      <div>
+        <p class="font-semibold text-white mb-3">Explore</p>
+        <ul class="space-y-1 text-sm">
+          <li><a href="/courses/">Courses &amp; Fees</a></li>
+          <li><a href="/coaches/">Our Coaches</a></li>
+          <li><a href="/resources/">Free Resources</a></li>
+          <li><a href="/shop/">Shop</a></li>
+          <li><a href="/lab/">Chess Lab</a></li>
+          <li><a href="/careers/">Careers</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="font-semibold text-white mb-3">Community</p>
+        <ul class="space-y-1 text-sm">
+          <li><i class="fab fa-whatsapp mr-2"></i><a href="https://chat.whatsapp.com/FlMZyNdMU9SEyJlKKclmon" target="_blank" rel="noopener noreferrer">WhatsApp community</a></li>
+          <li><i class="fas fa-chess-knight mr-2"></i><a href="https://lichess.org/team/chessdepth" target="_blank" rel="noopener noreferrer">Lichess team</a></li>
+          <li><i class="fas fa-chess-pawn mr-2"></i><a href="https://www.chess.com/club/chessdepth" target="_blank" rel="noopener noreferrer">Chess.com club</a></li>
+          <li><i class="fab fa-instagram mr-2"></i><a href="https://www.instagram.com/chessdepth/" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="font-semibold text-white mb-3">Get in touch</p>
+        <ul class="space-y-1 text-sm">
+          <li><i class="fas fa-phone-alt mr-2"></i><a href="tel:+919823029262">+91 98230 29262</a></li>
+          <li><i class="fab fa-whatsapp mr-2"></i><a href="https://wa.me/919823029262?text=Hi%2C%20I%20would%20like%20to%20book%20a%20free%20demo%20class" target="_blank" rel="noopener noreferrer">WhatsApp us</a></li>
+          <li><i class="fas fa-envelope mr-2"></i><a href="mailto:info@chessdepth.in">info@chessdepth.in</a></li>
+          <li><i class="fas fa-map-marker-alt mr-2"></i>Bhopal, Madhya Pradesh, India</li>
+        </ul>
+      </div>
+    </div>
+    <div class="max-w-6xl mx-auto px-4 mt-8 pt-4 border-t border-gray-700 flex flex-col sm:flex-row justify-between text-xs text-gray-400 gap-2 text-center">
+      <p>&copy; <span data-year>2026</span> ChessDepth Academy. All rights reserved.</p>
+      <p class="cd-legal"><a href="/terms/">Terms</a> · <a href="/refunds/">Refunds &amp; cancellations</a> · <a href="/privacy/">Privacy policy</a></p>
+    </div>
+  </footer>
+  <a href="https://wa.me/919823029262?text=Hi%2C%20I%20would%20like%20to%20book%20a%20free%20demo%20class" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Chat with ChessDepth on WhatsApp" title="Chat with us on WhatsApp"><i class="fab fa-whatsapp text-2xl"></i></a>
+
+  <script src="/assets/js/site.js?v=1793258980" defer></script>
+</body>
+</html>
