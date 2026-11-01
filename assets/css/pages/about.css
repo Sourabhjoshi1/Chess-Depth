@@ -20,3 +20,23 @@ details.ab-faq[open] summary:after { content: '\2212'; }
 html.dark .ab-live-reviews { background: #162032; }
 html.dark .ab-live-reviews h3 { color: #f1f5f9; }
 html.dark .ab-live-reviews > p { color: #a8b3c4; }
+
+/* Technology & ChessDepth AI */
+.ab-ai { background: linear-gradient(135deg, #312e81 0%, #4f46e5 55%, #7c3aed 100%); color: #fff; box-shadow: 0 20px 40px -20px rgba(79,70,229,.6); }
+.ab-ai h3 { color: #fff; }
+.ab-ai-tag { display: inline-flex; align-items: center; gap: .5rem; font-size: .72rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; background: rgba(255,255,255,.14); border: 1px solid rgba(255,255,255,.3); border-radius: 999px; padding: .3rem .8rem; }
+.ab-ai-tag span { width: .5rem; height: .5rem; border-radius: 50%; background: #fbbf24; }
+.ab-ai-text { color: #e0e7ff; }
+.ab-ai-list { list-style: none; padding: 0; display: grid; gap: .6rem; }
+.ab-ai-list li { display: flex; gap: .7rem; align-items: flex-start; color: #eef2ff; font-size: .95rem; line-height: 1.5; }
+.ab-ai-list i { color: #fbbf24; width: 1.1rem; margin-top: .25rem; flex-shrink: 0; text-align: center; }
+.ab-ai-btn { display: inline-flex; align-items: center; gap: .5rem; background: #fff; color: #3730a3; font-weight: 700; padding: .7rem 1.3rem; border-radius: .6rem; transition: transform .15s; }
+.ab-ai-btn:hover { transform: translateY(-1px); }
+.ab-ai-link { display: inline-flex; align-items: center; gap: .4rem; color: #fff; font-weight: 600; padding: .7rem .4rem; }
+.ab-ai-link:hover { text-decoration: underline; }
+.ab-ai-shot { width: 100%; height: auto; border-radius: .75rem; background: #fff; box-shadow: 0 12px 30px rgba(0,0,0,.3); }
+.ab-ai-next { font-size: .85rem; color: #c7d2fe; }
+.ab-ai-next i { margin-right: .35rem; }
+.ab-tech { display: block; transition: transform .15s, box-shadow .15s; }
+.ab-tech:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0,0,0,.1); }
+html.dark .ab-ai { background: linear-gradient(135deg, #1e1b4b 0%, #3730a3 55%, #5b21b6 100%); }
