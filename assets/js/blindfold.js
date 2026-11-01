@@ -68,7 +68,41 @@ function refreshBests() {
   $("mv-best").textContent = store.get(`moves-${level}`);
   $("pz-best").textContent = store.get(`puzzles-${level}`);
 }
-function saveBest(key, value) { const k = `${key}-${level}`; if (value > store.get(k)) { store.set(k, value); refreshBests(); return true; } return false; }
+function saveBest(key, value) { const k = `${key}-${level}`; if (value > store.get(k)) { store.set(k, value); refreshBests(); sync(); return true; } return false; }
+// every finished round is counted, so the Student Area (and coaches) can see how much a student trains
+function roundDone(d) { store.set(`rounds-${d}`, store.get(`rounds-${d}`) + 1); store.set("last", Date.now()); sync(); }
+
+// ---------- save to the student's account (Student Area), when signed in ----------
+const DRILLS = ["colours", "knight", "memory", "moves", "puzzles"], LEVELS = ["easy", "medium", "hard"];
+let cloud = null, syncT = null;
+function snapshot() {
+  const o = {}; DRILLS.forEach((d) => { LEVELS.forEach((l) => { o[`${d}-${l}`] = store.get(`${d}-${l}`); }); o[`rounds-${d}`] = store.get(`rounds-${d}`); });
+  o.last = store.get("last", 0); return o;
+}
+function sync() { if (!cloud) return; clearTimeout(syncT); syncT = setTimeout(() => cloud(snapshot()), 1200); }
+(async () => {
+  const acctEl = $("bf-acct");
+  try {
+    const { firebaseConfig } = await import("./firebase-config.js");
+    const V = "10.12.2";
+    const [{ initializeApp }, { getAuth, onAuthStateChanged }, { getFirestore, doc, getDoc, setDoc, serverTimestamp }] = await Promise.all([
+      import(`https://www.gstatic.com/firebasejs/${V}/firebase-app.js`), import(`https://www.gstatic.com/firebasejs/${V}/firebase-auth.js`), import(`https://www.gstatic.com/firebasejs/${V}/firebase-firestore.js`)]);
+    const app = initializeApp(firebaseConfig), auth = getAuth(app), db = getFirestore(app);
+    onAuthStateChanged(auth, async (user) => {
+      try { if (window.cdAccount) window.cdAccount.set(user); } catch (e) { /* header chip only */ }
+      if (!user) { cloud = null; acctEl.innerHTML = `<i class="fas fa-user-circle"></i> <a href="/student/">Sign in</a> to save your scores to your Student Area`; return; }
+      const ref = doc(db, "students", user.uid);
+      try {   // take the better of this device and the account, so scores follow the student between devices
+        const snap = await getDoc(ref); const remote = (snap.exists() && snap.data().blindfold) || {};
+        Object.entries(remote).forEach(([k, v]) => { if (typeof v === "number" && v > store.get(k)) store.set(k, v); });
+        refreshBests();
+      } catch (e) { /* offline: keep local scores */ }
+      cloud = (o) => setDoc(ref, { blindfold: { ...o, updatedAt: serverTimestamp() } }, { merge: true }).catch(() => {});
+      sync();
+      acctEl.innerHTML = `<i class="fas fa-check-circle"></i> Saving to <a href="/student/#blindfold">${(user.displayName || "your").split(" ")[0]}'s Student Area</a>`;
+    });
+  } catch (e) { acctEl.textContent = ""; }
+})();
 
 // ---------- board helpers ----------
 const sqName = (f, r) => FILES[f] + (r + 1);
@@ -196,7 +230,7 @@ function askAll(qs, ui) {
   function finish() {
     stop(); const best = saveBest("colours", score);
     $("col-square").textContent = "⏱"; $("col-msg").innerHTML = `Time! <b>${score}</b> correct, ${wrong} wrong.` + (best ? ` <b class="bf-ok">New best!</b>` : "");
-    $("col-start").innerHTML = '<i class="fas fa-redo"></i> Play again'; track("blindfold_round", { drill: "colours", level, score });
+    $("col-start").innerHTML = '<i class="fas fa-redo"></i> Play again'; roundDone("colours"); track("blindfold_round", { drill: "colours", level, score });
   }
   function answer(a) {
     if (!timer) return;
@@ -245,7 +279,7 @@ function askAll(qs, ui) {
       active = false; const best = saveBest("knight", score);
       $("kn-text").innerHTML = `Round over: <b>${score}/10</b>` + (best ? ' <b class="bf-ok">New best!</b>' : "");
       $("kn-answers").innerHTML = ""; $("kn-start").innerHTML = '<i class="fas fa-redo"></i> Play again'; $("kn-start").classList.remove("hidden");
-      track("blindfold_round", { drill: "knight", level, score }); return;
+      roundDone("knight"); track("blindfold_round", { drill: "knight", level, score }); return;
     }
     const [lo, hi] = ranges[level]; let from, to, path;
     do { from = [rnd(8), rnd(8)]; to = [rnd(8), rnd(8)]; path = route(from, to); } while (path.length - 1 < lo || path.length - 1 > hi);
@@ -320,6 +354,7 @@ function countdown(bar, seconds, skipBtn) {
     board.setPosition(posObj(game), false); mark(board, {});
     const perfect = right === qs.length;
     if (perfect) { const n = store.get(`memory-${level}`) + 1; store.set(`memory-${level}`, n); refreshBests(); }
+    roundDone("memory");
     $("mem-score").textContent = `${right}/${qs.length}`;
     $("mem-text").innerHTML = perfect ? `<b class="bf-ok">Perfect round!</b> Here's the position again.` : `You got <b>${right} of ${qs.length}</b>. Here's the position again. Have a look at what you missed.`;
     $("mem-answers").innerHTML = ""; $("mem-start").innerHTML = '<i class="fas fa-redo"></i> Next position'; $("mem-start").classList.remove("hidden");
@@ -374,6 +409,7 @@ function countdown(bar, seconds, skipBtn) {
     $("mv-list").innerHTML = listHTML(sans, "all");
     const perfect = right === qs.length;
     if (perfect) { store.set(`moves-${level}`, store.get(`moves-${level}`) + 1); refreshBests(); }
+    roundDone("moves");
     $("mv-score").textContent = `${right}/${qs.length}`;
     $("mv-text").innerHTML = (perfect ? '<b class="bf-ok">Perfect round!</b> ' : `You got <b>${right} of ${qs.length}</b>. `) + `This was the <b>${course.name}</b>.`;
     $("mv-answers").innerHTML = ""; $("mv-start").innerHTML = '<i class="fas fa-redo"></i> Next game'; $("mv-start").classList.remove("hidden");
@@ -445,6 +481,7 @@ function countdown(bar, seconds, skipBtn) {
     board.setPosition(posObj(game), false); $("pz-list").innerHTML = state.sans.join(" ");
     $("pz-text").innerHTML = `<b class="bf-ok">Solved${peeks ? "" : " blindfold"}!</b> +${gain} point${gain > 1 ? "s" : ""}.` + (best ? ' <b class="bf-ok">New best streak!</b>' : "");
     $("pz-msg").textContent = ""; speak("Solved!");
+    roundDone("puzzles");
     track("blindfold_puzzle", { level, result: "solved", peeks, rating: state.pz.rating });
     $("pz-start").innerHTML = '<i class="fas fa-forward"></i> Next puzzle'; end();
   }
@@ -458,6 +495,7 @@ function countdown(bar, seconds, skipBtn) {
     $("pz-text").innerHTML = (playedSan ? `<b class="bf-no">${playedSan} isn't it.</b> ` : "") + `The answer was <b>${sol.join(" ")}</b>. Streak reset.`;
     $("pz-msg").innerHTML = `<a href="https://lichess.org/training/${pz.id}" target="_blank" rel="noopener">Open this puzzle on Lichess</a>`;
     speak("Not quite.");
+    roundDone("puzzles");
     track("blindfold_puzzle", { level, result: "failed", peeks: state.peeks, rating: pz.rating });
     streak = 0; $("pz-score").textContent = 0; $("pz-start").innerHTML = '<i class="fas fa-forward"></i> Next puzzle'; end();
   }

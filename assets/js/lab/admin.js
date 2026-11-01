@@ -23,6 +23,11 @@ async function render() {
   if (revs) revs.sort((a, b) => ms(b.created) - ms(a.created));
   const hiddenN = revs ? revs.filter((r) => r.hidden).length : 0;
   const lic = rows.filter((r) => r.lichess && r.lichess.username);
+  // Blindfold Training: best per drill = highest level with a score, shown like "24 · H"
+  const bfRows = rows.filter((r) => r.blindfold).map((r) => { const b = r.blindfold, out = { r, rounds: 0, last: b.last || 0, cells: {} };
+    ["colours", "knight", "memory", "moves", "puzzles"].forEach((d) => { out.rounds += b["rounds-" + d] || 0;
+      const lv = ["hard", "medium", "easy"].find((l) => b[d + "-" + l]); out.cells[d] = lv ? `${b[d + "-" + lv]} <small>${lv[0].toUpperCase()}</small>` : "–"; });
+    return out; }).filter((x) => x.rounds).sort((a, b) => b.last - a.last);
   box.innerHTML = `
   <section class="admin-block">
     <h2 class="pd-h2"><i class="fas fa-clipboard-check"></i> Quiz links</h2>
@@ -45,6 +50,14 @@ async function render() {
       <td><textarea class="admin-text" rows="3" data-reply placeholder="Optional reply, shown under the review">${esc(r.reply || "")}</textarea><button type="button" class="lab-btn lab-btn-sm" data-save-reply>Save reply</button></td>
       <td><label class="admin-switch"><input type="checkbox" data-shown ${r.hidden ? "" : "checked"}> <span>${r.hidden ? "Hidden" : "Shown"}</span></label> <span class="admin-msg"></span></td></tr>`).join("") || `<tr><td colspan="3"><p class="pd-empty">No reviews yet.</p></td></tr>`}
     </tbody></table>`}
+  </section>
+  <section class="admin-block">
+    <h2 class="pd-h2"><i class="fas fa-eye-slash"></i> Blindfold Training</h2>
+    <p class="pd-small">Best scores of signed-in students on <a href="/resources/blindfold/">Blindfold Training</a>. Each cell shows the best score at the hardest level tried (E, M or H). Colours = best score, Knight = out of 10, Memory and Moves = perfect rounds, Puzzles = best streak. ${bfRows.length} students training.</p>
+    ${bfRows.length ? `<table class="admin-table"><thead><tr><th>Student</th><th>Rounds</th><th>Last trained</th><th>Colours</th><th>Knight</th><th>Memory</th><th>Moves</th><th>Puzzles</th></tr></thead><tbody>
+    ${bfRows.map((x) => `<tr><td><b>${esc(x.r.name || "(no name)")}</b>${x.r.enrollment ? `<br><small>${esc(x.r.enrollment)}</small>` : ""}</td><td>${x.rounds}</td><td>${x.last ? new Date(x.last).toLocaleDateString("en-IN") : ""}</td>
+      <td>${x.cells.colours}</td><td>${x.cells.knight}</td><td>${x.cells.memory}</td><td>${x.cells.moves}</td><td>${x.cells.puzzles}</td></tr>`).join("")}
+    </tbody></table>` : `<p class="pd-empty">No students have trained blindfold while signed in yet.</p>`}
   </section>
   <section class="admin-block">
     <h2 class="pd-h2"><i class="fas fa-chess-knight"></i> Students' Lichess accounts</h2>

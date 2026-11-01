@@ -91,6 +91,28 @@ ads: false
         {%- endfor %}
       </section>
 
+      <section id="blindfold" class="bfs-card mb-8" aria-labelledby="bfs-h">
+        <div class="bfs-head">
+          <div>
+            <h2 id="bfs-h" class="text-2xl font-bold"><i class="fas fa-eye-slash bfs-h-ic"></i> Blindfold Training <span class="bfs-new">New</span></h2>
+            <p class="bfs-sub">Train the board in your head with five short drills. Your best scores are saved here, on any device you sign in from.</p>
+          </div>
+          <a href="/resources/blindfold/" class="lr-btn bfs-go"><i class="fas fa-play"></i> Start training</a>
+        </div>
+        <p class="bfs-summary" id="bfs-summary"></p>
+        <div class="bfs-grid">
+          {%- assign drills = "colours|Square Colours|fa-chess-board|best score,knight|Knight Routes|fa-chess-knight|best out of 10,memory|Remember the Position|fa-brain|perfect rounds,moves|Follow the Moves|fa-list-ol|perfect rounds,puzzles|Blindfold Puzzles|fa-eye-slash|best streak" | split: "," %}
+          {%- for d in drills %}{% assign f = d | split: "|" %}
+          <a class="bfs-item" href="/resources/blindfold/#{{ f[0] }}" data-bf="{{ f[0] }}">
+            <span class="bfs-top"><i class="fas {{ f[2] }}"></i><b>{{ f[1] }}</b></span>
+            <span class="bfs-metric">{{ f[3] }}</span>
+            <span class="bfs-levels"><span><em>Easy</em><strong data-k="{{ f[0] }}-easy">0</strong></span><span><em>Medium</em><strong data-k="{{ f[0] }}-medium">0</strong></span><span><em>Hard</em><strong data-k="{{ f[0] }}-hard">0</strong></span></span>
+            <span class="bfs-rounds" data-k="rounds-{{ f[0] }}">Not tried yet</span>
+          </a>
+          {%- endfor %}
+        </div>
+      </section>
+
       <section id="lichess" class="lr-card mb-10" aria-labelledby="lr-h">
         <div class="lr-card-head">
           <div>
@@ -128,4 +150,5 @@ ads: false
 
   <script src="/assets/js/quiz.js?v={{ site.time | date: "%s" }}" defer></script>
   <link rel="stylesheet" href="/assets/css/lichess-report.css?v={{ site.time | date: "%s" }}">
+  <link rel="stylesheet" href="/assets/css/blindfold-student.css?v={{ site.time | date: "%s" }}">
   <script type="module" src="/assets/js/student.js?v={{ site.time | date: "%s" }}"></script>

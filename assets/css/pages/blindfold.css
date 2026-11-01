@@ -122,3 +122,8 @@ html.dark .bf-last { background: #78350f; color: #fef3c7; }
 html.dark .bf-flash-ok { animation: bfOkDark .35s; }
 /* buttons and boxes above set their own display, so make the "hidden" helper win inside the trainer */
 .bf-panel .hidden { display: none !important; }
+.bf-tool-right { display: flex; flex-wrap: wrap; align-items: center; gap: .4rem 1.2rem; }
+.bf-acct { font-size: .85rem; color: #6b7280; }
+.bf-acct i { color: #16a34a; } .bf-acct .fa-user-circle { color: #6366f1; }
+.bf-acct a { color: #4338ca; font-weight: 600; text-decoration: underline; }
+html.dark .bf-acct { color: #a8b3c4; } html.dark .bf-acct a { color: #a5b4fc; }

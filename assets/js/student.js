@@ -70,6 +70,7 @@ async function start() {
     const saved = await recordStudent(user);
     setupLichess(user, saved && saved.lichess ? saved.lichess.username : "");
     setupQuizzes(user);
+    setupBlindfold(saved && saved.blindfold);
     loadMaterials();
   });
 
@@ -276,4 +277,22 @@ async function start() {
       card.classList.toggle("hidden", !any);
     });
   });
+}
+
+// ---------- Blindfold Training scores (saved by /resources/blindfold/ to students/{uid}.blindfold) ----------
+function setupBlindfold(remote) {
+  const box = document.getElementById("blindfold"); if (!box) return;
+  const local = (k) => { try { const v = localStorage.getItem("cd-bf-" + k); return v === null ? 0 : JSON.parse(v) || 0; } catch (e) { return 0; } };
+  const val = (k) => Math.max(local(k), (remote && typeof remote[k] === "number") ? remote[k] : 0);
+  let rounds = 0;
+  box.querySelectorAll("[data-k]").forEach((el) => {
+    const k = el.dataset.k, v = val(k);
+    if (k.startsWith("rounds-")) { rounds += v; el.textContent = v ? `${v} round${v > 1 ? "s" : ""} played` : "Not tried yet"; el.classList.toggle("is-zero", !v); }
+    else { el.textContent = v; el.classList.toggle("is-zero", !v); }
+  });
+  const last = Math.max(local("last"), (remote && remote.last) || 0);
+  const ago = last ? Math.floor((Date.now() - last) / 86400000) : null;
+  document.getElementById("bfs-summary").innerHTML = rounds
+    ? `<i class="fas fa-fire"></i> <b>${rounds}</b> round${rounds > 1 ? "s" : ""} played so far` + (ago === null ? "" : ago === 0 ? " · last trained today" : ago === 1 ? " · last trained yesterday" : ` · last trained ${ago} days ago`) + ". Ten minutes a day makes a real difference."
+    : `<i class="fas fa-lightbulb"></i> New! Start with <b>Square Colours</b> on Easy. It takes one minute.`;
 }

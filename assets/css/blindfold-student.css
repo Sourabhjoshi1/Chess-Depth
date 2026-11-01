@@ -1,0 +1,32 @@
+/* Student Area: Blindfold Training scores */
+.bfs-card { background: #fff; border-radius: .75rem; box-shadow: 0 1px 3px rgba(0,0,0,.08); padding: 1.5rem; }
+.bfs-head { display: flex; flex-wrap: wrap; gap: 1rem; align-items: flex-start; justify-content: space-between; margin-bottom: .8rem; }
+.bfs-h-ic { color: #6366f1; margin-right: .3rem; }
+.bfs-new { font-size: .65rem; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; background: #f97316; color: #fff; border-radius: 999px; padding: .15rem .5rem; vertical-align: 4px; }
+.bfs-sub { color: #6b7280; margin-top: .25rem; max-width: 40rem; }
+.bfs-go { display: inline-flex; align-items: center; gap: .45rem; white-space: nowrap; }
+.bfs-summary { background: #eef2ff; color: #3730a3; border-radius: .5rem; padding: .6rem .9rem; font-size: .92rem; margin-bottom: 1rem; }
+.bfs-summary i { color: #f97316; margin-right: .2rem; }
+.bfs-grid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: .8rem; }
+@media (max-width: 1023px) { .bfs-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 479px) { .bfs-grid { grid-template-columns: 1fr; } .bfs-card { padding: 1.15rem 1rem; } }
+.bfs-item { display: flex; flex-direction: column; gap: .35rem; border: 1px solid #e5e7eb; border-radius: .7rem; padding: .9rem; transition: border-color .15s, box-shadow .15s, transform .15s; }
+.bfs-item:hover { border-color: #6366f1; box-shadow: 0 6px 16px rgba(79,70,229,.12); transform: translateY(-1px); }
+.bfs-top { display: flex; align-items: center; gap: .5rem; color: #111827; font-size: .95rem; }
+.bfs-top i { color: #4f46e5; }
+.bfs-metric { font-size: .7rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: #9ca3af; }
+.bfs-levels { display: grid; grid-template-columns: repeat(3, 1fr); gap: .3rem; }
+.bfs-levels > span { background: #f9fafb; border-radius: .4rem; padding: .3rem 0; text-align: center; display: flex; flex-direction: column; }
+.bfs-levels em { font-style: normal; font-size: .68rem; color: #6b7280; }
+.bfs-levels strong { font-size: 1.15rem; color: #1e1b4b; font-variant-numeric: tabular-nums; }
+.bfs-levels strong.is-zero { color: #d1d5db; }
+.bfs-rounds { font-size: .8rem; color: #15803d; font-weight: 600; }
+.bfs-rounds.is-zero { color: #9ca3af; font-weight: 500; }
+html.dark .bfs-card { background: #162032; box-shadow: 0 1px 3px rgba(0,0,0,.5); }
+html.dark .bfs-card h2, html.dark .bfs-top { color: #f1f5f9; }
+html.dark .bfs-sub { color: #a8b3c4; }
+html.dark .bfs-summary { background: #1e293b; color: #c7d2fe; }
+html.dark .bfs-item { border-color: #273449; }
+html.dark .bfs-levels > span { background: #0f172a; }
+html.dark .bfs-levels strong { color: #e0e7ff; } html.dark .bfs-levels strong.is-zero { color: #475569; }
+html.dark .bfs-rounds { color: #4ade80; } html.dark .bfs-rounds.is-zero { color: #64748b; }
