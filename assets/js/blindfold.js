@@ -172,7 +172,7 @@ function askAll(qs, ui) {
       const marks = {}; (q.show || []).forEach((s) => { marks[s] = "good"; });
       if (q.type === "square" && !ok && val) marks[val] = "bad";
       ui.board.setPosition(posObj(ui.game), false); setTimeout(() => mark(ui.board, marks), 30);
-      ui.msg.innerHTML = (ok ? `<b class="bf-ok">Correct!</b> ` : `<b class="bf-no">Not quite.</b> `) + (q.type === "square" ? `It's on <b>${q.answer}</b>.` : q.type === "choice" && !["Yes", "No"].includes(q.answer) ? `The answer is <b>${q.answer}</b>.` : "") + (q.explain ? " " + q.explain : "");
+      ui.msg.innerHTML = (ok ? `<b class="bf-ok">Correct!</b> ` : `<b class="bf-no">Not quite.</b> `) + [q.type === "square" ? `It's on <b>${q.answer}</b>.` : !["Yes", "No"].includes(q.answer) ? `The answer is <b>${q.answer}</b>.` : "", q.explain || ""].filter(Boolean).join(" ");
       ui.answers.insertAdjacentHTML("beforeend", `<button type="button" class="bf-next">${i + 1 < qs.length ? "Next question" : "See result"} <i class="fas fa-arrow-right"></i></button>`);
       ui.answers.querySelector(".bf-next").addEventListener("click", () => { ui.msg.textContent = ""; ui.board.setPosition({}, false); i++; next(); });
     };
@@ -419,7 +419,10 @@ function countdown(bar, seconds, skipBtn) {
     const { game, pz } = state; const want = pz.moves[state.step];
     let mv = null;
     try {
-      if (typeof input === "string") mv = game.move(input.trim().replace(/0/g, "O"), { strict: false });
+      if (typeof input === "string") {   // accept "Nf3", "nf3", "0-0"; a lowercase b is tried as a pawn first, then as a bishop
+        const t = input.trim().replace(/0/g, "O").replace(/\s+/g, "");
+        for (const cand of [t, t[0].toUpperCase() + t.slice(1)]) { try { mv = game.move(cand, { strict: false }); } catch (e) { mv = null; } if (mv) break; }
+      }
       else { const promo = want.slice(0, 4) === input.from + input.to ? want[4] : "q"; mv = game.move({ from: input.from, to: input.to, promotion: promo }); }
     } catch (e) { mv = null; }
     if (!mv) { state.misses++; $("pz-msg").innerHTML = `<b class="bf-no">That isn't a legal move here.</b> Picture the position again and try another move.`; return; }

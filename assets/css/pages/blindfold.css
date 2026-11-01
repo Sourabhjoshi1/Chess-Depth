@@ -37,7 +37,8 @@ kbd { font-family: inherit; font-size: .8em; font-weight: 700; border: 1px solid
 
 .bf-stage.bf-center { max-width: 34rem; margin: 0 auto; text-align: center; }
 .bf-split { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); gap: 2rem; align-items: start; }
-@media (max-width: 860px) { .bf-split { grid-template-columns: 1fr; gap: 1.2rem; } }
+@media (max-width: 860px) { .bf-split { grid-template-columns: minmax(0, 1fr); gap: 1.2rem; } }
+@media (max-width: 639px) { .bf-panel { padding: 1rem; border-radius: .8rem; } .bf-score-row > div { min-width: 0; flex: 1; padding: .45rem .5rem; } .bf-big { font-size: 1.35rem; } }
 .bf-board-col { position: relative; max-width: 520px; width: 100%; margin: 0 auto; }
 .bf-board { display: block; width: 100%; --light-color: #eef0fb; --dark-color: #8b93d6; cursor: pointer; }
 .bf-board::part(square), .bf-board::part(piece), .bf-board::part(notation) { cursor: pointer; }
@@ -119,3 +120,5 @@ html.dark .bf-ok { color: #4ade80; } html.dark .bf-no { color: #f87171; }
 html.dark .bf-last { background: #78350f; color: #fef3c7; }
 @keyframes bfOkDark { 0% { color: #4ade80; } 100% { color: #e0e7ff; } }
 html.dark .bf-flash-ok { animation: bfOkDark .35s; }
+/* buttons and boxes above set their own display, so make the "hidden" helper win inside the trainer */
+.bf-panel .hidden { display: none !important; }
