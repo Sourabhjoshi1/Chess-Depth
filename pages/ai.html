@@ -1,37 +1,56 @@
 ---
-title: "ChessDepth AI: Chess Image to Board (Coming Soon) | ChessDepth"
-description: "ChessDepth AI turns any chess image (a screenshot, a book diagram or a photo) into a clean 2D board with coordinates and a FEN. Coming soon on chessdepth.in."
+title: "ChessDepth AI: Turn a Chess Screenshot into a Board and FEN (Beta)"
+description: "Free: upload a chess screenshot or book diagram and ChessDepth AI turns it into a board and FEN you can analyse on Lichess. Runs in your browser, nothing is uploaded."
+head_scripts:
+  - src: "https://cdn.jsdelivr.net/npm/chessboard-element@1.2.0/bundled/chessboard-element.bundled.js"
+    type: module
 permalink: /ai/
 page_css: ai
 crumb: ChessDepth AI
 ---
-{%- capture notify %}https://wa.me/{{ site.contact.phone_intl }}?text=Hi%2C%20please%20let%20me%20know%20when%20ChessDepth%20AI%20launches{% endcapture -%}
 
   <section class="ai-hero cd-hero-bg">
-    <div class="max-w-6xl mx-auto px-4 py-10 grid md:grid-cols-2 gap-10 items-center">
-      <div>
-        <p class="ai-status"><span class="ai-dot" aria-hidden="true"></span>Coming soon</p>
-        <h1 class="ai-title">ChessDepth AI</h1>
-        <p class="ai-lead">Turn any chess image into a clean board you can study. Take a screenshot, a photo of a book diagram or a picture of a real board, and get back the position: every piece on the right square, ready to analyse.</p>
-        <div class="flex flex-wrap gap-3 mt-8">
-          <a href="{{ notify | strip }}" target="_blank" rel="noopener noreferrer" class="ai-hero-btn"><i class="fab fa-whatsapp mr-2"></i>Notify me at launch</a>
-          <a href="#how-it-works" class="ai-ghost">How it will work</a>
-        </div>
-      </div>
-
-      <figure class="ai-demo" aria-label="Example: a photographed board turned into a clean 2D board">
-        <div class="ai-demo-in">
-          <img src="/assets/images/ai-input.svg" alt="A chess position on a wooden-style board, photographed at an angle" width="360" height="360">
-          <figcaption>Your image</figcaption>
-        </div>
-        <div class="ai-demo-arrow" aria-hidden="true"><i class="fas fa-long-arrow-alt-right"></i></div>
-        <div class="ai-demo-out">
-          <img src="/assets/images/ai-output.svg" alt="The same position as a clean 2D board with coordinates" width="360" height="360">
-          <figcaption>Clean board + FEN</figcaption>
-        </div>
-      </figure>
+    <div class="max-w-6xl mx-auto px-4 pt-10 pb-6 text-center">
+      <p class="ai-status"><span class="ai-dot" aria-hidden="true"></span>Beta · free</p>
+      <h1 class="ai-title">ChessDepth AI</h1>
+      <p class="ai-lead ai-lead-c">Turn a chess screenshot or book diagram into a board you can analyse. Every piece on the right square, plus the FEN, in a few seconds.</p>
     </div>
   </section>
+
+  <section class="ai-tool-wrap">
+    <div class="max-w-6xl mx-auto px-4">
+      <div id="ai-drop" class="ai-drop" tabindex="0">
+        <i class="fas fa-image ai-drop-ic" aria-hidden="true"></i>
+        <p class="ai-drop-h">Drop a chess image here, paste it (Ctrl+V), or</p>
+        <label class="ai-btn"><input id="ai-file" type="file" accept="image/*" class="sr-only"><i class="fas fa-upload"></i> Choose an image</label>
+        <p class="ai-drop-small">Screenshots from Lichess, Chess.com or any app, and diagrams from books and worksheets. Your image stays on your device: everything runs in your browser.</p>
+        <p class="ai-examples">Try an example: <button type="button" data-example="/assets/ai/examples/example-1.png">Screenshot</button> <button type="button" data-example="/assets/ai/examples/example-2.png">Book diagram</button> <button type="button" data-example="/assets/ai/examples/example-3.jpg">Wood-style board</button></p>
+      </div>
+
+      <div id="ai-work" class="ai-work hidden">
+        <p id="ai-status" class="ai-status-line" role="status" aria-live="polite"></p>
+        <div class="ai-cols">
+          <div class="ai-col">
+            <p class="ai-col-h">Your image <span>· the green box is the board we found</span></p>
+            <div class="ai-src-wrap"><canvas id="ai-src" class="ai-src"></canvas></div>
+            <div class="ai-row"><button type="button" id="ai-adjust" class="ai-ghost-btn"><i class="fas fa-crop-alt"></i> Wrong area? Draw the box</button><button type="button" id="ai-again" class="ai-ghost-btn"><i class="fas fa-redo"></i> New image</button></div>
+          </div>
+          <div class="ai-col">
+            <p class="ai-col-h">Result <span>· drag pieces to fix, drag off to remove</span></p>
+            <chess-board id="ai-board" class="ai-board" draggable-pieces spare-pieces drop-off-board="trash"></chess-board>
+            <p id="ai-unsure" class="ai-unsure"></p>
+            <div class="ai-row ai-turn" role="group" aria-label="Side to move"><span>To move:</span><button type="button" id="ai-turn-w" aria-pressed="true">White</button><button type="button" id="ai-turn-b" aria-pressed="false">Black</button><button type="button" id="ai-flip" class="ai-ghost-btn" title="If the picture showed the board from Black's side"><i class="fas fa-sync-alt"></i> Picture was from Black's side</button></div>
+            <label class="ai-fen-l" for="ai-fen">FEN</label>
+            <div class="ai-fen-row"><input id="ai-fen" readonly spellcheck="false"><button type="button" id="ai-copy" class="ai-ghost-btn"><i class="far fa-copy"></i> Copy FEN</button></div>
+            <div class="ai-row"><a id="ai-lichess" class="ai-btn" target="_blank" rel="noopener"><i class="fas fa-chess-knight"></i> Analyse on Lichess</a><a id="ai-editor" class="ai-ghost-btn" target="_blank" rel="noopener"><i class="fas fa-pen"></i> Lichess board editor</a></div>
+            <p id="ai-feedback" class="ai-feedback"><span>Did it read the position correctly?</span> <button type="button" id="ai-good">Yes</button> <button type="button" id="ai-bad">No</button></p>
+          </div>
+        </div>
+      </div>
+      <p class="ai-beta-note"><i class="fas fa-flask"></i> Beta: works best with clear, flat 2D boards. Photos of real boards are coming next.</p>
+    </div>
+  </section>
+  <script type="module" src="/assets/js/ai/app.js?v={{ site.time | date: "%s" }}"></script>
 
   <section class="max-w-6xl mx-auto px-4 py-16">
     <h2 class="ai-h2">What you'll get</h2>
@@ -46,7 +65,7 @@ crumb: ChessDepth AI
 
   <section id="how-it-works" class="ai-band">
     <div class="max-w-6xl mx-auto px-4 py-16">
-      <h2 class="ai-h2">How it will work</h2>
+      <h2 class="ai-h2">How it works</h2>
       <p class="ai-sub">The same steps a strong player does in a second, broken into steps a computer can learn.</p>
       <ol class="ai-steps">
         <li><span>1</span><div><h3>Find the board</h3><p>Locate the chessboard and its four corners anywhere in the image.</p></div></li>
@@ -60,15 +79,15 @@ crumb: ChessDepth AI
   </section>
 
   <section class="max-w-6xl mx-auto px-4 py-16 grid md:grid-cols-3 gap-8">
-    <div class="ai-note"><h3>Screenshots and diagrams first</h3><p>We're starting with clear 2D images (websites, apps and book diagrams), then moving on to photos of real boards.</p></div>
-    <div class="ai-note"><h3>Your images stay with you</h3><p>We plan to run the recognition inside your browser, so the pictures you check never need to be uploaded anywhere.</p></div>
+    <div class="ai-note"><h3>Screenshots and diagrams first</h3><p>This beta reads clear 2D images (websites, apps and book diagrams). Photos of real boards are next.</p></div>
+    <div class="ai-note"><h3>Your images stay with you</h3><p>The recognition runs inside your browser, so your pictures are never uploaded anywhere.</p></div>
     <div class="ai-note"><h3>Made for coaches and students</h3><p>Turn positions from books, worksheets and games into boards you can study, share and practise from.</p></div>
   </section>
 
   <section class="px-4 pb-8">
     <div class="max-w-4xl mx-auto ai-cta">
-      <h2>Be the first to try ChessDepth AI</h2>
-      <p>Send us a message and we'll tell you as soon as it's ready.</p>
-      <a href="{{ notify | strip }}" target="_blank" rel="noopener noreferrer" class="ai-cta-btn"><i class="fab fa-whatsapp mr-2"></i>Notify me at launch</a>
+      <h2>Found a position it read wrongly?</h2>
+      <p>Tap "No" under the result, or send us the image on WhatsApp. Every example helps us train a better model.</p>
+      <a href="https://wa.me/{{ site.contact.phone_intl }}?text=Hi%2C%20ChessDepth%20AI%20misread%20this%20position%3A" target="_blank" rel="noopener noreferrer" class="ai-cta-btn"><i class="fab fa-whatsapp mr-2"></i>Send us an example</a>
     </div>
   </section>

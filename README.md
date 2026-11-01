@@ -21,7 +21,7 @@ This repository is the full website: a Jekyll site published with GitHub Pages.
 | **Student Area** | Google sign-in and free PDF study material for every course | `pages/student.html`, `assets/js/student.js` |
 | **Shop** | Digital products (worksheet packs, improvement plans, puzzle collections, opening repertoires). Free direct downloads or Gumroad checkout | `pages/shop.html`, `_products/` |
 | **Careers** | Open roles and Winter 2026 internships (Product Management, Quality Assurance) | `pages/careers.html`, `_data/jobs.yml` |
-| **ChessDepth AI** | Coming soon: turn a photo or screenshot of a chess position into a playable board | `pages/ai.html` |
+| **ChessDepth AI** | Beta, free: turn a screenshot or diagram of a chess position into a playable board (runs in the browser) | `pages/ai.html` |
 
 Every chess board on the site uses one shared component (`assets/js/lab/board.js`): drag **or** tap-to-move, legal-move hints and last-move highlights.
 

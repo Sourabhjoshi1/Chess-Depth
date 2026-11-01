@@ -69,7 +69,7 @@ Modern opening tools are powerful, but memorising 20 moves of theory is a poor u
 
 Some of the best training material is still in books and printed worksheets. Setting each diagram up by hand on an analysis board takes time, but it's worth it: you can then check your answers with an engine and save the positions you got wrong.
 
-We're building a tool to make this instant. [ChessDepth AI](/ai/) will turn a photo of a book diagram or a screenshot into a clean board you can analyse. It's coming soon.
+That's why we built [ChessDepth AI](/ai/) (free, in beta): drop in a screenshot or a book diagram and it gives you a clean board you can analyse or open in Lichess.
 
 ## A simple weekly plan
 
