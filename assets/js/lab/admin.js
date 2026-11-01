@@ -53,7 +53,7 @@ async function render() {
   </section>
   <section class="admin-block">
     <h2 class="pd-h2"><i class="fas fa-eye-slash"></i> Blindfold Training</h2>
-    <p class="pd-small">Best scores of signed-in students on <a href="/resources/blindfold/">Blindfold Training</a>. Each cell shows the best score at the hardest level tried (E, M or H). Colours = best score, Knight = out of 10, Memory and Moves = perfect rounds, Puzzles = best streak. ${bfRows.length} students training.</p>
+    <p class="pd-small">Best scores of signed-in students on <a href="/resources/blindfold/">Blindfold Training</a>. Each cell shows the best score at the hardest level tried (E, M or H). Colours = best score, Knight = out of 10, Memory and Moves = perfect rounds, Puzzles = best streak. ${bfRows.length} student${bfRows.length === 1 ? "" : "s"} training.</p>
     ${bfRows.length ? `<table class="admin-table"><thead><tr><th>Student</th><th>Rounds</th><th>Last trained</th><th>Colours</th><th>Knight</th><th>Memory</th><th>Moves</th><th>Puzzles</th></tr></thead><tbody>
     ${bfRows.map((x) => `<tr><td><b>${esc(x.r.name || "(no name)")}</b>${x.r.enrollment ? `<br><small>${esc(x.r.enrollment)}</small>` : ""}</td><td>${x.rounds}</td><td>${x.last ? new Date(x.last).toLocaleDateString("en-IN") : ""}</td>
       <td>${x.cells.colours}</td><td>${x.cells.knight}</td><td>${x.cells.memory}</td><td>${x.cells.moves}</td><td>${x.cells.puzzles}</td></tr>`).join("")}
