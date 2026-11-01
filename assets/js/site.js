@@ -96,6 +96,25 @@
     menu.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', function () { set(false); }); });
   }
   if (document.readyState === 'complete') setupMenu(); else window.addEventListener('load', setupMenu);
+  // Header drop-downs (e.g. Academy): click or keyboard to open; hover also works on desktop (CSS)
+  (function () {
+    var dds = document.querySelectorAll('[data-dd]');
+    if (!dds.length) return;
+    function close(except) { dds.forEach(function (d) { if (d !== except) { d.classList.remove('is-open'); d.querySelector('.cd-dd-btn').setAttribute('aria-expanded', 'false'); } }); }
+    dds.forEach(function (dd) {
+      var btn = dd.querySelector('.cd-dd-btn');
+      btn.addEventListener('click', function (e) { e.stopPropagation(); var open = !dd.classList.contains('is-open'); close(dd); dd.classList.toggle('is-open', open); btn.setAttribute('aria-expanded', String(open)); if (open) { var first = dd.querySelector('.cd-dd-item'); if (first && e.detail === 0) first.focus(); } });
+      dd.addEventListener('keydown', function (e) {
+        var items = Array.prototype.slice.call(dd.querySelectorAll('.cd-dd-item')), i = items.indexOf(document.activeElement);
+        if (e.key === 'Escape') { close(); btn.focus(); }
+        else if (e.key === 'ArrowDown') { e.preventDefault(); if (!dd.classList.contains('is-open')) btn.click(); else items[(i + 1) % items.length].focus(); }
+        else if (e.key === 'ArrowUp' && i >= 0) { e.preventDefault(); items[(i - 1 + items.length) % items.length].focus(); }
+      });
+      dd.addEventListener('focusout', function (e) { if (!dd.contains(e.relatedTarget)) { dd.classList.remove('is-open'); btn.setAttribute('aria-expanded', 'false'); } });
+    });
+    document.addEventListener('click', function () { close(); });
+  })();
+
 
   // Signed-in student: show their first name and Google photo instead of "Student login".
   // Pages that use Google sign-in (Student Area, Chess Lab, reviews) call cdAccount.set(user);

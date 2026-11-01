@@ -131,3 +131,30 @@ html.dark .cm-card { background: #162032; border-color: #273449; color: #a8b3c4;
 html.dark .cm-card:hover { border-color: #6366f1; }
 html.dark .cm-txt b { color: #f1f5f9; } html.dark .cm-go { color: #a5b4fc; } html.dark .cm-li .cm-ic { background: #0b0a09; }
 .cd-footer .cd-foot-social a { display: inline-flex; }
+/* Drop-down menu in the header ("Academy": Courses, Coaches, Shop) */
+.cd-dd { position: relative; }
+.cd-nav .cd-dd-btn { display: inline-flex; align-items: center; gap: .35rem; background: none; border: 0; cursor: pointer; font-family: inherit; }
+.cd-dd-caret { font-size: .62rem; transition: transform .2s; opacity: .7; }
+.cd-dd.is-open .cd-dd-caret { transform: rotate(180deg); }
+.cd-dd-menu { position: absolute; top: calc(100% + 14px); left: 50%; transform: translate(-50%, 6px); min-width: 17rem; background: #fff; border: 1px solid var(--cd-line); border-radius: 10px; box-shadow: 0 18px 40px -18px rgba(31,37,71,.45); padding: .45rem; opacity: 0; visibility: hidden; transition: opacity .15s, transform .15s, visibility .15s; z-index: 60; }
+.cd-dd-menu::before { content: ''; position: absolute; left: 0; right: 0; top: -16px; height: 16px; }   /* keeps hover alive across the gap */
+.cd-dd.is-open .cd-dd-menu { opacity: 1; visibility: visible; transform: translate(-50%, 0); }
+@media (hover: hover) { .cd-dd:hover .cd-dd-menu { opacity: 1; visibility: visible; transform: translate(-50%, 0); } .cd-dd:hover .cd-dd-caret { transform: rotate(180deg); } }
+.cd-dd-item { display: flex; align-items: flex-start; gap: .75rem; padding: .65rem .75rem; border-radius: 8px; color: var(--cd-ink); transition: background .12s; }
+.cd-dd-item:hover, .cd-dd-item:focus-visible { background: #f4f2ec; }
+.cd-dd-item i { width: 1.1rem; text-align: center; color: #8a6a37; margin-top: .2rem; }
+.cd-dd-item b { display: block; font-weight: 600; font-size: .95rem; }
+.cd-dd-item small { display: block; color: #6b6f8a; font-size: .8rem; margin-top: .1rem; }
+.cd-dd-item[aria-current] { background: #f4f2ec; box-shadow: inset 3px 0 0 var(--cd-brass); }
+.cd-m-group { border-bottom: 1px solid var(--cd-line); padding: .7rem 0 .4rem; }
+.cd-m-group-h { font-size: .72rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: #8a6a37; margin-bottom: .2rem; }
+.cd-m-group a { display: flex; align-items: center; gap: .65rem; padding: .55rem 0 .55rem .25rem; color: #3c4060; font-weight: 500; }
+.cd-m-group a i { width: 1.1rem; text-align: center; color: #8a6a37; font-size: .9rem; }
+.cd-m-group a[aria-current] { color: var(--cd-ink); font-weight: 600; box-shadow: inset 3px 0 0 var(--cd-brass); padding-left: .75rem; }
+html.dark .cd-dd-menu { background: #141a2e; border-color: #222a44; box-shadow: 0 18px 40px -18px rgba(0,0,0,.8); }
+html.dark .cd-dd-item { color: #e5e7f0; }
+html.dark .cd-dd-item:hover, html.dark .cd-dd-item[aria-current] { background: #1d2440; }
+html.dark .cd-dd-item small { color: #9aa1bd; }
+html.dark .cd-dd-item i, html.dark .cd-m-group a i, html.dark .cd-m-group-h { color: #c9a66b; }
+html.dark .cd-m-group { border-color: #222a44; }
+html.dark .cd-m-group a { color: #b9bfd8; } html.dark .cd-m-group a[aria-current] { color: #fff; }

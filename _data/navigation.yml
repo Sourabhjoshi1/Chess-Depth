@@ -1,14 +1,23 @@
 # Main menu (the logo links to the home page).
+# An item with "children" becomes a drop-down menu (desktop) and a group (phone menu).
 - title: About
   url: /about/
-- title: Courses
-  url: /courses/
-- title: Coaches
-  url: /coaches/
+- title: Academy
+  children:
+    - title: Courses
+      url: /courses/
+      icon: fa-graduation-cap
+      desc: Levels, fees and class timings
+    - title: Coaches
+      url: /coaches/
+      icon: fa-chess-king
+      desc: Meet the team that teaches you
+    - title: Shop
+      url: /shop/
+      icon: fa-book
+      desc: Worksheets, books and study packs
 - title: Resources
   url: /resources/
-- title: Shop
-  url: /shop/
 - title: ChessDepth AI
   url: /ai/
   badge: Beta
