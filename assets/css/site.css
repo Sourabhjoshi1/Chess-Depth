@@ -136,7 +136,7 @@ html.dark .cm-txt b { color: #f1f5f9; } html.dark .cm-go { color: #a5b4fc; } htm
 .cd-nav .cd-dd-btn { display: inline-flex; align-items: center; gap: .35rem; background: none; border: 0; cursor: pointer; font-family: inherit; }
 .cd-dd-caret { font-size: .62rem; transition: transform .2s; opacity: .7; }
 .cd-dd.is-open .cd-dd-caret { transform: rotate(180deg); }
-.cd-dd-menu { position: absolute; top: calc(100% + 14px); left: 50%; transform: translate(-50%, 6px); min-width: 17rem; background: #fff; border: 1px solid var(--cd-line); border-radius: 10px; box-shadow: 0 18px 40px -18px rgba(31,37,71,.45); padding: .45rem; opacity: 0; visibility: hidden; transition: opacity .15s, transform .15s, visibility .15s; z-index: 60; }
+.cd-dd-menu { position: absolute; top: calc(100% + 14px); left: 50%; transform: translate(-50%, 6px); min-width: 19.5rem; background: #fff; border: 1px solid var(--cd-line); border-radius: 10px; box-shadow: 0 18px 40px -18px rgba(31,37,71,.45); padding: .45rem; opacity: 0; visibility: hidden; transition: opacity .15s, transform .15s, visibility .15s; z-index: 60; }
 .cd-dd-menu::before { content: ''; position: absolute; left: 0; right: 0; top: -16px; height: 16px; }   /* keeps hover alive across the gap */
 .cd-dd.is-open .cd-dd-menu { opacity: 1; visibility: visible; transform: translate(-50%, 0); }
 @media (hover: hover) { .cd-dd:hover .cd-dd-menu { opacity: 1; visibility: visible; transform: translate(-50%, 0); } .cd-dd:hover .cd-dd-caret { transform: rotate(180deg); } }
@@ -144,7 +144,7 @@ html.dark .cm-txt b { color: #f1f5f9; } html.dark .cm-go { color: #a5b4fc; } htm
 .cd-dd-item:hover, .cd-dd-item:focus-visible { background: #f4f2ec; }
 .cd-dd-item i { width: 1.1rem; text-align: center; color: #8a6a37; margin-top: .2rem; }
 .cd-dd-item b { display: block; font-weight: 600; font-size: .95rem; }
-.cd-dd-item small { display: block; color: #6b6f8a; font-size: .8rem; margin-top: .1rem; }
+.cd-dd-item small { display: block; color: #6b6f8a; font-size: .8rem; margin-top: .1rem; white-space: nowrap; }
 .cd-dd-item[aria-current] { background: #f4f2ec; box-shadow: inset 3px 0 0 var(--cd-brass); }
 .cd-m-group { border-bottom: 1px solid var(--cd-line); padding: .7rem 0 .4rem; }
 .cd-m-group-h { font-size: .72rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: #8a6a37; margin-bottom: .2rem; }
