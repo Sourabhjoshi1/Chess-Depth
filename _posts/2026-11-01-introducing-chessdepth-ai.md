@@ -36,7 +36,7 @@ Behind the button there are two steps.
 
 Finally a little chess sense is applied. There is exactly one king of each colour, pawns can't stand on the first or last rank, and the tool works out which side of the board White is on.
 
-In our tests it reads about **99.7% of squares correctly** on clean 2D boards, in under a second.
+It takes under a second. On piece styles it was trained on, it reads about 99.7% of squares correctly. On styles it has never seen (chess.com's default pieces, for example) it is noticeably weaker, and a few squares per board may need fixing. That's exactly what the next version will improve, using real screenshots from our students.
 
 ## Your pictures stay with you
 
