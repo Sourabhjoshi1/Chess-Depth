@@ -69,6 +69,7 @@ exclude:
   - README.md
   - Contributing.md
   - EDITING.md
+  - SECURITY.md
   - LICENSE
   - firebase
   - shop-src
