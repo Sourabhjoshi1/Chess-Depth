@@ -5,7 +5,7 @@ crumb_parent: Resources
 crumb_parent_url: /resources/
 image: /assets/images/og-blindfold.jpg
 last_modified_at: 2026-11-04
-description: "Learn blindfold chess free: 10 visualization drills, a 28-day plan, a daily blindfold puzzle and full blindfold games vs the computer. For kids and club players."
+description: "Learn blindfold chess free: 10 visualization drills, a 28-day plan, a daily blindfold puzzle and full blindfold games vs Stockfish (400–2800 Elo)."
 permalink: /resources/blindfold/
 page_css: blindfold
 head_scripts:
@@ -80,7 +80,7 @@ head_scripts:
         <div class="bf-stage-group"><p class="bf-stage-h"><span>Stage 3</span> Calculate blind</p><div class="bf-picker">
           <button type="button" role="tab" class="bf-pick" data-drill="puzzles" aria-selected="false"><span class="bf-num">8</span><i class="fas fa-eye-slash"></i><b>Blindfold Puzzles</b><span>Solve with the pieces gone.</span></button>
           <button type="button" role="tab" class="bf-pick" data-drill="mates" aria-selected="false"><span class="bf-num">9</span><i class="fas fa-chess-king"></i><b>Blindfold Mates</b><span>Checkmate a lone king, blind.</span></button>
-          <button type="button" role="tab" class="bf-pick" data-drill="play" aria-selected="false"><span class="bf-num">10</span><i class="fas fa-robot"></i><b>Play Blindfold</b><span>A whole game vs the computer.</span></button>
+          <button type="button" role="tab" class="bf-pick" data-drill="play" aria-selected="false"><span class="bf-num">10</span><i class="fas fa-robot"></i><b>Play Blindfold</b><span>A whole game vs Stockfish.</span></button>
         </div></div>
       </div>
     </div>
@@ -209,9 +209,11 @@ head_scripts:
             <div class="bf-score-row"><div><p class="bf-label">Streak</p><p class="bf-big" id="pz-score">0</p></div><div><p class="bf-label">Points</p><p class="bf-big" id="pz-points">0</p></div><div><p class="bf-label">Best streak</p><p class="bf-big bf-best" id="pz-best" data-best="puzzles">0</p></div></div>
             <p class="bf-question" id="pz-text" aria-live="polite">Press Start for your first puzzle.</p>
             <p class="bf-movelist" id="pz-list"></p>
+            <div class="bf-mvbox hidden" id="pz-mvbox"></div>
             <form class="bf-type hidden" id="pz-form" autocomplete="off"><input id="pz-input" placeholder="Type a move, e.g. Qh7#" spellcheck="false" aria-label="Your move"><button type="submit">Play</button></form>
             <p class="bf-msg" id="pz-msg" role="status"></p>
             <div class="bf-row"><button type="button" class="bf-start" id="pz-start"><i class="fas fa-play"></i> Start</button><button type="button" class="bf-ghost hidden" id="pz-ready"><i class="fas fa-eye-slash"></i> I'm ready, hide it</button><button type="button" class="bf-ghost hidden" id="pz-peek"><i class="fas fa-eye"></i> Peek (−1)</button><button type="button" class="bf-ghost hidden" id="pz-giveup"><i class="fas fa-flag"></i> Show answer</button></div>
+            <label class="bf-auto bf-mvopt"><input type="checkbox" id="pz-mvb"> Show my legal moves as buttons (easier)</label>
             <p class="bf-credit">Puzzles from the <a href="https://lichess.org/training" target="_blank" rel="noopener">Lichess puzzle database</a> (CC0). Thank you, Lichess!</p>
           </div>
         </div>
@@ -226,26 +228,45 @@ head_scripts:
             <div class="bf-score-row"><div><p class="bf-label">Moves</p><p class="bf-big" id="mt-moves">0</p></div><div><p class="bf-label">Peeks</p><p class="bf-big" id="mt-peeks">0</p></div><div><p class="bf-label">Mates</p><p class="bf-big bf-best" data-best="mates">0</p></div></div>
             <p class="bf-question" id="mt-text" aria-live="polite">Press Start for a position.</p>
             <p class="bf-movelist" id="mt-list"></p>
+            <div class="bf-mvbox hidden" id="mt-mvbox"></div>
             <form class="bf-type hidden" id="mt-form" autocomplete="off"><input id="mt-input" placeholder="Type a move, e.g. Ra7" spellcheck="false" aria-label="Your move"><button type="submit">Play</button></form>
             <p class="bf-msg" id="mt-msg" role="status"></p>
             <div class="bf-row"><button type="button" class="bf-start" id="mt-start"><i class="fas fa-play"></i> Start</button><button type="button" class="bf-ghost hidden" id="mt-ready"><i class="fas fa-eye-slash"></i> I'm ready, hide it</button><button type="button" class="bf-ghost hidden" id="mt-peek"><i class="fas fa-eye"></i> Peek</button><button type="button" class="bf-ghost hidden" id="mt-giveup"><i class="fas fa-flag"></i> Show board</button></div>
+            <label class="bf-auto bf-mvopt"><input type="checkbox" id="mt-mvb"> Show my legal moves as buttons (easier)</label>
           </div>
         </div>
       </div>
 
       <!-- Play blindfold -->
       <div class="bf-drill hidden" data-drill="play">
-        <div class="bf-head"><h3>Play Blindfold</h3><p>The final test: a <b>whole game</b> against the computer without seeing the pieces. Every move is written down (and read aloud if you like); on Hard you only see the last move. Peek if you get lost, and try to need fewer peeks every game.</p></div>
+        <div class="bf-head"><h3>Play Blindfold</h3><p>The final test: a <b>whole game</b> against <b>Stockfish</b>, set to any strength from beginner to grandmaster, without seeing the pieces. Choose how you enter moves and how much help you get. Stuck? <b>Peek</b> for two seconds or <b>show the board</b>, then hide it again and carry on.</p></div>
         <div class="bf-stage bf-split">
           <div class="bf-board-col"><chess-board id="pl-board" class="bf-board"></chess-board></div>
           <div class="bf-side">
-            <div class="bf-score-row"><div><p class="bf-label">Peeks</p><p class="bf-big" id="pl-peeks">0</p></div><div><p class="bf-label">Games won</p><p class="bf-big bf-best" data-best="play">0</p></div></div>
-            <p class="bf-question" id="pl-text" aria-live="polite">Choose your colour and press Start. Easy is a gentle opponent; Hard thinks three moves ahead.</p>
-            <div class="bf-colours" id="pl-colours" role="group" aria-label="Your colour"><span>Play as:</span><button type="button" data-plcol="w" aria-pressed="true">White</button><button type="button" data-plcol="b" aria-pressed="false">Black</button></div>
-            <p class="bf-movelist bf-game" id="pl-list"></p>
-            <form class="bf-type hidden" id="pl-form" autocomplete="off"><input id="pl-input" placeholder="Type a move, e.g. Nf3" spellcheck="false" aria-label="Your move"><button type="submit">Play</button></form>
-            <p class="bf-msg" id="pl-msg" role="status"></p>
-            <div class="bf-row"><button type="button" class="bf-start" id="pl-start"><i class="fas fa-play"></i> Start a game</button><button type="button" class="bf-ghost hidden" id="pl-peek"><i class="fas fa-eye"></i> Peek</button><button type="button" class="bf-ghost hidden" id="pl-resign"><i class="fas fa-flag"></i> Resign</button></div>
+            <p class="bf-question" id="pl-text" aria-live="polite">Choose your settings and press Start.</p>
+
+            <div id="pl-setup" class="bf-setup">
+              <div class="bf-set"><label for="pl-elo">Computer strength</label>
+                <div class="bf-elo"><input type="range" id="pl-elo" min="400" max="2800" step="50" value="800"><span><b id="pl-elo-v">800</b> <small id="pl-elo-n">Improving</small></span></div></div>
+              <div class="bf-set"><span>You play</span><div class="bf-seg"><button type="button" data-plcol="w">White</button><button type="button" data-plcol="b">Black</button><button type="button" data-plcol="r">Random</button></div></div>
+              <div class="bf-set"><span>Enter moves with</span><div class="bf-seg"><button type="button" data-plin="buttons">Move buttons</button><button type="button" data-plin="type">Typing or board taps</button></div></div>
+              <div class="bf-set" id="pl-hints"><span>Button hints</span><div class="bf-checks"><label><input type="checkbox" id="pl-h-check"> Show checks (+)</label><label><input type="checkbox" id="pl-h-capture"> Show captures (x)</label><label><input type="checkbox" id="pl-h-mate"> Show mates (#)</label></div></div>
+              <div class="bf-set"><span>Move list</span><div class="bf-seg"><button type="button" data-pllist="all">All moves</button><button type="button" data-pllist="last">Last move</button><button type="button" data-pllist="hidden">Hidden</button></div></div>
+              <p class="bf-set-note">Tip: Easy, Medium and Hard at the top set good starting values. Stockfish (about 7 MB) loads the first time you play, then stays on your device.</p>
+              <div class="bf-score-row"><div><p class="bf-label">Games won</p><p class="bf-big bf-best" data-best="play">0</p></div><div><p class="bf-label">Best win (Elo)</p><p class="bf-big bf-best" id="pl-bestwin">–</p></div></div>
+              <button type="button" class="bf-start" id="pl-start"><i class="fas fa-play"></i> Start a game</button>
+            </div>
+
+            <div id="pl-game" class="hidden">
+              <div class="bf-score-row bf-score-sm"><div><p class="bf-label">Peeks</p><p class="bf-big" id="pl-peeks">0</p></div><div><p class="bf-label">Board views</p><p class="bf-big" id="pl-views">0</p></div><div><p class="bf-label">Take-backs</p><p class="bf-big" id="pl-tbs">0</p></div></div>
+              <p class="bf-movelist bf-game" id="pl-list"></p>
+              <p class="bf-msg" id="pl-msg" role="status"></p>
+              <div class="bf-mvbox hidden" id="pl-mvbox"></div>
+              <form class="bf-type hidden" id="pl-form" autocomplete="off"><input id="pl-input" placeholder="Type a move, e.g. Nf3, or tap the board" spellcheck="false" aria-label="Your move"><button type="submit">Play</button></form>
+              <div class="bf-row bf-tools"><button type="button" class="bf-ghost" id="pl-peek"><i class="fas fa-eye"></i> Peek 2 s</button><button type="button" class="bf-ghost" id="pl-showboard"><i class="fas fa-chess-board"></i> Show board</button><button type="button" class="bf-ghost hidden" id="pl-showmoves"><i class="fas fa-list-ol"></i> Show moves</button><button type="button" class="bf-ghost" id="pl-takeback"><i class="fas fa-undo"></i> Take back</button><button type="button" class="bf-ghost" id="pl-resign"><i class="fas fa-flag"></i> Resign</button></div>
+              <div class="bf-row bf-end hidden" id="pl-end"><a class="bf-start" id="pl-lichess" target="_blank" rel="noopener"><i class="fas fa-chess-knight"></i> Analyse on Lichess</a><button type="button" class="bf-ghost" id="pl-copy"><i class="far fa-copy"></i> Copy PGN</button><button type="button" class="bf-ghost" id="pl-new"><i class="fas fa-redo"></i> New game</button></div>
+            </div>
+            <p class="bf-credit">Opponent: <a href="https://stockfishchess.org" target="_blank" rel="noopener">Stockfish 18</a> (GPL-3.0), via <a href="https://github.com/nmrugg/stockfish.js" target="_blank" rel="noopener">Stockfish.js</a>, running in your browser.</p>
           </div>
         </div>
       </div>

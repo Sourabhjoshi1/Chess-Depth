@@ -13,7 +13,7 @@ export const DRILLS = [
   { id: "moves", name: "Follow the Moves", icon: "fa-list-ol", stage: 2, metric: "perfect rounds", medal: 3, blurb: "Play an opening in your head." },
   { id: "puzzles", name: "Blindfold Puzzles", icon: "fa-eye-slash", stage: 3, metric: "best streak", medal: 5, blurb: "Solve with the pieces gone." },
   { id: "mates", name: "Blindfold Mates", icon: "fa-chess-king", stage: 3, metric: "mates delivered", medal: 3, blurb: "Checkmate a lone king, blind." },
-  { id: "play", name: "Play Blindfold", icon: "fa-robot", stage: 3, metric: "games won", medal: 1, blurb: "A full game against the computer." },
+  { id: "play", name: "Play Blindfold", icon: "fa-robot", stage: 3, metric: "games won", medal: 1, blurb: "A full game vs Stockfish, 400–2800 Elo." },
 ];
 export const STAGES = { 1: "See the board", 2: "Hold the position", 3: "Calculate blind" };
 export const LEVELS = ["easy", "medium", "hard"];

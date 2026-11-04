@@ -226,3 +226,33 @@ html.dark .bf-colours { color: #a8b3c4; }
 .bf-faq details[open] summary::after { content: '\2212'; }
 .bf-faq p { margin-top: .55rem; color: #4b5563; line-height: 1.6; }
 html.dark .bf-faq details { background: #162032; } html.dark .bf-faq summary { color: #f1f5f9; } html.dark .bf-faq p { color: #cbd5e1; } html.dark .bf-step-link { color: #a5b4fc; }
+/* Play Blindfold: settings and move buttons */
+.bf-setup { display: grid; gap: .85rem; }
+.bf-set { display: grid; gap: .35rem; }
+.bf-set > label, .bf-set > span { font-size: .78rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: #6366f1; }
+.bf-elo { display: flex; align-items: center; gap: .9rem; }
+.bf-elo input { flex: 1; accent-color: #4f46e5; }
+.bf-elo span { min-width: 9.5rem; } .bf-elo b { font-size: 1.3rem; color: #1e1b4b; } .bf-elo small { display: block; color: #6b7280; font-size: .78rem; }
+.bf-seg { display: flex; flex-wrap: wrap; gap: .35rem; }
+.bf-seg button { border: 1px solid #c7d2fe; color: #4338ca; border-radius: 999px; padding: .38rem .95rem; font-weight: 600; background: #fff; font-size: .9rem; }
+.bf-seg button[aria-pressed="true"] { background: #4f46e5; color: #fff; border-color: #4f46e5; }
+.bf-checks { display: flex; flex-wrap: wrap; gap: .3rem 1rem; font-size: .9rem; color: #374151; }
+.bf-checks label { display: inline-flex; align-items: center; gap: .35rem; cursor: pointer; } .bf-checks input { accent-color: #4f46e5; }
+#pl-hints.is-off { opacity: .45; }
+.bf-set-note { font-size: .8rem; color: #6b7280; }
+.bf-score-sm > div { padding: .35rem .7rem; } .bf-score-sm .bf-big { font-size: 1.2rem; }
+.bf-mvbox { display: grid; gap: .45rem; margin: .3rem 0 .7rem; max-height: 17rem; overflow-y: auto; padding-right: .2rem; }
+.bf-mvgroup { display: flex; flex-wrap: wrap; align-items: center; gap: .3rem; }
+.bf-mvgroup-h { font-size: .7rem; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; color: #9ca3af; width: 4.2rem; }
+.bf-mv { border: 1.5px solid #93c5fd; color: #1e3a8a; background: #fff; border-radius: .45rem; padding: .3rem .55rem; min-width: 3.3rem; font-weight: 600; font-size: .92rem; font-variant-numeric: tabular-nums; }
+.bf-mv:hover { background: #eff6ff; border-color: #3b82f6; }
+.bf-tools .bf-ghost { padding: .5rem .8rem; font-size: .88rem; }
+.bf-end { margin-top: .6rem; } .bf-end .bf-start { text-decoration: none; }
+.bf-clean { display: block; color: #b45309; margin-top: .2rem; }
+.bf-hint-sm { display: block; font-size: .85rem; color: #6b7280; }
+html.dark .bf-elo b { color: #e0e7ff; } html.dark .bf-elo small, html.dark .bf-set-note, html.dark .bf-hint-sm { color: #94a3b8; }
+html.dark .bf-seg button { background: #0f172a; border-color: #334155; color: #c7d2fe; } html.dark .bf-seg button[aria-pressed="true"] { background: #4f46e5; color: #fff; border-color: #4f46e5; }
+html.dark .bf-checks { color: #cbd5e1; }
+html.dark .bf-mv { background: #0f172a; border-color: #1d4ed8; color: #bfdbfe; } html.dark .bf-mv:hover { background: #172554; }
+html.dark .bf-clean { color: #fbbf24; }
+.bf-mvopt { margin-top: .6rem; font-size: .85rem; }

@@ -69,7 +69,7 @@ function refreshBests() {
   renderPath();
 }
 function saveBest(key, value) { const k = `${key}-${level}`; if (value > store.get(k)) { const before = medals((x) => store.get(x)).total; store.set(k, value); medalCheck(before); refreshBests(); sync(); return true; } return false; }
-function addOne(key) { const before = medals((x) => store.get(x)).total; store.set(`${key}-${level}`, store.get(`${key}-${level}`) + 1); medalCheck(before); refreshBests(); sync(); }
+function addOne(key, lv = level) { const before = medals((x) => store.get(x)).total; store.set(`${key}-${lv}`, store.get(`${key}-${lv}`) + 1); medalCheck(before); refreshBests(); sync(); }
 function medalCheck(before) {
   const after = medals((x) => store.get(x)).total; if (after <= before) return;
   const r0 = rankOf(before), r1 = rankOf(after);
@@ -102,7 +102,7 @@ function planSync() {
 }
 
 // ---------- save to the student's account (Student Area), when signed in ----------
-const SYNC_KEYS = () => [...DRILL_IDS.flatMap((d) => [...LEVELS.map((l) => `${d}-${l}`), `rounds-${d}`]), "last", "days", "daily-days", "plan-day", "plan-done", "plan-date", "plan-complete"];
+const SYNC_KEYS = () => [...DRILL_IDS.flatMap((d) => [...LEVELS.map((l) => `${d}-${l}`), `rounds-${d}`]), "last", "play-bestelo", "days", "daily-days", "plan-day", "plan-done", "plan-date", "plan-complete"];
 let cloud = null, syncT = null;
 function snapshot() { const o = {}; SYNC_KEYS().forEach((k) => { o[k] = store.get(k, k.endsWith("days") || k === "plan-done" ? [] : k.startsWith("plan-date") || k === "plan-complete" ? "" : k === "plan-day" ? 1 : 0); }); return o; }
 function sync() { if (!cloud) return; clearTimeout(syncT); syncT = setTimeout(() => cloud(snapshot()), 1200); }
@@ -509,7 +509,16 @@ function countdown(bar, seconds, skipBtn) {
   function setButtons(playing) {
     ["pz-peek", "pz-giveup"].forEach((id) => $(id).classList.toggle("hidden", !playing));
     $("pz-form").classList.toggle("hidden", !playing); $("pz-start").classList.toggle("hidden", playing);
+    pzButtons();
   }
+  // optional legal-move buttons (no hints: checks, captures and mates are not marked)
+  function pzButtons() {
+    const on = $("pz-mvb").checked && state && !$("pz-form").classList.contains("hidden");
+    $("pz-mvbox").classList.toggle("hidden", !on);
+    if (on) moveButtons($("pz-mvbox"), state.game, { check: false, capture: false, mate: false }, (san) => tryMove(san));
+  }
+  $("pz-mvb").checked = store.get("mvb-puzzles", false);
+  $("pz-mvb").addEventListener("change", () => { store.set("mvb-puzzles", $("pz-mvb").checked); pzButtons(); });
   async function load(daily) {
     daily = daily === true;
     const my = ++run, c = daily ? cfg.medium : cfg[level];
@@ -559,6 +568,7 @@ function countdown(bar, seconds, skipBtn) {
     $("pz-msg").innerHTML = `<b class="bf-ok">Good!</b> ${cap(COLOUR[reply.color])} replies <b>${reply.san}</b>. Keep going: what's next?`;
     speak(`Good. ${COLOUR[reply.color]} replies ${sanWords(reply.san)}. Your move.`);
     $("pz-input").value = "";
+    pzButtons();
   }
   function end() { setButtons(false); state = null; sel = null; }
   function solved() {
@@ -855,6 +865,13 @@ function engineMove(g, lvl) {
   const input = blindInput(board, $("mt-form"), $("mt-input"), () => state && state.blind && !state.thinking, (inp) => play(inp));
   stoppers.mates = () => { run++; if (countdown.cancel) countdown.cancel(); state = null; ui(false); };
   function ui(playing) { ["mt-peek", "mt-giveup"].forEach((id) => $(id).classList.toggle("hidden", !playing)); $("mt-form").classList.toggle("hidden", !playing); $("mt-start").classList.toggle("hidden", playing); }
+  function mtButtons() {
+    const on = $("mt-mvb").checked && state && state.blind;
+    $("mt-mvbox").classList.toggle("hidden", !on);
+    if (on) moveButtons($("mt-mvbox"), state.g, { check: false, capture: false, mate: false }, (san) => play(san));
+  }
+  $("mt-mvb").checked = store.get("mvb-mates", false);
+  $("mt-mvb").addEventListener("change", () => { store.set("mvb-mates", $("mt-mvb").checked); mtButtons(); });
   function randomPosition(set) {
     for (let k = 0; k < 500; k++) {
       const g = new Chess(); g.clear();
@@ -887,7 +904,7 @@ function engineMove(g, lvl) {
     $("mt-text").innerHTML = `Checkmate the black king with <b>${c.label}</b> in ${c.limit} moves or fewer. Memorise the position: <b>${c.secs} seconds</b>.`;
     speak(`Checkmate with ${c.label}. Memorise the position.`);
     await countdown($("mt-bar"), c.secs, $("mt-ready")); if (my !== run) return;
-    board.setPosition({}, false); state.blind = true; ui(true);
+    board.setPosition({}, false); state.blind = true; ui(true); mtButtons();
     $("mt-text").innerHTML = "The pieces are gone. <b>Your move.</b> Tap a piece's square and then where it goes, or type the move.";
     if (matchMedia("(pointer: fine)").matches) $("mt-input").focus();
   });
@@ -903,9 +920,10 @@ function engineMove(g, lvl) {
     if (state.moves >= c.limit) return finish(false, `Out of moves. The king is still free.`);
     $("mt-msg").innerHTML = `${mv.san}${mv.san.includes("+") ? " (check)" : ""}. Black replies <b>${reply.san}</b>.`;
     speak(`Black king ${reply.to.split("").join(" ")}.`);
+    mtButtons();
   }
   function finish(won, text) {
-    const { g } = state; board.setPosition(posObj(g), false); state.blind = false; ui(false);
+    const { g } = state; board.setPosition(posObj(g), false); state.blind = false; ui(false); $("mt-mvbox").classList.add("hidden");
     $("mt-list").innerHTML = lineHTML(state.sans);
     $("mt-text").innerHTML = won ? `<b class="bf-ok">${text}</b>` : `<b class="bf-no">${text}</b>`; $("mt-msg").textContent = "";
     if (won) addOne("mates"); speak(won ? "Checkmate!" : "Not this time.");
@@ -917,58 +935,202 @@ function engineMove(g, lvl) {
 })();
 
 // =====================================================================
-// 10. Play Blindfold: a whole game against the computer, without seeing the pieces
+// shared: legal-move buttons (no board needed), grouped by piece, with optional check/capture/mate hints
+// =====================================================================
+const PIECE_ORDER = { k: 0, q: 1, r: 2, b: 3, n: 4, p: 5 };
+const GROUP_NAME = { k: "King", q: "Queen", r: "Rooks", b: "Bishops", n: "Knights", p: "Pawns" };
+function moveLabel(m, hints) {
+  let s = m.san;
+  if (m.san.includes("#")) s = hints.mate ? s : hints.check ? s.replace("#", "+") : s.replace("#", "");
+  else if (!hints.check) s = s.replace("+", "");
+  if (!hints.capture && m.captured) s = s.replace("x", "");
+  return s;
+}
+function moveButtons(box, game, hints, onPick) {
+  const groups = {};
+  game.moves({ verbose: true }).forEach((m) => { (groups[m.piece] = groups[m.piece] || []).push(m); });
+  const fileRank = (sq) => FILES.indexOf(sq[0]) * 8 + Number(sq[1]);
+  box.innerHTML = Object.keys(groups).sort((a, b) => PIECE_ORDER[a] - PIECE_ORDER[b]).map((p) => {
+    const ms = groups[p].sort((a, b) => (a.from === b.from ? fileRank(a.to) - fileRank(b.to) : fileRank(a.from) - fileRank(b.from)));
+    return `<div class="bf-mvgroup"><span class="bf-mvgroup-h">${GROUP_NAME[p]}</span>${ms.map((m) => `<button type="button" class="bf-mv" data-san="${m.san}">${moveLabel(m, hints)}</button>`).join("")}</div>`;
+  }).join("");
+  box.querySelectorAll(".bf-mv").forEach((b) => b.addEventListener("click", () => onPick(b.dataset.san)));
+}
+function hintsFrom(prefix) { return { check: $(prefix + "-h-check").checked, capture: $(prefix + "-h-capture").checked, mate: $(prefix + "-h-mate").checked }; }
+
+// =====================================================================
+// Stockfish 18 (WebAssembly, runs in a worker; loaded only when needed)
+// =====================================================================
+let sfWorker = null, sfReady = null;
+function loadStockfish() {
+  if (sfReady) return sfReady;
+  sfReady = new Promise((resolve, reject) => {
+    try { sfWorker = new Worker("/assets/vendor/stockfish/stockfish-18-lite-single.js"); } catch (e) { reject(e); return; }
+    const t = setTimeout(() => reject(new Error("timeout")), 45000);
+    sfWorker.onmessage = (e) => { const l = String(e.data); if (l === "uciok") sfWorker.postMessage("isready"); else if (l === "readyok") { clearTimeout(t); resolve(sfWorker); } };
+    sfWorker.onerror = (e) => { clearTimeout(t); reject(e); };
+    sfWorker.postMessage("uci");
+  }).catch((e) => { sfReady = null; throw e; });
+  return sfReady;
+}
+// Elo 1320+ uses Stockfish's own strength limit; below that a low skill level and a shallow search
+function stockfishMove(fen, elo) {
+  return new Promise((resolve) => {
+    sfWorker.onmessage = (e) => { const l = String(e.data); if (l.startsWith("bestmove")) resolve(l.split(" ")[1]); };
+    if (elo >= 1320) {
+      sfWorker.postMessage("setoption name Skill Level value 20"); sfWorker.postMessage("setoption name UCI_LimitStrength value true");
+      sfWorker.postMessage(`setoption name UCI_Elo value ${Math.min(3190, elo)}`); sfWorker.postMessage(`position fen ${fen}`); sfWorker.postMessage(`go movetime ${elo >= 2000 ? 900 : 500}`);
+    } else {
+      const f = (elo - 750) / 570, skill = Math.max(0, Math.round(f * 8)), depth = Math.max(1, Math.round(1 + f * 7));
+      sfWorker.postMessage("setoption name UCI_LimitStrength value false"); sfWorker.postMessage(`setoption name Skill Level value ${skill}`);
+      sfWorker.postMessage(`position fen ${fen}`); sfWorker.postMessage(`go depth ${depth} movetime 300`);
+    }
+  });
+}
+const eloName = (e) => e < 700 ? "Beginner" : e < 1000 ? "Improving" : e < 1300 ? "Club player" : e < 1600 ? "Strong club player" : e < 1900 ? "Expert" : e < 2200 ? "Master level" : e < 2500 ? "International Master level" : "Grandmaster level";
+const eloLevel = (e) => (e < 1000 ? "easy" : e < 1600 ? "medium" : "hard");
+
+// =====================================================================
+// 10. Play Blindfold: a whole game against Stockfish (or the light built-in bot), without seeing the pieces
 // =====================================================================
 (() => {
-  const board = $("pl-board"); let state = null, colour = "w";
+  const board = $("pl-board"); let state = null, sel = null;
   board.setPosition({}, false);
-  const input = blindInput(board, $("pl-form"), $("pl-input"), () => state && !state.thinking && state.g.turn() === state.me, (inp) => mine(inp));
-  stoppers.play = () => { if (state) { state.dead = true; state = null; } ui(false); };
-  document.querySelectorAll("[data-plcol]").forEach((b) => b.addEventListener("click", () => { colour = b.dataset.plcol; document.querySelectorAll("[data-plcol]").forEach((x) => x.setAttribute("aria-pressed", String(x === b))); }));
-  function ui(playing) { ["pl-peek", "pl-resign"].forEach((id) => $(id).classList.toggle("hidden", !playing)); $("pl-form").classList.toggle("hidden", !playing); $("pl-start").classList.toggle("hidden", playing); $("pl-colours").classList.toggle("hidden", playing); }
-  const showList = () => { const s = state.sans; $("pl-list").innerHTML = level === "hard" ? (s.length ? `<span class="bf-qn">Only the last move is shown</span>` + lineHTML(s.slice(-1), s.length - 1) : "") : lineHTML(s); };
-  $("pl-start").addEventListener("click", () => {
-    const g = new Chess(); state = { g, me: colour, peeks: 0, sans: [], thinking: false, dead: false };
-    board.orientation = colour === "w" ? "white" : "black"; board.setPosition({}, false); mark(board, {}); input.reset();
-    ui(true); $("pl-msg").textContent = ""; $("pl-peeks").textContent = 0; showList();
-    $("pl-text").innerHTML = `You play <b>${colour === "w" ? "White" : "Black"}</b> against the computer (${cap(level)}). The board stays empty: keep the game in your head.`;
-    speak(`New game. You play ${colour === "w" ? "white" : "black"}.`);
-    if (colour === "b") setTimeout(computer, 400); else $("pl-msg").innerHTML = "Your move. Tap a square then its destination, or type the move (e.g. <b>e4</b>, <b>Nf3</b>).";
-    track("blindfold_game_start", { level, colour });
+  const DEF = { easy: { elo: 800, list: "all", hints: [1, 1, 1] }, medium: { elo: 1200, list: "all", hints: [1, 1, 0] }, hard: { elo: 1600, list: "last", hints: [0, 0, 0] } };
+  const S = store.get("pl-settings", null) || { elo: 800, colour: "w", input: matchMedia("(pointer: coarse)").matches ? "buttons" : "type", list: "all", hints: [1, 1, 1], opp: "sf" };
+  function applySettings() {
+    $("pl-elo").value = S.elo; $("pl-elo-v").textContent = S.elo; $("pl-elo-n").textContent = eloName(S.elo);
+    document.querySelectorAll("[data-plcol]").forEach((x) => x.setAttribute("aria-pressed", String(x.dataset.plcol === S.colour)));
+    document.querySelectorAll("[data-plin]").forEach((x) => x.setAttribute("aria-pressed", String(x.dataset.plin === S.input)));
+    document.querySelectorAll("[data-pllist]").forEach((x) => x.setAttribute("aria-pressed", String(x.dataset.pllist === S.list)));
+    ["check", "capture", "mate"].forEach((h, i) => { $("pl-h-" + h).checked = !!S.hints[i]; });
+    $("pl-hints").classList.toggle("is-off", S.input !== "buttons");
+    $("pl-bestwin").textContent = store.get("play-bestelo", 0) || "–";
+  }
+  const save = () => { store.set("pl-settings", S); applySettings(); };
+  $("pl-elo").addEventListener("input", () => { S.elo = Number($("pl-elo").value); save(); });
+  document.querySelectorAll("[data-plcol]").forEach((b) => b.addEventListener("click", () => { S.colour = b.dataset.plcol; save(); }));
+  document.querySelectorAll("[data-plin]").forEach((b) => b.addEventListener("click", () => { S.input = b.dataset.plin; save(); if (state) inputUI(); }));
+  document.querySelectorAll("[data-pllist]").forEach((b) => b.addEventListener("click", () => { S.list = b.dataset.pllist; save(); if (state) showList(); }));
+  ["check", "capture", "mate"].forEach((h, i) => $("pl-h-" + h).addEventListener("change", () => { S.hints[i] = $("pl-h-" + h).checked ? 1 : 0; save(); if (state) inputUI(); }));
+  // the Easy / Medium / Hard buttons at the top set sensible defaults for this drill
+  document.querySelectorAll(".bf-levels button").forEach((b) => b.addEventListener("click", () => { if (drill !== "play" || state) return; const d = DEF[b.dataset.level]; S.elo = d.elo; S.list = d.list; S.hints = d.hints.slice(); save(); }));
+  applySettings();
+
+  const myTurn = () => state && !state.thinking && !state.over && state.g.turn() === state.me;
+  function setup(on) { $("pl-setup").classList.toggle("hidden", !on); $("pl-game").classList.toggle("hidden", on); }
+  stoppers.play = () => { if (state) { state.dead = true; state = null; } setup(true); };
+  function inputUI() {
+    const buttons = S.input === "buttons";
+    $("pl-form").classList.toggle("hidden", buttons || !myTurn()); $("pl-mvbox").classList.toggle("hidden", !buttons || !myTurn());
+    if (buttons && myTurn()) moveButtons($("pl-mvbox"), state.g, { check: !!S.hints[0], capture: !!S.hints[1], mate: !!S.hints[2] }, (san) => mine(san));
+    if (!buttons && myTurn() && matchMedia("(pointer: fine)").matches) $("pl-input").focus();
+  }
+  function showList() {
+    const s = state.sans, box = $("pl-list");
+    if (S.list === "hidden" && !state.listOpen) { box.innerHTML = s.length ? `<span class="bf-qn">Move list hidden</span><span class="bf-hint-sm">${s.length} moves played. Tap “Show moves” if you're lost.</span>` : ""; }
+    else if (S.list === "last" && !state.listOpen) box.innerHTML = s.length ? `<span class="bf-qn">Only the last move is shown</span>` + lineHTML(s.slice(-1), s.length - 1) : "";
+    else box.innerHTML = lineHTML(s);
+    box.scrollTop = box.scrollHeight;
+    $("pl-showmoves").classList.toggle("hidden", S.list === "all");
+    $("pl-showmoves").innerHTML = state.listOpen ? '<i class="fas fa-eye-slash"></i> Hide moves' : '<i class="fas fa-list-ol"></i> Show moves';
+  }
+  function counts() { $("pl-peeks").textContent = state.peeks; $("pl-views").textContent = state.views; $("pl-tbs").textContent = state.takebacks; }
+  $("pl-start").addEventListener("click", async () => {
+    const me = S.colour === "r" ? pickOne(["w", "b"]) : S.colour;
+    state = { g: new Chess(), me, elo: S.elo, peeks: 0, views: 0, takebacks: 0, sans: [], thinking: false, over: false, dead: false, boardOpen: false, listOpen: false, engine: "built-in" };
+    setup(false); sel = null; mark(board, {});
+    board.orientation = me === "w" ? "white" : "black"; board.setPosition({}, false);
+    $("pl-end").classList.add("hidden"); $("pl-showboard").innerHTML = '<i class="fas fa-chess-board"></i> Show board'; counts(); showList();
+    $("pl-text").innerHTML = `You play <b>${me === "w" ? "White" : "Black"}</b> against the computer at <b>${S.elo}</b> (${eloName(S.elo)}). Keep the game in your head.`;
+    $("pl-msg").innerHTML = '<i class="fas fa-circle-notch fa-spin"></i> Getting the computer ready…';
+    const my = state;
+    if (S.elo >= 750) { try { await loadStockfish(); my.engine = "stockfish"; } catch (e) { my.engine = "built-in"; $("pl-text").innerHTML += " <small>(Stockfish couldn't load on this device, so you're playing our built-in computer.)</small>"; } }
+    if (state !== my) return;
+    if (my.engine === "stockfish") sfWorker.postMessage("ucinewgame");
+    speak(`New game. You play ${me === "w" ? "white" : "black"}.`);
+    track("blindfold_game_start", { elo: S.elo, colour: me, input: S.input, list: S.list, engine: my.engine });
+    if (me === "b") computer(); else { $("pl-msg").innerHTML = "Your move."; inputUI(); }
   });
   function mine(inp) {
+    if (!myTurn()) return;
     const g = state.g, mv = applyInput(g, inp);
     if (!mv) { $("pl-msg").innerHTML = '<b class="bf-no">That isn’t a legal move here.</b> Picture the position again.'; return; }
-    input.reset(); state.sans.push(mv.san); showList(); speak("You: " + sanWords(mv.san)); $("pl-msg").innerHTML = `You played <b>${mv.san}</b>.`;
+    $("pl-input").value = ""; sel = null; mark(board, {});
+    state.sans.push(mv.san); showList(); speak("You: " + sanWords(mv.san)); $("pl-msg").innerHTML = `You played <b>${mv.san}</b>.`;
+    if (state.boardOpen) board.setPosition(posObj(g), false);
     if (over()) return;
-    setTimeout(computer, 250);
+    computer();
   }
-  function computer() {
-    if (!state || state.dead) return; const g = state.g; state.thinking = true; $("pl-msg").innerHTML = '<i class="fas fa-circle-notch fa-spin"></i> The computer is thinking…';
-    setTimeout(() => {
-      if (!state || state.dead) return;
-      const m = engineMove(g, level); const mv = g.move(m); state.sans.push(mv.san); state.thinking = false; showList();
-      $("pl-msg").innerHTML = `Computer plays <b>${mv.san}</b>. Your move.`; speak("Computer: " + sanWords(mv.san));
-      over();
-    }, 60);
+  async function computer() {
+    const my = state; if (!my || my.dead) return; const g = my.g;
+    my.thinking = true; inputUI(); $("pl-msg").innerHTML = '<i class="fas fa-circle-notch fa-spin"></i> The computer is thinking…';
+    let mv;
+    if (my.engine === "stockfish") {
+      const uci = await stockfishMove(g.fen(), my.elo); if (state !== my || my.dead) return;
+      mv = g.move({ from: uci.slice(0, 2), to: uci.slice(2, 4), promotion: uci[4] });
+    } else {
+      await sleep(80); if (state !== my || my.dead) return;
+      // built-in computer: below 750 it plays loosely (human-like mistakes), above that it searches deeper
+      mv = g.move(engineMove(g, my.elo < 750 ? "easy" : my.elo < 1300 ? "medium" : "hard"));
+    }
+    my.thinking = false; my.sans.push(mv.san); showList();
+    if (my.boardOpen) board.setPosition(posObj(g), false);
+    $("pl-msg").innerHTML = `Computer plays <b>${mv.san}</b>. Your move.`; speak("Computer: " + sanWords(mv.san));
+    if (!over()) inputUI();
   }
   function over() {
     const g = state.g; if (!g.isGameOver()) return false;
     let text, won = false;
-    if (g.isCheckmate()) { won = g.turn() !== state.me; text = won ? `Checkmate! You won blindfold${state.peeks ? ` (with ${state.peeks} peek${state.peeks > 1 ? "s" : ""})` : ""}.` : "Checkmate. The computer won this time."; }
-    else text = g.isStalemate() ? "Stalemate: a draw." : g.isThreefoldRepetition() ? "Draw by repetition." : g.isInsufficientMaterial() ? "Draw: not enough material to mate." : "Draw.";
+    if (g.isCheckmate()) { won = g.turn() !== state.me; text = won ? "Checkmate! You won" : "Checkmate. The computer won this time."; }
+    else text = g.isStalemate() ? "Stalemate: a draw." : g.isThreefoldRepetition() ? "Draw by repetition." : g.isInsufficientMaterial() ? "Draw: not enough material to mate." : "Draw by the 50-move rule.";
     end(won, text); return true;
   }
   function end(won, text) {
-    board.setPosition(posObj(state.g), false); ui(false);
+    const st = state; st.over = true; st.dead = true;
+    board.setPosition(posObj(st.g), false); mark(board, {}); state.listOpen = true; showList();
+    ["pl-form", "pl-mvbox"].forEach((id) => $(id).classList.add("hidden"));
+    const clean = !st.peeks && !st.views && !st.takebacks;
+    if (won) {
+      text += clean ? " <span class='bf-clean'>Clean blindfold win: no peeks, no board, no take-backs!</span>" : ` (peeks ${st.peeks}, board views ${st.views}, take-backs ${st.takebacks}).`;
+      addOne("play", eloLevel(st.elo)); if (st.elo > store.get("play-bestelo", 0)) store.set("play-bestelo", st.elo); applySettings();
+    }
     $("pl-text").innerHTML = won ? `<b class="bf-ok">${text}</b>` : `<b>${text}</b>`; $("pl-msg").innerHTML = "";
-    $("pl-list").innerHTML = lineHTML(state.sans);
-    if (won) addOne("play"); speak(text);
-    roundDone("play"); track("blindfold_game_end", { level, won, moves: state.sans.length, peeks: state.peeks });
-    $("pl-start").innerHTML = '<i class="fas fa-redo"></i> New game'; state = null;
+    const pgn = st.g.pgn({ maxWidth: 0 });
+    $("pl-lichess").href = "https://lichess.org/analysis/pgn/" + encodeURIComponent(pgn).replace(/%20/g, "_");
+    $("pl-end").dataset.pgn = `[Event "ChessDepth Blindfold"]\n[White "${st.me === "w" ? "You" : "Computer " + st.elo}"]\n[Black "${st.me === "b" ? "You" : "Computer " + st.elo}"]\n\n${pgn}`;
+    $("pl-end").classList.remove("hidden");
+    speak(won ? "Checkmate! You won." : text.replace(/<[^>]+>/g, ""));
+    roundDone("play"); track("blindfold_game_end", { elo: st.elo, won, moves: st.sans.length, peeks: st.peeks, views: st.views, takebacks: st.takebacks, engine: st.engine });
   }
-  $("pl-peek").addEventListener("click", () => { if (!state) return; state.peeks++; $("pl-peeks").textContent = state.peeks; board.setPosition(posObj(state.g), false); $("pl-peek").disabled = true; setTimeout(() => { if (state) board.setPosition({}, false); $("pl-peek").disabled = false; }, 2000); });
-  $("pl-resign").addEventListener("click", () => { if (state) end(false, "You resigned. Here's the final position. Try again!"); });
+  // board taps (work on the empty board too)
+  board.addEventListener("click", (e) => {
+    if (!myTurn()) return; const s = squareFromEvent(board, e); if (!s) return;
+    if (!sel) { sel = s; mark(board, { [s]: "sel" }); return; }
+    if (s === sel) { sel = null; mark(board, {}); return; }
+    const from = sel; sel = null; mark(board, {}); mine({ from, to: s });
+  });
+  $("pl-form").addEventListener("submit", (e) => { e.preventDefault(); if ($("pl-input").value.trim()) mine($("pl-input").value); });
+  $("pl-peek").addEventListener("click", () => {
+    if (!state || state.over || state.boardOpen) return; state.peeks++; counts();
+    board.setPosition(posObj(state.g), false); $("pl-peek").disabled = true;
+    setTimeout(() => { if (state && !state.boardOpen && !state.over) board.setPosition({}, false); $("pl-peek").disabled = false; }, 2000);
+  });
+  $("pl-showboard").addEventListener("click", () => {
+    if (!state || state.over) return; state.boardOpen = !state.boardOpen;
+    if (state.boardOpen) { state.views++; counts(); board.setPosition(posObj(state.g), false); $("pl-showboard").innerHTML = '<i class="fas fa-eye-slash"></i> Hide board'; }
+    else { board.setPosition({}, false); $("pl-showboard").innerHTML = '<i class="fas fa-chess-board"></i> Show board'; }
+  });
+  $("pl-showmoves").addEventListener("click", () => { if (!state) return; state.listOpen = !state.listOpen; showList(); });
+  $("pl-takeback").addEventListener("click", () => {
+    if (!myTurn() || state.sans.length < (state.me === "w" ? 2 : 3)) return;
+    state.g.undo(); state.g.undo(); state.sans.splice(-2); state.takebacks++; counts(); showList();
+    if (state.boardOpen) board.setPosition(posObj(state.g), false);
+    $("pl-msg").innerHTML = "Took back your last move. Your move again."; inputUI();
+  });
+  $("pl-resign").addEventListener("click", () => { if (state && !state.over) end(false, "You resigned. Here's the final position. Try again!"); });
+  $("pl-new").addEventListener("click", () => { state = null; setup(true); board.setPosition({}, false); $("pl-text").innerHTML = "Choose your settings and start a new game."; });
+  $("pl-copy").addEventListener("click", async () => { try { await navigator.clipboard.writeText($("pl-end").dataset.pgn || ""); $("pl-copy").innerHTML = '<i class="fas fa-check"></i> Copied'; setTimeout(() => { $("pl-copy").innerHTML = '<i class="far fa-copy"></i> Copy PGN'; }, 1500); } catch (e) { /* clipboard blocked */ } });
 })();
 
 // ---------- start ----------

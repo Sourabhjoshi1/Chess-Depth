@@ -42,4 +42,4 @@ faq:
   - q: Is ChessDepth Blindfold Training free?
     a: "Yes. All ten drills, the 28-day plan, the daily blindfold puzzle and games against the computer are free, with no app to install. It works on phones, tablets and computers. Sign in with Google if you want your medals and progress saved to your Student Area."
   - q: Can I play a full blindfold game against the computer?
-    a: "Yes. Play Blindfold gives you a whole game against the computer on an empty board. Every move is written down and can be read aloud; on Hard you only see the last move. Use Peek if you lose the picture, and try to need fewer peeks each game."
+    a: "Yes. Play Blindfold gives you a whole game against Stockfish, set anywhere from 400 (beginner) to 2800 (grandmaster) Elo. Enter moves by tapping legal-move buttons, typing or tapping an empty board, and choose whether checks, captures and mates are marked. If you get lost, peek for two seconds, show the board, look at the move list or take a move back. Afterwards, open the game on Lichess for analysis."
