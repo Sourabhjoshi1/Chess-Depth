@@ -1,6 +1,11 @@
 ---
-title: "Blindfold Chess Training: Free Visualisation Drills | ChessDepth"
-description: "Master blindfold chess for free: 10 drills in 3 stages, a 28-day plan, a daily blindfold puzzle, blindfold mates and full games against the computer. Train the visualisation that strong calculation is built on."
+title: "Blindfold Chess Training: Free Online Trainer & Visualization Drills | ChessDepth"
+crumb: Blindfold Chess Training
+crumb_parent: Resources
+crumb_parent_url: /resources/
+image: /assets/images/og-blindfold.jpg
+last_modified_at: 2026-11-04
+description: "Learn blindfold chess free online: 10 visualization drills, a 28-day plan, a daily blindfold puzzle, blindfold mates and full blindfold games vs the computer. For kids and club players."
 permalink: /resources/blindfold/
 page_css: blindfold
 head_scripts:
@@ -9,7 +14,7 @@ head_scripts:
 ---
 {%- capture wa %}{% include whatsapp-url.html %}{% endcapture %}{% assign wa = wa | strip -%}
 
-  {% include page-hero.html eyebrow="New · Free · Resources" title="Blindfold Training" lead="See the board in your head. Ten drills in three stages, a 28-day plan and a daily challenge take you from naming square colours to playing a whole game without seeing the pieces." %}
+  {% include page-hero.html eyebrow="Free online blindfold chess trainer" title="Blindfold Chess Training" lead="See the board in your head. Ten drills in three stages, a 28-day plan and a daily challenge take you from naming square colours to playing a whole game without seeing the pieces." %}
 
   <!-- ============ WHY ============ -->
   <section class="px-4 pt-12">
@@ -257,12 +262,9 @@ head_scripts:
         <p class="text-gray-600 max-w-2xl mx-auto">Blindfold chess isn't a party trick. It's the same skill you use every time you calculate a line. Here is the order our coaches teach it in.</p>
       </div>
       <ol class="bf-steps">
-        <li><b>Know every square by heart.</b> Its name, its colour and where it is from both sides of the board. Until e5 feels as obvious as your own front door, everything else is harder. <em>Drills: Square Colours, Find the Square.</em></li>
-        <li><b>Learn the lines.</b> Name the diagonals by their ends (a1–h8, b1–h7…) and know which squares they pass through. Bishops, queens and rooks stop being a guess. <em>Drills: Lines &amp; Diagonals, Knight Routes.</em></li>
-        <li><b>Hold a still picture.</b> Look at a position, then close your eyes and check it: kings first, then queens and rooks, then minor pieces, then pawns. Ask yourself what is attacked and what is defended. <em>Drills: Remember the Position, Hear the Position.</em></li>
-        <li><b>Make the picture move.</b> Follow a game move by move without a board. Start with openings you know, where the moves make sense, then games you don't. <em>Drill: Follow the Moves.</em></li>
-        <li><b>Calculate inside the picture.</b> Solve puzzles and finish basic mates without the pieces. This is exactly what you do at the board when you look three moves ahead. <em>Drills: Blindfold Puzzles, Blindfold Mates.</em></li>
-        <li><b>Play whole games.</b> Start on Easy with as many peeks as you need, and aim to peek a little less every game. <em>Drill: Play Blindfold.</em></li>
+        {%- for st in site.data.blindfold.steps %}
+        <li><b>{{ st.name }}.</b> {{ st.text }} <a href="#{{ st.anchor }}" data-go="{{ st.anchor }}" class="bf-step-link">Drills: {{ st.drills }}</a></li>
+        {%- endfor %}
       </ol>
       <div class="grid md:grid-cols-2 gap-6 mt-12">
         <div>
@@ -284,6 +286,15 @@ head_scripts:
             <li><span>Today</span> Strong players everywhere still train this way, because calculating a line is a small blindfold game in your head.</li>
           </ul>
         </div>
+      </div>
+      <div class="mt-14" id="faq">
+        <h2 class="text-2xl font-bold text-gray-900 mb-5 text-center">Blindfold chess: frequently asked questions</h2>
+        <div class="bf-faq">
+          {%- for f in site.data.blindfold.faq %}
+          <details{% if forloop.first %} open{% endif %}><summary>{{ f.q }}</summary><p>{{ f.a }}</p></details>
+          {%- endfor %}
+        </div>
+        <p class="text-center mt-6 text-gray-600">Want the full method with examples? Read our guide: <a href="/blog/how-to-play-blindfold-chess/" class="text-indigo-700 font-semibold underline">How to Play Blindfold Chess, Step by Step</a>.</p>
       </div>
       <p class="text-center mt-10"><a href="/resources/" class="text-indigo-700 font-semibold hover:underline"><i class="fas fa-arrow-left text-sm mr-1"></i> All free resources</a> <span class="text-gray-300 mx-2">|</span> <a href="/student/#blindfold" class="text-indigo-700 font-semibold hover:underline">Your progress in the Student Area <i class="fas fa-arrow-right text-sm ml-1"></i></a></p>
     </div>

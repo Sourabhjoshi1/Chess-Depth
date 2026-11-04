@@ -1,0 +1,45 @@
+# Blindfold Training page: the method steps and the FAQ.
+# Shown on /resources/blindfold/ AND sent to Google as structured data (HowTo + FAQPage), so edit them here only.
+steps:
+  - name: Know every square by heart
+    text: "Its name, its colour and where it is from both sides of the board. Until e5 feels as obvious as your own front door, everything else is harder."
+    drills: "Square Colours, Find the Square"
+    anchor: colours
+  - name: Learn the lines
+    text: "Name the diagonals by their ends (a1–h8, b1–h7…) and know which squares they pass through. Bishops, queens and rooks stop being a guess."
+    drills: "Lines & Diagonals, Knight Routes"
+    anchor: diagonals
+  - name: Hold a still picture
+    text: "Look at a position, then close your eyes and check it: kings first, then queens and rooks, then minor pieces, then pawns. Ask yourself what is attacked and what is defended."
+    drills: "Remember the Position, Hear the Position"
+    anchor: memory
+  - name: Make the picture move
+    text: "Follow a game move by move without a board. Start with openings you know, where the moves make sense, then games you don't."
+    drills: "Follow the Moves"
+    anchor: moves
+  - name: Calculate inside the picture
+    text: "Solve puzzles and finish basic mates without the pieces. This is exactly what you do at the board when you look three moves ahead."
+    drills: "Blindfold Puzzles, Blindfold Mates"
+    anchor: puzzles
+  - name: Play whole games
+    text: "Start on Easy with as many peeks as you need, and aim to peek a little less every game."
+    drills: "Play Blindfold"
+    anchor: play
+
+faq:
+  - q: What is blindfold chess?
+    a: "Blindfold chess means playing without seeing the pieces. You keep the position in your head and say or type your moves. Strong players have played it for centuries, and it trains the same skill you use whenever you calculate a line: seeing the board in your mind."
+  - q: How do I start learning blindfold chess?
+    a: "Start small. First learn every square's name and colour, then the diagonals and knight moves. Then practise holding a still position in your head, follow short games without a board, and only then solve puzzles and play games blindfold. Our free 28-day plan takes you through these steps with three short drills a day."
+  - q: Does blindfold training really improve your chess?
+    a: "Blindfold training builds visualisation: keeping an accurate picture of the board while pieces move in your head. That is what calculation depends on, so players who train it usually find it easier to see a few moves ahead, spot tactics and avoid blunders. It works best alongside normal play and puzzles, not instead of them."
+  - q: How long does it take to play a full game blindfold?
+    a: "It depends on your level and how often you practise. With ten minutes a day, many club players can follow a short game in their head within a few weeks. Playing a whole game without peeking takes longer, which is why our Play Blindfold drill lets you peek and counts how often you needed to."
+  - q: Is blindfold chess good for kids?
+    a: "Yes, when it is kept short and fun. Children can start with Square Colours, Find the Square and Knight Routes on Easy. These build board knowledge and concentration without frustration. Move on to the memory drills when the first stage feels easy."
+  - q: What is the difference between blindfold chess and chess visualization?
+    a: "Chess visualization (or visualisation) is the skill of picturing the board and the moves in your head. Blindfold chess is the most complete test of it, because you see nothing at all. Every drill on this page trains visualization, from the square colours to full blindfold games."
+  - q: Is ChessDepth Blindfold Training free?
+    a: "Yes. All ten drills, the 28-day plan, the daily blindfold puzzle and games against the computer are free, with no app to install. It works on phones, tablets and computers. Sign in with Google if you want your medals and progress saved to your Student Area."
+  - q: Can I play a full blindfold game against the computer?
+    a: "Yes. Play Blindfold gives you a whole game against the computer on an empty board. Every move is written down and can be read aloud; on Hard you only see the last move. Use Peek if you lose the picture, and try to need fewer peeks each game."

@@ -56,6 +56,7 @@ Tactics decide most games below 2000, and puzzle trainers are one of the best us
 - Aim to solve **about 80%** correctly. If you're failing more than that, the puzzles are too hard. If you never fail, they're too easy.
 - **Calculate the whole line before you touch a piece.** Fast guessing builds bad habits.
 - Our free [Chess Lab](/lab/) has over 26,000 rated puzzles from the Lichess database, a Puzzle Streak mode, and a new [Puzzle of the Day](/#daily) on our home page every day.
+- To see further ahead, add a few minutes of **visualization training**. Our free [Blindfold Chess Training](/resources/blindfold/) has ten drills, from square colours to solving puzzles with the pieces hidden.
 
 ## 6. Learn openings with ideas and repetition
 

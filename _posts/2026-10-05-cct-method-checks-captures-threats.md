@@ -77,5 +77,6 @@ It takes a few seconds once it becomes a habit, and it saves whole games.
 - **Solve puzzles with the checklist.** Before choosing a move, say the list out loud: *"Checks: ... Captures: ... Threats: ..."*
 - **Play longer games** (15 minutes or more per side) so you have time to build the habit. In blitz, the habit gets skipped.
 - **Review your losses** and mark every moment you missed a check, a capture or a threat. You will see the same patterns repeating.
+- **Train your visualization.** CCT only works if you see the board clearly in your head two or three moves ahead. Our free [Blindfold Chess Training](/resources/blindfold/) builds exactly that, starting with simple drills (here is [how to play blindfold chess](/blog/how-to-play-blindfold-chess/)).
 
 At ChessDepth Academy, the CCT method has its own worksheet with graded problems, from simple loose-piece captures up to multi-move combinations. Ask your coach for it, or download it from the [Student Area](/student/) once it is live.

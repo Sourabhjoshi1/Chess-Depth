@@ -216,3 +216,13 @@ html.dark .bf-game { background: #0f172a; }
 html.dark .bf-steps li { background: #162032; color: #cbd5e1; } html.dark .bf-history li { color: #cbd5e1; } html.dark .bf-history span { color: #c4b5fd; }
 html.dark .bf-colours { color: #a8b3c4; }
 .bp .hidden { display: none !important; }
+.bf-step-link { display: block; margin-top: .25rem; color: #4338ca; font-weight: 600; font-size: .9rem; }
+.bf-step-link:hover { text-decoration: underline; }
+.bf-faq { display: grid; gap: .6rem; max-width: 52rem; margin: 0 auto; }
+.bf-faq details { background: #f9fafb; border-radius: .7rem; padding: .9rem 1.1rem; }
+.bf-faq summary { cursor: pointer; font-weight: 700; color: #111827; list-style: none; display: flex; justify-content: space-between; gap: 1rem; }
+.bf-faq summary::-webkit-details-marker { display: none; }
+.bf-faq summary::after { content: '+'; color: #6366f1; font-weight: 800; }
+.bf-faq details[open] summary::after { content: '\2212'; }
+.bf-faq p { margin-top: .55rem; color: #4b5563; line-height: 1.6; }
+html.dark .bf-faq details { background: #162032; } html.dark .bf-faq summary { color: #f1f5f9; } html.dark .bf-faq p { color: #cbd5e1; } html.dark .bf-step-link { color: #a5b4fc; }
