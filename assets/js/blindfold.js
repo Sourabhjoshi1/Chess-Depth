@@ -688,7 +688,7 @@ function lineHTML(sans, startIndex = 0) {   // "1. e4 e5 2. Nf3", the newest mov
     if (kind === "same") {
       const diag = reach(a, "b"), b = Math.random() < 0.5 && diag.length ? pickOne(diag) : (() => { let t; do { t = sqName(rnd(8), rnd(8)); } while (t === a || sameDiag(a, t)); return t; })();
       const yes = sameDiag(a, b);
-      return { text: `Are <b>${a}</b> and <b>${b}</b> on the same diagonal?`, say: `Are ${a} and ${b} on the same diagonal?`, options: ["Yes", "No"], answer: yes ? "Yes" : "No", show: yes ? between(a, b) : [a, b], explain: yes ? `Yes: ${between(a, b).join(" → ")}.` : `No. ${light(a) === light(b) ? "They're the same colour, but not on one diagonal." : "They aren't even the same colour."}` };
+      return { text: `Are <b>${a}</b> and <b>${b}</b> on the same diagonal?`, say: `Are ${a} and ${b} on the same diagonal?`, options: ["Yes", "No"], answer: yes ? "Yes" : "No", show: yes ? between(a, b) : [a, b], explain: yes ? `The diagonal: ${between(a, b).join(" → ")}.` : light(a) === light(b) ? "They're the same colour, but not on one diagonal." : "They aren't even the same colour." };
     }
     if (kind === "bishop") {
       let b; do { b = sqName(rnd(8), rnd(8)); } while (b === a);
@@ -700,7 +700,7 @@ function lineHTML(sans, startIndex = 0) {   // "1. e4 e5 2. Nf3", the newest mov
     if (kind === "queen") {
       const lines = reach(a, "q"), b = Math.random() < 0.5 ? pickOne(lines) : (() => { let t; do { t = sqName(rnd(8), rnd(8)); } while (t === a || lines.includes(t)); return t; })();
       const yes = lines.includes(b);
-      return { text: `Can a queen on <b>${a}</b> reach <b>${b}</b> in one move (empty board)?`, say: `Can a queen on ${a} reach ${b} in one move?`, options: ["Yes", "No"], answer: yes ? "Yes" : "No", show: yes ? between(a, b) : [a, b], explain: yes ? `Yes, along the ${sameLine(a, b) ? (a[0] === b[0] ? "file" : "rank") : "diagonal"}.` : "No: it's not on the same rank, file or diagonal." };
+      return { text: `Can a queen on <b>${a}</b> reach <b>${b}</b> in one move (empty board)?`, say: `Can a queen on ${a} reach ${b} in one move?`, options: ["Yes", "No"], answer: yes ? "Yes" : "No", show: yes ? between(a, b) : [a, b], explain: yes ? `It moves along the ${sameLine(a, b) ? (a[0] === b[0] ? "file" : "rank") : "diagonal"}.` : "It's not on the same rank, file or diagonal." };
     }
     if (kind === "cross") {
       let start, dir, line; do { start = sqName(rnd(8), 0); dir = pickOne([1, -1]); line = [start, ...ray(start, dir, 1)]; } while (line.length < 5);
@@ -939,7 +939,7 @@ function engineMove(g, lvl) {
   function mine(inp) {
     const g = state.g, mv = applyInput(g, inp);
     if (!mv) { $("pl-msg").innerHTML = '<b class="bf-no">That isn’t a legal move here.</b> Picture the position again.'; return; }
-    input.reset(); state.sans.push(mv.san); showList(); speak("You: " + sanWords(mv.san));
+    input.reset(); state.sans.push(mv.san); showList(); speak("You: " + sanWords(mv.san)); $("pl-msg").innerHTML = `You played <b>${mv.san}</b>.`;
     if (over()) return;
     setTimeout(computer, 250);
   }
