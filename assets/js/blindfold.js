@@ -1022,13 +1022,14 @@ const eloLevel = (e) => (e < 1000 ? "easy" : e < 1600 ? "medium" : "hard");
   stoppers.play = () => { if (state) { state.dead = true; state = null; } setup(true); };
   function inputUI() {
     const buttons = S.input === "buttons";
+    $("pl-switchin").innerHTML = buttons ? '<i class="fas fa-keyboard"></i> Type instead' : '<i class="fas fa-th"></i> Move buttons';
     $("pl-form").classList.toggle("hidden", buttons || !myTurn()); $("pl-mvbox").classList.toggle("hidden", !buttons || !myTurn());
     if (buttons && myTurn()) moveButtons($("pl-mvbox"), state.g, { check: !!S.hints[0], capture: !!S.hints[1], mate: !!S.hints[2] }, (san) => mine(san));
     if (!buttons && myTurn() && matchMedia("(pointer: fine)").matches) $("pl-input").focus();
   }
   function showList() {
     const s = state.sans, box = $("pl-list");
-    if (S.list === "hidden" && !state.listOpen) { box.innerHTML = s.length ? `<span class="bf-qn">Move list hidden</span><span class="bf-hint-sm">${s.length} moves played. Tap “Show moves” if you're lost.</span>` : ""; }
+    if (S.list === "hidden" && !state.listOpen) { box.innerHTML = s.length ? `<span class="bf-qn">Move list hidden</span><span class="bf-hint-sm">${s.length} move${s.length > 1 ? "s" : ""} played. Tap “Show moves” if you're lost.</span>` : ""; }
     else if (S.list === "last" && !state.listOpen) box.innerHTML = s.length ? `<span class="bf-qn">Only the last move is shown</span>` + lineHTML(s.slice(-1), s.length - 1) : "";
     else box.innerHTML = lineHTML(s);
     box.scrollTop = box.scrollHeight;
@@ -1121,6 +1122,7 @@ const eloLevel = (e) => (e < 1000 ? "easy" : e < 1600 ? "medium" : "hard");
     if (state.boardOpen) { state.views++; counts(); board.setPosition(posObj(state.g), false); $("pl-showboard").innerHTML = '<i class="fas fa-eye-slash"></i> Hide board'; }
     else { board.setPosition({}, false); $("pl-showboard").innerHTML = '<i class="fas fa-chess-board"></i> Show board'; }
   });
+  $("pl-switchin").addEventListener("click", () => { S.input = S.input === "buttons" ? "type" : "buttons"; save(); if (state) inputUI(); });
   $("pl-showmoves").addEventListener("click", () => { if (!state) return; state.listOpen = !state.listOpen; showList(); });
   $("pl-takeback").addEventListener("click", () => {
     if (!myTurn() || state.sans.length < (state.me === "w" ? 2 : 3)) return;

@@ -80,7 +80,7 @@ Drills: [Blindfold Puzzles](/resources/blindfold/#puzzles), the [daily blindfold
 
 ## Step 6: Play whole games
 
-Finally, play a full game against the computer on an empty board. Allow yourself to peek when you lose the picture, but count the peeks and try to need fewer each game. Start with an easy opponent. The goal is an accurate picture, not winning quickly.
+Finally, play a full game against the computer on an empty board. Our trainer uses Stockfish, which you can set anywhere from 400 to 2800 Elo. On a phone, tapping legal-move buttons is easiest; for a harder test, turn off the check and capture hints, or type your moves. Allow yourself to peek or show the board when you lose the picture, but count those looks and try to need fewer each game. Start with a weak opponent. The goal is an accurate picture, not winning quickly.
 
 Try it in [Play Blindfold](/resources/blindfold/#play).
 
