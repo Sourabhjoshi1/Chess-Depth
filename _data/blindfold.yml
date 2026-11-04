@@ -1,5 +1,5 @@
 # Blindfold Training page: the method steps and the FAQ.
-# Shown on /resources/blindfold/ AND sent to Google as structured data (HowTo + FAQPage), so edit them here only.
+# Shown on /blindfold/ AND sent to Google as structured data (HowTo + FAQPage), so edit them here only.
 steps:
   - name: Know every square by heart
     text: "Its name, its colour and where it is from both sides of the board. Until e5 feels as obvious as your own front door, everything else is harder."

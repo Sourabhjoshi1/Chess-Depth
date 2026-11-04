@@ -1,4 +1,4 @@
-// ChessDepth - Blindfold Training (/resources/blindfold/).
+// ChessDepth - Blindfold Training (/blindfold/).
 // Ten drills in three stages, a 28-day plan, a daily challenge, medals and ranks.
 // Everything runs in the browser; scores are kept in localStorage and, when signed in, in the student's account.
 import { Chess } from "https://cdn.jsdelivr.net/npm/chess.js@1.0.0/dist/esm/chess.js";

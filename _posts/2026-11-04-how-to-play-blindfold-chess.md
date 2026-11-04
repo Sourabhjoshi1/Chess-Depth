@@ -11,7 +11,7 @@ Every time you calculate a line, you play a tiny game of **blindfold chess**. Th
 
 That is why blindfold training is one of the best ways to improve your **chess visualization**. And no, you don't need a special talent for it. Like any skill, it can be built step by step.
 
-This guide shows you exactly how. Every step links to a free drill in our [Blindfold Chess Training](/resources/blindfold/) so you can practise as you read.
+This guide shows you exactly how. Every step links to a free drill in our [Blindfold Chess Training](/blindfold/) so you can practise as you read.
 
 ## What is blindfold chess?
 
@@ -36,7 +36,7 @@ You can't picture a board you don't know. Start with the squares themselves:
 - Name the **colour** of any square instantly. Is g5 light or dark? (Dark: it sits on the same file as g1, four squares up.) A useful rule: a1 is dark, and the colour changes with every step along a rank or a file.
 - Find any square **without coordinates** on the board, from White's side *and* from Black's.
 
-Practise with [Square Colours](/resources/blindfold/#colours) and [Find the Square](/resources/blindfold/#squares). Aim for 20 correct answers in a minute before you move on.
+Practise with [Square Colours](/blindfold/#colours) and [Find the Square](/blindfold/#squares). Aim for 20 correct answers in a minute before you move on.
 
 ## Step 2: Learn the lines
 
@@ -46,7 +46,7 @@ Bishops, rooks and queens move along lines, so learn the lines like a map:
 - Name other diagonals by their ends: b1–h7, c1–h6, a2–g8 and so on. Can you list the squares on the c1–h6 diagonal without looking? (c1, d2, e3, f4, g5, h6.)
 - Knights are the odd ones out, so train their routes separately. How many moves from b1 to h8? (Five.)
 
-Drills: [Lines & Diagonals](/resources/blindfold/#diagonals) and [Knight Routes](/resources/blindfold/#knight).
+Drills: [Lines & Diagonals](/blindfold/#diagonals) and [Knight Routes](/blindfold/#knight).
 
 ## Step 3: Hold a still picture
 
@@ -59,7 +59,7 @@ Now hold a whole position in your head. Look at a position for 15–20 seconds, 
 
 Then ask the questions that matter in a real game: *Is that knight defended? Does my bishop attack anything?*
 
-Two drills train this: [Remember the Position](/resources/blindfold/#memory), where you see the position first, and [Hear the Position](/resources/blindfold/#hear), where it is only described in words, the way positions appear in chess books.
+Two drills train this: [Remember the Position](/blindfold/#memory), where you see the position first, and [Hear the Position](/blindfold/#hear), where it is only described in words, the way positions appear in chess books.
 
 ## Step 4: Make the picture move
 
@@ -67,7 +67,7 @@ The real skill is keeping the picture accurate while pieces move. Start with ope
 
 *1.e4 e5 2.Nf3 Nc6 3.Bb5 a6 4.Ba4 Nf6.* Where is the bishop now? Which black piece attacks e4?
 
-Then follow lines you don't know. A great habit is to **read chess books without a board**: play through the moves in your head and only check the diagrams. Our [Follow the Moves](/resources/blindfold/#moves) drill plays real openings move by move. On Hard it only shows you the latest move.
+Then follow lines you don't know. A great habit is to **read chess books without a board**: play through the moves in your head and only check the diagrams. Our [Follow the Moves](/blindfold/#moves) drill plays real openings move by move. On Hard it only shows you the latest move.
 
 ## Step 5: Calculate inside the picture
 
@@ -76,17 +76,17 @@ Once you can hold a moving picture, use it the way you will in a game:
 - **Blindfold puzzles**: memorise a position, then find the winning move with the pieces hidden. Start with short tactics, such as mate in one or winning a piece.
 - **Basic mates, blind**: checkmate a lone king with two rooks, then king and queen, then king and rook, without seeing the board. If you can do king and rook blind, your technique is solid.
 
-Drills: [Blindfold Puzzles](/resources/blindfold/#puzzles), the [daily blindfold puzzle](/resources/blindfold/#daily) and [Blindfold Mates](/resources/blindfold/#mates).
+Drills: [Blindfold Puzzles](/blindfold/#puzzles), the [daily blindfold puzzle](/blindfold/#daily) and [Blindfold Mates](/blindfold/#mates).
 
 ## Step 6: Play whole games
 
 Finally, play a full game against the computer on an empty board. Our trainer uses Stockfish, which you can set anywhere from 400 to 2800 Elo. On a phone, tapping legal-move buttons is easiest; for a harder test, turn off the check and capture hints, or type your moves. Allow yourself to peek or show the board when you lose the picture, but count those looks and try to need fewer each game. Start with a weak opponent. The goal is an accurate picture, not winning quickly.
 
-Try it in [Play Blindfold](/resources/blindfold/#play).
+Try it in [Play Blindfold](/blindfold/#play).
 
 ## A 4-week plan
 
-Ten minutes a day is enough. Here is the outline of our free [28-day mastery plan](/resources/blindfold/#path), which picks three drills for you every day and ticks them off as you go:
+Ten minutes a day is enough. Here is the outline of our free [28-day mastery plan](/blindfold/#path), which picks three drills for you every day and ticks them off as you go:
 
 | Week | Focus | Main drills |
 |---|---|---|
@@ -110,4 +110,4 @@ Yes, when it is short and playful. Children enjoy Square Colours and Knight Rout
 
 ## Start now
 
-All of this is free in our [Blindfold Chess Training](/resources/blindfold/), with no app to install. It has 10 drills, a 28-day plan, a daily puzzle, medals and ranks. If you are a ChessDepth student, sign in and your progress appears in your [Student Area](/student/#blindfold), so your coach can follow it too.
+All of this is free in our [Blindfold Chess Training](/blindfold/), with no app to install. It has 10 drills, a 28-day plan, a daily puzzle, medals and ranks. If you are a ChessDepth student, sign in and your progress appears in your [Student Area](/student/#blindfold), so your coach can follow it too.

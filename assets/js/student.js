@@ -280,7 +280,7 @@ async function start() {
   });
 }
 
-// ---------- Blindfold Training (saved by /resources/blindfold/ to students/{uid}.blindfold) ----------
+// ---------- Blindfold Training (saved by /blindfold/ to students/{uid}.blindfold) ----------
 function setupBlindfold(remote) {
   const box = document.getElementById("blindfold"); if (!box) return;
   remote = remote || {};
@@ -300,7 +300,7 @@ function setupBlindfold(remote) {
     : `<i class="fas fa-lightbulb"></i> New! Start the <b>28-day plan</b>: three short drills a day.`;
   document.getElementById("bfs-grid").innerHTML = DRILLS.map((d) => {
     const v = LEVELS.map((l) => num(`${d.id}-${l}`)), n = num("rounds-" + d.id);
-    return `<a class="bfs-item" href="/resources/blindfold/#${d.id}">
+    return `<a class="bfs-item" href="/blindfold/#${d.id}">
       <span class="bfs-top"><i class="fas ${d.icon}"></i><b>${d.name}</b></span>
       <span class="bfs-metric">${d.metric} · medal at ${d.medal}+</span>
       <span class="bfs-levels">${LEVELS.map((l, k) => `<span class="${m.byDrill[d.id][k] ? "has-medal bfs-m" + k : ""}" title="${MEDAL_NAMES[k]} medal at ${d.medal}+"><em>${l[0].toUpperCase() + l.slice(1)}</em><strong class="${v[k] ? "" : "is-zero"}">${v[k]}</strong></span>`).join("")}</span>

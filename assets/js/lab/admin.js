@@ -54,7 +54,7 @@ async function render() {
   </section>
   <section class="admin-block">
     <h2 class="pd-h2"><i class="fas fa-eye-slash"></i> Blindfold Training</h2>
-    <p class="pd-small">Progress of signed-in students on <a href="/resources/blindfold/">Blindfold Training</a>: rank and medals (bronze, silver, gold per drill, ${DRILLS.length * 3} in all), their day in the 28-day plan, days trained in a row and the drills they use most. ${bfRows.length} student${bfRows.length === 1 ? "" : "s"} training.</p>
+    <p class="pd-small">Progress of signed-in students on <a href="/blindfold/">Blindfold Training</a>: rank and medals (bronze, silver, gold per drill, ${DRILLS.length * 3} in all), their day in the 28-day plan, days trained in a row and the drills they use most. ${bfRows.length} student${bfRows.length === 1 ? "" : "s"} training.</p>
     ${bfRows.length ? `<table class="admin-table"><thead><tr><th>Student</th><th>Rank</th><th>Medals</th><th>Plan</th><th>Streak</th><th>Rounds</th><th>Most played</th><th>Last trained</th></tr></thead><tbody>
     ${bfRows.map((x) => `<tr><td><b>${esc(x.r.name || "(no name)")}</b>${x.r.enrollment ? `<br><small>${esc(x.r.enrollment)}</small>` : ""}</td><td>${x.rank}</td><td>${x.medals}</td><td>Day ${x.plan}</td><td>${x.streak}</td><td>${x.rounds}</td><td><small>${esc(x.top)}</small></td><td>${x.last ? new Date(x.last).toLocaleDateString("en-IN") : ""}</td></tr>`).join("")}
     </tbody></table>` : `<p class="pd-empty">No students have trained blindfold while signed in yet.</p>`}

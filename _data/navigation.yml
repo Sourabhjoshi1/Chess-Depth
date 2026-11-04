@@ -16,6 +16,9 @@
       url: /shop/
       icon: fa-book
       desc: Worksheets, books and study packs
+- title: Blindfold
+  url: /blindfold/
+  badge: New
 - title: Resources
   url: /resources/
 - title: ChessDepth AI
