@@ -1,7 +1,7 @@
 ---
-title: "How to Play Blindfold Chess: A Step-by-Step Guide to Chess Visualization"
+title: "How to Play Blindfold Chess: Step-by-Step Visualization Guide"
 headline: "How to Play Blindfold Chess, Step by Step"
-description: "Blindfold chess is the best way to train chess visualization. Here is a six-step method, from learning the squares to playing a full game without seeing the pieces, with a 4-week plan and free drills."
+description: "Blindfold chess trains chess visualization like nothing else. A six-step method from learning the squares to full blindfold games, with a 4-week plan and free drills."
 category: Training
 level: All levels
 image: /assets/images/og-blindfold.jpg
