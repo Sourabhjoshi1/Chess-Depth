@@ -45,3 +45,5 @@ details.rs-faq[open] summary:after { content: '\2212'; }
 .rs-bf-list a:hover { background: rgba(255,255,255,.2); }
 .rs-bf-list b { width: 1.5rem; height: 1.5rem; border-radius: 50%; background: #fbbf24; color: #1e1b4b; display: grid; place-items: center; font-size: .8rem; flex-shrink: 0; }
 html.dark .rs-bf { background: linear-gradient(135deg, #1e1b4b 0%, #3730a3 60%, #5b21b6 100%); }
+.rs-bf-list small { display: block; font-weight: 400; font-size: .78rem; color: #c7d2fe; }
+.rs-bf-list a { align-items: center; } .rs-bf-list a > i { width: 1.5rem; text-align: center; color: #fbbf24; }

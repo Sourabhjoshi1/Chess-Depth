@@ -2,6 +2,7 @@
 import { initLab, onChange, signIn, state, adminListStudents, adminSetAccess, adminListEnrollments, adminAddEnrollments, adminSetEnrollment, adminReleaseEnrollment, normalizeEnrollment, adminListReviews, adminUpdateReview, adminListQuizLinks, adminSetQuizLink } from "./lab-core.js";
 import { esc } from "./shell.js";
 import { showReport } from "../lichess-report.js";
+import { DRILLS, medals, rankOf, dayStreak } from "../blindfold-meta.js";
 
 const box = document.getElementById("admin-app");
 async function render() {
@@ -23,11 +24,11 @@ async function render() {
   if (revs) revs.sort((a, b) => ms(b.created) - ms(a.created));
   const hiddenN = revs ? revs.filter((r) => r.hidden).length : 0;
   const lic = rows.filter((r) => r.lichess && r.lichess.username);
-  // Blindfold Training: best per drill = highest level with a score, shown like "24 · H"
-  const bfRows = rows.filter((r) => r.blindfold).map((r) => { const b = r.blindfold, out = { r, rounds: 0, last: b.last || 0, cells: {} };
-    ["colours", "knight", "memory", "moves", "puzzles"].forEach((d) => { out.rounds += b["rounds-" + d] || 0;
-      const lv = ["hard", "medium", "easy"].find((l) => b[d + "-" + l]); out.cells[d] = lv ? `${b[d + "-" + lv]} <small>${lv[0].toUpperCase()}</small>` : "–"; });
-    return out; }).filter((x) => x.rounds).sort((a, b) => b.last - a.last);
+  // Blindfold Training: rank, medals, plan day, streak and rounds per student
+  const bfRows = rows.filter((r) => r.blindfold).map((r) => { const b = r.blindfold, num = (k) => (typeof b[k] === "number" ? b[k] : 0), m = medals(num);
+    const rounds = DRILLS.reduce((n, d) => n + num("rounds-" + d.id), 0);
+    const top = DRILLS.map((d) => [d.name, num("rounds-" + d.id)]).sort((x, y) => y[1] - x[1]).filter((x) => x[1]).slice(0, 2).map((x) => `${x[0]} (${x[1]})`).join(", ");
+    return { r, rounds, last: b.last || 0, medals: m.total, rank: rankOf(m.total).title, plan: num("plan-day") || 1, streak: dayStreak(b.days || []), top }; }).filter((x) => x.rounds).sort((a, b) => b.last - a.last);
   box.innerHTML = `
   <section class="admin-block">
     <h2 class="pd-h2"><i class="fas fa-clipboard-check"></i> Quiz links</h2>
@@ -53,10 +54,9 @@ async function render() {
   </section>
   <section class="admin-block">
     <h2 class="pd-h2"><i class="fas fa-eye-slash"></i> Blindfold Training</h2>
-    <p class="pd-small">Best scores of signed-in students on <a href="/resources/blindfold/">Blindfold Training</a>. Each cell shows the best score at the hardest level tried (E, M or H). Colours = best score, Knight = out of 10, Memory and Moves = perfect rounds, Puzzles = best streak. ${bfRows.length} student${bfRows.length === 1 ? "" : "s"} training.</p>
-    ${bfRows.length ? `<table class="admin-table"><thead><tr><th>Student</th><th>Rounds</th><th>Last trained</th><th>Colours</th><th>Knight</th><th>Memory</th><th>Moves</th><th>Puzzles</th></tr></thead><tbody>
-    ${bfRows.map((x) => `<tr><td><b>${esc(x.r.name || "(no name)")}</b>${x.r.enrollment ? `<br><small>${esc(x.r.enrollment)}</small>` : ""}</td><td>${x.rounds}</td><td>${x.last ? new Date(x.last).toLocaleDateString("en-IN") : ""}</td>
-      <td>${x.cells.colours}</td><td>${x.cells.knight}</td><td>${x.cells.memory}</td><td>${x.cells.moves}</td><td>${x.cells.puzzles}</td></tr>`).join("")}
+    <p class="pd-small">Progress of signed-in students on <a href="/resources/blindfold/">Blindfold Training</a>: rank and medals (bronze, silver, gold per drill, ${DRILLS.length * 3} in all), their day in the 28-day plan, days trained in a row and the drills they use most. ${bfRows.length} student${bfRows.length === 1 ? "" : "s"} training.</p>
+    ${bfRows.length ? `<table class="admin-table"><thead><tr><th>Student</th><th>Rank</th><th>Medals</th><th>Plan</th><th>Streak</th><th>Rounds</th><th>Most played</th><th>Last trained</th></tr></thead><tbody>
+    ${bfRows.map((x) => `<tr><td><b>${esc(x.r.name || "(no name)")}</b>${x.r.enrollment ? `<br><small>${esc(x.r.enrollment)}</small>` : ""}</td><td>${x.rank}</td><td>${x.medals}</td><td>Day ${x.plan}</td><td>${x.streak}</td><td>${x.rounds}</td><td><small>${esc(x.top)}</small></td><td>${x.last ? new Date(x.last).toLocaleDateString("en-IN") : ""}</td></tr>`).join("")}
     </tbody></table>` : `<p class="pd-empty">No students have trained blindfold while signed in yet.</p>`}
   </section>
   <section class="admin-block">

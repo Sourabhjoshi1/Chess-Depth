@@ -1,6 +1,7 @@
 // ChessDepth Academy - Student Area (Google sign-in + PDF downloads from Firebase Storage)
 import { firebaseConfig, courseNames } from "./firebase-config.js";
 import { lookupUser, showReport } from "./lichess-report.js";
+import { DRILLS, LEVELS, MEDAL_NAMES, medals, rankOf, planDay, dayStreak } from "./blindfold-meta.js";
 
 const $ = (id) => document.getElementById(id);
 const STATES = ["state-loading", "state-setup", "state-signed-out", "state-signed-in"];
@@ -279,20 +280,30 @@ async function start() {
   });
 }
 
-// ---------- Blindfold Training scores (saved by /resources/blindfold/ to students/{uid}.blindfold) ----------
+// ---------- Blindfold Training (saved by /resources/blindfold/ to students/{uid}.blindfold) ----------
 function setupBlindfold(remote) {
   const box = document.getElementById("blindfold"); if (!box) return;
-  const local = (k) => { try { const v = localStorage.getItem("cd-bf-" + k); return v === null ? 0 : JSON.parse(v) || 0; } catch (e) { return 0; } };
-  const val = (k) => Math.max(local(k), (remote && typeof remote[k] === "number") ? remote[k] : 0);
-  let rounds = 0;
-  box.querySelectorAll("[data-k]").forEach((el) => {
-    const k = el.dataset.k, v = val(k);
-    if (k.startsWith("rounds-")) { rounds += v; el.textContent = v ? `${v} round${v > 1 ? "s" : ""} played` : "Not tried yet"; el.classList.toggle("is-zero", !v); }
-    else { el.textContent = v; el.classList.toggle("is-zero", !v); }
-  });
-  const last = Math.max(local("last"), (remote && remote.last) || 0);
-  const ago = last ? Math.floor((Date.now() - last) / 86400000) : null;
+  remote = remote || {};
+  const local = (k) => { try { const v = localStorage.getItem("cd-bf-" + k); return v === null ? null : JSON.parse(v); } catch (e) { return null; } };
+  const num = (k) => Math.max(Number(local(k)) || 0, typeof remote[k] === "number" ? remote[k] : 0);
+  const days = [...new Set([...(local("days") || []), ...(remote.days || [])])], daily = [...new Set([...(local("daily-days") || []), ...(remote["daily-days"] || [])])];
+  const m = medals(num), r = rankOf(m.total), plan = planDay(Math.max(num("plan-day"), 1));
+  let rounds = 0; DRILLS.forEach((d) => { rounds += num("rounds-" + d.id); });
+  const streak = dayStreak(days), dstreak = dayStreak(daily);
+  document.getElementById("bfs-stats").innerHTML = [
+    ["fa-crown", r.title, "Rank"], ["fa-medal", `${m.total}/${DRILLS.length * 3}`, "Medals"], ["fa-route", `Day ${plan.day}/28`, "Mastery plan"],
+    ["fa-fire", streak, streak === 1 ? "Day in a row" : "Days in a row"], ["fa-calendar-check", dstreak, "Daily challenge streak"],
+  ].map(([i, v, l]) => `<div><i class="fas ${i}"></i><b>${v}</b><span>${l}</span></div>`).join("");
+  const last = Math.max(Number(local("last")) || 0, remote.last || 0), ago = last ? Math.floor((Date.now() - last) / 86400000) : null;
   document.getElementById("bfs-summary").innerHTML = rounds
-    ? `<i class="fas fa-fire"></i> <b>${rounds}</b> round${rounds > 1 ? "s" : ""} played so far` + (ago === null ? "" : ago === 0 ? " · last trained today" : ago === 1 ? " · last trained yesterday" : ` · last trained ${ago} days ago`) + ". Ten minutes a day makes a real difference."
-    : `<i class="fas fa-lightbulb"></i> New! Start with <b>Square Colours</b> on Easy. It takes one minute.`;
+    ? `<i class="fas fa-fire"></i> <b>${rounds}</b> round${rounds > 1 ? "s" : ""} played` + (ago === null ? "" : ago === 0 ? " · last trained today" : ago === 1 ? " · last trained yesterday" : ` · last trained ${ago} days ago`) + (r.next ? `. ${r.nextAt - m.total} more medal${r.nextAt - m.total > 1 ? "s" : ""} to reach <b>${r.next}</b>.` : ".")
+    : `<i class="fas fa-lightbulb"></i> New! Start the <b>28-day plan</b>: three short drills a day.`;
+  document.getElementById("bfs-grid").innerHTML = DRILLS.map((d) => {
+    const v = LEVELS.map((l) => num(`${d.id}-${l}`)), n = num("rounds-" + d.id);
+    return `<a class="bfs-item" href="/resources/blindfold/#${d.id}">
+      <span class="bfs-top"><i class="fas ${d.icon}"></i><b>${d.name}</b></span>
+      <span class="bfs-metric">${d.metric} · medal at ${d.medal}+</span>
+      <span class="bfs-levels">${LEVELS.map((l, k) => `<span class="${m.byDrill[d.id][k] ? "has-medal bfs-m" + k : ""}" title="${MEDAL_NAMES[k]} medal at ${d.medal}+"><em>${l[0].toUpperCase() + l.slice(1)}</em><strong class="${v[k] ? "" : "is-zero"}">${v[k]}</strong></span>`).join("")}</span>
+      <span class="bfs-rounds${n ? "" : " is-zero"}">${n ? `${n} round${n > 1 ? "s" : ""} played` : "Not tried yet"}</span></a>`;
+  }).join("");
 }

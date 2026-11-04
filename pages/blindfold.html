@@ -1,6 +1,6 @@
 ---
 title: "Blindfold Chess Training: Free Visualisation Drills | ChessDepth"
-description: "Free blindfold chess drills: square colours, knight routes, remember the position, follow the moves and blindfold puzzles. Train the visualisation that strong calculation is built on."
+description: "Master blindfold chess for free: 10 drills in 3 stages, a 28-day plan, a daily blindfold puzzle, blindfold mates and full games against the computer. Train the visualisation that strong calculation is built on."
 permalink: /resources/blindfold/
 page_css: blindfold
 head_scripts:
@@ -9,14 +9,47 @@ head_scripts:
 ---
 {%- capture wa %}{% include whatsapp-url.html %}{% endcapture %}{% assign wa = wa | strip -%}
 
-  {% include page-hero.html eyebrow="New · Free · Resources" title="Blindfold Training" lead="See the board in your head. Five short drills that build the visualisation strong players use to calculate, from naming square colours to solving puzzles with the pieces hidden." %}
+  {% include page-hero.html eyebrow="New · Free · Resources" title="Blindfold Training" lead="See the board in your head. Ten drills in three stages, a 28-day plan and a daily challenge take you from naming square colours to playing a whole game without seeing the pieces." %}
 
   <!-- ============ WHY ============ -->
   <section class="px-4 pt-12">
     <div class="max-w-5xl mx-auto grid md:grid-cols-3 gap-5">
       <div class="bf-why"><i class="fas fa-eye-slash"></i><h2>Why train blindfold?</h2><p>Every time you calculate, you move pieces in your head. Blindfold drills make that picture sharper, so you see more moves ahead and blunder less.</p></div>
-      <div class="bf-why"><i class="fas fa-stopwatch"></i><h2>10 minutes a day</h2><p>Do two or three drills a day, before your puzzles. Start on Easy, and move up when you score well three times in a row.</p></div>
-      <div class="bf-why"><i class="fas fa-child"></i><h2>For every level</h2><p>Kids start with square colours and knight routes. Club players use Follow the Moves and Blindfold Puzzles to stretch their calculation.</p></div>
+      <div class="bf-why"><i class="fas fa-stopwatch"></i><h2>10 minutes a day</h2><p>Follow the 28-day plan: three short drills a day, one stage at a time. Earn a medal on each level before you move up.</p></div>
+      <div class="bf-why"><i class="fas fa-child"></i><h2>For every level</h2><p>Kids start with square colours and knight routes. Club players stretch their calculation with blindfold puzzles, mates and full games.</p></div>
+    </div>
+  </section>
+
+  <!-- ============ YOUR PATH ============ -->
+  <section class="px-4 pt-12" id="path">
+    <div class="max-w-6xl mx-auto bp">
+      <div class="bp-card bp-rank-card">
+        <p class="bf-label">Your blindfold rank</p>
+        <p class="bp-rank" id="bp-rank">Beginner</p>
+        <div class="bp-progress"><span id="bp-bar"></span></div>
+        <p class="bp-small"><b id="bp-medals">0 medals</b> · <span id="bp-next"></span></p>
+        <div class="bp-streak"><i class="fas fa-fire"></i><b id="bp-streak">0</b> <span id="bp-streak-l">days in a row</span></div>
+      </div>
+      <div class="bp-card bp-plan-card">
+        <div class="bp-plan-top"><div><p class="bf-label">28-day mastery plan</p><p class="bp-plan-day" id="bp-plan-day">Day 1 of 28</p><p class="bp-small" id="bp-plan-week"></p></div></div>
+        <div class="bp-dots-row" id="bp-plan-dots" aria-hidden="true"></div>
+        <p class="bp-small bp-today">Today's session:</p>
+        <div class="bp-tasks" id="bp-plan-list"></div>
+        <button type="button" class="bf-start bp-go" id="bp-plan-btn"><i class="fas fa-play"></i> Start today's session</button>
+        <p class="bp-done hidden" id="bp-plan-done"><i class="fas fa-check-circle"></i> Today's session is done. The next day unlocks tomorrow.</p>
+        <button type="button" class="bf-ghost hidden" id="bp-plan-reset"><i class="fas fa-redo"></i> Start the plan again</button>
+      </div>
+      <div class="bp-card bp-daily-card">
+        <p class="bf-label">Daily challenge</p>
+        <p class="bp-daily-h"><i class="fas fa-calendar-day"></i> Blindfold puzzle of the day</p>
+        <p class="bp-small" id="bp-daily-status"></p>
+        <p class="bp-small"><i class="fas fa-fire" style="color:#f97316"></i> Daily streak: <b id="bp-daily-streak">0</b></p>
+        <button type="button" class="bf-start bp-go" id="bp-daily-btn"><i class="fas fa-play"></i> Solve today's puzzle</button>
+      </div>
+      <details class="bp-card bp-medals-card">
+        <summary><span><i class="fas fa-medal"></i> Your medals</span><span class="bp-small">Bronze on Easy, silver on Medium, gold on Hard. Tap a drill to train it.</span></summary>
+        <div class="bp-grid" id="bp-grid"></div>
+      </details>
     </div>
   </section>
 
@@ -25,14 +58,25 @@ head_scripts:
     <div class="max-w-6xl mx-auto">
       <div class="text-center mb-8">
         <p class="bf-eyebrow mb-2">Choose a drill</p>
-        <h2 class="text-3xl font-bold text-gray-900">Five steps to a board in your head</h2>
+        <h2 class="text-3xl font-bold text-gray-900">Three stages to blindfold mastery</h2>
       </div>
-      <div class="bf-picker" role="tablist" aria-label="Blindfold drills">
-        <button type="button" role="tab" class="bf-pick" data-drill="colours" aria-selected="true"><span class="bf-num">1</span><i class="fas fa-chess-board"></i><b>Square Colours</b><span>Light or dark? Name it fast.</span></button>
-        <button type="button" role="tab" class="bf-pick" data-drill="knight" aria-selected="false"><span class="bf-num">2</span><i class="fas fa-chess-knight"></i><b>Knight Routes</b><span>Fewest moves from A to B.</span></button>
-        <button type="button" role="tab" class="bf-pick" data-drill="memory" aria-selected="false"><span class="bf-num">3</span><i class="fas fa-brain"></i><b>Remember the Position</b><span>Look, then answer with it hidden.</span></button>
-        <button type="button" role="tab" class="bf-pick" data-drill="moves" aria-selected="false"><span class="bf-num">4</span><i class="fas fa-list-ol"></i><b>Follow the Moves</b><span>Play a game in your head.</span></button>
-        <button type="button" role="tab" class="bf-pick" data-drill="puzzles" aria-selected="false"><span class="bf-num">5</span><i class="fas fa-eye-slash"></i><b>Blindfold Puzzles</b><span>Solve with the pieces gone.</span></button>
+      <div class="bf-stages" role="tablist" aria-label="Blindfold drills">
+        <div class="bf-stage-group"><p class="bf-stage-h"><span>Stage 1</span> See the board</p><div class="bf-picker">
+          <button type="button" role="tab" class="bf-pick" data-drill="colours" aria-selected="true"><span class="bf-num">1</span><i class="fas fa-chess-board"></i><b>Square Colours</b><span>Light or dark? Name it fast.</span></button>
+          <button type="button" role="tab" class="bf-pick" data-drill="squares" aria-selected="false"><span class="bf-num">2</span><i class="fas fa-crosshairs"></i><b>Find the Square</b><span>Tap e5 on a board with no letters.</span></button>
+          <button type="button" role="tab" class="bf-pick" data-drill="diagonals" aria-selected="false"><span class="bf-num">3</span><i class="fas fa-slash"></i><b>Lines &amp; Diagonals</b><span>Bishop and queen geometry.</span></button>
+          <button type="button" role="tab" class="bf-pick" data-drill="knight" aria-selected="false"><span class="bf-num">4</span><i class="fas fa-chess-knight"></i><b>Knight Routes</b><span>Fewest moves from A to B.</span></button>
+        </div></div>
+        <div class="bf-stage-group"><p class="bf-stage-h"><span>Stage 2</span> Hold the position</p><div class="bf-picker">
+          <button type="button" role="tab" class="bf-pick" data-drill="memory" aria-selected="false"><span class="bf-num">5</span><i class="fas fa-brain"></i><b>Remember the Position</b><span>Look, then answer with it hidden.</span></button>
+          <button type="button" role="tab" class="bf-pick" data-drill="hear" aria-selected="false"><span class="bf-num">6</span><i class="fas fa-headphones"></i><b>Hear the Position</b><span>Build it from words alone.</span></button>
+          <button type="button" role="tab" class="bf-pick" data-drill="moves" aria-selected="false"><span class="bf-num">7</span><i class="fas fa-list-ol"></i><b>Follow the Moves</b><span>Play an opening in your head.</span></button>
+        </div></div>
+        <div class="bf-stage-group"><p class="bf-stage-h"><span>Stage 3</span> Calculate blind</p><div class="bf-picker">
+          <button type="button" role="tab" class="bf-pick" data-drill="puzzles" aria-selected="false"><span class="bf-num">8</span><i class="fas fa-eye-slash"></i><b>Blindfold Puzzles</b><span>Solve with the pieces gone.</span></button>
+          <button type="button" role="tab" class="bf-pick" data-drill="mates" aria-selected="false"><span class="bf-num">9</span><i class="fas fa-chess-king"></i><b>Blindfold Mates</b><span>Checkmate a lone king, blind.</span></button>
+          <button type="button" role="tab" class="bf-pick" data-drill="play" aria-selected="false"><span class="bf-num">10</span><i class="fas fa-robot"></i><b>Play Blindfold</b><span>A whole game vs the computer.</span></button>
+        </div></div>
       </div>
     </div>
   </section>
@@ -54,7 +98,7 @@ head_scripts:
       <div class="bf-drill" data-drill="colours">
         <div class="bf-head"><h3>Square Colours</h3><p>A square name appears. Is it a <b>light</b> or a <b>dark</b> square? Answer as many as you can before time runs out. Keyboard: <kbd>L</kbd> light, <kbd>D</kbd> dark.</p></div>
         <div class="bf-stage bf-center">
-          <div class="bf-score-row"><div><p class="bf-label">Score</p><p class="bf-big" id="col-score">0</p></div><div><p class="bf-label">Time</p><p class="bf-big" id="col-time">60</p></div><div><p class="bf-label">Your best</p><p class="bf-big bf-best" id="col-best">0</p></div></div>
+          <div class="bf-score-row"><div><p class="bf-label">Score</p><p class="bf-big" id="col-score">0</p></div><div><p class="bf-label">Time</p><p class="bf-big" id="col-time">60</p></div><div><p class="bf-label">Your best</p><p class="bf-big bf-best" id="col-best" data-best="colours">0</p></div></div>
           <p class="bf-square" id="col-square" aria-live="polite">e4</p>
           <div class="bf-answers bf-lr"><button type="button" class="bf-ans bf-light" data-ans="light" disabled>Light</button><button type="button" class="bf-ans bf-dark" data-ans="dark" disabled>Dark</button></div>
           <p class="bf-msg" id="col-msg" role="status"></p>
@@ -62,11 +106,41 @@ head_scripts:
         </div>
       </div>
 
+      <!-- Find the square -->
+      <div class="bf-drill hidden" data-drill="squares">
+        <div class="bf-head"><h3>Find the Square</h3><p>A square name appears. <b>Tap it</b> on a board that has no letters or numbers. On Medium you may be looking from Black's side, and on Hard the board turns round every five squares. A wrong tap costs 2 seconds.</p></div>
+        <div class="bf-stage bf-split">
+          <div class="bf-board-col"><chess-board id="sq-board" class="bf-board" hide-notation></chess-board></div>
+          <div class="bf-side">
+            <div class="bf-score-row"><div><p class="bf-label">Score</p><p class="bf-big" id="sq-score">0</p></div><div><p class="bf-label">Time</p><p class="bf-big" id="sq-time">45</p></div><div><p class="bf-label">Your best</p><p class="bf-big bf-best" data-best="squares">0</p></div></div>
+            <p class="bf-square bf-square-sm" id="sq-target" aria-live="polite">–</p>
+            <p class="bf-side-note" id="sq-side"></p>
+            <p class="bf-msg" id="sq-msg" role="status"></p>
+            <button type="button" class="bf-start" id="sq-start"><i class="fas fa-play"></i> Start</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Lines and diagonals -->
+      <div class="bf-drill hidden" data-drill="diagonals">
+        <div class="bf-head"><h3>Lines &amp; Diagonals</h3><p>Bishops, rooks and queens move along lines. Answer ten questions about them <b>without looking at the board</b>. After each answer the board lights up to show you why.</p></div>
+        <div class="bf-stage bf-split">
+          <div class="bf-board-col"><chess-board id="dg-board" class="bf-board"></chess-board></div>
+          <div class="bf-side">
+            <div class="bf-score-row"><div><p class="bf-label">Question</p><p class="bf-big" id="dg-q">0/10</p></div><div><p class="bf-label">Correct</p><p class="bf-big" id="dg-score">0</p></div><div><p class="bf-label">Your best</p><p class="bf-big bf-best" data-best="diagonals">0</p></div></div>
+            <p class="bf-question" id="dg-text" aria-live="polite">Press Start.</p>
+            <div class="bf-answers bf-col" id="dg-answers"></div>
+            <p class="bf-msg" id="dg-msg" role="status"></p>
+            <button type="button" class="bf-start" id="dg-start"><i class="fas fa-play"></i> Start</button>
+          </div>
+        </div>
+      </div>
+
       <!-- 2. Knight routes -->
       <div class="bf-drill hidden" data-drill="knight">
         <div class="bf-head"><h3>Knight Routes</h3><p>A knight stands on one square. What is the <b>fewest number of moves</b> it needs to reach the target? Work it out without a board. Ten questions per round.</p></div>
         <div class="bf-stage bf-center">
-          <div class="bf-score-row"><div><p class="bf-label">Question</p><p class="bf-big" id="kn-q">0/10</p></div><div><p class="bf-label">Correct</p><p class="bf-big" id="kn-score">0</p></div><div><p class="bf-label">Your best</p><p class="bf-big bf-best" id="kn-best">0</p></div></div>
+          <div class="bf-score-row"><div><p class="bf-label">Question</p><p class="bf-big" id="kn-q">0/10</p></div><div><p class="bf-label">Correct</p><p class="bf-big" id="kn-score">0</p></div><div><p class="bf-label">Your best</p><p class="bf-big bf-best" id="kn-best" data-best="knight">0</p></div></div>
           <p class="bf-question" id="kn-text" aria-live="polite">Press Start.</p>
           <div class="bf-answers" id="kn-answers"></div>
           <p class="bf-msg" id="kn-msg" role="status"></p>
@@ -80,11 +154,27 @@ head_scripts:
         <div class="bf-stage bf-split">
           <div class="bf-board-col"><div class="bf-timer"><span id="mem-bar"></span></div><chess-board id="mem-board" class="bf-board"></chess-board></div>
           <div class="bf-side">
-            <div class="bf-score-row"><div><p class="bf-label">Round score</p><p class="bf-big" id="mem-score">–</p></div><div><p class="bf-label">Perfect rounds</p><p class="bf-big bf-best" id="mem-best">0</p></div></div>
+            <div class="bf-score-row"><div><p class="bf-label">Round score</p><p class="bf-big" id="mem-score">–</p></div><div><p class="bf-label">Perfect rounds</p><p class="bf-big bf-best" id="mem-best" data-best="memory">0</p></div></div>
             <p class="bf-question" id="mem-text" aria-live="polite">Press Start to see a position.</p>
             <div class="bf-answers bf-col" id="mem-answers"></div>
             <p class="bf-msg" id="mem-msg" role="status"></p>
             <div class="bf-row"><button type="button" class="bf-start" id="mem-start"><i class="fas fa-play"></i> Start</button><button type="button" class="bf-ghost hidden" id="mem-ready"><i class="fas fa-eye-slash"></i> I'm ready, hide it</button></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hear the position -->
+      <div class="bf-drill hidden" data-drill="hear">
+        <div class="bf-head"><h3>Hear the Position</h3><p>This is how blindfold players read chess books: a position is described in words, like <em>"White: King g1, Rook e1"</em>, and you build it in your head. The board stays empty. Turn on <b>Read aloud</b> to hear it.</p></div>
+        <div class="bf-stage bf-split">
+          <div class="bf-board-col"><div class="bf-timer"><span id="hr-bar"></span></div><chess-board id="hr-board" class="bf-board"></chess-board></div>
+          <div class="bf-side">
+            <div class="bf-score-row"><div><p class="bf-label">Round score</p><p class="bf-big" id="hr-score">–</p></div><div><p class="bf-label">Perfect rounds</p><p class="bf-big bf-best" data-best="hear">0</p></div></div>
+            <div class="bf-dict hidden" id="hr-card"></div>
+            <p class="bf-question" id="hr-text" aria-live="polite">Press Start to hear a position.</p>
+            <div class="bf-answers bf-col" id="hr-answers"></div>
+            <p class="bf-msg" id="hr-msg" role="status"></p>
+            <div class="bf-row"><button type="button" class="bf-start" id="hr-start"><i class="fas fa-play"></i> Start</button><button type="button" class="bf-ghost hidden" id="hr-ready"><i class="fas fa-eye-slash"></i> I've got it, hide it</button></div>
           </div>
         </div>
       </div>
@@ -95,7 +185,7 @@ head_scripts:
         <div class="bf-stage bf-split">
           <div class="bf-board-col"><div class="bf-hidden-board hidden" id="mv-cover"><i class="fas fa-eye-slash"></i><span>Board hidden. Picture it!</span></div><chess-board id="mv-board" class="bf-board"></chess-board></div>
           <div class="bf-side">
-            <div class="bf-score-row"><div><p class="bf-label">Round score</p><p class="bf-big" id="mv-score">–</p></div><div><p class="bf-label">Perfect rounds</p><p class="bf-big bf-best" id="mv-best">0</p></div></div>
+            <div class="bf-score-row"><div><p class="bf-label">Round score</p><p class="bf-big" id="mv-score">–</p></div><div><p class="bf-label">Perfect rounds</p><p class="bf-big bf-best" id="mv-best" data-best="moves">0</p></div></div>
             <p class="bf-movelist" id="mv-list" aria-live="polite"></p>
             <p class="bf-question" id="mv-text">Press Start. The moves will begin from the normal starting position.</p>
             <div class="bf-answers bf-col" id="mv-answers"></div>
@@ -111,7 +201,7 @@ head_scripts:
         <div class="bf-stage bf-split">
           <div class="bf-board-col"><div class="bf-timer"><span id="pz-bar"></span></div><chess-board id="pz-board" class="bf-board"></chess-board></div>
           <div class="bf-side">
-            <div class="bf-score-row"><div><p class="bf-label">Streak</p><p class="bf-big" id="pz-score">0</p></div><div><p class="bf-label">Points</p><p class="bf-big" id="pz-points">0</p></div><div><p class="bf-label">Best streak</p><p class="bf-big bf-best" id="pz-best">0</p></div></div>
+            <div class="bf-score-row"><div><p class="bf-label">Streak</p><p class="bf-big" id="pz-score">0</p></div><div><p class="bf-label">Points</p><p class="bf-big" id="pz-points">0</p></div><div><p class="bf-label">Best streak</p><p class="bf-big bf-best" id="pz-best" data-best="puzzles">0</p></div></div>
             <p class="bf-question" id="pz-text" aria-live="polite">Press Start for your first puzzle.</p>
             <p class="bf-movelist" id="pz-list"></p>
             <form class="bf-type hidden" id="pz-form" autocomplete="off"><input id="pz-input" placeholder="Type a move, e.g. Qh7#" spellcheck="false" aria-label="Your move"><button type="submit">Play</button></form>
@@ -121,21 +211,81 @@ head_scripts:
           </div>
         </div>
       </div>
+
+      <!-- Blindfold mates -->
+      <div class="bf-drill hidden" data-drill="mates">
+        <div class="bf-head"><h3>Blindfold Mates</h3><p>Every player must know the basic mates. Now do them blind: <b>two rooks</b> on Easy, <b>king and queen</b> on Medium, <b>king and rook</b> on Hard. Memorise the position, then checkmate the black king within the move limit. The computer runs for the centre.</p></div>
+        <div class="bf-stage bf-split">
+          <div class="bf-board-col"><div class="bf-timer"><span id="mt-bar"></span></div><chess-board id="mt-board" class="bf-board"></chess-board></div>
+          <div class="bf-side">
+            <div class="bf-score-row"><div><p class="bf-label">Moves</p><p class="bf-big" id="mt-moves">0</p></div><div><p class="bf-label">Peeks</p><p class="bf-big" id="mt-peeks">0</p></div><div><p class="bf-label">Mates</p><p class="bf-big bf-best" data-best="mates">0</p></div></div>
+            <p class="bf-question" id="mt-text" aria-live="polite">Press Start for a position.</p>
+            <p class="bf-movelist" id="mt-list"></p>
+            <form class="bf-type hidden" id="mt-form" autocomplete="off"><input id="mt-input" placeholder="Type a move, e.g. Ra7" spellcheck="false" aria-label="Your move"><button type="submit">Play</button></form>
+            <p class="bf-msg" id="mt-msg" role="status"></p>
+            <div class="bf-row"><button type="button" class="bf-start" id="mt-start"><i class="fas fa-play"></i> Start</button><button type="button" class="bf-ghost hidden" id="mt-ready"><i class="fas fa-eye-slash"></i> I'm ready, hide it</button><button type="button" class="bf-ghost hidden" id="mt-peek"><i class="fas fa-eye"></i> Peek</button><button type="button" class="bf-ghost hidden" id="mt-giveup"><i class="fas fa-flag"></i> Show board</button></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Play blindfold -->
+      <div class="bf-drill hidden" data-drill="play">
+        <div class="bf-head"><h3>Play Blindfold</h3><p>The final test: a <b>whole game</b> against the computer without seeing the pieces. Every move is written down (and read aloud if you like); on Hard you only see the last move. Peek if you get lost, and try to need fewer peeks every game.</p></div>
+        <div class="bf-stage bf-split">
+          <div class="bf-board-col"><chess-board id="pl-board" class="bf-board"></chess-board></div>
+          <div class="bf-side">
+            <div class="bf-score-row"><div><p class="bf-label">Peeks</p><p class="bf-big" id="pl-peeks">0</p></div><div><p class="bf-label">Games won</p><p class="bf-big bf-best" data-best="play">0</p></div></div>
+            <p class="bf-question" id="pl-text" aria-live="polite">Choose your colour and press Start. Easy is a gentle opponent; Hard thinks three moves ahead.</p>
+            <div class="bf-colours" id="pl-colours" role="group" aria-label="Your colour"><span>Play as:</span><button type="button" data-plcol="w" aria-pressed="true">White</button><button type="button" data-plcol="b" aria-pressed="false">Black</button></div>
+            <p class="bf-movelist bf-game" id="pl-list"></p>
+            <form class="bf-type hidden" id="pl-form" autocomplete="off"><input id="pl-input" placeholder="Type a move, e.g. Nf3" spellcheck="false" aria-label="Your move"><button type="submit">Play</button></form>
+            <p class="bf-msg" id="pl-msg" role="status"></p>
+            <div class="bf-row"><button type="button" class="bf-start" id="pl-start"><i class="fas fa-play"></i> Start a game</button><button type="button" class="bf-ghost hidden" id="pl-peek"><i class="fas fa-eye"></i> Peek</button><button type="button" class="bf-ghost hidden" id="pl-resign"><i class="fas fa-flag"></i> Resign</button></div>
+          </div>
+        </div>
+      </div>
     </div>
-    <p class="text-center text-sm text-gray-500 mt-4">Your best scores are saved on this device, and in your <a href="/student/#blindfold" class="text-indigo-700 underline">Student Area</a> when you are signed in.</p>
+    <p class="text-center text-sm text-gray-500 mt-4">Your progress is saved on this device, and in your <a href="/student/#blindfold" class="text-indigo-700 underline">Student Area</a> when you are signed in.</p>
   </section>
 
-  <!-- ============ TIPS ============ -->
-  <section class="py-14 px-4 bg-white">
-    <div class="max-w-4xl mx-auto">
-      <h2 class="text-2xl font-bold text-gray-900 mb-5 text-center">Tips from our coaches</h2>
-      <ul class="bf-tips">
-        <li><b>Learn the diagonals.</b> a1–h8 and h1–a8 are the long diagonals. Every square on them is the same colour. Use them as signposts.</li>
-        <li><b>Say the moves.</b> Reading moves aloud, or turning on <em>Read aloud</em>, helps the picture stick.</li>
-        <li><b>Check the kings first.</b> When you memorise a position, find both kings, then the queens and rooks, then everything else.</li>
-        <li><b>Don't rush to Hard.</b> Getting every answer right on Easy builds the habit. Speed comes later.</li>
-      </ul>
-      <p class="text-center mt-8"><a href="/resources/" class="text-indigo-700 font-semibold hover:underline"><i class="fas fa-arrow-left text-sm mr-1"></i> All free resources</a> <span class="text-gray-300 mx-2">|</span> <a href="/lab/" class="text-indigo-700 font-semibold hover:underline">Chess Lab puzzles <i class="fas fa-arrow-right text-sm ml-1"></i></a></p>
+  <!-- ============ GUIDE ============ -->
+  <section class="py-16 px-4 bg-white" id="guide">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-center mb-10">
+        <p class="bf-eyebrow mb-2">The method</p>
+        <h2 class="text-3xl font-bold text-gray-900 mb-3">How to master blindfold chess</h2>
+        <p class="text-gray-600 max-w-2xl mx-auto">Blindfold chess isn't a party trick. It's the same skill you use every time you calculate a line. Here is the order our coaches teach it in.</p>
+      </div>
+      <ol class="bf-steps">
+        <li><b>Know every square by heart.</b> Its name, its colour and where it is from both sides of the board. Until e5 feels as obvious as your own front door, everything else is harder. <em>Drills: Square Colours, Find the Square.</em></li>
+        <li><b>Learn the lines.</b> Name the diagonals by their ends (a1–h8, b1–h7…) and know which squares they pass through. Bishops, queens and rooks stop being a guess. <em>Drills: Lines &amp; Diagonals, Knight Routes.</em></li>
+        <li><b>Hold a still picture.</b> Look at a position, then close your eyes and check it: kings first, then queens and rooks, then minor pieces, then pawns. Ask yourself what is attacked and what is defended. <em>Drills: Remember the Position, Hear the Position.</em></li>
+        <li><b>Make the picture move.</b> Follow a game move by move without a board. Start with openings you know, where the moves make sense, then games you don't. <em>Drill: Follow the Moves.</em></li>
+        <li><b>Calculate inside the picture.</b> Solve puzzles and finish basic mates without the pieces. This is exactly what you do at the board when you look three moves ahead. <em>Drills: Blindfold Puzzles, Blindfold Mates.</em></li>
+        <li><b>Play whole games.</b> Start on Easy with as many peeks as you need, and aim to peek a little less every game. <em>Drill: Play Blindfold.</em></li>
+      </ol>
+      <div class="grid md:grid-cols-2 gap-6 mt-12">
+        <div>
+          <h3 class="text-xl font-bold text-gray-900 mb-4">Tips from our coaches</h3>
+          <ul class="bf-tips">
+            <li><b>Use signposts.</b> The long diagonals a1–h8 and h1–a8 are each one colour. The four centre squares d4, e4, d5, e5 are your compass.</li>
+            <li><b>Say the moves.</b> Reading moves aloud, or turning on <em>Read aloud</em>, helps the picture stick.</li>
+            <li><b>Check the kings first.</b> When you lose the picture, find both kings again, then rebuild around them.</li>
+            <li><b>Read books without a board.</b> Once Stage 2 feels easy, follow the moves in a chess book in your head and only check the diagrams.</li>
+            <li><b>Don't rush to Hard.</b> Earning bronze, then silver, then gold builds the habit. Speed comes later.</li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-xl font-bold text-gray-900 mb-4">Blindfold chess through history</h3>
+          <ul class="bf-history">
+            <li><span>1700s</span> François-André Philidor, the best player of his time, amazed Paris and London by playing several games at once without seeing the boards.</li>
+            <li><span>1858</span> Paul Morphy played eight strong players at once, blindfold, in Paris.</li>
+            <li><span>1947</span> Miguel Najdorf played 45 games at once, blindfold, in São Paulo.</li>
+            <li><span>Today</span> Strong players everywhere still train this way, because calculating a line is a small blindfold game in your head.</li>
+          </ul>
+        </div>
+      </div>
+      <p class="text-center mt-10"><a href="/resources/" class="text-indigo-700 font-semibold hover:underline"><i class="fas fa-arrow-left text-sm mr-1"></i> All free resources</a> <span class="text-gray-300 mx-2">|</span> <a href="/student/#blindfold" class="text-indigo-700 font-semibold hover:underline">Your progress in the Student Area <i class="fas fa-arrow-right text-sm ml-1"></i></a></p>
     </div>
   </section>
 

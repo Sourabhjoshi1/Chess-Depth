@@ -30,3 +30,13 @@ html.dark .bfs-item { border-color: #273449; }
 html.dark .bfs-levels > span { background: #0f172a; }
 html.dark .bfs-levels strong { color: #e0e7ff; } html.dark .bfs-levels strong.is-zero { color: #475569; }
 html.dark .bfs-rounds { color: #4ade80; } html.dark .bfs-rounds.is-zero { color: #64748b; }
+.bfs-stats { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: .6rem; margin-bottom: .8rem; }
+@media (max-width: 760px) { .bfs-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); } .bfs-stats > div:first-child { grid-column: span 2; } }
+.bfs-stats > div { background: #f9fafb; border-radius: .6rem; padding: .6rem .7rem; display: grid; grid-template-columns: auto 1fr; column-gap: .55rem; align-items: center; }
+.bfs-stats i { grid-row: span 2; color: #6366f1; font-size: 1.1rem; }
+.bfs-stats > div:first-child i { color: #f59e0b; }
+.bfs-stats b { font-size: 1.05rem; color: #111827; line-height: 1.2; }
+.bfs-stats span { font-size: .72rem; color: #6b7280; }
+.bfs-levels > span.has-medal { box-shadow: inset 0 -3px 0 var(--m); }
+.bfs-m0 { --m: #d97706; } .bfs-m1 { --m: #94a3b8; } .bfs-m2 { --m: #eab308; }
+html.dark .bfs-stats > div { background: #0f172a; } html.dark .bfs-stats b { color: #f1f5f9; } html.dark .bfs-stats span { color: #94a3b8; }
