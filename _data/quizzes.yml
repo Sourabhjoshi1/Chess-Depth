@@ -46,24 +46,51 @@
       topics: "18 puzzles + zugzwang, key squares, pawn majorities and rook endgames"
     - id: intermediate-3
       title: "Intermediate Quiz 3"
-      topics: ""
+      questions: 30
+      minutes: 45
+      points: 48
+      topics: "18 puzzles + rule of the square, wrong bishop, pawn chains, French breaks and Réti's study"
 - level: Advanced
   ratings: "1500 to 1900"
   icon: fa-chess-rook
   quizzes:
     - id: advanced-1
       title: "Advanced Quiz 1"
+      questions: 30
+      minutes: 60
+      points: 48
+      topics: "18 puzzles + bishop-and-knight mate, Greek gift, exchange sacrifices, IQP plans and the trébuchet"
     - id: advanced-2
       title: "Advanced Quiz 2"
+      questions: 30
+      minutes: 60
+      points: 48
+      topics: "18 puzzles + Vančura defence, Hedgehog and Stonewall structures, space and the Saavedra study"
     - id: advanced-3
       title: "Advanced Quiz 3"
+      questions: 30
+      minutes: 60
+      points: 48
+      topics: "18 puzzles + fortresses, blockades, pawn levers, Benoni and Catalan plans and the Lucena position"
 - level: Elite
   ratings: "1900+"
   icon: fa-chess-king
   quizzes:
     - id: elite-1
       title: "Elite Quiz 1"
+      questions: 30
+      minutes: 60
+      points: 48
+      topics: "18 puzzles + rook vs bishop, hypermodern ideas, Kotov's tree of analysis and the Philidor position"
     - id: elite-2
       title: "Elite Quiz 2"
+      questions: 30
+      minutes: 60
+      points: 48
+      topics: "18 puzzles + material imbalances, Berlin and Benko strategy, corresponding squares and Philidor's legacy"
     - id: elite-3
       title: "Elite Quiz 3"
+      questions: 30
+      minutes: 60
+      points: 48
+      topics: "18 puzzles + Troitzky line, rook endgame technique, positional exchange sacrifices and Boden's mate"
