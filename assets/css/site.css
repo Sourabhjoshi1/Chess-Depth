@@ -232,3 +232,5 @@ html.dark .cd-f label, html.dark .cd-demo-who legend, html.dark .cd-demo-mode le
 html.dark .cd-f input, html.dark .cd-f select, html.dark .cd-f textarea { background: #0f172a; border-color: #334155; color: #e2e8f0; }
 html.dark .cd-demo-who label, html.dark .cd-demo-mode label { border-color: #334155; color: #cbd5e1; }
 html.dark .cd-demo-who label:has(input:checked), html.dark .cd-demo-mode label:has(input:checked) { background: #1e1b4b; border-color: #818cf8; color: #e0e7ff; }
+.cd-f input[type="radio"], .cd-demo-form input[type="radio"] { width: auto; padding: 0; border: 0; box-shadow: none; }
+.cd-f.cd-demo-mode { flex-direction: row; flex-wrap: wrap; gap: .5rem; }
