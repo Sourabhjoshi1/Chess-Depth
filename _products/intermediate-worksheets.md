@@ -1,21 +1,26 @@
 ---
-title: Intermediate Worksheet Pack
+title: Intermediate Worksheets (Free)
 category: worksheets
 order: 2
-level: Level 2 · Club players
-format: PDF
-size: ""
-price_inr: ""
+level: Level 2 · 900–1500 rating
+format: PDF · 15 pages
+size: 5 lessons + 18 puzzles
+price_inr: "0"
 price_usd: ""
 gumroad: ""
+download: "/downloads/chessdepth-intermediate-worksheets.pdf"
 glyph: "♘"
-description: Level 2 worksheets on calculation, pawn structures, simple endgames and making a plan.
+badge: Free
+description: "The Level 2 lessons from our classes: the CCT thinking method, double attacks, pins, zwischenzug and desperado, and half-open files, with 18 puzzles and full answers."
 includes:
-  - Checks, captures and threats
-  - Two-move combinations
-  - Pawn structures and weak squares
-  - King and pawn endgames
-  - Answer key for every worksheet
-for: Players who know the basics and want to stop losing pieces and start making plans.
+  - The CCT (checks, captures, threats) thinking method and blunder check
+  - Double attacks and the five kinds of fork
+  - Absolute and relative pins, and how to escape them
+  - Zwischenzug (in-between moves) and desperado pieces
+  - Half-open files and where your rooks belong
+  - 18 puzzles with answers, every solution checked with Stockfish
+for: Club players who know the basics and want to stop missing tactics.
 ---
-These are the worksheets from our Level 2 course. They build calculation habits first, then add the strategic ideas that turn good moves into good games.
+These are the lessons from our Level 2 course. They start with the habit every strong player has, looking at checks, captures and threats on every move, and then build the tactical patterns on top of it.
+
+Pair it with the free Checks, Captures and Threats workbook for 20 more graded problems.

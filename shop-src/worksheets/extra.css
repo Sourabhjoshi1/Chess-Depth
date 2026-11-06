@@ -1,0 +1,52 @@
+/* lesson pages */
+.lesson .sec-head{margin-bottom:4mm}
+.lesson h3{font-size:11.5pt;font-weight:700;color:#312e81;margin-top:4.5mm}
+.lesson p{font-size:9.6pt;line-height:1.6;color:#374151;margin-top:1.8mm}
+.lesson ul,.lesson ol{margin:1.8mm 0 0 5.5mm;font-size:9.6pt;line-height:1.6;color:#374151}
+.lesson li{margin-top:.8mm}
+.lesson b{color:#111827}
+.key{margin-top:4mm;background:#eef2ff;border-left:4px solid #6366f1;border-radius:0 2.5mm 2.5mm 0;padding:3.2mm 4.5mm;font-size:9.4pt;line-height:1.55;color:#312e81}
+.key b{color:#1e1b4b}
+.warn{background:#fff7ed;border-left-color:#f59e0b;color:#7c2d12}
+.figs{display:grid;gap:4mm;margin-top:4mm}
+.figs.c2{grid-template-columns:1fr 1fr}.figs.c3{grid-template-columns:1fr 1fr 1fr}
+.fig{text-align:center}
+.fig svg{width:100%;height:auto;max-width:62mm;display:block;margin:0 auto}
+.figs.c3 .fig svg{max-width:52mm}
+.fig figcaption{font-size:8.2pt;color:#4b5563;margin-top:1.5mm;line-height:1.45}
+.fig figcaption b{color:#111827}
+.side{display:grid;grid-template-columns:60mm 1fr;gap:6mm;align-items:start;margin-top:4mm}
+.side .fig svg{max-width:60mm}
+.tbl{width:100%;border-collapse:collapse;margin-top:3mm;font-size:9pt}
+.tbl th{background:#4f46e5;color:#fff;text-align:left;padding:1.5mm 3mm;font-weight:600}
+.tbl td{padding:1.3mm 3mm;border-bottom:1px solid #e5e7eb;color:#374151;vertical-align:top}
+.tbl tr:nth-child(even) td{background:#f9fafb}
+.tbl code,.mono{font-family:"DejaVu Sans Mono",monospace;font-size:8.6pt;background:#f3f4f6;padding:.2mm 1.2mm;border-radius:1mm}
+.try{margin-top:4mm;border:1.5px dashed #c7d2fe;border-radius:3mm;padding:3.5mm 4.5mm}
+.try h4{font-size:9.5pt;color:#4f46e5;text-transform:uppercase;letter-spacing:.08em}
+.try ol{margin-left:5mm;font-size:9.3pt;line-height:1.9;color:#374151}
+.ln{display:inline-block;min-width:38mm;border-bottom:1px solid #9ca3af;margin-left:2mm}
+.cols{columns:2;column-gap:7mm}
+/* test papers */
+.paper-h{display:flex;justify-content:space-between;align-items:flex-end;border-bottom:2px solid #4f46e5;padding-bottom:3mm}
+.paper-h .meta{font-size:8.6pt;color:#4b5563;text-align:right;line-height:1.5}
+.fill{display:grid;grid-template-columns:1fr 1fr 1fr;gap:4mm;margin-top:3.5mm;font-size:8.6pt;color:#4b5563}
+.fill span{border-bottom:1px solid #9ca3af;padding-bottom:1mm}
+.qs{margin-top:3.5mm}
+.qsec{margin-top:4mm;font-size:10pt;font-weight:700;color:#312e81;display:flex;justify-content:space-between}
+.qsec small{font-weight:500;color:#6b7280;font-size:8.4pt}
+.q{display:flex;gap:2.5mm;font-size:9.4pt;line-height:1.55;color:#1f2937;margin-top:2mm}
+.q>b{flex-shrink:0;min-width:7mm;color:#4f46e5}
+.q .wl{display:block;height:7.5mm;border-bottom:1px dotted #9ca3af}
+.pq{display:grid;grid-template-columns:72mm 1fr;gap:6mm;margin-top:5mm;align-items:start}
+.pq svg{width:72mm;height:72mm;display:block}
+.pq .qt{font-size:10pt;line-height:1.55;font-weight:600;color:#111827}
+.pq .lines{margin-top:3mm}
+.pq .lines span{display:block;height:9mm;border-bottom:1px dotted #9ca3af}
+.ans{font-size:9pt;line-height:1.55;color:#374151;margin-top:2mm}
+.ans b{color:#111827}
+.ansq{display:flex;gap:2.5mm;margin-top:2.2mm;font-size:8.9pt;line-height:1.5;color:#374151}
+.ansq>b{flex-shrink:0;min-width:7mm;color:#4f46e5}
+
+.puzzles .pz-board svg{width:54mm;height:54mm}
+.puzzles .grid{gap:2mm 8mm}
