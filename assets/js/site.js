@@ -60,6 +60,14 @@
     if (p.length === 3 && Date.now() > new Date(p[0], p[1] - 1, p[2], 23, 59, 59).getTime()) el.remove();
   });
 
+  // "Inquire" buttons on the Courses page: remember which course, so the demo form can preselect it
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('a[href="/#inquiry"]');
+    if (!a) return;
+    var card = a.closest('[class*="course"], article, .rounded-lg'); var h = card && card.querySelector('h2, h3');
+    try { if (h) sessionStorage.setItem('cd-demo-course', h.textContent.trim()); } catch (err) {}
+  });
+
   // Inline form messages (replaces browser alert pop-ups)
   window.cdFormMessage = function (form, text, type) {
     if (!form) return;

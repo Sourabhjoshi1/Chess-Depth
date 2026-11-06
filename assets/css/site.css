@@ -175,3 +175,60 @@ html.dark .cd-m-group a { color: #b9bfd8; } html.dark .cd-m-group a[aria-current
   .cd-foot-brand .cd-foot-social { justify-content: flex-start; }
 }
 @media (max-width: 639px) { .cd-footer { padding-bottom: 5.5rem; } }
+
+/* ---------- Free demo booking form (home page #inquiry) ---------- */
+.cd-demo { padding: 4rem 1rem; background: linear-gradient(180deg, #f5f6fc 0%, #eef0fb 100%); }
+.cd-demo-wrap { max-width: 72rem; margin: 0 auto; display: grid; gap: 2.5rem; align-items: start; }
+@media (min-width: 900px) { .cd-demo-wrap { grid-template-columns: 0.9fr 1.1fr; gap: 3.5rem; } }
+.cd-demo-kicker { text-transform: uppercase; letter-spacing: .14em; font-size: .78rem; font-weight: 700; color: #4f46e5; }
+.cd-demo-title { font-size: 2rem; line-height: 1.15; font-weight: 800; color: #1e1b4b; margin-top: .35rem; letter-spacing: -.01em; }
+.cd-demo-lead { margin-top: .8rem; color: #4b5563; line-height: 1.65; }
+.cd-demo-steps { list-style: none; margin: 1.6rem 0 0; padding: 0; display: grid; gap: 1rem; }
+.cd-demo-steps li { display: flex; gap: .9rem; align-items: flex-start; }
+.cd-demo-steps b { flex-shrink: 0; width: 2.1rem; height: 2.1rem; border-radius: 9999px; background: #4f46e5; color: #fff; display: flex; align-items: center; justify-content: center; font-size: .95rem; }
+.cd-demo-steps h3 { font-weight: 700; color: #111827; font-size: 1rem; }
+.cd-demo-steps p { color: #6b7280; font-size: .92rem; margin-top: .1rem; }
+.cd-demo-trust { list-style: none; padding: 0; margin: 1.6rem 0 0; display: grid; gap: .45rem; color: #374151; font-size: .93rem; }
+.cd-demo-trust i { color: #4f46e5; width: 1.3rem; text-align: center; margin-right: .35rem; }
+.cd-demo-alt { margin-top: 1.4rem; font-size: .92rem; color: #4b5563; }
+.cd-demo-alt a { color: #4f46e5; font-weight: 600; }
+.cd-demo-card { background: #fff; border-radius: 1rem; box-shadow: 0 20px 45px -25px rgba(30,27,75,.35), 0 0 0 1px rgba(99,102,241,.08); padding: 1.6rem; }
+@media (min-width: 640px) { .cd-demo-card { padding: 2rem; } }
+.cd-demo-form fieldset { border: 0; padding: 0; margin: 0; }
+.cd-demo-who { display: flex; gap: .6rem; margin-bottom: 1.1rem !important; flex-wrap: wrap; align-items: center; }
+.cd-demo-who legend, .cd-demo-mode legend { font-size: .84rem; font-weight: 700; color: #374151; margin-bottom: .45rem; float: left; width: 100%; }
+.cd-demo-who label, .cd-demo-mode label { display: inline-flex; align-items: center; gap: .4rem; border: 1.5px solid #e5e7eb; border-radius: 9999px; padding: .45rem .95rem; font-size: .9rem; color: #374151; cursor: pointer; transition: border-color .15s, background .15s; }
+.cd-demo-who label:has(input:checked), .cd-demo-mode label:has(input:checked) { border-color: #4f46e5; background: #eef2ff; color: #3730a3; font-weight: 600; }
+.cd-demo-who input, .cd-demo-mode input { accent-color: #4f46e5; }
+.cd-demo-mode { display: flex; flex-wrap: wrap; gap: .5rem; }
+.cd-demo-grid { display: grid; grid-template-columns: 1fr 1fr; gap: .95rem 1rem; }
+.cd-f { display: flex; flex-direction: column; min-width: 0; }
+.cd-f-wide { grid-column: 1 / -1; }
+@media (max-width: 479px) { .cd-demo-grid { grid-template-columns: 1fr; } }
+.cd-f label { font-size: .84rem; font-weight: 700; color: #374151; margin-bottom: .35rem; }
+.cd-f label span { font-weight: 500; color: #9ca3af; }
+.cd-f input, .cd-f select, .cd-f textarea { width: 100%; border: 1.5px solid #e5e7eb; border-radius: .6rem; padding: .7rem .8rem; font-size: .95rem; color: #111827; background: #fff; transition: border-color .15s, box-shadow .15s; }
+.cd-f input:focus, .cd-f select:focus, .cd-f textarea:focus { outline: none; border-color: #6366f1; box-shadow: 0 0 0 3px rgba(99,102,241,.18); }
+.cd-f.cd-bad input, .cd-f.cd-bad select { border-color: #ef4444; background: #fef2f2; }
+.cd-demo-form.is-student .cd-parent-only { display: none; }
+.cd-demo-hp { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
+.cd-demo-err { margin-top: 1rem; color: #b91c1c; background: #fef2f2; border-radius: .5rem; padding: .6rem .8rem; font-size: .9rem; }
+.cd-demo-btn { margin-top: 1.2rem; width: 100%; display: inline-flex; justify-content: center; align-items: center; gap: .55rem; background: #4f46e5; color: #fff; font-weight: 700; font-size: 1.02rem; padding: .95rem 1.2rem; border-radius: .7rem; transition: background .15s, transform .15s; border: 0; cursor: pointer; }
+.cd-demo-btn:hover { background: #4338ca; transform: translateY(-1px); color: #fff; }
+.cd-demo-btn:disabled { opacity: .7; cursor: wait; transform: none; }
+.cd-demo-note { margin-top: .8rem; font-size: .8rem; color: #6b7280; text-align: center; }
+.cd-demo-note a { color: #4f46e5; text-decoration: underline; }
+.cd-demo-done { text-align: center; padding: 1.5rem .5rem; }
+.cd-demo-tick { width: 3.6rem; height: 3.6rem; border-radius: 9999px; background: #dcfce7; color: #15803d; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; margin: 0 auto 1rem; }
+.cd-demo-done h3 { font-size: 1.4rem; font-weight: 800; color: #1e1b4b; }
+.cd-demo-done > p { color: #4b5563; margin-top: .4rem; line-height: 1.6; }
+.cd-demo-wa { background: #16a34a; } .cd-demo-wa:hover { background: #15803d; }
+html.dark .cd-demo { background: #0b1120; }
+html.dark .cd-demo-title, html.dark .cd-demo-steps h3, html.dark .cd-demo-done h3 { color: #eef0fa; }
+html.dark .cd-demo-lead, html.dark .cd-demo-steps p, html.dark .cd-demo-trust, html.dark .cd-demo-alt, html.dark .cd-demo-done > p, html.dark .cd-demo-note { color: #a8b3c4; }
+html.dark .cd-demo-kicker, html.dark .cd-demo-alt a, html.dark .cd-demo-trust i { color: #a5b4fc; }
+html.dark .cd-demo-card { background: #162032; box-shadow: 0 0 0 1px #273449; }
+html.dark .cd-f label, html.dark .cd-demo-who legend, html.dark .cd-demo-mode legend { color: #cbd5e1; }
+html.dark .cd-f input, html.dark .cd-f select, html.dark .cd-f textarea { background: #0f172a; border-color: #334155; color: #e2e8f0; }
+html.dark .cd-demo-who label, html.dark .cd-demo-mode label { border-color: #334155; color: #cbd5e1; }
+html.dark .cd-demo-who label:has(input:checked), html.dark .cd-demo-mode label:has(input:checked) { background: #1e1b4b; border-color: #818cf8; color: #e0e7ff; }

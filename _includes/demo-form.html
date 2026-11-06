@@ -1,0 +1,181 @@
+{%- capture wa %}{% include whatsapp-url.html %}{% endcapture %}{% assign wa = wa | strip -%}
+<section id="inquiry" class="cd-demo fade-in-section">
+  <div class="cd-demo-wrap">
+    <div class="cd-demo-info">
+      <p class="cd-demo-kicker">Free demo class</p>
+      <h2 class="cd-demo-title">Book a free demo class</h2>
+      <p class="cd-demo-lead">A 30-minute online lesson with one of our coaches. We find your level, show you how our classes work, and suggest the right course. No payment, no obligation.</p>
+      <ol class="cd-demo-steps">
+        <li><b>1</b><div><h3>Fill in this form</h3><p>It takes about a minute.</p></div></li>
+        <li><b>2</b><div><h3>We message you on WhatsApp</h3><p>Usually within 24 hours, to fix a time that suits you.</p></div></li>
+        <li><b>3</b><div><h3>Meet your coach</h3><p>A short level check, a real lesson, and a plan for what to learn next.</p></div></li>
+      </ol>
+      <ul class="cd-demo-trust">
+        <li><i class="fas fa-user-graduate"></i> FIDE-rated coaches, including a Grandmaster</li>
+        <li><i class="fas fa-globe-asia"></i> Classes for students in India and abroad</li>
+        <li><i class="fas fa-child"></i> Kids from age 5, and adults</li>
+      </ul>
+      <p class="cd-demo-alt">Prefer to talk now? <a href="{{ wa }}" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> WhatsApp us</a> or call <a href="tel:+{{ site.contact.phone_intl }}">{{ site.contact.phone_display }}</a></p>
+    </div>
+
+    <div class="cd-demo-card">
+      <form id="demoForm" class="cd-demo-form" novalidate>
+        <input type="hidden" name="_subject" value="New demo request">
+        <input type="hidden" name="page" value="">
+        <input type="hidden" name="timezone" value="">
+        <input type="text" name="_gotcha" class="cd-demo-hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+        <fieldset class="cd-demo-who">
+          <legend>I am</legend>
+          <label><input type="radio" name="filledBy" value="Parent" checked> A parent</label>
+          <label><input type="radio" name="filledBy" value="Student"> The student</label>
+        </fieldset>
+
+        <div class="cd-demo-grid">
+          <div class="cd-f cd-f-wide">
+            <label for="dName">Student's name</label>
+            <input id="dName" name="studentName" type="text" autocomplete="name" required>
+          </div>
+          <div class="cd-f cd-f-wide cd-parent-only">
+            <label for="dParent">Your name <span>(parent)</span></label>
+            <input id="dParent" name="parentName" type="text" autocomplete="name">
+          </div>
+          <div class="cd-f">
+            <label for="dAge">Student's age</label>
+            <input id="dAge" name="age" type="number" min="4" max="99" inputmode="numeric" required>
+          </div>
+          <div class="cd-f">
+            <label for="dLevel">Chess level</label>
+            <select id="dLevel" name="level" required>
+              <option value="">Choose…</option>
+              <option>New to chess</option>
+              <option>Knows how the pieces move</option>
+              <option>Plays casually (online or at home)</option>
+              <option>Plays in clubs or tournaments</option>
+            </select>
+          </div>
+          <div class="cd-f cd-f-wide">
+            <label for="dRating">Rating <span>(optional)</span></label>
+            <input id="dRating" name="rating" type="text" placeholder="e.g. 1200 Chess.com, 1450 FIDE, or unrated">
+          </div>
+          <div class="cd-f">
+            <label for="dCountry">Country</label>
+            <select id="dCountry" name="country" required>
+              <option value="India" data-code="+91">India</option>
+              <option value="United States" data-code="+1">United States</option>
+              <option value="United Kingdom" data-code="+44">United Kingdom</option>
+              <option value="Canada" data-code="+1">Canada</option>
+              <option value="Australia" data-code="+61">Australia</option>
+              <option value="United Arab Emirates" data-code="+971">United Arab Emirates</option>
+              <option value="Singapore" data-code="+65">Singapore</option>
+              <option value="Other" data-code="+">Other</option>
+            </select>
+          </div>
+          <div class="cd-f">
+            <label for="dPhone">WhatsApp number</label>
+            <input id="dPhone" name="whatsapp" type="tel" inputmode="tel" autocomplete="tel" placeholder="+91 98765 43210" required pattern="^\+?[0-9\s\-()]{8,}$">
+          </div>
+          <div class="cd-f cd-f-wide">
+            <label for="dEmail">Email</label>
+            <input id="dEmail" name="email" type="email" autocomplete="email" required>
+          </div>
+          <div class="cd-f">
+            <label for="dCourse">Interested in</label>
+            <select id="dCourse" name="interestedIn">
+              <option>Not sure, help me choose</option>
+              <option>Beginner course</option>
+              <option>Intermediate course</option>
+              <option>Advanced course</option>
+              <option>Tournament preparation</option>
+              <option>Private 1-on-1 coaching</option>
+            </select>
+          </div>
+          <div class="cd-f">
+            <label for="dTime">Best time for classes</label>
+            <select id="dTime" name="preferredTime">
+              <option>Flexible</option>
+              <option>Weekday mornings</option>
+              <option>Weekday afternoons</option>
+              <option>Weekday evenings</option>
+              <option>Weekends</option>
+            </select>
+          </div>
+          <fieldset class="cd-f cd-f-wide cd-demo-mode">
+            <legend>Class type</legend>
+            <label><input type="radio" name="classType" value="Group" checked> Small group</label>
+            <label><input type="radio" name="classType" value="1-on-1"> 1-on-1</label>
+            <label><input type="radio" name="classType" value="Not sure"> Not sure</label>
+          </fieldset>
+          <div class="cd-f cd-f-wide">
+            <label for="dMsg">Anything else? <span>(optional)</span></label>
+            <textarea id="dMsg" name="message" rows="3" placeholder="Goals, questions, or a convenient time for the demo"></textarea>
+          </div>
+        </div>
+
+        <p class="cd-demo-err" role="alert" hidden></p>
+        <button type="submit" class="cd-demo-btn">Book my free demo <i class="fas fa-arrow-right"></i></button>
+        <p class="cd-demo-note"><i class="fas fa-lock"></i> We only use these details to arrange your demo. See our <a href="/privacy/">privacy policy</a>.</p>
+      </form>
+
+      <div class="cd-demo-done" hidden role="status" aria-live="polite">
+        <div class="cd-demo-tick"><i class="fas fa-check"></i></div>
+        <h3>Thank you<span data-done-name></span>!</h3>
+        <p>Your demo request has reached us. We'll message you on WhatsApp within 24 hours to fix a time.</p>
+        <a class="cd-demo-btn cd-demo-wa" data-done-wa href="{{ wa }}" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> Message us now on WhatsApp</a>
+        <p class="cd-demo-note">While you wait, try a <a href="/#daily">free daily puzzle</a> or our <a href="/blindfold/">blindfold training</a>.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<script>
+(function () {
+  var form = document.getElementById('demoForm'); if (!form) return;
+  var done = form.parentNode.querySelector('.cd-demo-done'), err = form.querySelector('.cd-demo-err');
+  var btn = form.querySelector('.cd-demo-btn'), country = form.querySelector('#dCountry'), phone = form.querySelector('#dPhone');
+  form.page.value = location.pathname;
+  try { form.timezone.value = Intl.DateTimeFormat().resolvedOptions().timeZone || ''; } catch (e) {}
+  // Guess the country from the time zone, and keep the phone placeholder's code in step.
+  var tz = form.timezone.value;
+  var guess = /Kolkata|Calcutta/.test(tz) ? 'India' : /London/.test(tz) ? 'United Kingdom' : /Dubai/.test(tz) ? 'United Arab Emirates' : /Singapore/.test(tz) ? 'Singapore' : /Australia/.test(tz) ? 'Australia' : /Toronto|Vancouver|Edmonton|Winnipeg|Halifax/.test(tz) ? 'Canada' : /^America\//.test(tz) ? 'United States' : tz ? 'Other' : 'India';
+  country.value = guess;
+  function syncCode() {
+    var code = country.selectedOptions[0].dataset.code || '+';
+    phone.placeholder = code === '+' ? '+ country code and number' : code + ' …';
+    if (!phone.value || /^\+\d{0,4}\s?$/.test(phone.value)) phone.value = code === '+' ? '' : code + ' ';
+  }
+  country.addEventListener('change', syncCode); syncCode();
+  // Parent / student toggle
+  function syncWho() { form.classList.toggle('is-student', form.filledBy.value === 'Student'); }
+  form.querySelectorAll('input[name=filledBy]').forEach(function (r) { r.addEventListener('change', syncWho); }); syncWho();
+  // A course picked on the Courses page ("Inquire") arrives here
+  try {
+    var c = sessionStorage.getItem('cd-demo-course');
+    if (c) { var o = document.createElement('option'); o.textContent = c; o.selected = true; form.interestedIn.insertBefore(o, form.interestedIn.firstChild); sessionStorage.removeItem('cd-demo-course'); }
+  } catch (e) {}
+
+  form.addEventListener('submit', async function (ev) {
+    ev.preventDefault(); err.hidden = true;
+    form.querySelectorAll('.cd-bad').forEach(function (x) { x.classList.remove('cd-bad'); });
+    var bad = [].filter.call(form.querySelectorAll('input[required],select[required]'), function (x) { return !x.checkValidity() || (x.id === 'dPhone' && phone.value.replace(/\D/g, '').length < 8); });
+    if (bad.length) {
+      bad.forEach(function (x) { x.closest('.cd-f').classList.add('cd-bad'); });
+      err.textContent = 'Please check the highlighted fields.'; err.hidden = false; bad[0].focus(); return;
+    }
+    var name = form.studentName.value.trim();
+    form._subject.value = 'New demo request: ' + name + ' (' + form.age.value + ', ' + form.country.value + ')';
+    btn.disabled = true; btn.innerHTML = 'Sending… <i class="fas fa-spinner fa-spin"></i>';
+    try {
+      var res = await fetch('https://formspree.io/f/xqaleznp', { method: 'POST', body: new FormData(form), headers: { Accept: 'application/json' } });
+      if (!res.ok) throw new Error('status ' + res.status);
+      if (window.gtag) gtag('event', 'generate_lead', { form_name: 'demo_request' });
+      done.querySelector('[data-done-name]').textContent = ', ' + (form.filledBy.value === 'Parent' && form.parentName.value.trim() ? form.parentName.value.trim().split(' ')[0] : name.split(' ')[0]);
+      var wa = done.querySelector('[data-done-wa]');
+      var msg = 'Hi ChessDepth! I just booked a free demo for ' + name + ' (age ' + form.age.value + ', ' + form.level.value.toLowerCase() + '). Best time: ' + form.preferredTime.value.toLowerCase() + '.';
+      wa.href = wa.href.split('?')[0] + '?text=' + encodeURIComponent(msg);
+      form.hidden = true; done.hidden = false; done.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    } catch (e) {
+      err.textContent = 'Sorry, your request could not be sent. Please try again, or WhatsApp us on {{ site.contact.phone_display }}.'; err.hidden = false;
+    } finally { btn.disabled = false; btn.innerHTML = 'Book my free demo <i class="fas fa-arrow-right"></i>'; }
+  });
+})();
+</script>
