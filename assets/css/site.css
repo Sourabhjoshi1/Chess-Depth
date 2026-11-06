@@ -158,3 +158,20 @@ html.dark .cd-dd-item small { color: #9aa1bd; }
 html.dark .cd-dd-item i, html.dark .cd-m-group a i, html.dark .cd-m-group-h { color: #c9a66b; }
 html.dark .cd-m-group { border-color: #222a44; }
 html.dark .cd-m-group a { color: #b9bfd8; } html.dark .cd-m-group a[aria-current] { color: #fff; }
+
+/* Footer: compact columns on phones and tablets instead of one tall stack */
+.cd-foot-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.75rem 1.5rem; text-align: left; }
+.cd-foot-brand, .cd-foot-contact { grid-column: 1 / -1; }
+.cd-foot-brand { text-align: center; }
+.cd-foot-brand .cd-foot-social { justify-content: center; }
+.cd-foot-grid ul li { overflow-wrap: anywhere; }
+@media (min-width: 640px) {
+  .cd-foot-grid { grid-template-columns: repeat(3, 1fr); }
+  .cd-foot-contact { grid-column: auto; }
+}
+@media (min-width: 768px) {
+  .cd-foot-grid { grid-template-columns: 1.4fr 1fr 1fr 1.3fr; gap: 2rem; }
+  .cd-foot-brand { grid-column: auto; text-align: left; }
+  .cd-foot-brand .cd-foot-social { justify-content: flex-start; }
+}
+@media (max-width: 639px) { .cd-footer { padding-bottom: 5.5rem; } }
