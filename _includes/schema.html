@@ -48,11 +48,12 @@
 {%- assign sp_live = false -%}
 {%- if page.gumroad != "" and page.gumroad -%}{%- assign sp_live = true -%}{%- endif -%}
 {%- if page.download != "" and page.download -%}{%- assign sp_live = true -%}{%- endif -%}
-{%- if page.collection == "products" and sp_live and page.price_inr != "" and page.price_inr %}
+{%- if page.collection == "products" and sp_live and page.price_usd != "" and page.price_usd %}{% assign sp_price = page.price_usd %}{% assign sp_cur = "USD" %}{% elsif page.price_inr != "" and page.price_inr %}{% assign sp_price = page.price_inr %}{% assign sp_cur = "INR" %}{% else %}{% assign sp_price = nil %}{% endif %}
+{%- if page.collection == "products" and sp_live and sp_price %}
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"Product","name":{{ page.title | jsonify }},"description":{{ page.description | jsonify }},
    "image":"{{ '/assets/images/og-image.jpg' | absolute_url }}","brand":{"@type":"Brand","name":"{{ site.title }}"},
-   "offers":{"@type":"Offer","url":"{{ page.url | absolute_url }}","price":"{{ page.price_inr }}","priceCurrency":"INR","availability":"https://schema.org/InStock"}}
+   "offers":{"@type":"Offer","url":"{{ page.url | absolute_url }}","price":"{{ sp_price }}","priceCurrency":"{{ sp_cur }}","availability":"https://schema.org/InStock"}}
   </script>
 {%- endif %}
 
