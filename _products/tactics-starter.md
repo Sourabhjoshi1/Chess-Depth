@@ -23,3 +23,5 @@ for: Beginners and club players rated roughly 600–1400, and coaches looking fo
 Every puzzle comes from a real game and has been checked move by move, including every defence in the mate-in-two puzzles. The answers don't just give the move: they explain the idea, so you recognise it the next time it appears in your own games.
 
 Print it on A4, solve from the diagrams without moving the pieces, and use the tracker to come back to the ones you missed.
+
+Before you start, learn the routine that finds most tactics: [checks, captures and threats (CCT)](/blog/cct-method-checks-captures-threats/).

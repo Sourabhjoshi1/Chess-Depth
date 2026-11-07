@@ -3,13 +3,24 @@ title: "Online Chess Classes for Kids & Adults | ChessDepth Academy"
 description: "Live online chess classes for kids and adults, from beginner to tournament level. FIDE-rated coaches incl. a Grandmaster. Book a free demo class."
 permalink: /
 page_css: index
+faq:
+  - q: "What is ChessDepth Academy?"
+    a: "ChessDepth Academy is an online chess academy based in Bhopal, India. We teach live online chess classes for kids and adults, from first moves to tournament play, with FIDE-rated coaches including a Grandmaster."
+  - q: "How do online chess classes work?"
+    a: "Classes are live video lessons with a coach and a shared online board, in small groups of 2 to 4 students or one-to-one. Each monthly plan has 8 to 10 classes of 60 to 70 minutes, with worksheets and a quiz every eight sessions."
+  - q: "How much do the classes cost?"
+    a: "Group classes are ₹4,500 or $69 a month, and one-to-one classes are ₹5,999 or $90 a month. See all programmes on the [Courses and fees](/courses/) page."
+  - q: "Is there a free trial class?"
+    a: "Yes. The first demo class is free: a 30-minute online lesson where the coach checks your level and suggests the right course. Book it with the form below or on WhatsApp."
+  - q: "What can I practise for free?"
+    a: "Everyone can use the [daily puzzle](/#daily), the [blindfold chess trainer](/blindfold/), [ChessDepth AI](/ai/) for turning screenshots into positions, our [free resources](/resources/) and free PDF worksheets in the [shop](/shop/)."
 ---
   <section class="relative cd-hero-bg text-white py-20 fade-in-section overflow-hidden">
     <div class="hero-particles"></div>
 
     <div class="max-w-4xl mx-auto text-center relative z-10">
       <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold mb-4 animate-fade-in-up-1 tracking-tight leading-tight">Become a Grandmaster of Your Mind</h1>
-      <p class="text-xl sm:text-2xl mb-8 animate-fade-in-up-2 opacity-90 leading-relaxed">Live online chess classes for kids and adults, from first moves to tournament play, with FIDE-rated coaches including a Grandmaster.</p>
+      <p class="text-xl sm:text-2xl mb-8 animate-fade-in-up-2 opacity-90 leading-relaxed">Live online <a href="/chess-classes-for-kids/" class="cd-hero-link">chess classes for kids</a> and adults, from first moves to tournament play, with FIDE-rated coaches including a Grandmaster.</p>
       
       <div class="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-6 animate-fade-in-up-3">
         <a href="https://wa.me/919823029262?text=Hi%20I%20am%20interested%20in%20a%20free%20demo%20class" target="_blank" rel="noopener noreferrer" class="demo-button shadow-lg rounded-full py-3 px-8 font-semibold">
@@ -28,6 +39,7 @@ page_css: index
       <div class="text-gray-700 leading-relaxed text-left max-w-3xl mx-auto">
         <p class="mb-6">At ChessDepth Academy, we are passionate about unlocking the strategic potential within every individual. Our philosophy centers on the belief that chess is more than just a game; it's a powerful tool for cognitive development, fostering critical thinking, pattern recognition, and decision-making skills that extend far beyond the chessboard.</p>
 
+        <div class="cd-mcollapse" id="about-more">
         <h3 class="text-2xl font-semibold text-gray-900 mb-4 mt-8 text-center">Our Unique Approach to Learning</h3>
         <p class="mb-4">We've meticulously designed our curriculum with a step-by-step approach, ensuring that concepts are introduced logically and reinforced through practical exercises. Our instructors are not just highly rated chess players; they are experienced educators dedicated to making complex ideas accessible and engaging for students of all ages and skill levels.</p>
         <ul class="list-disc list-inside space-y-2 mb-6 ml-4">
@@ -45,6 +57,8 @@ page_css: index
 
         <h3 class="text-2xl font-semibold text-gray-900 mb-4 mt-8 text-center">Why Choose ChessDepth?</h3>
         <p class="mb-6">Our commitment to excellence is reflected in our structured courses, designed by grandmasters and highly rated players. We focus on a holistic development that includes:</p>
+        </div>
+        <button type="button" class="cd-mmore" aria-controls="about-more" aria-expanded="false" onclick="var m=document.getElementById('about-more');var o=m.classList.toggle('is-open');this.setAttribute('aria-expanded',o);this.firstChild.textContent=o?'Show less ':'Read more about our approach ';">Read more about our approach <i class="fas fa-chevron-down"></i></button>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center mt-8">
@@ -166,6 +180,8 @@ page_css: index
       </div>
     </div>
   </section>
+
+  <div class="cd-faq-section">{% include faq.html title="Questions about ChessDepth Academy" %}</div>
 
   {% include demo-form.html %}
 

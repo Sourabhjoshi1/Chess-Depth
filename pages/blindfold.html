@@ -16,9 +16,16 @@ head_scripts:
 
   {% include page-hero.html eyebrow="New · Free online blindfold chess trainer" title="Blindfold Chess Training" lead="See the board in your head. Ten drills in three stages, a 28-day plan and a daily challenge take you from naming square colours to playing a whole game without seeing the pieces." %}
 
+  <nav class="bf-jump" aria-label="On this page">
+    <a href="#drills" class="bf-jump-main"><i class="fas fa-play"></i> Start a drill</a>
+    <a href="#drills" onclick="var b=document.querySelector('.bf-pick[data-drill=play]');if(b){b.click();}"><i class="fas fa-robot"></i> Play a blindfold game</a>
+    <a href="#path"><i class="fas fa-calendar-check"></i> 28-day plan</a>
+    <a href="#faq"><i class="fas fa-question-circle"></i> FAQ</a>
+  </nav>
+
   <!-- ============ WHY ============ -->
   <section class="px-4 pt-12">
-    <div class="max-w-5xl mx-auto grid md:grid-cols-3 gap-5">
+    <div class="max-w-5xl mx-auto grid md:grid-cols-3 gap-5 bf-whys">
       <div class="bf-why"><i class="fas fa-eye-slash"></i><h2>Why train blindfold?</h2><p>Every time you calculate, you move pieces in your head. Blindfold drills make that picture sharper, so you see more moves ahead and blunder less.</p></div>
       <div class="bf-why"><i class="fas fa-stopwatch"></i><h2>10 minutes a day</h2><p>Follow the 28-day plan: three short drills a day, one stage at a time. Earn a medal on each level before you move up.</p></div>
       <div class="bf-why"><i class="fas fa-child"></i><h2>For every level</h2><p>Kids start with square colours and knight routes. Club players stretch their calculation with blindfold puzzles, mates and full games.</p></div>

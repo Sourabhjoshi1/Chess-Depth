@@ -1,0 +1,17 @@
+{%- comment -%}
+  Frequently asked questions, from the page's front matter:
+    faq:
+      - q: "Question?"
+        a: "Answer. Markdown links work."
+  {% include faq.html title="Optional heading" %}   (schema.html adds the matching FAQPage data for Google)
+{%- endcomment -%}
+{%- if page.faq %}
+<section class="cd-faq-wrap" id="faq">
+  <h2 class="cd-faq-h">{{ include.title | default: "Frequently asked questions" }}</h2>
+  <div class="cd-faq">
+    {%- for f in page.faq %}
+    <details{% if forloop.first %} open{% endif %}><summary>{{ f.q }}</summary>{{ f.a | markdownify }}</details>
+    {%- endfor %}
+  </div>
+</section>
+{%- endif %}

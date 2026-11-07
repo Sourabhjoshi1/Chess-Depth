@@ -20,6 +20,7 @@ layout: default
   <div class="cd-prose">
     {{ content }}
   </div>
+  {%- if page.faq %}{% include faq.html title="Frequently asked questions" %}{% endif %}
 
   <div class="mt-12 rounded-2xl blog-hero text-white p-8 text-center">
     <p class="text-2xl font-bold mb-2">Want a coach to guide you?</p>

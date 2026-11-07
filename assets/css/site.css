@@ -234,3 +234,32 @@ html.dark .cd-demo-who label, html.dark .cd-demo-mode label { border-color: #334
 html.dark .cd-demo-who label:has(input:checked), html.dark .cd-demo-mode label:has(input:checked) { background: #1e1b4b; border-color: #818cf8; color: #e0e7ff; }
 .cd-f input[type="radio"], .cd-demo-form input[type="radio"] { width: auto; padding: 0; border: 0; box-shadow: none; }
 .cd-f.cd-demo-mode { flex-direction: row; flex-wrap: wrap; gap: .5rem; }
+
+/* Shared FAQ block (_includes/faq.html) */
+.cd-faq-section { background: #fff; padding: .5rem 0 3.5rem; }
+html.dark .cd-faq-section { background: transparent; }
+.cd-faq-wrap { max-width: 52rem; margin: 3rem auto 0; padding: 0 1rem; }
+.cd-faq-h { font-size: 1.6rem; font-weight: 800; color: #111827; text-align: center; margin-bottom: 1.2rem; line-height: 1.25; }
+.cd-faq { display: grid; gap: .6rem; }
+.cd-faq details { background: #fff; border: 1px solid #e5e7eb; border-radius: .8rem; padding: .95rem 1.15rem; }
+.cd-faq summary { cursor: pointer; font-weight: 700; color: #111827; list-style: none; display: flex; justify-content: space-between; gap: 1rem; }
+.cd-faq summary::-webkit-details-marker { display: none; }
+.cd-faq summary::after { content: '+'; color: #6366f1; font-weight: 800; flex-shrink: 0; }
+.cd-faq details[open] summary::after { content: '\2212'; }
+.cd-faq p { margin-top: .55rem; color: #4b5563; line-height: 1.65; }
+.cd-faq a { color: #4f46e5; font-weight: 600; text-decoration: underline; }
+html.dark .cd-faq-h { color: #f1f5f9; }
+html.dark .cd-faq details { background: #162032; border-color: #24324a; }
+html.dark .cd-faq summary { color: #f1f5f9; }
+html.dark .cd-faq p { color: #cbd5e1; }
+html.dark .cd-faq a { color: #a5b4fc; }
+.cd-hero-link { text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 5px; color: inherit; } .cd-hero-link:hover { opacity: .85; }
+
+/* Phones: long text blocks collapse behind a "Read more" button (text stays on the page for search engines) */
+.cd-mmore { display: none; }
+@media (max-width: 639px) {
+  .cd-mcollapse:not(.is-open) { display: none; }
+  .cd-mmore { display: flex; align-items: center; gap: .45rem; margin: .4rem auto 0; padding: .6rem 1.2rem; border-radius: 999px; border: 1.5px solid #c7d2fe; background: #fff; color: #4338ca; font-weight: 600; font-size: .95rem; }
+  .cd-mmore[aria-expanded="true"] i { transform: rotate(180deg); }
+  html.dark .cd-mmore { background: #162032; border-color: #334155; color: #a5b4fc; }
+}

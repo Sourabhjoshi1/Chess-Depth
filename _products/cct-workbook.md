@@ -23,3 +23,5 @@ for: Players who keep missing tactics, or blunder pieces, and want a simple rout
 CCT is the routine strong players use without thinking: before every move, look at every check, then every capture, then every threat, for you and for your opponent.
 
 This workbook teaches the routine with worked examples, then trains it with 20 problems that get harder as you go, including famous games such as the Immortal Game and the Evergreen Game.
+
+New to the method? Read our free guide first: [CCT in chess: checks, captures and threats, with examples](/blog/cct-method-checks-captures-threats/).

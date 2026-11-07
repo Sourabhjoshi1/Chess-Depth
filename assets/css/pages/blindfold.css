@@ -256,3 +256,16 @@ html.dark .bf-checks { color: #cbd5e1; }
 html.dark .bf-mv { background: #0f172a; border-color: #1d4ed8; color: #bfdbfe; } html.dark .bf-mv:hover { background: #172554; }
 html.dark .bf-clean { color: #fbbf24; }
 .bf-mvopt { margin-top: .6rem; font-size: .85rem; }
+
+/* Quick links under the banner, so phone visitors reach the trainer fast */
+.bf-jump { display: flex; flex-wrap: wrap; justify-content: center; gap: .5rem; max-width: 64rem; margin: 1.2rem auto 0; padding: 0 1rem; }
+.bf-jump a { display: inline-flex; align-items: center; gap: .45rem; padding: .55rem 1rem; min-height: 2.6rem; border-radius: 999px; background: #fff; border: 1.5px solid #c7d2fe; color: #4338ca; font-weight: 600; font-size: .92rem; }
+.bf-jump a.bf-jump-main { background: #f97316; border-color: #f97316; color: #fff; }
+html.dark .bf-jump a { background: #162032; border-color: #334155; color: #a5b4fc; }
+html.dark .bf-jump a.bf-jump-main { background: #ea580c; border-color: #ea580c; color: #fff; }
+/* Phones: the three "why" cards scroll sideways instead of stacking */
+@media (max-width: 767px) {
+  .bf-whys { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scroll-padding-left: 1rem; gap: .8rem; padding-bottom: .4rem; margin: 0 -1rem; padding-left: 1rem; padding-right: 1rem; scrollbar-width: none; }
+  .bf-whys::-webkit-scrollbar { display: none; }
+  .bf-whys .bf-why { flex: 0 0 82%; scroll-snap-align: start; }
+}

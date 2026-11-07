@@ -5,6 +5,19 @@ permalink: /courses/
 redirect_from:
   - /courses.html
 page_css: courses
+faq:
+  - q: "How much do online chess classes cost at ChessDepth?"
+    a: "Group classes (2 to 4 students) are ₹4,500 or $69 a month, and one-to-one classes are ₹5,999 or $90 a month. Each monthly plan has 8 to 10 live classes of 60 to 70 minutes. Fixed-length programmes on this page show the price for the whole programme. The first demo class is free."
+  - q: "Which course should I start with?"
+    a: "Complete beginners start with Beginner's Blueprint. If you know the rules and play casually, Beyond the Basics is usually right. Club and tournament players move on to positional play, openings, endgames and tournament preparation. After the free demo class, the coach recommends a course for your level."
+  - q: "Are the classes live or recorded?"
+    a: "All classes are live, online, with a coach and a shared board. You can ask questions, solve positions during the lesson and get feedback on your own games."
+  - q: "Do you teach adults as well as children?"
+    a: "Yes. We teach children from about age 5, teenagers and adults, including working professionals. Adults can join one-to-one classes at flexible times. See also our [classes for kids](/chess-classes-for-kids/)."
+  - q: "What study material is included?"
+    a: "Students get worksheets, concept books and a quiz every eight sessions, plus club tournaments and our free training tools such as the [blindfold trainer](/blindfold/) and the [daily puzzle](/#daily)."
+  - q: "Can I join from outside India?"
+    a: "Yes. Classes are online, and students join from India and abroad. We fix class times that suit your time zone."
 ---
   {% include page-hero.html eyebrow="Courses &amp; fees" title="Online chess courses for every level" lead="Structured programmes from your first moves to tournament play, with worksheets, regular tests and a free demo class." %}
   <section id="fees" class="py-14 px-4 bg-white">
@@ -38,7 +51,15 @@ page_css: courses
 
   <section id="courses-listing" class="py-16 bg-gray-100 px-4 fade-in-content">
     <div class="max-w-6xl mx-auto">
-      <h2 class="text-3xl font-bold text-center mb-10 text-gray-800">Our Popular Programs</h2>
+      <h2 class="text-3xl font-bold text-center mb-6 text-gray-800">Our Popular Programs</h2>
+      <div class="cr-filter" role="group" aria-label="Show courses for">
+        <button type="button" class="cr-chip" data-lvl="all" aria-pressed="true">All</button>
+        <button type="button" class="cr-chip" data-lvl="beginner" aria-pressed="false">Beginner</button>
+        <button type="button" class="cr-chip" data-lvl="intermediate" aria-pressed="false">Intermediate</button>
+        <button type="button" class="cr-chip" data-lvl="advanced" aria-pressed="false">Advanced</button>
+        <button type="button" class="cr-chip" data-lvl="kids" aria-pressed="false">Kids</button>
+      </div>
+      <p class="cr-count" id="cr-count" aria-live="polite"></p>
 
       <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="courses-container">
         
@@ -273,7 +294,7 @@ page_css: courses
             <h3 class="text-2xl font-bold text-indigo-700 mb-1 flex-shrink-0">Scholastic Chess: Nurturing Young Minds</h3>
             {% include reviews.html summary=true target="course:scholastic-chess" title="Scholastic Chess" %}
             <p class="text-gray-600 mb-4 course-description flex-grow">
-              A fun and engaging program designed specifically for children and teenagers to develop critical thinking, patience, and sportsmanship through chess.
+              A fun and engaging program designed specifically for children and teenagers to develop critical thinking, patience, and sportsmanship through chess. <a href="/chess-classes-for-kids/" class="text-indigo-700 font-semibold underline">More about our classes for kids</a>.
             </p>
             <ul class="list-disc list-inside text-sm text-gray-500 mb-4 course-features flex-grow">
               <li>Interactive Lessons & Puzzles</li>
@@ -407,6 +428,32 @@ page_css: courses
 
     </div>
   </section>
+  <script>
+  (function () {
+    var box = document.getElementById('courses-container'); if (!box) return;
+    var cards = [].slice.call(box.children), chips = document.querySelectorAll('.cr-chip'), count = document.getElementById('cr-count');
+    // A card's levels come from its coloured labels. "All levels" and personal coaching fit everyone.
+    cards.forEach(function (c) {
+      var t = [].map.call(c.querySelectorAll('.rounded-full'), function (b) { return b.textContent.toLowerCase(); }).join(' ');
+      var lv = [];
+      if (/all levels|personali/.test(t)) lv = ['beginner', 'intermediate', 'advanced', 'kids'];
+      if (/beginner/.test(t)) lv.push('beginner');
+      if (/intermediate/.test(t)) lv.push('intermediate');
+      if (/advanced(?! beginner)|competitive/.test(t)) lv.push('advanced');
+      if (/kids|youth/.test(t)) lv.push('kids');
+      if (/speed/.test(t)) lv.push('intermediate', 'advanced');
+      c.dataset.lvl = lv.join(' ');
+    });
+    chips.forEach(function (ch) {
+      ch.addEventListener('click', function () {
+        var lvl = ch.dataset.lvl, n = 0;
+        chips.forEach(function (x) { x.setAttribute('aria-pressed', x === ch); });
+        cards.forEach(function (c) { var on = lvl === 'all' || (' ' + c.dataset.lvl + ' ').indexOf(' ' + lvl + ' ') > -1; c.hidden = !on; if (on) n++; });
+        count.textContent = lvl === 'all' ? '' : n + ' course' + (n === 1 ? '' : 's') + ' for this level';
+      });
+    });
+  })();
+  </script>
   
 <section id="accessories" class="py-16 bg-white px-4 fade-in-content">
     <div class="max-w-6xl mx-auto">
@@ -479,6 +526,8 @@ page_css: courses
         </p>
     </div>
 </section>
+
+<div class="cd-faq-section">{% include faq.html title="Courses and fees: frequently asked questions" %}</div>
 
   
 

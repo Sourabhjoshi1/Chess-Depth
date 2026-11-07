@@ -52,4 +52,4 @@ When comparing classes or coaches, ask:
 
 ## Ready to start?
 
-ChessDepth Academy offers one-to-one and small-group online classes for children of all levels, with a structured curriculum, worksheets and regular quizzes. [Book a free demo class](/courses/#fees) and see how your child enjoys it.
+ChessDepth Academy offers one-to-one and small-group [online chess classes for kids](/chess-classes-for-kids/) of all levels, from age 5, with a structured curriculum, worksheets and regular quizzes. [Book a free demo class](/chess-classes-for-kids/#inquiry) and see how your child enjoys it.

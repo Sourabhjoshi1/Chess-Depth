@@ -43,6 +43,8 @@
     } else if (href.indexOf("wa.me/") !== -1) {
       var demo = /demo/i.test(label) || a.classList.contains("cd-demo-btn") || a.classList.contains("cd-hdr-cta") || a.classList.contains("demo-button");
       gtag("event", demo ? "book_demo_click" : "whatsapp_click", { link_location: where, link_text: label, page_path: location.pathname });
+    } else if (/#inquiry$/.test(href)) {
+      gtag("event", "book_demo_click", { link_location: where, link_text: label, page_path: location.pathname });
     } else if (href.indexOf("tel:") === 0) {
       gtag("event", "phone_click", { link_location: where, page_path: location.pathname });
     } else if (a.classList.contains("cd-apply")) {

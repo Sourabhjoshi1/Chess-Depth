@@ -1,0 +1,74 @@
+/* Chess classes for kids (parents' landing page) */
+.kd-hero-cta { display: flex; flex-wrap: wrap; gap: .8rem; justify-content: center; margin-top: 1.8rem; }
+.kd-btn { display: inline-flex; align-items: center; gap: .5rem; padding: .85rem 1.6rem; border-radius: 999px; font-weight: 700; transition: transform .15s, box-shadow .15s; }
+.kd-btn:hover { transform: translateY(-1px); }
+.kd-btn-main { background: #fbbf24; color: #1e1b4b; box-shadow: 0 8px 22px rgba(0,0,0,.18); }
+.kd-btn-ghost { background: rgba(255,255,255,.12); color: #fff; border: 1.5px solid rgba(255,255,255,.55); }
+.kd-hero-facts { display: flex; flex-wrap: wrap; justify-content: center; gap: .5rem 1.4rem; margin-top: 1.5rem; font-size: .92rem; color: #e0e7ff; }
+.kd-hero-facts i { color: #fbbf24; margin-right: .35rem; }
+
+.kd-sec { padding: 4rem 1rem; background: #fff; }
+.kd-sec-tint { background: #f5f6fc; }
+.kd-wrap { max-width: 68rem; margin: 0 auto; }
+.kd-kicker { text-align: center; text-transform: uppercase; letter-spacing: .14em; font-size: .78rem; font-weight: 700; color: #4f46e5; }
+.kd-h2 { text-align: center; font-size: clamp(1.6rem, 3.2vw, 2.2rem); font-weight: 800; color: #111827; line-height: 1.2; margin-top: .4rem; }
+.kd-lead { text-align: center; max-width: 44rem; margin: .9rem auto 0; color: #4b5563; line-height: 1.7; font-size: 1.05rem; }
+.kd-left { text-align: left; margin-left: 0; }
+.kd-grid { display: grid; gap: 1.1rem; margin-top: 2.2rem; }
+@media (min-width: 640px) { .kd-grid-2, .kd-grid-3 { grid-template-columns: 1fr 1fr; } }
+@media (min-width: 960px) { .kd-grid-3 { grid-template-columns: repeat(3, 1fr); } }
+.kd-card { background: #f9fafb; border: 1px solid #eef0f6; border-radius: 1rem; padding: 1.4rem 1.3rem; }
+.kd-card > i { font-size: 1.35rem; color: #4f46e5; background: #eef2ff; width: 2.8rem; height: 2.8rem; border-radius: .8rem; display: grid; place-items: center; }
+.kd-card h3, .kd-age h3, .kd-steps h3, .kd-fee h3 { font-size: 1.1rem; font-weight: 700; color: #111827; margin-top: .9rem; }
+.kd-card p, .kd-age p, .kd-steps p { color: #4b5563; line-height: 1.6; margin-top: .4rem; font-size: .96rem; }
+.kd-card a, .kd-more a, .kd-note a { color: #4f46e5; font-weight: 600; text-decoration: underline; text-underline-offset: 2px; }
+
+.kd-age { background: #fff; border-radius: 1rem; padding: 1.4rem 1.3rem; border-top: 4px solid #6366f1; box-shadow: 0 2px 10px rgba(30,27,75,.06); }
+.kd-ages .kd-age:nth-child(2) { border-top-color: #8b5cf6; }
+.kd-ages .kd-age:nth-child(3) { border-top-color: #f59e0b; }
+.kd-age p.kd-age-tag { display: inline-block; margin: 0; background: #eef2ff; color: #4338ca; font-weight: 700; font-size: .8rem; padding: .2rem .7rem; border-radius: 999px; }
+
+.kd-split { display: grid; gap: 2rem; align-items: center; }
+@media (min-width: 900px) { .kd-split { grid-template-columns: 1fr 1fr; gap: 3.5rem; } .kd-split .kd-kicker { text-align: left; } .kd-split .kd-h2 { text-align: left; } }
+.kd-more { margin-top: 1.2rem; }
+.kd-benefits { display: grid; gap: .7rem; }
+.kd-benefits li { display: flex; gap: .9rem; align-items: center; background: #f9fafb; border-radius: .9rem; padding: .9rem 1rem; }
+.kd-benefits i { color: #7c3aed; font-size: 1.15rem; width: 1.6rem; text-align: center; flex-shrink: 0; }
+.kd-benefits b { display: block; color: #111827; }
+.kd-benefits span { color: #4b5563; font-size: .93rem; }
+
+.kd-steps { display: grid; gap: 1rem; margin-top: 2.2rem; counter-reset: none; }
+@media (min-width: 640px) { .kd-steps { grid-template-columns: 1fr 1fr; } }
+@media (min-width: 960px) { .kd-steps { grid-template-columns: repeat(4, 1fr); } }
+.kd-steps li { background: #fff; border-radius: 1rem; padding: 1.3rem; box-shadow: 0 2px 10px rgba(30,27,75,.06); }
+.kd-steps li > b { display: grid; place-items: center; width: 2.2rem; height: 2.2rem; border-radius: 50%; background: #4f46e5; color: #fff; font-weight: 800; }
+
+.kd-fees { max-width: 52rem; margin-left: auto; margin-right: auto; }
+.kd-fee { border: 1.5px solid #e5e7eb; border-radius: 1.1rem; padding: 1.6rem 1.4rem; background: #fff; }
+.kd-fee-pop { border-color: #6366f1; box-shadow: 0 10px 28px rgba(79,70,229,.13); }
+.kd-fee-tag { display: inline-block; background: #4f46e5; color: #fff; font-size: .75rem; font-weight: 700; padding: .2rem .7rem; border-radius: 999px; }
+.kd-fee-tag-alt { background: #f59e0b; color: #1f2937; }
+.kd-fee h3 { font-size: 1.35rem; }
+.kd-fee-sub { color: #6b7280; font-size: .93rem; margin-top: .2rem; }
+.kd-price { font-size: 2rem; font-weight: 800; color: #111827; margin-top: .9rem; }
+.kd-price span { font-size: 1rem; font-weight: 500; color: #6b7280; }
+.kd-fee ul { margin-top: .9rem; display: grid; gap: .4rem; }
+.kd-fee li { color: #374151; padding-left: 1.4rem; position: relative; font-size: .96rem; }
+.kd-fee li::before { content: '\2713'; position: absolute; left: 0; color: #16a34a; font-weight: 800; }
+.kd-note { text-align: center; color: #4b5563; margin-top: 1.6rem; line-height: 1.6; }
+
+.kd-coach { display: flex; gap: 1.6rem; align-items: flex-start; max-width: 52rem; }
+.kd-coach > i { font-size: 2.2rem; color: #4f46e5; background: #fff; width: 4.2rem; height: 4.2rem; border-radius: 1rem; display: grid; place-items: center; flex-shrink: 0; box-shadow: 0 2px 10px rgba(30,27,75,.08); }
+.kd-coach .kd-h2 { margin-top: 0; }
+@media (max-width: 639px) { .kd-coach { flex-direction: column; } }
+
+.kd-faq-bg { background: #fff; padding: .5rem 0 3.5rem; }
+.kd-note-faq { padding: 0 1rem; }
+
+html.dark .kd-sec, html.dark .kd-faq-bg { background: #0f172a; }
+html.dark .kd-sec-tint { background: #111a2e; }
+html.dark .kd-h2, html.dark .kd-card h3, html.dark .kd-age h3, html.dark .kd-steps h3, html.dark .kd-fee h3, html.dark .kd-price, html.dark .kd-benefits b { color: #f1f5f9; }
+html.dark .kd-lead, html.dark .kd-card p, html.dark .kd-age p, html.dark .kd-steps p, html.dark .kd-benefits span, html.dark .kd-note, html.dark .kd-fee li, html.dark .kd-fee-sub { color: #cbd5e1; }
+html.dark .kd-card, html.dark .kd-benefits li, html.dark .kd-age, html.dark .kd-steps li, html.dark .kd-fee, html.dark .kd-coach > i { background: #162032; border-color: #24324a; }
+html.dark .kd-card > i, html.dark .kd-age p.kd-age-tag { background: #1e2a4a; color: #a5b4fc; }
+html.dark .kd-card a, html.dark .kd-more a, html.dark .kd-note a, html.dark .kd-kicker { color: #a5b4fc; }
