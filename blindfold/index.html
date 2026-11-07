@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <script>
+    /* Night/day mode: use the saved choice, otherwise follow the device setting */
+    (function () {
+      var t = null; try { t = localStorage.getItem("cd-theme"); } catch (e) {}
+      if (t !== "light" && t !== "dark") t = (window.matchMedia && matchMedia("(prefers-color-scheme: dark)").matches) ? "dark" : "light";
+      if (t === "dark") document.documentElement.classList.add("dark");
+    })();
+  </script>
+  <meta name="theme-color" content="#1f2547">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blindfold Chess Training: Free Online Trainer | ChessDepth</title>
+  <meta name="description" content="Learn blindfold chess free: 10 visualization drills, a 28-day plan, a daily blindfold puzzle and full blindfold games vs Stockfish (400–2800 Elo).">
+  <link rel="canonical" href="https://www.chessdepth.in/blindfold/">
+  <meta property="og:title" content="Blindfold Chess Training: Free Online Trainer | ChessDepth">
+  <meta property="og:site_name" content="ChessDepth Academy">
+  <meta property="og:locale" content="en_IN">
+  <meta property="og:description" content="Learn blindfold chess free: 10 visualization drills, a 28-day plan, a daily blindfold puzzle and full blindfold games vs Stockfish (400–2800 Elo).">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.chessdepth.in/blindfold/">
+  <meta property="og:image" content="https://www.chessdepth.in/assets/images/og-blindfold.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Blindfold Chess Training: Free Online Trainer | ChessDepth">
+  <meta name="twitter:description" content="Learn blindfold chess free: 10 visualization drills, a 28-day plan, a daily blindfold puzzle and full blindfold games vs Stockfish (400–2800 Elo).">
+  <meta name="twitter:image" content="https://www.chessdepth.in/assets/images/og-blindfold.jpg">
+  <link rel="icon" href="/assets/images/favicon.ico" sizes="48x48">
+  <link rel="icon" href="/assets/images/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="/assets/css/tailwind.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,500;0,600;1,400&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="/assets/css/pages/blindfold.css?v=1794028371">
+  <link rel="stylesheet" href="/assets/css/site.css?v=1794028371">
+  <link rel="stylesheet" href="/assets/css/dark.css?v=1794028371">
+  <script type="module" src="https://cdn.jsdelivr.net/npm/chessboard-element@1.2.0/bundled/chessboard-element.bundled.js"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-2C73E30ZFX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-2C73E30ZFX');
+  </script>
+  
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+    {"@type":"ListItem","position":1,"name":"Home","item":"https://www.chessdepth.in/"},{"@type":"ListItem","position":2,"name":"Blindfold Chess Training","item":"https://www.chessdepth.in/blindfold/"}
+  ]}
+  </script>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@graph":[
+    {"@type":"WebApplication","@id":"https://www.chessdepth.in/blindfold/#app","name":"ChessDepth Blindfold Chess Trainer","url":"https://www.chessdepth.in/blindfold/",
+     "description":"Learn blindfold chess free: 10 visualization drills, a 28-day plan, a daily blindfold puzzle and full blindfold games vs Stockfish (400–2800 Elo).","applicationCategory":"EducationalApplication","applicationSubCategory":"Chess training",
+     "operatingSystem":"Any (runs in a web browser)","browserRequirements":"Requires JavaScript","inLanguage":"en","isAccessibleForFree":true,
+     "image":"https://www.chessdepth.in/assets/images/og-blindfold.jpg","screenshot":"https://www.chessdepth.in/assets/images/og-blindfold.jpg",
+     "offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},
+     "audience":{"@type":"Audience","audienceType":"Chess players of all levels, including children"},
+     "featureList":["Square Colours","Find the Square","Lines and Diagonals","Knight Routes","Remember the Position","Hear the Position","Follow the Moves","Blindfold Puzzles","Blindfold Mates","Play full blindfold games against Stockfish, 400 to 2800 Elo","Legal-move buttons with optional check, capture and mate hints","Peek, show board, show moves and take-back options","Analyse finished games on Lichess","28-day blindfold mastery plan","Daily blindfold puzzle","Medals and ranks","Moves read aloud"],
+     "publisher":{"@id":"https://www.chessdepth.in/#organization","@type":"EducationalOrganization","name":"ChessDepth Academy","url":"https://www.chessdepth.in/"}},
+    {"@type":"HowTo","@id":"https://www.chessdepth.in/blindfold/#method","name":"How to master blindfold chess","description":"Six steps from knowing every square to playing a full game without seeing the pieces.",
+     "totalTime":"P28D","tool":[{"@type":"HowToTool","name":"ChessDepth Blindfold Chess Trainer (free, in the browser)"}],
+     "step":[{"@type":"HowToStep","position":1,"name":"Know every square by heart","text":"Its name, its colour and where it is from both sides of the board. Until e5 feels as obvious as your own front door, everything else is harder. Drills: Square Colours, Find the Square.","url":"https://www.chessdepth.in/blindfold/#colours"},{"@type":"HowToStep","position":2,"name":"Learn the lines","text":"Name the diagonals by their ends (a1–h8, b1–h7…) and know which squares they pass through. Bishops, queens and rooks stop being a guess. Drills: Lines & Diagonals, Knight Routes.","url":"https://www.chessdepth.in/blindfold/#diagonals"},{"@type":"HowToStep","position":3,"name":"Hold a still picture","text":"Look at a position, then close your eyes and check it: kings first, then queens and rooks, then minor pieces, then pawns. Ask yourself what is attacked and what is defended. Drills: Remember the Position, Hear the Position.","url":"https://www.chessdepth.in/blindfold/#memory"},{"@type":"HowToStep","position":4,"name":"Make the picture move","text":"Follow a game move by move without a board. Start with openings you know, where the moves make sense, then games you don't. Drills: Follow the Moves.","url":"https://www.chessdepth.in/blindfold/#moves"},{"@type":"HowToStep","position":5,"name":"Calculate inside the picture","text":"Solve puzzles and finish basic mates without the pieces. This is exactly what you do at the board when you look three moves ahead. Drills: Blindfold Puzzles, Blindfold Mates.","url":"https://www.chessdepth.in/blindfold/#puzzles"},{"@type":"HowToStep","position":6,"name":"Play whole games","text":"Start on Easy with as many peeks as you need, and aim to peek a little less every game. Drills: Play Blindfold.","url":"https://www.chessdepth.in/blindfold/#play"}]},
+    {"@type":"FAQPage","@id":"https://www.chessdepth.in/blindfold/#faq","mainEntity":[{"@type":"Question","name":"What is blindfold chess?","acceptedAnswer":{"@type":"Answer","text":"Blindfold chess means playing without seeing the pieces. You keep the position in your head and say or type your moves. Strong players have played it for centuries, and it trains the same skill you use whenever you calculate a line: seeing the board in your mind."}},{"@type":"Question","name":"How do I start learning blindfold chess?","acceptedAnswer":{"@type":"Answer","text":"Start small. First learn every square's name and colour, then the diagonals and knight moves. Then practise holding a still position in your head, follow short games without a board, and only then solve puzzles and play games blindfold. Our free 28-day plan takes you through these steps with three short drills a day."}},{"@type":"Question","name":"Does blindfold training really improve your chess?","acceptedAnswer":{"@type":"Answer","text":"Blindfold training builds visualisation: keeping an accurate picture of the board while pieces move in your head. That is what calculation depends on, so players who train it usually find it easier to see a few moves ahead, spot tactics and avoid blunders. It works best alongside normal play and puzzles, not instead of them."}},{"@type":"Question","name":"How long does it take to play a full game blindfold?","acceptedAnswer":{"@type":"Answer","text":"It depends on your level and how often you practise. With ten minutes a day, many club players can follow a short game in their head within a few weeks. Playing a whole game without peeking takes longer, which is why our Play Blindfold drill lets you peek and counts how often you needed to."}},{"@type":"Question","name":"Is blindfold chess good for kids?","acceptedAnswer":{"@type":"Answer","text":"Yes, when it is kept short and fun. Children can start with Square Colours, Find the Square and Knight Routes on Easy. These build board knowledge and concentration without frustration. Move on to the memory drills when the first stage feels easy."}},{"@type":"Question","name":"What is the difference between blindfold chess and chess visualization?","acceptedAnswer":{"@type":"Answer","text":"Chess visualization (or visualisation) is the skill of picturing the board and the moves in your head. Blindfold chess is the most complete test of it, because you see nothing at all. Every drill on this page trains visualization, from the square colours to full blindfold games."}},{"@type":"Question","name":"Is ChessDepth Blindfold Training free?","acceptedAnswer":{"@type":"Answer","text":"Yes. All ten drills, the 28-day plan, the daily blindfold puzzle and games against the computer are free, with no app to install. It works on phones, tablets and computers. Sign in with Google if you want your medals and progress saved to your Student Area."}},{"@type":"Question","name":"Can I play a full blindfold game against the computer?","acceptedAnswer":{"@type":"Answer","text":"Yes. Play Blindfold gives you a whole game against Stockfish, set anywhere from 400 (beginner) to 2800 (grandmaster) Elo. Enter moves by tapping legal-move buttons, typing or tapping an empty board, and choose whether checks, captures and mates are marked. If you get lost, peek for two seconds, show the board, look at the move list or take a move back. Afterwards, open the game on Lichess for analysis."}}]}
+  ]}
+  </script>
+
+
+</head>
+<body class="bg-gray-100 text-gray-800">
+  <div class="cd-topbar">
+    <div class="cd-wrap cd-topbar-inner">
+      <p class="cd-topbar-contact">
+        <a href="tel:+919823029262"><i class="fas fa-phone-alt"></i>+91 98230 29262</a>
+        <a href="mailto:info@chessdepth.in"><i class="far fa-envelope"></i>info@chessdepth.in</a>
+      </p>
+      <p class="cd-topbar-links">
+        <a href="/lab/"><i class="fas fa-flask"></i>Chess Lab<span class="cd-free" data-free-until="2026-11-21">Free</span></a>
+        <a href="/careers/">Careers</a>
+        <a href="/student/" data-account><i class="far fa-user-circle"></i>Student login</a>
+        <button type="button" class="cd-theme-btn" data-theme-toggle aria-label="Switch to night mode" title="Night / day mode"><i class="fas fa-moon cd-moon"></i><i class="fas fa-sun cd-sun"></i></button>
+      </p>
+    </div>
+  </div>
+  <header class="cd-header" id="main-header">
+    <div class="cd-wrap cd-header-inner">
+      <a href="/" class="cd-brand">
+        <svg class="cd-mark" viewBox="0 0 32 32" aria-hidden="true" focusable="false"><path fill="currentColor" d="M8 5h3v3h2.5V5h5v3H21V5h3v7.2l-2.4 1.8.9 9H9.5l.9-9L8 12.2zM8.5 24.5h15l1.5 2.5H7zM6 28h20v2.5H6z"/></svg>
+
+        <span class="cd-brand-text"><span class="cd-brand-name">ChessDepth</span></span>
+      </a>
+      <nav id="main-nav" aria-label="Primary" class="cd-nav">
+        <a href="/about/" class="cd-link">About</a>
+        <div class="cd-dd" data-dd>
+          <button type="button" class="cd-link cd-dd-btn" aria-expanded="false" aria-haspopup="true">Academy<i class="fas fa-chevron-down cd-dd-caret" aria-hidden="true"></i></button>
+          <div class="cd-dd-menu" role="menu">
+            <a href="/courses/" role="menuitem" class="cd-dd-item"><i class="fas fa-graduation-cap"></i><span><b>Courses</b><small>Levels, fees and class timings</small></span></a>
+            <a href="/chess-classes-for-kids/" role="menuitem" class="cd-dd-item"><i class="fas fa-child"></i><span><b>Classes for kids</b><small>Ages 5 and up, for parents</small></span></a>
+            <a href="/coaches/" role="menuitem" class="cd-dd-item"><i class="fas fa-chess-king"></i><span><b>Coaches</b><small>Meet the team that teaches you</small></span></a>
+            <a href="/shop/" role="menuitem" class="cd-dd-item"><i class="fas fa-book"></i><span><b>Shop</b><small>Worksheets, books and study packs</small></span></a>
+          </div>
+        </div>
+        <a href="/blindfold/" class="cd-link cd-link-ai" aria-current="page">Blindfold<span class="cd-soon">New</span></a>
+        <a href="/resources/" class="cd-link">Resources</a>
+        <a href="/ai/" class="cd-link cd-link-ai">ChessDepth AI<span class="cd-soon">Beta</span></a>
+        <a href="/blog/" class="cd-link">Blog</a>
+        <a href="/contact/" class="cd-link">Contact</a>
+        <a href="https://wa.me/919823029262?text=Hi%2C%20I%20would%20like%20to%20book%20a%20free%20demo%20class" target="_blank" rel="noopener noreferrer" class="cd-hdr-cta">Book a free demo</a>
+      </nav>
+      <div class="cd-header-mobile">
+        <button type="button" class="cd-theme-btn" data-theme-toggle aria-label="Switch to night mode" title="Night / day mode"><i class="fas fa-moon cd-moon"></i><i class="fas fa-sun cd-sun"></i></button>
+        <button id="menu-toggle" class="cd-menu-btn" aria-controls="mobile-menu" aria-expanded="false" aria-label="Open menu">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+        </button>
+      </div>
+    </div>
+    <div id="mobile-menu" class="cd-mobile-menu hidden">
+      <nav class="cd-wrap" aria-label="Mobile">
+        <a href="/">Home</a>
+        <a href="/about/">About</a>
+        <div class="cd-m-group">
+          <p class="cd-m-group-h">Academy</p>
+          <a href="/courses/"><i class="fas fa-graduation-cap"></i>Courses</a>
+          <a href="/chess-classes-for-kids/"><i class="fas fa-child"></i>Classes for kids</a>
+          <a href="/coaches/"><i class="fas fa-chess-king"></i>Coaches</a>
+          <a href="/shop/"><i class="fas fa-book"></i>Shop</a>
+        </div>
+        <a href="/blindfold/" aria-current="page">Blindfold<span class="cd-soon">New</span></a>
+        <a href="/resources/">Resources</a>
+        <a href="/ai/">ChessDepth AI<span class="cd-soon">Beta</span></a>
+        <a href="/blog/">Blog</a>
+        <a href="/contact/">Contact</a>
+        <a href="/lab/">Chess Lab <i class="fas fa-crown" style="color:#b08a4e;font-size:.8em"></i><span class="cd-soon" data-free-until="2026-11-21">Free launch offer</span></a>
+        <a href="/careers/">Careers</a>
+        <div class="cd-mobile-actions">
+          <a href="/student/" class="cd-mobile-login" data-account><i class="far fa-user-circle"></i>Student login</a>
+          <a href="https://wa.me/919823029262?text=Hi%2C%20I%20would%20like%20to%20book%20a%20free%20demo%20class" target="_blank" rel="noopener noreferrer" class="cd-hdr-cta">Book a free demo</a>
+        </div>
+        <p class="cd-mobile-contact"><a href="tel:+919823029262">+91 98230 29262</a><a href="mailto:info@chessdepth.in">info@chessdepth.in</a></p>
+      </nav>
+    </div>
+  </header>
+
+
+<section class="cd-hero cd-hero-bg">
+  <div class="cd-hero-inner"><p class="cd-hero-eyebrow">New · Free online blindfold chess trainer</p>
+    <h1 class="cd-hero-title">Blindfold Chess Training</h1><p class="cd-hero-lead">See the board in your head. Ten drills in three stages, a 28-day plan and a daily challenge take you from naming square colours to playing a whole game without seeing the pieces.</p>
+  </div>
+</section>
+
+
+  <nav class="bf-jump" aria-label="On this page">
+    <a href="#drills" class="bf-jump-main"><i class="fas fa-play"></i> Start a drill</a>
+    <a href="#drills" onclick="var b=document.querySelector('.bf-pick[data-drill=play]');if(b){b.click();}"><i class="fas fa-robot"></i> Play a blindfold game</a>
+    <a href="#path"><i class="fas fa-calendar-check"></i> 28-day plan</a>
+    <a href="#faq"><i class="fas fa-question-circle"></i> FAQ</a>
+  </nav>
+
+  <!-- ============ WHY ============ -->
+  <section class="px-4 pt-12">
+    <div class="max-w-5xl mx-auto grid md:grid-cols-3 gap-5 bf-whys">
+      <div class="bf-why"><i class="fas fa-eye-slash"></i><h2>Why train blindfold?</h2><p>Every time you calculate, you move pieces in your head. Blindfold drills make that picture sharper, so you see more moves ahead and blunder less.</p></div>
+      <div class="bf-why"><i class="fas fa-stopwatch"></i><h2>10 minutes a day</h2><p>Follow the 28-day plan: three short drills a day, one stage at a time. Earn a medal on each level before you move up.</p></div>
+      <div class="bf-why"><i class="fas fa-child"></i><h2>For every level</h2><p>Kids start with square colours and knight routes. Club players stretch their calculation with blindfold puzzles, mates and full games.</p></div>
+    </div>
+  </section>
+
+  <!-- ============ YOUR PATH ============ -->
+  <section class="px-4 pt-12" id="path">
+    <div class="max-w-6xl mx-auto bp">
+      <div class="bp-card bp-rank-card">
+        <p class="bf-label">Your blindfold rank</p>
+        <p class="bp-rank" id="bp-rank">Beginner</p>
+        <div class="bp-progress"><span id="bp-bar"></span></div>
+        <p class="bp-small"><b id="bp-medals">0 medals</b> · <span id="bp-next"></span></p>
+        <div class="bp-streak"><i class="fas fa-fire"></i><b id="bp-streak">0</b> <span id="bp-streak-l">days in a row</span></div>
+      </div>
+      <div class="bp-card bp-plan-card">
+        <div class="bp-plan-top"><div><p class="bf-label">28-day mastery plan</p><p class="bp-plan-day" id="bp-plan-day">Day 1 of 28</p><p class="bp-small" id="bp-plan-week"></p></div></div>
+        <div class="bp-dots-row" id="bp-plan-dots" aria-hidden="true"></div>
+        <p class="bp-small bp-today">Today's session:</p>
+        <div class="bp-tasks" id="bp-plan-list"></div>
+        <button type="button" class="bf-start bp-go" id="bp-plan-btn"><i class="fas fa-play"></i> Start today's session</button>
+        <p class="bp-done hidden" id="bp-plan-done"><i class="fas fa-check-circle"></i> Today's session is done. The next day unlocks tomorrow.</p>
+        <button type="button" class="bf-ghost hidden" id="bp-plan-reset"><i class="fas fa-redo"></i> Start the plan again</button>
+      </div>
+      <div class="bp-card bp-daily-card">
+        <p class="bf-label">Daily challenge</p>
+        <p class="bp-daily-h"><i class="fas fa-calendar-day"></i> Blindfold puzzle of the day</p>
+        <p class="bp-small" id="bp-daily-status"></p>
+        <p class="bp-small"><i class="fas fa-fire" style="color:#f97316"></i> Daily streak: <b id="bp-daily-streak">0</b></p>
+        <button type="button" class="bf-start bp-go" id="bp-daily-btn"><i class="fas fa-play"></i> Solve today's puzzle</button>
+      </div>
+      <details class="bp-card bp-medals-card">
+        <summary><span><i class="fas fa-medal"></i> Your medals</span><span class="bp-small">Bronze on Easy, silver on Medium, gold on Hard. Tap a drill to train it.</span></summary>
+        <div class="bp-grid" id="bp-grid"></div>
+      </details>
+    </div>
+  </section>
+
+  <!-- ============ DRILL PICKER ============ -->
+  <section class="px-4 pt-12 pb-4" id="drills">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-8">
+        <p class="bf-eyebrow mb-2">Choose a drill</p>
+        <h2 class="text-3xl font-bold text-gray-900">Three stages to blindfold mastery</h2>
+      </div>
+      <div class="bf-stages" role="tablist" aria-label="Blindfold drills">
+        <div class="bf-stage-group"><p class="bf-stage-h"><span>Stage 1</span> See the board</p><div class="bf-picker">
+          <button type="button" role="tab" class="bf-pick" data-drill="colours" aria-selected="true"><span class="bf-num">1</span><i class="fas fa-chess-board"></i><b>Square Colours</b><span>Light or dark? Name it fast.</span></button>
+          <button type="button" role="tab" class="bf-pick" data-drill="squares" aria-selected="false"><span class="bf-num">2</span><i class="fas fa-crosshairs"></i><b>Find the Square</b><span>Tap e5 on a board with no letters.</span></button>
+          <button type="button" role="tab" class="bf-pick" data-drill="diagonals" aria-selected="false"><span class="bf-num">3</span><i class="fas fa-slash"></i><b>Lines &amp; Diagonals</b><span>Bishop and queen geometry.</span></button>
+          <button type="button" role="tab" class="bf-pick" data-drill="knight" aria-selected="false"><span class="bf-num">4</span><i class="fas fa-chess-knight"></i><b>Knight Routes</b><span>Fewest moves from A to B.</span></button>
+        </div></div>
+        <div class="bf-stage-group"><p class="bf-stage-h"><span>Stage 2</span> Hold the position</p><div class="bf-picker">
+          <button type="button" role="tab" class="bf-pick" data-drill="memory" aria-selected="false"><span class="bf-num">5</span><i class="fas fa-brain"></i><b>Remember the Position</b><span>Look, then answer with it hidden.</span></button>
+          <button type="button" role="tab" class="bf-pick" data-drill="hear" aria-selected="false"><span class="bf-num">6</span><i class="fas fa-headphones"></i><b>Hear the Position</b><span>Build it from words alone.</span></button>
+          <button type="button" role="tab" class="bf-pick" data-drill="moves" aria-selected="false"><span class="bf-num">7</span><i class="fas fa-list-ol"></i><b>Follow the Moves</b><span>Play an opening in your head.</span></button>
+        </div></div>
+        <div class="bf-stage-group"><p class="bf-stage-h"><span>Stage 3</span> Calculate blind</p><div class="bf-picker">
+          <button type="button" role="tab" class="bf-pick" data-drill="puzzles" aria-selected="false"><span class="bf-num">8</span><i class="fas fa-eye-slash"></i><b>Blindfold Puzzles</b><span>Solve with the pieces gone.</span></button>
+          <button type="button" role="tab" class="bf-pick" data-drill="mates" aria-selected="false"><span class="bf-num">9</span><i class="fas fa-chess-king"></i><b>Blindfold Mates</b><span>Checkmate a lone king, blind.</span></button>
+          <button type="button" role="tab" class="bf-pick" data-drill="play" aria-selected="false"><span class="bf-num">10</span><i class="fas fa-robot"></i><b>Play Blindfold</b><span>A whole game vs Stockfish.</span></button>
+        </div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ TRAINER ============ -->
+  <section class="px-4 pb-16">
+    <div class="max-w-6xl mx-auto bf-panel" id="bf-panel">
+      <div class="bf-toolbar">
+        <div class="bf-levels" role="group" aria-label="Level">
+          <span>Level:</span>
+          <button type="button" data-level="easy" aria-pressed="true">Easy</button>
+          <button type="button" data-level="medium" aria-pressed="false">Medium</button>
+          <button type="button" data-level="hard" aria-pressed="false">Hard</button>
+        </div>
+        <div class="bf-tool-right"><p class="bf-acct" id="bf-acct"></p><label class="bf-voice"><input type="checkbox" id="bf-voice"> <i class="fas fa-volume-up"></i> Read aloud</label></div>
+      </div>
+
+      <!-- 1. Square colours -->
+      <div class="bf-drill" data-drill="colours">
+        <div class="bf-head"><h3>Square Colours</h3><p>A square name appears. Is it a <b>light</b> or a <b>dark</b> square? Answer as many as you can before time runs out. Keyboard: <kbd>L</kbd> light, <kbd>D</kbd> dark.</p></div>
+        <div class="bf-stage bf-center">
+          <div class="bf-score-row"><div><p class="bf-label">Score</p><p class="bf-big" id="col-score">0</p></div><div><p class="bf-label">Time</p><p class="bf-big" id="col-time">60</p></div><div><p class="bf-label">Your best</p><p class="bf-big bf-best" id="col-best" data-best="colours">0</p></div></div>
+          <p class="bf-square" id="col-square" aria-live="polite">e4</p>
+          <div class="bf-answers bf-lr"><button type="button" class="bf-ans bf-light" data-ans="light" disabled>Light</button><button type="button" class="bf-ans bf-dark" data-ans="dark" disabled>Dark</button></div>
+          <p class="bf-msg" id="col-msg" role="status"></p>
+          <button type="button" class="bf-start" id="col-start"><i class="fas fa-play"></i> Start</button>
+        </div>
+      </div>
+
+      <!-- Find the square -->
+      <div class="bf-drill hidden" data-drill="squares">
+        <div class="bf-head"><h3>Find the Square</h3><p>A square name appears. <b>Tap it</b> on a board that has no letters or numbers. On Medium you may be looking from Black's side, and on Hard the board turns round every five squares. A wrong tap costs 2 seconds.</p></div>
+        <div class="bf-stage bf-split">
+          <div class="bf-board-col"><chess-board id="sq-board" class="bf-board" hide-notation></chess-board></div>
+          <div class="bf-side">
+            <div class="bf-score-row"><div><p class="bf-label">Score</p><p class="bf-big" id="sq-score">0</p></div><div><p class="bf-label">Time</p><p class="bf-big" id="sq-time">45</p></div><div><p class="bf-label">Your best</p><p class="bf-big bf-best" data-best="squares">0</p></div></div>
+            <p class="bf-square bf-square-sm" id="sq-target" aria-live="polite">–</p>
+            <p class="bf-side-note" id="sq-side"></p>
+            <p class="bf-msg" id="sq-msg" role="status"></p>
+            <button type="button" class="bf-start" id="sq-start"><i class="fas fa-play"></i> Start</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Lines and diagonals -->
+      <div class="bf-drill hidden" data-drill="diagonals">
+        <div class="bf-head"><h3>Lines &amp; Diagonals</h3><p>Bishops, rooks and queens move along lines. Answer ten questions about them <b>without looking at the board</b>. After each answer the board lights up to show you why.</p></div>
+        <div class="bf-stage bf-split">
+          <div class="bf-board-col"><chess-board id="dg-board" class="bf-board"></chess-board></div>
+          <div class="bf-side">
+            <div class="bf-score-row"><div><p class="bf-label">Question</p><p class="bf-big" id="dg-q">0/10</p></div><div><p class="bf-label">Correct</p><p class="bf-big" id="dg-score">0</p></div><div><p class="bf-label">Your best</p><p class="bf-big bf-best" data-best="diagonals">0</p></div></div>
+            <p class="bf-question" id="dg-text" aria-live="polite">Press Start.</p>
+            <div class="bf-answers bf-col" id="dg-answers"></div>
+            <p class="bf-msg" id="dg-msg" role="status"></p>
+            <button type="button" class="bf-start" id="dg-start"><i class="fas fa-play"></i> Start</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2. Knight routes -->
+      <div class="bf-drill hidden" data-drill="knight">
+        <div class="bf-head"><h3>Knight Routes</h3><p>A knight stands on one square. What is the <b>fewest number of moves</b> it needs to reach the target? Work it out without a board. Ten questions per round.</p></div>
+        <div class="bf-stage bf-center">
+          <div class="bf-score-row"><div><p class="bf-label">Question</p><p class="bf-big" id="kn-q">0/10</p></div><div><p class="bf-label">Correct</p><p class="bf-big" id="kn-score">0</p></div><div><p class="bf-label">Your best</p><p class="bf-big bf-best" id="kn-best" data-best="knight">0</p></div></div>
+          <p class="bf-question" id="kn-text" aria-live="polite">Press Start.</p>
+          <div class="bf-answers" id="kn-answers"></div>
+          <p class="bf-msg" id="kn-msg" role="status"></p>
+          <button type="button" class="bf-start" id="kn-start"><i class="fas fa-play"></i> Start</button>
+        </div>
+      </div>
+
+      <!-- 3. Remember the position -->
+      <div class="bf-drill hidden" data-drill="memory">
+        <div class="bf-head"><h3>Remember the Position</h3><p>Study a real position from a game. When the time is up the pieces disappear, and you answer questions about it: what stands where, which pieces attack and defend. Tap the board when a question asks for a square.</p></div>
+        <div class="bf-stage bf-split">
+          <div class="bf-board-col"><div class="bf-timer"><span id="mem-bar"></span></div><chess-board id="mem-board" class="bf-board"></chess-board></div>
+          <div class="bf-side">
+            <div class="bf-score-row"><div><p class="bf-label">Round score</p><p class="bf-big" id="mem-score">–</p></div><div><p class="bf-label">Perfect rounds</p><p class="bf-big bf-best" id="mem-best" data-best="memory">0</p></div></div>
+            <p class="bf-question" id="mem-text" aria-live="polite">Press Start to see a position.</p>
+            <div class="bf-answers bf-col" id="mem-answers"></div>
+            <p class="bf-msg" id="mem-msg" role="status"></p>
+            <div class="bf-row"><button type="button" class="bf-start" id="mem-start"><i class="fas fa-play"></i> Start</button><button type="button" class="bf-ghost hidden" id="mem-ready"><i class="fas fa-eye-slash"></i> I'm ready, hide it</button></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hear the position -->
+      <div class="bf-drill hidden" data-drill="hear">
+        <div class="bf-head"><h3>Hear the Position</h3><p>This is how blindfold players read chess books: a position is described in words, like <em>"White: King g1, Rook e1"</em>, and you build it in your head. The board stays empty. Turn on <b>Read aloud</b> to hear it.</p></div>
+        <div class="bf-stage bf-split">
+          <div class="bf-board-col"><div class="bf-timer"><span id="hr-bar"></span></div><chess-board id="hr-board" class="bf-board"></chess-board></div>
+          <div class="bf-side">
+            <div class="bf-score-row"><div><p class="bf-label">Round score</p><p class="bf-big" id="hr-score">–</p></div><div><p class="bf-label">Perfect rounds</p><p class="bf-big bf-best" data-best="hear">0</p></div></div>
+            <div class="bf-dict hidden" id="hr-card"></div>
+            <p class="bf-question" id="hr-text" aria-live="polite">Press Start to hear a position.</p>
+            <div class="bf-answers bf-col" id="hr-answers"></div>
+            <p class="bf-msg" id="hr-msg" role="status"></p>
+            <div class="bf-row"><button type="button" class="bf-start" id="hr-start"><i class="fas fa-play"></i> Start</button><button type="button" class="bf-ghost hidden" id="hr-ready"><i class="fas fa-eye-slash"></i> I've got it, hide it</button></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4. Follow the moves -->
+      <div class="bf-drill hidden" data-drill="moves">
+        <div class="bf-head"><h3>Follow the Moves</h3><p>A real opening is played from the starting position, one move at a time, without showing the pieces. Keep the position in your head, then answer questions about where things stand. On Medium and Hard the board is hidden, and on Hard you only see the latest move.</p></div>
+        <div class="bf-stage bf-split">
+          <div class="bf-board-col"><div class="bf-hidden-board hidden" id="mv-cover"><i class="fas fa-eye-slash"></i><span>Board hidden. Picture it!</span></div><chess-board id="mv-board" class="bf-board"></chess-board></div>
+          <div class="bf-side">
+            <div class="bf-score-row"><div><p class="bf-label">Round score</p><p class="bf-big" id="mv-score">–</p></div><div><p class="bf-label">Perfect rounds</p><p class="bf-big bf-best" id="mv-best" data-best="moves">0</p></div></div>
+            <p class="bf-movelist" id="mv-list" aria-live="polite"></p>
+            <p class="bf-question" id="mv-text">Press Start. The moves will begin from the normal starting position.</p>
+            <div class="bf-answers bf-col" id="mv-answers"></div>
+            <p class="bf-msg" id="mv-msg" role="status"></p>
+            <div class="bf-row"><button type="button" class="bf-start" id="mv-start"><i class="fas fa-play"></i> Start</button><button type="button" class="bf-ghost hidden" id="mv-next"><i class="fas fa-step-forward"></i> Next move</button><label class="bf-auto hidden" id="mv-auto-wrap"><input type="checkbox" id="mv-auto" checked> Auto-play</label></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 5. Blindfold puzzles -->
+      <div class="bf-drill hidden" data-drill="puzzles">
+        <div class="bf-head"><h3>Blindfold Puzzles</h3><p>Memorise the position, then the pieces vanish. Find the winning move: tap the piece's square and then where it goes, or type the move (like <b>Nf7+</b>). Your opponent's replies are announced. Each peek costs a point.</p></div>
+        <div class="bf-stage bf-split">
+          <div class="bf-board-col"><div class="bf-timer"><span id="pz-bar"></span></div><chess-board id="pz-board" class="bf-board"></chess-board></div>
+          <div class="bf-side">
+            <div class="bf-score-row"><div><p class="bf-label">Streak</p><p class="bf-big" id="pz-score">0</p></div><div><p class="bf-label">Points</p><p class="bf-big" id="pz-points">0</p></div><div><p class="bf-label">Best streak</p><p class="bf-big bf-best" id="pz-best" data-best="puzzles">0</p></div></div>
+            <p class="bf-question" id="pz-text" aria-live="polite">Press Start for your first puzzle.</p>
+            <p class="bf-movelist" id="pz-list"></p>
+            <div class="bf-mvbox hidden" id="pz-mvbox"></div>
+            <form class="bf-type hidden" id="pz-form" autocomplete="off"><input id="pz-input" placeholder="Type a move, e.g. Qh7#" spellcheck="false" aria-label="Your move"><button type="submit">Play</button></form>
+            <p class="bf-msg" id="pz-msg" role="status"></p>
+            <div class="bf-row"><button type="button" class="bf-start" id="pz-start"><i class="fas fa-play"></i> Start</button><button type="button" class="bf-ghost hidden" id="pz-ready"><i class="fas fa-eye-slash"></i> I'm ready, hide it</button><button type="button" class="bf-ghost hidden" id="pz-peek"><i class="fas fa-eye"></i> Peek (−1)</button><button type="button" class="bf-ghost hidden" id="pz-giveup"><i class="fas fa-flag"></i> Show answer</button></div>
+            <label class="bf-auto bf-mvopt"><input type="checkbox" id="pz-mvb"> Show my legal moves as buttons (easier)</label>
+            <p class="bf-credit">Puzzles from the <a href="https://lichess.org/training" target="_blank" rel="noopener">Lichess puzzle database</a> (CC0). Thank you, Lichess!</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Blindfold mates -->
+      <div class="bf-drill hidden" data-drill="mates">
+        <div class="bf-head"><h3>Blindfold Mates</h3><p>Every player must know the basic mates. Now do them blind: <b>two rooks</b> on Easy, <b>king and queen</b> on Medium, <b>king and rook</b> on Hard. Memorise the position, then checkmate the black king within the move limit. The computer runs for the centre.</p></div>
+        <div class="bf-stage bf-split">
+          <div class="bf-board-col"><div class="bf-timer"><span id="mt-bar"></span></div><chess-board id="mt-board" class="bf-board"></chess-board></div>
+          <div class="bf-side">
+            <div class="bf-score-row"><div><p class="bf-label">Moves</p><p class="bf-big" id="mt-moves">0</p></div><div><p class="bf-label">Peeks</p><p class="bf-big" id="mt-peeks">0</p></div><div><p class="bf-label">Mates</p><p class="bf-big bf-best" data-best="mates">0</p></div></div>
+            <p class="bf-question" id="mt-text" aria-live="polite">Press Start for a position.</p>
+            <p class="bf-movelist" id="mt-list"></p>
+            <div class="bf-mvbox hidden" id="mt-mvbox"></div>
+            <form class="bf-type hidden" id="mt-form" autocomplete="off"><input id="mt-input" placeholder="Type a move, e.g. Ra7" spellcheck="false" aria-label="Your move"><button type="submit">Play</button></form>
+            <p class="bf-msg" id="mt-msg" role="status"></p>
+            <div class="bf-row"><button type="button" class="bf-start" id="mt-start"><i class="fas fa-play"></i> Start</button><button type="button" class="bf-ghost hidden" id="mt-ready"><i class="fas fa-eye-slash"></i> I'm ready, hide it</button><button type="button" class="bf-ghost hidden" id="mt-peek"><i class="fas fa-eye"></i> Peek</button><button type="button" class="bf-ghost hidden" id="mt-giveup"><i class="fas fa-flag"></i> Show board</button></div>
+            <label class="bf-auto bf-mvopt"><input type="checkbox" id="mt-mvb"> Show my legal moves as buttons (easier)</label>
+          </div>
+        </div>
+      </div>
+
+      <!-- Play blindfold -->
+      <div class="bf-drill hidden" data-drill="play">
+        <div class="bf-head"><h3>Play Blindfold</h3><p>The final test: a <b>whole game</b> against <b>Stockfish</b>, set to any strength from beginner to grandmaster, without seeing the pieces. Choose how you enter moves and how much help you get. Stuck? <b>Peek</b> for two seconds or <b>show the board</b>, then hide it again and carry on.</p></div>
+        <div class="bf-stage bf-split">
+          <div class="bf-board-col"><chess-board id="pl-board" class="bf-board"></chess-board></div>
+          <div class="bf-side">
+            <p class="bf-question" id="pl-text" aria-live="polite">Choose your settings and press Start.</p>
+
+            <div id="pl-setup" class="bf-setup">
+              <div class="bf-set"><label for="pl-elo">Computer strength</label>
+                <div class="bf-elo"><input type="range" id="pl-elo" min="400" max="2800" step="50" value="800"><span><b id="pl-elo-v">800</b> <small id="pl-elo-n">Improving</small></span></div></div>
+              <div class="bf-set"><span>You play</span><div class="bf-seg"><button type="button" data-plcol="w">White</button><button type="button" data-plcol="b">Black</button><button type="button" data-plcol="r">Random</button></div></div>
+              <div class="bf-set"><span>Enter moves with</span><div class="bf-seg"><button type="button" data-plin="buttons">Move buttons</button><button type="button" data-plin="type">Typing or board taps</button></div></div>
+              <div class="bf-set" id="pl-hints"><span>Button hints</span><div class="bf-checks"><label><input type="checkbox" id="pl-h-check"> Show checks (+)</label><label><input type="checkbox" id="pl-h-capture"> Show captures (x)</label><label><input type="checkbox" id="pl-h-mate"> Show mates (#)</label></div></div>
+              <div class="bf-set"><span>Move list</span><div class="bf-seg"><button type="button" data-pllist="all">All moves</button><button type="button" data-pllist="last">Last move</button><button type="button" data-pllist="hidden">Hidden</button></div></div>
+              <p class="bf-set-note">Tip: Easy, Medium and Hard at the top set good starting values. Stockfish (about 7 MB) loads the first time you play, then stays on your device.</p>
+              <div class="bf-score-row"><div><p class="bf-label">Games won</p><p class="bf-big bf-best" data-best="play">0</p></div><div><p class="bf-label">Best win (Elo)</p><p class="bf-big bf-best" id="pl-bestwin">–</p></div></div>
+              <button type="button" class="bf-start" id="pl-start"><i class="fas fa-play"></i> Start a game</button>
+            </div>
+
+            <div id="pl-game" class="hidden">
+              <div class="bf-score-row bf-score-sm"><div><p class="bf-label">Peeks</p><p class="bf-big" id="pl-peeks">0</p></div><div><p class="bf-label">Board views</p><p class="bf-big" id="pl-views">0</p></div><div><p class="bf-label">Take-backs</p><p class="bf-big" id="pl-tbs">0</p></div></div>
+              <p class="bf-movelist bf-game" id="pl-list"></p>
+              <p class="bf-msg" id="pl-msg" role="status"></p>
+              <div class="bf-mvbox hidden" id="pl-mvbox"></div>
+              <form class="bf-type hidden" id="pl-form" autocomplete="off"><input id="pl-input" placeholder="Type a move, e.g. Nf3, or tap the board" spellcheck="false" aria-label="Your move"><button type="submit">Play</button></form>
+              <div class="bf-row bf-tools"><button type="button" class="bf-ghost" id="pl-peek"><i class="fas fa-eye"></i> Peek 2 s</button><button type="button" class="bf-ghost" id="pl-showboard"><i class="fas fa-chess-board"></i> Show board</button><button type="button" class="bf-ghost hidden" id="pl-showmoves"><i class="fas fa-list-ol"></i> Show moves</button><button type="button" class="bf-ghost" id="pl-switchin"><i class="fas fa-keyboard"></i> Type instead</button><button type="button" class="bf-ghost" id="pl-takeback"><i class="fas fa-undo"></i> Take back</button><button type="button" class="bf-ghost" id="pl-resign"><i class="fas fa-flag"></i> Resign</button></div>
+              <div class="bf-row bf-end hidden" id="pl-end"><a class="bf-start" id="pl-lichess" target="_blank" rel="noopener"><i class="fas fa-chess-knight"></i> Analyse on Lichess</a><button type="button" class="bf-ghost" id="pl-copy"><i class="far fa-copy"></i> Copy PGN</button><button type="button" class="bf-ghost" id="pl-new"><i class="fas fa-redo"></i> New game</button></div>
+            </div>
+            <p class="bf-credit">Opponent: <a href="https://stockfishchess.org" target="_blank" rel="noopener">Stockfish 18</a> (GPL-3.0), via <a href="https://github.com/nmrugg/stockfish.js" target="_blank" rel="noopener">Stockfish.js</a>, running in your browser.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p class="text-center text-sm text-gray-500 mt-4">Your progress is saved on this device, and in your <a href="/student/#blindfold" class="text-indigo-700 underline">Student Area</a> when you are signed in.</p>
+  </section>
+
+  <!-- ============ GUIDE ============ -->
+  <section class="py-16 px-4 bg-white" id="guide">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-center mb-10">
+        <p class="bf-eyebrow mb-2">The method</p>
+        <h2 class="text-3xl font-bold text-gray-900 mb-3">How to master blindfold chess</h2>
+        <p class="text-gray-600 max-w-2xl mx-auto">Blindfold chess isn't a party trick. It's the same skill you use every time you calculate a line. Here is the order our coaches teach it in.</p>
+      </div>
+      <ol class="bf-steps">
+        <li><b>Know every square by heart.</b> Its name, its colour and where it is from both sides of the board. Until e5 feels as obvious as your own front door, everything else is harder. <a href="#colours" data-go="colours" class="bf-step-link">Drills: Square Colours, Find the Square</a></li>
+        <li><b>Learn the lines.</b> Name the diagonals by their ends (a1–h8, b1–h7…) and know which squares they pass through. Bishops, queens and rooks stop being a guess. <a href="#diagonals" data-go="diagonals" class="bf-step-link">Drills: Lines & Diagonals, Knight Routes</a></li>
+        <li><b>Hold a still picture.</b> Look at a position, then close your eyes and check it: kings first, then queens and rooks, then minor pieces, then pawns. Ask yourself what is attacked and what is defended. <a href="#memory" data-go="memory" class="bf-step-link">Drills: Remember the Position, Hear the Position</a></li>
+        <li><b>Make the picture move.</b> Follow a game move by move without a board. Start with openings you know, where the moves make sense, then games you don't. <a href="#moves" data-go="moves" class="bf-step-link">Drills: Follow the Moves</a></li>
+        <li><b>Calculate inside the picture.</b> Solve puzzles and finish basic mates without the pieces. This is exactly what you do at the board when you look three moves ahead. <a href="#puzzles" data-go="puzzles" class="bf-step-link">Drills: Blindfold Puzzles, Blindfold Mates</a></li>
+        <li><b>Play whole games.</b> Start on Easy with as many peeks as you need, and aim to peek a little less every game. <a href="#play" data-go="play" class="bf-step-link">Drills: Play Blindfold</a></li>
+      </ol>
+      <div class="grid md:grid-cols-2 gap-6 mt-12">
+        <div>
+          <h3 class="text-xl font-bold text-gray-900 mb-4">Tips from our coaches</h3>
+          <ul class="bf-tips">
+            <li><b>Use signposts.</b> The long diagonals a1–h8 and h1–a8 are each one colour. The four centre squares d4, e4, d5, e5 are your compass.</li>
+            <li><b>Say the moves.</b> Reading moves aloud, or turning on <em>Read aloud</em>, helps the picture stick.</li>
+            <li><b>Check the kings first.</b> When you lose the picture, find both kings again, then rebuild around them.</li>
+            <li><b>Read books without a board.</b> Once Stage 2 feels easy, follow the moves in a chess book in your head and only check the diagrams.</li>
+            <li><b>Don't rush to Hard.</b> Earning bronze, then silver, then gold builds the habit. Speed comes later.</li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-xl font-bold text-gray-900 mb-4">Blindfold chess through history</h3>
+          <ul class="bf-history">
+            <li><span>1700s</span> François-André Philidor, the best player of his time, amazed Paris and London by playing several games at once without seeing the boards.</li>
+            <li><span>1858</span> Paul Morphy played eight strong players at once, blindfold, in Paris.</li>
+            <li><span>1947</span> Miguel Najdorf played 45 games at once, blindfold, in São Paulo.</li>
+            <li><span>Today</span> Strong players everywhere still train this way, because calculating a line is a small blindfold game in your head.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="mt-14" id="faq">
+        <h2 class="text-2xl font-bold text-gray-900 mb-5 text-center">Blindfold chess: frequently asked questions</h2>
+        <div class="bf-faq">
+          <details open><summary>What is blindfold chess?</summary><p>Blindfold chess means playing without seeing the pieces. You keep the position in your head and say or type your moves. Strong players have played it for centuries, and it trains the same skill you use whenever you calculate a line: seeing the board in your mind.</p></details>
+          <details><summary>How do I start learning blindfold chess?</summary><p>Start small. First learn every square's name and colour, then the diagonals and knight moves. Then practise holding a still position in your head, follow short games without a board, and only then solve puzzles and play games blindfold. Our free 28-day plan takes you through these steps with three short drills a day.</p></details>
+          <details><summary>Does blindfold training really improve your chess?</summary><p>Blindfold training builds visualisation: keeping an accurate picture of the board while pieces move in your head. That is what calculation depends on, so players who train it usually find it easier to see a few moves ahead, spot tactics and avoid blunders. It works best alongside normal play and puzzles, not instead of them.</p></details>
+          <details><summary>How long does it take to play a full game blindfold?</summary><p>It depends on your level and how often you practise. With ten minutes a day, many club players can follow a short game in their head within a few weeks. Playing a whole game without peeking takes longer, which is why our Play Blindfold drill lets you peek and counts how often you needed to.</p></details>
+          <details><summary>Is blindfold chess good for kids?</summary><p>Yes, when it is kept short and fun. Children can start with Square Colours, Find the Square and Knight Routes on Easy. These build board knowledge and concentration without frustration. Move on to the memory drills when the first stage feels easy.</p></details>
+          <details><summary>What is the difference between blindfold chess and chess visualization?</summary><p>Chess visualization (or visualisation) is the skill of picturing the board and the moves in your head. Blindfold chess is the most complete test of it, because you see nothing at all. Every drill on this page trains visualization, from the square colours to full blindfold games.</p></details>
+          <details><summary>Is ChessDepth Blindfold Training free?</summary><p>Yes. All ten drills, the 28-day plan, the daily blindfold puzzle and games against the computer are free, with no app to install. It works on phones, tablets and computers. Sign in with Google if you want your medals and progress saved to your Student Area.</p></details>
+          <details><summary>Can I play a full blindfold game against the computer?</summary><p>Yes. Play Blindfold gives you a whole game against Stockfish, set anywhere from 400 (beginner) to 2800 (grandmaster) Elo. Enter moves by tapping legal-move buttons, typing or tapping an empty board, and choose whether checks, captures and mates are marked. If you get lost, peek for two seconds, show the board, look at the move list or take a move back. Afterwards, open the game on Lichess for analysis.</p></details>
+        </div>
+        <p class="text-center mt-6 text-gray-600">Want the full method with examples? Read our guide: <a href="/blog/how-to-play-blindfold-chess/" class="text-indigo-700 font-semibold underline">How to Play Blindfold Chess, Step by Step</a>.</p>
+      </div>
+      <p class="text-center mt-10"><a href="/student/#blindfold" class="text-indigo-700 font-semibold hover:underline">Your progress in the Student Area <i class="fas fa-arrow-right text-sm ml-1"></i></a></p>
+    </div>
+  </section>
+
+  <script type="module" src="/assets/js/blindfold.js?v=1794028371"></script>
+
+
+  
+<footer class="cd-footer bg-gray-800 text-gray-300 pt-10 pb-6 mt-10">
+    <div class="max-w-6xl mx-auto px-4 cd-foot-grid">
+      <div class="cd-foot-brand">
+        <p class="text-2xl font-bold text-white mb-2">♟️ ChessDepth Academy</p>
+        <p class="text-sm text-gray-400">Structured online chess coaching for beginners to tournament players.</p>
+        <div class="cd-foot-social mt-4 flex space-x-5 text-2xl">
+          <a href="https://www.instagram.com/chessdepth/" target="_blank" rel="noopener noreferrer" aria-label="ChessDepth on Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.facebook.com/chessdepthacademy/" target="_blank" rel="noopener noreferrer" aria-label="ChessDepth on Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://chat.whatsapp.com/FlMZyNdMU9SEyJlKKclmon" target="_blank" rel="noopener noreferrer" aria-label="ChessDepth WhatsApp community" title="WhatsApp community"><i class="fab fa-whatsapp"></i></a>
+          <a href="https://lichess.org/team/chessdepth" target="_blank" rel="noopener noreferrer" aria-label="ChessDepth team on Lichess" title="Lichess team"><i class="fas fa-chess-knight"></i></a>
+          <a href="https://www.chess.com/club/chessdepth" target="_blank" rel="noopener noreferrer" aria-label="ChessDepth club on Chess.com" title="Chess.com club"><i class="fas fa-chess-pawn"></i></a>
+        </div>
+      </div>
+      <div>
+        <p class="font-semibold text-white mb-3">Explore</p>
+        <ul class="space-y-1 text-sm">
+          <li><a href="/courses/">Courses &amp; Fees</a></li>
+          <li><a href="/chess-classes-for-kids/">Chess Classes for Kids</a></li>
+          <li><a href="/coaches/">Our Coaches</a></li>
+          <li><a href="/resources/">Free Resources</a></li>
+          <li><a href="/blindfold/">Blindfold Chess Training</a></li>
+          <li><a href="/shop/">Shop</a></li>
+          <li><a href="/lab/">Chess Lab</a></li>
+          <li><a href="/careers/">Careers</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="font-semibold text-white mb-3">Community</p>
+        <ul class="space-y-1 text-sm">
+          <li><i class="fab fa-whatsapp mr-2"></i><a href="https://chat.whatsapp.com/FlMZyNdMU9SEyJlKKclmon" target="_blank" rel="noopener noreferrer">WhatsApp community</a></li>
+          <li><i class="fas fa-chess-knight mr-2"></i><a href="https://lichess.org/team/chessdepth" target="_blank" rel="noopener noreferrer">Lichess team</a></li>
+          <li><i class="fas fa-chess-pawn mr-2"></i><a href="https://www.chess.com/club/chessdepth" target="_blank" rel="noopener noreferrer">Chess.com club</a></li>
+          <li><i class="fab fa-instagram mr-2"></i><a href="https://www.instagram.com/chessdepth/" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+        </ul>
+      </div>
+      <div class="cd-foot-contact">
+        <p class="font-semibold text-white mb-3">Get in touch</p>
+        <ul class="space-y-1 text-sm">
+          <li><i class="fas fa-phone-alt mr-2"></i><a href="tel:+919823029262">+91 98230 29262</a></li>
+          <li><i class="fab fa-whatsapp mr-2"></i><a href="https://wa.me/919823029262?text=Hi%2C%20I%20would%20like%20to%20book%20a%20free%20demo%20class" target="_blank" rel="noopener noreferrer">WhatsApp us</a></li>
+          <li><i class="fas fa-envelope mr-2"></i><a href="mailto:info@chessdepth.in">info@chessdepth.in</a></li>
+          <li><i class="fas fa-map-marker-alt mr-2"></i>Bhopal, Madhya Pradesh, India</li>
+        </ul>
+      </div>
+    </div>
+    <div class="max-w-6xl mx-auto px-4 mt-8 pt-4 border-t border-gray-700 flex flex-col sm:flex-row justify-between text-xs text-gray-400 gap-2 text-center">
+      <p>&copy; <span data-year>2026</span> ChessDepth Academy. All rights reserved.</p>
+      <p class="cd-legal"><a href="/terms/">Terms</a> · <a href="/refunds/">Refunds &amp; cancellations</a> · <a href="/privacy/">Privacy policy</a></p>
+    </div>
+  </footer>
+  <a href="https://wa.me/919823029262?text=Hi%2C%20I%20would%20like%20to%20book%20a%20free%20demo%20class" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Chat with ChessDepth on WhatsApp" title="Chat with us on WhatsApp"><i class="fab fa-whatsapp text-2xl"></i></a>
+
+  <script src="/assets/js/site.js?v=1794028371" defer></script>
+</body>
+</html>

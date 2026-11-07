@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <script>
+    /* Night/day mode: use the saved choice, otherwise follow the device setting */
+    (function () {
+      var t = null; try { t = localStorage.getItem("cd-theme"); } catch (e) {}
+      if (t !== "light" && t !== "dark") t = (window.matchMedia && matchMedia("(prefers-color-scheme: dark)").matches) ? "dark" : "light";
+      if (t === "dark") document.documentElement.classList.add("dark");
+    })();
+  </script>
+  <meta name="theme-color" content="#1f2547">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How to Play Blindfold Chess: Step-by-Step Visualization Guide</title>
+  <meta name="description" content="Blindfold chess trains chess visualization like nothing else. A six-step method from learning the squares to full blindfold games, with a 4-week plan and free drills.">
+  <link rel="canonical" href="https://www.chessdepth.in/blog/how-to-play-blindfold-chess/">
+  <meta property="og:title" content="How to Play Blindfold Chess: Step-by-Step Visualization Guide">
+  <meta property="og:site_name" content="ChessDepth Academy">
+  <meta property="og:locale" content="en_IN">
+  <meta property="og:description" content="Blindfold chess trains chess visualization like nothing else. A six-step method from learning the squares to full blindfold games, with a 4-week plan and free drills.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://www.chessdepth.in/blog/how-to-play-blindfold-chess/">
+  <meta property="og:image" content="https://www.chessdepth.in/assets/images/og-blindfold.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="How to Play Blindfold Chess: Step-by-Step Visualization Guide">
+  <meta name="twitter:description" content="Blindfold chess trains chess visualization like nothing else. A six-step method from learning the squares to full blindfold games, with a 4-week plan and free drills.">
+  <meta name="twitter:image" content="https://www.chessdepth.in/assets/images/og-blindfold.jpg">
+  <meta property="article:published_time" content="2026-11-04T00:00:00+00:00">
+  <meta property="article:section" content="Training">
+  <link rel="icon" href="/assets/images/favicon.ico" sizes="48x48">
+  <link rel="icon" href="/assets/images/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="/assets/css/tailwind.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,500;0,600;1,400&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="/assets/css/pages/blog.css?v=1794028371">
+  <link rel="stylesheet" href="/assets/css/site.css?v=1794028371">
+  <link rel="stylesheet" href="/assets/css/dark.css?v=1794028371">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-2C73E30ZFX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-2C73E30ZFX');
+  </script>
+  
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+    {"@type":"ListItem","position":1,"name":"Home","item":"https://www.chessdepth.in/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://www.chessdepth.in/blog/"},{"@type":"ListItem","position":3,"name":"How to Play Blindfold Chess: Step-by-Step Visualization Guide","item":"https://www.chessdepth.in/blog/how-to-play-blindfold-chess/"}
+  ]}
+  </script>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"BlogPosting","headline":"How to Play Blindfold Chess: Step-by-Step Visualization Guide","description":"Blindfold chess trains chess visualization like nothing else. A six-step method from learning the squares to full blindfold games, with a 4-week plan and free drills.",
+   "datePublished":"2026-11-04T00:00:00+00:00","dateModified":"2026-11-04T00:00:00+00:00",
+   "author":{"@type":"Organization","name":"ChessDepth Coaching Team","url":"https://www.chessdepth.in/about/"},
+   "publisher":{"@type":"Organization","name":"ChessDepth Academy","logo":{"@type":"ImageObject","url":"https://www.chessdepth.in/assets/images/icon-512.png"}},
+   "image":"https://www.chessdepth.in/assets/images/og-blindfold.jpg","mainEntityOfPage":"https://www.chessdepth.in/blog/how-to-play-blindfold-chess/",
+   "articleSection":"Training","inLanguage":"en"}
+  </script>
+
+
+</head>
+<body class="bg-gray-100 text-gray-800">
+  <div class="cd-topbar">
+    <div class="cd-wrap cd-topbar-inner">
+      <p class="cd-topbar-contact">
+        <a href="tel:+919823029262"><i class="fas fa-phone-alt"></i>+91 98230 29262</a>
+        <a href="mailto:info@chessdepth.in"><i class="far fa-envelope"></i>info@chessdepth.in</a>
+      </p>
+      <p class="cd-topbar-links">
+        <a href="/lab/"><i class="fas fa-flask"></i>Chess Lab<span class="cd-free" data-free-until="2026-11-21">Free</span></a>
+        <a href="/careers/">Careers</a>
+        <a href="/student/" data-account><i class="far fa-user-circle"></i>Student login</a>
+        <button type="button" class="cd-theme-btn" data-theme-toggle aria-label="Switch to night mode" title="Night / day mode"><i class="fas fa-moon cd-moon"></i><i class="fas fa-sun cd-sun"></i></button>
+      </p>
+    </div>
+  </div>
+  <header class="cd-header" id="main-header">
+    <div class="cd-wrap cd-header-inner">
+      <a href="/" class="cd-brand">
+        <svg class="cd-mark" viewBox="0 0 32 32" aria-hidden="true" focusable="false"><path fill="currentColor" d="M8 5h3v3h2.5V5h5v3H21V5h3v7.2l-2.4 1.8.9 9H9.5l.9-9L8 12.2zM8.5 24.5h15l1.5 2.5H7zM6 28h20v2.5H6z"/></svg>
+
+        <span class="cd-brand-text"><span class="cd-brand-name">ChessDepth</span></span>
+      </a>
+      <nav id="main-nav" aria-label="Primary" class="cd-nav">
+        <a href="/about/" class="cd-link">About</a>
+        <div class="cd-dd" data-dd>
+          <button type="button" class="cd-link cd-dd-btn" aria-expanded="false" aria-haspopup="true">Academy<i class="fas fa-chevron-down cd-dd-caret" aria-hidden="true"></i></button>
+          <div class="cd-dd-menu" role="menu">
+            <a href="/courses/" role="menuitem" class="cd-dd-item"><i class="fas fa-graduation-cap"></i><span><b>Courses</b><small>Levels, fees and class timings</small></span></a>
+            <a href="/chess-classes-for-kids/" role="menuitem" class="cd-dd-item"><i class="fas fa-child"></i><span><b>Classes for kids</b><small>Ages 5 and up, for parents</small></span></a>
+            <a href="/coaches/" role="menuitem" class="cd-dd-item"><i class="fas fa-chess-king"></i><span><b>Coaches</b><small>Meet the team that teaches you</small></span></a>
+            <a href="/shop/" role="menuitem" class="cd-dd-item"><i class="fas fa-book"></i><span><b>Shop</b><small>Worksheets, books and study packs</small></span></a>
+          </div>
+        </div>
+        <a href="/blindfold/" class="cd-link cd-link-ai">Blindfold<span class="cd-soon">New</span></a>
+        <a href="/resources/" class="cd-link">Resources</a>
+        <a href="/ai/" class="cd-link cd-link-ai">ChessDepth AI<span class="cd-soon">Beta</span></a>
+        <a href="/blog/" class="cd-link" aria-current="page">Blog</a>
+        <a href="/contact/" class="cd-link">Contact</a>
+        <a href="https://wa.me/919823029262?text=Hi%2C%20I%20would%20like%20to%20book%20a%20free%20demo%20class" target="_blank" rel="noopener noreferrer" class="cd-hdr-cta">Book a free demo</a>
+      </nav>
+      <div class="cd-header-mobile">
+        <button type="button" class="cd-theme-btn" data-theme-toggle aria-label="Switch to night mode" title="Night / day mode"><i class="fas fa-moon cd-moon"></i><i class="fas fa-sun cd-sun"></i></button>
+        <button id="menu-toggle" class="cd-menu-btn" aria-controls="mobile-menu" aria-expanded="false" aria-label="Open menu">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+        </button>
+      </div>
+    </div>
+    <div id="mobile-menu" class="cd-mobile-menu hidden">
+      <nav class="cd-wrap" aria-label="Mobile">
+        <a href="/">Home</a>
+        <a href="/about/">About</a>
+        <div class="cd-m-group">
+          <p class="cd-m-group-h">Academy</p>
+          <a href="/courses/"><i class="fas fa-graduation-cap"></i>Courses</a>
+          <a href="/chess-classes-for-kids/"><i class="fas fa-child"></i>Classes for kids</a>
+          <a href="/coaches/"><i class="fas fa-chess-king"></i>Coaches</a>
+          <a href="/shop/"><i class="fas fa-book"></i>Shop</a>
+        </div>
+        <a href="/blindfold/">Blindfold<span class="cd-soon">New</span></a>
+        <a href="/resources/">Resources</a>
+        <a href="/ai/">ChessDepth AI<span class="cd-soon">Beta</span></a>
+        <a href="/blog/" aria-current="page">Blog</a>
+        <a href="/contact/">Contact</a>
+        <a href="/lab/">Chess Lab <i class="fas fa-crown" style="color:#b08a4e;font-size:.8em"></i><span class="cd-soon" data-free-until="2026-11-21">Free launch offer</span></a>
+        <a href="/careers/">Careers</a>
+        <div class="cd-mobile-actions">
+          <a href="/student/" class="cd-mobile-login" data-account><i class="far fa-user-circle"></i>Student login</a>
+          <a href="https://wa.me/919823029262?text=Hi%2C%20I%20would%20like%20to%20book%20a%20free%20demo%20class" target="_blank" rel="noopener noreferrer" class="cd-hdr-cta">Book a free demo</a>
+        </div>
+        <p class="cd-mobile-contact"><a href="tel:+919823029262">+91 98230 29262</a><a href="mailto:info@chessdepth.in">info@chessdepth.in</a></p>
+      </nav>
+    </div>
+  </header>
+
+
+<section class="blog-hero cd-hero-bg text-white">
+  <div class="max-w-3xl mx-auto px-4 py-14">
+    <a href="/blog/" class="text-indigo-200 hover:text-white text-sm font-semibold"><i class="fas fa-arrow-left mr-1"></i>All articles</a>
+    <p class="mt-5 mb-3"><span class="blog-tag">Training</span></p>
+    <h1 class="text-3xl md:text-4xl font-extrabold leading-tight">How to Play Blindfold Chess, Step by Step</h1><p class="text-indigo-100 text-lg mt-4">Blindfold chess trains chess visualization like nothing else. A six-step method from learning the squares to full blindfold games, with a 4-week plan and free drills.</p>
+    <p class="text-indigo-200 text-sm mt-5">ChessDepth Coaching Team · 4 November 2026 · 6 min read · All levels</p>
+  </div>
+</section>
+
+<article class="max-w-3xl mx-auto px-4 py-12">
+  <div class="cd-prose">
+    <p>Every time you calculate a line, you play a tiny game of <strong>blindfold chess</strong>. The pieces on the real board stay where they are, and you move them in your head: <em>I take, he takes back, then my knight jumps to f5…</em> The clearer that picture is, the further you can see and the fewer pieces you leave hanging.</p>
+
+<p>That is why blindfold training is one of the best ways to improve your <strong>chess visualization</strong>. And no, you don’t need a special talent for it. Like any skill, it can be built step by step.</p>
+
+<p>This guide shows you exactly how. Every step links to a free drill in our <a href="/blindfold/">Blindfold Chess Training</a> so you can practise as you read.</p>
+
+<h2 id="what-is-blindfold-chess">What is blindfold chess?</h2>
+
+<p>In blindfold chess you play without seeing the pieces. You keep the position in your memory, say or type your moves, and your opponent announces theirs. Players have done it for centuries. Philidor amazed audiences in the 1700s, Paul Morphy played eight opponents at once in 1858, and in 1947 Miguel Najdorf played 45 blindfold games at the same time.</p>
+
+<p>You don’t need to go that far. Being able to play <em>one</em> calm game in your head, or even to follow a few moves of a book without a board, already makes a big difference to your calculation.</p>
+
+<h2 id="why-it-works">Why it works</h2>
+
+<p>When you calculate at the board, three things happen at once:</p>
+
+<ol>
+  <li>You <strong>know the geometry</strong>: where each square is and which squares a piece can reach.</li>
+  <li>You <strong>hold a picture</strong>: what stands where, and what is attacked and defended.</li>
+  <li>You <strong>change the picture</strong>: you move pieces in your head and see the new position.</li>
+</ol>
+
+<p>Most players blunder because one of these breaks down. They forget that a bishop on b2 covers g7, or that the knight they “moved” in their head was actually pinned. Blindfold training works on all three, separately and then together.</p>
+
+<h2 id="step-1-know-every-square-by-heart">Step 1: Know every square by heart</h2>
+
+<p>You can’t picture a board you don’t know. Start with the squares themselves:</p>
+
+<ul>
+  <li>Name the <strong>colour</strong> of any square instantly. Is g5 light or dark? (Dark: it sits on the same file as g1, four squares up.) A useful rule: a1 is dark, and the colour changes with every step along a rank or a file.</li>
+  <li>Find any square <strong>without coordinates</strong> on the board, from White’s side <em>and</em> from Black’s.</li>
+</ul>
+
+<p>Practise with <a href="/blindfold/#colours">Square Colours</a> and <a href="/blindfold/#squares">Find the Square</a>. Aim for 20 correct answers in a minute before you move on.</p>
+
+<h2 id="step-2-learn-the-lines">Step 2: Learn the lines</h2>
+
+<p>Bishops, rooks and queens move along lines, so learn the lines like a map:</p>
+
+<ul>
+  <li>The two long diagonals, <strong>a1–h8</strong> and <strong>h1–a8</strong>, are signposts. Every square on a1–h8 is dark and every square on h1–a8 is light.</li>
+  <li>Name other diagonals by their ends: b1–h7, c1–h6, a2–g8 and so on. Can you list the squares on the c1–h6 diagonal without looking? (c1, d2, e3, f4, g5, h6.)</li>
+  <li>Knights are the odd ones out, so train their routes separately. How many moves from b1 to h8? (Five.)</li>
+</ul>
+
+<p>Drills: <a href="/blindfold/#diagonals">Lines &amp; Diagonals</a> and <a href="/blindfold/#knight">Knight Routes</a>.</p>
+
+<h2 id="step-3-hold-a-still-picture">Step 3: Hold a still picture</h2>
+
+<p>Now hold a whole position in your head. Look at a position for 15–20 seconds, then look away and check yourself in this order:</p>
+
+<ol>
+  <li>Where are the <strong>kings</strong>?</li>
+  <li>Where are the <strong>queens and rooks</strong>?</li>
+  <li>Where are the <strong>bishops and knights</strong>?</li>
+  <li>What do the <strong>pawns</strong> look like?</li>
+</ol>
+
+<p>Then ask the questions that matter in a real game: <em>Is that knight defended? Does my bishop attack anything?</em></p>
+
+<p>Two drills train this: <a href="/blindfold/#memory">Remember the Position</a>, where you see the position first, and <a href="/blindfold/#hear">Hear the Position</a>, where it is only described in words, the way positions appear in chess books.</p>
+
+<h2 id="step-4-make-the-picture-move">Step 4: Make the picture move</h2>
+
+<p>The real skill is keeping the picture accurate while pieces move. Start with openings you know well, where the moves make sense, and play them in your head:</p>
+
+<p><em>1.e4 e5 2.Nf3 Nc6 3.Bb5 a6 4.Ba4 Nf6.</em> Where is the bishop now? Which black piece attacks e4?</p>
+
+<p>Then follow lines you don’t know. A great habit is to <strong>read chess books without a board</strong>: play through the moves in your head and only check the diagrams. Our <a href="/blindfold/#moves">Follow the Moves</a> drill plays real openings move by move. On Hard it only shows you the latest move.</p>
+
+<h2 id="step-5-calculate-inside-the-picture">Step 5: Calculate inside the picture</h2>
+
+<p>Once you can hold a moving picture, use it the way you will in a game:</p>
+
+<ul>
+  <li><strong>Blindfold puzzles</strong>: memorise a position, then find the winning move with the pieces hidden. Start with short tactics, such as mate in one or winning a piece.</li>
+  <li><strong>Basic mates, blind</strong>: checkmate a lone king with two rooks, then king and queen, then king and rook, without seeing the board. If you can do king and rook blind, your technique is solid.</li>
+</ul>
+
+<p>Drills: <a href="/blindfold/#puzzles">Blindfold Puzzles</a>, the <a href="/blindfold/#daily">daily blindfold puzzle</a> and <a href="/blindfold/#mates">Blindfold Mates</a>.</p>
+
+<h2 id="step-6-play-whole-games">Step 6: Play whole games</h2>
+
+<p>Finally, play a full game against the computer on an empty board. Our trainer uses Stockfish, which you can set anywhere from 400 to 2800 Elo. On a phone, tapping legal-move buttons is easiest; for a harder test, turn off the check and capture hints, or type your moves. Allow yourself to peek or show the board when you lose the picture, but count those looks and try to need fewer each game. Start with a weak opponent. The goal is an accurate picture, not winning quickly.</p>
+
+<p>Try it in <a href="/blindfold/#play">Play Blindfold</a>.</p>
+
+<h2 id="a-4-week-plan">A 4-week plan</h2>
+
+<p>Ten minutes a day is enough. Here is the outline of our free <a href="/blindfold/#path">28-day mastery plan</a>, which picks three drills for you every day and ticks them off as you go:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Week</th>
+      <th>Focus</th>
+      <th>Main drills</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>Learn the board</td>
+      <td>Square Colours, Find the Square, Lines &amp; Diagonals, Knight Routes</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Hold a picture</td>
+      <td>Remember the Position, Hear the Position, Follow the Moves</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>See further</td>
+      <td>Follow the Moves, Blindfold Puzzles, Blindfold Mates</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>Play blind</td>
+      <td>Blindfold Puzzles, Blindfold Mates, Play Blindfold</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Earn the bronze medal on Easy before moving to Medium, and silver before Hard.</p>
+
+<h2 id="common-mistakes">Common mistakes</h2>
+
+<ul>
+  <li><strong>Rushing to full games.</strong> Without the basics, you lose the picture after a few moves and get frustrated. Build up through the stages.</li>
+  <li><strong>Memorising instead of seeing.</strong> Don’t just remember “knight f3”; picture the knight on its square and what it attacks.</li>
+  <li><strong>Training too long.</strong> Visualization is tiring. Short, daily sessions beat one long session a week.</li>
+  <li><strong>Never checking.</strong> Always compare your picture with the real board afterwards, and notice <em>what</em> you got wrong. Usually it is the same kind of piece each time.</li>
+</ul>
+
+<h2 id="is-blindfold-chess-good-for-kids">Is blindfold chess good for kids?</h2>
+
+<p>Yes, when it is short and playful. Children enjoy Square Colours and Knight Routes as quick games, and they build board knowledge and concentration at the same time. Keep the memory and blindfold-game drills for later, when the first stage feels easy.</p>
+
+<h2 id="start-now">Start now</h2>
+
+<p>All of this is free in our <a href="/blindfold/">Blindfold Chess Training</a>, with no app to install. It has 10 drills, a 28-day plan, a daily puzzle, medals and ranks. If you are a ChessDepth student, sign in and your progress appears in your <a href="/student/#blindfold">Student Area</a>, so your coach can follow it too.</p>
+
+  </div>
+
+  <div class="mt-12 rounded-2xl blog-hero text-white p-8 text-center">
+    <p class="text-2xl font-bold mb-2">Want a coach to guide you?</p>
+    <p class="text-indigo-100 mb-6">Book a free demo class with ChessDepth Academy and get a personal improvement plan.</p>
+    <a href="https://wa.me/919823029262?text=Hi%2C%20I%20would%20like%20to%20book%20a%20free%20demo%20class" target="_blank" rel="noopener noreferrer" class="cd-demo-btn inline-block px-8 py-3"><i class="fab fa-whatsapp mr-2"></i>Book a Free Demo</a>
+  </div>
+
+  <div class="mt-8 flex flex-wrap items-center gap-3 text-sm">
+    <span class="text-gray-600 font-semibold">Share:</span>
+    <a class="blog-share" href="https://wa.me/?text=How+to+Play+Blindfold+Chess%3A+Step-by-Step+Visualization+Guide+https%3A%2F%2Fwww.chessdepth.in%2Fblog%2Fhow-to-play-blindfold-chess%2F" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp mr-1"></i>WhatsApp</a>
+    <a class="blog-share" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.chessdepth.in%2Fblog%2Fhow-to-play-blindfold-chess%2F" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f mr-1"></i>Facebook</a>
+    <a class="blog-share" href="https://twitter.com/intent/tweet?text=How+to+Play+Blindfold+Chess%3A+Step-by-Step+Visualization+Guide&amp;url=https%3A%2F%2Fwww.chessdepth.in%2Fblog%2Fhow-to-play-blindfold-chess%2F" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter mr-1"></i>X</a>
+  </div>
+  <div class="mt-12">
+    <h2 class="text-xl font-bold text-gray-900 mb-4">Keep reading</h2>
+    <div class="grid sm:grid-cols-2 gap-4">
+      <a href="/blog/introducing-chessdepth-ai/" class="block bg-white rounded-lg shadow-sm hover:shadow-md p-5 transition">
+        <span class="text-xs font-bold text-indigo-600 uppercase">Training</span>
+        <p class="font-bold text-gray-900 mt-1">Introducing ChessDepth AI: Turn Any Chess Screenshot into a Board</p>
+        <p class="text-sm text-gray-500 mt-1">ChessDepth AI is free and in beta. Drop in a screenshot or a book diagram and get a board you can edit, the...</p>
+      </a>
+      <a href="/blog/use-ai-and-modern-tools-to-improve-at-chess/" class="block bg-white rounded-lg shadow-sm hover:shadow-md p-5 transition">
+        <span class="text-xs font-bold text-indigo-600 uppercase">Training</span>
+        <p class="font-bold text-gray-900 mt-1">How to Use AI and Modern Tools to Improve at Chess Faster</p>
+        <p class="text-sm text-gray-500 mt-1">Engines, game reviews, human-like AI, chatbots and puzzle trainers can speed up your progress, or slow it d...</p>
+      </a>
+    </div>
+  </div>
+</article>
+
+
+  
+<footer class="cd-footer bg-gray-800 text-gray-300 pt-10 pb-6 mt-10">
+    <div class="max-w-6xl mx-auto px-4 cd-foot-grid">
+      <div class="cd-foot-brand">
+        <p class="text-2xl font-bold text-white mb-2">♟️ ChessDepth Academy</p>
+        <p class="text-sm text-gray-400">Structured online chess coaching for beginners to tournament players.</p>
+        <div class="cd-foot-social mt-4 flex space-x-5 text-2xl">
+          <a href="https://www.instagram.com/chessdepth/" target="_blank" rel="noopener noreferrer" aria-label="ChessDepth on Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.facebook.com/chessdepthacademy/" target="_blank" rel="noopener noreferrer" aria-label="ChessDepth on Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://chat.whatsapp.com/FlMZyNdMU9SEyJlKKclmon" target="_blank" rel="noopener noreferrer" aria-label="ChessDepth WhatsApp community" title="WhatsApp community"><i class="fab fa-whatsapp"></i></a>
+          <a href="https://lichess.org/team/chessdepth" target="_blank" rel="noopener noreferrer" aria-label="ChessDepth team on Lichess" title="Lichess team"><i class="fas fa-chess-knight"></i></a>
+          <a href="https://www.chess.com/club/chessdepth" target="_blank" rel="noopener noreferrer" aria-label="ChessDepth club on Chess.com" title="Chess.com club"><i class="fas fa-chess-pawn"></i></a>
+        </div>
+      </div>
+      <div>
+        <p class="font-semibold text-white mb-3">Explore</p>
+        <ul class="space-y-1 text-sm">
+          <li><a href="/courses/">Courses &amp; Fees</a></li>
+          <li><a href="/chess-classes-for-kids/">Chess Classes for Kids</a></li>
+          <li><a href="/coaches/">Our Coaches</a></li>
+          <li><a href="/resources/">Free Resources</a></li>
+          <li><a href="/blindfold/">Blindfold Chess Training</a></li>
+          <li><a href="/shop/">Shop</a></li>
+          <li><a href="/lab/">Chess Lab</a></li>
+          <li><a href="/careers/">Careers</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="font-semibold text-white mb-3">Community</p>
+        <ul class="space-y-1 text-sm">
+          <li><i class="fab fa-whatsapp mr-2"></i><a href="https://chat.whatsapp.com/FlMZyNdMU9SEyJlKKclmon" target="_blank" rel="noopener noreferrer">WhatsApp community</a></li>
+          <li><i class="fas fa-chess-knight mr-2"></i><a href="https://lichess.org/team/chessdepth" target="_blank" rel="noopener noreferrer">Lichess team</a></li>
+          <li><i class="fas fa-chess-pawn mr-2"></i><a href="https://www.chess.com/club/chessdepth" target="_blank" rel="noopener noreferrer">Chess.com club</a></li>
+          <li><i class="fab fa-instagram mr-2"></i><a href="https://www.instagram.com/chessdepth/" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+        </ul>
+      </div>
+      <div class="cd-foot-contact">
+        <p class="font-semibold text-white mb-3">Get in touch</p>
+        <ul class="space-y-1 text-sm">
+          <li><i class="fas fa-phone-alt mr-2"></i><a href="tel:+919823029262">+91 98230 29262</a></li>
+          <li><i class="fab fa-whatsapp mr-2"></i><a href="https://wa.me/919823029262?text=Hi%2C%20I%20would%20like%20to%20book%20a%20free%20demo%20class" target="_blank" rel="noopener noreferrer">WhatsApp us</a></li>
+          <li><i class="fas fa-envelope mr-2"></i><a href="mailto:info@chessdepth.in">info@chessdepth.in</a></li>
+          <li><i class="fas fa-map-marker-alt mr-2"></i>Bhopal, Madhya Pradesh, India</li>
+        </ul>
+      </div>
+    </div>
+    <div class="max-w-6xl mx-auto px-4 mt-8 pt-4 border-t border-gray-700 flex flex-col sm:flex-row justify-between text-xs text-gray-400 gap-2 text-center">
+      <p>&copy; <span data-year>2026</span> ChessDepth Academy. All rights reserved.</p>
+      <p class="cd-legal"><a href="/terms/">Terms</a> · <a href="/refunds/">Refunds &amp; cancellations</a> · <a href="/privacy/">Privacy policy</a></p>
+    </div>
+  </footer>
+  <a href="https://wa.me/919823029262?text=Hi%2C%20I%20would%20like%20to%20book%20a%20free%20demo%20class" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Chat with ChessDepth on WhatsApp" title="Chat with us on WhatsApp"><i class="fab fa-whatsapp text-2xl"></i></a>
+
+  <script src="/assets/js/site.js?v=1794028371" defer></script>
+</body>
+</html>

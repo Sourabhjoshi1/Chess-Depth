@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <script>
+    /* Night/day mode: use the saved choice, otherwise follow the device setting */
+    (function () {
+      var t = null; try { t = localStorage.getItem("cd-theme"); } catch (e) {}
+      if (t !== "light" && t !== "dark") t = (window.matchMedia && matchMedia("(prefers-color-scheme: dark)").matches) ? "dark" : "light";
+      if (t === "dark") document.documentElement.classList.add("dark");
+    })();
+  </script>
+  <meta name="theme-color" content="#1f2547">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Online Chess Classes for Kids (Age 5+) | ChessDepth Academy</title>
+  <meta name="description" content="Live online chess classes for kids aged 5 and up: small groups or 1-on-1 with FIDE-rated coaches, worksheets, quizzes and progress updates. Free demo class.">
+  <link rel="canonical" href="https://www.chessdepth.in/chess-classes-for-kids/">
+  <meta property="og:title" content="Online Chess Classes for Kids (Age 5+) | ChessDepth Academy">
+  <meta property="og:site_name" content="ChessDepth Academy">
+  <meta property="og:locale" content="en_IN">
+  <meta property="og:description" content="Live online chess classes for kids aged 5 and up: small groups or 1-on-1 with FIDE-rated coaches, worksheets, quizzes and progress updates. Free demo class.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.chessdepth.in/chess-classes-for-kids/">
+  <meta property="og:image" content="https://www.chessdepth.in/assets/images/og-image.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Online Chess Classes for Kids (Age 5+) | ChessDepth Academy">
+  <meta name="twitter:description" content="Live online chess classes for kids aged 5 and up: small groups or 1-on-1 with FIDE-rated coaches, worksheets, quizzes and progress updates. Free demo class.">
+  <meta name="twitter:image" content="https://www.chessdepth.in/assets/images/og-image.jpg">
+  <link rel="icon" href="/assets/images/favicon.ico" sizes="48x48">
+  <link rel="icon" href="/assets/images/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="/assets/css/tailwind.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,500;0,600;1,400&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="/assets/css/pages/kids.css?v=1794028371">
+  <link rel="stylesheet" href="/assets/css/site.css?v=1794028371">
+  <link rel="stylesheet" href="/assets/css/dark.css?v=1794028371">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-2C73E30ZFX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-2C73E30ZFX');
+  </script>
+  
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+    {"@type":"ListItem","position":1,"name":"Home","item":"https://www.chessdepth.in/"},{"@type":"ListItem","position":2,"name":"Chess Classes for Kids","item":"https://www.chessdepth.in/chess-classes-for-kids/"}
+  ]}
+  </script>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"FAQPage","@id":"https://www.chessdepth.in/chess-classes-for-kids/#faq","mainEntity":[{"@type":"Question","name":"What age can my child start chess classes?","acceptedAnswer":{"@type":"Answer","text":"Most children can start from about 5 years old, as long as they can sit with a short game or puzzle for 20 to 30 minutes. We place every child by level, not just age, after the free demo class."}},{"@type":"Question","name":"My child has never played chess. Is that okay?","acceptedAnswer":{"@type":"Answer","text":"Yes. Many of our students start by learning how the pieces move. The beginner course covers the rules, simple checkmates and first tactics like forks and pins, at a pace that suits young children."}},{"@type":"Question","name":"How do online chess classes for kids work?","acceptedAnswer":{"@type":"Answer","text":"Classes are live video lessons with a coach, using a shared online board. Your child sees the board, hears the explanation, answers questions and solves puzzles during the class. All you need is a laptop or tablet with a stable internet connection."}},{"@type":"Question","name":"How much do kids' chess classes cost?","acceptedAnswer":{"@type":"Answer","text":"Small group classes (2 to 4 children) are ₹4,500 or $69 a month. One-to-one classes are ₹5,999 or $90 a month. Both include 8 to 10 live classes a month of 60 to 70 minutes each, plus worksheets and quizzes. The first demo class is free."}},{"@type":"Question","name":"Group classes or one-to-one: which is better for a child?","acceptedAnswer":{"@type":"Answer","text":"Small groups suit most young beginners: children enjoy playing and discussing ideas with others their age, and it costs less. One-to-one suits children who are already playing tournaments, need a flexible timetable, or learn best with full attention. The coach will suggest one after the demo."}},{"@type":"Question","name":"How will I know my child is improving?","acceptedAnswer":{"@type":"Answer","text":"Children get homework worksheets and a quiz after every eight sessions. Coaches review the results and your child’s games and share clear feedback on strengths and what to work on next. Students can also track puzzle and blindfold progress in the Student Area."}},{"@type":"Question","name":"Can children outside India join?","acceptedAnswer":{"@type":"Answer","text":"Yes. Classes are online, and we teach children in India and abroad. Tell us your country and time zone in the demo form and we will suggest class times that suit you."}},{"@type":"Question","name":"What does my child need for the class?","acceptedAnswer":{"@type":"Answer","text":"A laptop, desktop or tablet with a camera and microphone, a stable internet connection and a quiet place to sit. A physical chess board at home is helpful for practice but not required."}},{"@type":"Question","name":"What happens in the free demo class?","acceptedAnswer":{"@type":"Answer","text":"It is a 30-minute online lesson. The coach checks your child’s level with a few friendly questions and puzzles, teaches a short real lesson, and then suggests the right course. There is no payment and no obligation."}}]}
+  </script>
+
+
+</head>
+<body class="bg-gray-100 text-gray-800">
+  <div class="cd-topbar">
+    <div class="cd-wrap cd-topbar-inner">
+      <p class="cd-topbar-contact">
+        <a href="tel:+919823029262"><i class="fas fa-phone-alt"></i>+91 98230 29262</a>
+        <a href="mailto:info@chessdepth.in"><i class="far fa-envelope"></i>info@chessdepth.in</a>
+      </p>
+      <p class="cd-topbar-links">
+        <a href="/lab/"><i class="fas fa-flask"></i>Chess Lab<span class="cd-free" data-free-until="2026-11-21">Free</span></a>
+        <a href="/careers/">Careers</a>
+        <a href="/student/" data-account><i class="far fa-user-circle"></i>Student login</a>
+        <button type="button" class="cd-theme-btn" data-theme-toggle aria-label="Switch to night mode" title="Night / day mode"><i class="fas fa-moon cd-moon"></i><i class="fas fa-sun cd-sun"></i></button>
+      </p>
+    </div>
+  </div>
+  <header class="cd-header" id="main-header">
+    <div class="cd-wrap cd-header-inner">
+      <a href="/" class="cd-brand">
+        <svg class="cd-mark" viewBox="0 0 32 32" aria-hidden="true" focusable="false"><path fill="currentColor" d="M8 5h3v3h2.5V5h5v3H21V5h3v7.2l-2.4 1.8.9 9H9.5l.9-9L8 12.2zM8.5 24.5h15l1.5 2.5H7zM6 28h20v2.5H6z"/></svg>
+
+        <span class="cd-brand-text"><span class="cd-brand-name">ChessDepth</span></span>
+      </a>
+      <nav id="main-nav" aria-label="Primary" class="cd-nav">
+        <a href="/about/" class="cd-link">About</a>
+        <div class="cd-dd" data-dd>
+          <button type="button" class="cd-link cd-dd-btn" aria-expanded="false" aria-haspopup="true" aria-current="page">Academy<i class="fas fa-chevron-down cd-dd-caret" aria-hidden="true"></i></button>
+          <div class="cd-dd-menu" role="menu">
+            <a href="/courses/" role="menuitem" class="cd-dd-item"><i class="fas fa-graduation-cap"></i><span><b>Courses</b><small>Levels, fees and class timings</small></span></a>
+            <a href="/chess-classes-for-kids/" role="menuitem" class="cd-dd-item" aria-current="page"><i class="fas fa-child"></i><span><b>Classes for kids</b><small>Ages 5 and up, for parents</small></span></a>
+            <a href="/coaches/" role="menuitem" class="cd-dd-item"><i class="fas fa-chess-king"></i><span><b>Coaches</b><small>Meet the team that teaches you</small></span></a>
+            <a href="/shop/" role="menuitem" class="cd-dd-item"><i class="fas fa-book"></i><span><b>Shop</b><small>Worksheets, books and study packs</small></span></a>
+          </div>
+        </div>
+        <a href="/blindfold/" class="cd-link cd-link-ai">Blindfold<span class="cd-soon">New</span></a>
+        <a href="/resources/" class="cd-link">Resources</a>
+        <a href="/ai/" class="cd-link cd-link-ai">ChessDepth AI<span class="cd-soon">Beta</span></a>
+        <a href="/blog/" class="cd-link">Blog</a>
+        <a href="/contact/" class="cd-link">Contact</a>
+        <a href="https://wa.me/919823029262?text=Hi%2C%20I%20would%20like%20to%20book%20a%20free%20demo%20class" target="_blank" rel="noopener noreferrer" class="cd-hdr-cta">Book a free demo</a>
+      </nav>
+      <div class="cd-header-mobile">
+        <button type="button" class="cd-theme-btn" data-theme-toggle aria-label="Switch to night mode" title="Night / day mode"><i class="fas fa-moon cd-moon"></i><i class="fas fa-sun cd-sun"></i></button>
+        <button id="menu-toggle" class="cd-menu-btn" aria-controls="mobile-menu" aria-expanded="false" aria-label="Open menu">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+        </button>
+      </div>
+    </div>
+    <div id="mobile-menu" class="cd-mobile-menu hidden">
+      <nav class="cd-wrap" aria-label="Mobile">
+        <a href="/">Home</a>
+        <a href="/about/">About</a>
+        <div class="cd-m-group">
+          <p class="cd-m-group-h">Academy</p>
+          <a href="/courses/"><i class="fas fa-graduation-cap"></i>Courses</a>
+          <a href="/chess-classes-for-kids/" aria-current="page"><i class="fas fa-child"></i>Classes for kids</a>
+          <a href="/coaches/"><i class="fas fa-chess-king"></i>Coaches</a>
+          <a href="/shop/"><i class="fas fa-book"></i>Shop</a>
+        </div>
+        <a href="/blindfold/">Blindfold<span class="cd-soon">New</span></a>
+        <a href="/resources/">Resources</a>
+        <a href="/ai/">ChessDepth AI<span class="cd-soon">Beta</span></a>
+        <a href="/blog/">Blog</a>
+        <a href="/contact/">Contact</a>
+        <a href="/lab/">Chess Lab <i class="fas fa-crown" style="color:#b08a4e;font-size:.8em"></i><span class="cd-soon" data-free-until="2026-11-21">Free launch offer</span></a>
+        <a href="/careers/">Careers</a>
+        <div class="cd-mobile-actions">
+          <a href="/student/" class="cd-mobile-login" data-account><i class="far fa-user-circle"></i>Student login</a>
+          <a href="https://wa.me/919823029262?text=Hi%2C%20I%20would%20like%20to%20book%20a%20free%20demo%20class" target="_blank" rel="noopener noreferrer" class="cd-hdr-cta">Book a free demo</a>
+        </div>
+        <p class="cd-mobile-contact"><a href="tel:+919823029262">+91 98230 29262</a><a href="mailto:info@chessdepth.in">info@chessdepth.in</a></p>
+      </nav>
+    </div>
+  </header>
+
+
+<section class="cd-hero cd-hero-bg">
+  <div class="cd-hero-inner">
+    <p class="cd-hero-eyebrow">For parents · Ages 5 and up · Live online</p>
+    <h1 class="cd-hero-title">Online chess classes for kids</h1>
+    <p class="cd-hero-lead">Live lessons with FIDE-rated coaches, in small groups or one-to-one. Your child learns to concentrate, plan ahead and handle wins and losses, and has fun doing it.</p>
+    <div class="kd-hero-cta">
+      <a href="#inquiry" class="kd-btn kd-btn-main"><i class="fas fa-calendar-check"></i> Book a free demo class</a>
+      <a href="#fees" class="kd-btn kd-btn-ghost">See fees</a>
+    </div>
+    <ul class="kd-hero-facts">
+      <li><i class="fas fa-child"></i> From age 5</li>
+      <li><i class="fas fa-users"></i> 2–4 children per group</li>
+      <li><i class="fas fa-globe-asia"></i> India and abroad</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ WHAT YOUR CHILD GETS ============ -->
+<section class="kd-sec">
+  <div class="kd-wrap">
+    <p class="kd-kicker">What your child gets</p>
+    <h2 class="kd-h2">A real course, not just games online</h2>
+    <p class="kd-lead">Every child follows a step-by-step path from first moves to tournament play. Each class builds on the last, and you can see the progress.</p>
+    <div class="kd-grid kd-grid-3">
+      <div class="kd-card"><i class="fas fa-video"></i><h3>Live classes with a coach</h3><p>8–10 classes a month, 60–70 minutes each, in a small group or one-to-one. Children ask questions and solve puzzles during the lesson.</p></div>
+      <div class="kd-card"><i class="fas fa-layer-group"></i><h3>A clear level-by-level path</h3><p>Beginner, intermediate and advanced stages. Your child is placed by level after the demo and moves up when ready.</p></div>
+      <div class="kd-card"><i class="fas fa-pencil-alt"></i><h3>Worksheets and homework</h3><p>Printable worksheets after classes keep the ideas fresh between lessons. Short, regular practice works best for children.</p></div>
+      <div class="kd-card"><i class="fas fa-clipboard-check"></i><h3>A quiz every 8 sessions</h3><p>Quizzes show what your child has learned. The coach shares feedback on strengths and the next things to work on.</p></div>
+      <div class="kd-card"><i class="fas fa-trophy"></i><h3>Friendly online tournaments</h3><p>Children play other students in our club tournaments on Lichess and Chess.com, a safe first step towards rated events.</p></div>
+      <div class="kd-card"><i class="fas fa-puzzle-piece"></i><h3>Free practice tools</h3><p>A <a href="/#daily">daily puzzle</a>, a <a href="/blindfold/">blindfold trainer</a> that starts with square colours, and free <a href="/shop/">worksheet packs</a>.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BY AGE ============ -->
+<section class="kd-sec kd-sec-tint">
+  <div class="kd-wrap">
+    <p class="kd-kicker">How classes change with age</p>
+    <h2 class="kd-h2">Taught the way your child learns</h2>
+    <div class="kd-grid kd-grid-3 kd-ages">
+      <div class="kd-age"><p class="kd-age-tag">Ages 5–7</p><h3>Play first</h3><p>Short, playful lessons and mini-games: how each piece moves, capturing safely, and the first checkmates. Lots of praise and small wins keep them keen.</p></div>
+      <div class="kd-age"><p class="kd-age-tag">Ages 8–12</p><h3>Think before you move</h3><p>Tactics such as forks, pins and skewers, opening principles and simple endgames. Children learn a checking routine, so they blunder less.</p></div>
+      <div class="kd-age"><p class="kd-age-tag">Ages 13–17</p><h3>Play to compete</h3><p>Openings, planning, endgame technique and game analysis. Students who want to play rated events get tournament preparation too.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BENEFITS ============ -->
+<section class="kd-sec">
+  <div class="kd-wrap kd-split">
+    <div>
+      <p class="kd-kicker">Why chess</p>
+      <h2 class="kd-h2 kd-left">Skills that last beyond the board</h2>
+      <p class="kd-lead kd-left">Chess asks a child to sit still, look carefully, compare options and live with the result. Those habits carry over to homework, exams and everyday choices.</p>
+      <p class="kd-more"><a href="/blog/chess-for-kids-a-parents-guide/">Read our parent's guide to chess for kids <i class="fas fa-arrow-right"></i></a></p>
+    </div>
+    <ul class="kd-benefits">
+      <li><i class="fas fa-bullseye"></i><div><b>Concentration</b><span>A game needs focus for long stretches.</span></div></li>
+      <li><i class="fas fa-route"></i><div><b>Planning ahead</b><span>Good moves come from thinking two or three steps on.</span></div></li>
+      <li><i class="fas fa-balance-scale"></i><div><b>Decision-making</b><span>Look at the options, compare, then choose.</span></div></li>
+      <li><i class="fas fa-heart"></i><div><b>Resilience</b><span>Every player loses. Children learn to try again.</span></div></li>
+      <li><i class="fas fa-handshake"></i><div><b>Sportsmanship</b><span>Shake hands, respect the opponent, follow the rules.</span></div></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ HOW IT STARTS ============ -->
+<section class="kd-sec kd-sec-tint">
+  <div class="kd-wrap">
+    <p class="kd-kicker">Getting started</p>
+    <h2 class="kd-h2">From demo to first class in a few days</h2>
+    <ol class="kd-steps">
+      <li><b>1</b><h3>Book the free demo</h3><p>Fill in the short form below. It takes about a minute.</p></li>
+      <li><b>2</b><h3>We message you on WhatsApp</h3><p>Usually within 24 hours, to fix a time that suits your family.</p></li>
+      <li><b>3</b><h3>Your child meets a coach</h3><p>A 30-minute lesson with a friendly level check. You can sit in.</p></li>
+      <li><b>4</b><h3>Start the right course</h3><p>The coach suggests a group or one-to-one plan. No obligation.</p></li>
+    </ol>
+  </div>
+</section>
+
+<!-- ============ FEES ============ -->
+<section class="kd-sec" id="fees">
+  <div class="kd-wrap">
+    <p class="kd-kicker">Fees</p>
+    <h2 class="kd-h2">Simple monthly fees</h2>
+    <p class="kd-lead">Both plans include 8–10 live classes a month of 60–70 minutes each, worksheets, quizzes and tournaments. The first demo class is free.</p>
+    <div class="kd-grid kd-grid-2 kd-fees">
+      <div class="kd-fee kd-fee-pop">
+        <p class="kd-fee-tag">Most popular for kids</p>
+        <h3>Small group</h3>
+        <p class="kd-fee-sub">2–4 children of a similar level</p>
+        <p class="kd-price">₹4,500 <span>or $69 / month</span></p>
+        <ul><li>Learn and play with other children</li><li>Shared game analysis and discussion</li><li>Lower monthly fee</li></ul>
+      </div>
+      <div class="kd-fee">
+        <p class="kd-fee-tag kd-fee-tag-alt">Fastest progress</p>
+        <h3>One-to-one</h3>
+        <p class="kd-fee-sub">Lessons built around your child</p>
+        <p class="kd-price">₹5,999 <span>or $90 / month</span></p>
+        <ul><li>Full attention from the coach</li><li>Flexible class times</li><li>Best for tournament players</li></ul>
+      </div>
+    </div>
+    <p class="kd-note">See every programme on the <a href="/courses/">Courses &amp; fees</a> page, and meet the team on <a href="/coaches/">Our coaches</a>.</p>
+  </div>
+</section>
+
+<!-- ============ COACHES ============ -->
+<section class="kd-sec kd-sec-tint">
+  <div class="kd-wrap kd-coach">
+    <i class="fas fa-chess-king"></i>
+    <div>
+      <h2 class="kd-h2 kd-left">Coaches who know how to teach children</h2>
+      <p class="kd-lead kd-left">Our team of FIDE-rated coaches includes Grandmaster Daniel Gormally and Candidate Master Rajarishi Karthi. Beginners are taught by coaches who explain the <em>why</em> behind every move in simple words and keep young students engaged.</p>
+      <p class="kd-more"><a href="/coaches/">Meet our coaches <i class="fas fa-arrow-right"></i></a></p>
+    </div>
+  </div>
+</section>
+
+<div class="kd-faq-bg">
+  
+<section class="cd-faq-wrap" id="faq">
+  <h2 class="cd-faq-h">Chess classes for kids: questions parents ask</h2>
+  <div class="cd-faq">
+    <details open><summary>What age can my child start chess classes?</summary><p>Most children can start from about 5 years old, as long as they can sit with a short game or puzzle for 20 to 30 minutes. We place every child by level, not just age, after the free demo class.</p>
+</details>
+    <details><summary>My child has never played chess. Is that okay?</summary><p>Yes. Many of our students start by learning how the pieces move. The beginner course covers the rules, simple checkmates and first tactics like forks and pins, at a pace that suits young children.</p>
+</details>
+    <details><summary>How do online chess classes for kids work?</summary><p>Classes are live video lessons with a coach, using a shared online board. Your child sees the board, hears the explanation, answers questions and solves puzzles during the class. All you need is a laptop or tablet with a stable internet connection.</p>
+</details>
+    <details><summary>How much do kids' chess classes cost?</summary><p>Small group classes (2 to 4 children) are ₹4,500 or $69 a month. One-to-one classes are ₹5,999 or $90 a month. Both include 8 to 10 live classes a month of 60 to 70 minutes each, plus worksheets and quizzes. The first demo class is free.</p>
+</details>
+    <details><summary>Group classes or one-to-one: which is better for a child?</summary><p>Small groups suit most young beginners: children enjoy playing and discussing ideas with others their age, and it costs less. One-to-one suits children who are already playing tournaments, need a flexible timetable, or learn best with full attention. The coach will suggest one after the demo.</p>
+</details>
+    <details><summary>How will I know my child is improving?</summary><p>Children get homework worksheets and a quiz after every eight sessions. Coaches review the results and your child’s games and share clear feedback on strengths and what to work on next. Students can also track puzzle and blindfold progress in the <a href="/student/">Student Area</a>.</p>
+</details>
+    <details><summary>Can children outside India join?</summary><p>Yes. Classes are online, and we teach children in India and abroad. Tell us your country and time zone in the demo form and we will suggest class times that suit you.</p>
+</details>
+    <details><summary>What does my child need for the class?</summary><p>A laptop, desktop or tablet with a camera and microphone, a stable internet connection and a quiet place to sit. A physical chess board at home is helpful for practice but not required.</p>
+</details>
+    <details><summary>What happens in the free demo class?</summary><p>It is a 30-minute online lesson. The coach checks your child’s level with a few friendly questions and puzzles, teaches a short real lesson, and then suggests the right course. There is no payment and no obligation.</p>
+</details>
+  </div>
+</section>
+
+  <p class="kd-note kd-note-faq">Still have a question? <a href="https://wa.me/919823029262?text=Hi%2C%20I%20would%20like%20to%20book%20a%20free%20demo%20class" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> Ask us on WhatsApp</a> or call <a href="tel:+919823029262">+91 98230 29262</a>.</p>
+</div>
+
+<section id="inquiry" class="cd-demo fade-in-section">
+  <div class="cd-demo-wrap">
+    <div class="cd-demo-info">
+      <p class="cd-demo-kicker">Free demo class</p>
+      <h2 class="cd-demo-title">Book a free demo class</h2>
+      <p class="cd-demo-lead">A 30-minute online lesson with one of our coaches. We find your level, show you how our classes work, and suggest the right course. No payment, no obligation.</p>
+      <ol class="cd-demo-steps">
+        <li><b>1</b><div><h3>Fill in this form</h3><p>It takes about a minute.</p></div></li>
+        <li><b>2</b><div><h3>We message you on WhatsApp</h3><p>Usually within 24 hours, to fix a time that suits you.</p></div></li>
+        <li><b>3</b><div><h3>Meet your coach</h3><p>A short level check, a real lesson, and a plan for what to learn next.</p></div></li>
+      </ol>
+      <ul class="cd-demo-trust">
+        <li><i class="fas fa-user-graduate"></i> FIDE-rated coaches, including a Grandmaster</li>
+        <li><i class="fas fa-globe-asia"></i> Classes for students in India and abroad</li>
+        <li><i class="fas fa-child"></i> Kids from age 5, and adults</li>
+      </ul>
+      <p class="cd-demo-alt">Prefer to talk now? <a href="https://wa.me/919823029262?text=Hi%2C%20I%20would%20like%20to%20book%20a%20free%20demo%20class" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> WhatsApp us</a> or call <a href="tel:+919823029262">+91 98230 29262</a></p>
+    </div>
+
+    <div class="cd-demo-card">
+      <form id="demoForm" class="cd-demo-form" novalidate>
+        <input type="hidden" name="_subject" value="New demo request">
+        <input type="hidden" name="page" value="">
+        <input type="hidden" name="timezone" value="">
+        <input type="text" name="_gotcha" class="cd-demo-hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+        <fieldset class="cd-demo-who">
+          <legend>I am</legend>
+          <label><input type="radio" name="filledBy" value="Parent" checked> A parent</label>
+          <label><input type="radio" name="filledBy" value="Student"> The student</label>
+        </fieldset>
+
+        <div class="cd-demo-grid">
+          <div class="cd-f cd-f-wide">
+            <label for="dName">Student's name</label>
+            <input id="dName" name="studentName" type="text" autocomplete="name" required>
+          </div>
+          <div class="cd-f cd-f-wide cd-parent-only">
+            <label for="dParent">Your name <span>(parent)</span></label>
+            <input id="dParent" name="parentName" type="text" autocomplete="name">
+          </div>
+          <div class="cd-f">
+            <label for="dAge">Student's age</label>
+            <input id="dAge" name="age" type="number" min="4" max="99" inputmode="numeric" required>
+          </div>
+          <div class="cd-f">
+            <label for="dLevel">Chess level</label>
+            <select id="dLevel" name="level" required>
+              <option value="">Choose…</option>
+              <option>New to chess</option>
+              <option>Knows how the pieces move</option>
+              <option>Plays casually (online or at home)</option>
+              <option>Plays in clubs or tournaments</option>
+            </select>
+          </div>
+          <div class="cd-f cd-f-wide">
+            <label for="dRating">Rating <span>(optional)</span></label>
+            <input id="dRating" name="rating" type="text" placeholder="e.g. 1200 Chess.com, 1450 FIDE, or unrated">
+          </div>
+          <div class="cd-f">
+            <label for="dCountry">Country</label>
+            <select id="dCountry" name="country" required>
+              <option value="India" data-code="+91">India</option>
+              <option value="United States" data-code="+1">United States</option>
+              <option value="United Kingdom" data-code="+44">United Kingdom</option>
+              <option value="Canada" data-code="+1">Canada</option>
+              <option value="Australia" data-code="+61">Australia</option>
+              <option value="United Arab Emirates" data-code="+971">United Arab Emirates</option>
+              <option value="Singapore" data-code="+65">Singapore</option>
+              <option value="Other" data-code="+">Other</option>
+            </select>
+          </div>
+          <div class="cd-f">
+            <label for="dPhone">WhatsApp number</label>
+            <input id="dPhone" name="whatsapp" type="tel" inputmode="tel" autocomplete="tel" placeholder="+91 98765 43210" required pattern="^\+?[0-9\s\-()]{8,}$">
+          </div>
+          <div class="cd-f cd-f-wide">
+            <label for="dEmail">Email</label>
+            <input id="dEmail" name="email" type="email" autocomplete="email" required>
+          </div>
+          <div class="cd-f">
+            <label for="dCourse">Interested in</label>
+            <select id="dCourse" name="interestedIn">
+              <option>Not sure, help me choose</option>
+              <option>Beginner course</option>
+              <option>Intermediate course</option>
+              <option>Advanced course</option>
+              <option>Tournament preparation</option>
+              <option>Private 1-on-1 coaching</option>
+            </select>
+          </div>
+          <div class="cd-f">
+            <label for="dTime">Best time for classes</label>
+            <select id="dTime" name="preferredTime">
+              <option>Flexible</option>
+              <option>Weekday mornings</option>
+              <option>Weekday afternoons</option>
+              <option>Weekday evenings</option>
+              <option>Weekends</option>
+            </select>
+          </div>
+          <fieldset class="cd-f cd-f-wide cd-demo-mode">
+            <legend>Class type</legend>
+            <label><input type="radio" name="classType" value="Group" checked> Small group</label>
+            <label><input type="radio" name="classType" value="1-on-1"> 1-on-1</label>
+            <label><input type="radio" name="classType" value="Not sure"> Not sure</label>
+          </fieldset>
+          <div class="cd-f cd-f-wide">
+            <label for="dMsg">Anything else? <span>(optional)</span></label>
+            <textarea id="dMsg" name="message" rows="3" placeholder="Goals, questions, or a convenient time for the demo"></textarea>
+          </div>
+        </div>
+
+        <p class="cd-demo-err" role="alert" hidden></p>
+        <button type="submit" class="cd-demo-btn">Book my free demo <i class="fas fa-arrow-right"></i></button>
+        <p class="cd-demo-note"><i class="fas fa-lock"></i> We only use these details to arrange your demo. See our <a href="/privacy/">privacy policy</a>.</p>
+      </form>
+
+      <div class="cd-demo-done" hidden role="status" aria-live="polite">
+        <div class="cd-demo-tick"><i class="fas fa-check"></i></div>
+        <h3>Thank you<span data-done-name></span>!</h3>
+        <p>Your demo request has reached us. We'll message you on WhatsApp within 24 hours to fix a time.</p>
+        <a class="cd-demo-btn cd-demo-wa" data-done-wa href="https://wa.me/919823029262?text=Hi%2C%20I%20would%20like%20to%20book%20a%20free%20demo%20class" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> Message us now on WhatsApp</a>
+        <p class="cd-demo-note">While you wait, try a <a href="/#daily">free daily puzzle</a> or our <a href="/blindfold/">blindfold training</a>.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<script>
+(function () {
+  var form = document.getElementById('demoForm'); if (!form) return;
+  var done = form.parentNode.querySelector('.cd-demo-done'), err = form.querySelector('.cd-demo-err');
+  var btn = form.querySelector('.cd-demo-btn'), country = form.querySelector('#dCountry'), phone = form.querySelector('#dPhone');
+  form.page.value = location.pathname;
+  try { form.timezone.value = Intl.DateTimeFormat().resolvedOptions().timeZone || ''; } catch (e) {}
+  // Guess the country from the time zone, and keep the phone placeholder's code in step.
+  var tz = form.timezone.value;
+  var guess = /Kolkata|Calcutta/.test(tz) ? 'India' : /London/.test(tz) ? 'United Kingdom' : /Dubai/.test(tz) ? 'United Arab Emirates' : /Singapore/.test(tz) ? 'Singapore' : /Australia/.test(tz) ? 'Australia' : /Toronto|Vancouver|Edmonton|Winnipeg|Halifax/.test(tz) ? 'Canada' : /^America\//.test(tz) ? 'United States' : tz ? 'Other' : 'India';
+  country.value = guess;
+  function syncCode() {
+    var code = country.selectedOptions[0].dataset.code || '+';
+    phone.placeholder = code === '+' ? '+ country code and number' : code + ' …';
+    if (!phone.value || /^\+\d{0,4}\s?$/.test(phone.value)) phone.value = code === '+' ? '' : code + ' ';
+  }
+  country.addEventListener('change', syncCode); syncCode();
+  // Parent / student toggle
+  function syncWho() { form.classList.toggle('is-student', form.filledBy.value === 'Student'); }
+  form.querySelectorAll('input[name=filledBy]').forEach(function (r) { r.addEventListener('change', syncWho); }); syncWho();
+  // A course picked on the Courses page ("Inquire") arrives here
+  try {
+    var c = sessionStorage.getItem('cd-demo-course');
+    if (c) { var o = document.createElement('option'); o.textContent = c; o.selected = true; form.interestedIn.insertBefore(o, form.interestedIn.firstChild); sessionStorage.removeItem('cd-demo-course'); }
+  } catch (e) {}
+
+  form.addEventListener('submit', async function (ev) {
+    ev.preventDefault(); err.hidden = true;
+    form.querySelectorAll('.cd-bad').forEach(function (x) { x.classList.remove('cd-bad'); });
+    var bad = [].filter.call(form.querySelectorAll('input[required],select[required]'), function (x) { return !x.checkValidity() || (x.id === 'dPhone' && phone.value.replace(/\D/g, '').length < 8); });
+    if (bad.length) {
+      bad.forEach(function (x) { x.closest('.cd-f').classList.add('cd-bad'); });
+      err.textContent = 'Please check the highlighted fields.'; err.hidden = false; bad[0].focus(); return;
+    }
+    var name = form.studentName.value.trim();
+    form._subject.value = 'New demo request: ' + name + ' (' + form.age.value + ', ' + form.country.value + ')';
+    btn.disabled = true; btn.innerHTML = 'Sending… <i class="fas fa-spinner fa-spin"></i>';
+    try {
+      var res = await fetch('https://formspree.io/f/xqaleznp', { method: 'POST', body: new FormData(form), headers: { Accept: 'application/json' } });
+      if (!res.ok) throw new Error('status ' + res.status);
+      if (window.gtag) gtag('event', 'generate_lead', { form_name: 'demo_request' });
+      done.querySelector('[data-done-name]').textContent = ', ' + (form.filledBy.value === 'Parent' && form.parentName.value.trim() ? form.parentName.value.trim().split(' ')[0] : name.split(' ')[0]);
+      var wa = done.querySelector('[data-done-wa]');
+      var msg = 'Hi ChessDepth! I just booked a free demo for ' + name + ' (age ' + form.age.value + ', ' + form.level.value.toLowerCase() + '). Best time: ' + form.preferredTime.value.toLowerCase() + '.';
+      wa.href = wa.href.split('?')[0] + '?text=' + encodeURIComponent(msg);
+      form.hidden = true; done.hidden = false; done.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    } catch (e) {
+      err.textContent = 'Sorry, your request could not be sent. Please try again, or WhatsApp us on +91 98230 29262.'; err.hidden = false;
+    } finally { btn.disabled = false; btn.innerHTML = 'Book my free demo <i class="fas fa-arrow-right"></i>'; }
+  });
+})();
+</script>
+
+
+
+  
+<footer class="cd-footer bg-gray-800 text-gray-300 pt-10 pb-6 mt-10">
+    <div class="max-w-6xl mx-auto px-4 cd-foot-grid">
+      <div class="cd-foot-brand">
+        <p class="text-2xl font-bold text-white mb-2">♟️ ChessDepth Academy</p>
+        <p class="text-sm text-gray-400">Structured online chess coaching for beginners to tournament players.</p>
+        <div class="cd-foot-social mt-4 flex space-x-5 text-2xl">
+          <a href="https://www.instagram.com/chessdepth/" target="_blank" rel="noopener noreferrer" aria-label="ChessDepth on Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.facebook.com/chessdepthacademy/" target="_blank" rel="noopener noreferrer" aria-label="ChessDepth on Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://chat.whatsapp.com/FlMZyNdMU9SEyJlKKclmon" target="_blank" rel="noopener noreferrer" aria-label="ChessDepth WhatsApp community" title="WhatsApp community"><i class="fab fa-whatsapp"></i></a>
+          <a href="https://lichess.org/team/chessdepth" target="_blank" rel="noopener noreferrer" aria-label="ChessDepth team on Lichess" title="Lichess team"><i class="fas fa-chess-knight"></i></a>
+          <a href="https://www.chess.com/club/chessdepth" target="_blank" rel="noopener noreferrer" aria-label="ChessDepth club on Chess.com" title="Chess.com club"><i class="fas fa-chess-pawn"></i></a>
+        </div>
+      </div>
+      <div>
+        <p class="font-semibold text-white mb-3">Explore</p>
+        <ul class="space-y-1 text-sm">
+          <li><a href="/courses/">Courses &amp; Fees</a></li>
+          <li><a href="/chess-classes-for-kids/">Chess Classes for Kids</a></li>
+          <li><a href="/coaches/">Our Coaches</a></li>
+          <li><a href="/resources/">Free Resources</a></li>
+          <li><a href="/blindfold/">Blindfold Chess Training</a></li>
+          <li><a href="/shop/">Shop</a></li>
+          <li><a href="/lab/">Chess Lab</a></li>
+          <li><a href="/careers/">Careers</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="font-semibold text-white mb-3">Community</p>
+        <ul class="space-y-1 text-sm">
+          <li><i class="fab fa-whatsapp mr-2"></i><a href="https://chat.whatsapp.com/FlMZyNdMU9SEyJlKKclmon" target="_blank" rel="noopener noreferrer">WhatsApp community</a></li>
+          <li><i class="fas fa-chess-knight mr-2"></i><a href="https://lichess.org/team/chessdepth" target="_blank" rel="noopener noreferrer">Lichess team</a></li>
+          <li><i class="fas fa-chess-pawn mr-2"></i><a href="https://www.chess.com/club/chessdepth" target="_blank" rel="noopener noreferrer">Chess.com club</a></li>
+          <li><i class="fab fa-instagram mr-2"></i><a href="https://www.instagram.com/chessdepth/" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+        </ul>
+      </div>
+      <div class="cd-foot-contact">
+        <p class="font-semibold text-white mb-3">Get in touch</p>
+        <ul class="space-y-1 text-sm">
+          <li><i class="fas fa-phone-alt mr-2"></i><a href="tel:+919823029262">+91 98230 29262</a></li>
+          <li><i class="fab fa-whatsapp mr-2"></i><a href="https://wa.me/919823029262?text=Hi%2C%20I%20would%20like%20to%20book%20a%20free%20demo%20class" target="_blank" rel="noopener noreferrer">WhatsApp us</a></li>
+          <li><i class="fas fa-envelope mr-2"></i><a href="mailto:info@chessdepth.in">info@chessdepth.in</a></li>
+          <li><i class="fas fa-map-marker-alt mr-2"></i>Bhopal, Madhya Pradesh, India</li>
+        </ul>
+      </div>
+    </div>
+    <div class="max-w-6xl mx-auto px-4 mt-8 pt-4 border-t border-gray-700 flex flex-col sm:flex-row justify-between text-xs text-gray-400 gap-2 text-center">
+      <p>&copy; <span data-year>2026</span> ChessDepth Academy. All rights reserved.</p>
+      <p class="cd-legal"><a href="/terms/">Terms</a> · <a href="/refunds/">Refunds &amp; cancellations</a> · <a href="/privacy/">Privacy policy</a></p>
+    </div>
+  </footer>
+  <a href="https://wa.me/919823029262?text=Hi%2C%20I%20would%20like%20to%20book%20a%20free%20demo%20class" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Chat with ChessDepth on WhatsApp" title="Chat with us on WhatsApp"><i class="fab fa-whatsapp text-2xl"></i></a>
+
+  <script src="/assets/js/site.js?v=1794028371" defer></script>
+</body>
+</html>

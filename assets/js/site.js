@@ -1,0 +1,161 @@
+/* ChessDepth Academy - shared behaviour for every page */
+(function () {
+  // Current year in the footer
+  document.querySelectorAll('[data-year]').forEach(function (el) { el.textContent = new Date().getFullYear(); });
+
+  // Night / day mode toggle (the initial theme is set in <head> to avoid a flash)
+  (function () {
+    var root = document.documentElement;
+    function label() {
+      var dark = root.classList.contains("dark");
+      document.querySelectorAll("[data-theme-toggle]").forEach(function (b) {
+        b.setAttribute("aria-label", dark ? "Switch to day mode" : "Switch to night mode");
+        b.setAttribute("aria-pressed", String(dark));
+      });
+    }
+    function set(theme, save) {
+      root.classList.add("cd-theme-anim");
+      root.classList.toggle("dark", theme === "dark");
+      if (save) { try { localStorage.setItem("cd-theme", theme); } catch (e) {} }
+      label();
+      setTimeout(function () { root.classList.remove("cd-theme-anim"); }, 350);
+    }
+    document.querySelectorAll("[data-theme-toggle]").forEach(function (b) {
+      b.addEventListener("click", function () { set(root.classList.contains("dark") ? "light" : "dark", true); });
+    });
+    // Follow the device setting live, until the visitor picks a mode themselves
+    if (window.matchMedia) {
+      var mq = matchMedia("(prefers-color-scheme: dark)");
+      var follow = function (e) { var saved = null; try { saved = localStorage.getItem("cd-theme"); } catch (x) {} if (!saved) set(e.matches ? "dark" : "light", false); };
+      if (mq.addEventListener) mq.addEventListener("change", follow); else if (mq.addListener) mq.addListener(follow);
+    }
+    label();
+  })();
+
+  // Google Analytics: record clicks on the ways visitors contact the academy
+  document.addEventListener("click", function (e) {
+    var a = e.target.closest && e.target.closest("a[href]");
+    if (!a || typeof window.gtag !== "function") return;
+    var href = a.getAttribute("href") || "", where = a.closest("header, .cd-topbar") ? "header" : a.closest("footer") ? "footer" : a.classList.contains("whatsapp-float") ? "floating_button" : "page";
+    var label = (a.textContent || a.getAttribute("aria-label") || "").trim().slice(0, 60);
+    if (a.classList.contains("sp-buy") || a.classList.contains("sp-notify")) {
+      gtag("event", a.classList.contains("sp-download") ? "shop_free_download" : a.classList.contains("sp-buy") ? "begin_checkout" : "shop_notify_click", { item_name: a.getAttribute("data-product") || label, link_location: where, page_path: location.pathname });
+    } else if (href.indexOf("wa.me/") !== -1) {
+      var demo = /demo/i.test(label) || a.classList.contains("cd-demo-btn") || a.classList.contains("cd-hdr-cta") || a.classList.contains("demo-button");
+      gtag("event", demo ? "book_demo_click" : "whatsapp_click", { link_location: where, link_text: label, page_path: location.pathname });
+    } else if (/#inquiry$/.test(href)) {
+      gtag("event", "book_demo_click", { link_location: where, link_text: label, page_path: location.pathname });
+    } else if (href.indexOf("tel:") === 0) {
+      gtag("event", "phone_click", { link_location: where, page_path: location.pathname });
+    } else if (a.classList.contains("cd-apply")) {
+      gtag("event", "careers_apply_click", { role: a.getAttribute("data-role") || label, page_path: location.pathname });
+    } else if (href.indexOf("mailto:") === 0) {
+      gtag("event", "email_click", { link_location: where, page_path: location.pathname });
+    } else if (href.indexOf("/student/") === 0) {
+      gtag("event", "student_login_click", { link_location: where, page_path: location.pathname });
+    }
+  }, true);
+
+  // Hide "Free" launch-offer labels once the offer has ended
+  document.querySelectorAll("[data-free-until]").forEach(function (el) {
+    var p = (el.getAttribute("data-free-until") || "").split("-").map(Number);
+    if (p.length === 3 && Date.now() > new Date(p[0], p[1] - 1, p[2], 23, 59, 59).getTime()) el.remove();
+  });
+
+  // "Inquire" buttons on the Courses page: remember which course, so the demo form can preselect it
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('a[href="/#inquiry"]');
+    if (!a) return;
+    var card = a.closest('[class*="course"], article, .rounded-lg'); var h = card && card.querySelector('h2, h3');
+    try { if (h) sessionStorage.setItem('cd-demo-course', h.textContent.trim()); } catch (err) {}
+  });
+
+  // Inline form messages (replaces browser alert pop-ups)
+  window.cdFormMessage = function (form, text, type) {
+    if (!form) return;
+    var box = form.parentNode.querySelector('.cd-form-msg[data-for="' + (form.id || 'form') + '"]');
+    if (!box) {
+      box = document.createElement('div');
+      box.setAttribute('role', 'status');
+      box.setAttribute('aria-live', 'polite');
+      box.dataset.for = form.id || 'form';
+      form.insertAdjacentElement('afterend', box);
+    }
+    box.className = 'cd-form-msg ' + (type || 'error');
+    box.textContent = text;
+    if (type !== 'success') { setTimeout(function () { box.remove(); }, 8000); }
+  };
+
+  // Mobile menu: one consistent implementation for all pages
+  function setupMenu() {
+    var oldBtn = document.getElementById('menu-toggle');
+    var menu = document.getElementById('mobile-menu');
+    if (!oldBtn || !menu) return;
+    var btn = oldBtn.cloneNode(true);            // drops any older per-page listeners
+    oldBtn.parentNode.replaceChild(btn, oldBtn);
+    var open = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>';
+    var closed = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>';
+    function set(isOpen) {
+      menu.classList.toggle('hidden', !isOpen);
+      menu.classList.toggle('-translate-y-full', !isOpen);
+      btn.setAttribute('aria-expanded', String(isOpen));
+      var svg = btn.querySelector('svg'); if (svg) svg.innerHTML = isOpen ? open : closed;
+    }
+    set(false);
+    btn.addEventListener('click', function () { set(menu.classList.contains('hidden')); });
+    menu.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', function () { set(false); }); });
+  }
+  if (document.readyState === 'complete') setupMenu(); else window.addEventListener('load', setupMenu);
+  // Header drop-downs (e.g. Academy): click or keyboard to open; hover also works on desktop (CSS)
+  (function () {
+    var dds = document.querySelectorAll('[data-dd]');
+    if (!dds.length) return;
+    function close(except) { dds.forEach(function (d) { if (d !== except) { d.classList.remove('is-open'); d.querySelector('.cd-dd-btn').setAttribute('aria-expanded', 'false'); } }); }
+    dds.forEach(function (dd) {
+      var btn = dd.querySelector('.cd-dd-btn');
+      btn.addEventListener('click', function (e) { e.stopPropagation(); var open = !dd.classList.contains('is-open'); close(dd); dd.classList.toggle('is-open', open); btn.setAttribute('aria-expanded', String(open)); if (open) { var first = dd.querySelector('.cd-dd-item'); if (first && e.detail === 0) first.focus(); } });
+      dd.addEventListener('keydown', function (e) {
+        var items = Array.prototype.slice.call(dd.querySelectorAll('.cd-dd-item')), i = items.indexOf(document.activeElement);
+        if (e.key === 'Escape') { close(); btn.focus(); }
+        else if (e.key === 'ArrowDown') { e.preventDefault(); if (!dd.classList.contains('is-open')) btn.click(); else items[(i + 1) % items.length].focus(); }
+        else if (e.key === 'ArrowUp' && i >= 0) { e.preventDefault(); items[(i - 1 + items.length) % items.length].focus(); }
+      });
+      dd.addEventListener('focusout', function (e) { if (!dd.contains(e.relatedTarget)) { dd.classList.remove('is-open'); btn.setAttribute('aria-expanded', 'false'); } });
+    });
+    document.addEventListener('click', function () { close(); });
+  })();
+
+
+  // Signed-in student: show their first name and Google photo instead of "Student login".
+  // Pages that use Google sign-in (Student Area, Chess Lab, reviews) call cdAccount.set(user);
+  // other pages show the last known account from this browser.
+  (function () {
+    var KEY = "cd-account";
+    function read() { try { return JSON.parse(localStorage.getItem(KEY) || "null"); } catch (e) { return null; } }
+    function esc(t) { return String(t || "").replace(/[&<>"']/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]; }); }
+    function render(a) {
+      document.querySelectorAll("[data-account]").forEach(function (el) {
+        if (!el.dataset.accountDefault) el.dataset.accountDefault = el.innerHTML;
+        if (!a || !a.name) { el.innerHTML = el.dataset.accountDefault; el.classList.remove("cd-signed-in"); el.removeAttribute("title"); return; }
+        var first = a.name.trim().split(/\s+/)[0];
+        var initial = '<span class="cd-acct-initial" aria-hidden="true">' + esc(first.charAt(0).toUpperCase()) + "</span>";
+        var pic = a.photo ? '<img class="cd-acct-img" src="' + esc(a.photo) + '" alt="" referrerpolicy="no-referrer" width="22" height="22">' : initial;
+        el.innerHTML = pic + '<span class="cd-acct-name">' + esc(first) + "</span>";
+        el.classList.add("cd-signed-in");
+        el.title = "Signed in" + (a.email ? " as " + a.email : "") + ". Open your Student Area";
+        el.setAttribute("aria-label", "Signed in as " + first + ". Open your Student Area");
+        var img = el.querySelector("img");
+        if (img) img.addEventListener("error", function () { img.outerHTML = initial; });
+      });
+    }
+    window.cdAccount = {
+      set: function (u) {
+        var a = u ? { name: u.displayName || u.name || "Student", photo: u.photoURL || "", email: u.email || "" } : null;
+        try { if (a) localStorage.setItem(KEY, JSON.stringify(a)); else localStorage.removeItem(KEY); } catch (e) {}
+        render(a);
+      }
+    };
+    render(read());
+    window.addEventListener("storage", function (e) { if (e.key === KEY) render(read()); });
+  })();
+})();

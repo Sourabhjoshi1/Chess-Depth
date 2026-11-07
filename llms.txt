@@ -1,0 +1,57 @@
+# ChessDepth Academy
+
+> ChessDepth Academy is an online chess academy based in Bhopal, India. It teaches live online chess classes to children (from about age 5) and adults, from complete beginners to tournament players, with FIDE-rated coaches including Grandmaster Daniel Gormally. Students join from India and abroad. The website also offers free training tools: a daily chess puzzle, a blindfold chess trainer, a screenshot-to-FEN tool (ChessDepth AI), free printable worksheets and a chess blog.
+
+Key facts:
+
+- Format: live online classes over video with a shared board. Small groups of 2 to 4 students, or one-to-one.
+- Fees: group classes ₹4,500 (about $69) per month; one-to-one classes ₹5,999 (about $90) per month. Each monthly plan has 8 to 10 live classes of 60 to 70 minutes. The first demo class (30 minutes) is free.
+- Levels: beginner, intermediate, advanced and tournament preparation. Students are placed by level after the free demo class.
+- Included: worksheets, a quiz every 8 sessions with coach feedback, club tournaments on Lichess and Chess.com, and a student area with PDF material.
+- Ages: children from about 5 years old, teenagers and adults.
+- Contact: WhatsApp or phone +91 98230 29262, email info@chessdepth.in. Book a free demo class at https://www.chessdepth.in/#inquiry
+- Location: Bhopal, Madhya Pradesh, India (classes are online, worldwide).
+
+## Classes and coaching
+
+- [Online chess classes for kids](https://www.chessdepth.in/chess-classes-for-kids/): parents' guide to the kids' classes: ages, what children learn, fees, how the free demo works, FAQ.
+- [Courses and fees](https://www.chessdepth.in/courses/): all programmes, from beginner to tournament preparation, with monthly fees.
+- [Coaches](https://www.chessdepth.in/coaches/): the coaching team with FIDE ratings and profile links.
+- [About](https://www.chessdepth.in/about/): mission, teaching method, curriculum levels and student reviews.
+- [Contact and free demo class](https://www.chessdepth.in/contact/): phone, WhatsApp and email.
+
+## Free tools
+
+- [Blindfold chess trainer](https://www.chessdepth.in/blindfold/): free browser trainer with 10 visualization drills, a 28-day plan, a daily blindfold puzzle and blindfold games against Stockfish (400 to 2800 Elo).
+- [Daily chess puzzle](https://www.chessdepth.in/#daily): a new puzzle from a real game every day, easier on Monday and harder by Sunday.
+- [ChessDepth AI](https://www.chessdepth.in/ai/): turns a chess screenshot or book diagram into a board and FEN, in the browser.
+- [Free chess resources](https://www.chessdepth.in/resources/): study roadmap, Lichess game analyser, board editor, opening guide, endgame checklist and book list.
+- [Chess Lab](https://www.chessdepth.in/lab/): tactics trainer, Puzzle Streak, opening courses and a progress dashboard.
+
+## Free downloads (PDF)
+
+- [Foundation Worksheets (Free)](https://www.chessdepth.in/shop/foundation-worksheets/): The Level 1 lessons from our classes: chess notation, castling and the special moves, attack, defence and threats, checkmate and the back rank, with 24 puzzles and full answers.
+- [Tactics Starter Pack (Free)](https://www.chessdepth.in/shop/tactics-starter/): 30 hand-picked puzzles in five themes: mate in one, mate in two, forks, pins and skewers, and discovered attacks, with hints and full explanations.
+- [Checks, Captures and Threats Workbook (Free)](https://www.chessdepth.in/shop/cct-workbook/): The CCT method step by step: worked examples, a cheat sheet of common mistakes, and 20 graded problems from easy to very difficult, with an answer key.
+- [Intermediate Worksheets (Free)](https://www.chessdepth.in/shop/intermediate-worksheets/): The Level 2 lessons from our classes: the CCT thinking method, double attacks, pins, zwischenzug and desperado, and half-open files, with 18 puzzles and full answers.
+- [Evaluation Test Papers (Free)](https://www.chessdepth.in/shop/test-papers/): The tests we use in ChessDepth classes: a beginner and an intermediate written test (50 marks each) and a 10-diagram position test, with model answers.
+
+## Articles
+
+- [How to Play Blindfold Chess: Step-by-Step Visualization Guide](https://www.chessdepth.in/blog/how-to-play-blindfold-chess/): Blindfold chess trains chess visualization like nothing else. A six-step method from learning the squares to full blindfold games, with a 4-week plan and free drills.
+- [Introducing ChessDepth AI: Turn Any Chess Screenshot into a Board](https://www.chessdepth.in/blog/introducing-chessdepth-ai/): ChessDepth AI is free and in beta. Drop in a screenshot or a book diagram and get a board you can edit, the FEN, and a one-click Lichess analysis. Here is how to use it, how it works and what comes next.
+- [How to Use AI and Modern Tools to Improve at Chess Faster](https://www.chessdepth.in/blog/use-ai-and-modern-tools-to-improve-at-chess/): Engines, game reviews, human-like AI, chatbots and puzzle trainers can speed up your progress, or slow it down. Here is how to use each one the right way, with a simple weekly plan.
+- [Chess for Kids: A Parent's Guide](https://www.chessdepth.in/blog/chess-for-kids-a-parents-guide/): What children gain from chess, when to start, how to support your child at home, and how to choose a good chess class.
+- [CCT in Chess: Checks, Captures and Threats (with Examples)](https://www.chessdepth.in/blog/cct-method-checks-captures-threats/): What CCT means in chess, how to use the checks, captures and threats routine on every move, three solved examples, common mistakes, and a free CCT workbook.
+- [Rook Endgames You Must Know: The Lucena and Philidor Positions](https://www.chessdepth.in/blog/rook-endgames-lucena-and-philidor/): Rook endgames are the most common endgames in chess. These two positions show how to win with an extra pawn, and how to draw without one.
+- [How to Analyse Your Own Games (and Actually Improve)](https://www.chessdepth.in/blog/how-to-analyse-your-own-games/): Your own games are your best teacher. A step-by-step method for reviewing them, so you learn from every loss without depending on the engine.
+- [Tournament Preparation and the Chess Mindset](https://www.chessdepth.in/blog/tournament-preparation-and-mindset/): How to prepare for a tournament, manage your clock and nerves during games, and bounce back after a loss.
+- [Building a Solid Opening Repertoire](https://www.chessdepth.in/blog/building-a-solid-opening-repertoire/): How to choose openings that suit your style, what to play at each level, and how to study them through ideas instead of endless memorisation.
+- [The Importance of Positional Play](https://www.chessdepth.in/blog/importance-of-positional-play/): What to do when there is no tactic: piece activity, pawn structure, weak squares, open files and king safety, explained with practical rules of thumb.
+- [Mastering Basic Chess Tactics: Forks, Pins, Skewers and More](https://www.chessdepth.in/blog/mastering-basic-chess-tactics/): The six tactical patterns that decide most games below 1600, how to spot them, and a simple routine to train them every day.
+
+## Optional
+
+- [Shop](https://www.chessdepth.in/shop/): all worksheet packs, training plans and opening repertoires.
+- [Careers](https://www.chessdepth.in/careers/): jobs and internships at the academy.
+- [Sitemap](https://www.chessdepth.in/sitemap.xml)

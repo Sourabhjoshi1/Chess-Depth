@@ -1,0 +1,45 @@
+/* Styles used only on the coaches page */
+body {
+        font-family: 'Poppins', sans-serif;
+    }
+
+    /* Navbar Link Hover Effect (from previous iterations, ensure consistency) */
+    .nav-link-hover-effect {
+        transition: all 0.2s ease-in-out;
+        position: relative;
+    }
+    .nav-link-hover-effect:after {
+        content: '';
+        position: absolute;
+        width: 0%;
+        height: 2px;
+        bottom: -5px;
+        left: 0;
+        background-color: #4f46e5; /* indigo-600 */
+        transition: width 0.3s ease-out;
+    }
+    .nav-link-hover-effect:hover:after {
+        width: 100%;
+    }
+    .nav-link-hover-effect:hover {
+        color: #4f46e5; /* indigo-600 */
+    }
+
+    /* Coach Profile Link Hover Effect */
+    .coach-profile-link:hover .fa-brands,
+    .coach-profile-link:hover .fa-solid {
+        transform: scale(1.1);
+        color: #4f46e5; /* indigo-600 */
+        transition: transform 0.2s ease-in-out, color 0.2s ease-in-out;
+    }
+
+    /* Fade-in animation for content on page load */
+    .fade-in-content {
+        opacity: 0;
+        animation: fadeIn 1s ease-out forwards;
+        animation-delay: 0.2s;
+    }
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }

@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <script>
+    /* Night/day mode: use the saved choice, otherwise follow the device setting */
+    (function () {
+      var t = null; try { t = localStorage.getItem("cd-theme"); } catch (e) {}
+      if (t !== "light" && t !== "dark") t = (window.matchMedia && matchMedia("(prefers-color-scheme: dark)").matches) ? "dark" : "light";
+      if (t === "dark") document.documentElement.classList.add("dark");
+    })();
+  </script>
+  <meta name="theme-color" content="#1f2547">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Introducing ChessDepth AI: Turn Any Chess Screenshot into a Board</title>
+  <meta name="description" content="ChessDepth AI is free and in beta. Drop in a screenshot or a book diagram and get a board you can edit, the FEN, and a one-click Lichess analysis. Here is how to use it, how it works and what comes next.">
+  <link rel="canonical" href="https://www.chessdepth.in/blog/introducing-chessdepth-ai/">
+  <meta property="og:title" content="Introducing ChessDepth AI: Turn Any Chess Screenshot into a Board">
+  <meta property="og:site_name" content="ChessDepth Academy">
+  <meta property="og:locale" content="en_IN">
+  <meta property="og:description" content="ChessDepth AI is free and in beta. Drop in a screenshot or a book diagram and get a board you can edit, the FEN, and a one-click Lichess analysis. Here is how to use it, how it works and what comes next.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://www.chessdepth.in/blog/introducing-chessdepth-ai/">
+  <meta property="og:image" content="https://www.chessdepth.in/assets/images/og-image.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Introducing ChessDepth AI: Turn Any Chess Screenshot into a Board">
+  <meta name="twitter:description" content="ChessDepth AI is free and in beta. Drop in a screenshot or a book diagram and get a board you can edit, the FEN, and a one-click Lichess analysis. Here is how to use it, how it works and what comes next.">
+  <meta name="twitter:image" content="https://www.chessdepth.in/assets/images/og-image.jpg">
+  <meta property="article:published_time" content="2026-11-01T00:00:00+00:00">
+  <meta property="article:section" content="Training">
+  <link rel="icon" href="/assets/images/favicon.ico" sizes="48x48">
+  <link rel="icon" href="/assets/images/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="/assets/css/tailwind.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,500;0,600;1,400&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="/assets/css/pages/blog.css?v=1794028371">
+  <link rel="stylesheet" href="/assets/css/site.css?v=1794028371">
+  <link rel="stylesheet" href="/assets/css/dark.css?v=1794028371">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-2C73E30ZFX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-2C73E30ZFX');
+  </script>
+  
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+    {"@type":"ListItem","position":1,"name":"Home","item":"https://www.chessdepth.in/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://www.chessdepth.in/blog/"},{"@type":"ListItem","position":3,"name":"Introducing ChessDepth AI: Turn Any Chess Screenshot into a Board","item":"https://www.chessdepth.in/blog/introducing-chessdepth-ai/"}
+  ]}
+  </script>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"BlogPosting","headline":"Introducing ChessDepth AI: Turn Any Chess Screenshot into a Board","description":"ChessDepth AI is free and in beta. Drop in a screenshot or a book diagram and get a board you can edit, the FEN, and a one-click Lichess analysis. Here is how to use it, how it works and what comes next.",
+   "datePublished":"2026-11-01T00:00:00+00:00","dateModified":"2026-11-01T00:00:00+00:00",
+   "author":{"@type":"Organization","name":"ChessDepth Coaching Team","url":"https://www.chessdepth.in/about/"},
+   "publisher":{"@type":"Organization","name":"ChessDepth Academy","logo":{"@type":"ImageObject","url":"https://www.chessdepth.in/assets/images/icon-512.png"}},
+   "image":"https://www.chessdepth.in/assets/images/og-image.jpg","mainEntityOfPage":"https://www.chessdepth.in/blog/introducing-chessdepth-ai/",
+   "articleSection":"Training","inLanguage":"en"}
+  </script>
+
+
+</head>
+<body class="bg-gray-100 text-gray-800">
+  <div class="cd-topbar">
+    <div class="cd-wrap cd-topbar-inner">
+      <p class="cd-topbar-contact">
+        <a href="tel:+919823029262"><i class="fas fa-phone-alt"></i>+91 98230 29262</a>
+        <a href="mailto:info@chessdepth.in"><i class="far fa-envelope"></i>info@chessdepth.in</a>
+      </p>
+      <p class="cd-topbar-links">
+        <a href="/lab/"><i class="fas fa-flask"></i>Chess Lab<span class="cd-free" data-free-until="2026-11-21">Free</span></a>
+        <a href="/careers/">Careers</a>
+        <a href="/student/" data-account><i class="far fa-user-circle"></i>Student login</a>
+        <button type="button" class="cd-theme-btn" data-theme-toggle aria-label="Switch to night mode" title="Night / day mode"><i class="fas fa-moon cd-moon"></i><i class="fas fa-sun cd-sun"></i></button>
+      </p>
+    </div>
+  </div>
+  <header class="cd-header" id="main-header">
+    <div class="cd-wrap cd-header-inner">
+      <a href="/" class="cd-brand">
+        <svg class="cd-mark" viewBox="0 0 32 32" aria-hidden="true" focusable="false"><path fill="currentColor" d="M8 5h3v3h2.5V5h5v3H21V5h3v7.2l-2.4 1.8.9 9H9.5l.9-9L8 12.2zM8.5 24.5h15l1.5 2.5H7zM6 28h20v2.5H6z"/></svg>
+
+        <span class="cd-brand-text"><span class="cd-brand-name">ChessDepth</span></span>
+      </a>
+      <nav id="main-nav" aria-label="Primary" class="cd-nav">
+        <a href="/about/" class="cd-link">About</a>
+        <div class="cd-dd" data-dd>
+          <button type="button" class="cd-link cd-dd-btn" aria-expanded="false" aria-haspopup="true">Academy<i class="fas fa-chevron-down cd-dd-caret" aria-hidden="true"></i></button>
+          <div class="cd-dd-menu" role="menu">
+            <a href="/courses/" role="menuitem" class="cd-dd-item"><i class="fas fa-graduation-cap"></i><span><b>Courses</b><small>Levels, fees and class timings</small></span></a>
+            <a href="/chess-classes-for-kids/" role="menuitem" class="cd-dd-item"><i class="fas fa-child"></i><span><b>Classes for kids</b><small>Ages 5 and up, for parents</small></span></a>
+            <a href="/coaches/" role="menuitem" class="cd-dd-item"><i class="fas fa-chess-king"></i><span><b>Coaches</b><small>Meet the team that teaches you</small></span></a>
+            <a href="/shop/" role="menuitem" class="cd-dd-item"><i class="fas fa-book"></i><span><b>Shop</b><small>Worksheets, books and study packs</small></span></a>
+          </div>
+        </div>
+        <a href="/blindfold/" class="cd-link cd-link-ai">Blindfold<span class="cd-soon">New</span></a>
+        <a href="/resources/" class="cd-link">Resources</a>
+        <a href="/ai/" class="cd-link cd-link-ai">ChessDepth AI<span class="cd-soon">Beta</span></a>
+        <a href="/blog/" class="cd-link" aria-current="page">Blog</a>
+        <a href="/contact/" class="cd-link">Contact</a>
+        <a href="https://wa.me/919823029262?text=Hi%2C%20I%20would%20like%20to%20book%20a%20free%20demo%20class" target="_blank" rel="noopener noreferrer" class="cd-hdr-cta">Book a free demo</a>
+      </nav>
+      <div class="cd-header-mobile">
+        <button type="button" class="cd-theme-btn" data-theme-toggle aria-label="Switch to night mode" title="Night / day mode"><i class="fas fa-moon cd-moon"></i><i class="fas fa-sun cd-sun"></i></button>
+        <button id="menu-toggle" class="cd-menu-btn" aria-controls="mobile-menu" aria-expanded="false" aria-label="Open menu">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+        </button>
+      </div>
+    </div>
+    <div id="mobile-menu" class="cd-mobile-menu hidden">
+      <nav class="cd-wrap" aria-label="Mobile">
+        <a href="/">Home</a>
+        <a href="/about/">About</a>
+        <div class="cd-m-group">
+          <p class="cd-m-group-h">Academy</p>
+          <a href="/courses/"><i class="fas fa-graduation-cap"></i>Courses</a>
+          <a href="/chess-classes-for-kids/"><i class="fas fa-child"></i>Classes for kids</a>
+          <a href="/coaches/"><i class="fas fa-chess-king"></i>Coaches</a>
+          <a href="/shop/"><i class="fas fa-book"></i>Shop</a>
+        </div>
+        <a href="/blindfold/">Blindfold<span class="cd-soon">New</span></a>
+        <a href="/resources/">Resources</a>
+        <a href="/ai/">ChessDepth AI<span class="cd-soon">Beta</span></a>
+        <a href="/blog/" aria-current="page">Blog</a>
+        <a href="/contact/">Contact</a>
+        <a href="/lab/">Chess Lab <i class="fas fa-crown" style="color:#b08a4e;font-size:.8em"></i><span class="cd-soon" data-free-until="2026-11-21">Free launch offer</span></a>
+        <a href="/careers/">Careers</a>
+        <div class="cd-mobile-actions">
+          <a href="/student/" class="cd-mobile-login" data-account><i class="far fa-user-circle"></i>Student login</a>
+          <a href="https://wa.me/919823029262?text=Hi%2C%20I%20would%20like%20to%20book%20a%20free%20demo%20class" target="_blank" rel="noopener noreferrer" class="cd-hdr-cta">Book a free demo</a>
+        </div>
+        <p class="cd-mobile-contact"><a href="tel:+919823029262">+91 98230 29262</a><a href="mailto:info@chessdepth.in">info@chessdepth.in</a></p>
+      </nav>
+    </div>
+  </header>
+
+
+<section class="blog-hero cd-hero-bg text-white">
+  <div class="max-w-3xl mx-auto px-4 py-14">
+    <a href="/blog/" class="text-indigo-200 hover:text-white text-sm font-semibold"><i class="fas fa-arrow-left mr-1"></i>All articles</a>
+    <p class="mt-5 mb-3"><span class="blog-tag">Training</span></p>
+    <h1 class="text-3xl md:text-4xl font-extrabold leading-tight">Introducing ChessDepth AI: Turn Any Chess Screenshot into a Board</h1><p class="text-indigo-100 text-lg mt-4">ChessDepth AI is free and in beta. Drop in a screenshot or a book diagram and get a board you can edit, the FEN, and a one-click Lichess analysis. Here is how to use it, how it works and what comes next.</p>
+    <p class="text-indigo-200 text-sm mt-5">ChessDepth Coaching Team · 1 November 2026 · 5 min read · All levels</p>
+  </div>
+</section>
+
+<article class="max-w-3xl mx-auto px-4 py-12">
+  <div class="cd-prose">
+    <p>You find a great position in a YouTube video, a WhatsApp group or a chess book. You want to look at it properly with an engine. So you open a board editor and set up all 25 pieces by hand, one at a time, and hope you didn’t put a knight on the wrong square.</p>
+
+<p>Setting the position up often takes longer than studying it. Today we’re launching a tool that fixes this.</p>
+
+<p><strong><a href="/ai/">ChessDepth AI</a> is now live in beta, and it’s free.</strong> Give it a picture of a chess position and a few seconds later you have a real board.</p>
+
+<figure class="cd-board" style="max-width:100%">
+  <img src="/assets/images/blog/chessdepth-ai-result.webp" alt="ChessDepth AI reading a screenshot of the Closed Ruy Lopez: the original image on the left with the board outlined in green, and the recognised position on an editable board on the right with its FEN and an Analyse on Lichess button" width="1120" height="990" loading="lazy" style="width:100%;height:auto" />
+  <figcaption>A screenshot goes in on the left. An editable board, the FEN and a Lichess link come out on the right.</figcaption>
+</figure>
+
+<h2 id="how-to-use-it">How to use it</h2>
+
+<ol>
+  <li><strong>Open <a href="/ai/">chessdepth.in/ai</a></strong> on your phone or computer.</li>
+  <li><strong>Add your image.</strong> Drag it onto the page, choose it from your files, or copy it and paste with Ctrl+V (Cmd+V on a Mac).</li>
+  <li><strong>Check the board.</strong> The tool finds the chessboard in your picture and reads every square. If it isn’t sure about a square, it highlights it in orange so you know where to look.</li>
+  <li><strong>Fix anything that’s wrong.</strong> Drag a piece to move it, drag it off the board to remove it, or add pieces from the rows above and below the board.</li>
+  <li><strong>Pick who is to move</strong>, then <strong>copy the FEN</strong> or click <strong>Analyse on Lichess</strong> to open the position with an engine.</li>
+</ol>
+
+<p>If the picture shows the board from Black’s side, press <strong>“Picture was from Black’s side”</strong> and the position turns the right way round. If the tool picks the wrong part of your image, press <strong>“Wrong area? Draw the box”</strong> and drag a square around the board yourself.</p>
+
+<h2 id="how-it-works">How it works</h2>
+
+<p>Behind the button there are two steps.</p>
+
+<p><strong>First, find the board.</strong> A chessboard has a pattern no other part of a web page has: seven evenly spaced lines in each direction, where light squares flip to dark and back again. The tool searches the image for that pattern, then checks that the 64 squares really alternate light and dark.</p>
+
+<p><strong>Second, read the squares.</strong> Each of the 64 squares goes to a small neural network that we trained ourselves. It decides whether the square is empty or holds one of the 12 pieces (six white, six black). We taught it with hundreds of thousands of example squares drawn in 14 different piece styles, on many board colours, with arrows, highlights, coordinates and blurry, low-quality copies mixed in, so it doesn’t depend on one website’s look.</p>
+
+<p>Finally a little chess sense is applied. There is exactly one king of each colour, pawns can’t stand on the first or last rank, and the tool works out which side of the board White is on.</p>
+
+<p>It takes under a second. On piece styles it was trained on, it reads about 99.7% of squares correctly. On styles it has never seen (chess.com’s default pieces, for example) it is noticeably weaker, and a few squares per board may need fixing. That’s exactly what the next version will improve, using real screenshots from our students.</p>
+
+<h2 id="your-pictures-stay-with-you">Your pictures stay with you</h2>
+
+<p>The whole thing runs <strong>inside your browser</strong>. Your image is never uploaded to us or anyone else, and the tool keeps working even on a slow connection once the page has loaded.</p>
+
+<h2 id="what-its-good-at-and-what-it-isnt-yet">What it’s good at, and what it isn’t (yet)</h2>
+
+<p>This is version 0.1, so it’s fair to say where it stands:</p>
+
+<ul>
+  <li><strong>Works best on:</strong> screenshots from chess websites and apps, printed diagrams from books and worksheets, and boards in videos.</li>
+  <li><strong>Not yet:</strong> photos of a real wooden board on a table. That needs a different kind of model, and it’s next on our list.</li>
+  <li><strong>Unusual piece styles</strong> can confuse it now and then. That’s why it highlights the squares it’s unsure about. Always take a two-second look before you analyse.</li>
+</ul>
+
+<h2 id="help-us-make-it-better">Help us make it better</h2>
+
+<p>Under every result there’s a simple question: <em>“Did it read the position correctly?”</em> Please tap <strong>Yes</strong> or <strong>No</strong>. Each answer tells us where the model needs more practice. If it gets a position badly wrong, send us the image on <a href="https://wa.me/919823029262">WhatsApp</a> and we’ll use it to train the next version.</p>
+
+<h2 id="whats-coming-next">What’s coming next</h2>
+
+<ul>
+  <li><strong>Photos of real boards</strong>, so you can snap your over-the-board position after a game.</li>
+  <li><strong>Book pages to puzzle sets:</strong> turn a page of diagrams into puzzles you can solve on the board.</li>
+  <li><strong>Tools for coaches</strong> that turn printed worksheets into online homework.</li>
+</ul>
+
+<h2 id="a-thank-you">A thank you</h2>
+
+<p>ChessDepth AI stands on the shoulders of open-source chess. The piece styles we trained on come from <a href="https://lichess.org">Lichess</a>, shared under open licences, and the analysis button sends you to Lichess’s free engine. We’re grateful to the Lichess team and its contributors for making so much of chess free for everyone.</p>
+
+<p><strong><a href="/ai/">Try ChessDepth AI now →</a></strong> Then tell us how it did.</p>
+
+  </div>
+
+  <div class="mt-12 rounded-2xl blog-hero text-white p-8 text-center">
+    <p class="text-2xl font-bold mb-2">Want a coach to guide you?</p>
+    <p class="text-indigo-100 mb-6">Book a free demo class with ChessDepth Academy and get a personal improvement plan.</p>
+    <a href="https://wa.me/919823029262?text=Hi%2C%20I%20would%20like%20to%20book%20a%20free%20demo%20class" target="_blank" rel="noopener noreferrer" class="cd-demo-btn inline-block px-8 py-3"><i class="fab fa-whatsapp mr-2"></i>Book a Free Demo</a>
+  </div>
+
+  <div class="mt-8 flex flex-wrap items-center gap-3 text-sm">
+    <span class="text-gray-600 font-semibold">Share:</span>
+    <a class="blog-share" href="https://wa.me/?text=Introducing+ChessDepth+AI%3A+Turn+Any+Chess+Screenshot+into+a+Board+https%3A%2F%2Fwww.chessdepth.in%2Fblog%2Fintroducing-chessdepth-ai%2F" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp mr-1"></i>WhatsApp</a>
+    <a class="blog-share" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.chessdepth.in%2Fblog%2Fintroducing-chessdepth-ai%2F" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f mr-1"></i>Facebook</a>
+    <a class="blog-share" href="https://twitter.com/intent/tweet?text=Introducing+ChessDepth+AI%3A+Turn+Any+Chess+Screenshot+into+a+Board&amp;url=https%3A%2F%2Fwww.chessdepth.in%2Fblog%2Fintroducing-chessdepth-ai%2F" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter mr-1"></i>X</a>
+  </div>
+  <div class="mt-12">
+    <h2 class="text-xl font-bold text-gray-900 mb-4">Keep reading</h2>
+    <div class="grid sm:grid-cols-2 gap-4">
+      <a href="/blog/how-to-play-blindfold-chess/" class="block bg-white rounded-lg shadow-sm hover:shadow-md p-5 transition">
+        <span class="text-xs font-bold text-indigo-600 uppercase">Training</span>
+        <p class="font-bold text-gray-900 mt-1">How to Play Blindfold Chess: Step-by-Step Visualization Guide</p>
+        <p class="text-sm text-gray-500 mt-1">Blindfold chess trains chess visualization like nothing else. A six-step method from learning the squares t...</p>
+      </a>
+      <a href="/blog/use-ai-and-modern-tools-to-improve-at-chess/" class="block bg-white rounded-lg shadow-sm hover:shadow-md p-5 transition">
+        <span class="text-xs font-bold text-indigo-600 uppercase">Training</span>
+        <p class="font-bold text-gray-900 mt-1">How to Use AI and Modern Tools to Improve at Chess Faster</p>
+        <p class="text-sm text-gray-500 mt-1">Engines, game reviews, human-like AI, chatbots and puzzle trainers can speed up your progress, or slow it d...</p>
+      </a>
+    </div>
+  </div>
+</article>
+
+
+  
+<footer class="cd-footer bg-gray-800 text-gray-300 pt-10 pb-6 mt-10">
+    <div class="max-w-6xl mx-auto px-4 cd-foot-grid">
+      <div class="cd-foot-brand">
+        <p class="text-2xl font-bold text-white mb-2">♟️ ChessDepth Academy</p>
+        <p class="text-sm text-gray-400">Structured online chess coaching for beginners to tournament players.</p>
+        <div class="cd-foot-social mt-4 flex space-x-5 text-2xl">
+          <a href="https://www.instagram.com/chessdepth/" target="_blank" rel="noopener noreferrer" aria-label="ChessDepth on Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.facebook.com/chessdepthacademy/" target="_blank" rel="noopener noreferrer" aria-label="ChessDepth on Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://chat.whatsapp.com/FlMZyNdMU9SEyJlKKclmon" target="_blank" rel="noopener noreferrer" aria-label="ChessDepth WhatsApp community" title="WhatsApp community"><i class="fab fa-whatsapp"></i></a>
+          <a href="https://lichess.org/team/chessdepth" target="_blank" rel="noopener noreferrer" aria-label="ChessDepth team on Lichess" title="Lichess team"><i class="fas fa-chess-knight"></i></a>
+          <a href="https://www.chess.com/club/chessdepth" target="_blank" rel="noopener noreferrer" aria-label="ChessDepth club on Chess.com" title="Chess.com club"><i class="fas fa-chess-pawn"></i></a>
+        </div>
+      </div>
+      <div>
+        <p class="font-semibold text-white mb-3">Explore</p>
+        <ul class="space-y-1 text-sm">
+          <li><a href="/courses/">Courses &amp; Fees</a></li>
+          <li><a href="/chess-classes-for-kids/">Chess Classes for Kids</a></li>
+          <li><a href="/coaches/">Our Coaches</a></li>
+          <li><a href="/resources/">Free Resources</a></li>
+          <li><a href="/blindfold/">Blindfold Chess Training</a></li>
+          <li><a href="/shop/">Shop</a></li>
+          <li><a href="/lab/">Chess Lab</a></li>
+          <li><a href="/careers/">Careers</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="font-semibold text-white mb-3">Community</p>
+        <ul class="space-y-1 text-sm">
+          <li><i class="fab fa-whatsapp mr-2"></i><a href="https://chat.whatsapp.com/FlMZyNdMU9SEyJlKKclmon" target="_blank" rel="noopener noreferrer">WhatsApp community</a></li>
+          <li><i class="fas fa-chess-knight mr-2"></i><a href="https://lichess.org/team/chessdepth" target="_blank" rel="noopener noreferrer">Lichess team</a></li>
+          <li><i class="fas fa-chess-pawn mr-2"></i><a href="https://www.chess.com/club/chessdepth" target="_blank" rel="noopener noreferrer">Chess.com club</a></li>
+          <li><i class="fab fa-instagram mr-2"></i><a href="https://www.instagram.com/chessdepth/" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+        </ul>
+      </div>
+      <div class="cd-foot-contact">
+        <p class="font-semibold text-white mb-3">Get in touch</p>
+        <ul class="space-y-1 text-sm">
+          <li><i class="fas fa-phone-alt mr-2"></i><a href="tel:+919823029262">+91 98230 29262</a></li>
+          <li><i class="fab fa-whatsapp mr-2"></i><a href="https://wa.me/919823029262?text=Hi%2C%20I%20would%20like%20to%20book%20a%20free%20demo%20class" target="_blank" rel="noopener noreferrer">WhatsApp us</a></li>
+          <li><i class="fas fa-envelope mr-2"></i><a href="mailto:info@chessdepth.in">info@chessdepth.in</a></li>
+          <li><i class="fas fa-map-marker-alt mr-2"></i>Bhopal, Madhya Pradesh, India</li>
+        </ul>
+      </div>
+    </div>
+    <div class="max-w-6xl mx-auto px-4 mt-8 pt-4 border-t border-gray-700 flex flex-col sm:flex-row justify-between text-xs text-gray-400 gap-2 text-center">
+      <p>&copy; <span data-year>2026</span> ChessDepth Academy. All rights reserved.</p>
+      <p class="cd-legal"><a href="/terms/">Terms</a> · <a href="/refunds/">Refunds &amp; cancellations</a> · <a href="/privacy/">Privacy policy</a></p>
+    </div>
+  </footer>
+  <a href="https://wa.me/919823029262?text=Hi%2C%20I%20would%20like%20to%20book%20a%20free%20demo%20class" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Chat with ChessDepth on WhatsApp" title="Chat with us on WhatsApp"><i class="fab fa-whatsapp text-2xl"></i></a>
+
+  <script src="/assets/js/site.js?v=1794028371" defer></script>
+</body>
+</html>
