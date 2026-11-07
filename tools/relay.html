@@ -1,0 +1,15 @@
+---
+layout: null
+permalink: /tools/relay/
+sitemap: false
+---
+<!doctype html><html><head><meta charset="utf-8"><meta name="robots" content="noindex"><title>relay</title></head><body>
+<script>
+// Temporary helper used once to move Shop files into Gumroad. Only answers pages on gumroad.com.
+window.addEventListener('message', async function (e) {
+  if (e.origin !== 'https://gumroad.com' || !e.data || !e.data.cdget) return;
+  try { var r = await fetch(e.data.cdget, {cache: 'no-store'}); var b = await r.arrayBuffer(); e.source.postMessage({cdid: e.data.id, ok: r.ok, buf: b}, e.origin, [b]); }
+  catch (err) { e.source.postMessage({cdid: e.data.id, ok: false, err: String(err)}, e.origin); }
+});
+parent.postMessage({cdready: 1}, 'https://gumroad.com');
+</script></body></html>
