@@ -114,5 +114,15 @@ service cloud.firestore {
       allow read: if hasLab();
       allow write: if request.auth != null && request.auth.uid == uid && hasLab();
     }
+
+    // Blog read counts: anyone can read them; a visit can only add exactly one.
+    match /postViews/{slug} {
+      allow read: if true;
+      allow create: if slug.matches('^[a-z0-9-]{1,120}$')
+        && request.resource.data.keys().hasOnly(['count']) && request.resource.data.count == 1;
+      allow update: if request.resource.data.keys().hasOnly(['count'])
+        && request.resource.data.count == resource.data.count + 1;
+      allow delete: if isAdmin();
+    }
   }
 }

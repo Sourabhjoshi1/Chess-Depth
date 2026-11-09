@@ -8,6 +8,7 @@ page_css: blog
   {% include page-hero.html eyebrow="The ChessDepth Blog" title="Learn something new about chess" lead="Practical articles from our coaches on tactics, strategy, openings, endgames and how to train, plus advice for parents." %}
 
   <section class="max-w-6xl mx-auto px-4 py-12">
+    <p class="pv-total text-center text-gray-600 mb-6" data-pv-box hidden><i class="fas fa-book-open mr-2 text-indigo-500"></i><strong class="text-gray-900" data-pv-total></strong> total reads across {{ site.posts | size }} articles</p>
     <div class="flex flex-wrap justify-center gap-2 mb-10" role="toolbar" aria-label="Filter articles by topic">
       <button type="button" class="blog-filter is-active" data-filter="all">All articles</button>
       {%- for c in categories %}
@@ -26,13 +27,14 @@ page_css: blog
           <p class="text-xs font-bold uppercase tracking-wide mb-2" style="color: {{ color }}">{{ p.category }}</p>
           <h2 class="text-xl font-bold text-gray-900 leading-snug mb-3">{{ p.title }}</h2>
           <p class="text-gray-600 text-sm flex-grow">{{ p.description }}</p>
-          <p class="text-xs text-gray-500 mt-5">{{ p.date | date: "%-d %b %Y" }} · {{ minutes }} min read{% if p.level %} · {{ p.level }}{% endif %}</p>
+          <p class="text-xs text-gray-500 mt-5">{{ p.date | date: "%-d %b %Y" }} · {{ minutes }} min read{% if p.level %} · {{ p.level }}{% endif %}<span class="pv-wrap" hidden> · <span data-pv-count="{{ p.slug }}" data-pv-base="{{ site.data.post_reads[p.slug] | default: 0 }}"></span></span></p>
         </div>
       </a>
       {%- endfor %}
     </div>
   </section>
 
+  <script type="module" src="/assets/js/post-views.js?v={{ site.time | date: "%s" }}"></script>
   <script>
     document.querySelectorAll('.blog-filter').forEach(function (btn) {
       btn.addEventListener('click', function () {

@@ -12,7 +12,7 @@ layout: default
     <p class="mt-5 mb-3"><span class="blog-tag">{{ page.category }}</span></p>
     <h1 class="text-3xl md:text-4xl font-extrabold leading-tight">{{ page.headline | default: page.title }}</h1>
     {%- if page.description %}<p class="text-indigo-100 text-lg mt-4">{{ page.description }}</p>{% endif %}
-    <p class="text-indigo-200 text-sm mt-5">{{ page.author }} · {{ page.date | date: "%-d %B %Y" }} · {{ minutes }} min read{% if page.level %} · {{ page.level }}{% endif %}</p>
+    <p class="text-indigo-200 text-sm mt-5">{{ page.author }} · {{ page.date | date: "%-d %B %Y" }} · {{ minutes }} min read{% if page.level %} · {{ page.level }}{% endif %}<span data-pv-hit="{{ page.slug }}"></span><span class="pv-wrap" hidden> · <span data-pv-count="{{ page.slug }}" data-pv-base="{{ site.data.post_reads[page.slug] | default: 0 }}"></span></span></p>
   </div>
 </section>
 
@@ -50,3 +50,5 @@ layout: default
     </div>
   </div>
 </article>
+
+<script type="module" src="/assets/js/post-views.js?v={{ site.time | date: "%s" }}"></script>
