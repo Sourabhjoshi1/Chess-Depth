@@ -160,6 +160,8 @@ html.dark .cd-m-group { border-color: #222a44; }
 html.dark .cd-m-group a { color: #b9bfd8; } html.dark .cd-m-group a[aria-current] { color: #fff; }
 
 /* Footer: brand + three even link columns, then a community row */
+.cd-footer { padding-top: 3.5rem; }
+@media (min-width: 1024px) { .cd-footer { padding-top: 4.5rem; } }
 .cd-foot-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem 1.5rem; text-align: left; }
 .cd-foot-brand { grid-column: 1 / -1; }
 .cd-foot-logo { font-size: 1.35rem; font-weight: 700; color: #fff; white-space: nowrap; margin-bottom: .5rem; }
@@ -173,7 +175,7 @@ html.dark .cd-m-group a { color: #b9bfd8; } html.dark .cd-m-group a[aria-current
 .cd-foot-contact { grid-column: 1 / -1; }
 .cd-foot-ic li { display: grid; grid-template-columns: 1.1rem 1fr; gap: .6rem; align-items: baseline; }
 .cd-foot-ic i { color: #a5b4fc; text-align: center; font-size: .85rem; }
-.cd-foot-social-row { display: flex; flex-wrap: wrap; align-items: center; gap: .75rem 1.25rem; margin-top: 2.25rem; }
+.cd-foot-social-row { display: flex; flex-wrap: wrap; align-items: center; gap: .75rem 1.25rem; margin-top: 3rem; padding-bottom: 2rem; }
 .cd-foot-social-row .cd-foot-h { margin: 0; }
 .cd-foot-social { display: flex; gap: .6rem; }
 .cd-footer .cd-foot-social a { display: inline-flex; align-items: center; justify-content: center; width: 2.4rem; height: 2.4rem; border-radius: 9999px; border: 1px solid #374151; font-size: 1.05rem; transition: color .2s, border-color .2s, background .2s; }
@@ -275,3 +277,4 @@ html.dark .cd-faq a { color: #a5b4fc; }
   .cd-mmore[aria-expanded="true"] i { transform: rotate(180deg); }
   html.dark .cd-mmore { background: #162032; border-color: #334155; color: #a5b4fc; }
 }
+.cd-foot-bottom { padding-top: 1.5rem; padding-bottom: .5rem; }
