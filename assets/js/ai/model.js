@@ -13,8 +13,8 @@ function f16(u) { // IEEE half -> float
 export async function loadModel(base = "/assets/ai/") {
   if (W) return W;
   const [meta, buf] = await Promise.all([
-    fetch(base + "model.json").then((r) => r.json()),
-    fetch(base + "model.bin").then((r) => r.arrayBuffer()),
+    fetch(base + "model.json", { cache: "no-cache" }).then((r) => r.json()),
+    fetch(base + "model.bin", { cache: "no-cache" }).then((r) => r.arrayBuffer()),
   ]);
   const u16 = new Uint16Array(buf); const out = {};
   for (const t of meta.tensors) {
