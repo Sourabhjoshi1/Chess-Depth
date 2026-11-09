@@ -28,7 +28,7 @@
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"BlogPosting","headline":{{ page.title | jsonify }},"description":{{ page.description | jsonify }},
    "datePublished":"{{ page.date | date_to_xmlschema }}","dateModified":"{{ page.last_modified_at | default: page.date | date_to_xmlschema }}",
-   "author":{"@type":"Organization","name":{{ page.author | default: site.title | jsonify }},"url":"{{ site.url }}/about/"},
+   "author":{% if page.author and page.author != "ChessDepth Coaching Team" %}{"@type":"Person","name":{{ page.author | jsonify }},"worksFor":{"@id":"{{ site.url }}/#organization"}}{% else %}{"@type":"Organization","name":{{ page.author | default: site.title | jsonify }},"url":"{{ site.url }}/about/"}{% endif %},
    "publisher":{"@type":"Organization","name":"{{ site.title }}","logo":{"@type":"ImageObject","url":"{{ '/assets/images/icon-512.png' | absolute_url }}"}},
    "image":"{{ page.image | default: '/assets/images/og-image.jpg' | absolute_url }}","mainEntityOfPage":"{{ page.url | absolute_url }}",
    "articleSection":{{ page.category | jsonify }},"inLanguage":"en"}

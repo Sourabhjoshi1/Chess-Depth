@@ -3,6 +3,7 @@ title: "Anuj Shrivatri Becomes India's 100th Grandmaster, and Madhya Pradesh's F
 description: "Bhopal's Anuj Shrivatri won the ASEAN Plus Championship on Diwali to become India's 100th chess Grandmaster and the first from Madhya Pradesh."
 category: News
 level: All levels
+author: Sourabh Joshi
 image: /assets/images/blog/og-india-100th-gm.jpg
 image_alt: "ChessBase India graphic: India's 100 Grandmasters, from Viswanathan Anand to Anuj Shrivatri"
 ---
