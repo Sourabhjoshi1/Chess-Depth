@@ -7,7 +7,7 @@ format: "PDF · 16 pages + PGN"
 size: "31 lines"
 price_inr: ""
 price_usd: "7.99"
-gumroad: ""
+gumroad: "https://sourabhjosh.gumroad.com/l/italian-repertoire"
 glyph: "♔"
 description: "A simple, sound White repertoire built around the Italian Game, with plans, traps and a PGN file."
 includes:

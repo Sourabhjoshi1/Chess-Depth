@@ -7,7 +7,7 @@ format: "PDF · 41 pages"
 size: "100 puzzles"
 price_inr: ""
 price_usd: "6.99"
-gumroad: ""
+gumroad: "https://sourabhjosh.gumroad.com/l/checkmate-patterns"
 glyph: "♚"
 description: "Ten mating patterns every player should recognise, each explained and then trained with ten puzzles."
 includes:

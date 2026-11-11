@@ -7,7 +7,7 @@ format: "PDF · 31 pages"
 size: "90 daily sessions"
 price_inr: ""
 price_usd: "4.99"
-gumroad: ""
+gumroad: "https://sourabhjosh.gumroad.com/l/plan-beginner"
 glyph: "♙"
 description: "A day-by-day plan for new players: what to study, which puzzles to solve and how many games to play."
 includes:

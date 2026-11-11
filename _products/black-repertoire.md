@@ -7,7 +7,7 @@ format: "PDF · 15 pages + PGN"
 size: "26 lines"
 price_inr: ""
 price_usd: "9.99"
-gumroad: ""
+gumroad: "https://sourabhjosh.gumroad.com/l/black-repertoire"
 glyph: "♚"
 description: "A solid repertoire for Black against 1.e4 and 1.d4, with clear plans and few sharp lines to memorise."
 includes:

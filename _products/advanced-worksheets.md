@@ -7,7 +7,7 @@ format: "PDF · 17 pages"
 size: "4 worksheets + 36 exercises"
 price_inr: ""
 price_usd: "5.99"
-gumroad: ""
+gumroad: "https://sourabhjosh.gumroad.com/l/advanced-worksheets"
 glyph: "♗"
 description: "Four Level 3 worksheets on positional play, defence, rook endgames and converting an advantage."
 includes:

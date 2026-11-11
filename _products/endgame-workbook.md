@@ -7,7 +7,7 @@ format: "PDF · 18 pages"
 size: "Lessons + 27 exercises"
 price_inr: ""
 price_usd: "7.99"
-gumroad: ""
+gumroad: "https://sourabhjosh.gumroad.com/l/endgame-workbook"
 glyph: "♜"
 description: "King and pawn, rook and minor-piece endgames every player needs, explained and then tested."
 includes:

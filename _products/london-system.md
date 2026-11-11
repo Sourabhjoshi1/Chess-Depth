@@ -7,7 +7,7 @@ format: "PDF · 11 pages + PGN"
 size: "19 lines"
 price_inr: ""
 price_usd: "6.99"
-gumroad: ""
+gumroad: "https://sourabhjosh.gumroad.com/l/london-system"
 glyph: "♕"
 description: "A complete 1.d4 system you can play against almost anything, with the plan against every Black set-up."
 includes:

@@ -7,7 +7,7 @@ format: "PDF · 59 pages"
 size: "150 puzzles"
 price_inr: ""
 price_usd: "7.99"
-gumroad: ""
+gumroad: "https://sourabhjosh.gumroad.com/l/tactics-by-theme"
 glyph: "♛"
 description: "Ten tactical themes, each explained with a model example, then 15 puzzles from easy to hard."
 includes:
