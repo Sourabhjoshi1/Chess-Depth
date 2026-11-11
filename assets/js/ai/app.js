@@ -245,7 +245,7 @@ ui.best.addEventListener("click", async () => {
     const sc = r.score || {}, sign = turn === "w" ? 1 : -1; let verdict;
     if (sc.mate != null) verdict = `${(sc.mate > 0) === (turn === "w") ? "White" : "Black"} mates in ${Math.abs(sc.mate)}`;
     else { const cp = (sc.cp || 0) * sign, a = Math.abs(cp), who = cp > 0 ? "White" : "Black";
-      verdict = (a < 30 ? "The position is equal" : a < 100 ? `${who} is slightly better` : a < 300 ? `${who} is clearly better` : `${who} is winning`) + ` (${cp > 0 ? "+" : ""}${(cp / 100).toFixed(1)})`; }
+      verdict = (a < 30 ? "The position is equal" : a < 100 ? `${who} is slightly better` : a < 300 ? `${who} is clearly better` : `${who} is winning`) + (a < 5 ? " (0.0)" : ` (${cp > 0 ? "+" : ""}${(cp / 100).toFixed(1)})`); }
     ui.bestOut.innerHTML = `Best move: <b>${mv.san}</b> · ${verdict}`;
     clearMarks(); markSquares([mv.from, mv.to], "rgba(22,163,74,.9)");
     track("ai_best_move", {});
