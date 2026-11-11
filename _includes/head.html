@@ -67,6 +67,22 @@
   {%- if site.google_analytics and site.google_analytics != "" %}
   <script async src="https://www.googletagmanager.com/gtag/js?id={{ site.google_analytics }}"></script>
   <script>
+    // Team visits don't count: open any page with ?notrack=1 once per browser (?notrack=0 turns it back on).
+    // Opening the Chess Lab admin page switches it off automatically.
+    (function () {
+      var id = '{{ site.google_analytics }}', on = null;
+      try {
+        if (/[?&]notrack=1/.test(location.search) || location.pathname.indexOf('/lab/admin') === 0) { localStorage.setItem('cd_notrack', '1'); on = true; }
+        if (/[?&]notrack=0/.test(location.search)) { localStorage.removeItem('cd_notrack'); on = false; }
+        if (localStorage.getItem('cd_notrack') === '1') window['ga-disable-' + id] = true;
+      } catch (e) {}
+      if (on !== null && /[?&]notrack=/.test(location.search)) document.addEventListener('DOMContentLoaded', function () {
+        var d = document.createElement('div');
+        d.textContent = on ? 'Analytics is OFF for this browser (team visit). Use ?notrack=0 to turn it back on.' : 'Analytics is ON again for this browser.';
+        d.style.cssText = 'position:fixed;left:50%;bottom:20px;transform:translateX(-50%);background:#1f1b4d;color:#fff;padding:10px 16px;border-radius:8px;font:14px/1.4 sans-serif;z-index:9999';
+        document.body.appendChild(d); setTimeout(function () { d.remove(); }, 6000);
+      });
+    })();
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
