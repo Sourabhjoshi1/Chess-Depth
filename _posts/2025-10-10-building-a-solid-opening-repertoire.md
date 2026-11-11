@@ -59,6 +59,6 @@ There is no "best" opening, only openings that suit *you*. Ask yourself:
 ## Where to explore
 
 - The **Lichess Opening Explorer** shows what masters and club players actually play in any position.
-- Our [Resources page](/resources/#openings) has a quick guide to the most popular openings, with their main ideas.
+- Our [Resources page](/lab/resources/#openings) has a quick guide to the most popular openings, with their main ideas.
 
 A good repertoire grows with you. Start simple, understand the ideas, and add depth only when your games show you need it.

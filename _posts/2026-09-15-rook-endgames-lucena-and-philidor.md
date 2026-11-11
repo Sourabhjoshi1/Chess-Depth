@@ -58,6 +58,6 @@ Black's king is on d8, in front of the pawn. The key is Black's rook on the **si
 
 ## How to practise
 
-Set up both positions on a board (or in the board editor on our [Resources page](/resources/#board-editor)) and play them out against a friend or a coach, **from both sides**, until you can win the Lucena and hold the Philidor without thinking. These ideas come up again and again in real games.
+Set up both positions on a board (or in the board editor on our [Resources page](/lab/resources/#board-editor)) and play them out against a friend or a coach, **from both sides**, until you can win the Lucena and hold the Philidor without thinking. These ideas come up again and again in real games.
 
 Our worksheet *Grinding It in the Endgame* contains 20 rook endgame problems, from basic positions like these to advanced practical endings.

@@ -1,18 +1,22 @@
 ---
-title: "Free Chess Resources, Tools & Guides | ChessDepth Academy"
+title: "Free Chess Resources, Tools & Guides | ChessDepth Chess Lab"
 description: "Free chess study roadmap, Lichess game analyser, board editor, opening guide, endgame checklist, training plans and book list."
-permalink: /resources/
+permalink: /lab/resources/
 redirect_from:
   - /resources.html
+  - /resources/
 page_css: resources
+page_css2: lab
+crumb: Free resources
 head_scripts:
   - src: "https://cdn.jsdelivr.net/npm/chessboard-element@1.2.0/bundled/chessboard-element.bundled.js"
     type: module
 ---
 {%- capture wa %}{% include whatsapp-url.html %}{% endcapture %}{% assign wa = wa | strip -%}
 
+  {% include lab-bar.html %}
   <!-- ============ HERO ============ -->
-  {% include page-hero.html eyebrow="Free resources" title="Everything you need to improve" lead="A study roadmap for your level, tools to analyse your games, opening and endgame guides, training plans and the best books, all free and chosen by our coaches." %}
+  {% include page-hero.html eyebrow="Chess Lab · free for everyone" title="Everything you need to improve" lead="A study roadmap for your level, tools to analyse your games, opening and endgame guides, training plans and the best books, all free and chosen by our coaches." %}
 
   <!-- ============ SECTION NAV ============ -->
   <nav aria-label="Resources sections" class="rs-subnav">
@@ -173,6 +177,7 @@ head_scripts:
         {%- endfor %}
       </div>
       {%- endfor %}
+      <p class="text-center mt-8"><a href="/lab/openings/" class="rs-btn rs-btn-primary"><i class="fas fa-book-open mr-1"></i>Learn these openings move by move in the Lab</a></p>
     </div>
   </section>
 
@@ -201,6 +206,7 @@ head_scripts:
         <div class="rs-card p-5"><p class="font-bold">Smothered mate</p><p class="text-sm text-gray-600 mt-1">A knight mates a king that is surrounded by its own pieces.</p></div>
         <div class="rs-card p-5"><p class="font-bold">Desperado</p><p class="text-sm text-gray-600 mt-1">A piece that will be lost anyway grabs as much as it can first.</p></div>
       </div>
+      <p class="text-center mt-8"><a href="/lab/courses/?cat=tactics" class="rs-btn rs-btn-primary"><i class="fas fa-bolt mr-1"></i>Practise each pattern in the Lab</a></p>
     </div>
   </section>
 
@@ -239,6 +245,7 @@ head_scripts:
         </div>
       </div>
       <p class="text-center mt-5"><span id="eg-progress" class="text-sm font-semibold text-indigo-700"></span> <button type="button" id="eg-reset" class="text-sm text-gray-500 underline ml-2">Reset</button></p>
+      <p class="text-center mt-6"><a href="/lab/endgames/" class="rs-btn rs-btn-primary"><i class="fas fa-chess-king mr-1"></i>Play these endgames against Stockfish in the Lab</a></p>
     </div>
   </section>
 
@@ -376,3 +383,8 @@ head_scripts:
   </section>
 
   <script src="/assets/js/resources.js" defer></script>
+<script type="module">
+  // Show the member's Lab status in the tab bar; this page itself is free for everyone.
+  import { startLabPage } from "/assets/js/lab/shell.js";
+  startLabPage({ publicPage() {} });
+</script>

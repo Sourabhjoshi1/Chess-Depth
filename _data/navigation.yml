@@ -20,11 +20,27 @@
       url: /shop/
       icon: fa-book
       desc: Worksheets, books and study packs
+- title: Chess Lab
+  children:
+    - title: Chess Lab home
+      url: /lab/
+      icon: fa-flask
+      desc: Your training, points and daily goal
+    - title: Courses
+      url: /lab/courses/
+      icon: fa-graduation-cap
+      desc: 64 courses with interactive lessons
+    - title: Puzzles
+      url: /lab/tactics/
+      icon: fa-bolt
+      desc: Tactics trainer, Streak and Rush
+    - title: Free resources
+      url: /lab/resources/
+      icon: fa-toolbox
+      desc: Roadmap, game analyser, guides and books
 - title: Blindfold
   url: /blindfold/
   badge: New
-- title: Resources
-  url: /resources/
 - title: ChessDepth AI
   url: /ai/
   badge: Beta
