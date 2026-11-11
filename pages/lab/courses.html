@@ -1,0 +1,44 @@
+---
+title: "Chess Lab Courses | ChessDepth Academy"
+description: "Every Chess Lab course in one place: 26 opening courses, themed tactics courses, endgame lessons against Stockfish and board-vision drills. Filter by level, see your progress and pick up where you left off."
+permalink: /lab/courses/
+page_css: lab
+ads: false
+crumb: Courses
+---
+{% include lab-bar.html %}
+<section class="cd-wrap lab-page cr-page">
+  <div class="cr-head">
+    <div>
+      <h1 class="lab-h1">Courses</h1>
+      <p class="cr-lede">Openings, tactics, endgames and board vision. Pick a course and the Lab remembers how far you got.</p>
+    </div>
+    <div class="cr-summary" id="cr-summary" aria-live="polite"></div>
+  </div>
+
+  <div class="cr-cats" id="cr-cats" role="tablist" aria-label="Course categories"></div>
+
+  <div class="cr-bar">
+    <div class="cr-seg" role="group" aria-label="Level" id="cr-levels">
+      <button type="button" class="is-active" data-level="">All levels</button>
+      <button type="button" data-level="Beginner">Beginner</button>
+      <button type="button" data-level="Intermediate">Intermediate</button>
+      <button type="button" data-level="Advanced">Advanced</button>
+    </div>
+    <div class="cr-seg" role="group" aria-label="Status" id="cr-status">
+      <button type="button" class="is-active" data-status="">All</button>
+      <button type="button" data-status="new">Not started</button>
+      <button type="button" data-status="progress">In progress</button>
+      <button type="button" data-status="done">Completed</button>
+    </div>
+    <label class="cr-search"><i class="fas fa-search" aria-hidden="true"></i><input type="search" id="cr-q" placeholder="Search courses…" aria-label="Search courses"></label>
+    <div class="cr-seg cr-view" role="group" aria-label="View">
+      <button type="button" class="is-active" data-view="list" aria-label="List view"><i class="fas fa-bars"></i></button>
+      <button type="button" data-view="grid" aria-label="Grid view"><i class="fas fa-th-large"></i></button>
+    </div>
+  </div>
+
+  <p class="cr-count" id="cr-count"></p>
+  <div class="cr-list" id="cr-list"><p class="lab-loading"><i class="fas fa-circle-notch fa-spin"></i> Loading courses…</p></div>
+</section>
+<script type="module" src="/assets/js/lab/courses.js?v={{ site.time | date: "%s" }}"></script>
