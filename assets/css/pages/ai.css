@@ -151,3 +151,17 @@ html.dark .ai-ghost-btn, html.dark .ai-turn button[aria-pressed], html.dark .ai-
 html.dark .ai-turn button[aria-pressed="true"] { background: #6366f1; border-color: #6366f1; }
 html.dark .ai-fen-row input { background: #0f172a; color: #f1f5f9; border-color: #334155; }
 html.dark .ai-examples button { background: rgba(99,102,241,.15); border-color: #4f46e5; color: #c7d2fe; }
+
+/* v0.3: best move, legality note, camera, training example */
+.ai-cam { display: none; margin-left: .5rem; }
+@media (pointer: coarse) { .ai-cam { display: inline-flex; } }
+.ai-issue { font-size: .85rem; color: #b91c1c; background: #fef2f2; border-radius: .45rem; padding: .45rem .7rem; margin-top: .5rem; }
+.ai-issue.hidden { display: none; }
+.ai-ghost-btn:disabled { opacity: .5; cursor: not-allowed; }
+.ai-best-out { font-size: .92rem; color: #111827; margin-top: .5rem; min-height: 1.3em; } .ai-best-out b { color: #15803d; }
+.ai-send { margin-top: .8rem; border: 1px solid #c7d2fe; background: #eef2ff; border-radius: .6rem; padding: .9rem 1rem; font-size: .88rem; color: #374151; display: grid; gap: .6rem; justify-items: start; }
+.ai-send.hidden { display: none; }
+.ai-send-msg { font-size: .85rem; color: #4b5563; }
+html.dark .ai-issue { background: rgba(239,68,68,.12); color: #fca5a5; }
+html.dark .ai-best-out { color: #e2e8f0; } html.dark .ai-best-out b { color: #86efac; }
+html.dark .ai-send { background: rgba(99,102,241,.14); border-color: #3b4a8a; color: #cbd5e1; }

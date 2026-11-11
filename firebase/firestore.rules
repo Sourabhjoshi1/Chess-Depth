@@ -124,5 +124,15 @@ service cloud.firestore {
         && request.resource.data.count == resource.data.count + 1;
       allow delete: if isAdmin();
     }
+
+    // ChessDepth AI training examples, sent only when a visitor presses "Send the corrected position":
+    // 64 small grey squares (base64) and two 64-character boards. Anyone may add one; only an admin can read them.
+    match /aiExamples/{id} {
+      allow create: if request.resource.data.keys().hasOnly(['v', 'px', 'read', 'fixed', 'wb', 'at'])
+        && request.resource.data.px is string && request.resource.data.px.size() < 120000
+        && request.resource.data.read is string && request.resource.data.read.size() == 64
+        && request.resource.data.fixed is string && request.resource.data.fixed.size() == 64;
+      allow read, delete: if isAdmin();
+    }
   }
 }

@@ -25,28 +25,25 @@ export async function loadModel(base = "/assets/ai/") {
   W = out; return W;
 }
 
-// conv 3x3, padding 1, then ReLU. input [C,H,W] -> [O,H,W]
+// conv 3x3, padding 1, then ReLU. input [C,H,W] -> [O,H,W]. The input is copied into a zero-padded
+// buffer first, so the inner loop has no edge checks.
 function conv(x, C, H, Wd, w, b, O) {
+  const Wp = Wd + 2, Hp = H + 2, xp = new Float32Array(C * Hp * Wp);
+  for (let c = 0; c < C; c++) for (let r = 0; r < H; r++) xp.set(x.subarray(c * H * Wd + r * Wd, c * H * Wd + (r + 1) * Wd), c * Hp * Wp + (r + 1) * Wp + 1);
   const y = new Float32Array(O * H * Wd);
   for (let o = 0; o < O; o++) {
-    const yo = o * H * Wd, bo = b[o];
-    for (let i = 0; i < H * Wd; i++) y[yo + i] = bo;
+    const yo = o * H * Wd; y.fill(b[o], yo, yo + H * Wd);
     for (let c = 0; c < C; c++) {
-      const xc = c * H * Wd, wb = (o * C + c) * 9;
+      const xc = c * Hp * Wp, wb = (o * C + c) * 9;
       const k0 = w[wb], k1 = w[wb + 1], k2 = w[wb + 2], k3 = w[wb + 3], k4 = w[wb + 4], k5 = w[wb + 5], k6 = w[wb + 6], k7 = w[wb + 7], k8 = w[wb + 8];
       for (let r = 0; r < H; r++) {
-        const up = r > 0, dn = r < H - 1, row = xc + r * Wd, yr = yo + r * Wd;
-        for (let q = 0; q < Wd; q++) {
-          const lf = q > 0, rt = q < Wd - 1, p = row + q;
-          let s = k4 * x[p];
-          if (lf) s += k3 * x[p - 1]; if (rt) s += k5 * x[p + 1];
-          if (up) { const pu = p - Wd; s += k1 * x[pu]; if (lf) s += k0 * x[pu - 1]; if (rt) s += k2 * x[pu + 1]; }
-          if (dn) { const pd = p + Wd; s += k7 * x[pd]; if (lf) s += k6 * x[pd - 1]; if (rt) s += k8 * x[pd + 1]; }
-          y[yr + q] += s;
+        let p = xc + r * Wp, q = yo + r * Wd;
+        for (const end = q + Wd; q < end; q++, p++) {
+          y[q] += k0 * xp[p] + k1 * xp[p + 1] + k2 * xp[p + 2] + k3 * xp[p + Wp] + k4 * xp[p + Wp + 1] + k5 * xp[p + Wp + 2] + k6 * xp[p + 2 * Wp] + k7 * xp[p + 2 * Wp + 1] + k8 * xp[p + 2 * Wp + 2];
         }
       }
     }
-    for (let i = 0; i < H * Wd; i++) if (y[yo + i] < 0) y[yo + i] = 0;
+    for (let i = yo; i < yo + H * Wd; i++) if (y[i] < 0) y[i] = 0;
   }
   return y;
 }
