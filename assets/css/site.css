@@ -278,3 +278,13 @@ html.dark .cd-faq a { color: #a5b4fc; }
   html.dark .cd-mmore { background: #162032; border-color: #334155; color: #a5b4fc; }
 }
 .cd-foot-bottom { padding-top: 1.5rem; padding-bottom: .5rem; }
+
+/* Student login: a clear button in the top strip, and a larger one in the phone menu */
+.cd-topbar-inner { min-height: 44px; }
+.cd-topbar a[data-account] { font-size: .92rem; font-weight: 600; color: #fff; padding: .32rem .95rem; border: 1px solid var(--cd-brass); border-radius: 999px; gap: .5rem; transition: background-color .15s, color .15s; }
+.cd-topbar a[data-account] i { font-size: 1rem; }
+.cd-topbar a[data-account]:hover { background: var(--cd-brass); color: var(--cd-ink); }
+.cd-topbar a[data-account]:hover i { color: var(--cd-ink); }
+.cd-topbar a.cd-signed-in .cd-acct-img, .cd-topbar a.cd-signed-in .cd-acct-initial { width: 24px; height: 24px; }
+.cd-mobile-login { font-size: 1.02rem; padding-top: .8rem; padding-bottom: .8rem; }
+.cd-mobile-login i { font-size: 1.15rem; }

@@ -1,4 +1,4 @@
-# Roles on the Careers page (/careers/). Delete a role to remove it; set open: false to hide it for a while.
+# Roles in the Careers section of the Contact page (/contact/#careers). Delete a role to remove it; set open: false to hide it for a while.
 # Internships appear first in their own "Winter Internships" section.
 
 internships_heading: "Winter Internships 2026"

@@ -47,5 +47,5 @@ Key facts:
 ## Optional
 
 - [Shop]({{ site.url }}/shop/): all worksheet packs, training plans and opening repertoires.
-- [Careers]({{ site.url }}/careers/): jobs and internships at the academy.
+- [Careers]({{ site.url }}/contact/#careers): jobs and internships at the academy, on the Contact page.
 - [Sitemap]({{ site.url }}/sitemap.xml)

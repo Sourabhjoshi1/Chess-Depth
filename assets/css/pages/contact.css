@@ -49,3 +49,7 @@
         color: #4f46e5; /* indigo-600 */
         transition: transform 0.2s ease-in-out, color 0.2s ease-in-out;
     }
+.ct-jump { text-align: center; margin: -1.2rem 0 0; position: relative; z-index: 2; }
+.ct-jump a { display: inline-flex; align-items: center; gap: .5rem; background: #fff; color: #4338ca; font-weight: 600; font-size: .92rem; border: 1px solid #c7d2fe; border-radius: 999px; padding: .5rem 1.1rem; box-shadow: 0 4px 12px rgba(0,0,0,.08); }
+.ct-jump a:hover { border-color: #6366f1; }
+html.dark .ct-jump a { background: #162032; border-color: #3b4a8a; color: #c7d2fe; }

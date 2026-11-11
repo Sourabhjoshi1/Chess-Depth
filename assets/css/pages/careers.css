@@ -68,3 +68,11 @@ html.dark .cr-apply { background: #6366f1; }
 html.dark .cr-apply-o { background: transparent; color: #c7d2fe; border-color: #475569; }
 html.dark .cr-foot a { color: #a5b4fc; }
 .cr-apply.hidden, .cr-how.hidden, .cr-closed.hidden { display: none; }
+
+/* Careers section inside the Contact page */
+.cr-interns > .cr-careers-head { padding-bottom: 0; text-align: center; }
+.cr-careers-head + span + .cd-wrap, .cr-interns > .cr-careers-head ~ .cd-wrap { padding-top: 2rem; }
+.cr-eyebrow { font-size: .8rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: #6366f1; }
+.cr-h2-big { font-size: 2.25rem; margin-top: .3rem; }
+.cr-careers-head .cr-intro { max-width: 44rem; margin-left: auto; margin-right: auto; }
+.cr-in-contact { border-top: 1px solid #e5e7eb; scroll-margin-top: calc(var(--cd-header-h, 76px) + 8px); }

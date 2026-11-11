@@ -1,0 +1,110 @@
+{%- assign roles = site.data.jobs.roles | where: "open", true -%}
+{%- assign interns = roles | where: "internship", true -%}
+{%- assign others = roles | where_exp: "r", "r.internship != true" -%}
+{%- assign mail = site.contact.careers_email | default: site.contact.email -%}
+{%- assign cc = "" -%}{%- if site.contact.careers_cc != "" and site.contact.careers_cc -%}{%- capture cc %}cc={{ site.contact.careers_cc }}&amp;{% endcapture -%}{%- endif -%}
+
+{%- if interns.size > 0 %}
+<section class="cr-interns cr-in-contact" id="careers">
+  <div class="cd-wrap cr-careers-head">
+    <p class="cr-eyebrow">Careers at ChessDepth</p>
+    <h2 class="cr-h2 cr-h2-big">Join our team</h2>
+    <p class="cr-intro">Help us build the way chess is taught. We're hiring winter interns in product management and quality, as well as coaches and content creators.</p>
+  </div>
+  <span id="internships"></span>
+  <div class="cd-wrap">
+    <p class="cr-badge"><span class="cr-pulse"></span> Now hiring · Applications open</p>
+    <h2 class="cr-h2">{{ site.data.jobs.internships_heading }}</h2>
+    <p class="cr-intro">{{ site.data.jobs.internships_intro }}</p>
+    <div class="cr-intern-grid">
+      {%- for r in interns %}
+      {%- capture subj %}Application: {{ r.title }} (Winter 2026){% endcapture -%}
+      {%- capture bodytxt %}Name:
+College and course / current role:
+LinkedIn or CV link:
+Why ChessDepth, and why this internship (3-4 lines):
+Lichess or Chess.com username (optional):
+{% endcapture -%}
+      <article class="cr-card cr-intern" id="{{ r.id }}" data-apply-by="{{ r.apply_by }}">
+        <div class="cr-card-top">
+          <span class="cr-tag">Internship</span>
+          <h3 class="cr-title">{{ r.title }}</h3>
+          <p class="cr-summary">{{ r.summary }}</p>
+          <ul class="cr-meta">
+            <li><i class="fas fa-calendar-alt"></i> Starts {{ r.start }}</li>
+            <li><i class="fas fa-hourglass-half"></i> {{ r.duration }}</li>
+            <li><i class="fas fa-laptop-house"></i> Remote</li>
+            {%- if r.apply_by %}<li class="cr-deadline"><i class="fas fa-flag-checkered"></i> Apply by {{ r.apply_by | date: "%-d %B %Y" }}</li>{% endif %}
+          </ul>
+        </div>
+        <div class="cr-cols">
+          <div><h4>What you'll do</h4><ul class="cr-list">{% for x in r.you_will %}<li>{{ x }}</li>{% endfor %}</ul></div>
+          <div><h4>Who we're looking for</h4><ul class="cr-list">{% for x in r.looking_for %}<li>{{ x }}</li>{% endfor %}</ul>
+            {%- if r.bonus %}<p class="cr-bonus"><b>Nice to have:</b> {{ r.bonus | join: "; " }}</p>{% endif %}</div>
+        </div>
+        <div class="cr-actions">
+          <a class="cr-apply cd-apply" data-role="{{ r.title | escape }}" href="mailto:{{ mail }}?{{ cc }}subject={{ subj | uri_escape }}&amp;body={{ bodytxt | uri_escape }}"><i class="fas fa-paper-plane"></i> Apply now</a>
+          <span class="cr-closed hidden">Applications for this internship have closed.</span>
+          <span class="cr-how">Opens an email to {{ mail }} with a short form to fill in.</span>
+        </div>
+      </article>
+      {%- endfor %}
+    </div>
+    <div class="cr-process">
+      <h3>How it works</h3>
+      <ol>
+        <li><b>1</b><div><h4>Apply by email</h4><p>Fill in the short form in the email and attach your CV.</p></div></li>
+        <li><b>2</b><div><h4>Short task</h4><p>Shortlisted applicants get a small take-home task related to the role.</p></div></li>
+        <li><b>3</b><div><h4>Video call</h4><p>A 30-minute conversation with the founders.</p></div></li>
+        <li><b>4</b><div><h4>Start in December</h4><p>You join the team and start on a real project from week one.</p></div></li>
+      </ol>
+    </div>
+  </div>
+</section>
+{%- endif %}
+
+<section id="open-positions" class="cr-section">
+  <div class="cd-wrap">
+    <h2 class="cr-h2">Other open roles</h2>
+    <p class="cr-intro">We're always looking for people who share our love for chess and our commitment to great teaching.</p>
+    <div class="cr-grid">
+      {%- for r in others %}
+      {%- capture subj %}Application: {{ r.title }}{% endcapture -%}
+      <article class="cr-card" id="{{ r.id }}">
+        <h3 class="cr-title cr-title-sm">{{ r.title }}</h3>
+        <p class="cr-type">{{ r.type }}</p>
+        <p class="cr-summary">{{ r.summary }}</p>
+        <h4>Requirements</h4>
+        <ul class="cr-list">{% for x in r.looking_for %}<li>{{ x }}</li>{% endfor %}</ul>
+        <a class="cr-apply cr-apply-o cd-apply" data-role="{{ r.title | escape }}" href="mailto:{{ mail }}?{{ cc }}subject={{ subj | uri_escape }}">Apply now</a>
+      </article>
+      {%- endfor %}
+    </div>
+    <p class="cr-foot">Don't see a role that fits? Send your CV and a short note on how you'd contribute to <a href="mailto:{{ mail }}?{{ cc }}subject={{ 'General application' | uri_escape }}">{{ mail }}</a>.</p>
+  </div>
+</section>
+
+{%- if interns.size > 0 %}
+<script type="application/ld+json">
+[{%- for r in interns %}
+{%- capture jd %}<p>{{ r.summary }}</p><p>Starts {{ r.start }}, {{ r.duration }}, remote.</p><p>What you'll do:</p><ul>{% for x in r.you_will %}<li>{{ x }}</li>{% endfor %}</ul><p>Who we're looking for:</p><ul>{% for x in r.looking_for %}<li>{{ x }}</li>{% endfor %}</ul>{% endcapture %}
+{"@context":"https://schema.org","@type":"JobPosting","title":{{ r.title | jsonify }},
+ "description":{{ jd | jsonify }},
+ "datePosted":"{{ r.posted }}","validThrough":"{{ r.apply_by }}T23:59:59+05:30","employmentType":"INTERN",
+ "hiringOrganization":{"@type":"Organization","name":"{{ site.title }}","sameAs":"{{ site.url }}/","logo":"{{ '/assets/images/icon-512.png' | absolute_url }}"},
+ "jobLocationType":"TELECOMMUTE","applicantLocationRequirements":{"@type":"Country","name":"India"},
+ "directApply":false}{% unless forloop.last %},{% endunless %}
+{%- endfor %}]
+</script>
+{%- endif %}
+<script>
+  // Hide the Apply button once an internship's deadline has passed
+  document.querySelectorAll("[data-apply-by]").forEach(function (card) {
+    var p = (card.getAttribute("data-apply-by") || "").split("-").map(Number);
+    if (p.length === 3 && Date.now() > new Date(p[0], p[1] - 1, p[2], 23, 59, 59).getTime()) {
+      card.querySelector(".cr-apply").classList.add("hidden");
+      card.querySelector(".cr-how").classList.add("hidden");
+      card.querySelector(".cr-closed").classList.remove("hidden");
+    }
+  });
+</script>

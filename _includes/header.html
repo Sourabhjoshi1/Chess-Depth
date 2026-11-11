@@ -7,7 +7,6 @@
         <a href="mailto:{{ site.contact.email }}"><i class="far fa-envelope"></i>{{ site.contact.email }}</a>
       </p>
       <p class="cd-topbar-links">
-        <a href="/careers/"{% if page.url contains '/careers/' %} aria-current="page"{% endif %}>Careers</a>
         <a href="/student/" data-account{% if page.url == '/student/' %} aria-current="page"{% endif %}><i class="far fa-user-circle"></i>Student login</a>
         {{ theme_btn }}
       </p>
@@ -60,7 +59,6 @@
         <a href="{{ item.url }}"{% if page.url contains item.url %} aria-current="page"{% endif %}>{{ item.title }}{% if item.badge %}<span class="cd-soon">{{ item.badge }}</span>{% endif %}</a>
         {%- endif %}
         {%- endfor %}
-        <a href="/careers/"{% if page.url contains '/careers/' %} aria-current="page"{% endif %}>Careers</a>
         <div class="cd-mobile-actions">
           <a href="/student/" class="cd-mobile-login" data-account><i class="far fa-user-circle"></i>Student login</a>
           <a href="{{ wa }}" target="_blank" rel="noopener noreferrer" class="cd-hdr-cta">Book a free demo</a>
