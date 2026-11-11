@@ -1,12 +1,13 @@
-# Article views recorded by Google Analytics before the live read counter started (1 Jan 2025 - 9 Nov 2026).
+# Article views recorded by Google Analytics before the live read counter started (1 Jan 2025 - 11 Nov 2026).
 # The live count from Firestore (postViews) is added on top. Keys are post slugs.
+anuj-shrivatri-india-100th-grandmaster: 35
+introducing-chessdepth-ai: 12
 cct-method-checks-captures-threats: 11
-introducing-chessdepth-ai: 10
+how-to-play-blindfold-chess: 8
+use-ai-and-modern-tools-to-improve-at-chess: 7
 mastering-basic-chess-tactics: 6
+chess-for-kids-a-parents-guide: 5
 how-to-analyse-your-own-games: 5
-use-ai-and-modern-tools-to-improve-at-chess: 6
-chess-for-kids-a-parents-guide: 4
-how-to-play-blindfold-chess: 4
 rook-endgames-lucena-and-philidor: 4
 building-a-solid-opening-repertoire: 3
 importance-of-positional-play: 3
