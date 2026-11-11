@@ -4,9 +4,13 @@ import { startLabPage, esc } from "./shell.js";
 import { puzzlesNear } from "./puzzles.js";
 
 const CATS = [
-  ["", "fa-star", "All courses"], ["openings", "fa-chess-rook", "Openings"], ["tactics", "fa-bolt", "Tactics"],
+  ["", "fa-star", "All courses"], ["basics", "fa-chess-pawn", "Basics"], ["thinking", "fa-brain", "Chess thinking"], ["openings", "fa-chess-rook", "Openings"],
+  ["tactics", "fa-bolt", "Tactics"], ["strategy", "fa-chess-knight", "Strategy"], ["pawns", "fa-chess-board", "Pawn structures"],
   ["endgames", "fa-chess-king", "Endgames"], ["vision", "fa-th", "Board vision"],
 ];
+const LEVELS = ["Beginner", "Intermediate", "Advanced"];
+// "Recommended" order: a sensible path through the Lab, beginners first.
+const CAT_ORDER = { basics: 0, thinking: 1, tactics: 2, strategy: 3, openings: 4, pawns: 5, endgames: 6, vision: 7 };
 const TACTICS = [
   ["mateIn1", "Mate in one", "Beginner", "Spot the checkmate in a single move. The first pattern every player should see instantly."],
   ["hangingPiece", "Free pieces", "Beginner", "Find the undefended piece and take it, and learn to notice when your own pieces hang."],
@@ -29,17 +33,40 @@ const GOAL = 20; // puzzles solved cleanly to complete a tactics course
 
 startLabPage({ publicPage: (st, prog) => render(st, prog) });
 
-let state = { cat: "", level: "", status: "", q: "", view: "list" }, all = null, lastProg = null;
+let state = { cat: "", level: "", status: "", q: "", view: "list", sort: "rec" }, all = null, lastProg = null;
 try { const v = localStorage.getItem("cd-cr-view"); if (v === "grid") state.view = "grid"; } catch (e) { /* storage off */ }
-try { const p = new URLSearchParams(location.search); if (CATS.some(([c]) => c && c === p.get("cat"))) state.cat = p.get("cat"); } catch (e) { /* ignore */ }
+try {
+  const p = new URLSearchParams(location.search);
+  if (CATS.some(([c]) => c && c === p.get("cat"))) state.cat = p.get("cat");
+  if (LEVELS.includes(p.get("level"))) state.level = p.get("level");
+  if (["new", "progress", "done"].includes(p.get("status"))) state.status = p.get("status");
+  if (["rec", "level", "short", "az"].includes(p.get("sort"))) state.sort = p.get("sort");
+  if (p.get("q")) state.q = p.get("q").slice(0, 60);
+} catch (e) { /* ignore */ }
+function syncUrl() {
+  const p = new URLSearchParams();
+  ["cat", "level", "status", "q"].forEach((k) => state[k] && p.set(k, state[k]));
+  if (state.sort !== "rec") p.set("sort", state.sort);
+  const qs = p.toString(); history.replaceState(null, "", location.pathname + (qs ? "?" + qs : ""));
+}
 
 async function build(prog) {
-  const [ops, egs, orig] = await Promise.all([
+  const [ops, egs, orig, lessons] = await Promise.all([
     fetch("/assets/lab/openings.json").then((r) => r.json()).then((d) => d.courses),
     fetch("/assets/lab/endgames.json").then((r) => r.json()).then((d) => d.lessons),
     fetch("/assets/lab/originals.json").then((r) => r.json()).then((d) => d.puzzles).catch(() => []),
+    fetch("/assets/lab/lessons.json").then((r) => r.json()).then((d) => d.courses),
   ]);
   const list = [];
+  // Lesson courses: explanation, board and a question or move in every lesson.
+  lessons.forEach((c) => {
+    const n = c.lessons.length, first = c.lessons.find((l) => l.move) || c.lessons[0];
+    list.push({ id: "ln-" + c.id, cat: c.cat, title: c.title, desc: c.desc, level: c.level, fen: first.fen, flip: first.fen.split(" ")[1] === "b",
+      units: n, unitName: "lesson", meta: "Interactive lessons", mins: c.mins, href: `/lab/learn/?c=${c.id}`, isNew: true,
+      progress: (p) => { const r = p && p.lessons && p.lessons[c.id]; return r ? Math.min(n, (r.done || []).length) : 0; },
+      started: (p) => !!(p && p.lessons && p.lessons[c.id] && (p.lessons[c.id].done || []).length),
+      last: (p) => (p && p.lessons && p.lessons[c.id] && p.lessons[c.id].last) || 0 });
+  });
   const sideLabel = { white: "As White", black_e4: "As Black vs 1.e4", black_d4: "As Black vs 1.d4" };
   ops.forEach((c) => {
     const n = c.line.length;
@@ -112,11 +139,29 @@ function draw(st, prog) {
   const p = st.user && st.access ? prog : null, member = !!p;
   const counts = {}; all.forEach((c) => (counts[c.cat] = (counts[c.cat] || 0) + 1));
   document.getElementById("cr-cats").innerHTML = CATS.map(([k, ic, name]) =>
-    `<button type="button" role="tab" aria-selected="${state.cat === k}" class="cr-cat${state.cat === k ? " is-active" : ""}" data-cat="${k}"><i class="fas ${ic}"></i><b>${name}</b><span>${k ? plural(counts[k] || 0, "course") : all.length + " total"}</span></button>`).join("");
+    `<button type="button" role="tab" aria-selected="${state.cat === k}" class="cr-cat${state.cat === k ? " is-active" : ""}" data-cat="${k}"><i class="fas ${ic}"></i><b>${name}</b><span>${k ? plural(counts[k] || 0, "course") : all.length + " total"}${member ? ` · ${all.filter((c) => (!k || c.cat === k) && statusOf(c, p).key === "done").length} done` : ""}</span></button>`).join("");
   const q = state.q.trim().toLowerCase();
-  const rows = all.map((c) => ({ c, s: statusOf(c, p) })).filter(({ c, s }) =>
+  const lv = (c) => LEVELS.indexOf(c.level);
+  const sorters = {
+    rec: (a, b) => lv(a.c) - lv(b.c) || CAT_ORDER[a.c.cat] - CAT_ORDER[b.c.cat],
+    level: (a, b) => lv(a.c) - lv(b.c) || a.c.title.localeCompare(b.c.title),
+    short: (a, b) => a.c.mins - b.c.mins, az: (a, b) => a.c.title.localeCompare(b.c.title),
+  };
+  const everything = all.map((c, k) => ({ c, s: statusOf(c, p), k }));
+  // Continue learning: courses in progress, the most nearly finished first.
+  const cont = document.getElementById("cr-continue");
+  const going2 = everything.filter((r) => r.s.key === "progress").sort((a, b) => (b.c.last ? b.c.last(p) : 0) - (a.c.last ? a.c.last(p) : 0) || b.s.n / b.c.units - a.s.n / a.c.units).slice(0, 3);
+  const next = !going2.length && member ? everything.filter((r) => r.s.key === "new").sort(sorters.rec)[0] : null;
+  cont.classList.toggle("hidden", !(member && (going2.length || next)));
+  if (member && (going2.length || next)) {
+    const cards = going2.length ? going2 : [next];
+    cont.innerHTML = `<h2 class="cr-h2">${going2.length ? "Continue learning" : "Start here"}</h2><div class="cr-cont">${cards.map(({ c, s }) =>
+      `<a class="cr-cont-item" href="${c.href}">${thumb(c)}<span class="cr-body"><span class="cr-title">${esc(c.title)}</span><span class="cr-meta"><span class="cr-step">${s.n ? `${c.unitName[0].toUpperCase() + c.unitName.slice(1)} ${Math.min(c.units, s.n + 1)} of ${c.units}` : `${plural(c.units, c.unitName)} · ~${c.mins} min`}</span></span>
+        <span class="cr-bar-track" aria-hidden="true"><span style="width:${Math.round((Math.min(s.n, c.units) / c.units) * 100)}%"></span></span></span><span class="cr-resume">${s.n ? "Resume" : "Start"} <i class="fas fa-arrow-right"></i></span></a>`).join("")}</div>`;
+  }
+  const rows = everything.filter(({ c, s }) =>
     (!state.cat || c.cat === state.cat) && (!state.level || c.level === state.level) && (!state.status || s.key === state.status) &&
-    (!q || (c.title + " " + c.desc + " " + c.meta).toLowerCase().includes(q)));
+    (!q || (c.title + " " + c.desc + " " + c.meta).toLowerCase().includes(q))).sort((a, b) => sorters[state.sort](a, b) || a.k - b.k);
   document.getElementById("cr-count").textContent = `${rows.length} of ${all.length} courses`;
   const done = all.filter((c) => statusOf(c, p).key === "done").length, going = all.filter((c) => statusOf(c, p).key === "progress").length;
   document.getElementById("cr-summary").innerHTML = member
@@ -124,14 +169,15 @@ function draw(st, prog) {
     : `<i class="fas fa-lock"></i><span><b>Sign in to track progress</b><small>Free during the launch offer</small></span>`;
   const list = document.getElementById("cr-list");
   list.className = "cr-list" + (state.view === "grid" ? " cr-grid" : "");
-  if (!rows.length) { list.innerHTML = `<p class="cr-empty">No courses match. Try another level or clear the search.</p>`; return; }
+  syncUrl();
+  if (!rows.length) { list.innerHTML = `<p class="cr-empty">No courses match. <button type="button" class="cr-clear" id="cr-clear">Clear the filters</button></p>`; return; }
   const catName = Object.fromEntries(CATS.map(([k, , n]) => [k, n]));
   list.innerHTML = rows.map(({ c, s }) => {
     const prog = member && s.key === "progress" ? `<span class="cr-step">${c.unitName[0].toUpperCase() + c.unitName.slice(1)} ${Math.min(c.units, s.n + 1)} of ${c.units}</span>` : `<span>${plural(c.units, c.unitName)}</span>`;
     const badge = !member ? (c.external ? `<span class="cr-badge cr-free">Free</span>` : `<span class="cr-badge">Members</span>`)
       : s.key === "done" ? `<span class="cr-badge cr-done"><i class="fas fa-check"></i> Completed</span>` : s.key === "progress" ? `<span class="cr-badge cr-going">In progress</span>` : `<span class="cr-badge cr-start">Start</span>`;
     const bar = member && s.n ? `<span class="cr-bar-track" aria-hidden="true"><span style="width:${Math.round((Math.min(s.n, c.units) / c.units) * 100)}%"></span></span>` : "";
-    return `<a class="cr-item" href="${c.href}">${thumb(c)}<span class="cr-body"><span class="cr-title">${esc(c.title)}</span><span class="cr-desc">${esc(c.desc)}</span>
+    return `<a class="cr-item" href="${c.href}">${thumb(c)}<span class="cr-body"><span class="cr-title">${esc(c.title)}${c.isNew ? ' <span class="lab-new">New</span>' : ""}</span><span class="cr-desc">${esc(c.desc)}</span>
       <span class="cr-meta"><span class="cr-tag cr-tag-${c.cat}">${catName[c.cat]}</span><span class="cr-tag cr-lv-${c.level.toLowerCase()}">${c.level}</span>${prog}<span>~${c.mins} min</span></span>${bar}</span>
       <span class="cr-end">${badge}<i class="fas fa-chevron-right" aria-hidden="true"></i></span></a>`;
   }).join("");
@@ -157,6 +203,16 @@ async function render(st, prog) {
     document.querySelectorAll("#cr-viewseg button").forEach((x) => x.classList.toggle("is-active", x.dataset.view === state.view));
     document.getElementById("cr-cats").addEventListener("click", (e) => { const b = e.target.closest("[data-cat]"); if (!b) return; state.cat = b.dataset.cat; redraw(); });
     document.getElementById("cr-q").addEventListener("input", (e) => { state.q = e.target.value; redraw(); });
+    document.getElementById("cr-q").value = state.q;
+    const sortEl = document.getElementById("cr-sort"); sortEl.value = state.sort;
+    sortEl.addEventListener("change", () => { state.sort = sortEl.value; redraw(); });
+    [["cr-levels", "level"], ["cr-status", "status"]].forEach(([id, key]) => document.querySelectorAll(`#${id} button`).forEach((x) => x.classList.toggle("is-active", (x.dataset[key] || "") === state[key])));
+    document.getElementById("cr-list").addEventListener("click", (e) => {
+      if (!e.target.closest("#cr-clear")) return;
+      state.level = ""; state.status = ""; state.q = ""; state.cat = ""; document.getElementById("cr-q").value = "";
+      [["cr-levels", "level"], ["cr-status", "status"]].forEach(([id, key]) => document.querySelectorAll(`#${id} button`).forEach((x) => x.classList.toggle("is-active", !x.dataset[key])));
+      redraw();
+    });
   }
   draw(st, prog);
 }

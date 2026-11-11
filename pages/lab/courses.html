@@ -1,6 +1,6 @@
 ---
 title: "Chess Lab Courses | ChessDepth Academy"
-description: "Every Chess Lab course in one place: 26 opening courses, themed tactics courses, endgame lessons against Stockfish and board-vision drills. Filter by level, see your progress and pick up where you left off."
+description: "Every Chess Lab course in one place: interactive lessons on chess thinking, strategy, pawn structures and checkmate patterns, 26 opening courses, tactics by theme, endgames against Stockfish and board-vision drills."
 permalink: /lab/courses/
 page_css: lab
 ads: false
@@ -11,10 +11,12 @@ crumb: Courses
   <div class="cr-head">
     <div>
       <h1 class="lab-h1">Courses</h1>
-      <p class="cr-lede">Openings, tactics, endgames and board vision. Pick a course and the Lab remembers how far you got.</p>
+      <p class="cr-lede">Short interactive lessons and training courses, from the rules to rook endgames. Pick a course and the Lab remembers how far you got.</p>
     </div>
     <div class="cr-summary" id="cr-summary" aria-live="polite"></div>
   </div>
+
+  <div class="cr-continue hidden" id="cr-continue"></div>
 
   <div class="cr-cats" id="cr-cats" role="tablist" aria-label="Course categories"></div>
 
@@ -32,6 +34,9 @@ crumb: Courses
       <button type="button" data-status="done">Completed</button>
     </div>
     <label class="cr-search"><i class="fas fa-search" aria-hidden="true"></i><input type="search" id="cr-q" placeholder="Search courses…" aria-label="Search courses"></label>
+    <label class="cr-sort"><span class="sr-only">Sort by</span><select id="cr-sort" aria-label="Sort courses">
+      <option value="rec">Recommended order</option><option value="level">Easiest first</option><option value="short">Shortest first</option><option value="az">A to Z</option>
+    </select></label>
     <div class="cr-seg cr-view" role="group" aria-label="View">
       <button type="button" class="is-active" data-view="list" aria-label="List view"><i class="fas fa-bars"></i></button>
       <button type="button" data-view="grid" aria-label="Grid view"><i class="fas fa-th-large"></i></button>

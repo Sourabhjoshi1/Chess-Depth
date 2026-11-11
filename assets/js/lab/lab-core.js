@@ -60,11 +60,11 @@ function blankProgress() {
   return { v: 1, points: 0, week: { key: weekKey(), points: 0 }, streak: { last: null, count: 0, best: 0 },
     puzzle: { rating: 1000, solved: 0, attempted: 0, cleanRun: 0, bestRun: 0, byTheme: {}, history: [], seen: [] },
     openings: {}, log: [], pstreak: { best: 0, runs: 0, last: 0, total: 0, history: [], seen: [] },
-    rush: { best3: 0, best5: 0, runs: 0, history: [] }, coords: { best: {}, runs: 0 }, endgames: {}, days: {}, goal: 50 };
+    rush: { best3: 0, best5: 0, runs: 0, history: [] }, coords: { best: {}, runs: 0 }, endgames: {}, lessons: {}, days: {}, goal: 50 };
 }
 function normalise(p) {
   const b = blankProgress(); p = p || {};
-  const out = { ...b, ...p, puzzle: { ...b.puzzle, ...(p.puzzle || {}) }, streak: { ...b.streak, ...(p.streak || {}) }, pstreak: { ...b.pstreak, ...(p.pstreak || {}) }, rush: { ...b.rush, ...(p.rush || {}) }, coords: { ...b.coords, ...(p.coords || {}) }, endgames: p.endgames || {}, days: p.days || {}, week: { ...b.week, ...(p.week || {}) }, openings: p.openings || {}, log: p.log || [] };
+  const out = { ...b, ...p, puzzle: { ...b.puzzle, ...(p.puzzle || {}) }, streak: { ...b.streak, ...(p.streak || {}) }, pstreak: { ...b.pstreak, ...(p.pstreak || {}) }, rush: { ...b.rush, ...(p.rush || {}) }, coords: { ...b.coords, ...(p.coords || {}) }, endgames: p.endgames || {}, lessons: p.lessons || {}, days: p.days || {}, week: { ...b.week, ...(p.week || {}) }, openings: p.openings || {}, log: p.log || [] };
   if (out.week.key !== weekKey()) out.week = { key: weekKey(), points: 0 };
   return out;
 }

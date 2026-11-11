@@ -1,0 +1,39 @@
+---
+title: "Lessons | ChessDepth Chess Lab"
+description: "Short interactive chess lessons in the ChessDepth Chess Lab: read the idea, see it on the board, then answer a question or play the move yourself."
+permalink: /lab/learn/
+page_css: lab
+ads: false
+crumb: Lesson
+head_scripts:
+  - src: "https://cdn.jsdelivr.net/npm/chessboard-element@1.2.0/bundled/chessboard-element.bundled.js"
+    type: module
+---
+{% include lab-bar.html %}
+<section class="cd-wrap lab-page">
+  <div id="lab-gate" class="lab-gate"><p class="lab-loading"><i class="fas fa-circle-notch fa-spin"></i> Loading…</p></div>
+  <div id="lab-app" class="hidden">
+    <p class="ln-back"><a href="/lab/courses/"><i class="fas fa-arrow-left"></i> All courses</a></p>
+    <div class="tt-layout">
+      <div class="tt-board-col">
+        <chess-board id="ln-board" class="lab-board" draggable-pieces></chess-board>
+      </div>
+      <aside class="tt-side ln-side">
+        <p class="ln-course" id="ln-course"></p>
+        <div class="ln-dots" id="ln-dots" role="tablist" aria-label="Lessons"></div>
+        <h1 class="lab-h1 ln-title" id="ln-title"></h1>
+        <p class="ln-text" id="ln-text"></p>
+        <div id="ln-task" class="ln-task"></div>
+        <div id="ln-feedback" class="op-status hidden" aria-live="polite"></div>
+        <div class="tt-actions ln-actions">
+          <button type="button" id="ln-prev" class="lab-btn-o"><i class="fas fa-arrow-left"></i>Back</button>
+          <button type="button" id="ln-hint" class="lab-btn-o hidden"><i class="far fa-lightbulb"></i>Hint</button>
+          <button type="button" id="ln-reset" class="lab-btn-o hidden"><i class="fas fa-redo"></i>Reset</button>
+          <button type="button" id="ln-next" class="lab-btn">Next <i class="fas fa-arrow-right"></i></button>
+        </div>
+        <p class="tt-points-note">Points: 3 for each lesson you finish for the first time, and 20 for completing a course. Keys: <kbd>←</kbd> <kbd>→</kbd> to move between lessons.</p>
+      </aside>
+    </div>
+  </div>
+</section>
+<script type="module" src="/assets/js/lab/learn.js?v={{ site.time | date: "%s" }}"></script>

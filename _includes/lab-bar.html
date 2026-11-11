@@ -3,7 +3,7 @@
   <div class="cd-wrap lab-bar-inner">
     <nav class="lab-tabs" aria-label="Chess Lab">
       <a href="/lab/" {% if page.url == '/lab/' %}aria-current="page"{% endif %}><i class="fas fa-flask"></i><span>Chess Lab</span></a>
-      <a href="/lab/courses/" {% if page.url == '/lab/courses/' %}aria-current="page"{% endif %}><i class="fas fa-graduation-cap"></i><span>Courses</span></a>
+      <a href="/lab/courses/" {% if page.url == '/lab/courses/' or page.url == '/lab/learn/' %}aria-current="page"{% endif %}><i class="fas fa-graduation-cap"></i><span>Courses</span></a>
       <a href="/lab/tactics/" {% if page.url == '/lab/tactics/' %}aria-current="page"{% endif %}><i class="fas fa-bolt"></i><span>Tactics</span></a>
       <a href="/lab/streak/" {% if page.url == '/lab/streak/' %}aria-current="page"{% endif %}><i class="fas fa-fire-alt"></i><span>Streak</span></a>
       <a href="/lab/rush/" {% if page.url == '/lab/rush/' %}aria-current="page"{% endif %}><i class="fas fa-stopwatch"></i><span>Rush</span></a>

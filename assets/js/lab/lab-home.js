@@ -19,6 +19,8 @@ async function today(st, prog) {
   const weak = Object.entries(P.byTheme || {}).filter(([t, r]) => r.a >= 4 && THEMES[t]).map(([t, r]) => [t, r.s / r.a]).sort((a, b) => a[1] - b[1])[0];
   if (weak && weak[1] < .6) steps.push([`/lab/tactics/?theme=${weak[0]}`, "fa-crosshairs", `Train your weakest theme: ${THEMES[weak[0]]}`, `${Math.round(weak[1] * 100)}% solved cleanly so far.`]);
   const egDone = Object.values(prog.endgames || {}).reduce((n, r) => n + Object.values(r.stars || {}).filter(Boolean).length, 0);
+  const ln = prog.lessons || {};
+  if (!Object.keys(ln).length) steps.push(["/lab/learn/?c=cct", "fa-brain", "New lesson course: Checks, captures and threats", "Seven short lessons, about 12 minutes."]);
   if (egDone < 3) steps.push(["/lab/endgames/", "fa-chess-king", "Learn the queen checkmate", "The first lesson in the new Endgame trainer."]);
   if (!(prog.rush && prog.rush.runs)) steps.push(["/lab/rush/", "fa-stopwatch", "Try Puzzle Rush", "How many can you solve in 3 minutes?"]);
   if (!(prog.coords && prog.coords.runs)) steps.push(["/lab/coordinates/", "fa-th", "Learn the board in 30 seconds", "The Coordinates trainer."]);

@@ -31,7 +31,7 @@ Key facts:
 - [Daily chess puzzle]({{ site.url }}/#daily): a new puzzle from a real game every day, easier on Monday and harder by Sunday.
 - [ChessDepth AI]({{ site.url }}/ai/): turns a chess screenshot or book diagram into a board and FEN, in the browser.
 - [Free chess resources]({{ site.url }}/resources/): study roadmap, Lichess game analyser, board editor, opening guide, endgame checklist and book list.
-- [Chess Lab]({{ site.url }}/lab/): tactics trainer, Puzzle Streak, timed Puzzle Rush, 26 opening courses, an endgame trainer against Stockfish, a coordinates trainer and a progress dashboard.
+- [Chess Lab]({{ site.url }}/lab/): 64 courses including interactive lessons on chess thinking, strategy and pawn structures, a tactics trainer, Puzzle Streak, timed Puzzle Rush, 26 opening courses, an endgame trainer against Stockfish, a coordinates trainer and a progress dashboard.
 
 ## Free downloads (PDF)
 {% assign free = site.products | where: "price_inr", "0" | sort: "order" %}
