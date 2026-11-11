@@ -125,7 +125,7 @@ export function enableDrawing(el, { onClear } = {}) {
   // Redraw when the board is flipped.
   new MutationObserver(render).observe(el, { attributes: true, attributeFilter: ["orientation"] });
   render();
-  const api = { clear, render, get shapes() { return shapes.slice(); } };
+  const api = { clear, render, show(list) { shapes = (list || []).slice(); render(); }, get shapes() { return shapes.slice(); } };
   el.__cdDraw = api;
   return api;
 }

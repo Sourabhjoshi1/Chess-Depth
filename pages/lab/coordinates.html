@@ -1,0 +1,51 @@
+---
+title: "Coordinates Trainer | ChessDepth Chess Lab"
+description: "Learn the chessboard: find and name squares against the clock, from White's and Black's side. A fun 30-second drill for beginners and kids. Part of the ChessDepth Chess Lab."
+permalink: /lab/coordinates/
+page_css: lab
+ads: false
+crumb: Coordinates
+---
+{% include lab-bar.html %}
+<section class="cd-wrap lab-page">
+  <div id="lab-gate" class="lab-gate"><p class="lab-loading"><i class="fas fa-circle-notch fa-spin"></i> Loading…</p></div>
+  <div id="lab-app" class="hidden">
+    <div class="tt-layout">
+      <div class="tt-board-col">
+        <div class="co-wrap">
+          <div id="co-board" class="co-board" role="grid" aria-label="Chessboard"></div>
+          <div id="co-prompt" class="co-prompt" aria-live="assertive"></div>
+        </div>
+        <div id="co-answers" class="co-answers hidden" role="group" aria-label="Answers"></div>
+      </div>
+      <aside class="tt-side">
+        <h1 class="lab-h1">Coordinates trainer</h1>
+        <div class="op-modes co-modes" role="group" aria-label="Drill">
+          <button type="button" class="op-mode is-active" data-drill="find"><i class="fas fa-crosshairs"></i>Find the square</button>
+          <button type="button" class="op-mode" data-drill="name"><i class="fas fa-font"></i>Name the square</button>
+        </div>
+        <div class="op-modes co-sides" role="group" aria-label="Side">
+          <button type="button" class="op-mode is-active" data-side="w">As White</button>
+          <button type="button" class="op-mode" data-side="b">As Black</button>
+          <button type="button" class="op-mode" data-side="r">Both</button>
+        </div>
+        <label class="co-check"><input type="checkbox" id="co-labels"> Show letters and numbers on the board</label>
+        <div class="ps-scores pr-scores">
+          <div><p class="pd-label">Time</p><p class="ps-score" id="co-time">0:30</p></div>
+          <div><p class="pd-label">Correct</p><p class="ps-score" id="co-score">0</p></div>
+          <div><p class="pd-label">Your best</p><p class="ps-best" id="co-best">0</p></div>
+        </div>
+        <div class="tt-status"><p id="co-status" class="tt-status-main">Ready?</p><p id="co-sub" class="tt-status-sub"></p></div>
+        <div class="tt-actions"><button type="button" id="co-start" class="lab-btn"><i class="fas fa-play"></i>Start (30 seconds)</button></div>
+        <ul class="ps-rules">
+          <li><b>Find the square:</b> a square's name appears; tap that square as fast as you can.</li>
+          <li><b>Name the square:</b> a square lights up; pick its name.</li>
+          <li>Letters (files a–h) run left to right from White's side; numbers (ranks 1–8) go up from White.</li>
+          <li>Points: 1 for every 2 correct answers.</li>
+        </ul>
+        <section class="pd-card"><h2 class="pd-h2"><i class="fas fa-trophy lab-ic"></i> All-time best: <span id="co-lb-mode">Find the square</span></h2><div id="co-leaderboard"><p class="pd-small">Loading…</p></div></section>
+      </aside>
+    </div>
+  </div>
+</section>
+<script type="module" src="/assets/js/lab/coordinates.js?v={{ site.time | date: "%s" }}"></script>

@@ -59,11 +59,12 @@ export function levelFor(points) {
 function blankProgress() {
   return { v: 1, points: 0, week: { key: weekKey(), points: 0 }, streak: { last: null, count: 0, best: 0 },
     puzzle: { rating: 1000, solved: 0, attempted: 0, cleanRun: 0, bestRun: 0, byTheme: {}, history: [], seen: [] },
-    openings: {}, log: [], pstreak: { best: 0, runs: 0, last: 0, total: 0, history: [], seen: [] } };
+    openings: {}, log: [], pstreak: { best: 0, runs: 0, last: 0, total: 0, history: [], seen: [] },
+    rush: { best3: 0, best5: 0, runs: 0, history: [] }, coords: { best: {}, runs: 0 }, endgames: {}, days: {}, goal: 50 };
 }
 function normalise(p) {
   const b = blankProgress(); p = p || {};
-  const out = { ...b, ...p, puzzle: { ...b.puzzle, ...(p.puzzle || {}) }, streak: { ...b.streak, ...(p.streak || {}) }, pstreak: { ...b.pstreak, ...(p.pstreak || {}) }, week: { ...b.week, ...(p.week || {}) }, openings: p.openings || {}, log: p.log || [] };
+  const out = { ...b, ...p, puzzle: { ...b.puzzle, ...(p.puzzle || {}) }, streak: { ...b.streak, ...(p.streak || {}) }, pstreak: { ...b.pstreak, ...(p.pstreak || {}) }, rush: { ...b.rush, ...(p.rush || {}) }, coords: { ...b.coords, ...(p.coords || {}) }, endgames: p.endgames || {}, days: p.days || {}, week: { ...b.week, ...(p.week || {}) }, openings: p.openings || {}, log: p.log || [] };
   if (out.week.key !== weekKey()) out.week = { key: weekKey(), points: 0 };
   return out;
 }
@@ -108,6 +109,9 @@ export function award(points, reason) {
   const total = Math.max(0, Math.round(points)) + streakBonus;
   if (p.week.key !== weekKey()) p.week = { key: weekKey(), points: 0 };
   p.points += total; p.week.points += total;
+  // Points per day for the activity calendar (last 400 days kept).
+  p.days = p.days || {}; p.days[today] = (p.days[today] || 0) + total;
+  const keys = Object.keys(p.days); if (keys.length > 400) keys.sort().slice(0, keys.length - 400).forEach((k) => delete p.days[k]);
   if (total > 0) { p.log.unshift({ t: Date.now(), pts: total, why: reason + (streakBonus ? " (+" + streakBonus + " streak bonus)" : "") }); p.log = p.log.slice(0, 40); }
   saveProgress();
   const after = levelFor(p.points);
@@ -123,10 +127,29 @@ export function recordStreakRun(score) {
   s.history.push([Date.now(), score]); s.history = s.history.slice(-50);
   saveProgress();
   if (newBest && mode === "firebase" && user) {
-    fb.setDoc(fb.doc(fb.db, "streakBoard", user.uid), { name: firstName(user), best: score, updated: fb.serverTimestamp() })
+    fb.setDoc(fb.doc(fb.db, "streakBoard", user.uid), { name: firstName(user), best: score, updated: fb.serverTimestamp() }, { merge: true })
       .catch((e) => console.warn("Could not save best streak:", e.code || e));
   }
   return { newBest };
+}
+
+// ---------- All-time records (Puzzle Rush, Coordinates): one row per member in streakBoard ----------
+// field: "rush3", "rush5", "coordsFind", "coordsName". Returns true for a new personal best.
+export function postRecord(field, score) {
+  if (mode === "firebase" && user) {
+    fb.setDoc(fb.doc(fb.db, "streakBoard", user.uid), { name: firstName(user), [field]: score, updated: fb.serverTimestamp() }, { merge: true })
+      .catch((e) => console.warn("Could not save record:", e.code || e));
+  }
+}
+const SAMPLE = [["Kabir", 1], ["Aarav", .8], ["Diya", .66], ["Meera", .5], ["Anaya", .33], ["Vihaan", .2]];
+export async function recordBoard(field, myBest, scale) {
+  if (mode === "firebase") {
+    const snap = await fb.getDocs(fb.query(fb.collection(fb.db, "streakBoard"), fb.orderBy(field, "desc"), fb.limit(20)));
+    const rows = []; snap.forEach((d) => { const v = d.data()[field]; if (typeof v === "number" && v > 0) rows.push({ uid: d.id, name: d.data().name, best: v, me: user && d.id === user.uid }); });
+    return { sample: false, rows };
+  }
+  const rows = SAMPLE.map(([n, f]) => ({ name: n, best: Math.round(scale * f) })).concat([{ name: firstName(user) + " (you)", best: myBest || 0, me: true }]);
+  return { sample: true, rows: rows.sort((a, b) => b.best - a.best) };
 }
 export async function streakLeaderboard() {
   if (mode === "firebase") {

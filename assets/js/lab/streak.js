@@ -82,6 +82,7 @@ async function run(st, prog) {
     running = false; busy = true; ui.skip.classList.add("hidden");
     const line = []; while (step < cur.moves.length) { line.push(uciToSan(board.game.fen(), cur.moves[step])); board.play(cur.moves[step]); step++; await wait(500); }
     busy = false;
+    const failFen = board.game.fen();
     let pts = score * 2 + (score >= 10 ? 10 : 0) + (score >= 20 ? 20 : 0) + (score >= 30 ? 30 : 0);
     const { newBest } = recordStreakRun(score);
     const res = pts ? award(pts, `Puzzle Streak: ${score} in a row`) : { added: 0 };
@@ -89,7 +90,8 @@ async function run(st, prog) {
     setStatus(`Streak over: ${score}`, newBest && score ? "That's a new personal best!" : `Your best is ${prog.pstreak.best}. Go again!`, newBest && score ? "ok" : "bad");
     ui.recap.innerHTML = `<p><b>The answer was:</b> ${esc(line.join(" "))}</p>
       <p><b>Puzzles solved:</b> ${score}${solvedRatings.length ? ` · hardest ${Math.max(...solvedRatings)}` : ""}</p>
-      ${res.added ? `<p><b>Points:</b> +${res.added}</p>` : ""}`;
+      ${res.added ? `<p><b>Points:</b> +${res.added}</p>` : ""}
+      <p class="tt-links"><a href="https://lichess.org/training/${esc(cur.id)}" target="_blank" rel="noopener"><i class="fas fa-search"></i> See this puzzle on Lichess</a></p>`;
     ui.again.classList.remove("hidden");
     track("lab_streak_end", { score, new_best: newBest });
     loadBoard();

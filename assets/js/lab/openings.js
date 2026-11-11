@@ -27,8 +27,11 @@ async function run(st, prog) {
     if (r.learned) return `<span class="op-badge op-learned"><i class="fas fa-check"></i> Learned</span>`;
     return `<span class="op-badge">Started</span>`;
   }
+  const isDue = (c) => { const r = O[c.id]; return r && r.learned && r.perfect < 2 && r.last && Date.now() - r.last > 3 * DAY; };
   function renderList() {
-    list.innerHTML = GROUPS.map(([g, label]) => `<p class="op-group">${label}</p>` + courses.filter((c) => c.group === g).map((c) =>
+    const due = courses.filter(isDue);
+    list.innerHTML = (due.length ? `<p class="op-group op-group-due"><i class="fas fa-bell"></i> Due for review (${due.length})</p>` + due.map((c) =>
+      `<button type="button" class="op-item op-item-due" data-id="${c.id}" data-mode="practice"><span class="op-item-name">${esc(c.name)}</span><span class="op-item-meta">Practise from memory for bonus points</span></button>`).join("") : "") + GROUPS.map(([g, label]) => `<p class="op-group">${label}</p>` + courses.filter((c) => c.group === g).map((c) =>
       `<button type="button" class="op-item${course && course.id === c.id ? " is-active" : ""}" data-id="${c.id}"><span class="op-item-name">${esc(c.name)}</span><span class="op-item-meta">${esc(c.level)} · ${badge(c)}</span></button>`).join("")).join("");
   }
   const isMine = (i) => (i % 2 === 0) === (course.side === "w");
@@ -112,7 +115,7 @@ async function run(st, prog) {
     track("lab_opening", { course: course.id, mode, mistakes });
   }
 
-  list.addEventListener("click", (e) => { const b = e.target.closest("[data-id]"); if (!b) return; startCourse(courses.find((c) => c.id === b.dataset.id)); });
+  list.addEventListener("click", (e) => { const b = e.target.closest("[data-id]"); if (!b) return; startCourse(courses.find((c) => c.id === b.dataset.id), b.dataset.mode); });
   learnBtn.addEventListener("click", () => course && startCourse(course, "learn"));
   practiceBtn.addEventListener("click", () => course && startCourse(course, "practice"));
   restartBtn.addEventListener("click", () => course && startCourse(course, mode));

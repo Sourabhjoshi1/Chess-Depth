@@ -27,8 +27,21 @@ async function run(st, prog) {
     set: document.getElementById("tt-set"), theme: document.getElementById("tt-theme"), level: document.getElementById("tt-level"),
   };
   ui.theme.innerHTML = `<option value="">All themes</option>` + FILTER_THEMES.map((t) => `<option value="${t}">${themeLabel(t)}</option>`).join("");
+  P.missed = Array.isArray(P.missed) ? P.missed : [];
+  const params = new URLSearchParams(location.search);
+  if (params.get("set") === "missed" && P.missed.length) ui.set.value = "missed";
+  if (params.get("set") === "originals") ui.set.value = "originals";
+  if (params.get("theme") && FILTER_THEMES.includes(params.get("theme"))) ui.theme.value = params.get("theme");
+  function renderSetOptions() {
+    let o = ui.set.querySelector('option[value="missed"]');
+    if (!o) { o = document.createElement("option"); o.value = "missed"; ui.set.appendChild(o); }
+    o.textContent = `Retry my missed puzzles (${P.missed.length})`; o.disabled = !P.missed.length;
+    if (!P.missed.length && ui.set.value === "missed") ui.set.value = "lichess";
+    document.getElementById("tt-filters-lichess").classList.toggle("hidden", ui.set.value !== "lichess");
+  }
+  renderSetOptions();
 
-  let cur = null, step = 0, mistakes = 0, hinted = false, done = false, busy = false;
+  let cur = null, step = 0, mistakes = 0, hinted = 0, done = false, busy = false, startFen = "";
   const board = await makeBoard(el, { onUserMove, canDrag: () => cur && !done && !busy });
 
   function updateStats() {
@@ -40,6 +53,10 @@ async function run(st, prog) {
   }
 
   async function pickPuzzle() {
+    if (ui.set.value === "missed" && P.missed.length) {
+      const m = P.missed[Math.floor(Math.random() * Math.min(P.missed.length, 10))];
+      return { ...m, moves: m.moves.slice(), themes: m.themes.slice(), retry: true };
+    }
     if (ui.set.value === "originals") {
       const pool = await loadOriginals();
       const unseen = pool.filter((p) => !P.seen.includes(p.id));
@@ -63,18 +80,20 @@ async function run(st, prog) {
   }
 
   async function next() {
-    busy = true; done = false; mistakes = 0; hinted = false; step = 0;
+    busy = true; done = false; mistakes = 0; hinted = 0; step = 0;
     ui.info.innerHTML = ""; ui.next.classList.add("hidden"); ui.hint.disabled = false; ui.show.disabled = false;
+    ui.hint.innerHTML = `<i class="far fa-lightbulb"></i>Hint`;
     cur = await pickPuzzle();
     if (!cur) { setStatus("No puzzles match these filters", "Try another theme."); busy = false; return; }
     board.load(cur.fen);
     const solverColor = cur.opponentFirst ? (board.game.turn() === "w" ? "b" : "w") : board.game.turn();
     board.orient(solverColor);
     const side = solverColor === "w" ? "White" : "Black";
-    setStatus(`${side} to move`, cur.title || "Find the best move.", "");
+    setStatus(`${side} to move`, (cur.retry ? "Retry: " : "") + (cur.title || "Find the best move."), "");
     if (cur.opponentFirst) {
       await wait(500); board.play(cur.moves[0]); step = 1;
     }
+    startFen = board.game.fen();
     busy = false;
   }
 
@@ -102,6 +121,7 @@ async function run(st, prog) {
 
   function finish(solved) {
     done = true; ui.hint.disabled = true; ui.show.disabled = true; ui.next.classList.remove("hidden");
+    board.draw.clear();
     const clean = solved && mistakes === 0 && !hinted;
     const score = clean ? 1 : 0;
     const exp = 1 / (1 + Math.pow(10, (cur.rating - P.rating) / 400));
@@ -115,21 +135,38 @@ async function run(st, prog) {
     P.seen.push(cur.id); P.seen = P.seen.slice(-3000);
     let pts = 0;
     if (clean) pts = 5 + Math.round(cur.rating / 200);
-    else if (solved && hinted && mistakes === 0) pts = Math.round((5 + cur.rating / 200) / 2);
+    else if (solved && hinted === 1 && mistakes === 0) pts = Math.round((5 + cur.rating / 200) / 2);
     else if (solved) pts = 2;
     if (clean && P.cleanRun > 0 && P.cleanRun % 5 === 0) pts += 10;
+    // Missed puzzles go on a retry list; solving one cleanly takes it off.
+    const mi = P.missed.findIndex((m) => m.id === cur.id);
+    if (clean && mi >= 0) P.missed.splice(mi, 1);
+    if (!clean && mi < 0) { P.missed.unshift({ id: cur.id, fen: cur.fen, moves: cur.moves, rating: cur.rating, themes: cur.themes, title: cur.title || "", opponentFirst: !!cur.opponentFirst }); P.missed = P.missed.slice(0, 60); }
+    renderSetOptions();
     const res = pts ? award(pts, `Puzzle ${clean ? "solved" : "completed"} (${cur.rating})`) : (saveProgress(), { added: 0 });
     const diff = Math.round(P.rating - before);
     setStatus(clean ? "Solved!" : solved ? "Completed" : "Solution shown", clean ? `+${res.added} points` + (P.cleanRun % 5 === 0 ? " (5 in a row bonus!)" : "") : solved ? `+${res.added} points. Solve it without mistakes for full points.` : "No points this time. You'll get the next one!", clean ? "ok" : solved ? "" : "bad");
-    ui.info.innerHTML = `<p><b>Puzzle rating:</b> ${cur.rating}</p><p><b>Themes:</b> ${cur.themes.map(themeLabel).map(esc).join(", ")}</p><p><b>Your rating:</b> ${Math.round(P.rating)} <span class="${diff >= 0 ? "tt-up" : "tt-down"}">(${diff >= 0 ? "+" : ""}${diff})</span></p>${cur.opponentFirst ? `<p class="tt-credit">Puzzle from the Lichess database (CC0)</p>` : `<p class="tt-credit">ChessDepth Original</p>`}`;
+    ui.info.innerHTML = `<p><b>Puzzle rating:</b> ${cur.rating}</p><p><b>Themes:</b> ${cur.themes.map(themeLabel).map(esc).join(", ")}</p><p><b>Your rating:</b> ${Math.round(P.rating)} <span class="${diff >= 0 ? "tt-up" : "tt-down"}">(${diff >= 0 ? "+" : ""}${diff})</span></p>${!clean ? `<p class="tt-retry"><i class="fas fa-redo"></i> Added to your missed puzzles. Choose "Retry my missed puzzles" to try it again later.</p>` : cur.retry ? `<p class="tt-retry ok"><i class="fas fa-check"></i> Taken off your missed list.</p>` : ""}
+      <p class="tt-links"><a href="https://lichess.org/analysis/standard/${encodeURIComponent(startFen).replace(/%20/g, "_")}" target="_blank" rel="noopener"><i class="fas fa-search"></i> Analyse on Lichess</a>${cur.opponentFirst ? ` · <a href="https://lichess.org/training/${esc(cur.id)}" target="_blank" rel="noopener">Puzzle on Lichess</a>` : ""}</p>
+      ${cur.opponentFirst ? `<p class="tt-credit">Puzzle from the Lichess database (CC0)</p>` : `<p class="tt-credit">ChessDepth Original</p>`}`;
     updateStats();
     track("lab_puzzle", { result: clean ? "clean" : solved ? "completed" : "shown", rating: cur.rating });
   }
 
+  // Hint 1 circles the piece to move (half points); hint 2 draws the move.
   ui.hint.addEventListener("click", () => {
-    if (!cur || done) return; hinted = true;
+    if (!cur || done || busy) return;
     const u = cur.moves[step]; const piece = board.game.get(u.slice(0, 2));
-    setStatus("Hint", `Move your ${PIECE_NAMES[piece.type]} on ${u.slice(0, 2)}.`, "");
+    hinted = Math.min(2, hinted + 1);
+    if (hinted === 1) {
+      board.draw.show([{ from: u.slice(0, 2), to: u.slice(0, 2), c: "g" }]);
+      setStatus("Hint", `Move your ${PIECE_NAMES[piece.type]} on ${u.slice(0, 2)}.`, "");
+      ui.hint.innerHTML = `<i class="fas fa-lightbulb"></i>Show the move`;
+    } else {
+      board.draw.show([{ from: u.slice(0, 2), to: u.slice(2, 4), c: "g" }]);
+      setStatus("Hint", `Play ${uciToSan(board.game.fen(), u)}.`, "");
+      ui.hint.disabled = true;
+    }
   });
   ui.show.addEventListener("click", async () => {
     if (!cur || done || busy) return; busy = true; mistakes++;
@@ -139,7 +176,13 @@ async function run(st, prog) {
     ui.info.insertAdjacentHTML("afterbegin", `<p><b>Solution:</b> ${esc(line.join(" "))}</p>`);
   });
   ui.next.addEventListener("click", next);
-  [ui.set, ui.theme, ui.level].forEach((s) => s.addEventListener("change", () => { document.getElementById("tt-filters-lichess").classList.toggle("hidden", ui.set.value === "originals"); next(); }));
+  [ui.set, ui.theme, ui.level].forEach((s) => s.addEventListener("change", () => { renderSetOptions(); next(); }));
+  // Keyboard: N or Enter = next puzzle, H = hint.
+  document.addEventListener("keydown", (e) => {
+    if (e.target.closest("input, select, textarea") || e.ctrlKey || e.metaKey || e.altKey) return;
+    if ((e.key === "n" || e.key === "Enter") && done) { e.preventDefault(); next(); }
+    if (e.key === "h" && !done) { e.preventDefault(); ui.hint.click(); }
+  });
   updateStats();
   next();
 }

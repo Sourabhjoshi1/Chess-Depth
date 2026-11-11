@@ -1,0 +1,47 @@
+---
+title: "Puzzle Rush | ChessDepth Chess Lab"
+description: "Solve as many chess puzzles as you can in 3 or 5 minutes. Three mistakes end the run. All-time leaderboard. Part of the ChessDepth Chess Lab."
+permalink: /lab/rush/
+page_css: lab
+ads: false
+crumb: Puzzle Rush
+head_scripts:
+  - src: "https://cdn.jsdelivr.net/npm/chessboard-element@1.2.0/bundled/chessboard-element.bundled.js"
+    type: module
+---
+{% include lab-bar.html %}
+<section class="cd-wrap lab-page">
+  <div id="lab-gate" class="lab-gate"><p class="lab-loading"><i class="fas fa-circle-notch fa-spin"></i> Loading…</p></div>
+  <div id="lab-app" class="hidden">
+    <div class="tt-layout">
+      <div class="tt-board-col">
+        <chess-board id="pr-board" class="lab-board" draggable-pieces></chess-board>
+      </div>
+      <aside class="tt-side">
+        <h1 class="lab-h1">Puzzle Rush</h1>
+        <div class="op-modes pr-modes" role="group" aria-label="Time">
+          <button type="button" class="op-mode is-active" data-min="3"><i class="fas fa-stopwatch"></i>3 minutes</button>
+          <button type="button" class="op-mode" data-min="5"><i class="fas fa-hourglass-half"></i>5 minutes</button>
+        </div>
+        <div class="ps-scores pr-scores">
+          <div><p class="pd-label">Time</p><p class="ps-score" id="pr-time">3:00</p></div>
+          <div><p class="pd-label">Solved</p><p class="ps-score" id="pr-score">0</p></div>
+          <div><p class="pd-label">Mistakes</p><p class="pr-lives" id="pr-lives" aria-label="Mistakes"></p></div>
+        </div>
+        <div class="tt-status"><p id="pr-status" class="tt-status-main">Ready?</p><p id="pr-sub" class="tt-status-sub"></p></div>
+        <div class="tt-actions">
+          <button type="button" id="pr-start" class="lab-btn"><i class="fas fa-play"></i>Start the rush</button>
+          <button type="button" id="pr-stop" class="lab-btn-o hidden"><i class="fas fa-flag"></i>Stop</button>
+        </div>
+        <div id="pr-recap" class="tt-info"></div>
+        <ul class="ps-rules">
+          <li>Solve as many puzzles as you can before the clock runs out.</li>
+          <li>Puzzles start easy and get harder. A wrong move costs a life and moves you on; three mistakes end the run.</li>
+          <li>Points: 2 per puzzle, plus bonuses at 15, 25 and 35 solved.</li>
+        </ul>
+        <section class="pd-card"><h2 class="pd-h2"><i class="fas fa-trophy lab-ic"></i> All-time best: <span id="pr-lb-mode">3 minutes</span></h2><div id="pr-leaderboard"><p class="pd-small">Loading…</p></div></section>
+      </aside>
+    </div>
+  </div>
+</section>
+<script type="module" src="/assets/js/lab/rush.js?v={{ site.time | date: "%s" }}"></script>

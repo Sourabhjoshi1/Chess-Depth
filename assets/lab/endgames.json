@@ -1,0 +1,146 @@
+{
+ "lessons": [
+  {
+   "id": "queen-mate",
+   "name": "Checkmate with king and queen",
+   "level": "Beginner",
+   "goal": "mate",
+   "limit": 30,
+   "intro": "The queen can't checkmate alone: she needs her king. Push the enemy king to the edge, then bring your king up and deliver mate.",
+   "tips": [
+    "Use the queen to make a box around the enemy king, a knight's move away, and shrink it each move.",
+    "Careful: when the king has no moves and isn't in check, it's stalemate (a draw).",
+    "On the edge, stop shrinking. Walk your king up until it faces the enemy king, then mate."
+   ],
+   "pos": [
+    "8/8/8/4k3/8/8/8/3QK3 w - - 0 1",
+    "8/8/3k4/8/8/8/1Q6/6K1 w - - 0 1",
+    "7k/8/8/8/3K4/8/8/Q7 w - - 0 1"
+   ]
+  },
+  {
+   "id": "two-rooks",
+   "name": "The two-rook ladder",
+   "level": "Beginner",
+   "goal": "mate",
+   "limit": 15,
+   "intro": "Two rooks mate without help from the king. They take turns checking, pushing the enemy king one row at a time to the edge.",
+   "tips": [
+    "One rook cuts off a row, the other gives check on the next row.",
+    "If the enemy king comes close to a rook, move that rook far away along its row.",
+    "Keep going until the king is on the edge, then the last check is mate."
+   ],
+   "pos": [
+    "8/8/3k4/8/8/8/7R/R5K1 w - - 0 1",
+    "8/2k5/8/8/8/8/8/RR4K1 w - - 0 1"
+   ]
+  },
+  {
+   "id": "rook-mate",
+   "name": "Checkmate with king and rook",
+   "level": "Beginner",
+   "goal": "mate",
+   "limit": 40,
+   "intro": "The rook cuts the enemy king off along a line, your king helps push it back, and the rook delivers mate on the edge.",
+   "tips": [
+    "Put the rook on a row or file to cut the king into a smaller area.",
+    "Bring your king in front of the enemy king (a knight's move or opposite it).",
+    "When the kings face each other, check with the rook to drive the king back a row. Keep the rook far from the enemy king."
+   ],
+   "pos": [
+    "8/8/8/4k3/8/8/8/R3K3 w - - 0 1",
+    "4k3/8/8/8/8/8/8/R5K1 w - - 0 1",
+    "8/8/2k5/8/8/8/8/5RK1 w - - 0 1"
+   ]
+  },
+  {
+   "id": "pawn-win",
+   "name": "King and pawn: escort the pawn home",
+   "level": "Advanced beginner",
+   "goal": "promote",
+   "limit": 30,
+   "intro": "With your king in front of your pawn you can win. Use the opposition and outside squares to shoulder the enemy king away, then promote.",
+   "tips": [
+    "King first, pawn second: walk your king ahead of the pawn.",
+    "A king on the sixth rank in front of its pawn always wins (except rook pawns).",
+    "Push the pawn only when your king already controls the square in front of it."
+   ],
+   "pos": [
+    "3k4/8/3K4/3P4/8/8/8/8 w - - 0 1",
+    "4k3/8/8/3KP3/8/8/8/8 w - - 0 1",
+    "8/8/8/2k5/8/2K5/2P5/8 b - - 0 1"
+   ]
+  },
+  {
+   "id": "pawn-draw",
+   "name": "King against pawn: hold the draw",
+   "level": "Advanced beginner",
+   "goal": "draw",
+   "limit": 40,
+   "intro": "Defending alone against king and pawn, you can draw if your king gets in front of the pawn and keeps the opposition.",
+   "tips": [
+    "Go straight in front of the pawn.",
+    "When the enemy king steps forward, step opposite it (take the opposition).",
+    "Near the back rank, stay on the square in front of the pawn or right beside it; often the game ends in stalemate."
+   ],
+   "pos": [
+    "8/4k3/8/4P3/4K3/8/8/8 b - - 0 1",
+    "4k3/8/8/3PK3/8/8/8/8 b - - 0 1",
+    "8/8/8/3k4/8/8/2KP4/8 b - - 0 1",
+    "2k5/8/8/1KP5/8/8/8/8 b - - 0 1"
+   ]
+  },
+  {
+   "id": "lucena",
+   "name": "The Lucena position: build a bridge",
+   "level": "Intermediate",
+   "goal": "promote",
+   "limit": 30,
+   "intro": "The most important winning rook endgame. Your king is on the queening square and the pawn is on the seventh: cut off the enemy king, then build a bridge with your rook to block the checks.",
+   "tips": [
+    "First check the enemy king away from the pawn, so it is cut off by two files.",
+    "Bring your rook to the fourth rank: this is the 'bridge'.",
+    "Walk your king out; when the checks come, block with the rook on the fourth rank and the pawn promotes."
+   ],
+   "pos": [
+    "1K1k4/1P6/8/8/8/8/r7/2R5 w - - 0 1",
+    "2K5/2P1k3/8/8/8/8/1r6/3R4 w - - 0 1"
+   ]
+  },
+  {
+   "id": "philidor",
+   "name": "The Philidor position: the third-rank defence",
+   "level": "Intermediate",
+   "goal": "hold",
+   "limit": 25,
+   "intro": "The key drawing method with rook against rook and pawn. Keep your rook on your third rank so the enemy king can't come forward; when the pawn advances, swing the rook behind and check from far away.",
+   "tips": [
+    "Keep your king in front of the pawn and your rook on the sixth rank (your third).",
+    "Wait with the rook along that rank until the pawn moves up.",
+    "Once the pawn reaches your third rank, go to your back rank or behind and give checks from a distance."
+   ],
+   "pos": [
+    "3k4/7R/r7/3PK3/8/8/8/8 b - - 0 1",
+    "4k3/R7/1r6/4PK2/8/8/8/8 b - - 0 1"
+   ]
+  },
+  {
+   "id": "queen-pawn",
+   "name": "Queen against a pawn on the seventh",
+   "level": "Intermediate",
+   "goal": "mate",
+   "limit": 40,
+   "intro": "A pawn one step from queening can be stopped by a queen. Check and pin your way closer until the king has to stand in front of its pawn, bring your king one step nearer each time, then win the pawn and mate.",
+   "tips": [
+    "Give checks, or pin the pawn, to force the king to the queening square.",
+    "Every time the king blocks its own pawn, you get a free move: bring your king closer.",
+    "Then win the pawn and finish with the queen checkmate."
+   ],
+   "pos": [
+    "8/8/8/8/8/2Q5/3pk3/7K w - - 0 1",
+    "6Q1/8/8/8/8/8/3pk3/K7 w - - 0 1",
+    "8/8/8/1K6/8/8/2kp4/7Q w - - 0 1"
+   ]
+  }
+ ]
+}

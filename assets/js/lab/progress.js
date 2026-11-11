@@ -21,6 +21,26 @@ async function run(st, prog) {
   const PS = prog.pstreak || { best: 0, runs: 0, last: 0 };
   set("pd-pstreak", `<p class="pd-label">Puzzle Streak best</p><p class="pd-big"><i class="fas fa-fire-alt"></i> ${PS.best}</p><p class="pd-small">${PS.runs ? `${PS.runs} runs · last ${PS.last}` : `<a href="/lab/streak/">Play your first streak</a>`}</p>`);
 
+  const RU = prog.rush || {}, CO = (prog.coords || {}).best || {};
+  set("pd-rush", `<p class="pd-label">Puzzle Rush best</p><p class="pd-big"><i class="fas fa-stopwatch"></i> ${RU.best3 || 0} <small class="pd-unit">3 min</small></p><p class="pd-small">${RU.runs ? `5 min: ${RU.best5 || 0} · ${RU.runs} runs` : `<a href="/lab/rush/">Play your first rush</a>`}</p>`);
+  const cf = Math.max(CO["find-w"] || 0, CO["find-b"] || 0, CO["find-r"] || 0), cn = Math.max(CO["name-w"] || 0, CO["name-b"] || 0, CO["name-r"] || 0);
+  set("pd-coords", `<p class="pd-label">Coordinates best</p><p class="pd-big"><i class="fas fa-th"></i> ${cf}</p><p class="pd-small">${(prog.coords || {}).runs ? `Find the square · Name the square: ${cn}` : `<a href="/lab/coordinates/">Try the 30-second drill</a>`}</p>`);
+  const EG = prog.endgames || {}; let egPos = 0, egStars = 0; Object.values(EG).forEach((r) => Object.values(r.stars || {}).forEach((n) => { if (n) { egPos++; egStars += n; } }));
+  set("pd-endgames", `<p class="pd-label">Endgames</p><p class="pd-big"><i class="fas fa-chess-king"></i> ${egPos} <small class="pd-unit">of 22</small></p><p class="pd-small">${egPos ? `${egStars} stars earned` : `<a href="/lab/endgames/">Start with the queen mate</a>`}</p>`);
+
+  // Training calendar: points per day for the last 18 weeks (Monday to Sunday columns).
+  const days = prog.days || {}, todayD = new Date(); todayD.setHours(0, 0, 0, 0);
+  const startD = new Date(todayD); startD.setDate(startD.getDate() - ((startD.getDay() + 6) % 7) - 7 * 17);
+  const cells = []; let active = 0, total = 0;
+  for (let d = new Date(startD); d <= todayD; d.setDate(d.getDate() + 1)) {
+    const k = d.getFullYear() + "-" + String(d.getMonth() + 1).padStart(2, "0") + "-" + String(d.getDate()).padStart(2, "0"), v = days[k] || 0;
+    if (v) { active++; total += v; }
+    const lvl = v === 0 ? 0 : v < 20 ? 1 : v < 50 ? 2 : v < 100 ? 3 : 4;
+    cells.push(`<span class="pd-cal-d l${lvl}" title="${d.toLocaleDateString("en-GB", { day: "numeric", month: "short" })}: ${v} points"></span>`);
+  }
+  set("pd-calendar", `<div class="pd-cal" role="img" aria-label="Points per day for the last 18 weeks: ${active} active days">${cells.join("")}</div>
+    <p class="pd-small">${active ? `${active} training day${active > 1 ? "s" : ""} and ${total} points in the last 18 weeks.` : "Each day you earn points, its square fills in."} <span class="pd-cal-key">Less <span class="pd-cal-d l0"></span><span class="pd-cal-d l1"></span><span class="pd-cal-d l2"></span><span class="pd-cal-d l3"></span><span class="pd-cal-d l4"></span> More</span></p>`);
+
   // Rating chart
   const H = P.history;
   if (H.length >= 2) {
@@ -31,7 +51,7 @@ async function run(st, prog) {
       <line x1="${pad}" x2="${w - pad}" y1="${Y(hi - 20)}" y2="${Y(hi - 20)}" class="pd-grid"/><line x1="${pad}" x2="${w - pad}" y1="${Y(lo + 20)}" y2="${Y(lo + 20)}" class="pd-grid"/>
       <text x="${pad - 4}" y="${Y(hi - 20) + 4}" text-anchor="end" class="pd-axis">${hi - 20}</text><text x="${pad - 4}" y="${Y(lo + 20) + 4}" text-anchor="end" class="pd-axis">${lo + 20}</text>
       <polyline points="${pts}" class="pd-line"/><circle cx="${X(H.length - 1)}" cy="${Y(ys[ys.length - 1])}" r="4" class="pd-dot"/></svg>
-      <p class="pd-small">Your last ${H.length} puzzles</p>`);
+      <p class="pd-small">Your last ${H.length} puzzles, ${new Date(H[0][0]).toLocaleDateString("en-GB", { day: "numeric", month: "short" })} to ${new Date(H[H.length - 1][0]).toLocaleDateString("en-GB", { day: "numeric", month: "short" })}</p>`);
   } else set("pd-chart", `<p class="pd-empty">Solve a few puzzles in the <a href="/lab/tactics/">Tactics trainer</a> to see your rating chart.</p>`);
 
   // Themes

@@ -1,0 +1,42 @@
+---
+title: "Endgame Trainer | ChessDepth Chess Lab"
+description: "Practise the endgames every player must know against Stockfish: queen and rook checkmates, king and pawn, Lucena, Philidor and queen against pawn. Part of the ChessDepth Chess Lab."
+permalink: /lab/endgames/
+page_css: lab
+ads: false
+crumb: Endgame Trainer
+head_scripts:
+  - src: "https://cdn.jsdelivr.net/npm/chessboard-element@1.2.0/bundled/chessboard-element.bundled.js"
+    type: module
+---
+{% include lab-bar.html %}
+<section class="cd-wrap lab-page">
+  <div id="lab-gate" class="lab-gate"><p class="lab-loading"><i class="fas fa-circle-notch fa-spin"></i> Loading…</p></div>
+  <div id="lab-app" class="hidden">
+    <div class="op-layout">
+      <aside class="op-courses">
+        <h1 class="lab-h1">Endgame trainer</h1>
+        <div id="eg-list" class="op-list"></div>
+      </aside>
+      <div class="op-board-col">
+        <chess-board id="eg-board" class="lab-board" draggable-pieces></chess-board>
+      </div>
+      <div class="op-side">
+        <h2 id="eg-title" class="op-title"></h2>
+        <p id="eg-intro" class="op-intro"></p>
+        <div id="eg-positions" class="op-modes eg-positions" role="group" aria-label="Position"></div>
+        <p id="eg-goal" class="eg-goal"></p>
+        <p id="eg-status" class="op-status"></p>
+        <div class="tt-actions">
+          <button type="button" id="eg-hint" class="lab-btn-o"><i class="far fa-lightbulb"></i>Hint</button>
+          <button type="button" id="eg-back" class="lab-btn-o"><i class="fas fa-undo"></i>Take back</button>
+          <button type="button" id="eg-restart" class="lab-btn-o"><i class="fas fa-redo"></i>Restart</button>
+          <button type="button" id="eg-next" class="lab-btn hidden">Next position <i class="fas fa-arrow-right"></i></button>
+        </div>
+        <details class="eg-tips" open><summary>How to do it</summary><ol id="eg-tips"></ol></details>
+        <p class="tt-points-note">You play against Stockfish at full strength. Stars: ★★★ with no hints or take-backs, ★★ with one or two, ★ for any success. Points: 25 for each position you complete for the first time, +15 for three stars, and 5 for a repeat.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<script type="module" src="/assets/js/lab/endgames.js?v={{ site.time | date: "%s" }}"></script>
