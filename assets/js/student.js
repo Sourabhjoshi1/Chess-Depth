@@ -61,6 +61,7 @@ async function start() {
   const app = initializeApp(firebaseConfig);
   const auth = getAuth(app);
   const storage = getStorage(app);
+  storage.maxOperationRetryTime = 8000;   // if the files can't be listed, say so after 8 seconds (the default keeps trying for 2 minutes)
   const db = getFirestore(app);
   const provider = new GoogleAuthProvider();
   provider.setCustomParameters({ prompt: "select_account" });

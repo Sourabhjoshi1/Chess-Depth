@@ -31,7 +31,7 @@ main { padding-top: 2rem !important; }
 .st-signout:hover { color: #dc2626; border-color: #fca5a5; }
 
 /* tabs */
-.st-tabs { position: sticky; top: var(--cd-header-h, 76px); z-index: 20; display: flex; gap: .35rem; overflow-x: auto; scrollbar-width: none; background: #f9fafb; padding: .7rem 0; margin: .6rem 0 1rem; }
+.st-tabs { position: sticky; top: var(--cd-header-h, 76px); z-index: 20; display: flex; gap: .35rem; overflow-x: auto; scrollbar-width: none; background: #f3f4f6; padding: .7rem 0; margin: .6rem 0 1rem; }
 .st-tabs::-webkit-scrollbar { display: none; }
 .st-tabs button { flex: none; display: inline-flex; align-items: center; gap: .45rem; border: 1px solid #e5e7eb; background: #fff; color: #4b5563; font-weight: 600; font-size: .92rem; border-radius: 999px; padding: .55rem 1.05rem; white-space: nowrap; transition: background-color .15s, color .15s, border-color .15s; }
 .st-tabs button:hover { border-color: #a5b4fc; color: #3730a3; }
