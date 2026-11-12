@@ -1,5 +1,5 @@
 /* Student Area (/student/): slim banner, account bar, tabs, overview cards and study material */
-.cd-hero.st-hero-min { padding-top: 1.6rem; padding-bottom: 1.6rem; }
+.cd-hero.st-hero-min .cd-hero-inner { min-height: 0; padding-top: 1.5rem; padding-bottom: 1.5rem; }
 .cd-hero.st-hero-min .cd-hero-lead, .cd-hero.st-hero-min .cd-hero-eyebrow { display: none; }
 .cd-hero.st-hero-min .cd-hero-title { font-size: 1.7rem; margin: 0; }
 main { padding-top: 2rem !important; }
