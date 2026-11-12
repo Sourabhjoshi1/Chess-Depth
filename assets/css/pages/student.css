@@ -98,3 +98,10 @@ html.dark .st-course-title { color: #c7d2fe; } html.dark .st-files, html.dark .s
 html.dark .st-skel { background: linear-gradient(90deg, #1e293b 25%, #273449 50%, #1e293b 75%); background-size: 200% 100%; }
 html.dark .st-card-ic, html.dark .st-course-count, html.dark .st-initial { background: rgba(99,102,241,.2); color: #c7d2fe; }
 html.dark .st-badge { background: #273449; color: #cbd5e1; } html.dark .st-badge.is-academy { background: rgba(16,185,129,.18); color: #6ee7b7; }
+
+/* study material: free PDFs listed in the page, course files from Storage underneath */
+a.st-dl { display: inline-flex; align-items: center; text-decoration: none; }
+.st-file-name { overflow-wrap: anywhere; }
+.st-extra { display: grid; gap: .8rem; margin-top: .8rem; } .st-extra:empty { display: none; }
+.st-more { margin-top: 1rem; font-size: .9rem; color: #6b7280; } .st-more a { color: #4f46e5; font-weight: 600; } .st-more i { margin-right: .3rem; color: #6366f1; }
+html.dark .st-file-name { color: #e2e8f0; }

@@ -12,6 +12,7 @@ ads: false
 ---
   {% include page-hero.html eyebrow="Student area" title="Student Area" lead="Free PDF worksheets and study material for every ChessDepth course." %}
 
+  {%- assign free = site.products | where_exp: "p", "p.download" | sort: "order" %}
   <main class="max-w-5xl mx-auto px-4 py-12" style="min-height:40vh">
 
     <!-- Shown while Firebase checks whether the student is signed in -->
@@ -78,7 +79,7 @@ ads: false
           </a>
           <a class="st-card" href="#material" data-go="material">
             <span class="st-card-ic"><i class="fas fa-file-pdf"></i></span>
-            <span class="st-card-body"><b>Study material</b><span id="ov-material"><span class="st-dots">Checking</span></span></span>
+            <span class="st-card-body"><b>Study material</b><span id="ov-material"><b class="st-num">{{ free.size }}</b> free PDFs to download: beginner packs, worksheets, tactics and test papers.</span></span>
             <span class="st-card-go">Open <i class="fas fa-arrow-right"></i></span>
           </a>
           <a class="st-card" href="#quizzes" data-go="quizzes">
@@ -190,8 +191,24 @@ ads: false
         <label class="st-search"><i class="fas fa-search" aria-hidden="true"></i><input id="search" type="search" placeholder="Search worksheets&hellip;" aria-label="Search worksheets"></label>
       </div>
       <p id="materials-none" class="hidden st-none">No worksheet matches that search.</p>
-      <div id="materials" class="space-y-6"></div>
-      <p id="materials-empty" class="hidden text-center text-gray-500 py-10">No material has been uploaded yet. Check back soon!</p>
+      <details class="st-course cd-course" open id="free-pdfs" data-count="{{ free.size }}">
+        <summary class="st-course-head"><h3 class="st-course-title">Free ChessDepth PDFs</h3><span class="st-course-count">{{ free.size }} files</span><i class="fas fa-chevron-down st-course-chev"></i></summary>
+        <ul class="st-files">
+          {%- for p in free %}
+          {%- assign t = p.title | replace: " (Free)", "" %}
+          <li class="st-file cd-file" data-search="{{ t | downcase | escape }} {{ p.level | downcase | escape }}">
+            <div class="flex items-center gap-3 min-w-0">
+              <i class="fas fa-file-pdf text-2xl text-red-500 flex-shrink-0"></i>
+              <div class="min-w-0"><p class="font-medium text-gray-800 st-file-name">{{ t }}</p><p class="text-xs text-gray-500">{{ p.level }} · {{ p.format }}{% if p.size %} · {{ p.size }}{% endif %}</p></div>
+            </div>
+            <a class="st-dl" href="{{ p.download }}" download data-pdf="{{ p.slug }}"><i class="fas fa-download mr-1"></i>Download</a>
+          </li>
+          {%- endfor %}
+        </ul>
+      </details>
+      <div id="materials" class="st-extra"></div>
+      <p class="st-more"><i class="fas fa-info-circle"></i> For the worksheets of your own course, ask your coach on WhatsApp. More packs are in the <a href="/shop/">Shop</a>, and every lesson course is in the <a href="/lab/courses/">Chess Lab</a>.</p>
+      <p id="materials-empty" class="hidden"></p>
       <p id="materials-error" class="hidden text-center text-indigo-700 bg-indigo-50 rounded-lg px-6 py-10"></p>
       </div>
     </div>

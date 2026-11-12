@@ -220,12 +220,11 @@ async function start() {
     if (linked) showLinked(false); else showForm(false);
   }
 
+  // The free PDFs are part of the page itself. Course files uploaded to Firebase Storage (materials/<course>/)
+  // are added underneath when there are any; if Storage is empty or switched off, nothing extra is shown.
   async function loadMaterials() {
-    const box = $("materials");
-    box.innerHTML = "";
-    $("materials-empty").classList.add("hidden");
-    $("materials-error").classList.add("hidden");
-    for (let k = 0; k < 3; k++) box.appendChild(el("div", "st-skel st-skel-row"));
+    const box = $("materials"); box.innerHTML = "";
+    document.querySelectorAll("#free-pdfs [data-pdf]").forEach((a) => a.addEventListener("click", () => { if (typeof window.gtag === "function") window.gtag("event", "student_pdf_download", { item: a.dataset.pdf }); }));
     try {
       const root = await listAll(ref(storage, "materials"));
       const order = Object.keys(courseNames);
@@ -236,20 +235,11 @@ async function start() {
       const loose = root.items.filter((i) => /\.pdf$/i.test(i.name));
       const groups = await Promise.all(folders.map(async (f) => ({ title: courseTitle(f.name), items: (await listAll(f)).items.filter((i) => /\.pdf$/i.test(i.name)) })));
       if (loose.length) groups.push({ title: "General Material", items: loose });
-      box.innerHTML = "";
       const nonEmpty = groups.filter((g) => g.items.length);
-      if (!nonEmpty.length) { $("materials-empty").classList.remove("hidden"); ov("ov-material", "No material has been uploaded yet. Check back soon."); return; }
-      nonEmpty.forEach((g, k) => box.appendChild(renderGroup(g, k === 0 || nonEmpty.length <= 2)));
-      const files = nonEmpty.reduce((n, g) => n + g.items.length, 0);
-      ov("ov-material", `<b class="st-num">${files}</b> ${files === 1 ? "PDF" : "PDFs"} in ${plural(nonEmpty.length, "course")}, free to download.`);
-    } catch (e) {
-      box.innerHTML = "";
-      // Storage not set up yet (or no files): show a friendly note instead of an error
-      $("materials-error").innerHTML = 'Your course PDFs are being uploaded and will appear here soon. Meanwhile, train in the <a href="/lab/" class="underline font-semibold">Chess Lab</a> (free for students right now) or download the free <a href="/shop/tactics-starter/" class="underline font-semibold">Tactics Starter Pack</a>.';
-      $("materials-error").classList.remove("hidden");
-      ov("ov-material", "Your course PDFs are being uploaded and will appear here soon.");
-      console.error(e);
-    }
+      nonEmpty.forEach((g) => box.appendChild(renderGroup(g, false)));
+      const extra = nonEmpty.reduce((n, g) => n + g.items.length, 0);
+      if (extra) { const n = extra + Number($("free-pdfs").dataset.count || 0); ov("ov-material", `<b class="st-num">${n}</b> PDFs to download: course worksheets and free packs.`); }
+    } catch (e) { /* no course files in Storage: the free PDFs above are the material */ }
   }
 
   function renderGroup(group, open) {
