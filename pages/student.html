@@ -5,6 +5,7 @@ permalink: /student/
 redirect_from:
   - /student.html
   - /login/
+page_css: student
 noindex: true
 sitemap: false
 ads: false
@@ -14,9 +15,10 @@ ads: false
   <main class="max-w-5xl mx-auto px-4 py-12" style="min-height:40vh">
 
     <!-- Shown while Firebase checks whether the student is signed in -->
-    <div id="state-loading" class="text-center text-gray-500 py-16">
-      <i class="fas fa-circle-notch fa-spin text-3xl text-indigo-500"></i>
-      <p class="mt-3">Loading&hellip;</p>
+    <div id="state-loading" aria-busy="true" aria-label="Loading your Student Area">
+      <div class="st-skel st-skel-top"></div>
+      <div class="st-skel st-skel-tabs"></div>
+      <div class="st-skel-grid"><div class="st-skel"></div><div class="st-skel"></div><div class="st-skel"></div><div class="st-skel"></div></div>
     </div>
 
     <!-- Shown if firebase-config.js has not been filled in yet -->
@@ -30,7 +32,13 @@ ads: false
     <div id="state-signed-out" class="hidden max-w-md mx-auto bg-white rounded-lg shadow-lg p-8 text-center">
       <i class="fas fa-chess-knight text-5xl text-indigo-600 mb-4"></i>
       <h2 class="text-2xl font-bold mb-2">Sign in to get your material</h2>
-      <p class="text-gray-600 mb-6">Create a free student account with your Google account to download worksheets, concept books and quizzes for all our courses.</p>
+      <p class="text-gray-600 mb-5">One free account for everything you study with us.</p>
+      <ul class="st-benefits">
+        <li><i class="fas fa-file-pdf"></i> Worksheets and concept books for every course</li>
+        <li><i class="fas fa-clipboard-check"></i> Quizzes at your level (academy students)</li>
+        <li><i class="fas fa-flask"></i> Chess Lab: courses, puzzles and your progress</li>
+        <li><i class="fas fa-eye-slash"></i> Blindfold training and your Lichess report</li>
+      </ul>
       <button id="btn-google" type="button" class="w-full inline-flex items-center justify-center gap-3 border border-gray-300 rounded-lg py-3 px-4 font-semibold text-gray-700 bg-white hover:bg-gray-50 shadow-sm transition">
         <svg width="20" height="20" viewBox="0 0 48 48" aria-hidden="true"><path fill="#FFC107" d="M43.6 20.5H42V20H24v8h11.3C33.7 32.7 29.2 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34 6.1 29.3 4 24 4 12.9 4 4 12.9 4 24s8.9 20 20 20 20-8.9 20-20c0-1.3-.1-2.4-.4-3.5z"/><path fill="#FF3D00" d="M6.3 14.7l6.6 4.8C14.7 15.1 19 12 24 12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34 6.1 29.3 4 24 4 16.3 4 9.7 8.3 6.3 14.7z"/><path fill="#4CAF50" d="M24 44c5.2 0 9.9-2 13.4-5.2l-6.2-5.2C29.2 35.1 26.7 36 24 36c-5.2 0-9.6-3.3-11.3-7.9l-6.5 5C9.5 39.6 16.2 44 24 44z"/><path fill="#1976D2" d="M43.6 20.5H42V20H24v8h11.3c-.8 2.2-2.2 4.2-4.1 5.6l6.2 5.2C37 39.2 44 34 44 24c0-1.3-.1-2.4-.4-3.5z"/></svg>
         Sign in with Google
@@ -41,17 +49,63 @@ ads: false
 
     <!-- Signed in -->
     <div id="state-signed-in" class="hidden">
-      <div class="bg-white rounded-lg shadow p-5 flex flex-col sm:flex-row items-center justify-between gap-4 mb-8">
-        <div class="flex items-center gap-4">
-          <img id="user-photo" src="" alt="" class="w-12 h-12 rounded-full bg-indigo-100 hidden" referrerpolicy="no-referrer">
-          <div class="text-center sm:text-left">
-            <p class="text-lg font-semibold">Welcome, <span id="user-name">Student</span>!</p>
-            <p id="user-email" class="text-sm text-gray-500"></p>
+      <div class="st-top">
+        <div class="st-who">
+          <img id="user-photo" src="" alt="" class="st-photo hidden" referrerpolicy="no-referrer">
+          <span id="user-initial" class="st-photo st-initial" aria-hidden="true"></span>
+          <div>
+            <p class="st-hello">Welcome, <span id="user-name">Student</span>!</p>
+            <p class="st-meta"><span id="user-badge" class="st-badge">Student account</span><span id="user-email"></span></p>
           </div>
         </div>
-        <button id="btn-signout" type="button" class="text-sm font-semibold text-gray-600 hover:text-red-600 border border-gray-300 rounded-full px-4 py-2 transition"><i class="fas fa-sign-out-alt mr-1"></i>Sign out</button>
+        <button id="btn-signout" type="button" class="st-signout" aria-label="Sign out"><i class="fas fa-sign-out-alt"></i> Sign out</button>
       </div>
 
+      <div class="st-tabs" role="tablist" aria-label="Student Area sections">
+        <button type="button" role="tab" data-tab="overview" aria-selected="true"><i class="fas fa-home"></i> Overview</button>
+        <button type="button" role="tab" data-tab="material" aria-selected="false"><i class="fas fa-file-pdf"></i> Study material</button>
+        <button type="button" role="tab" data-tab="quizzes" aria-selected="false"><i class="fas fa-clipboard-check"></i> Quizzes</button>
+        <button type="button" role="tab" data-tab="blindfold" aria-selected="false"><i class="fas fa-eye-slash"></i> Blindfold</button>
+        <button type="button" role="tab" data-tab="lichess" aria-selected="false"><i class="fas fa-chess-knight"></i> My Lichess</button>
+      </div>
+
+      <div class="st-panel" data-panel="overview">
+        <div class="st-cards">
+          <a class="st-card st-card-lab" href="/lab/">
+            <span class="st-card-ic"><i class="fas fa-flask"></i></span>
+            <span class="st-card-body"><b>Chess Lab</b><span id="ov-lab">Courses, puzzles, endgames and your progress.</span></span>
+            <span class="st-card-go">Continue training <i class="fas fa-arrow-right"></i></span>
+          </a>
+          <a class="st-card" href="#material" data-go="material">
+            <span class="st-card-ic"><i class="fas fa-file-pdf"></i></span>
+            <span class="st-card-body"><b>Study material</b><span id="ov-material"><span class="st-dots">Checking</span></span></span>
+            <span class="st-card-go">Open <i class="fas fa-arrow-right"></i></span>
+          </a>
+          <a class="st-card" href="#quizzes" data-go="quizzes">
+            <span class="st-card-ic"><i class="fas fa-clipboard-check"></i></span>
+            <span class="st-card-body"><b>Quizzes</b><span id="ov-quiz"><span class="st-dots">Checking</span></span></span>
+            <span class="st-card-go">Open <i class="fas fa-arrow-right"></i></span>
+          </a>
+          <a class="st-card" href="#blindfold" data-go="blindfold">
+            <span class="st-card-ic"><i class="fas fa-eye-slash"></i></span>
+            <span class="st-card-body"><b>Blindfold training</b><span id="ov-bf">Ten drills and a 28-day plan.</span></span>
+            <span class="st-card-go">Open <i class="fas fa-arrow-right"></i></span>
+          </a>
+          <a class="st-card" href="#lichess" data-go="lichess">
+            <span class="st-card-ic"><i class="fas fa-chess-knight"></i></span>
+            <span class="st-card-body"><b>My Lichess</b><span id="ov-li">Link your account to see your strengths and what to work on.</span></span>
+            <span class="st-card-go">Open <i class="fas fa-arrow-right"></i></span>
+          </a>
+          <a class="st-card" href="/courses/">
+            <span class="st-card-ic"><i class="fas fa-chalkboard-teacher"></i></span>
+            <span class="st-card-body"><b>Live classes</b><span>Small-group and one-to-one coaching at every level.</span></span>
+            <span class="st-card-go">See courses <i class="fas fa-arrow-right"></i></span>
+          </a>
+        </div>
+        <p class="st-community"><i class="fas fa-users"></i> Play and chat with other students: <a href="{{ site.contact.whatsapp_community }}" target="_blank" rel="noopener noreferrer">WhatsApp community</a> · <a href="{{ site.contact.lichess_team }}" target="_blank" rel="noopener noreferrer">Lichess team</a> · <a href="{{ site.contact.chesscom_club }}" target="_blank" rel="noopener noreferrer">Chess.com club</a></p>
+      </div>
+
+      <div class="st-panel hidden" data-panel="quizzes">
       <section id="quizzes" class="qz-card mb-8" aria-labelledby="qz-h">
         <div class="qz-head">
           <h2 id="qz-h" class="text-2xl font-bold"><i class="fas fa-clipboard-check qz-h-ic"></i> Quizzes</h2>
@@ -91,6 +145,8 @@ ads: false
         {%- endfor %}
       </section>
 
+      </div>
+      <div class="st-panel hidden" data-panel="blindfold">
       <section id="blindfold" class="bfs-card mb-8" aria-labelledby="bfs-h">
         <div class="bfs-head">
           <div>
@@ -104,6 +160,8 @@ ads: false
         <div class="bfs-grid" id="bfs-grid"></div>
       </section>
 
+      </div>
+      <div class="st-panel hidden" data-panel="lichess">
       <section id="lichess" class="lr-card mb-10" aria-labelledby="lr-h">
         <div class="lr-card-head">
           <div>
@@ -125,15 +183,17 @@ ads: false
         <p class="lr-team"><i class="fas fa-users"></i> Play with other ChessDepth students: join our <a href="{{ site.contact.lichess_team }}" target="_blank" rel="noopener noreferrer">Lichess team</a> · <a href="{{ site.contact.chesscom_club }}" target="_blank" rel="noopener noreferrer">Chess.com club</a> · <a href="{{ site.contact.whatsapp_community }}" target="_blank" rel="noopener noreferrer">WhatsApp community</a></p>
       </section>
 
-      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-6">
-        <h2 class="text-2xl font-bold">Your study material</h2>
-        <input id="search" type="search" placeholder="Search worksheets&hellip;" class="w-full sm:w-64 p-2.5 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500" aria-label="Search worksheets">
       </div>
-
-      <a href="/lab/" class="block rounded-lg p-5 mb-6 border border-yellow-200 bg-yellow-50 hover:shadow transition"><p class="font-bold text-gray-900"><i class="fas fa-flask mr-2"></i>Chess Lab</p><p class="text-sm text-gray-600 mt-1">Tactics trainer, opening courses and your progress dashboard. A separate membership.</p></a>
+      <div class="st-panel hidden" data-panel="material" id="material">
+      <div class="st-mat-head">
+        <div><h2 class="text-2xl font-bold">Your study material</h2><p class="st-sub">Worksheets and concept books for every course. Tap a course to open it.</p></div>
+        <label class="st-search"><i class="fas fa-search" aria-hidden="true"></i><input id="search" type="search" placeholder="Search worksheets&hellip;" aria-label="Search worksheets"></label>
+      </div>
+      <p id="materials-none" class="hidden st-none">No worksheet matches that search.</p>
       <div id="materials" class="space-y-6"></div>
       <p id="materials-empty" class="hidden text-center text-gray-500 py-10">No material has been uploaded yet. Check back soon!</p>
       <p id="materials-error" class="hidden text-center text-indigo-700 bg-indigo-50 rounded-lg px-6 py-10"></p>
+      </div>
     </div>
   </main>
 
