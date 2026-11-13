@@ -8,7 +8,7 @@ image: /assets/images/blog/adamya-veer-joshi-mrg-chess-cup-2026.jpg
 image_alt: "Adamya Veer Joshi, aged 6, holding his Top-10 trophy and certificate at the MRG Chess Cup 2026 in Jaipur"
 ---
 
-One of our youngest students has just joined the international rating list. **Adamya Veer Joshi**, from Kota, Rajasthan, is six years old, and this month FIDE, the world chess federation, published his first official rating: **1586 in rapid chess**.
+One of our youngest students has just joined the international rating list. **Adamya Veer Joshi**, from Kota, Rajasthan, is six years old, and FIDE, the world chess federation, has now published his first official rating: **1586 in rapid chess**.
 
 <figure class="cd-board" style="max-width:100%">
   <picture>
@@ -20,7 +20,7 @@ One of our youngest students has just joined the international rating list. **Ad
 
 ## A first rating, earned at home in Kota
 
-Adamya earned the rating at the **1st Kota International Open FIDE Rapid Rating Chess Tournament 2026**, played in his home city this November, with more than 200 players in the field.
+Adamya earned the rating at the **1st Kota International Open FIDE Rapid Rating Chess Tournament 2026**, played in his home city on 3 and 4 October 2026, with more than 200 players in the field. The result went onto FIDE's November rating list.
 
 To get a FIDE rating, a new player has to score points against opponents who already have one. Adamya played five games against rated players in Kota. Their average rating was 1570, and most of them were far older than he is. He scored **2 points out of 5** against them, and that was enough: his name now stands on the FIDE list with a rapid rating of 1586.
 
@@ -32,7 +32,7 @@ For comparison, a first FIDE rating starts at 1400. Adamya, born in 2020, begins
 | **Born** | 2020 |
 | **FIDE ID** | [591001790](https://ratings.fide.com/profile/591001790) |
 | **FIDE rapid rating** | 1586 |
-| **Rating event** | 1st Kota International Open FIDE Rapid, November 2026 |
+| **Rating event** | 1st Kota International Open FIDE Rapid, Kota, 3–4 October 2026 |
 | **Result against rated players** | 2 points from 5 games (average opponent 1570) |
 
 ## Top 10 in the Under-9s in Jaipur
