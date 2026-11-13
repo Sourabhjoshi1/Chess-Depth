@@ -1,0 +1,58 @@
+---
+title: "Six-Year-Old Adamya Veer Joshi Earns a FIDE Rating of 1586"
+description: "ChessDepth student Adamya Veer Joshi, aged 6, earned his first FIDE rapid rating of 1586 at the 1st Kota International Open, after a Top-10 finish in the Under-9 section of the MRG Chess Cup in Jaipur."
+category: News
+level: All levels
+author: Sourabh Joshi
+image: /assets/images/blog/adamya-veer-joshi-mrg-chess-cup-2026.jpg
+image_alt: "Adamya Veer Joshi, aged 6, holding his Top-10 trophy and certificate at the MRG Chess Cup 2026 in Jaipur"
+---
+
+One of our youngest students has just joined the international rating list. **Adamya Veer Joshi**, from Kota, Rajasthan, is six years old, and this month FIDE, the world chess federation, published his first official rating: **1586 in rapid chess**.
+
+<figure class="cd-board" style="max-width:100%">
+  <picture>
+    <source srcset="/assets/images/blog/adamya-veer-joshi-mrg-chess-cup-2026.webp" type="image/webp">
+    <img src="/assets/images/blog/adamya-veer-joshi-mrg-chess-cup-2026.jpg" alt="Adamya Veer Joshi, aged 6, in a blue T-shirt with a medal around his neck, holding a gold Top-10 trophy and his Under-9 certificate on stage at the MRG Chess Cup 2026 in Jaipur" width="1280" height="1024" loading="lazy">
+  </picture>
+  <figcaption>Adamya with his Top-10 trophy in the Under-9 boys' section of the MRG Chess Cup 2026, Jaipur.</figcaption>
+</figure>
+
+## A first rating, earned at home in Kota
+
+Adamya earned the rating at the **1st Kota International Open FIDE Rapid Rating Chess Tournament 2026**, played in his home city this November, with more than 200 players in the field.
+
+To get a FIDE rating, a new player has to score points against opponents who already have one. Adamya played five games against rated players in Kota. Their average rating was 1570, and most of them were far older than he is. He scored **2 points out of 5** against them, and that was enough: his name now stands on the FIDE list with a rapid rating of 1586.
+
+For comparison, a first FIDE rating starts at 1400. Adamya, born in 2020, begins his rated career almost 200 points above that line.
+
+| | |
+|---|---|
+| **Player** | Joshi, Adamya Veer (India) |
+| **Born** | 2020 |
+| **FIDE ID** | [591001790](https://ratings.fide.com/profile/591001790) |
+| **FIDE rapid rating** | 1586 |
+| **Rating event** | 1st Kota International Open FIDE Rapid, November 2026 |
+| **Result against rated players** | 2 points from 5 games (average opponent 1570) |
+
+## Top 10 in the Under-9s in Jaipur
+
+The rating is not his only result this year. At the **MRG Chess Cup 2026** in Jaipur, held under the aegis of the Jaipur District Chess Association, Adamya played in the **Under-9 boys'** section, against children up to three years older, and came home with a **Top-10 finalist** trophy, a medal and a certificate.
+
+## What we see in his training
+
+Adamya trains with ChessDepth coach Sourabh Joshi. What stands out in class is not a bag of opening tricks. It is that he enjoys the game, sits through a full game without rushing, and is happy to look at a lost game again to find the move he missed.
+
+Those are the habits we try to build in every young student:
+
+1. **Look before you move.** Checks, captures and threats, for both sides, on every move.
+2. **Play real games.** Tournaments teach what puzzles cannot: clocks, nerves, and shaking hands after a loss.
+3. **Keep it fun.** At six, a rating is a milestone to enjoy, not a target to chase. The love of the game comes first, and results follow from it.
+
+## For parents
+
+Parents often ask us when a child is "ready" for tournaments. There is no single age. A child who knows the rules well, can finish a game without help and can lose without it ruining the day is ready to try a local event. If you would like to know how we teach children of this age, see our [chess classes for kids](/chess-classes-for-kids/) and our [parent's guide to chess for kids](/blog/chess-for-kids-a-parents-guide/).
+
+Congratulations, Adamya, from everyone at ChessDepth. We are proud of you, and we are looking forward to your next game.
+
+*Sources: [FIDE rating report, 1st Kota International Open FIDE Rapid 2026](https://ratings.fide.com/report.phtml?event=494569) and Adamya's [FIDE profile](https://ratings.fide.com/profile/591001790).*
