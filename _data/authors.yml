@@ -1,0 +1,19 @@
+# Authors shown in the "About the author" box under every blog post. The key is the post's `author:` value.
+# Posts with no author use "ChessDepth Coaching Team".
+"Sourabh Joshi":
+  name: AFM Sourabh Joshi
+  role: Founder and Head Coach, ChessDepth Academy
+  photo: /favicon/download.jpeg
+  url: /coaches/#sourabh-joshi
+  bio: "Sourabh is a FIDE-titled player (Arena FIDE Master) and the founder of ChessDepth Academy. He coaches students from their first moves to tournament level, writes the academy's news and training articles, and builds its online tools, the Chess Lab and ChessDepth AI."
+  links:
+    - { label: FIDE profile, icon: "fas fa-chess-king", url: "https://ratings.fide.com/profile/25798170" }
+    - { label: Chess.com, icon: "fas fa-chess-board", url: "https://www.chess.com/member/sourabhjoshi01" }
+    - { label: LinkedIn, icon: "fab fa-linkedin-in", url: "https://www.linkedin.com/in/sourabhk-nitb/" }
+"ChessDepth Coaching Team":
+  name: ChessDepth Coaching Team
+  role: The coaches of ChessDepth Academy
+  photo: ""
+  url: /coaches/
+  bio: "This article was written by the coaches of ChessDepth Academy, a team of titled and experienced players who teach online classes for beginners to tournament players."
+  links: []

@@ -22,6 +22,29 @@ layout: default
   </div>
   {%- if page.faq %}{% include faq.html title="Frequently asked questions" %}{% endif %}
 
+  {%- assign au = site.data.authors[page.author] | default: site.data.authors["ChessDepth Coaching Team"] %}
+  {%- assign by = site.posts | where: "author", page.author | size %}
+  <aside class="blog-author" aria-label="About the author">
+    {%- if au.photo and au.photo != "" %}
+    <img src="{{ au.photo }}" alt="{{ au.name }}" class="blog-author-photo" width="88" height="88" loading="lazy" decoding="async">
+    {%- else %}
+    <span class="blog-author-photo blog-author-mark" aria-hidden="true">♜</span>
+    {%- endif %}
+    <div class="blog-author-body">
+      <p class="blog-author-kicker">About the author</p>
+      <p class="blog-author-name"><a href="{{ au.url }}">{{ au.name }}</a></p>
+      <p class="blog-author-role">{{ au.role }}</p>
+      <p class="blog-author-bio">{{ au.bio }}</p>
+      <p class="blog-author-links">
+        <a href="{{ au.url }}" class="blog-author-more">{% if au.links.size > 0 %}Coach profile{% else %}Meet our coaches{% endif %} <i class="fas fa-arrow-right"></i></a>
+        <a href="/blog/" class="blog-author-more">{% if by > 1 %}All {{ by }} articles{% else %}More articles{% endif %} <i class="fas fa-arrow-right"></i></a>
+        {%- for l in au.links %}
+        <a href="{{ l.url }}" target="_blank" rel="noopener noreferrer" class="blog-author-ic" aria-label="{{ au.name }}: {{ l.label }}" title="{{ l.label }}"><i class="{{ l.icon }}"></i></a>
+        {%- endfor %}
+      </p>
+    </div>
+  </aside>
+
   <div class="mt-12 rounded-2xl blog-hero text-white p-8 text-center">
     <p class="text-2xl font-bold mb-2">Want a coach to guide you?</p>
     <p class="text-indigo-100 mb-6">Book a free demo class with ChessDepth Academy and get a personal improvement plan.</p>
