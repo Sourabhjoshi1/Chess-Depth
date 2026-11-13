@@ -18,7 +18,7 @@ One of our youngest students has just joined the international rating list. **Ad
   <figcaption>Adamya with his Top-10 trophy in the Under-9 boys' section of the MRG Chess Cup 2026, Jaipur.</figcaption>
 </figure>
 
-<div class="cd-highlight" style="border-left:4px solid #6366f1;background:#eef2ff;border-radius:.5rem;padding:1rem 1.2rem;margin:1.5rem 0">
+<div class="cd-highlight" style="border-left:4px solid #6366f1;background:#eef2ff;color:#1f2937;border-radius:.5rem;padding:1rem 1.2rem;margin:1.5rem 0">
 <strong>Highlights</strong>
 <ul style="margin:.5rem 0 0">
 <li>One of the youngest players in Rajasthan to get a FIDE rating, at the age of six</li>
