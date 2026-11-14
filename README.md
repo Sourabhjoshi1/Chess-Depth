@@ -98,7 +98,7 @@ Every push to `main` is built and published by `.github/workflows/jekyll-gh-page
 | 23–31 Oct | Connect Firebase so the Chess Lab and Student Area go live; email sign-up; ChessDepth team on Lichess with a free weekly arena |
 | 1–7 Nov | **ChessDepth AI v0.1**: upload a screenshot or digital diagram, get a playable board or open it in Lichess |
 | 8–14 Nov | AI accuracy improvements and "turn this page into a puzzle set" for worksheets; weekly puzzle email |
-| 15–21 Nov | Chess Lab push before the launch offer ends (21 Nov); decide Lab pricing; second Shop product |
+| 15–21 Nov | Chess Lab push (launch offer now runs to 31 Dec); decide Lab pricing before then; second Shop product |
 | 22–30 Nov | AI v0.3 (stretch): read photos of physical books; select Winter 2026 interns |
 
 **Targets for 30 Nov:** 50 Chess Lab students · 30 regular Daily Puzzle solvers · 100 email subscribers · 50 Lichess team members · AI beta reading 9 of 10 clean screenshots correctly.
