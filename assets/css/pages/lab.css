@@ -575,7 +575,7 @@ html.dark .po-check span, html.dark .po-card span { color: #a8b3c4; } html.dark 
 html.dark .po-read a { color: #a5b4fc; }
 
 /* Spacing pass (Nov 2026): tab bar without a scrollbar, room around the status chips and above page content */
-.lab-bar-inner { padding-top: .45rem; padding-bottom: .45rem; row-gap: .5rem; }
+.lab-bar .lab-bar-inner { padding-top: .5rem; padding-bottom: .5rem; row-gap: .5rem; }
 .lab-tabs { gap: .15rem; scrollbar-width: none; -ms-overflow-style: none; max-width: 100%; }
 .lab-tabs::-webkit-scrollbar { display: none; }
 .lab-tabs a { padding: .5rem .7rem; font-size: .88rem; gap: .4rem; }
