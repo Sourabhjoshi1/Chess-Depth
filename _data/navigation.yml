@@ -29,7 +29,11 @@
     - title: Courses
       url: /lab/courses/
       icon: fa-graduation-cap
-      desc: 64 courses with interactive lessons
+      desc: 68 courses with interactive lessons
+    - title: Positional play
+      url: /lab/positional/
+      icon: fa-chess-knight
+      desc: A learning path, checklist and practice
     - title: Puzzles
       url: /lab/tactics/
       icon: fa-bolt

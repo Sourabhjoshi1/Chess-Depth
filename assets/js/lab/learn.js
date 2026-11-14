@@ -4,6 +4,7 @@ import { startLabPage, toast, esc } from "./shell.js";
 import { award, saveProgress, track } from "./lab-core.js";
 import { makeBoard } from "./board.js";
 
+const POSITIONAL = ["evaluate", "good-bad-pieces", "rooks", "pawn-weaknesses", "passed-pawns", "iqp", "pawn-breaks", "prophylaxis", "exchanges"];
 startLabPage({ toolName: "the Lab lessons", ready: run });
 
 async function run(st, prog) {
@@ -92,7 +93,7 @@ async function run(st, prog) {
   ui.next.addEventListener("click", () => {
     const l = L[i];
     if (!l.move && !l.quiz && !rec.done.includes(i)) complete();
-    if (i < N - 1) show(i + 1); else location.href = "/lab/courses/?cat=" + course.cat;
+    if (i < N - 1) show(i + 1); else location.href = POSITIONAL.includes(course.id) ? "/lab/positional/" : "/lab/courses/?cat=" + course.cat;
   });
   ui.dots.addEventListener("click", (e) => { const b = e.target.closest("[data-k]"); if (b) show(Number(b.dataset.k)); });
   document.addEventListener("keydown", (e) => {

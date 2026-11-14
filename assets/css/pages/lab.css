@@ -549,3 +549,27 @@ html.dark .cr-cont-item { background: #162032; border-color: #3b4a8a; color: #e2
 html.dark .cr-sort select, html.dark .ln-dot, html.dark .ln-opt { background: #162032; border-color: #273449; color: #e2e8f0; }
 html.dark .ln-opt.is-right { background: rgba(16,185,129,.15); color: #6ee7b7; } html.dark .ln-opt.is-wrong { background: rgba(239,68,68,.12); color: #fca5a5; }
 html.dark .ln-dot.is-done { background: rgba(16,185,129,.15); color: #6ee7b7; border-color: #047857; }
+
+/* Positional play hub (/lab/positional/) */
+.ps-page { padding-top: 1.5rem; padding-bottom: 3rem; }
+.po-h2 { font-size: 1.35rem; font-weight: 700; color: #111827; margin-top: 2.4rem; } .po-h2 i { color: #6366f1; margin-right: .4rem; font-size: 1.1rem; }
+.po-sub { color: #6b7280; margin: .3rem 0 1rem; max-width: 70ch; }
+.po-stage { margin-top: 1.3rem; } .po-stage h3 { font-weight: 700; color: #3730a3; } .po-stage > p { color: #6b7280; font-size: .92rem; margin: .1rem 0 .7rem; }
+.po-num { width: 2rem; height: 2rem; flex: none; border-radius: 50%; display: grid; place-items: center; font-weight: 700; font-size: .9rem; background: #eef2ff; color: #4338ca; }
+.po-num.is-done { background: #ecfdf5; color: #047857; }
+.po-check { display: grid; gap: .6rem; counter-reset: po; max-width: 52rem; }
+.po-check li { counter-increment: po; display: grid; grid-template-columns: 2.2rem 1fr; column-gap: .8rem; background: #fff; border: 1px solid #e5e7eb; border-radius: 12px; padding: .8rem 1rem; }
+.po-check li::before { content: counter(po); grid-row: span 2; width: 2.2rem; height: 2.2rem; border-radius: 50%; background: #4f46e5; color: #fff; font-weight: 700; display: grid; place-items: center; }
+.po-check b { color: #111827; } .po-check span { color: #4b5563; font-size: .92rem; }
+.po-cards { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); }
+.po-card { display: grid; gap: .4rem; align-content: start; background: #fff; border: 1px solid #e5e7eb; border-radius: 14px; padding: 1.1rem; color: #111827; transition: border-color .15s, box-shadow .15s; }
+.po-card:hover { border-color: #a5b4fc; box-shadow: 0 8px 22px rgba(79,70,229,.1); }
+.po-card > i { width: 2.4rem; height: 2.4rem; border-radius: 10px; display: grid; place-items: center; background: #eef2ff; color: #4f46e5; }
+.po-card span { color: #4b5563; font-size: .9rem; line-height: 1.45; } .po-card em { font-style: normal; font-weight: 700; font-size: .86rem; color: #4f46e5; }
+.po-read { display: grid; gap: .6rem; max-width: 52rem; } .po-read li { display: grid; } .po-read a { color: #4338ca; font-weight: 700; } .po-read a:hover { text-decoration: underline; } .po-read span { color: #6b7280; font-size: .9rem; }
+.cr-summary small a { color: #4f46e5; font-weight: 600; }
+@media (max-width: 640px) { .po-num { display: none; } }
+html.dark .po-h2, html.dark .po-check b { color: #f1f5f9; } html.dark .po-stage h3 { color: #c7d2fe; }
+html.dark .po-check li, html.dark .po-card { background: #162032; border-color: #273449; color: #e2e8f0; }
+html.dark .po-check span, html.dark .po-card span { color: #a8b3c4; } html.dark .po-card > i, html.dark .po-num { background: rgba(99,102,241,.2); color: #c7d2fe; }
+html.dark .po-read a { color: #a5b4fc; }
