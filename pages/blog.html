@@ -8,7 +8,7 @@ page_css: blog
   {% include page-hero.html eyebrow="The ChessDepth Blog" title="Learn something new about chess" lead="Practical articles from our coaches on tactics, strategy, openings, endgames and how to train, plus advice for parents." %}
 
   <section class="max-w-6xl mx-auto px-4 py-12">
-    <p class="pv-total text-center text-gray-600 mb-6" data-pv-box hidden><i class="fas fa-book-open mr-2 text-indigo-500"></i><strong class="text-gray-900" data-pv-total></strong> total reads across {{ site.posts | size }} articles</p>
+    <p class="pv-total text-center text-gray-600 mb-6" data-pv-box hidden><i class="fas fa-book-open mr-2 text-indigo-500"></i><strong class="text-gray-900" data-pv-total></strong> total reads across {{ site.posts | size }} articles <span class="pv-live" title="Updates live as people read"><span class="pv-live-dot" aria-hidden="true"></span>Live</span></p>
     <div class="flex flex-wrap justify-center gap-2 mb-10" role="toolbar" aria-label="Filter articles by topic">
       <button type="button" class="blog-filter is-active" data-filter="all">All articles</button>
       {%- for c in categories %}

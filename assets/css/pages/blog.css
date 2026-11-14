@@ -51,3 +51,13 @@
 html.dark .blog-author { background: #162032; border-color: #273449; }
 html.dark .blog-author-name { color: #f1f5f9; } html.dark .blog-author-bio { color: #a8b3c4; } html.dark .blog-author-role, html.dark .blog-author-more { color: #a5b4fc; }
 html.dark .blog-author-mark { background: rgba(99,102,241,.2); color: #c7d2fe; }
+
+/* live read counts: a short flash when a number goes up */
+@keyframes pv-tick { 0% { color: #16a34a; transform: scale(1.18); } 100% { transform: none; } }
+.pv-tick { display: inline-block; animation: pv-tick .9s ease-out; }
+@media (prefers-reduced-motion: reduce) { .pv-tick { animation: none; } }
+.pv-live { display: inline-flex; align-items: center; gap: .3rem; margin-left: .5rem; font-size: .72rem; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; color: #15803d; background: #ecfdf5; border-radius: 999px; padding: .1rem .55rem; vertical-align: middle; }
+.pv-live-dot { width: .45rem; height: .45rem; border-radius: 50%; background: #22c55e; animation: pv-pulse 1.6s ease-in-out infinite; }
+@keyframes pv-pulse { 50% { opacity: .35; } }
+@media (prefers-reduced-motion: reduce) { .pv-live-dot { animation: none; } }
+html.dark .pv-live { background: rgba(16,185,129,.18); color: #6ee7b7; }

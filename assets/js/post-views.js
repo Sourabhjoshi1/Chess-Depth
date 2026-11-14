@@ -1,6 +1,6 @@
 // ChessDepth Academy - blog read counts.
 //
-// Each article keeps a counter in Firestore (postViews/{slug}.count). A visit adds one read,
+// Each article keeps a counter in Firestore (postViews/{slug}.count), shown live. A visit adds one read,
 // at most once per article per browser session. Reads counted before the live counter started
 // (from Google Analytics) come from _data/post_reads.yml and are added on top.
 //
@@ -29,15 +29,21 @@ function paint(live) {
   document.querySelectorAll("[data-pv-count]").forEach((el) => {
     const slug = el.dataset.pvCount;
     const n = (parseInt(el.dataset.pvBase, 10) || 0) + (live[slug] || 0);
-    el.textContent = label(n);
+    set(el, label(n));
     const wrap = el.closest(".pv-wrap"); if (wrap) wrap.hidden = false;
     if (!seen.has(slug)) { seen.add(slug); total += n; }
   });
   document.querySelectorAll("[data-pv-total]").forEach((el) => {
-    el.textContent = fmt(total);
+    set(el, fmt(total));
     const box = el.closest("[data-pv-box]");
     if (box) box.hidden = false;
   });
+}
+// Change the text, with a short flash when a number goes up while the page is open.
+function set(el, text) {
+  if (el.textContent === text) return;
+  const first = !el.dataset.pvShown; el.textContent = text; el.dataset.pvShown = "1";
+  if (!first) { el.classList.remove("pv-tick"); void el.offsetWidth; el.classList.add("pv-tick"); }
 }
 
 (async () => {
@@ -45,9 +51,18 @@ function paint(live) {
   const hit = hitEl ? hitEl.dataset.pvHit : "";
   const els = document.querySelectorAll("[data-pv-count]");
   if (!hit && !els.length) return;
-  let live = {};
+  const live = {};
+  paint(live);   // show the saved counts straight away; live numbers follow
   try {
     const { fs, db } = await fb();
+    // Live updates: the numbers change on screen as soon as anyone, anywhere, opens an article.
+    if (document.querySelector("[data-pv-total]")) {
+      fs.onSnapshot(fs.collection(db, "postViews"), (snap) => {
+        snap.forEach((d) => { live[d.id] = Number(d.data().count) || 0; }); paint(live);
+      }, () => {});
+    } else if (hit) {
+      fs.onSnapshot(fs.doc(db, "postViews", hit), (d) => { live[hit] = d.exists() ? Number(d.data().count) || 0 : 0; paint(live); }, () => {});
+    }
     if (hit && /^[a-z0-9-]{1,120}$/.test(hit)) {
       let counted = false;
       try { counted = sessionStorage.getItem("pv:" + hit) === "1"; } catch (e) {}
@@ -58,13 +73,5 @@ function paint(live) {
         } catch (e) { /* counting is best-effort */ }
       }
     }
-    if (document.querySelector("[data-pv-total]")) {
-      const snap = await fs.getDocs(fs.collection(db, "postViews"));
-      snap.forEach((d) => { live[d.id] = Number(d.data().count) || 0; });
-    } else if (hit) {
-      const d = await fs.getDoc(fs.doc(db, "postViews", hit));
-      if (d.exists()) live[hit] = Number(d.data().count) || 0;
-    }
-  } catch (e) { /* offline or blocked: show the baseline only */ }
-  paint(live);
+  } catch (e) { /* offline or blocked: the saved counts stay on screen */ }
 })();
