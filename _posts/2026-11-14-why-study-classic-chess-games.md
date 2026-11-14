@@ -2,7 +2,7 @@
 title: "Why Study the Chess Classics? Great Players of the Past, Their Styles and Famous Positions"
 headline: "Why Study the Chess Classics?"
 crumb: "Why Study the Chess Classics?"
-description: "Why old master games still make you stronger today: the great players from Philidor to Fischer, how each of them played, four famous positions to solve, and a simple way to study classic games."
+description: "Why old master games still make you stronger today: the great players from Philidor to Fischer, India's legends Mir Sultan Khan and Viswanathan Anand, four famous positions to solve, and a simple way to study classic games."
 category: Training
 level: All levels
 author: Sourabh Joshi
@@ -19,7 +19,7 @@ faq:
 
 Every strong player you admire grew up on the same diet: the games of the masters who came before them. Engines are stronger than any human who ever lived, yet coaches still send their students back to games played 100 or even 170 years ago.
 
-This article explains why, introduces the great players of the past and how each of them played, and gives you four famous positions to solve.
+This article explains why, introduces the great players of the past and how each of them played, including India's own legends, and gives you four famous positions to solve.
 
 ## Why old games still make you stronger
 
@@ -51,6 +51,37 @@ This article explains why, introduces the great players of the past and how each
 | **Bobby Fischer** (USA) | 1943–2008 | World Champion in 1972. Clear, energetic and accurate play. He won the "Game of the Century" at the age of 13. |
 
 Each of them teaches something different. Morphy teaches you to develop. Steinitz teaches you to be patient. Capablanca teaches you to keep it simple. Tal teaches you to be brave.
+
+## India's chess legends
+
+Chess is widely believed to have begun in India, as the old game of chaturanga. Two players from the subcontinent belong in any list of classics.
+
+### Mir Sultan Khan (1903–1966): the natural genius
+
+Sultan Khan was born in a village in Punjab, in undivided British India (the area is now in Pakistan). He grew up playing the Indian form of chess, where the rules were a little different, and learned the international rules only as a young man. He had almost no book knowledge of openings.
+
+In 1929 he travelled to England, and what followed is one of the most remarkable stories in chess:
+
+- He won the **British Championship three times**, in 1929, 1932 and 1933.
+- At Hastings 1930–31 he **beat José Raúl Capablanca**, the former World Champion who almost never lost. Capablanca called him a genius.
+- He won a match against Savielly Tartakower in 1931 and played top board for the British Empire team at three Olympiads.
+
+His international career lasted less than five years. In 1933 he went home and hardly played serious chess again. In **2024, FIDE awarded him the title of Honorary Grandmaster**, 58 years after his death.
+
+**His style:** slow, patient and stubborn. He often came out of the opening with a modest position, because he did not know the theory. Then he outplayed his opponents in the middlegame and the endgame, squeezing small advantages for hours. His games show that understanding matters more than memorised openings.
+
+### Viswanathan Anand (born 1969): the Tiger of Madras
+
+Anand changed Indian chess for ever. He learned the game from his mother at the age of six and became famous as a teenager for playing strong moves at lightning speed.
+
+- **1987:** World Junior Champion, the first Indian to win the title.
+- **1988:** India's **first Grandmaster**, at the age of 18.
+- **2000:** FIDE World Champion.
+- **2007:** undisputed World Champion, a title he defended in matches against Vladimir Kramnik (2008), Veselin Topalov (2010) and Boris Gelfand (2012). That makes him a **five-time World Champion**.
+
+**His style:** fast, clear and universal. Anand calculates quickly, is superbly prepared in the opening, and is equally at home attacking, defending or grinding out an endgame. He won the world title in three different formats: knockout, tournament and match.
+
+When Anand became a Grandmaster in 1988, India had one. Today it has [100 Grandmasters](/blog/anuj-shrivatri-india-100th-grandmaster/). Almost every one of them grew up studying his games.
 
 ## Four famous positions to solve
 
@@ -104,6 +135,7 @@ One game a week is plenty. In a year you will know fifty classic games, and you 
 - **Beginners:** Morphy's Opera Game, Anderssen's Immortal Game and Evergreen Game. Irving Chernev's book *Logical Chess: Move by Move* explains every single move of 33 master games.
 - **Improving players:** Capablanca's *Chess Fundamentals* and his endgames, and Rubinstein's rook endgames.
 - **Tournament players:** Nimzowitsch's *My System*, Alekhine's best games, Tal's attacking games, and Fischer's *My 60 Memorable Games*.
+- **For Indian chess history:** Anand's own book *Vishy Anand: My Best Games of Chess*, and Daniel King's biography *Sultan Khan: The Indian Servant Who Became Chess Champion of the British Empire*.
 
 You can practise many of these ideas on our site. The [checkmate patterns course](/lab/learn/?c=mate-patterns) in the Chess Lab covers the back-rank, smothered and Arabian mates. The [Endgame trainer](/lab/endgames/) lets you play the Lucena and Philidor positions against Stockfish, and our article on [rook endgames](/blog/rook-endgames-lucena-and-philidor/) explains them step by step. To find the tactics in the positions above more quickly, use the [checks, captures and threats](/blog/cct-method-checks-captures-threats/) routine.
 
