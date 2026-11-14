@@ -1,8 +1,10 @@
 // ChessDepth AI - square classifier, run in the browser (no uploads, no libraries).
 // Network: 4 conv layers (3x3, ReLU, max-pool) + 2 dense layers, 32x32 grayscale input, 13 classes.
-// Weights: /assets/ai/model.bin (float16), layout described in /assets/ai/model.json.
+// Two sets of weights with the same layout (float16 .bin, described by a .json):
+//   model2 (v0.4) is trained on 36 piece styles and is used on its own to line up the grid;
+//   model  (v0.2) is the earlier network. The final read averages both, which is more reliable than either alone.
 export const CLASSES = [".", "P", "N", "B", "R", "Q", "K", "p", "n", "b", "r", "q", "k"];
-let W = null;
+let W = null, W_OLD = null;
 
 function f16(u) { // IEEE half -> float
   const s = (u & 0x8000) ? -1 : 1, e = (u >> 10) & 0x1f, m = u & 0x3ff;
@@ -10,11 +12,10 @@ function f16(u) { // IEEE half -> float
   if (e === 31) return m ? NaN : s * Infinity;
   return s * Math.pow(2, e - 15) * (1 + m / 1024);
 }
-export async function loadModel(base = "/assets/ai/") {
-  if (W) return W;
+async function loadWeights(base, name) {
   const [meta, buf] = await Promise.all([
-    fetch(base + "model.json", { cache: "no-cache" }).then((r) => r.json()),
-    fetch(base + "model.bin", { cache: "no-cache" }).then((r) => r.arrayBuffer()),
+    fetch(base + name + ".json", { cache: "no-cache" }).then((r) => r.json()),
+    fetch(base + name + ".bin", { cache: "no-cache" }).then((r) => r.arrayBuffer()),
   ]);
   const u16 = new Uint16Array(buf); const out = {};
   for (const t of meta.tensors) {
@@ -22,7 +23,14 @@ export async function loadModel(base = "/assets/ai/") {
     for (let i = 0; i < t.size; i++) a[i] = f16(u16[t.offset + i]);
     out[t.name] = { data: a, shape: t.shape };
   }
-  W = out; return W;
+  return out;
+}
+export async function loadModel(base = "/assets/ai/") {
+  if (W) return W;
+  const [neu, old] = await Promise.all([loadWeights(base, "model2").catch(() => null), loadWeights(base, "model").catch(() => null)]);
+  if (!neu && !old) throw new Error("no model");
+  W = neu || old; W_OLD = neu && old ? old : null;   // with only one file available, use it alone
+  return W;
 }
 
 // conv 3x3, padding 1, then ReLU. input [C,H,W] -> [O,H,W]. The input is copied into a zero-padded
@@ -60,19 +68,26 @@ function dense(x, w, b, O, relu) {
   for (let o = 0; o < O; o++) { let s = b[o]; const wo = o * I; for (let i = 0; i < I; i++) s += w[wo + i] * x[i]; y[o] = relu && s < 0 ? 0 : s; }
   return y;
 }
-// x: Float32Array(1024) of raw grayscale 0..255 -> probabilities for the 13 classes
-export function classify(px) {
+function forward(M, x) {
+  let h = conv(x, 1, 32, 32, M.c1w.data, M.c1b.data, 16); h = pool(h, 16, 32, 32);
+  h = conv(h, 16, 16, 16, M.c2w.data, M.c2b.data, 32); h = pool(h, 32, 16, 16);
+  h = conv(h, 32, 8, 8, M.c3w.data, M.c3b.data, 64);
+  h = conv(h, 64, 8, 8, M.c4w.data, M.c4b.data, 64); h = pool(h, 64, 8, 8);
+  h = dense(h, M.f1w.data, M.f1b.data, 128, true);
+  const z = dense(h, M.f2w.data, M.f2b.data, 13, false);
+  let mx = -Infinity; for (const a of z) mx = Math.max(mx, a);
+  let sum = 0; const p = Array.from(z, (a) => { const e = Math.exp(a - mx); sum += e; return e; });
+  return p.map((a) => a / sum);
+}
+// px: Float32Array(1024) of raw grayscale 0..255 -> probabilities for the 13 classes.
+// both = false: the newer network alone (fast; used while lining up the grid). both = true: average of the two.
+export function classify(px, both = false) {
   let m = 0; for (let i = 0; i < 1024; i++) m += px[i]; m /= 1024 * 255;
   let v = 0; for (let i = 0; i < 1024; i++) { const d = px[i] / 255 - m; v += d * d; }
   const sd = Math.sqrt(v / 1024) + 0.05, x = new Float32Array(1024);
   for (let i = 0; i < 1024; i++) x[i] = (px[i] / 255 - m) / sd;
-  let h = conv(x, 1, 32, 32, W.c1w.data, W.c1b.data, 16); h = pool(h, 16, 32, 32);
-  h = conv(h, 16, 16, 16, W.c2w.data, W.c2b.data, 32); h = pool(h, 32, 16, 16);
-  h = conv(h, 32, 8, 8, W.c3w.data, W.c3b.data, 64);
-  h = conv(h, 64, 8, 8, W.c4w.data, W.c4b.data, 64); h = pool(h, 64, 8, 8);
-  h = dense(h, W.f1w.data, W.f1b.data, 128, true);
-  const z = dense(h, W.f2w.data, W.f2b.data, 13, false);
-  let mx = -Infinity; for (const a of z) mx = Math.max(mx, a);
-  let sum = 0; const p = z.map((a) => { const e = Math.exp(a - mx); sum += e; return e; });
-  return p.map((a) => a / sum);
+  const p = forward(W, x);
+  if (!both || !W_OLD) return p;
+  const q = forward(W_OLD, x);
+  return p.map((a, i) => (a + q[i]) / 2);
 }

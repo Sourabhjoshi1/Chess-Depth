@@ -12,7 +12,7 @@ const ui = {
   issue: $("ai-issue"), best: $("ai-best"), bestOut: $("ai-best-out"), link: $("ai-link"), cam: $("ai-cam"),
   send: $("ai-send"), sendBtn: $("ai-send-btn"), sendMsg: $("ai-send-msg"), srcCol: $("ai-src-col"),
 };
-const VERSION = "v0.3";
+const VERSION = "v0.4";
 const tick = () => new Promise((r) => setTimeout(r, 0));
 const track = (n, p) => { try { if (typeof window.gtag === "function") window.gtag("event", n, p || {}); } catch (e) { /* ignore */ } };
 let img = null, box = null, turn = "w", whiteBottom = true, edited = false, scaleShown = 1, drawing = null;
@@ -76,12 +76,15 @@ async function run(manualBox) {
   say("Lining up the squares…"); await tick();
   const fit = await refine(box, probs, !!manualBox, id);
   if (id !== runId) return;
-  if (fit.changed) { box = fit.box; big = drawBoard(box); probs = readSquares(big); drawSource(); }
+  if (fit.changed) { box = fit.box; big = drawBoard(box); drawSource(); }
+  // The final read uses both networks together.
+  say("Reading the pieces…"); await tick();
+  probs = readSquares(big, null, 0, 0, true);
   // 2) Second look at any square the model is unsure about, from four slightly shifted views.
   probs.forEach((p, i) => {
     if (Math.max(...p) >= 0.95) return;
     const L = p.map((v) => Math.log(v + 1e-6));
-    for (const [dx, dy] of [[2, 0], [-2, 0], [0, 2], [0, -2]]) readSquares(big, [i], dx, dy)[0].forEach((v, k) => { L[k] += Math.log(v + 1e-6); });
+    for (const [dx, dy] of [[2, 0], [-2, 0], [0, 2], [0, -2]]) readSquares(big, [i], dx, dy, true)[0].forEach((v, k) => { L[k] += Math.log(v + 1e-6); });
     const e = L.map((v) => Math.exp(v / 5)), sum = e.reduce((a, c) => a + c, 0);
     probs[i] = e.map((v) => v / sum);
   });
@@ -114,9 +117,9 @@ function grayCrop(big, i, dx = 0, dy = 0) {
   return px;
 }
 // probabilities for the listed squares (all 64 by default), each downscaled the same way
-function readSquares(big, list, dx, dy) {
+function readSquares(big, list, dx, dy, both) {
   const idx = list || Array.from({ length: 64 }, (_, i) => i);
-  return idx.map((i) => classify(grayCrop(big, i, dx, dy)));
+  return idx.map((i) => classify(grayCrop(big, i, dx, dy), both));
 }
 function cropBytes(big) {
   const out = new Uint8Array(64 * 1024);
