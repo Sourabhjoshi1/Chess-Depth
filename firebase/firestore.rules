@@ -9,9 +9,9 @@ service cloud.firestore {
       return request.auth != null && request.auth.token.email in ['joshisourabh47@gmail.com'];
     }
     // Launch offer: every signed-in user has full access until this moment.
-    // Keep in step with `lab.free_until` in _config.yml (end of 21 Nov 2026, India time = 18:29:59 UTC).
+    // Keep in step with `lab.free_until` in _config.yml (end of 31 Dec 2026, India time = 18:29:59 UTC).
     function promoActive() {
-      return request.auth != null && request.time < timestamp.date(2026, 11, 21) + duration.value(18, 'h') + duration.value(30, 'm');
+      return request.auth != null && request.time < timestamp.date(2026, 12, 31) + duration.value(18, 'h') + duration.value(30, 'm');
     }
     // A Lab member: the launch offer is running, a paid membership is active,
     // or the student has linked a ChessDepth Academy enrollment number (free forever).
