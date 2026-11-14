@@ -40,7 +40,7 @@ This article explains why, introduces the great players of the past and how each
 | **François-André Philidor** (France) | 1726–1795 | The first great chess thinker. He wrote that "pawns are the soul of chess" and showed how pawn structure decides the plan. |
 | **Adolf Anderssen** (Germany) | 1818–1879 | Fearless attacker of the Romantic era. Winner of the Immortal Game (1851) and the Evergreen Game (1852). |
 | **Paul Morphy** (USA) | 1837–1884 | Fast development, open lines, and only then the attack. He was far ahead of everyone in his time. |
-| **Wilhelm Steinitz** (Austria, later USA) | 1836–1900 | The first official World Champion (1886). He taught that you attack only when you hold an advantage, and that small advantages add up. |
+| **Wilhelm Steinitz** (born in Prague, later USA) | 1836–1900 | The first official World Champion (1886). He taught that you attack only when you hold an advantage, and that small advantages add up. |
 | **Emanuel Lasker** (Germany) | 1868–1941 | World Champion for 27 years (1894–1921), the longest reign. A fighter and a practical player who was superb in defence. |
 | **José Raúl Capablanca** (Cuba) | 1888–1942 | World Champion 1921–1927. Clear, simple moves and perfect endgame technique. He made chess look easy. |
 | **Akiba Rubinstein** (Poland) | 1880–1961 | The great master of rook endgames and of quiet, logical play. |
