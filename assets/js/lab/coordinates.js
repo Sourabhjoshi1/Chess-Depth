@@ -18,7 +18,7 @@ async function run(st, prog) {
     ui.board.classList.toggle("co-labels", ui.labels.checked);
     for (let r = 0; r < 8; r++) for (let c = 0; c < 8; c++) {
       const f = view === "w" ? c : 7 - c, rank = view === "w" ? 8 - r : r + 1, sq = FILES[f] + rank;
-      const d = document.createElement("button"); d.type = "button"; d.className = "co-sq " + ((f + rank) % 2 === 1 ? "co-light" : "co-dark"); d.dataset.sq = sq;
+      const d = document.createElement("button"); d.type = "button"; d.className = "co-sq " + ((f + rank) % 2 === 1 ? "co-dark" : "co-light");   // f is 0 for the a-file, so a1 (0 + 1) is dark and h1 is light d.dataset.sq = sq;
       d.setAttribute("aria-label", drill === "find" ? sq : "square");
       if (c === 0) { const s = document.createElement("span"); s.className = "co-rk"; s.textContent = rank; d.appendChild(s); }
       if (r === 7) { const s = document.createElement("span"); s.className = "co-fl"; s.textContent = FILES[f]; d.appendChild(s); }

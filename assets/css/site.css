@@ -288,3 +288,19 @@ html.dark .cd-faq a { color: #a5b4fc; }
 .cd-topbar a.cd-signed-in .cd-acct-img, .cd-topbar a.cd-signed-in .cd-acct-initial { width: 24px; height: 24px; }
 .cd-mobile-login { font-size: 1.02rem; padding-top: .8rem; padding-bottom: .8rem; }
 .cd-mobile-login i { font-size: 1.15rem; }
+
+/* Phone header: a sign-in button that is always visible (the top strip with "Student login" is hidden on phones) */
+.cd-hdr-login { display: none; align-items: center; gap: .4rem; background: var(--cd-ink); color: #fff; font-weight: 600; font-size: .88rem; padding: .45rem .8rem; border-radius: 999px; white-space: nowrap; max-width: 9.5rem; }
+.cd-hdr-login:hover { background: var(--cd-ink-2); color: #fff; }
+.cd-hdr-login i { font-size: 1rem; color: var(--cd-brass); }
+.cd-hdr-login.cd-signed-in { background: transparent; color: var(--cd-ink); border: 1px solid var(--cd-line); padding: .25rem .65rem .25rem .3rem; }
+.cd-hdr-login.cd-signed-in .cd-acct-img, .cd-hdr-login.cd-signed-in .cd-acct-initial { width: 26px; height: 26px; }
+.cd-hdr-login .cd-acct-name { overflow: hidden; text-overflow: ellipsis; }
+@media (max-width: 767px) {
+  .cd-hdr-login { display: inline-flex; }
+  .cd-header-inner { gap: .6rem; }
+}
+@media (max-width: 400px) { .cd-brand-name { font-size: 1.4rem; } .cd-brand { gap: .45rem; } .cd-header-mobile { gap: .3rem; } }
+@media (max-width: 350px) { .cd-hdr-login.cd-signed-in .cd-acct-name { display: none; } .cd-hdr-login.cd-signed-in { padding: .2rem; } .cd-hdr-login:not(.cd-signed-in) { padding: .4rem .6rem; font-size: .8rem; } .cd-hdr-login:not(.cd-signed-in) i { display: none; } }
+html.dark .cd-hdr-login { background: var(--cd-brass); color: #1f2547; } html.dark .cd-hdr-login i { color: #1f2547; }
+html.dark .cd-hdr-login.cd-signed-in { background: transparent; color: #e2e8f0; border-color: #334155; }
