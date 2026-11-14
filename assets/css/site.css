@@ -301,6 +301,7 @@ html.dark .cd-faq a { color: #a5b4fc; }
   .cd-header-inner { gap: .6rem; }
 }
 @media (max-width: 400px) { .cd-brand-name { font-size: 1.4rem; } .cd-brand { gap: .45rem; } .cd-header-mobile { gap: .3rem; } }
-@media (max-width: 350px) { .cd-hdr-login.cd-signed-in .cd-acct-name { display: none; } .cd-hdr-login.cd-signed-in { padding: .2rem; } .cd-hdr-login:not(.cd-signed-in) { padding: .4rem .6rem; font-size: .8rem; } .cd-hdr-login:not(.cd-signed-in) i { display: none; } }
+@media (max-width: 430px) { .cd-hdr-login.cd-signed-in .cd-acct-name { display: none; } .cd-hdr-login.cd-signed-in { padding: .2rem; } .cd-hdr-login:not(.cd-signed-in) { padding: .4rem .7rem; font-size: .84rem; } .cd-menu-btn { padding: .35rem; } }
+@media (max-width: 350px) { .cd-hdr-login:not(.cd-signed-in) i { display: none; } .cd-header-mobile .cd-theme-btn { display: none; } }
 html.dark .cd-hdr-login { background: var(--cd-brass); color: #1f2547; } html.dark .cd-hdr-login i { color: #1f2547; }
 html.dark .cd-hdr-login.cd-signed-in { background: transparent; color: #e2e8f0; border-color: #334155; }
