@@ -573,3 +573,20 @@ html.dark .po-h2, html.dark .po-check b { color: #f1f5f9; } html.dark .po-stage 
 html.dark .po-check li, html.dark .po-card { background: #162032; border-color: #273449; color: #e2e8f0; }
 html.dark .po-check span, html.dark .po-card span { color: #a8b3c4; } html.dark .po-card > i, html.dark .po-num { background: rgba(99,102,241,.2); color: #c7d2fe; }
 html.dark .po-read a { color: #a5b4fc; }
+
+/* Spacing pass (Nov 2026): tab bar without a scrollbar, room around the status chips and above page content */
+.lab-bar-inner { padding-top: .45rem; padding-bottom: .45rem; row-gap: .5rem; }
+.lab-tabs { gap: .15rem; scrollbar-width: none; -ms-overflow-style: none; max-width: 100%; }
+.lab-tabs::-webkit-scrollbar { display: none; }
+.lab-tabs a { padding: .5rem .7rem; font-size: .88rem; gap: .4rem; }
+.lab-bar-status { padding: .15rem 0 .25rem; }
+section.cd-wrap.lab-page, section.cd-wrap.cr-page, section.cd-wrap.ps-page { padding-top: 2.75rem; padding-bottom: 4rem; }
+.ps-page .lab-hero-kicker, .cr-page .lab-hero-kicker { color: #6366f1; margin-bottom: .35rem; }
+.cr-head { row-gap: 1.25rem; }
+.cr-lede { margin-top: .6rem; line-height: 1.6; }
+.po-h2 { margin-top: 3.2rem; }
+.po-sub { margin: .5rem 0 1.3rem; line-height: 1.6; }
+.po-stage { margin-top: 1.8rem; }
+@media (min-width: 1100px) { .lab-tabs { flex-wrap: wrap; overflow: visible; } }
+@media (max-width: 640px) { section.cd-wrap.lab-page, section.cd-wrap.cr-page, section.cd-wrap.ps-page { padding-top: 1.75rem; } .po-h2 { margin-top: 2.4rem; } }
+html.dark .ps-page .lab-hero-kicker, html.dark .cr-page .lab-hero-kicker { color: #a5b4fc; }
