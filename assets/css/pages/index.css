@@ -142,3 +142,26 @@ html.dark .hr-eyebrow, html.dark .hr-all { color: #a5b4fc; }
 .cd-wrap.cm-wrap { padding-top: 3.5rem; padding-bottom: 3.5rem; }
 .cm-lead { color: #4b5563; margin: .5rem 0 1.5rem; max-width: 42rem; line-height: 1.6; }
 html.dark .cm-section { background: transparent; } html.dark .cm-lead { color: #a8b3c4; }
+
+/* "Everything ChessDepth makes": the company's products, right under the hero */
+.hm-do { padding: 4rem 0 1rem; text-align: center; }
+.hm-do-eyebrow { font-size: .8rem; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--cd-brass); margin: 0 0 .5rem; }
+.hm-do-h { font-size: clamp(1.7rem, 3vw, 2.2rem); font-weight: 700; color: var(--cd-ink); margin: 0 0 .6rem; letter-spacing: -.01em; }
+.hm-do-lead { color: #5b6080; max-width: 38rem; margin: 0 auto 2.2rem; }
+.hm-do-grid { display: grid; gap: 1.1rem; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); text-align: left; }
+.hm-do-card { display: flex; flex-direction: column; background: #fff; border: 1px solid var(--cd-line); border-radius: 14px; padding: 1.4rem 1.3rem; color: inherit; transition: transform .18s, box-shadow .18s, border-color .18s; }
+.hm-do-card:hover { transform: translateY(-3px); box-shadow: 0 12px 28px rgba(31,37,71,.1); border-color: var(--cd-brass); }
+.hm-do-card > i { font-size: 1.5rem; color: #4f46e5; margin-bottom: .9rem; }
+.hm-do-card h3 { font-size: 1.1rem; font-weight: 700; color: var(--cd-ink); margin: 0 0 .4rem; }
+.hm-do-card h3 small { font-size: .62rem; font-weight: 600; border: 1px solid var(--cd-brass); color: var(--cd-brass); border-radius: 4px; padding: .05rem .35rem; vertical-align: middle; margin-left: .3rem; }
+.hm-do-card p { font-size: .9rem; color: #5b6080; line-height: 1.55; margin: 0 0 1rem; flex: 1; }
+.hm-do-card span { font-size: .85rem; font-weight: 600; color: #4f46e5; }
+.hm-do-card span i { font-size: .7rem; margin-left: .25rem; transition: transform .15s; }
+.hm-do-card:hover span i { transform: translateX(3px); }
+.hm-do-main { background: var(--cd-ink); border-color: var(--cd-ink); }
+.hm-do-main h3 { color: #fff; } .hm-do-main p { color: #c9cde6; } .hm-do-main > i, .hm-do-main span { color: #e2c48a; }
+html.dark .hm-do-h { color: #f1f5f9; } html.dark .hm-do-lead { color: #94a3b8; }
+html.dark .hm-do-card { background: #172033; border-color: #2a3550; }
+html.dark .hm-do-card h3 { color: #f1f5f9; } html.dark .hm-do-card p { color: #94a3b8; }
+html.dark .hm-do-card > i, html.dark .hm-do-card span { color: #a5b4fc; }
+html.dark .hm-do-main { background: #232b55; border-color: #3a4580; }

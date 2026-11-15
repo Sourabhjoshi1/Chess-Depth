@@ -3,7 +3,7 @@
 {%- if page.url == "/" %}
   <script type="application/ld+json">
   {"@context":"https://schema.org","@graph":[
-    {"@type":"EducationalOrganization","@id":"{{ org_id }}","name":"{{ site.title }}","url":"{{ site.url }}/",
+    {"@type":["Organization","EducationalOrganization"],"@id":"{{ org_id }}","name":"{{ site.title }}","alternateName":"{{ site.academy_name }}","url":"{{ site.url }}/",
      "logo":"{{ '/assets/images/icon-512.png' | absolute_url }}","image":"{{ '/assets/images/og-image.jpg' | absolute_url }}",
      "description":{{ site.description | jsonify }},"telephone":"+{{ site.contact.phone_intl }}","email":"{{ site.contact.email }}",
      "address":{"@type":"PostalAddress","addressLocality":"Bhopal","addressRegion":"Madhya Pradesh","addressCountry":"IN"},
@@ -39,7 +39,7 @@
   {"@context":"https://schema.org","@type":"ItemList","name":"ChessDepth Academy online chess courses","itemListElement":[
     {%- for c in site.data.courses %}
     {"@type":"ListItem","position":{{ forloop.index }},"item":{"@type":"Course","name":{{ c.name | jsonify }},"description":{{ c.description | jsonify }},
-      "provider":{"@type":"EducationalOrganization","name":"{{ site.title }}","sameAs":"{{ site.url }}/"}}}{% unless forloop.last %},{% endunless %}
+      "provider":{"@type":"EducationalOrganization","name":"{{ site.academy_name }}","sameAs":"{{ site.url }}/"}}}{% unless forloop.last %},{% endunless %}
     {%- endfor %}
   ]}
   </script>

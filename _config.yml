@@ -1,7 +1,8 @@
-# ChessDepth Academy - site settings
+# ChessDepth - site settings
 # Change contact details here once and they update on every page.
-title: ChessDepth Academy
-description: Structured online chess coaching for beginners to tournament players.
+title: ChessDepth
+academy_name: ChessDepth Academy   # the classes side of the company
+description: "A chess company: live online coaching, training tools and AI for players who want to think deeper."
 url: "https://www.chessdepth.in"
 baseurl: ""
 

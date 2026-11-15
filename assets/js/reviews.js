@@ -162,7 +162,7 @@ function card(r, compact = false) {
     </header>
     ${r.hidden ? `<p class="rv-hidden-note"><i class="fas fa-eye-slash"></i> Only you can see this review. It was hidden because it breaks our review guidelines. You can edit it, or message us if you think this is a mistake.</p>` : ""}
     <p class="rv-text">${esc(text)}</p>
-    ${r.reply ? `<div class="rv-reply"><p class="rv-reply-h"><i class="fas fa-reply"></i> Reply from ChessDepth Academy</p><p>${esc(r.reply)}</p></div>` : ""}
+    ${r.reply ? `<div class="rv-reply"><p class="rv-reply-h"><i class="fas fa-reply"></i> Reply from ChessDepth</p><p>${esc(r.reply)}</p></div>` : ""}
     ${!compact && !mine && CFG.wa ? `<a class="rv-report" href="https://wa.me/${esc(CFG.wa)}?text=${encodeURIComponent("Hi, please check this review on chessdepth.in (it may break the guidelines): " + r.id)}" target="_blank" rel="noopener noreferrer">Report</a>` : ""}
   </article>`;
 }
