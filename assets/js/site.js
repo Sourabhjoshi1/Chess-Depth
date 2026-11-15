@@ -134,6 +134,7 @@
     function read() { try { return JSON.parse(localStorage.getItem(KEY) || "null"); } catch (e) { return null; } }
     function esc(t) { return String(t || "").replace(/[&<>"']/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]; }); }
     function render(a) {
+      document.documentElement.classList.toggle("cd-authed", !!(a && a.name));
       document.querySelectorAll("[data-account]").forEach(function (el) {
         if (!el.dataset.accountDefault) el.dataset.accountDefault = el.innerHTML;
         if (!a || !a.name) { el.innerHTML = el.dataset.accountDefault; el.classList.remove("cd-signed-in"); el.removeAttribute("title"); return; }

@@ -7,7 +7,7 @@
         <a href="mailto:{{ site.contact.email }}"><i class="far fa-envelope"></i>{{ site.contact.email }}</a>
       </p>
       <p class="cd-topbar-links">
-        <a href="/student/" data-account{% if page.url == '/student/' %} aria-current="page"{% endif %}><i class="far fa-user-circle"></i>Student login</a>
+        <a href="{{ wa }}" target="_blank" rel="noopener noreferrer" class="cd-topbar-demo"><i class="far fa-calendar-check"></i>Book a free demo</a>
         {{ theme_btn }}
       </p>
     </div>
@@ -35,7 +35,10 @@
         <a href="{{ item.url }}" class="cd-link{% if item.badge %} cd-link-ai{% endif %}"{% if is_active %} aria-current="page"{% endif %}>{{ item.title }}{% if item.badge %}<span class="cd-soon">{{ item.badge }}</span>{% endif %}</a>
         {%- endif %}
         {%- endfor %}
-        <a href="{{ wa }}" target="_blank" rel="noopener noreferrer" class="cd-hdr-cta">Book a free demo</a>
+        <div class="cd-auth">
+          <a href="/student/" class="cd-auth-in" data-account>Sign in</a>
+          <a href="/student/#signup" class="cd-auth-up" data-signup>Sign up <span aria-hidden="true">&#8599;</span></a>
+        </div>
       </nav>
       <div class="cd-header-mobile">
         <a href="/student/" class="cd-hdr-login" data-account><i class="far fa-user-circle"></i>Sign in</a>
@@ -61,9 +64,10 @@
         {%- endif %}
         {%- endfor %}
         <div class="cd-mobile-actions">
-          <a href="/student/" class="cd-mobile-login" data-account><i class="far fa-user-circle"></i>Student login</a>
-          <a href="{{ wa }}" target="_blank" rel="noopener noreferrer" class="cd-hdr-cta">Book a free demo</a>
+          <a href="/student/" class="cd-mobile-login" data-account>Sign in</a>
+          <a href="/student/#signup" class="cd-hdr-cta cd-mobile-signup" data-signup>Sign up <span aria-hidden="true">&#8599;</span></a>
         </div>
+        <a href="{{ wa }}" target="_blank" rel="noopener noreferrer" class="cd-mobile-demo"><i class="far fa-calendar-check"></i>Book a free demo</a>
         <p class="cd-mobile-contact"><a href="tel:+{{ site.contact.phone_intl }}">{{ site.contact.phone_display }}</a><a href="mailto:{{ site.contact.email }}">{{ site.contact.email }}</a></p>
       </nav>
     </div>

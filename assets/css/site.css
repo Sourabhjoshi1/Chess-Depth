@@ -305,3 +305,25 @@ html.dark .cd-faq a { color: #a5b4fc; }
 @media (max-width: 350px) { .cd-hdr-login:not(.cd-signed-in) i { display: none; } .cd-header-mobile .cd-theme-btn { display: none; } }
 html.dark .cd-hdr-login { background: var(--cd-brass); color: #1f2547; } html.dark .cd-hdr-login i { color: #1f2547; }
 html.dark .cd-hdr-login.cd-signed-in { background: transparent; color: #e2e8f0; border-color: #334155; }
+
+/* Sign in / Sign up in the header */
+.cd-auth { display: inline-flex; align-items: center; gap: 1.1rem; margin-left: .25rem; }
+.cd-auth-in { color: #4b5068; font-weight: 500; font-size: 1rem; display: inline-flex; align-items: center; gap: .45rem; white-space: nowrap; transition: color .15s; }
+.cd-auth-in:hover { color: var(--cd-ink); }
+.cd-auth-in.cd-signed-in { color: var(--cd-ink); font-weight: 600; border: 1px solid var(--cd-line); border-radius: 999px; padding: .25rem .8rem .25rem .3rem; }
+.cd-auth-in.cd-signed-in .cd-acct-img, .cd-auth-in.cd-signed-in .cd-acct-initial { width: 28px; height: 28px; }
+.cd-auth-up { display: inline-flex; align-items: center; gap: .4rem; background: #0f172a; color: #fff; font-weight: 600; font-size: 1rem; padding: .6rem 1.25rem; border-radius: 999px; white-space: nowrap; transition: background .15s, transform .15s; }
+.cd-auth-up:hover { background: var(--cd-ink-2); color: #fff; }
+.cd-auth-up span, .cd-mobile-signup span { display: inline-block; transition: transform .15s; }
+.cd-auth-up:hover span, .cd-mobile-signup:hover span { transform: translate(2px, -2px); }
+html.cd-authed [data-signup] { display: none; }
+html.dark .cd-auth-in { color: #cbd5e1; } html.dark .cd-auth-in:hover { color: #fff; }
+html.dark .cd-auth-in.cd-signed-in { color: #e2e8f0; border-color: #334155; }
+html.dark .cd-auth-up { background: var(--cd-brass); color: #1f2547; }
+.cd-topbar a.cd-topbar-demo { font-size: .88rem; font-weight: 600; color: #fff; padding: .28rem .9rem; border: 1px solid var(--cd-brass); border-radius: 999px; transition: background-color .15s, color .15s; }
+.cd-topbar a.cd-topbar-demo:hover { background: var(--cd-brass); color: var(--cd-ink); } .cd-topbar a.cd-topbar-demo:hover i { color: var(--cd-ink); }
+.cd-mobile-signup { border-radius: 999px; gap: .4rem; background: #0f172a; }
+.cd-mobile-login { border-radius: 999px; }
+.cd-mobile-demo { display: flex; align-items: center; justify-content: center; gap: .5rem; margin-top: .75rem; border: 1px solid var(--cd-brass); color: var(--cd-ink); border-radius: 999px; font-weight: 600; padding: .7rem 1rem; }
+html.dark .cd-mobile-demo { color: #e2e8f0; } html.dark .cd-mobile-signup { background: var(--cd-brass); color: #1f2547; }
+@media (min-width: 1200px) and (max-width: 1340px) { .cd-auth { gap: .8rem; } .cd-auth-up { padding: .55rem 1rem; } }
