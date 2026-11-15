@@ -59,3 +59,8 @@
 html.dark .cr-chip { background: #162032; border-color: #334155; color: #a5b4fc; }
 html.dark .cr-chip[aria-pressed="true"] { background: #6366f1; border-color: #6366f1; color: #fff; }
 html.dark .cr-count { color: #94a3b8; }
+
+/* Course card footer: price and button never overlap */
+.co-foot { gap: .75rem 1rem; flex-wrap: wrap; }
+.co-foot > div { min-width: 0; flex: 1 1 9rem; }
+.co-foot > a, .co-foot > button { flex: 0 0 auto; white-space: nowrap; }
