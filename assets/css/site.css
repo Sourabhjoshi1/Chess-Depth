@@ -341,3 +341,12 @@ a.cd-foot-logo { display: inline-flex; align-items: center; gap: .6rem; color: #
 a.cd-foot-logo .cd-mark { width: 32px; height: 32px; color: #fff; }
 a.cd-foot-logo span { font-family: 'EB Garamond', Georgia, 'Times New Roman', serif; font-weight: 600; font-size: 1.9rem; letter-spacing: -.01em; line-height: 1; }
 a.cd-foot-logo:hover { color: #fff; opacity: .9; }
+
+/* Tagline under the ChessDepth name (header and footer) */
+.cd-brand-sub { font-size: .92rem; letter-spacing: .01em; white-space: nowrap; margin-top: .12rem; color: var(--cd-brass); }
+html.dark .cd-brand-sub { color: #d2ad6e; }
+@media (max-width: 767px) { .cd-brand-sub { font-size: .8rem; margin-top: .05rem; } }
+@media (max-width: 400px) { .cd-brand-sub { font-size: .72rem; } }
+a.cd-foot-logo .cd-foot-text { display: flex; flex-direction: column; line-height: 1; }
+a.cd-foot-logo .cd-foot-text em { font-family: 'EB Garamond', Georgia, serif; font-style: italic; font-size: .98rem; color: #d2ad6e; margin-top: .2rem; white-space: nowrap; }
+a.cd-foot-logo .cd-mark { width: 38px; height: 38px; }

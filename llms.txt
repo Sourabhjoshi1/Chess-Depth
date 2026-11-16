@@ -5,6 +5,8 @@ sitemap: false
 ---
 # {{ site.title }}
 
+Tagline: {{ site.tagline }}
+
 > ChessDepth is a chess company based in Bhopal, India. Its coaching arm, ChessDepth Academy, teaches live online chess classes to children (from about age 5) and adults, from complete beginners to tournament players, with FIDE-rated coaches including Grandmaster Daniel Gormally. Students join from India and abroad. ChessDepth also builds its own training tools: the Chess Lab (68 courses, puzzles, endgame and positional training), a daily chess puzzle, a blindfold chess trainer, a screenshot-to-FEN tool (ChessDepth AI), free printable worksheets and a chess blog.
 
 Key facts:

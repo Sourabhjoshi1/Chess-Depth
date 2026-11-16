@@ -2,7 +2,7 @@
 <footer class="cd-footer bg-gray-800 text-gray-300 pb-6 mt-10">
     <div class="max-w-6xl mx-auto px-4 cd-foot-grid">
       <div class="cd-foot-brand">
-        <a href="/" class="cd-foot-logo" aria-label="{{ site.title }} home">{% include logo-mark.html %}<span>{{ site.title }}</span></a>
+        <a href="/" class="cd-foot-logo" aria-label="{{ site.title }} home">{% include logo-mark.html %}<span class="cd-foot-text"><span>{{ site.title }}</span>{% if site.tagline %}<em>{{ site.tagline }}</em>{% endif %}</span></a>
         <p class="cd-foot-tag">{{ site.description }}</p>
         <a href="/#inquiry" class="cd-foot-cta">Book a free demo class <i class="fas fa-arrow-right"></i></a>
       </div>
