@@ -160,3 +160,18 @@ html.dark .cs-both { border-color: #334155; }
 html.dark .cs-btn { background: transparent; color: #a5b4fc; border-color: #818cf8; } html.dark .cs-btn-main, html.dark .cs-btn:hover { background: #4f46e5; color: #fff; }
 html.dark .cs-both a, html.dark .cs-out-note a { color: #a5b4fc; }
 html.dark .cs-table th, html.dark .cs-table td { border-color: #2a3550; } html.dark .cs-table thead th { background: #232b55; }
+
+/* How to pay */
+.cs-pay { display: grid; gap: 1.2rem; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+.cs-pay-card { background: #fff; border: 1px solid var(--cd-line); border-radius: 14px; padding: 1.5rem 1.4rem; }
+.cs-pay-where { font-size: .78rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--cd-brass); margin: 0 0 .5rem; }
+.cs-pay-card h3 { font-size: 1.25rem; font-weight: 700; color: var(--cd-ink); margin: 0 0 .5rem; }
+.cs-pay-card p { color: #5b6080; line-height: 1.55; margin: 0 0 .8rem; font-size: .95rem; }
+.cs-pay-tag { background: #f6f5fa; border-radius: 10px; padding: .7rem .9rem; }
+.cs-pay-tag b { display: block; font-size: 1.15rem; color: #163300; letter-spacing: .01em; }
+.cs-pay-tag span { font-size: .82rem; color: #6b7280; }
+.cs-pay-card .cs-pay-small { font-size: .85rem; margin: 0; }
+.cs-note a { color: #4f46e5; font-weight: 600; }
+html.dark .cs-pay-card { background: #172033; border-color: #2a3550; } html.dark .cs-pay-card h3 { color: #f1f5f9; }
+html.dark .cs-pay-card p { color: #94a3b8; } html.dark .cs-pay-tag { background: #1e293b; } html.dark .cs-pay-tag b { color: #9fe870; }
+html.dark .cs-note a { color: #a5b4fc; }
