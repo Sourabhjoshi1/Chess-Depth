@@ -1,0 +1,58 @@
+# The four class levels shown on the Courses page. Names and rating bands match the quiz levels
+# in _data/quizzes.yml (Student Area), so a student sees the same level everywhere.
+- id: beginner
+  name: Beginner
+  ratings: "Up to 1000"
+  icon: fa-chess-pawn
+  color: "#10b981"
+  for: "For players who are learning the game or have just started playing full games."
+  learn:
+    - "How the pieces move, what they are worth, and check, checkmate and stalemate"
+    - "Chess notation and the rules for draws"
+    - "Opening habits: the centre, development and king safety"
+    - "First tactics: forks, pins, skewers and discovered attacks"
+    - "Mate in one and two, and back-rank danger"
+    - "Basic checkmates and simple pawn endgames"
+  outcome: "Plays complete games with a plan for the opening, and stops giving pieces away."
+- id: intermediate
+  name: Intermediate
+  ratings: "1000 to 1500"
+  icon: fa-chess-knight
+  color: "#3b82f6"
+  for: "For players who know the basic tactics and want to stop losing games they were winning."
+  learn:
+    - "Calculation with checks, captures and threats"
+    - "Combinations: double attacks, deflection and removing the defender"
+    - "Pawn structures, outposts and pawn majorities"
+    - "Key endgames: opposition, key squares, Lucena and Philidor"
+    - "Zugzwang, the rule of the square and the wrong bishop"
+    - "A simple opening repertoire built on ideas, not memory"
+  outcome: "Calculates short lines accurately and knows what to do in the common endgames."
+- id: advanced
+  name: Advanced
+  ratings: "1500 to 1900"
+  icon: fa-chess-rook
+  color: "#8b5cf6"
+  for: "For club and tournament players who want to understand positions, not only tactics."
+  learn:
+    - "Positional play: prophylaxis, good and bad exchanges, and space"
+    - "Plans in typical structures: the isolated queen's pawn, Hedgehog, Stonewall, Benoni and Catalan"
+    - "Attacking patterns: the Greek gift and exchange sacrifices"
+    - "Fortresses, blockades and pawn levers"
+    - "Rook endgame technique, including the Vančura defence"
+    - "A full opening repertoire and tournament preparation"
+  outcome: "Forms a plan from the pawn structure and converts advantages against strong club players."
+- id: elite
+  name: Elite
+  ratings: "1900+"
+  icon: fa-chess-king
+  color: "#ef4444"
+  for: "For strong tournament players working towards titles and rating norms."
+  learn:
+    - "Deep calculation and Kotov's tree of analysis"
+    - "Material imbalances and positional exchange sacrifices"
+    - "Hypermodern ideas, and Berlin and Benko strategy"
+    - "Advanced endgames: rook against bishop, corresponding squares and the Troitzky line"
+    - "Personal opening preparation with a titled coach"
+    - "Tournament planning and deep analysis of your own games"
+  outcome: "Prepares for specific opponents and events, and handles complex positions with confidence."
