@@ -177,3 +177,16 @@ html.dark .cs-pay-card p { color: #94a3b8; } html.dark .cs-pay-tag { background:
 html.dark .cs-note a { color: #a5b4fc; }
 
 .cs-pay-btn { margin: .9rem 0 .6rem; }
+
+/* Registration page */
+.cs-reg-steps { list-style: none; margin: 0 0 1rem; padding: 0; display: flex; flex-wrap: wrap; justify-content: center; gap: .6rem 1.6rem; color: #374151; font-size: .95rem; }
+.cs-reg-steps b { display: inline-flex; align-items: center; justify-content: center; width: 1.6rem; height: 1.6rem; border-radius: 50%; background: var(--cd-ink); color: #fff; font-size: .8rem; margin-right: .4rem; }
+.cs-reg-note { margin: 0 0 1.4rem; }
+.cs-note a { color: #4f46e5; font-weight: 600; }
+.cs-reg-frame { border: 1px solid var(--cd-line); border-radius: 16px; overflow: hidden; background: #fff; margin-bottom: 1rem; }
+.cs-reg-frame iframe { display: block; width: 100%; height: 1500px; border: 0; }
+.cs-plan-reg { text-align: center; font-size: .9rem; margin: .8rem 0 0; }
+.cs-plan-reg a { color: #4f46e5; font-weight: 600; }
+.cs-cta .cs-btn { margin: .25rem .3rem; }
+html.dark .cs-reg-steps { color: #cbd5e1; } html.dark .cs-reg-frame { border-color: #2a3550; }
+html.dark .cs-note a, html.dark .cs-plan-reg a { color: #a5b4fc; }

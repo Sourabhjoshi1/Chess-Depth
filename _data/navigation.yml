@@ -12,6 +12,10 @@
       url: /chess-classes-for-kids/
       icon: fa-child
       desc: Ages 5 and up, for parents
+    - title: Register
+      url: /register/
+      icon: fa-pen
+      desc: Fill in the form to join classes
     - title: Coaches
       url: /coaches/
       icon: fa-chess-king

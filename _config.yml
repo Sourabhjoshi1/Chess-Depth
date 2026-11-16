@@ -2,6 +2,7 @@
 # Change contact details here once and they update on every page.
 title: ChessDepth
 academy_name: ChessDepth Academy   # the classes side of the company
+registration_form: "https://docs.google.com/forms/d/e/1FAIpQLSd7Bx45e2gErWVgoOZHn_qiYUCT_GVfMoftuEuXgAgQuQ95YQ/viewform"   # Google Form shown on /register/
 description: "A chess company: live online coaching, training tools and AI for players who want to think deeper."
 url: "https://www.chessdepth.in"
 baseurl: ""
