@@ -327,3 +327,11 @@ html.dark .cd-auth-up { background: var(--cd-brass); color: #1f2547; }
 .cd-mobile-demo { display: flex; align-items: center; justify-content: center; gap: .5rem; margin-top: .75rem; border: 1px solid var(--cd-brass); color: var(--cd-ink); border-radius: 999px; font-weight: 600; padding: .7rem 1rem; }
 html.dark .cd-mobile-demo { color: #e2e8f0; } html.dark .cd-mobile-signup { background: var(--cd-brass); color: #1f2547; }
 @media (min-width: 1200px) and (max-width: 1340px) { .cd-auth { gap: .8rem; } .cd-auth-up { padding: .55rem 1rem; } }
+
+/* Header: keep every menu item on one line and give the row room to breathe */
+.cd-nav .cd-link, .cd-nav .cd-dd-btn { white-space: nowrap; }
+.cd-nav { gap: 1.9rem; }
+.cd-auth { margin-left: .6rem; padding-left: 1.4rem; border-left: 1px solid var(--cd-line); }
+html.dark .cd-auth { border-left-color: #2a3550; }
+html.dark .cd-brand:hover .cd-brand-name { color: #fff; }
+@media (min-width: 1200px) and (max-width: 1340px) { .cd-nav { gap: 1.3rem; } .cd-auth { padding-left: 1rem; margin-left: .2rem; } }

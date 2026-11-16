@@ -38,13 +38,14 @@
       url: /lab/tactics/
       icon: fa-bolt
       desc: Tactics trainer, Streak and Rush
+    - title: Blindfold trainer
+      url: /blindfold/
+      icon: fa-eye-slash
+      desc: Drills and a daily challenge, no board
     - title: Free resources
       url: /lab/resources/
       icon: fa-toolbox
       desc: Roadmap, game analyser, guides and books
-- title: Blindfold
-  url: /blindfold/
-  badge: New
 - title: ChessDepth AI
   url: /ai/
   badge: Beta
