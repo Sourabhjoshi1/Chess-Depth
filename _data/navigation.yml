@@ -52,4 +52,12 @@
 - title: Blog
   url: /blog/
 - title: Contact
-  url: /contact/
+  children:
+    - title: Contact us
+      url: /contact/
+      icon: fa-envelope
+      desc: Call, WhatsApp or email, and book a demo
+    - title: Careers
+      url: /contact/#careers
+      icon: fa-briefcase
+      desc: Internships and roles for coaches
