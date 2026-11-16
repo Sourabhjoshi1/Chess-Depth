@@ -12,7 +12,7 @@ Tagline: {{ site.tagline }}
 Key facts:
 
 - Format: live online classes over video with a shared board. Small groups of 2 to 4 students, or one-to-one.
-- Fees: group classes ₹3,999 (or $100 for students outside India) per month; one-to-one classes ₹7,999 (or $200 for students outside India) per month. Each monthly plan has 8 to 10 live classes of 60 to 70 minutes. The first demo class (30 minutes) is free.
+- Fees: group classes ₹3,999 (or $100 for students outside India) per month; one-to-one classes ₹7,999 (or $200 for students outside India) per month. 18% GST is added to fees paid in rupees. Each monthly plan has 8 to 10 live classes of 60 to 70 minutes. The first demo class (30 minutes) is free.
 - Levels: Beginner (up to 1000), Intermediate (1000 to 1500), Advanced (1500 to 1900) and Elite (1900+), the same in one-to-one and group classes. Students are placed by level after the free demo class.
 - Included: worksheets, a quiz every 8 sessions with coach feedback, club tournaments on Lichess and Chess.com, and a student area with PDF material.
 - Ages: children from about 5 years old, teenagers and adults.
