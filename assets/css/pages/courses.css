@@ -190,7 +190,3 @@ html.dark .cs-note a { color: #a5b4fc; }
 .cs-cta .cs-btn { margin: .25rem .3rem; }
 html.dark .cs-reg-steps { color: #cbd5e1; } html.dark .cs-reg-frame { border-color: #2a3550; }
 html.dark .cs-note a, html.dark .cs-plan-reg a { color: #a5b4fc; }
-
-.cs-price .cs-gst { font-size: 1.05rem; font-weight: 600; color: #374151; }
-.cs-gst-note { font-size: .82rem; color: #6b7280; margin: -.7rem 0 1.1rem; }
-html.dark .cs-price .cs-gst { color: #cbd5e1; } html.dark .cs-gst-note { color: #94a3b8; }
