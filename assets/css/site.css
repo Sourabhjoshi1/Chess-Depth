@@ -335,3 +335,9 @@ html.dark .cd-mobile-demo { color: #e2e8f0; } html.dark .cd-mobile-signup { back
 html.dark .cd-auth { border-left-color: #2a3550; }
 html.dark .cd-brand:hover .cd-brand-name { color: #fff; }
 @media (min-width: 1200px) and (max-width: 1340px) { .cd-nav { gap: 1.3rem; } .cd-auth { padding-left: 1rem; margin-left: .2rem; } }
+
+/* Footer logo: same rook mark and wordmark as the header */
+a.cd-foot-logo { display: inline-flex; align-items: center; gap: .6rem; color: #fff; margin-bottom: .7rem; }
+a.cd-foot-logo .cd-mark { width: 32px; height: 32px; color: #fff; }
+a.cd-foot-logo span { font-family: 'EB Garamond', Georgia, 'Times New Roman', serif; font-weight: 600; font-size: 1.9rem; letter-spacing: -.01em; line-height: 1; }
+a.cd-foot-logo:hover { color: #fff; opacity: .9; }
