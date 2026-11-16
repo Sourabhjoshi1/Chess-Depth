@@ -1,0 +1,19 @@
+{
+  "date": "2026-11-16",
+  "fen": "6k1/1q4np/4pP2/p1p1Q1p1/P4nP1/2P3R1/1P5P/3r1RK1 b - - 0 1",
+  "move": "Qg2+",
+  "mark": "!",
+  "line": [
+    "Rxg2",
+    "Nh3+",
+    "Kh1",
+    "Rxf1+",
+    "Rg1",
+    "Rxg1#"
+  ],
+  "white": "Pricha Sinprayoon",
+  "black": "Ghulam Dastgir Butt",
+  "event": "Thessaloniki Olympiad 1984",
+  "explain": "A queen sacrifice that forces mate. The knight on f4 guards g2, so White can only take with the rook, and that rook now blocks its own king. After Nh3+ the king must go to h1, and Black's rook finishes on g1.",
+  "idea": "Lure a defender onto the king's escape square."
+}
