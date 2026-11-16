@@ -67,7 +67,7 @@ shop-src/            Source files used to build Shop PDFs (not published)
 
 Day-to-day editing (prices, coaches, products, internships, Lab settings, analytics) is documented in **[EDITING.md](EDITING.md)**. Important rules:
 
-- **Prices:** dollar prices are adjusted for purchasing power, about ₹67 = $1, rounded to a clean price (e.g. ₹19,999 → $299); monthly class fees are fixed at $160 one-to-one and $80 group.
+- **Prices:** dollar prices are adjusted for purchasing power, about ₹67 = $1, rounded to a clean price (e.g. ₹19,999 → $299); monthly class fees are set by hand: one-to-one from ₹5,600 / $90 (depends on the coach), group ₹3,999 / $80.
 - **Shop products:** one file per product in `_products/`. Text containing a colon must be in double quotes; the deploy stops with a clear message if a product file is broken.
 - **Stylesheet:** `assets/css/tailwind.min.css` is committed. If you add new Tailwind classes, rebuild it before committing:
   ```
