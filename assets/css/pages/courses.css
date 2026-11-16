@@ -175,3 +175,5 @@ html.dark .cs-table th, html.dark .cs-table td { border-color: #2a3550; } html.d
 html.dark .cs-pay-card { background: #172033; border-color: #2a3550; } html.dark .cs-pay-card h3 { color: #f1f5f9; }
 html.dark .cs-pay-card p { color: #94a3b8; } html.dark .cs-pay-tag { background: #1e293b; } html.dark .cs-pay-tag b { color: #9fe870; }
 html.dark .cs-note a { color: #a5b4fc; }
+
+.cs-pay-btn { margin: .9rem 0 .6rem; }
