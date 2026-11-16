@@ -1,0 +1,18 @@
+{
+ "date": "2026-11-17",
+ "fen": "2krr1q1/pp1b4/2nB1p2/3p2p1/7p/2N2P2/PPP2QPP/R4RK1 w - - 0 1",
+ "move": "Qb6",
+ "mark": "!",
+ "line": [
+  "axb6",
+  "Na4",
+  "Bf5",
+  "Nxb6#"
+ ],
+ "line_display": "1…axb6 2.Na4 and 3.Nxb6#   ·   otherwise 2.Qc7#",
+ "white": "",
+ "black": "",
+ "event": "",
+ "explain": "White offers the queen. If Black ignores her, Qc7 is mate, as the bishop on d6 guards c7. If 1…axb6, the knight goes via a4 to b6 with mate: the bishop takes b8 and c7, and every other square is blocked or covered.",
+ "idea": "A quiet threat can be stronger than the material you give up."
+}

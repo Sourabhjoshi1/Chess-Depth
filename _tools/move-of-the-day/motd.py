@@ -67,6 +67,12 @@ for r in range(11):
         if (r + c) % 2 == 0: tiles += f'<rect x="{c*S}" y="{r*S}" width="{S}" height="{S}" fill="#fff" opacity=".03"/>'
 
 d = datetime.date.fromisoformat(DAY["date"])
+if DAY.get("white") and DAY.get("black"):
+    sub_line = "  ·  ".join(x for x in [DAY.get("event",""), side + " to move"] if x)
+    players_svg = (f'<text x="{W/2}" y="246" text-anchor="middle" font-family="Poppins" font-size="25" fill="{INK}">{esc(DAY["white"])}  –  {esc(DAY["black"])}</text>'
+                   f'<text x="{W/2}" y="284" text-anchor="middle" font-family="Poppins" font-size="21" fill="{SUB}">{esc(sub_line)}</text>')
+else:
+    players_svg = f'<text x="{W/2}" y="262" text-anchor="middle" font-family="Poppins" font-weight="500" font-size="28" fill="{INK}">{side} to move</text>' 
 datestr = d.strftime("%A, %-d %B %Y")
 ROOK = "M8 5h3v3h2.5V5h5v3H21V5h3v7.2l-2.4 1.8.9 9H9.5l.9-9L8 12.2zM8.5 24.5h15l1.5 2.5H7zM6 28h20v2.5H6z"
 
@@ -79,7 +85,7 @@ for m in line_san:
     parts.append(f"{n}.{m}" if wtm else m)
     if not wtm: n += 1
     wtm = not wtm
-line_txt = " ".join(parts)
+line_txt = DAY.get("line_display") or " ".join(parts)
 ex_lines = wrap(DAY["explain"], 25, W - 200)
 
 y_ex = BY + BS + 176
@@ -97,8 +103,7 @@ svg = f'''<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" viewB
 <text x="{W-70}" y="88" text-anchor="end" font-family="Poppins" font-weight="500" font-size="22" fill="{SUB}">{esc(datestr)}</text>
 
 <text x="{W/2}" y="196" text-anchor="middle" font-family="Poppins" font-weight="600" font-size="26" letter-spacing="9" fill="{BRASS2}">MOVE OF THE DAY</text>
-<text x="{W/2}" y="246" text-anchor="middle" font-family="Poppins" font-size="25" fill="{INK}">{esc(DAY["white"])}  –  {esc(DAY["black"])}</text>
-<text x="{W/2}" y="284" text-anchor="middle" font-family="Poppins" font-size="21" fill="{SUB}">{esc(DAY["event"])}  ·  {side} to move</text>
+{players_svg}
 
 <rect x="{BX-8}" y="{BY-8}" width="{BS+16}" height="{BS+16}" rx="10" fill="#0e1228" stroke="{BRASS}" stroke-width="2"/>
 {bsvg}
