@@ -144,4 +144,4 @@ If you add new Tailwind classes to a page, rebuild it before committing:
 
 ## Dollar prices
 
-Dollar prices are adjusted for purchasing power: **1.5 × (₹ ÷ 100)**, i.e. about ₹67 = $1, rounded to a clean price (e.g. ₹19,999 → $299). Exception: the monthly class fees are set by hand: one-to-one from ₹5,600 / $90 (depends on the coach), group ₹3,999 / $80.
+Dollar prices are adjusted for purchasing power: **1.5 × (₹ ÷ 100)**, i.e. about ₹67 = $1, rounded to a clean price (e.g. ₹19,999 → $299). Exception: the monthly class fees are set by hand: one-to-one from ₹5,600 / $90 (depends on the coach), group ₹3,999 / $60.
