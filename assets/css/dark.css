@@ -20,7 +20,7 @@ html.dark .bg-gray-700, html.dark .bg-gray-800 { background-color: #020617 !impo
 html.dark .cd-header, html.dark .cd-mobile-menu { background-color: #0f1424 !important; border-color: #222a44; }
 html.dark .cd-topbar { background: #080b16; }
 html.dark .cd-brand-name, html.dark .cd-mark, html.dark .cd-brand { color: #eef0fa; }
-html.dark .cd-brand-sub { color: #9aa0bd; }
+html.dark .cd-brand-sub { color: #d2ad6e; }
 html.dark .cd-nav .cd-link, html.dark .cd-mobile-menu nav > a { color: #b9bfd8; }
 html.dark .cd-nav .cd-link:hover, html.dark .cd-nav .cd-link[aria-current], html.dark .cd-mobile-menu nav > a[aria-current] { color: #fff; }
 html.dark .cd-mobile-menu nav > a { border-color: #222a44; }
