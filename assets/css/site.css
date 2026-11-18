@@ -351,7 +351,7 @@ a.cd-foot-logo .cd-foot-text { display: flex; flex-direction: column; line-heigh
 a.cd-foot-logo .cd-foot-text em { font-family: 'EB Garamond', Georgia, serif; font-style: italic; font-size: .98rem; color: #d2ad6e; margin-top: .2rem; white-space: nowrap; }
 a.cd-foot-logo .cd-mark { width: 38px; height: 38px; }
 
-/* Footer logo: the header's own .cd-brand markup and sizes, in white and gold on the dark footer */
-.cd-footer a.cd-foot-brand, a.cd-foot-brand { display: inline-flex; align-items: center; gap: .7rem; margin-bottom: .9rem; }
-.cd-foot-brand, .cd-foot-brand .cd-mark, .cd-foot-brand .cd-brand-name, html.dark .cd-foot-brand .cd-brand-name, .cd-foot-brand:hover .cd-brand-name { color: #eef0fa; }
-.cd-foot-brand .cd-brand-sub, html.dark .cd-foot-brand .cd-brand-sub { color: #d2ad6e; }
+/* Footer logo: the header's own .cd-brand markup and sizes, in the dark header's colours */
+.cd-footer a.cd-foot-logo-link { display: inline-flex; align-items: center; gap: .7rem; margin-bottom: .9rem; }
+.cd-footer a.cd-foot-logo-link, .cd-footer a.cd-foot-logo-link:hover, .cd-foot-logo-link .cd-mark, .cd-foot-logo-link .cd-brand-name, .cd-foot-logo-link:hover .cd-brand-name, html.dark .cd-foot-logo-link .cd-brand-name { color: #eef0fa; }
+.cd-foot-logo-link .cd-brand-sub, html.dark .cd-foot-logo-link .cd-brand-sub { color: #d2ad6e; }
