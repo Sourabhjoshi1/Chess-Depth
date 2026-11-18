@@ -5,7 +5,7 @@
   role: Founder of ChessDepth and Head Coach of ChessDepth Academy
   photo: /favicon/download.jpeg
   url: /coaches/#sourabh-joshi
-  bio: "Sourabh is a FIDE-titled player (Arena FIDE Master) and the founder of ChessDepth. He coaches students from their first moves to tournament level, writes the company's news and training articles, and builds its online tools, the Chess Lab and ChessDepth AI."
+  bio: "Sourabh is the founder of ChessDepth. He coaches students from their first moves to tournament level, writes the company's news and training articles, and builds its online tools, the Chess Lab and ChessDepth AI."
   links:
     - { label: FIDE profile, icon: "fas fa-chess-king", url: "https://ratings.fide.com/profile/25798170" }
     - { label: Chess.com, icon: "fas fa-chess-board", url: "https://www.chess.com/member/sourabhjoshi01" }
