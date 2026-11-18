@@ -5,6 +5,7 @@
 ChessDepth Academy is an online chess academy and training platform based in Bhopal, India. We teach students to understand the *why* behind every move, through live classes with FIDE-rated coaches (including a Grandmaster), a structured curriculum, and free and paid training tools.
 
 This repository is the full website: a Jekyll site published with GitHub Pages.
+you are free to contribute! 
 
 ---
 
