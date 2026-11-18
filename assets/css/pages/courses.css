@@ -194,3 +194,11 @@ html.dark .cs-note a, html.dark .cs-plan-reg a { color: #a5b4fc; }
 .cs-price .cs-from { font-size: 1rem; font-weight: 600; color: #6b7280; }
 .cs-price-note { font-size: .85rem; color: #6b7280; margin: -.7rem 0 1.1rem; }
 html.dark .cs-price .cs-from, html.dark .cs-price-note { color: #94a3b8; }
+
+/* Learning from outside India */
+.cs-abroad { margin-top: 1.2rem; background: #eef2ff; border-left: 4px solid #4f46e5; border-radius: 12px; padding: 1rem 1.3rem; }
+.cs-abroad-h { font-weight: 700; color: var(--cd-ink); margin: 0 0 .3rem; }
+.cs-abroad-h i { color: #4f46e5; margin-right: .35rem; }
+.cs-abroad p { color: #374151; font-size: .93rem; line-height: 1.6; margin: 0; }
+.cs-abroad a { color: #4f46e5; font-weight: 600; }
+html.dark .cs-abroad { background: #1e2547; } html.dark .cs-abroad-h { color: #f1f5f9; } html.dark .cs-abroad p { color: #cbd5e1; } html.dark .cs-abroad a { color: #a5b4fc; }

@@ -1,0 +1,21 @@
+/* Country / region landing pages (with kids.css) */
+.rg-clock { display: grid; grid-template-columns: repeat(3, 1fr); gap: .9rem; max-width: 46rem; margin: 0 auto 1.6rem; }
+.rg-clock > div { background: #fff; border: 1px solid var(--cd-line); border-radius: 14px; padding: 1rem 1.1rem; text-align: center; }
+.rg-clock span { display: block; font-size: .78rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--cd-brass); }
+.rg-clock b { display: block; font-size: 1.3rem; color: var(--cd-ink); margin: .25rem 0 .1rem; }
+.rg-clock small { color: #6b7280; font-size: .8rem; }
+.rg-table-wrap { max-width: 46rem; margin: 0 auto; overflow-x: auto; border: 1px solid var(--cd-line); border-radius: 14px; background: #fff; }
+.rg-table { width: 100%; border-collapse: collapse; font-size: .95rem; }
+.rg-table th, .rg-table td { padding: .8rem 1rem; text-align: left; border-bottom: 1px solid var(--cd-line); color: #374151; }
+.rg-table thead th { background: var(--cd-ink); color: #fff; font-weight: 600; }
+.rg-table tbody tr:last-child td { border-bottom: 0; }
+.rg-table td:last-child { font-weight: 600; color: var(--cd-ink); }
+.kd-card p a { color: #4f46e5; font-weight: 600; }
+.rg-other { text-align: center; font-size: .9rem; color: #6b7280; padding: 1.5rem 1rem 2.5rem; margin: 0; }
+.rg-other a { color: #4f46e5; font-weight: 600; }
+@media (max-width: 640px) { .rg-clock { grid-template-columns: 1fr; } }
+html.dark .rg-clock > div, html.dark .rg-table-wrap { background: #172033; border-color: #2a3550; }
+html.dark .rg-clock b, html.dark .rg-table td:last-child { color: #f1f5f9; }
+html.dark .rg-table td { color: #cbd5e1; border-color: #2a3550; }
+html.dark .rg-table thead th { background: #232b55; }
+html.dark .rg-other a, html.dark .kd-card p a { color: #a5b4fc; }

@@ -1,0 +1,84 @@
+# Country / region landing pages for families outside India (pages/regions/*.html use _includes/region-page.html).
+# Time differences: India (IST) is UTC+5:30 all year; "summer" means daylight saving time in that region.
+usa:
+  name: "the USA and Canada"
+  short: "USA & Canada"
+  url: /online-chess-classes-usa/
+  eyebrow: "For families in the USA and Canada · Live online"
+  h1: "Online chess classes for families in the USA and Canada"
+  lead: "Live one-to-one and small-group lessons with FIDE-rated coaches, including a Grandmaster and an International Master. Fees in US dollars, and class times that fit your time zone."
+  zones:
+    - ["Eastern: New York, Toronto, Miami", "10½ hours ahead (9½ in summer)"]
+    - ["Central: Chicago, Houston, Winnipeg", "11½ hours ahead (10½ in summer)"]
+    - ["Mountain: Denver, Calgary, Phoenix", "12½ hours ahead (11½ in summer; Phoenix 12½ all year)"]
+    - ["Pacific: Los Angeles, Seattle, Vancouver", "13½ hours ahead (12½ in summer)"]
+  time_note: "India is ahead of you, so your evening is the next morning in India, and your weekend morning is the evening in India. Tell us the times that suit your family and we'll match you with a coach who can teach then."
+  currency: "US or Canadian dollars"
+  ratings: "Tournament players get preparation for rated events, whether US Chess, the Chess Federation of Canada or FIDE."
+  extra_h: "Built for busy families"
+  extra:
+    - ["fa-clock", "Your schedule, not ours", "One-to-one class times are fixed around school, sports and work. We confirm each time in your local time."]
+    - ["fa-dollar-sign", "Simple fees in US$", "One monthly fee that includes all classes, worksheets and quizzes, with no sign-up fee."]
+    - ["fa-trophy", "From first moves to rated events", "Children start with the basics; tournament players prepare for scholastic and rated events."]
+usa_wa: "Hi%2C%20I%20am%20in%20the%20USA%2FCanada%20and%20would%20like%20to%20book%20a%20free%20demo%20chess%20class"
+
+uae:
+  name: "the UAE and the Middle East"
+  short: "UAE & Middle East"
+  url: /online-chess-classes-uae/
+  eyebrow: "For families in the UAE, Saudi Arabia, Qatar and the Gulf · Live online"
+  h1: "Online chess classes in the UAE and the Middle East"
+  lead: "Live one-to-one and small-group lessons with FIDE-rated coaches, including a Grandmaster and an International Master. With India only 1½ to 2½ hours ahead, after-school classes are easy to arrange."
+  zones:
+    - ["UAE and Oman: Dubai, Abu Dhabi, Muscat", "1½ hours ahead"]
+    - ["Saudi Arabia, Qatar, Kuwait, Bahrain: Riyadh, Doha", "2½ hours ahead"]
+  time_note: "With so little time difference, classes after school, in the evening and on your weekend all work. Tell us the days and times that suit your family and we'll match you with a coach who can teach then."
+  currency: "your own currency, such as dirhams or riyals"
+  ratings: "Tournament players get preparation for rated events, including FIDE-rated tournaments."
+  extra_h: "Why families in the Gulf choose us"
+  extra:
+    - ["fa-calendar-alt", "Classes on your weekend", "Friday, Saturday or Sunday: we fit classes around the weekend your school follows."]
+    - ["fa-clock", "Almost the same time zone", "A 1½ to 2½ hour difference means after-school slots are easy to match."]
+    - ["fa-users", "Small groups or one-to-one", "Group classes of 2 to 4 children, or lessons built around one student."]
+uae_wa: "Hi%2C%20I%20am%20in%20the%20Middle%20East%20and%20would%20like%20to%20book%20a%20free%20demo%20chess%20class"
+
+uk:
+  name: "the UK and Europe"
+  short: "UK & Europe"
+  url: /online-chess-classes-uk/
+  eyebrow: "For families in the UK, Ireland and Europe · Live online"
+  h1: "Online chess classes in the UK and Europe"
+  lead: "Live one-to-one and small-group lessons with FIDE-rated coaches, including English Grandmaster Daniel Gormally. India is 3½ to 5½ hours ahead, so after-school and weekend classes are easy to arrange."
+  zones:
+    - ["UK, Ireland and Portugal: London, Dublin, Lisbon", "5½ hours ahead (4½ in summer)"]
+    - ["Central Europe: Berlin, Paris, Madrid, Amsterdam, Rome", "4½ hours ahead (3½ in summer)"]
+    - ["Eastern Europe: Athens, Helsinki, Bucharest", "3½ hours ahead (2½ in summer)"]
+  time_note: "Your afternoon and early evening are India's evening, and weekends work well too. Tell us the times that suit your family and we'll match you with a coach who can teach then."
+  currency: "pounds, euros or your own currency"
+  ratings: "Tournament players get preparation for rated events, whether ECF-rated congresses and junior events in England or FIDE tournaments across Europe."
+  extra_h: "Students in the UK already train with us"
+  extra:
+    - ["fa-medal", "Junior results", "Our student Revaan Ranjan, aged 8, qualified for the London Junior Chess Championships Finals in November 2026. <a href=\"/blog/revaan-ranjan-qualifies-for-ljcc-finals/\">Read his story</a>."]
+    - ["fa-chess-king", "An English Grandmaster on the team", "GM Daniel Gormally is part of our coaching team. <a href=\"/coaches/\">Meet our coaches</a>."]
+    - ["fa-clock", "After school, not late at night", "With a 3½ to 5½ hour difference, classes fit after school and at weekends."]
+uk_wa: "Hi%2C%20I%20am%20in%20the%20UK%2FEurope%20and%20would%20like%20to%20book%20a%20free%20demo%20chess%20class"
+
+singapore:
+  name: "Singapore and Southeast Asia"
+  short: "Singapore & SE Asia"
+  url: /online-chess-classes-singapore/
+  eyebrow: "For families in Singapore, Malaysia and Southeast Asia · Live online"
+  h1: "Online chess classes in Singapore and Southeast Asia"
+  lead: "Live one-to-one and small-group lessons with FIDE-rated coaches, including a Grandmaster and an International Master. Singapore is only 2½ hours ahead of India, so after-school classes are easy to arrange."
+  zones:
+    - ["Singapore and Malaysia: Singapore, Kuala Lumpur", "2½ hours behind"]
+    - ["Vietnam and Thailand: Ho Chi Minh City, Hanoi, Bangkok", "1½ hours behind"]
+  time_note: "You are ahead of India, so your after-school hours and evenings fall in India's afternoon and evening. Tell us the times that suit your family and we'll match you with a coach who can teach then."
+  currency: "Singapore dollars or your own currency"
+  ratings: "Tournament players get preparation for rated events, including FIDE-rated tournaments."
+  extra_h: "Why families in Southeast Asia choose us"
+  extra:
+    - ["fa-clock", "Easy time zones", "A 1½ to 2½ hour difference means after-school and weekend slots are easy to match."]
+    - ["fa-layer-group", "A clear level-by-level path", "Beginner, Intermediate, Advanced and Elite, with a quiz every eight sessions."]
+    - ["fa-users", "Small groups or one-to-one", "Group classes of 2 to 4 children, or lessons built around one student."]
+singapore_wa: "Hi%2C%20I%20am%20in%20Singapore%2FSoutheast%20Asia%20and%20would%20like%20to%20book%20a%20free%20demo%20chess%20class"

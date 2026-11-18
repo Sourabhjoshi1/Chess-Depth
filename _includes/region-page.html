@@ -1,0 +1,140 @@
+{%- comment -%} Landing page for families outside India. Content: _data/regions.yml, keyed by page.region. {%- endcomment -%}
+{%- assign r = site.data.regions[page.region] -%}
+{%- capture wa_key %}{{ page.region }}_wa{% endcapture -%}
+{%- capture wa %}https://wa.me/{{ site.contact.phone_intl }}?text={{ site.data.regions[wa_key] }}{% endcapture %}{% assign wa = wa | strip -%}
+
+<section class="cd-hero cd-hero-bg">
+  <div class="cd-hero-inner">
+    <p class="cd-hero-eyebrow">{{ r.eyebrow }}</p>
+    <h1 class="cd-hero-title">{{ r.h1 }}</h1>
+    <p class="cd-hero-lead">{{ r.lead }}</p>
+    <div class="kd-hero-cta">
+      <a href="#inquiry" class="kd-btn kd-btn-main"><i class="fas fa-calendar-check"></i> Book a free demo class</a>
+      <a href="#fees" class="kd-btn kd-btn-ghost">Fees in US$</a>
+    </div>
+    <ul class="kd-hero-facts">
+      <li><i class="fas fa-globe"></i> Class times in your time zone</li>
+      <li><i class="fas fa-dollar-sign"></i> Fees in US$</li>
+      <li><i class="fas fa-child"></i> Kids from age 5, and adults</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ TIME ZONES ============ -->
+<section class="kd-sec" id="time">
+  <div class="kd-wrap">
+    <p class="kd-kicker">Your time zone</p>
+    <h2 class="kd-h2">Classes at a time that suits you</h2>
+    <p class="kd-lead">Our coaches are based in India (India Standard Time, which does not change in summer). {{ r.time_note }}</p>
+    <div class="rg-clock" data-rg-clock hidden>
+      <div><span>Your time now</span><b data-rg-local>&nbsp;</b><small data-rg-zone></small></div>
+      <div><span>India time now</span><b data-rg-ist>&nbsp;</b><small>India Standard Time</small></div>
+      <div><span>Difference</span><b data-rg-diff>&nbsp;</b><small>between you and India</small></div>
+    </div>
+    <div class="rg-table-wrap">
+      <table class="rg-table">
+        <thead><tr><th>Where you are</th><th>India compared with you</th></tr></thead>
+        <tbody>
+          {%- for z in r.zones %}
+          <tr><td>{{ z[0] }}</td><td>{{ z[1] }}</td></tr>
+          {%- endfor %}
+        </tbody>
+      </table>
+    </div>
+    <p class="kd-note">We always confirm class times in your local time, on WhatsApp.</p>
+  </div>
+</section>
+
+<!-- ============ WHY ============ -->
+<section class="kd-sec kd-sec-tint">
+  <div class="kd-wrap">
+    <p class="kd-kicker">{{ r.short }}</p>
+    <h2 class="kd-h2">{{ r.extra_h }}</h2>
+    <div class="kd-grid kd-grid-3">
+      {%- for e in r.extra %}
+      <div class="kd-card"><i class="fas {{ e[0] }}"></i><h3>{{ e[1] }}</h3><p>{{ e[2] }}</p></div>
+      {%- endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- ============ FEES ============ -->
+<section class="kd-sec" id="fees">
+  <div class="kd-wrap">
+    <p class="kd-kicker">Fees in US dollars</p>
+    <h2 class="kd-h2">Two simple monthly plans</h2>
+    <p class="kd-lead">Both include 8 to 10 live classes a month of 60 to 70 minutes each, worksheets, a quiz every eight sessions, club tournaments and free access to the <a href="/lab/">Chess Lab</a>. The first demo class is free.</p>
+    <div class="kd-grid kd-grid-2 kd-fees">
+      <div class="kd-fee kd-fee-pop">
+        <p class="kd-fee-tag">Fastest progress</p>
+        <h3>One-to-one</h3>
+        <p class="kd-fee-sub">Lessons built around one student</p>
+        <p class="kd-price"><span>From</span> $90 <span>/ month</span></p>
+        <ul><li>Full attention from the coach</li><li>Class times fixed around you</li><li>The fee depends on the coach you choose</li></ul>
+      </div>
+      <div class="kd-fee">
+        <p class="kd-fee-tag kd-fee-tag-alt">Best value</p>
+        <h3>Small group</h3>
+        <p class="kd-fee-sub">2 to 4 students at the same level</p>
+        <p class="kd-price">$60 <span>/ month</span></p>
+        <ul><li>Learn and play with other students</li><li>Shared game analysis and discussion</li><li>Lower monthly fee</li></ul>
+      </div>
+    </div>
+    <p class="kd-note">Prices are inclusive of all taxes. You can pay in {{ r.currency }} through Wise, by card or bank transfer: we send you the link after the demo. {{ r.ratings }} See the full syllabus for each level on <a href="/courses/#levels">Classes &amp; fees</a>.</p>
+  </div>
+</section>
+
+<!-- ============ HOW IT STARTS ============ -->
+<section class="kd-sec kd-sec-tint">
+  <div class="kd-wrap">
+    <p class="kd-kicker">Getting started</p>
+    <h2 class="kd-h2">From demo to first class in a few days</h2>
+    <ol class="kd-steps">
+      <li><b>1</b><h3>Book the free demo</h3><p>Fill in the short form below, with your country and time zone.</p></li>
+      <li><b>2</b><h3>We message you on WhatsApp</h3><p>Usually within 24 hours, to fix a time in your local time.</p></li>
+      <li><b>3</b><h3>Meet a coach</h3><p>A 30-minute online lesson with a friendly level check.</p></li>
+      <li><b>4</b><h3>Start your plan</h3><p>One-to-one or a small group, at your level. <a href="/register/">Register</a> when you are ready.</p></li>
+    </ol>
+  </div>
+</section>
+
+<!-- ============ COACHES ============ -->
+<section class="kd-sec">
+  <div class="kd-wrap kd-coach">
+    <i class="fas fa-chess-king"></i>
+    <div>
+      <h2 class="kd-h2 kd-left">Titled, FIDE-rated coaches</h2>
+      <p class="kd-lead kd-left">Our team includes Grandmaster Daniel Gormally, International Master Deboushnik De and Candidate Master Rajarishi Karthi, with coaches who explain the <em>why</em> behind every move, for children and adults alike.</p>
+      <p class="kd-more"><a href="/coaches/">Meet our coaches <i class="fas fa-arrow-right"></i></a></p>
+    </div>
+  </div>
+</section>
+
+<div class="kd-faq-bg">
+  {% include faq.html title="Questions families ask" %}
+  <p class="kd-note kd-note-faq">Still have a question? <a href="{{ wa }}" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> Ask us on WhatsApp</a>.</p>
+</div>
+
+{% include demo-form.html %}
+
+<p class="rg-other">Also see: {% for kv in site.data.regions %}{% if kv[1].url and kv[0] != page.region %}<a href="{{ kv[1].url }}">{{ kv[1].short }}</a> · {% endif %}{% endfor %}<a href="/chess-classes-for-kids/">Classes for kids</a></p>
+
+<script>
+(function () {
+  var box = document.querySelector('[data-rg-clock]'); if (!box || !window.Intl) return;
+  function fmt(tz) { return new Intl.DateTimeFormat('en-GB', { hour: 'numeric', minute: '2-digit', weekday: 'short', hour12: true, timeZone: tz }).format(new Date()); }
+  function offset(tz) { var d = new Date(); var p = new Intl.DateTimeFormat('en-US', { timeZone: tz, hour12: false, year: 'numeric', month: 'numeric', day: 'numeric', hour: 'numeric', minute: 'numeric' }).formatToParts(d).reduce(function (a, x) { a[x.type] = x.value; return a; }, {}); return (Date.UTC(+p.year, p.month - 1, +p.day, +p.hour % 24, +p.minute) - Date.UTC(d.getUTCFullYear(), d.getUTCMonth(), d.getUTCDate(), d.getUTCHours(), d.getUTCMinutes())) / 60000; }
+  try {
+    var tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
+    function tick() {
+      box.querySelector('[data-rg-local]').textContent = fmt(tz);
+      box.querySelector('[data-rg-ist]').textContent = fmt('Asia/Kolkata');
+      var m = offset('Asia/Kolkata') - offset(tz), a = Math.abs(m), h = Math.floor(a / 60), mm = a % 60;
+      var t = (h ? h + (mm ? '½' : '') : (mm ? '½' : '')) + (h === 1 && !mm ? ' hour' : ' hours');
+      box.querySelector('[data-rg-diff]').textContent = m === 0 ? 'Same time' : (m > 0 ? 'India is ' : 'India is ') + t + (m > 0 ? ' ahead' : ' behind');
+    }
+    box.querySelector('[data-rg-zone]').textContent = tz.replace(/_/g, ' ');
+    tick(); setInterval(tick, 30000); box.hidden = false;
+  } catch (e) {}
+})();
+</script>
