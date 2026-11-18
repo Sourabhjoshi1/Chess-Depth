@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="714" viewBox="0 0 1200 714">
+<rect width="1200" height="714" fill="#ffffff"/>
+<text x="60" y="62" font-family="Poppins" font-weight="600" font-size="32" fill="#1f2547">When it is 7 am or 7 pm in India…</text>
+<text x="60" y="100" font-family="Poppins" font-size="20" fill="#5b6080">Local times in December (winter). Green: a family-friendly time between 7 am and 9 pm.</text>
+<rect x="60" y="118" width="1080" height="52" rx="10" fill="#1f2547"/>
+<text x="82" y="152" font-family="Poppins" font-weight="600" font-size="20" fill="#fff">City</text>
+<text x="600.0" y="152" text-anchor="middle" font-family="Poppins" font-weight="600" font-size="20" fill="#fff">India 7:00 am</text>
+<text x="960.0" y="152" text-anchor="middle" font-family="Poppins" font-weight="600" font-size="20" fill="#fff">India 7:00 pm</text>
+<line x1="60" y1="232" x2="1140" y2="232" stroke="#e6e3ef" stroke-width="1.5"/>
+<text x="82" y="200" font-family="Poppins" font-weight="600" font-size="22" fill="#1f2547">New York</text>
+<text x="82" y="222" font-family="Poppins" font-size="15" fill="#6b7280">Eastern US</text>
+<rect x="430.0" y="178" width="340.0" height="46" rx="8" fill="#dcfce7"/>
+<text x="600.0" y="201.0" text-anchor="middle" font-family="Poppins" font-weight="600" font-size="21" fill="#166534">8:30 pm</text>
+<text x="600.0" y="221.0" text-anchor="middle" font-family="Poppins" font-size="14" fill="#166534">day before</text>
+<rect x="790.0" y="178" width="340.0" height="46" rx="8" fill="#dcfce7"/>
+<text x="960.0" y="208.0" text-anchor="middle" font-family="Poppins" font-weight="600" font-size="21" fill="#166534">8:30 am</text>
+<line x1="60" y1="294" x2="1140" y2="294" stroke="#e6e3ef" stroke-width="1.5"/>
+<text x="82" y="262" font-family="Poppins" font-weight="600" font-size="22" fill="#1f2547">Los Angeles</text>
+<text x="82" y="284" font-family="Poppins" font-size="15" fill="#6b7280">Pacific US</text>
+<rect x="430.0" y="240" width="340.0" height="46" rx="8" fill="#dcfce7"/>
+<text x="600.0" y="263.0" text-anchor="middle" font-family="Poppins" font-weight="600" font-size="21" fill="#166534">5:30 pm</text>
+<text x="600.0" y="283.0" text-anchor="middle" font-family="Poppins" font-size="14" fill="#166534">day before</text>
+<rect x="790.0" y="240" width="340.0" height="46" rx="8" fill="#f3f4f6"/>
+<text x="960.0" y="270.0" text-anchor="middle" font-family="Poppins" font-weight="600" font-size="21" fill="#6b7280">5:30 am</text>
+<line x1="60" y1="356" x2="1140" y2="356" stroke="#e6e3ef" stroke-width="1.5"/>
+<text x="82" y="324" font-family="Poppins" font-weight="600" font-size="22" fill="#1f2547">London</text>
+<text x="82" y="346" font-family="Poppins" font-size="15" fill="#6b7280">UK</text>
+<rect x="430.0" y="302" width="340.0" height="46" rx="8" fill="#f3f4f6"/>
+<text x="600.0" y="332.0" text-anchor="middle" font-family="Poppins" font-weight="600" font-size="21" fill="#6b7280">1:30 am</text>
+<rect x="790.0" y="302" width="340.0" height="46" rx="8" fill="#dcfce7"/>
+<text x="960.0" y="332.0" text-anchor="middle" font-family="Poppins" font-weight="600" font-size="21" fill="#166534">1:30 pm</text>
+<line x1="60" y1="418" x2="1140" y2="418" stroke="#e6e3ef" stroke-width="1.5"/>
+<text x="82" y="386" font-family="Poppins" font-weight="600" font-size="22" fill="#1f2547">Berlin</text>
+<text x="82" y="408" font-family="Poppins" font-size="15" fill="#6b7280">Central Europe</text>
+<rect x="430.0" y="364" width="340.0" height="46" rx="8" fill="#f3f4f6"/>
+<text x="600.0" y="394.0" text-anchor="middle" font-family="Poppins" font-weight="600" font-size="21" fill="#6b7280">2:30 am</text>
+<rect x="790.0" y="364" width="340.0" height="46" rx="8" fill="#dcfce7"/>
+<text x="960.0" y="394.0" text-anchor="middle" font-family="Poppins" font-weight="600" font-size="21" fill="#166534">2:30 pm</text>
+<line x1="60" y1="480" x2="1140" y2="480" stroke="#e6e3ef" stroke-width="1.5"/>
+<text x="82" y="448" font-family="Poppins" font-weight="600" font-size="22" fill="#1f2547">Riyadh</text>
+<text x="82" y="470" font-family="Poppins" font-size="15" fill="#6b7280">Saudi Arabia</text>
+<rect x="430.0" y="426" width="340.0" height="46" rx="8" fill="#f3f4f6"/>
+<text x="600.0" y="456.0" text-anchor="middle" font-family="Poppins" font-weight="600" font-size="21" fill="#6b7280">4:30 am</text>
+<rect x="790.0" y="426" width="340.0" height="46" rx="8" fill="#dcfce7"/>
+<text x="960.0" y="456.0" text-anchor="middle" font-family="Poppins" font-weight="600" font-size="21" fill="#166534">4:30 pm</text>
+<line x1="60" y1="542" x2="1140" y2="542" stroke="#e6e3ef" stroke-width="1.5"/>
+<text x="82" y="510" font-family="Poppins" font-weight="600" font-size="22" fill="#1f2547">Dubai</text>
+<text x="82" y="532" font-family="Poppins" font-size="15" fill="#6b7280">UAE</text>
+<rect x="430.0" y="488" width="340.0" height="46" rx="8" fill="#f3f4f6"/>
+<text x="600.0" y="518.0" text-anchor="middle" font-family="Poppins" font-weight="600" font-size="21" fill="#6b7280">5:30 am</text>
+<rect x="790.0" y="488" width="340.0" height="46" rx="8" fill="#dcfce7"/>
+<text x="960.0" y="518.0" text-anchor="middle" font-family="Poppins" font-weight="600" font-size="21" fill="#166534">5:30 pm</text>
+<line x1="60" y1="604" x2="1140" y2="604" stroke="#e6e3ef" stroke-width="1.5"/>
+<text x="82" y="572" font-family="Poppins" font-weight="600" font-size="22" fill="#1f2547">Singapore</text>
+<text x="82" y="594" font-family="Poppins" font-size="15" fill="#6b7280">Singapore</text>
+<rect x="430.0" y="550" width="340.0" height="46" rx="8" fill="#dcfce7"/>
+<text x="600.0" y="580.0" text-anchor="middle" font-family="Poppins" font-weight="600" font-size="21" fill="#166534">9:30 am</text>
+<rect x="790.0" y="550" width="340.0" height="46" rx="8" fill="#f3f4f6"/>
+<text x="960.0" y="580.0" text-anchor="middle" font-family="Poppins" font-weight="600" font-size="21" fill="#6b7280">9:30 pm</text>
+<text x="60" y="650" font-family="Poppins" font-size="18" fill="#5b6080">India does not change its clocks. In summer, the US, UK and Europe move one hour closer to India.</text>
+<text x="1140" y="686" text-anchor="end" font-family="Poppins" font-weight="600" font-size="18" fill="#b08a4e">www.chessdepth.in</text>
+</svg>
