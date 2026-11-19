@@ -69,3 +69,4 @@ html.dark .cda-link-main { background: #c2410c; color: #fff; }
 html.dark .cda-input { background: #111827; border-color: #334155; }
 html.dark .cda-input input { background: #1e293b; border-color: #475569; color: #e2e8f0; }
 html.dark .cda-fab-tip { background: #1e293b; color: #e2e8f0; }
+html.cd-menu-open .cda { display: none; }   /* hide the chat while the mobile menu is open */
