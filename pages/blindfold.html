@@ -20,6 +20,7 @@ head_scripts:
     <a href="#drills" class="bf-jump-main"><i class="fas fa-play"></i> Start a drill</a>
     <a href="#bf-panel" onclick="var b=document.querySelector('.bf-pick[data-drill=play]');if(b){b.click();}"><i class="fas fa-robot"></i> Play a blindfold game</a>
     <a href="#path"><i class="fas fa-calendar-check"></i> 28-day plan</a>
+    <a href="#pdfs"><i class="fas fa-file-pdf"></i> Free PDFs</a>
     <a href="#faq"><i class="fas fa-question-circle"></i> FAQ</a>
   </nav>
 
@@ -279,6 +280,17 @@ head_scripts:
       </div>
     </div>
     <p class="text-center text-sm text-gray-500 mt-4">Your progress is saved on this device, and in your <a href="/student/#blindfold" class="text-indigo-700 underline">Student Area</a> when you are signed in.</p>
+  </section>
+
+  <section class="px-4 pb-16" id="pdfs">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-8">
+        <p class="bf-eyebrow mb-2">Practise on paper</p>
+        <h2 class="text-3xl font-bold text-gray-900">Free blindfold workbooks for every level</h2>
+        <p class="text-gray-600 mt-2 max-w-2xl mx-auto">Print one and train away from the screen: read each position, picture it, and solve it in your head. Every workbook has a practice log and the answers at the back.</p>
+      </div>
+      {% include blindfold-pdfs.html %}
+    </div>
   </section>
 
   <!-- ============ GUIDE ============ -->

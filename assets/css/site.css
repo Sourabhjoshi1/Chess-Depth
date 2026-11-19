@@ -358,3 +358,15 @@ a.cd-foot-logo .cd-mark { width: 38px; height: 38px; }
 .cd-footer a.cd-foot-logo-link { display: inline-flex; align-items: center; gap: .7rem; margin-bottom: .9rem; }
 .cd-footer a.cd-foot-logo-link, .cd-footer a.cd-foot-logo-link:hover, .cd-foot-logo-link .cd-mark, .cd-foot-logo-link .cd-brand-name, .cd-foot-logo-link:hover .cd-brand-name, html.dark .cd-foot-logo-link .cd-brand-name { color: #eef0fa; }
 .cd-foot-logo-link .cd-brand-sub, html.dark .cd-foot-logo-link .cd-brand-sub { color: #d2ad6e; }
+/* Blindfold practice PDFs (_includes/blindfold-pdfs.html) */
+.bfp-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; }
+.bfp-card { display: flex; flex-direction: column; gap: .3rem; background: #fff; border: 1px solid #e5e7eb; border-top: 4px solid #b08a4e; border-radius: .9rem; padding: 1.1rem 1.1rem 1rem; text-decoration: none; color: #1f2547; transition: transform .15s ease, box-shadow .15s ease; }
+.bfp-card:hover { transform: translateY(-2px); box-shadow: 0 12px 24px -12px rgba(31,37,71,.35); }
+.bfp-ic { width: 40px; height: 40px; border-radius: 50%; background: #1f2547; color: #d2ad6e; display: inline-flex; align-items: center; justify-content: center; margin-bottom: .2rem; }
+.bfp-lv { font-weight: 700; font-size: 1.1rem; }
+.bfp-rg { font-size: .75rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: #9a7438; }
+.bfp-ds { font-size: .88rem; color: #4b5563; line-height: 1.5; flex: 1; }
+.bfp-dl { margin-top: .5rem; font-size: .85rem; font-weight: 600; color: #c2410c; }
+html.dark .bfp-card { background: #1e293b; border-color: #334155; border-top-color: #b08a4e; color: #e2e8f0; }
+html.dark .bfp-ds { color: #cbd5e1; } html.dark .bfp-rg { color: #d2ad6e; } html.dark .bfp-dl { color: #fdba74; }
+.bfs-pdf-h { font-weight: 700; font-size: 1.1rem; margin: 1.6rem 0 .3rem; color: inherit; } .bfs-pdf-h i { color: #ef4444; margin-right: .35rem; }

@@ -1,0 +1,25 @@
+# Free blindfold practice workbooks (built by _tools/blindfold-pdfs/build.py). Shown on /blindfold/ and in the Student Area.
+- level: Beginner
+  range: Up to 1000
+  file: /downloads/chessdepth-blindfold-practice-beginner.pdf
+  pages: 6
+  icon: fa-chess-pawn
+  desc: Square colours, knight jumps, short openings in your head and first blindfold mates in one.
+- level: Intermediate
+  range: 1000 to 1500
+  file: /downloads/chessdepth-blindfold-practice-intermediate.pdf
+  pages: 7
+  icon: fa-chess-knight
+  desc: Bishop diagonals, knight routes, longer opening lines, and mates in one and two.
+- level: Advanced
+  range: 1500 to 1900
+  file: /downloads/chessdepth-blindfold-practice-advanced.pdf
+  pages: 6
+  icon: fa-chess-rook
+  desc: Hold a full position, count legal moves, follow main lines and solve busy mates in two.
+- level: Elite
+  range: 1900 and above
+  file: /downloads/chessdepth-blindfold-practice-elite.pdf
+  pages: 6
+  icon: fa-chess-king
+  desc: Famous finishes played in your head, long main lines and mates in three.

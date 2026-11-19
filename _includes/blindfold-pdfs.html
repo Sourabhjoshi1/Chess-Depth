@@ -1,0 +1,12 @@
+{%- comment -%} The four free blindfold workbooks (_data/blindfold_pdfs.yml). Used on /blindfold/ and in the Student Area. {%- endcomment -%}
+<div class="bfp-grid">
+  {%- for p in site.data.blindfold_pdfs %}
+  <a class="bfp-card" href="{{ p.file }}" download data-pdf="blindfold-{{ p.level | downcase }}">
+    <span class="bfp-ic"><i class="fas {{ p.icon }}" aria-hidden="true"></i></span>
+    <span class="bfp-lv">{{ p.level }}</span>
+    <span class="bfp-rg">{{ p.range }}</span>
+    <span class="bfp-ds">{{ p.desc }}</span>
+    <span class="bfp-dl"><i class="fas fa-download" aria-hidden="true"></i> Free PDF · {{ p.pages }} pages</span>
+  </a>
+  {%- endfor %}
+</div>
