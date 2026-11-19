@@ -100,10 +100,23 @@
       menu.classList.toggle('-translate-y-full', !isOpen);
       btn.setAttribute('aria-expanded', String(isOpen));
       var svg = btn.querySelector('svg'); if (svg) svg.innerHTML = isOpen ? open : closed;
+      // keep the menu inside the screen so it scrolls on its own, and stop the page behind it scrolling
+      if (isOpen) menu.style.maxHeight = Math.max(200, window.innerHeight - menu.getBoundingClientRect().top) + 'px';
+      document.documentElement.classList.toggle('cd-menu-open', isOpen);
     }
     set(false);
     btn.addEventListener('click', function () { set(menu.classList.contains('hidden')); });
     menu.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', function () { set(false); }); });
+    // Academy, Chess Lab and Contact open one at a time when tapped (the one holding this page starts open)
+    menu.querySelectorAll('.cd-m-group-h').forEach(function (h) {
+      h.addEventListener('click', function () {
+        var g = h.parentNode, willOpen = !g.classList.contains('is-open');
+        menu.querySelectorAll('.cd-m-group.is-open').forEach(function (o) { o.classList.remove('is-open'); o.querySelector('.cd-m-group-h').setAttribute('aria-expanded', 'false'); });
+        g.classList.toggle('is-open', willOpen); h.setAttribute('aria-expanded', String(willOpen));
+      });
+    });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !menu.classList.contains('hidden')) { set(false); btn.focus(); } });
+    window.addEventListener('resize', function () { if (window.innerWidth >= 1200 && !menu.classList.contains('hidden')) set(false); });
   }
   if (document.readyState === 'complete') setupMenu(); else window.addEventListener('load', setupMenu);
   // Header drop-downs (e.g. Academy): click or keyboard to open; hover also works on desktop (CSS)

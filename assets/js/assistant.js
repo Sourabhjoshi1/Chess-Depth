@@ -184,7 +184,7 @@
     { k: /pay|payment|upi|card|wise|bank|transfer|paypal|invoice|gst|tax/, a: "Fees are paid monthly, in advance. In India you pay by UPI or bank transfer, and we send the details on WhatsApp when you enrol. Outside India you can pay in your own currency with Wise. Prices are inclusive of all taxes.",
       l: [{ label: "How to pay", href: "/courses/#pay", icon: "fas fa-credit-card" }] },
     { k: /job|career|hiring|work with you|join as/, a: "We're always glad to hear from good coaches. See the Careers page for open roles.", l: [{ label: "Careers", href: "/careers/", icon: "fas fa-briefcase" }] },
-    { k: /coach|teacher|trainer|tutor|\bim\b|master|fide|who teaches/, a: "Our coaches include an International Master and FIDE-rated players. You can read about each of them on the Coaches page.",
+    { k: /coach|teacher|trainer|tutor|\bim\b|master|fide|who teaches/, a: "Our coaches include a Grandmaster, an International Master and FIDE-rated players. You can read about each of them on the Coaches page.",
       l: [{ label: "Meet the coaches", href: "/coaches/", icon: "fas fa-user-tie" }] },
     { k: /group|batch|one.?to.?one|1.?on.?1|private|personal|individual|difference|which is better/, a: "<b>One-to-one</b> is built entirely around one student's games, openings and pace. <b>Group classes</b> have 2 to 4 students at a similar level and cost less. Both follow the same four levels.",
       l: [{ label: "Compare the two", href: "/courses/#compare", icon: "fas fa-scale-balanced" }] },

@@ -53,11 +53,14 @@
         <a href="/"{% if page.url == '/' %} aria-current="page"{% endif %}>Home</a>
         {%- for item in site.data.navigation %}
         {%- if item.children %}
-        <div class="cd-m-group">
-          <p class="cd-m-group-h">{{ item.title }}</p>
+        {%- assign here = false %}{% for c in item.children %}{% if page.url == c.url %}{% assign here = true %}{% endif %}{% endfor %}
+        <div class="cd-m-group{% if here %} is-open{% endif %}">
+          <button type="button" class="cd-m-group-h" aria-expanded="{{ here }}" aria-controls="cd-m-{{ forloop.index }}">{{ item.title }}<i class="fas fa-chevron-down" aria-hidden="true"></i></button>
+          <div class="cd-m-group-list" id="cd-m-{{ forloop.index }}">
           {%- for c in item.children %}
           <a href="{{ c.url }}"{% if page.url == c.url %} aria-current="page"{% endif %}><i class="fas {{ c.icon }}"></i>{{ c.title }}</a>
           {%- endfor %}
+          </div>
         </div>
         {%- else %}
         <a href="{{ item.url }}"{% if page.url contains item.url %} aria-current="page"{% endif %}>{{ item.title }}{% if item.badge %}<span class="cd-soon">{{ item.badge }}</span>{% endif %}</a>
