@@ -36,7 +36,7 @@
   document.addEventListener("click", function (e) {
     var a = e.target.closest && e.target.closest("a[href]");
     if (!a || typeof window.gtag !== "function") return;
-    var href = a.getAttribute("href") || "", where = a.closest("header, .cd-topbar") ? "header" : a.closest("footer") ? "footer" : a.classList.contains("whatsapp-float") ? "floating_button" : "page";
+    var href = a.getAttribute("href") || "", where = a.closest("header, .cd-topbar") ? "header" : a.closest("footer") ? "footer" : a.closest(".cda") ? "assistant" : "page";
     var label = (a.textContent || a.getAttribute("aria-label") || "").trim().slice(0, 60);
     if (a.classList.contains("sp-buy") || a.classList.contains("sp-notify")) {
       gtag("event", a.classList.contains("sp-download") ? "shop_free_download" : a.classList.contains("sp-buy") ? "begin_checkout" : "shop_notify_click", { item_name: a.getAttribute("data-product") || label, link_location: where, page_path: location.pathname });

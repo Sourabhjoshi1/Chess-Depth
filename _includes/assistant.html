@@ -1,0 +1,4 @@
+{%- comment -%} The ChessDepth Assistant chat button (assets/js/assistant.js). Shown on every page that includes the footer. {%- endcomment -%}
+<link rel="stylesheet" href="/assets/css/assistant.css?v={{ site.time | date: '%s' }}">
+<script type="application/json" id="cd-assistant-config">{"phone": {{ site.contact.phone_intl | jsonify }}, "phoneDisplay": {{ site.contact.phone_display | jsonify }}, "waText": {{ site.contact.whatsapp_text | jsonify }}, "register": "/register/"}</script>
+<script src="/assets/js/assistant.js?v={{ site.time | date: '%s' }}" defer></script>
