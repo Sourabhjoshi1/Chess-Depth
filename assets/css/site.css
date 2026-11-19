@@ -370,3 +370,8 @@ a.cd-foot-logo .cd-mark { width: 38px; height: 38px; }
 html.dark .bfp-card { background: #1e293b; border-color: #334155; border-top-color: #b08a4e; color: #e2e8f0; }
 html.dark .bfp-ds { color: #cbd5e1; } html.dark .bfp-rg { color: #d2ad6e; } html.dark .bfp-dl { color: #fdba74; }
 .bfs-pdf-h { font-weight: 700; font-size: 1.1rem; margin: 1.6rem 0 .3rem; color: inherit; } .bfs-pdf-h i { color: #ef4444; margin-right: .35rem; }
+.cd-foot-regions { font-size: .8rem; color: #9ca3af; padding-bottom: .9rem; line-height: 1.8; }
+.cd-foot-regions span { font-weight: 600; color: #d1d5db; margin-right: .25rem; }
+.cd-foot-regions a { color: #cbd5e1; } .cd-foot-regions a:hover { color: #d2ad6e; }
+.hm-abroad a { color: #4f46e5; font-weight: 500; } .hm-abroad a:hover { text-decoration: underline; }
+html.dark .hm-abroad a { color: #a5b4fc; }

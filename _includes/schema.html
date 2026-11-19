@@ -82,3 +82,18 @@
   {"@context":"https://schema.org","@type":"FAQPage","@id":"{{ page.url | absolute_url }}#faq","mainEntity":[{%- for f in page.faq %}{"@type":"Question","name":{{ f.q | jsonify }},"acceptedAnswer":{"@type":"Answer","text":{{ f.a | markdownify | strip_html | strip | jsonify }}}}{% unless forloop.last %},{% endunless %}{%- endfor %}]}
   </script>
 {%- endif %}
+
+{%- if page.region and page.noindex != true %}
+  {%- assign rg = site.data.regions[page.region] %}
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"Service","@id":"{{ page.url | absolute_url }}#service","name":{{ rg.h1 | jsonify }},"serviceType":"Online chess classes",
+   "description":{{ page.description | jsonify }},"url":"{{ page.url | absolute_url }}",
+   "provider":{"@type":"EducationalOrganization","@id":"{{ site.url }}/#organization","name":"{{ site.title }}","url":"{{ site.url }}/"},
+   "areaServed":[{%- for c in rg.countries %}{"@type":"Country","name":{{ c | jsonify }}}{% unless forloop.last %},{% endunless %}{%- endfor %}],
+   "audience":{"@type":"EducationalAudience","educationalRole":"student","audienceType":"Children from age 5 and adults"},
+   "availableChannel":{"@type":"ServiceChannel","serviceUrl":"{{ page.url | absolute_url }}","availableLanguage":"English"},
+   "hasOfferCatalog":{"@type":"OfferCatalog","name":"Monthly plans","itemListElement":[
+     {"@type":"Offer","name":"One-to-one personalised training","description":"8 to 10 live online classes a month, 60 to 70 minutes each. Fee depends on the coach.","priceCurrency":"USD","priceSpecification":{"@type":"UnitPriceSpecification","minPrice":90,"priceCurrency":"USD","unitText":"month"},"url":"{{ page.url | absolute_url }}#fees"},
+     {"@type":"Offer","name":"Group classes, 2 to 4 students","description":"8 to 10 live online classes a month, 60 to 70 minutes each.","price":60,"priceCurrency":"USD","priceSpecification":{"@type":"UnitPriceSpecification","price":60,"priceCurrency":"USD","unitText":"month"},"url":"{{ page.url | absolute_url }}#fees"}]}}
+  </script>
+{%- endif %}

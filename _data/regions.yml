@@ -1,9 +1,13 @@
 # Country / region landing pages for families outside India (pages/regions/*.html use _includes/region-page.html).
+# locale / hreflang / countries feed the page tags and structured data (_includes/head.html, schema.html).
 # Time differences: India (IST) is UTC+5:30 all year; "summer" means daylight saving time in that region.
 usa:
   name: "the USA and Canada"
   short: "USA & Canada"
   url: /online-chess-classes-usa/
+  locale: en_US
+  hreflang: [en-US, en-CA]
+  countries: ["United States", "Canada"]
   eyebrow: "For families in the USA and Canada · Live online"
   h1: "Online chess classes for families in the USA and Canada"
   lead: "Live one-to-one and small-group lessons with FIDE-rated coaches, including a Grandmaster and an International Master. Fees in US dollars, and class times that fit your time zone."
@@ -26,8 +30,11 @@ uae:
   name: "the UAE and the Middle East"
   short: "UAE & Middle East"
   url: /online-chess-classes-uae/
-  eyebrow: "For families in the UAE, Saudi Arabia, Qatar and the Gulf · Live online"
-  h1: "Online chess classes in the UAE and the Middle East"
+  locale: en_AE
+  hreflang: [en-AE, en-OM]
+  countries: ["United Arab Emirates", "Oman"]
+  eyebrow: "For families in Dubai, Abu Dhabi, Sharjah and across the UAE · Live online"
+  h1: "Online chess classes in Dubai and the UAE"
   lead: "Live one-to-one and small-group lessons with FIDE-rated coaches, including a Grandmaster and an International Master. With India only 1½ to 2½ hours ahead, after-school classes are easy to arrange."
   zones:
     - ["UAE and Oman: Dubai, Abu Dhabi, Muscat", "1½ hours ahead"]
@@ -37,15 +44,18 @@ uae:
   ratings: "Tournament players get preparation for rated events, including FIDE-rated tournaments."
   extra_h: "Why families in the Gulf choose us"
   extra:
-    - ["fa-calendar-alt", "Classes on your weekend", "Friday, Saturday or Sunday: we fit classes around the weekend your school follows."]
+    - ["fa-calendar-alt", "Classes on your weekend", "UAE schools now have a Saturday–Sunday weekend (Friday, Saturday and Sunday in Sharjah). We fit classes around yours, including Friday afternoons."]
     - ["fa-clock", "Almost the same time zone", "A 1½ to 2½ hour difference means after-school slots are easy to match."]
-    - ["fa-users", "Small groups or one-to-one", "Group classes of 2 to 4 children, or lessons built around one student."]
+    - ["fa-map-marker-alt", "Elsewhere in the Gulf?", "See class times for <a href=\"/online-chess-classes-saudi-arabia/\">Saudi Arabia</a> and <a href=\"/online-chess-classes-qatar/\">Qatar, Kuwait and Bahrain</a>."]
 uae_wa: "Hi%2C%20I%20am%20in%20the%20Middle%20East%20and%20would%20like%20to%20book%20a%20free%20demo%20chess%20class"
 
 uk:
   name: "the UK and Europe"
   short: "UK & Europe"
   url: /online-chess-classes-uk/
+  locale: en_GB
+  hreflang: [en-GB, en-IE]
+  countries: ["United Kingdom", "Ireland"]
   eyebrow: "For families in the UK, Ireland and Europe · Live online"
   h1: "Online chess classes in the UK and Europe"
   lead: "Live one-to-one and small-group lessons with FIDE-rated coaches, including English Grandmaster Daniel Gormally. India is 3½ to 5½ hours ahead, so after-school and weekend classes are easy to arrange."
@@ -67,6 +77,9 @@ singapore:
   name: "Singapore and Southeast Asia"
   short: "Singapore & SE Asia"
   url: /online-chess-classes-singapore/
+  locale: en_SG
+  hreflang: [en-SG, en-MY]
+  countries: ["Singapore", "Malaysia"]
   eyebrow: "For families in Singapore, Malaysia and Southeast Asia · Live online"
   h1: "Online chess classes in Singapore and Southeast Asia"
   lead: "Live one-to-one and small-group lessons with FIDE-rated coaches, including a Grandmaster and an International Master. Singapore is only 2½ hours ahead of India, so after-school classes are easy to arrange."
@@ -82,3 +95,48 @@ singapore:
     - ["fa-layer-group", "A clear level-by-level path", "Beginner, Intermediate, Advanced and Elite, with a quiz every eight sessions."]
     - ["fa-users", "Small groups or one-to-one", "Group classes of 2 to 4 children, or lessons built around one student."]
 singapore_wa: "Hi%2C%20I%20am%20in%20Singapore%2FSoutheast%20Asia%20and%20would%20like%20to%20book%20a%20free%20demo%20chess%20class"
+
+saudi:
+  name: "Saudi Arabia"
+  short: "Saudi Arabia"
+  url: /online-chess-classes-saudi-arabia/
+  locale: en_SA
+  hreflang: [en-SA]
+  countries: ["Saudi Arabia"]
+  eyebrow: "For families in Riyadh, Jeddah, Dammam and across Saudi Arabia · Live online"
+  h1: "Online chess classes for kids in Saudi Arabia"
+  lead: "Live one-to-one and small-group lessons with FIDE-rated coaches, including a Grandmaster and an International Master. India is only 2½ hours ahead of Saudi Arabia, so classes after school or on your Friday–Saturday weekend are easy to arrange."
+  zones:
+    - ["Riyadh, Jeddah, Dammam, Al Khobar, Mecca, Medina", "2½ hours ahead, all year"]
+  time_note: "Saudi Arabia does not change its clocks either, so the difference stays the same all year: 4 pm in Riyadh is 6:30 pm in India. Tell us the days and times that suit your family and we'll match you with a coach who can teach then."
+  currency: "Saudi riyals or your own currency"
+  ratings: "Tournament players get preparation for rated events, including FIDE-rated tournaments."
+  extra_h: "Why families in Saudi Arabia choose us"
+  extra:
+    - ["fa-calendar-alt", "Classes on your weekend", "Friday and Saturday classes are easy to fix, as well as weekday slots after school."]
+    - ["fa-clock", "The same gap all year", "Neither India nor Saudi Arabia uses summer time, so your class time never shifts."]
+    - ["fa-users", "Small groups or one-to-one", "Group classes of 2 to 4 children, or lessons built around one student."]
+saudi_wa: "Hi%2C%20I%20am%20in%20Saudi%20Arabia%20and%20would%20like%20to%20book%20a%20free%20demo%20chess%20class"
+
+qatar:
+  name: "Qatar"
+  short: "Qatar"
+  url: /online-chess-classes-qatar/
+  locale: en_QA
+  hreflang: [en-QA, en-KW, en-BH]
+  countries: ["Qatar", "Kuwait", "Bahrain"]
+  eyebrow: "For families in Doha, Al Wakrah, Al Khor and across Qatar · Live online"
+  h1: "Online chess classes for kids in Qatar"
+  lead: "Live one-to-one and small-group lessons with FIDE-rated coaches, including a Grandmaster and an International Master. India is only 2½ hours ahead of Qatar, so after-school and weekend classes are easy to arrange."
+  zones:
+    - ["Qatar: Doha, Al Wakrah, Al Khor, Lusail", "2½ hours ahead, all year"]
+    - ["Kuwait and Bahrain: Kuwait City, Manama", "2½ hours ahead, all year"]
+  time_note: "The difference stays the same all year: 5 pm in Doha is 7:30 pm in India. Tell us the days and times that suit your family and we'll match you with a coach who can teach then."
+  currency: "Qatari riyals or your own currency"
+  ratings: "Tournament players get preparation for rated events, including FIDE-rated tournaments."
+  extra_h: "Why families in Qatar choose us"
+  extra:
+    - ["fa-calendar-alt", "Classes on your weekend", "Friday and Saturday classes are easy to fix, as well as weekday slots after school."]
+    - ["fa-clock", "Almost the same time zone", "A 2½ hour difference means after-school slots match easily, all year round."]
+    - ["fa-layer-group", "A clear level-by-level path", "Beginner, Intermediate, Advanced and Elite, with a quiz every eight sessions."]
+qatar_wa: "Hi%2C%20I%20am%20in%20Qatar%20and%20would%20like%20to%20book%20a%20free%20demo%20chess%20class"

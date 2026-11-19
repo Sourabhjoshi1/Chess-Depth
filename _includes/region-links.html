@@ -1,0 +1,3 @@
+{%- comment -%} Links to the country pages (_data/regions.yml), in this order. {%- endcomment -%}
+{%- assign order = "usa,uk,uae,saudi,qatar,singapore" | split: "," -%}
+{%- for k in order %}{% assign v = site.data.regions[k] %}<a href="{{ v.url }}">{{ v.short | replace: "&", "&amp;" }}</a>{% unless forloop.last %}{{ include.sep | default: ", " }}{% endunless %}{% endfor -%}
