@@ -19,6 +19,7 @@
         <span class="cd-brand-text"><span class="cd-brand-name">ChessDepth</span>{% if site.tagline %}<span class="cd-brand-sub">{{ site.tagline }}</span>{% endif %}</span>
       </a>
       <nav id="main-nav" aria-label="Primary" class="cd-nav">
+        <a href="/" class="cd-link"{% if page.url == '/' or page.url == '/index.html' %} aria-current="page"{% endif %}>Home</a>
         {%- for item in site.data.navigation %}
         {%- if item.children %}
         {%- assign group_active = false %}{% for c in item.children %}{% if page.url contains c.url %}{% assign group_active = true %}{% endif %}{% endfor %}

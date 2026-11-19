@@ -1,4 +1,4 @@
-# Main menu (the logo links to the home page).
+# Main menu. "Home" is added in _includes/header.html (and the logo also links to the home page).
 # An item with "children" becomes a drop-down menu (desktop) and a group (phone menu).
 - title: About
   url: /about/
