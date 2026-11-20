@@ -1,0 +1,68 @@
+/* Curriculum page (/curriculum/) */
+.cu-wrap { max-width: 72rem; margin: 0 auto; padding: 0 1rem; }
+.cu-jump { display: flex; flex-wrap: wrap; gap: .6rem; justify-content: center; padding: 1.4rem 1rem .4rem; max-width: 72rem; margin: 0 auto; }
+.cu-jump a { display: inline-flex; align-items: center; gap: .45rem; padding: .5rem 1rem; border-radius: 9999px; border: 1.5px solid var(--lv); color: #1f2547; font-weight: 600; font-size: .92rem; text-decoration: none; background: #fff; }
+.cu-jump a i { color: var(--lv); }
+.cu-jump a small { color: #6b7088; font-weight: 500; }
+.cu-jump a:hover { background: var(--lv); color: #fff; } .cu-jump a:hover i, .cu-jump a:hover small { color: #fff; }
+.cu-sec { padding: 3.2rem 0; }
+.cu-tint { background: #f5f3ff; }
+.cu-kicker { text-align: center; font-size: .75rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: #9a7438; margin-bottom: .35rem; }
+.cu-h2 { text-align: center; font-size: 1.85rem; font-weight: 800; color: #1f2547; margin-bottom: 1.8rem; line-height: 1.25; }
+.cu-how { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 1rem; }
+.cu-how > div { background: #fff; border: 1px solid #e5e7eb; border-radius: 1rem; padding: 1.2rem; }
+.cu-how i { font-size: 1.4rem; color: #4f46e5; }
+.cu-how h3 { font-weight: 700; font-size: 1.1rem; margin: .5rem 0 .25rem; color: #1f2547; }
+.cu-how p, .cu-note { color: #4b5563; font-size: .93rem; line-height: 1.6; }
+.cu-note { text-align: center; margin-top: 1.3rem; }
+.cu-note a, .cu-outcome a { color: #4f46e5; font-weight: 600; }
+.cu-level { padding: 3rem 0; border-top: 1px solid #eef0f5; scroll-margin-top: 80px; }
+.cu-level:nth-of-type(even) { background: #fafafa; }
+.cu-lv-head { display: flex; gap: 1rem; align-items: flex-start; margin-bottom: 1.5rem; flex-wrap: wrap; }
+.cu-lv-ic { width: 56px; height: 56px; flex: none; border-radius: 16px; background: var(--lv); color: #fff; display: inline-flex; align-items: center; justify-content: center; font-size: 1.6rem; }
+.cu-lv-head > div { flex: 1; min-width: 220px; }
+.cu-lv-k { font-size: .78rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--lv); }
+.cu-lv-h { font-size: 1.9rem; font-weight: 800; color: #1f2547; line-height: 1.2; }
+.cu-lv-for { color: #4b5563; margin-top: .2rem; }
+.cu-lv-time { align-self: center; font-size: .88rem; font-weight: 600; color: #1f2547; background: #fff; border: 1px solid #e5e7eb; border-radius: 9999px; padding: .4rem .9rem; }
+.cu-lv-time i { color: var(--lv); margin-right: .25rem; }
+.cu-stages { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+@media (max-width: 900px) { .cu-stages { grid-template-columns: 1fr; } }
+.cu-stage { background: #fff; border: 1px solid #e5e7eb; border-top: 4px solid var(--lv); border-radius: 1rem; padding: 1.2rem 1.2rem 1rem; display: flex; flex-direction: column; }
+.cu-st-n { font-size: .78rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--lv); display: flex; justify-content: space-between; gap: .5rem; }
+.cu-st-n span { color: #6b7088; font-weight: 600; letter-spacing: 0; text-transform: none; }
+.cu-stage h3 { font-weight: 700; font-size: 1.08rem; color: #1f2547; margin: .35rem 0 .6rem; line-height: 1.35; }
+.cu-stage ul { list-style: none; padding: 0; margin: 0 0 .8rem; flex: 1; }
+.cu-stage li { position: relative; padding-left: 1.2rem; font-size: .92rem; color: #374151; line-height: 1.5; margin-bottom: .45rem; }
+.cu-stage li::before { content: ""; position: absolute; left: .2rem; top: .55rem; width: 6px; height: 6px; border-radius: 50%; background: var(--lv); }
+.cu-quiz { font-size: .85rem; color: #1f2547; background: #f8fafc; border-radius: .6rem; padding: .45rem .7rem; }
+.cu-quiz i { color: var(--lv); margin-right: .25rem; }
+.cu-outcome { margin-top: 1.1rem; background: #fff; border-left: 4px solid var(--lv); border-radius: .6rem; padding: .8rem 1rem; color: #374151; box-shadow: 0 1px 2px rgba(0,0,0,.04); }
+.cu-outcome i { color: var(--lv); margin-right: .3rem; }
+.cu-class { list-style: none; padding: 0; max-width: 48rem; margin: 0 auto; display: grid; gap: .8rem; }
+.cu-class li { display: flex; gap: 1rem; background: #fff; border-radius: 1rem; padding: 1rem 1.2rem; border: 1px solid #e9e5fb; }
+.cu-class b { width: 34px; height: 34px; flex: none; border-radius: 50%; background: #1f2547; color: #d2ad6e; display: inline-flex; align-items: center; justify-content: center; font-weight: 700; }
+.cu-class h3 { font-weight: 700; color: #1f2547; }
+.cu-class p { color: #4b5563; font-size: .93rem; line-height: 1.55; }
+.cu-mat { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; }
+.cu-mat a { display: block; background: #fff; border: 1px solid #e5e7eb; border-radius: 1rem; padding: 1.1rem; text-decoration: none; transition: transform .15s ease, box-shadow .15s ease; }
+.cu-mat a:hover { transform: translateY(-2px); box-shadow: 0 10px 22px -12px rgba(31,37,71,.35); }
+.cu-mat i { font-size: 1.3rem; color: #b08a4e; }
+.cu-mat h3 { font-weight: 700; color: #1f2547; margin: .45rem 0 .2rem; }
+.cu-mat p { color: #4b5563; font-size: .9rem; line-height: 1.5; }
+.cu-cta { background: #1f2547; color: #fff; text-align: center; padding: 3.2rem 0; }
+.cu-cta h2 { font-size: 1.8rem; font-weight: 800; }
+.cu-cta p { color: #cbd5e1; margin: .4rem 0 1.3rem; }
+.cu-cta-btns { display: flex; gap: .8rem; justify-content: center; flex-wrap: wrap; }
+.cu-btn { display: inline-flex; align-items: center; gap: .5rem; padding: .75rem 1.3rem; border-radius: .7rem; font-weight: 600; border: 1.5px solid #d2ad6e; color: #fff; text-decoration: none; }
+.cu-btn-main { background: #c2410c; border-color: #c2410c; }
+.cu-btn:hover { opacity: .9; }
+/* night mode */
+html.dark .cu-jump a, html.dark .cu-how > div, html.dark .cu-stage, html.dark .cu-mat a, html.dark .cu-outcome, html.dark .cu-lv-time, html.dark .cu-class li { background: #1e293b; border-color: #334155; color: #e2e8f0; }
+html.dark .cu-h2, html.dark .cu-lv-h, html.dark .cu-how h3, html.dark .cu-stage h3, html.dark .cu-mat h3, html.dark .cu-class h3, html.dark .cu-lv-time, html.dark .cu-quiz { color: #f1f5f9; }
+html.dark .cu-how p, html.dark .cu-note, html.dark .cu-lv-for, html.dark .cu-stage li, html.dark .cu-mat p, html.dark .cu-class p, html.dark .cu-outcome { color: #cbd5e1; }
+html.dark .cu-quiz { background: #0f172a; }
+html.dark .cu-tint { background: #111827; }
+html.dark .cu-level:nth-of-type(even) { background: #0b1220; }
+html.dark .cu-level { border-color: #1f2937; }
+html.dark .cu-jump a small { color: #94a3b8; }

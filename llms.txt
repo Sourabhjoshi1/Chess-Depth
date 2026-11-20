@@ -23,6 +23,7 @@ Key facts:
 
 - [Online chess classes for kids]({{ site.url }}/chess-classes-for-kids/): parents' guide to the kids' classes: ages, what children learn, fees, how the free demo works, FAQ.
 - [Classes and fees]({{ site.url }}/courses/): the two class formats (one-to-one personalised training and group classes of 2 to 4), the four levels (Beginner, Intermediate, Advanced, Elite) and monthly fees.
+- [Curriculum]({{ site.url }}/curriculum/): the full syllabus, four levels with three stages each, every topic, the quiz at the end of each stage, study material and how students move up.
 - [Coaches]({{ site.url }}/coaches/): the coaching team with FIDE ratings and profile links.
 - [About]({{ site.url }}/about/): mission, teaching method, curriculum levels and student reviews.
 - [Contact and free demo class]({{ site.url }}/contact/): phone, WhatsApp and email.

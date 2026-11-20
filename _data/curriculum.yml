@@ -1,0 +1,116 @@
+# ChessDepth Academy curriculum (shown on /curriculum/). Each level has three stages of about eight
+# sessions; each stage ends with one of the level's quizzes (_data/quizzes.yml). Level names, rating
+# bands and outcomes come from _data/levels.yml.
+beginner:
+  months: "About 3 to 6 months"
+  stages:
+    - name: "The pieces and the goal of the game"
+      sessions: "Sessions 1 to 8"
+      topics:
+        - "The board, files, ranks and diagonals, and how every piece moves"
+        - "What each piece is worth, and how to stop leaving pieces unprotected"
+        - "Check, checkmate and stalemate"
+        - "Spotting free pieces and taking them safely"
+        - "Mate in one, and your first forks and pins"
+      quiz: "Beginner Quiz 1"
+    - name: "Notation, draws and a good start to the game"
+      sessions: "Sessions 9 to 16"
+      topics:
+        - "Writing and reading chess notation, and keeping a score sheet"
+        - "The ways a game is drawn: stalemate, repetition, the 50-move rule and too little material"
+        - "Opening habits: control the centre, develop your pieces, castle early"
+        - "Mate in two, and skewers"
+      quiz: "Beginner Quiz 2"
+    - name: "First tactics and first endgames"
+      sessions: "Sessions 17 to 24"
+      topics:
+        - "Discovered attacks and discovered checks"
+        - "Back-rank danger, and how to give your king an escape square"
+        - "Checkmate with king and queen, and with king and rook"
+        - "Simple king and pawn endgames"
+      quiz: "Beginner Quiz 3"
+intermediate:
+  months: "About 6 to 9 months"
+  stages:
+    - name: "Calculation and the first key endgames"
+      sessions: "Sessions 1 to 8"
+      topics:
+        - "Checks, captures and threats: a routine for every move"
+        - "Tactics in practice: forks, skewers and mating patterns"
+        - "The opposition in king and pawn endgames"
+        - "The Lucena and Philidor rook endgames"
+        - "Outposts for knights, and reading pawn structures"
+      quiz: "Intermediate Quiz 1"
+    - name: "Combinations, majorities and rook endgames"
+      sessions: "Sessions 9 to 16"
+      topics:
+        - "Combinations: double attacks, deflection and removing the defender"
+        - "Zugzwang and key squares"
+        - "Pawn majorities and how to create a passed pawn"
+        - "Practical rook endgames"
+        - "A simple opening repertoire built on ideas, not memory"
+      quiz: "Intermediate Quiz 2"
+    - name: "Pawn play and endgame rules of thumb"
+      sessions: "Sessions 17 to 24"
+      topics:
+        - "The rule of the square and the wrong bishop"
+        - "Pawn chains and where to break them, with the French Defence as a model"
+        - "Réti's famous king study: chasing two goals at once"
+        - "Turning a winning position into a win"
+      quiz: "Intermediate Quiz 3"
+advanced:
+  months: "About 9 to 12 months"
+  stages:
+    - name: "Attacking patterns and the isolated pawn"
+      sessions: "Sessions 1 to 8"
+      topics:
+        - "The bishop and knight checkmate"
+        - "The Greek gift sacrifice and exchange sacrifices"
+        - "Plans with and against the isolated queen's pawn"
+        - "Prophylaxis: asking what your opponent wants, and stopping it"
+        - "The trébuchet and mutual zugzwang"
+      quiz: "Advanced Quiz 1"
+    - name: "Structures, space and exchanges"
+      sessions: "Sessions 9 to 16"
+      topics:
+        - "The Hedgehog and Stonewall structures and their typical plans"
+        - "Using a space advantage, and good and bad exchanges"
+        - "The Vančura defence in rook endgames"
+        - "The Saavedra study and underpromotion"
+      quiz: "Advanced Quiz 2"
+    - name: "Fortresses, levers and a full repertoire"
+      sessions: "Sessions 17 to 24"
+      topics:
+        - "Fortresses and blockades: saving worse positions"
+        - "Pawn levers: when and how to open the position"
+        - "Benoni and Catalan plans"
+        - "Rook endgame technique, building on the Lucena position"
+        - "A full opening repertoire and preparation for tournaments"
+      quiz: "Advanced Quiz 3"
+elite:
+  months: "Ongoing, planned around your tournaments"
+  stages:
+    - name: "Deep calculation and hypermodern ideas"
+      sessions: "Sessions 1 to 8"
+      topics:
+        - "Kotov's tree of analysis: calculating long lines without getting lost"
+        - "Hypermodern ideas: controlling the centre from a distance"
+        - "Rook against bishop endgames"
+        - "The Philidor position in depth"
+      quiz: "Elite Quiz 1"
+    - name: "Imbalances and modern strategy"
+      sessions: "Sessions 9 to 16"
+      topics:
+        - "Material imbalances: when a piece is worth more than its value"
+        - "Berlin and Benko strategy"
+        - "Corresponding squares in pawn endgames"
+        - "Personal opening preparation with a titled coach"
+      quiz: "Elite Quiz 2"
+    - name: "Technique and tournament play"
+      sessions: "Sessions 17 to 24"
+      topics:
+        - "Positional exchange sacrifices"
+        - "The Troitzky line and advanced rook endgame technique"
+        - "Rare mating patterns such as Boden's mate"
+        - "Tournament planning, preparing for opponents, and deep analysis of your own games"
+      quiz: "Elite Quiz 3"
