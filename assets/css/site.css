@@ -375,3 +375,8 @@ html.dark .bfp-ds { color: #cbd5e1; } html.dark .bfp-rg { color: #d2ad6e; } html
 .cd-foot-regions a { color: #cbd5e1; } .cd-foot-regions a:hover { color: #d2ad6e; }
 .hm-abroad a { color: #4f46e5; font-weight: 500; } .hm-abroad a:hover { text-decoration: underline; }
 html.dark .hm-abroad a { color: #a5b4fc; }
+.hm-do-next { margin-top: 1.4rem; text-align: center; font-size: .95rem; color: #4b5563; }
+.hm-do-next i.fa-mobile-alt { color: #b08a4e; margin-right: .2rem; }
+.hm-do-next a { color: #4f46e5; font-weight: 600; margin-left: .3rem; } .hm-do-next a:hover { text-decoration: underline; }
+html.dark .hm-do-next { color: #cbd5e1; } html.dark .hm-do-next a { color: #a5b4fc; }
+.ab-goal-app { border-color: #d2ad6e !important; }
