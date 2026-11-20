@@ -15,7 +15,9 @@
         <li><i class="fas fa-globe-asia"></i> Classes for students in India and abroad</li>
         <li><i class="fas fa-child"></i> Kids from age 5, and adults</li>
       </ul>
+      {%- unless include.no_alt %}
       <p class="cd-demo-alt">Prefer to talk now? <a href="{{ wa }}" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> WhatsApp us</a> or call <a href="tel:+{{ site.contact.phone_intl }}">{{ site.contact.phone_display }}</a></p>
+      {%- endunless %}
     </div>
 
     <div class="cd-demo-card">
