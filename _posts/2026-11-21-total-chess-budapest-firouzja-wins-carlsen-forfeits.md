@@ -5,11 +5,20 @@ crumb: "Total Chess Budapest 2026: Results and the Carlsen Forfeits"
 description: "Alireza Firouzja won the first Total Chess World Championship Tour event in Budapest after an Armageddon against Anish Giri. Full results, how the format works, how the Indian players did, and why Magnus Carlsen's forfeits split the chess world."
 category: News
 level: All levels
+image: /assets/images/blog/og-total-chess-budapest-2026.jpg
+image_alt: "ChessDepth graphic: Total Chess Budapest 2026, Firouzja wins the pilot event"
 ---
 
 The first event of chess's newest championship has its winner. **Alireza Firouzja** won the Total Chess World Championship Tour Pilot in Budapest on Friday, coming back from a set down against **Anish Giri** and holding a draw in the Armageddon decider. But the event will also be remembered for something that happened far from the title race: **Magnus Carlsen** choosing not to turn up for games he no longer needed.
 
-Here is what happened, how the new format works, and what our students can take from it.
+<figure class="cd-board" style="max-width:640px">
+  <picture>
+    <source srcset="/assets/images/blog/og-total-chess-budapest-2026.webp" type="image/webp">
+    <img src="/assets/images/blog/og-total-chess-budapest-2026.jpg" alt="Total Chess Budapest 2026: Firouzja wins the pilot event. Giri won day 1 of the final 11–9, Firouzja day 2 12–8, then a drawn Armageddon gave Firouzja the title." width="1200" height="630">
+  </picture>
+</figure>
+
+Here is what happened, how the new format works, four key positions from the games, and what our students can take from it.
 
 ## What is Total Chess?
 
@@ -44,6 +53,41 @@ In the final, Giri won day one **11–9**, thanks mainly to the blitz. Firouzja 
 
 All four have qualified for the 2027 tour. Caruana won the match for third place 10.5–9.5 on the last day.
 
+## Key positions from Budapest
+
+Try each position yourself before you open the answer. All moves are from the official broadcast, and every line was checked with Stockfish.
+
+### 1. Giri v Firouzja, final, day 2, first rapid game
+
+{% include board.html img="totalchess-giri-firouzja-rapid" caption="Giri v Firouzja, final day 2. White has just played 44.Rb4. Black to move: how do Black's pawns open the white king?" %}
+
+{% include answer.html text="**44...g3+!** The pawns go forward even though they will be taken. **45.hxg3 fxg3+ 46.Kxg3 Rf3+** and suddenly every black piece is attacking: the rook checks, the bishop on d5 joins in, and the d-pawn can take on e5. After **47.Kg4? dxe5** White's king was soon caught in a mating net on h4, and Giri resigned after 50...Be6. Instead **44.exd6+!** first would have kept the game level. Firouzja had only 25 seconds against almost two minutes, but this win turned the whole day, and he took day 2 by 12–8." %}
+
+### 2. Firouzja v Giri, the Armageddon
+
+{% include board.html img="totalchess-armageddon-final" caption="Giri v Firouzja, Armageddon. The final position after 35.Nb4. Black, with draw odds, is the one pressing." %}
+
+In Armageddon Black only needs a draw, so a draw here meant the title. Firouzja did more than defend: his bishop on f3 and queen on e2 sit right next to the white king, and the engine rates Black clearly better in the final position. With about seven minutes left against Giri's ten, the game was drawn after 35.Nb4, and that draw made him champion.
+
+**The lesson:** with draw odds, the safest way to draw is often to play active chess. Passive defence gives your opponent free chances to win.
+
+### 3. Carlsen v Artemiev, match for 17th, fast classic
+
+{% include board.html img="totalchess-carlsen-artemiev" caption="Carlsen v Artemiev, fast classic. Black has just taken the knight with 35...Qxf5. White to move: what did Black miss?" %}
+
+{% include answer.html text="**36.cxb6!** Carlsen's 35.c5 had attacked the knight on b6, and Black grabbed the knight on f5 instead. Now the b-pawn is only three squares from queening and nothing can stop it in time: **36...Bd6 37.g3** and the pawn kept marching. The pawn reached **b7** on move 40, tying Black down while the white queen attacked the king, and Artemiev resigned on move 49. This was Carlsen's first win at the fast classic time control in Budapest. The lesson: before you take a piece, check what your opponent's pawns can do. A passed pawn on the sixth rank is often worth more than a knight." %}
+
+### 4. Caruana v Firouzja, semifinal, day 2, fast classic
+
+{% include board.html img="totalchess-caruana-firouzja" caption="Caruana v Firouzja, semifinal day 2. White to move. How does White break into the light squares?" %}
+
+{% include answer.html text="**27.Re6!** The rook lands on the hole on e6, which no black pawn can ever attack. After **27...Rxe6 28.dxe6** White has a passed pawn on e6, and the bishop on h7 and knights on g4 and f3 surround the black king. **28...Ne5 29.Nfxe5 fxe5 30.Bf5 Qe7? 31.Qe4** and Firouzja resigned. The engine also likes 27.Bg8, but the idea is the same: use the light squares the black pawns can no longer guard. This game was worth 8 points, won Caruana the day 15–5, and forced the Armageddon that Firouzja won when Caruana ran out of time." %}
+
+### Play through the games
+
+- [Download the key games (PGN)](/downloads/total-chess-budapest-2026-key-games.pgn): the final Armageddon, Firouzja's rapid win over Giri, Carlsen v Artemiev, and both semifinal deciders. Open the file in Lichess, ChessBase or any chess app.
+- [All games on the official Lichess broadcast](https://lichess.org/broadcast/total-chess-world-championship-tour-pilot-2026-finals/6PTzCQFL), free to replay with an engine.
+
 ## How the Indian players did
 
 - **Arjun Erigaisi** reached the final of his bracket but lost both days to Haik Martirosyan, finishing **10th**. On day two he led 9–3 going into the fast classic game, and that single game decided the day.
@@ -55,11 +99,11 @@ All four have qualified for the 2027 tour. Caruana won the match for third place
 
 Carlsen had a difficult event. Wins in fast classic would not come, Martirosyan beat him in the group stage, and he finished fifth in his group. That put him in the bracket for **17th place**.
 
-Then, three times in four days, he did not appear for a fast classic game:
+Then, in three different matches, games went unplayed:
 
 1. **Against Bibisara Assaubayeva, day one.** Carlsen won the blitz and both rapid games (11.5 out of 12), so the day was already his. He did not come for the fast classic game. Assaubayeva waited at the board until she was given the win by forfeit.
-2. **Against Assaubayeva, day two.** The same happened again. The day finished 10–10, which was enough for Carlsen to go through.
-3. **Against Daniil Artemiev, in the match for 17th.** On day one Carlsen played and won the fast classic game, his first win of the event at that time control. On day two he did not appear, Artemiev won the day, and Carlsen then won the Armageddon to finish 17th.
+2. **Against Assaubayeva, day two.** The fast classic game was forfeited again. The day finished 10–10, which was enough for Carlsen to go through.
+3. **Against Vladislav Artemiev, in the match for 17th.** On day one the official results show both rapid games unplayed and scored to Artemiev, leaving Carlsen 3–9 down, but he then won the fast classic game (position 3 above) to take the day 11–9. On day two he did not appear for the fast classic game, Artemiev won the day 15.5–4.5, and Carlsen won the Armageddon to finish 17th.
 
 ### Why would he do that?
 
@@ -86,4 +130,4 @@ Opinions were sharply split:
 
 Congratulations to Alireza Firouzja, the first Total Chess champion. We'll be following the tour, and the Gukesh–Sindarov World Championship match in Geneva, closely.
 
-*Sources: [Chess.com](https://www.chess.com/news/view/firouzja-wins-2026-total-chess-world-championship-tour-pilot), [Chess.com, day 7](https://www.chess.com/news/view/2026-total-chess-world-championship-tour-pilot-day-7), [ChessBase India](https://chessbase.in/news/alireza-firouzja-wins-total-chess-world-championship-pilot-2026), [ChessBase](https://en.chessbase.com/post/total-chess-budapest-2026-ko-1), [FIDE](https://www.fide.com/?p=51838), [Outlook India](https://www.outlookindia.com/sports/others/magnus-carlsen-consecutive-forfeit-bibisara-assaubayeva-total-chess-world-championship-2026), [Total Chess](https://www.totalchess.com/).*
+*Games: [official Lichess broadcast](https://lichess.org/broadcast/total-chess-world-championship-tour-pilot-2026-finals/6PTzCQFL). Sources: [Chess.com](https://www.chess.com/news/view/firouzja-wins-2026-total-chess-world-championship-tour-pilot), [Chess.com, day 7](https://www.chess.com/news/view/2026-total-chess-world-championship-tour-pilot-day-7), [ChessBase India](https://chessbase.in/news/alireza-firouzja-wins-total-chess-world-championship-pilot-2026), [ChessBase](https://en.chessbase.com/post/total-chess-budapest-2026-ko-1), [FIDE](https://www.fide.com/?p=51838), [Outlook India](https://www.outlookindia.com/sports/others/magnus-carlsen-consecutive-forfeit-bibisara-assaubayeva-total-chess-world-championship-2026), [Total Chess](https://www.totalchess.com/).*
