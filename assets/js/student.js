@@ -91,7 +91,7 @@ async function start() {
     if (user.photoURL) { const ph = $("user-photo"); ph.onload = () => { ph.classList.remove("hidden"); $("user-initial").classList.add("hidden"); }; ph.src = user.photoURL; }
     show("state-signed-in");
     const saved = await recordStudent(user);
-    if (saved && saved.enrollment) { $("user-badge").innerHTML = `<i class="fas fa-graduation-cap"></i> Academy student · ${String(saved.enrollment).replace(/[^\w.-]/g, "")}`; $("user-badge").classList.add("is-academy"); }
+    if (saved && saved.enrollment) { const no = String(saved.enrollment).replace(/[^\w.-]/g, ""), coach = /-COACH-/.test(no); $("user-badge").innerHTML = coach ? `<i class="fas fa-chalkboard-teacher"></i> ChessDepth coach · ${no}` : `<i class="fas fa-graduation-cap"></i> Academy student · ${no}`; $("user-badge").classList.add("is-academy"); }
     labSummary(user);
     setupLichess(user, saved && saved.lichess ? saved.lichess.username : "");
     setupQuizzes(user);
