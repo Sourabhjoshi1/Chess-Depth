@@ -6,7 +6,6 @@ redirect_from:
   - /about.html
 page_css: about
 ---
-{%- capture wa %}{% include whatsapp-url.html %}{% endcapture %}{% assign wa = wa | strip -%}
 
   <!-- ============ HERO ============ -->
   {% include page-hero.html eyebrow="About ChessDepth" title="Chess, taught with depth." lead="We teach students to understand the <em>why</em> behind every move, through a structured curriculum, regular testing and coaches who care about how each student thinks." %}
@@ -140,7 +139,6 @@ page_css: about
         <div class="ab-card ab-level p-6" style="--lv:#8b5cf6"><p class="text-xs font-bold text-purple-600 uppercase tracking-wide mb-1">Level 3</p><h3 class="text-lg font-bold mb-2">Advanced</h3><p class="text-sm text-gray-600">Positional play, rook endgames, an opening repertoire and converting advantages.</p></div>
         <div class="ab-card ab-level p-6" style="--lv:#ef4444"><p class="text-xs font-bold text-red-600 uppercase tracking-wide mb-1">Level 4</p><h3 class="text-lg font-bold mb-2">Elite</h3><p class="text-sm text-gray-600">Deep calculation, tournament preparation, psychology and game analysis with titled coaches.</p></div>
       </div>
-      <p class="text-center mt-8"><a href="/courses/" class="text-indigo-700 font-semibold hover:underline">See all courses &amp; fees <i class="fas fa-arrow-right text-sm ml-1"></i></a></p>
     </div>
   </section>
 
@@ -248,32 +246,3 @@ page_css: about
     </div>
   </section>
 
-  <!-- ============ FAQ ============ -->
-  <section class="py-16 px-4">
-    <div class="max-w-3xl mx-auto">
-      <div class="text-center mb-10">
-        <p class="ab-eyebrow mb-2">Questions parents ask</p>
-        <h2 class="text-3xl font-bold text-gray-900">Frequently asked questions</h2>
-      </div>
-      <div class="space-y-3">
-        <details class="ab-faq ab-card p-5"><summary class="font-semibold">Are classes online or in person?</summary><p class="text-gray-600 mt-3 text-sm leading-relaxed">Classes are held online, so students can join from anywhere. We&rsquo;re based in Bhopal, Madhya Pradesh.</p></details>
-        <details class="ab-faq ab-card p-5"><summary class="font-semibold">What age can my child start?</summary><p class="text-gray-600 mt-3 text-sm leading-relaxed">Children can usually start from about 5 years old. We place every student by level, not age, after the free demo class.</p></details>
-        <details class="ab-faq ab-card p-5"><summary class="font-semibold">How will I know my child is improving?</summary><p class="text-gray-600 mt-3 text-sm leading-relaxed">Students get regular homework and a quiz every eight sessions. Coaches review the results and games and share clear feedback on strengths and what to work on next.</p></details>
-        <details class="ab-faq ab-card p-5"><summary class="font-semibold">One-to-one or group, which is better?</summary><p class="text-gray-600 mt-3 text-sm leading-relaxed">One-to-one classes (from &#8377;5,600 or $90 a month, depending on the coach) are fully personalised and best for fast improvement. Group classes of 2&ndash;4 students (&#8377;2,999 or $60 / month) are more affordable and great for discussion. Both include 8&ndash;10 live classes a month of 60&ndash;70 minutes each. The demo class helps you decide.</p></details>
-        <details class="ab-faq ab-card p-5"><summary class="font-semibold">Do students get study material?</summary><p class="text-gray-600 mt-3 text-sm leading-relaxed">Yes. Students receive worksheets and concept books for their level, and can download PDF material from our <a href="/student/" class="text-indigo-700 hover:underline">Student Area</a>.</p></details>
-        <details class="ab-faq ab-card p-5"><summary class="font-semibold">How do I book the free demo class?</summary><p class="text-gray-600 mt-3 text-sm leading-relaxed">Send us a message on WhatsApp at {{ site.contact.phone_display }} or use the button below. We&rsquo;ll find a time that suits you.</p></details>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ CALL TO ACTION ============ -->
-  <section class="px-4 pb-6">
-    <div class="max-w-5xl mx-auto ab-hero rounded-2xl text-white text-center px-6 py-12">
-      <h2 class="text-3xl font-bold mb-3">Let&rsquo;s go beyond surface-level chess.</h2>
-      <p class="text-indigo-100 mb-7">Book a free demo class and see how ChessDepth teaches.</p>
-      <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <a href="{{ wa }}" target="_blank" rel="noopener noreferrer" class="cd-demo-btn inline-block px-8 py-3 text-lg"><i class="fab fa-whatsapp mr-2"></i>Book a Free Demo</a>
-        <a href="/courses/" class="inline-block bg-white text-indigo-700 font-semibold rounded-full px-8 py-3 text-lg hover:bg-indigo-50 transition">Explore Courses</a>
-      </div>
-    </div>
-  </section>
