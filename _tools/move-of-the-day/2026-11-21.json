@@ -1,0 +1,15 @@
+{
+ "date": "2026-11-21",
+ "fen": "4kb1r/p2n1ppp/4q3/4p1B1/4P3/1Q6/PPP2PPP/2KR4 w k - 0 16",
+ "move": "Qb8+",
+ "mark": "!!",
+ "line": [
+  "Nxb8",
+  "Rd8#"
+ ],
+ "white": "Paul Morphy",
+ "black": "Duke Karl & Count Isouard",
+ "event": "Paris Opera, 1858",
+ "explain": "Only the knight on d7 stands between White's rook and d8. Qb8+ forces it away: after Nxb8 the d-file is open, and Rd8 is mate, with the rook guarded by the bishop on g5.",
+ "idea": "Develop fast, open lines, then sacrifice to deflect the last defender."
+}

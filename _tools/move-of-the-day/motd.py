@@ -76,15 +76,15 @@ else:
 datestr = d.strftime("%A, %-d %B %Y")
 ROOK = "M8 5h3v3h2.5V5h5v3H21V5h3v7.2l-2.4 1.8.9 9H9.5l.9-9L8 12.2zM8.5 24.5h15l1.5 2.5H7zM6 28h20v2.5H6z"
 
-# numbered from 1, as in puzzle books: 1...Qg2+! 2.Rxg2 Nh3+ 3.Kh1 ...
-n, white_to_move, parts = 1, board0.turn == chess.WHITE, []
+# numbered with the real move numbers: 16.Qb8+!! 16…Nxb8 17.Rd8#
+white_to_move, parts = board0.turn == chess.WHITE, []
 n0 = board0.fullmove_number
 big = f"{n0}.{star_san}{DAY['mark']}" if white_to_move else f"{n0}…{star_san}{DAY['mark']}"
+n = n0 if white_to_move else n0 + 1
 wtm = not white_to_move
-if not white_to_move: n = 2
-for m in line_san:
-    parts.append(f"{n}.{m}" if wtm else m)
-    if not wtm: n += 1
+for i, m in enumerate(line_san):
+    if wtm: parts.append(f"{n}.{m}")
+    else: parts.append(f"{n}…{m}" if i == 0 else m); n += 1
     wtm = not wtm
 line_txt = DAY.get("line_display") or " ".join(parts)
 ex_lines = wrap(DAY["explain"], 25, W - 200)
