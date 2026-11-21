@@ -103,12 +103,18 @@ function checker(g, w, h, x0, y0, s) {
     }
     m[r * 8 + c] = n ? sum / n : 0;
   }
-  const a = [], b = [];
-  for (let i = 0; i < 64; i++) (((i >> 3) + (i & 7)) % 2 ? b : a).push(m[i]);
-  const med = (arr) => arr.slice().sort((p, q) => p - q)[arr.length >> 1];
-  const ma = med(a), mb = med(b), mid = (ma + mb) / 2, contrast = Math.abs(ma - mb);
-  if (contrast < 6) return 0;
-  let agree = 0;
-  for (let i = 0; i < 64; i++) { const odd = ((i >> 3) + (i & 7)) % 2; const own = odd ? mb : ma, oth = odd ? ma : mb; if (Math.abs(m[i] - own) < Math.abs(m[i] - oth)) agree++; }
-  return agree + Math.min(4, contrast / 20);
+  // Compare each square with its neighbours rather than with one light and one dark level for the whole
+  // board, so uneven light (a photo of a page) and faint hatching or stippling still count. A grid that is
+  // one square off takes in the page or frame around the board and loses agreement along that edge.
+  const diffs = [];
+  for (let r = 0; r < 8; r++) for (let c = 0; c < 8; c++) {
+    const i = r * 8 + c, sg = (r + c) % 2 ? -1 : 1;
+    if (c < 7) diffs.push(sg * (m[i] - m[i + 1]));
+    if (r < 7) diffs.push(sg * (m[i] - m[i + 8]));
+  }
+  const srt = diffs.slice().sort((p, q) => p - q), md = srt[srt.length >> 1], contrast = Math.abs(md);
+  if (contrast < 3) return 0;
+  const sgn = md > 0 ? 1 : -1; let agree = 0;
+  for (const d of diffs) if (sgn * d > 0.25 * contrast) agree++;
+  return (agree * 64) / diffs.length + Math.min(4, contrast / 20);
 }
