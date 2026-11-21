@@ -39,7 +39,7 @@ google_site_verification: ""
 
 # Shop: digital products sold through Gumroad. Each product is one file in _products/.
 shop:
-  gumroad_profile: ""   # e.g. "https://chessdepth.gumroad.com" (shown as "See all on Gumroad"). Empty hides it.
+  gumroad_profile: "https://chessdepth.gumroad.com"   # (shown as "See all on Gumroad"). Empty hides it.
 
 collections:
   products:
