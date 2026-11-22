@@ -709,4 +709,4 @@ html.dark .lab-bar .lab-tab-row + .lab-tab-row { border-top-color: #273449; }
 @media (max-width: 420px) { .lab-bar .lab-tab-row .lab-tab { font-size: .64rem; } .lab-bar .lab-tab-row .lab-tab-ic { width: 1.8rem; height: 1.8rem; } }
 
 .lab-bar .t-short { display: none; }
-@media (max-width: 900px) { .lab-bar .t-long { display: none; } .lab-bar .t-short { display: inline; } }
+@media (max-width: 900px) { .lab-bar .lab-tab-row .lab-tab .t-long { display: none; } .lab-bar .lab-tab-row .lab-tab .t-short { display: inline; } }
