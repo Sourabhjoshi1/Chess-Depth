@@ -2,7 +2,7 @@
   <a href="https://www.chessdepth.in"><img src="assets/images/apple-touch-icon.png" width="84" alt="ChessDepth logo"></a>
 </p>
 
-<h1 align="center">ChessDepth Academy</h1>
+<h1 align="center">ChessDepth</h1>
 
 <p align="center"><b>Think Deep. Play Deeper!</b><br>
 Live online chess classes, a free training lab and an AI that reads chess diagrams.</p>
