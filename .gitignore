@@ -2,3 +2,4 @@
 # Real student files stay on your own computer, never in this public repository
 _tools/**/students/
 _tools/**/*-private.json
+_tools/originals/out/

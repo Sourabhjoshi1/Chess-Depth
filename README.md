@@ -56,7 +56,7 @@ This repository is the whole website: a Jekyll site built and deployed to GitHub
 
 | Tool | What it does | Source |
 | --- | --- | --- |
-| **Chess Lab** | 68 interactive courses, a positional-play path, a tactics trainer (26,000+ rated Lichess puzzles), **Depth Dive** (puzzles get harder until your first mistake), **Depth Sprint** (timed), an endgame trainer against Stockfish, a coordinates trainer, points, levels (Pawn to King) and a progress page | `pages/lab/`, `assets/js/lab/` |
+| **Chess Lab** | 68 interactive courses, a positional-play path, a tactics trainer (26,000+ rated Lichess puzzles plus 290 ChessDepth Originals), **Depth Dive** (puzzles get harder until your first mistake), **Depth Sprint** (timed), an endgame trainer against Stockfish, a coordinates trainer, points, levels (Pawn to King) and a progress page | `pages/lab/`, `assets/js/lab/` |
 | **Opening courses** | 26 openings for White and Black, each with a main line and 2 to 3 **branches** (63 in total). Learn or practise one line, or play the **Whole opening** with the lines in random order | `assets/lab/openings.json`, `_tools/opening-branches/` |
 | **Blindfold trainer** | 10 visualisation drills, a 28-day plan, a daily blindfold puzzle, games against Stockfish, four printable workbooks | `pages/blindfold.html` |
 | **Puzzle of the Day** | A new puzzle every day (India time), easier on Monday, harder by Sunday | `assets/js/daily.js`, `assets/lab/daily.json` |
