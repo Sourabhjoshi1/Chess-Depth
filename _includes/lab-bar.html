@@ -1,21 +1,22 @@
 {%- include lab-config.html -%}
 <div class="lab-bar">
   <div class="cd-wrap lab-bar-inner">
-    <nav class="lab-tabs" aria-label="Chess Lab">
-      <a href="/lab/" class="lab-tab lab-tab-home" {% if page.url == '/lab/' %}aria-current="page"{% endif %}><span class="lab-tab-ic"><i class="fas fa-flask"></i></span><span class="lab-tab-tx">Chess Lab</span></a>
-      <span class="lab-tab-gap" aria-hidden="true"></span>
-      <a href="/lab/courses/" class="lab-tab lab-tab-learn" {% if page.url == '/lab/courses/' or page.url == '/lab/learn/' %}aria-current="page"{% endif %}><span class="lab-tab-ic"><i class="fas fa-graduation-cap"></i></span><span class="lab-tab-tx">Courses</span></a>
-      <a href="/lab/positional/" class="lab-tab lab-tab-learn" {% if page.url == '/lab/positional/' %}aria-current="page"{% endif %}><span class="lab-tab-ic"><i class="fas fa-chess-knight"></i></span><span class="lab-tab-tx">Positional</span></a>
-      <a href="/lab/openings/" class="lab-tab lab-tab-learn" {% if page.url == '/lab/openings/' %}aria-current="page"{% endif %}><span class="lab-tab-ic"><i class="fas fa-book-open"></i></span><span class="lab-tab-tx">Openings</span></a>
-      <a href="/lab/endgames/" class="lab-tab lab-tab-learn" {% if page.url == '/lab/endgames/' %}aria-current="page"{% endif %}><span class="lab-tab-ic"><i class="fas fa-chess-king"></i></span><span class="lab-tab-tx">Endgames</span></a>
-      <span class="lab-tab-gap" aria-hidden="true"></span>
-      <a href="/lab/tactics/" class="lab-tab lab-tab-puzzle" {% if page.url == '/lab/tactics/' %}aria-current="page"{% endif %}><span class="lab-tab-ic"><i class="fas fa-bolt"></i></span><span class="lab-tab-tx">Tactics</span></a>
-      <a href="/lab/streak/" class="lab-tab lab-tab-puzzle" {% if page.url == '/lab/streak/' %}aria-current="page"{% endif %}><span class="lab-tab-ic"><i class="fas fa-fire-alt"></i></span><span class="lab-tab-tx">Depth Dive</span></a>
-      <a href="/lab/rush/" class="lab-tab lab-tab-puzzle" {% if page.url == '/lab/rush/' %}aria-current="page"{% endif %}><span class="lab-tab-ic"><i class="fas fa-stopwatch"></i></span><span class="lab-tab-tx">Depth Sprint</span></a>
-      <a href="/lab/coordinates/" class="lab-tab lab-tab-drill" {% if page.url == '/lab/coordinates/' %}aria-current="page"{% endif %}><span class="lab-tab-ic"><i class="fas fa-th"></i></span><span class="lab-tab-tx">Coordinates</span></a>
-      <span class="lab-tab-gap" aria-hidden="true"></span>
-      <a href="/lab/progress/" class="lab-tab lab-tab-you" {% if page.url == '/lab/progress/' %}aria-current="page"{% endif %}><span class="lab-tab-ic"><i class="fas fa-chart-line"></i></span><span class="lab-tab-tx">Progress</span></a>
-      <a href="/lab/resources/" class="lab-tab lab-tab-you" {% if page.url == '/lab/resources/' %}aria-current="page"{% endif %}><span class="lab-tab-ic"><i class="fas fa-toolbox"></i></span><span class="lab-tab-tx">Free resources</span></a>
+    <nav class="lab-tabs lab-tabs-2" aria-label="Chess Lab">
+      <div class="lab-tab-row">
+        <a href="/lab/" class="lab-tab lab-tab-home" {% if page.url == '/lab/' %}aria-current="page"{% endif %}><span class="lab-tab-ic"><i class="fas fa-flask"></i></span><span class="lab-tab-tx">Chess Lab</span></a>
+        <a href="/lab/courses/" class="lab-tab lab-tab-learn" {% if page.url == '/lab/courses/' or page.url == '/lab/learn/' %}aria-current="page"{% endif %}><span class="lab-tab-ic"><i class="fas fa-graduation-cap"></i></span><span class="lab-tab-tx">Courses</span></a>
+        <a href="/lab/positional/" class="lab-tab lab-tab-learn" {% if page.url == '/lab/positional/' %}aria-current="page"{% endif %}><span class="lab-tab-ic"><i class="fas fa-chess-knight"></i></span><span class="lab-tab-tx">Positional</span></a>
+        <a href="/lab/openings/" class="lab-tab lab-tab-learn" {% if page.url == '/lab/openings/' %}aria-current="page"{% endif %}><span class="lab-tab-ic"><i class="fas fa-book-open"></i></span><span class="lab-tab-tx">Openings</span></a>
+        <a href="/lab/endgames/" class="lab-tab lab-tab-learn" {% if page.url == '/lab/endgames/' %}aria-current="page"{% endif %}><span class="lab-tab-ic"><i class="fas fa-chess-king"></i></span><span class="lab-tab-tx">Endgames</span></a>
+      </div>
+      <div class="lab-tab-row">
+        <a href="/lab/tactics/" class="lab-tab lab-tab-puzzle" {% if page.url == '/lab/tactics/' %}aria-current="page"{% endif %}><span class="lab-tab-ic"><i class="fas fa-bolt"></i></span><span class="lab-tab-tx">Tactics</span></a>
+        <a href="/lab/streak/" class="lab-tab lab-tab-puzzle" {% if page.url == '/lab/streak/' %}aria-current="page"{% endif %}><span class="lab-tab-ic"><i class="fas fa-fire-alt"></i></span><span class="lab-tab-tx">Depth Dive</span></a>
+        <a href="/lab/rush/" class="lab-tab lab-tab-puzzle" {% if page.url == '/lab/rush/' %}aria-current="page"{% endif %}><span class="lab-tab-ic"><i class="fas fa-stopwatch"></i></span><span class="lab-tab-tx">Depth Sprint</span></a>
+        <a href="/lab/coordinates/" class="lab-tab lab-tab-drill" {% if page.url == '/lab/coordinates/' %}aria-current="page"{% endif %}><span class="lab-tab-ic"><i class="fas fa-th"></i></span><span class="lab-tab-tx">Coordinates</span></a>
+        <a href="/lab/progress/" class="lab-tab lab-tab-you" {% if page.url == '/lab/progress/' %}aria-current="page"{% endif %}><span class="lab-tab-ic"><i class="fas fa-chart-line"></i></span><span class="lab-tab-tx">Progress</span></a>
+        <a href="/lab/resources/" class="lab-tab lab-tab-you" {% if page.url == '/lab/resources/' %}aria-current="page"{% endif %}><span class="lab-tab-ic"><i class="fas fa-toolbox"></i></span><span class="lab-tab-tx">Free resources</span></a>
+      </div>
     </nav>
     <div id="lab-bar-status" class="lab-bar-status" aria-live="polite"></div>
   </div>
@@ -23,4 +24,3 @@
   <div id="lab-offer-banner" class="lab-offer hidden" role="status"></div>
   <div id="lab-demo-banner" class="lab-demo hidden">Demo mode: progress is saved only in this browser. <button type="button" data-act="exit-demo">Leave demo</button></div>
 </div>
-<script>(function () { var t = document.querySelector(".lab-tabs"), a = t && t.querySelector("[aria-current]"); if (a && t.scrollWidth > t.clientWidth) t.scrollLeft = Math.max(0, a.offsetLeft - (t.clientWidth - a.offsetWidth) / 2); })();</script>

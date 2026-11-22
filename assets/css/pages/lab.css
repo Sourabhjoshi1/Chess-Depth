@@ -692,3 +692,18 @@ html.dark .lab-bar .lab-offer b { color: #fdf6e3; }
   .lab-stat small { display: none; }
 }
 @media (prefers-reduced-motion: reduce) { .lab-bar .lab-tab, .lab-bar .lab-tab-ic { transition: none; } .lab-bar .lab-tab:hover .lab-tab-ic { transform: none; } .lab-stat-pts b.bump { animation: none; } }
+
+/* Two full-width rows: learning tools on top, training and your progress below (no sideways scrolling). */
+.lab-bar .lab-tabs.lab-tabs-2 { display: flex; flex-direction: column; gap: .55rem; overflow: visible; padding: .15rem 0 .6rem; -webkit-mask-image: none; mask-image: none; }
+.lab-bar .lab-tab-row { display: flex; gap: .4rem; }
+.lab-bar .lab-tab-row .lab-tab { flex: 1 1 0; min-width: 0; justify-content: flex-start; }
+.lab-bar .lab-tab-row .lab-tab-tx { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.lab-bar .lab-tab-row + .lab-tab-row { padding-top: .55rem; border-top: 1px dashed #e2e8f0; }
+html.dark .lab-bar .lab-tab-row + .lab-tab-row { border-top-color: #273449; }
+@media (max-width: 900px) {
+  .lab-bar .lab-tab-row .lab-tab { flex-direction: column; gap: .25rem; padding: .35rem .2rem .3rem; font-size: .72rem; text-align: center; justify-content: center; }
+  .lab-bar .lab-tab-row .lab-tab-tx { display: block !important; max-width: 100%; }
+  .lab-bar .lab-tab-row .lab-tab[aria-current] { padding-right: .2rem; }
+  .lab-bar .lab-tab-row .lab-tab[aria-current]::after { bottom: -.35rem; }
+}
+@media (max-width: 420px) { .lab-bar .lab-tab-row .lab-tab { font-size: .64rem; } .lab-bar .lab-tab-row .lab-tab-ic { width: 1.8rem; height: 1.8rem; } }
