@@ -608,3 +608,85 @@ html.dark .op-vars-h { color: #94a3b8; }
 html.dark .op-var { background: #162032; border-color: #273449; color: #cbd5e1; }
 html.dark .op-var.is-active { background: rgba(99,102,241,.22); border-color: #6366f1; color: #fff; }
 html.dark .op-var-all.is-active { background: #6366f1; color: #fff; }
+
+/* ===== Chess Lab bar, Nov 2026 redesign: colour-coded tool families, a checkered "board edge" under the
+   current tab, and a player card (piece, progress to the next piece, points, days in a row). ===== */
+.lab-bar { --fam: #1e2547; --fam-soft: rgba(30, 37, 71, .08); }
+.lab-bar .lab-bar-inner { display: block; padding-top: .7rem; padding-bottom: .6rem; }
+.lab-bar .lab-tabs { display: flex; flex-wrap: nowrap; align-items: center; gap: .3rem; overflow-x: auto; overflow-y: visible; padding: .15rem .1rem .55rem;
+  -webkit-mask-image: linear-gradient(90deg, #000 calc(100% - 28px), transparent); mask-image: linear-gradient(90deg, #000 calc(100% - 28px), transparent); scroll-snap-type: x proximity; }
+.lab-bar .lab-tab { --fam: #1e2547; --fam-soft: rgba(30, 37, 71, .08); position: relative; display: inline-flex; align-items: center; gap: .55rem; flex: none;
+  padding: .38rem .8rem .38rem .4rem; border-radius: 14px; color: #334155; font-weight: 500; font-size: .9rem; background: transparent; scroll-snap-align: start;
+  transition: background-color .18s ease, color .18s ease; }
+.lab-bar .lab-tab-learn { --fam: #5b5bd6; --fam-soft: rgba(91, 91, 214, .12); }
+.lab-bar .lab-tab-puzzle { --fam: #e8622c; --fam-soft: rgba(232, 98, 44, .12); }
+.lab-bar .lab-tab-drill { --fam: #0f9488; --fam-soft: rgba(15, 148, 136, .12); }
+.lab-bar .lab-tab-you { --fam: #b7841f; --fam-soft: rgba(183, 132, 31, .14); }
+.lab-bar .lab-tab-ic { display: inline-flex; align-items: center; justify-content: center; width: 2rem; height: 2rem; border-radius: 10px; background: var(--fam-soft); flex: none;
+  transition: transform .18s cubic-bezier(.3, 1.6, .5, 1), background-color .18s ease; }
+.lab-bar .lab-tab-ic i { color: var(--fam); font-size: .92rem; }
+.lab-bar .lab-tab:hover { background: var(--fam-soft); color: #0f172a; }
+.lab-bar .lab-tab:hover .lab-tab-ic { transform: translateY(-2px) rotate(-6deg); }
+.lab-bar .lab-tab:focus-visible { outline: 2px solid var(--fam); outline-offset: 2px; }
+.lab-bar .lab-tab[aria-current] { background: var(--fam-soft); color: #0f172a; font-weight: 700; }
+.lab-bar .lab-tab[aria-current] .lab-tab-ic { background: var(--fam); box-shadow: 0 3px 0 rgba(15, 23, 42, .18); }
+.lab-bar .lab-tab[aria-current] .lab-tab-ic i { color: #fff; }
+/* the board edge: a strip of tiny squares under the open tool */
+.lab-bar .lab-tab[aria-current]::after { content: ""; position: absolute; left: .55rem; right: .55rem; bottom: -.42rem; height: 6px; border-radius: 2px;
+  background: repeating-linear-gradient(90deg, var(--fam) 0 6px, transparent 6px 12px), repeating-linear-gradient(90deg, transparent 0 6px, var(--fam-soft) 6px 12px); }
+.lab-bar .lab-tab-gap { flex: none; width: 1px; height: 1.6rem; margin: 0 .3rem; background: #e2e8f0; }
+
+/* player card */
+.lab-bar .lab-bar-status { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem .6rem; padding: .35rem 0 .1rem; }
+.lab-me { display: inline-flex; align-items: center; gap: .6rem; padding: .25rem .9rem .25rem .3rem; border-radius: 999px; background: #fff8e8; border: 1px solid #f1dfb6; }
+.lab-me-piece { display: inline-flex; align-items: center; justify-content: center; width: 2.3rem; height: 2.3rem; border-radius: 50%; background: #fff; border: 2px solid #d2ad6e;
+  font-size: 1.45rem; line-height: 1; color: #1e2547; font-family: "DejaVu Sans", "Segoe UI Symbol", serif; }
+.lab-me-lv { display: grid; grid-template-columns: auto auto; align-items: center; column-gap: .55rem; line-height: 1.15; }
+.lab-me-lv b { color: #3b2a0b; font-size: .92rem; }
+.lab-me-bar { display: block; width: 84px; height: 7px; border-radius: 99px; background: #f1dfb6; overflow: hidden; }
+.lab-me-bar span { display: block; height: 100%; border-radius: 99px; background: linear-gradient(90deg, #d2ad6e, #b7841f); }
+.lab-me-lv small { grid-column: 1 / -1; color: #7a6233; font-size: .72rem; margin-top: .15rem; }
+.lab-stat { display: inline-flex; align-items: baseline; gap: .3rem; padding: .45rem .8rem; border-radius: 999px; background: #f8fafc; border: 1px solid #e2e8f0; color: #475569; font-size: .8rem; }
+.lab-stat i { align-self: center; font-size: .9rem; }
+.lab-stat b { color: #0f172a; font-size: 1rem; font-weight: 700; }
+.lab-stat-pts i { color: #e0a419; }
+.lab-stat-fire i { color: #f2622c; }
+.lab-stat-fire.is-cold i { color: #94a3b8; }
+.lab-bar .lab-chip-link { padding: .42rem .8rem; }
+@keyframes lab-pop { 0% { transform: scale(1); } 40% { transform: scale(1.25); } 100% { transform: scale(1); } }
+.lab-stat-pts b.bump { display: inline-block; animation: lab-pop .45s ease; }
+
+/* offer ribbon */
+.lab-bar .lab-offer { background: #fff8e8; color: #6b4e16; border-top: 1px solid #f1dfb6; border-bottom: 1px solid #f1dfb6; font-size: .86rem; padding: .55rem 1rem; }
+.lab-bar .lab-offer i { color: #c08a22; margin-right: .2rem; }
+.lab-bar .lab-offer b { color: #4a3409; }
+
+html.dark .lab-bar .lab-tab { color: #b8c2d3; }
+html.dark .lab-bar .lab-tab-home { --fam: #a5b4fc; --fam-soft: rgba(165, 180, 252, .12); }
+html.dark .lab-bar .lab-tab-learn { --fam: #8b8bf0; --fam-soft: rgba(139, 139, 240, .16); }
+html.dark .lab-bar .lab-tab-puzzle { --fam: #fb8a5c; --fam-soft: rgba(251, 138, 92, .15); }
+html.dark .lab-bar .lab-tab-drill { --fam: #2dd4bf; --fam-soft: rgba(45, 212, 191, .14); }
+html.dark .lab-bar .lab-tab-you { --fam: #e3b85a; --fam-soft: rgba(227, 184, 90, .15); }
+html.dark .lab-bar .lab-tab:hover, html.dark .lab-bar .lab-tab[aria-current] { color: #f8fafc; }
+html.dark .lab-bar .lab-tab[aria-current] .lab-tab-ic i { color: #0f172a; }
+html.dark .lab-bar .lab-tab-gap { background: #273449; }
+html.dark .lab-me { background: rgba(210, 173, 110, .1); border-color: rgba(210, 173, 110, .3); }
+html.dark .lab-me-piece { background: #1e2547; color: #fdf6e3; }
+html.dark .lab-me-lv b { color: #fdf6e3; }
+html.dark .lab-me-lv small { color: #d9c39a; }
+html.dark .lab-me-bar { background: rgba(210, 173, 110, .25); }
+html.dark .lab-stat { background: #162032; border-color: #273449; color: #a8b3c4; }
+html.dark .lab-stat b { color: #f1f5f9; }
+html.dark .lab-bar .lab-offer { background: rgba(210, 173, 110, .1); color: #e8d6b0; border-color: rgba(210, 173, 110, .25); }
+html.dark .lab-bar .lab-offer b { color: #fdf6e3; }
+
+@media (max-width: 640px) {
+  .lab-bar .lab-tab { padding: .3rem .3rem; }
+  .lab-bar .lab-tab[aria-current] { padding-right: .75rem; }
+  .lab-bar .lab-tabs a .lab-tab-ic { display: inline-flex; }
+  .lab-bar .lab-tabs a:not([aria-current]) .lab-tab-tx { display: none; }
+  .lab-bar .lab-tab-gap { margin: 0 .1rem; }
+  .lab-me-bar { width: 64px; }
+  .lab-stat small { display: none; }
+}
+@media (prefers-reduced-motion: reduce) { .lab-bar .lab-tab, .lab-bar .lab-tab-ic { transition: none; } .lab-bar .lab-tab:hover .lab-tab-ic { transform: none; } .lab-stat-pts b.bump { animation: none; } }

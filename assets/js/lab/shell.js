@@ -63,10 +63,14 @@ function renderBar(st, prog) {
   if (panel && (!st.user || st.academy)) { panel.classList.add("hidden"); panel.innerHTML = ""; }
   if (!st.user) { bar.innerHTML = ""; return; }
   if (!st.access || !prog) { bar.innerHTML = `<span class="lab-chip">${esc((st.user.name || "").split(" ")[0])}</span>`; return; }
-  const lv = levelFor(prog.points);
-  bar.innerHTML = `<span class="lab-chip" title="Your level"><span class="lab-lv">${lv.icon}</span>${lv.name}</span>
-    <span class="lab-chip lab-chip-pts" title="Total points"><i class="fas fa-star"></i><b data-points>${prog.points}</b></span>
-    <span class="lab-chip" title="Day streak"><i class="fas fa-fire"></i>${prog.streak.count || 0}</span>
+  const lv = levelFor(prog.points), days = prog.streak.count || 0;
+  const nextTxt = lv.next ? `${lv.toNext} points to ${lv.next.name}` : "Top level reached";
+  bar.innerHTML = `<div class="lab-me" title="${esc(nextTxt)}">
+      <span class="lab-me-piece" aria-hidden="true">${lv.icon}</span>
+      <span class="lab-me-lv"><b>${lv.name}</b><span class="lab-me-bar" role="progressbar" aria-label="Progress to the next level" aria-valuenow="${lv.pct}" aria-valuemin="0" aria-valuemax="100"><span style="width:${lv.pct}%"></span></span><small>${esc(nextTxt)}</small></span>
+    </div>
+    <span class="lab-stat lab-stat-pts" title="Total points"><i class="fas fa-star"></i><b data-points>${prog.points}</b><small>points</small></span>
+    <span class="lab-stat lab-stat-fire${days ? "" : " is-cold"}" title="Days in a row"><i class="fas fa-fire"></i><b>${days}</b><small>${days === 1 ? "day" : "days"}</small></span>
     ${st.academy ? `<span class="lab-chip lab-chip-academy" title="Linked to enrollment ${esc(st.enrollment || "")}"><i class="fas fa-graduation-cap"></i>Academy</span>`
       : `<button type="button" class="lab-chip lab-chip-link" data-act="enroll-open"><i class="fas fa-graduation-cap"></i>Academy student?</button>`}`;
 }
