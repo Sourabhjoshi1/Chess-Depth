@@ -76,7 +76,7 @@
 = 4.Be3: the 150 Attack | e4 d6 d4 Nf6 Nc3 g6 Be3 {White plans Qd2 and Bh6.} c6 {Prepare ...b5: counterplay on the queenside.} Qd2 b5 {Gain space quickly.} Bd3 Nbd7 Nf3 e5 {Strike in the centre.}
 
 @ najdorf
-= 6.Bg5: the main line | e4 c5 Nf3 d6 d4 cxd4 Nxd4 Nf6 Nc3 a6 Bg5 {White pins the f6-knight.} e6 {Solid: the f8-bishop can come to e7.} f4 Be7 Qf3 Qc7 {The queen guards e5 and watches the c-file.} O-O-O Nbd7 {Develop and get ready for ...b5.}
+= 6.Bg5: the sharp Bg5 attack | e4 c5 Nf3 d6 d4 cxd4 Nxd4 Nf6 Nc3 a6 Bg5 {White pins the f6-knight.} e6 {Solid: the f8-bishop can come to e7.} f4 Be7 Qf3 Qc7 {The queen guards e5 and watches the c-file.} O-O-O Nbd7 {Develop and get ready for ...b5.}
 = 6.Be2: the Classical | e4 c5 Nf3 d6 d4 cxd4 Nxd4 Nf6 Nc3 a6 Be2 {A calm developing move.} e5 {Kick the knight and gain space.} Nb3 Be7 O-O O-O Be3 Be6 {Develop and aim for ...d5.}
 = 6.Bc4: the Fischer–Sozin | e4 c5 Nf3 d6 d4 cxd4 Nxd4 Nf6 Nc3 a6 Bc4 {The bishop aims at e6 and f7.} e6 {Blunt the bishop.} Bb3 b5 {Gain space and threaten ...b4.} O-O Be7 Qf3 Qc7 {Guard a8 and the c-file.}
 
