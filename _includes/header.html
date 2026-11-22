@@ -22,7 +22,7 @@
         <a href="/" class="cd-link"{% if page.url == '/' or page.url == '/index.html' %} aria-current="page"{% endif %}>Home</a>
         {%- for item in site.data.navigation %}
         {%- if item.children %}
-        {%- assign group_active = false %}{% for c in item.children %}{% if page.url contains c.url %}{% assign group_active = true %}{% endif %}{% endfor %}
+        {%- assign group_active = false %}{% for c in item.children %}{% assign pre = page.url | slice: 0, c.url.size %}{% if pre == c.url %}{% assign group_active = true %}{% endif %}{% endfor %}
         <div class="cd-dd" data-dd>
           <button type="button" class="cd-link cd-dd-btn" aria-expanded="false" aria-haspopup="true"{% if group_active %} aria-current="page"{% endif %}>{{ item.title }}<i class="fas fa-chevron-down cd-dd-caret" aria-hidden="true"></i></button>
           <div class="cd-dd-menu" role="menu">
@@ -32,7 +32,7 @@
           </div>
         </div>
         {%- else %}
-        {%- assign is_active = false %}{% if page.url == item.url %}{% assign is_active = true %}{% elsif page.url contains item.url %}{% assign is_active = true %}{% endif %}
+        {%- assign is_active = false %}{% if page.url == item.url %}{% assign is_active = true %}{% else %}{% assign pre = page.url | slice: 0, item.url.size %}{% if pre == item.url %}{% assign is_active = true %}{% endif %}{% endif %}
         <a href="{{ item.url }}" class="cd-link{% if item.badge %} cd-link-ai{% endif %}"{% if is_active %} aria-current="page"{% endif %}>{{ item.title }}{% if item.badge %}<span class="cd-soon">{{ item.badge }}</span>{% endif %}</a>
         {%- endif %}
         {%- endfor %}
@@ -64,7 +64,7 @@
           </div>
         </div>
         {%- else %}
-        <a href="{{ item.url }}"{% if page.url contains item.url %} aria-current="page"{% endif %}>{{ item.title }}{% if item.badge %}<span class="cd-soon">{{ item.badge }}</span>{% endif %}</a>
+        {%- assign pre = page.url | slice: 0, item.url.size %}<a href="{{ item.url }}"{% if pre == item.url %} aria-current="page"{% endif %}>{{ item.title }}{% if item.badge %}<span class="cd-soon">{{ item.badge }}</span>{% endif %}</a>
         {%- endif %}
         {%- endfor %}
         <div class="cd-mobile-actions">
