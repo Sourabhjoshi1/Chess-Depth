@@ -668,6 +668,8 @@ html.dark .lab-bar .lab-tab-puzzle { --fam: #fb8a5c; --fam-soft: rgba(251, 138, 
 html.dark .lab-bar .lab-tab-drill { --fam: #2dd4bf; --fam-soft: rgba(45, 212, 191, .14); }
 html.dark .lab-bar .lab-tab-you { --fam: #e3b85a; --fam-soft: rgba(227, 184, 90, .15); }
 html.dark .lab-bar .lab-tab:hover, html.dark .lab-bar .lab-tab[aria-current] { color: #f8fafc; }
+html.dark .lab-bar .lab-tabs .lab-tab[aria-current] { background: var(--fam-soft); }
+.lab-bar .lab-tabs .lab-tab[aria-current] { background: var(--fam-soft); }
 html.dark .lab-bar .lab-tab[aria-current] .lab-tab-ic i { color: #0f172a; }
 html.dark .lab-bar .lab-tab-gap { background: #273449; }
 html.dark .lab-me { background: rgba(210, 173, 110, .1); border-color: rgba(210, 173, 110, .3); }
