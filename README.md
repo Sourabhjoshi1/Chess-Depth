@@ -1,117 +1,160 @@
-# ♟️ ChessDepth Academy
+<p align="center">
+  <a href="https://www.chessdepth.in"><img src="assets/images/apple-touch-icon.png" width="84" alt="ChessDepth logo"></a>
+</p>
 
-**Live site: [www.chessdepth.in](https://www.chessdepth.in)**
+<h1 align="center">ChessDepth Academy</h1>
 
-ChessDepth Academy is an online chess academy and training platform based in Bhopal, India. We teach students to understand the *why* behind every move, through live classes with FIDE-rated coaches (including a Grandmaster), a structured curriculum, and free and paid training tools.
+<p align="center"><b>Think Deep. Play Deeper!</b><br>
+Live online chess classes, a free training lab and an AI that reads chess diagrams.</p>
 
-This repository is the full website: a Jekyll site published with GitHub Pages.
-you are free to contribute! 
+<p align="center">
+  <a href="https://www.chessdepth.in"><b>www.chessdepth.in</b></a> ·
+  <a href="https://www.chessdepth.in/lab/">Chess Lab</a> ·
+  <a href="https://www.chessdepth.in/ai/">ChessDepth AI</a> ·
+  <a href="https://www.chessdepth.in/blog/">Blog</a>
+</p>
+
+<p align="center">
+  <a href="https://github.com/Sourabhjoshi1/Chess-Depth/actions/workflows/jekyll-gh-pages.yml"><img src="https://github.com/Sourabhjoshi1/Chess-Depth/actions/workflows/jekyll-gh-pages.yml/badge.svg" alt="Deploy status"></a>
+  <img src="https://img.shields.io/badge/built%20with-Jekyll-cc0000" alt="Built with Jekyll">
+  <img src="https://img.shields.io/badge/code-MIT-4f46e5" alt="MIT licence">
+</p>
+
+---
+
+ChessDepth Academy is an online chess academy from Bhopal, India. We teach children (from about age 5) and adults, from first moves to tournament play, in live one-to-one and small-group classes with FIDE-rated coaches, including **GM Daniel Gormally** and **IM Deboushnik De**. Our aim is for students to understand *why* a move is good, not just remember it.
+
+This repository is the whole website: a Jekyll site built and deployed to GitHub Pages by GitHub Actions. Contributions are welcome; see [Contributing](#contributing).
+
+## Contents
+
+- [What's on the site](#whats-on-the-site)
+- [Tech stack](#tech-stack)
+- [Repository layout](#repository-layout)
+- [Tools and generators](#tools-and-generators)
+- [Editing and deploying](#editing-and-deploying)
+- [Roadmap](#roadmap)
+- [Credits](#credits) · [Contributing](#contributing) · [Licence](#licence) · [Contact](#contact)
 
 ---
 
 ## What's on the site
 
-| Area | What it does | Where |
+### The academy
+
+| Page | What it covers | Source |
 | --- | --- | --- |
-| **Home** | Overview, academy stats, course highlights, enquiry form | `index.html` |
-| **Puzzle of the Day** | A new puzzle every day (India time), easy on Monday, hard on Sunday; hints, solution, daily streak, WhatsApp sharing | Home page `#daily` · `assets/js/daily.js` · `assets/lab/daily.json` |
-| **Courses & fees** | Monthly one-to-one and group classes, fixed-length programmes, INR and USD prices | `pages/courses.html` |
-| **About, Coaches, Contact** | Mission, story, coach profiles, contact details and map | `pages/` |
-| **Resources & Blog** | Study roadmap, free tools (board editor, Lichess analyser), guides, book list, articles | `pages/resources.html`, `_posts/` |
-| **Chess Lab** | Training membership: tactics trainer (26,000+ rated Lichess puzzles in 100-point rating shards, `assets/lab/puzzles/shards/`), Depth Dive with all-time leaderboard, 26 opening courses, progress dashboard with points and levels. Free for signed-in users until 21 Nov 2026 (launch offer) | `pages/lab/`, `assets/js/lab/` |
-| **Student Area** | Google sign-in and free PDF study material for every course | `pages/student.html`, `assets/js/student.js` |
-| **Shop** | Digital products (worksheet packs, improvement plans, puzzle collections, opening repertoires). Free direct downloads or Gumroad checkout | `pages/shop.html`, `_products/` |
-| **Careers** | Open roles and Winter 2026 internships (Product Management, Quality Assurance) | `pages/careers.html`, `_data/jobs.yml` |
-| **ChessDepth AI** | Beta, free: turn a screenshot or diagram of a chess position into a playable board (runs in the browser) | `pages/ai.html` |
+| **Live Classes** | One-to-one (from ₹5,600 / US$90 a month) and group classes of 2 to 4 (₹2,999 / US$60), four levels, how to pay | `pages/courses.html` |
+| **Curriculum** | Beginner, Intermediate, Advanced and Elite, three stages each, every topic and quiz | `pages/curriculum.html`, `_data/curriculum.yml` |
+| **Classes for kids** | A parents' guide: ages, the free demo class, FAQ | `pages/kids.html` |
+| **Country pages** | USA and Canada, UK and Europe, UAE, Saudi Arabia, Qatar, Singapore: local class times, US$ fees, hreflang | `pages/regions/`, `_data/regions.yml` |
+| **Coaches, About, Register, Contact** | The team, mission, reviews, registration form, careers | `pages/` |
+| **Student Area** | Google sign-in, enrolment numbers that unlock quizzes, PDF study material | `pages/student.html`, `assets/js/student.js` |
+| **ChessDepth Assistant** | A scripted chat that asks a few questions and recommends a class, with fees and links | `assets/js/assistant.js` |
 
-Every chess board on the site uses one shared component (`assets/js/lab/board.js`): drag **or** tap-to-move, legal-move hints and last-move highlights.
+### Free training tools
 
-Night mode, mobile layouts, SEO (structured data, sitemap) and Google Analytics 4 events are built in across all pages.
+| Tool | What it does | Source |
+| --- | --- | --- |
+| **Chess Lab** | 68 interactive courses, a positional-play path, a tactics trainer (26,000+ rated Lichess puzzles), **Depth Dive** (puzzles get harder until your first mistake), **Depth Sprint** (timed), an endgame trainer against Stockfish, a coordinates trainer, points, levels (Pawn to King) and a progress page | `pages/lab/`, `assets/js/lab/` |
+| **Opening courses** | 26 openings for White and Black, each with a main line and 2 to 3 **branches** (63 in total). Learn or practise one line, or play the **Whole opening** with the lines in random order | `assets/lab/openings.json`, `_tools/opening-branches/` |
+| **Blindfold trainer** | 10 visualisation drills, a 28-day plan, a daily blindfold puzzle, games against Stockfish, four printable workbooks | `pages/blindfold.html` |
+| **Puzzle of the Day** | A new puzzle every day (India time), easier on Monday, harder by Sunday | `assets/js/daily.js`, `assets/lab/daily.json` |
+| **ChessDepth AI** (beta) | Reads a screenshot, book diagram or photo of a printed board and gives a playable board and FEN, entirely in the browser | `pages/ai.html`, `assets/js/ai/` |
+| **Free resources** | Study roadmap, score sheets, Lichess game analyser, board editor, guides, book list | `pages/lab/resources.html` |
+
+Every board on the site uses one shared component (`assets/js/lab/board.js`): drag or tap to move, legal-move hints and last-move highlights. Dark mode, mobile layouts, structured data and Google Analytics 4 events work across every page.
+
+### ChessDepth AI, in short
+
+The browser finds the board, cuts it into 64 squares and reads each one with two small neural networks (float16 weights, under 0.4 MB each) that check each other, then applies chess rules to tidy the result. **v0.6** (Nov 2026) was trained on squares from 34 piece styles: book diagrams, phone photos of printed pages, screen boards and wooden boards. On 60 test book diagrams it reads 49 perfectly (up from 33 in v0.5). A new version is only released if all the real test photos still read perfectly. Test and training kits: `_tools/ai-test/`, `_tools/ai-train/`.
+
+### Shop and content
+
+- **Shop:** 19 products, 9 of them free PDFs (Opening Basics, Understanding Pawn Structures, blindfold workbooks…). Paid books are sold through [Gumroad](https://chessdepth.gumroad.com). Source: `_products/`.
+- **Blog:** 18 articles on improvement, teaching and chess news (`_posts/`).
+- **For AI assistants:** [`/llms.txt`](https://www.chessdepth.in/llms.txt) and [`/llms-full.txt`](https://www.chessdepth.in/llms-full.txt), built from the site's own pages and FAQs.
 
 ---
 
 ## Tech stack
 
-- **Jekyll 3** (GitHub Pages) with shared layouts and includes, `permalink: pretty` for clean URLs
-- **Tailwind CSS 2.2.19**, trimmed to the classes the site uses (`src/tailwind.css` → `assets/css/tailwind.min.css`)
+- **Jekyll 3** on GitHub Pages (built by GitHub Actions), `permalink: pretty`
+- **Tailwind CSS 2.2.19**, trimmed to the classes the site uses, plus hand-written CSS in `assets/css/`
 - **Vanilla JavaScript** (ES modules), no framework
-- **Firebase** (Google sign-in + Firestore) for the Student Area and Chess Lab. Rules in `firebase/firestore.rules`
-- **chessboard-element** (board display) and **chess.js** (rules), loaded from jsDelivr
-- **Lichess puzzle database** (CC0) for the Chess Lab and Puzzle of the Day
-- **Gumroad** for paid Shop products · **Google Analytics 4** · **Google AdSense**
+- **Firebase** (Google sign-in and Firestore) for the Student Area and Chess Lab; rules in `firebase/firestore.rules`
+- **chessboard-element** and **chess.js** for boards, **Stockfish** (WebAssembly) for engine play
+- **Python** (python-chess, reportlab, PyTorch) for the generators in `_tools/`
+- **Gumroad** for paid products, **Google Analytics 4** for analytics
 
 ---
 
 ## Repository layout
 
 ```
-_config.yml          Site settings: contact details, Lab settings, analytics IDs, shop, collections
+_config.yml          Site settings: contact details, Lab settings, launch offer, analytics, collections
+_data/               Navigation, curriculum, regions, reviews, books, jobs, shop categories…
+_includes/           Header, footer, SEO/head, structured data, Lab bar, assistant, shared widgets
 _layouts/            default, post (blog), product (shop)
-_includes/           header, footer, head/SEO, schema, page banner, Lab bar, shop cards
-_data/               navigation, courses, reviews, books, tools, openings, shop categories, jobs
 _posts/              Blog articles (Markdown)
-_products/           One file per Shop product
-pages/               All pages (lab/ = Chess Lab)
+_products/           One file per shop product
+_tools/              Generators and test kits (not published, see below)
+pages/               Every page; pages/lab/ is the Chess Lab, pages/regions/ the country pages
 assets/css/          site.css, dark.css, pages/*.css, tailwind.min.css (built, committed)
-assets/js/           site.js, daily.js, student.js, resources.js, lab/*.js
-assets/lab/          Puzzle sets, daily calendar, opening courses
-downloads/           Free PDF downloads
+assets/js/           Site scripts; lab/ = Chess Lab, ai/ = ChessDepth AI
+assets/lab/          Puzzle shards, daily calendar, opening courses
+assets/ai/           AI model weights and example images
+downloads/           Free PDFs
 firebase/            Firestore security rules
-scripts/             make-daily.py (builds the Puzzle of the Day calendar)
-shop-src/            Source files used to build Shop PDFs (not published)
-.github/workflows/   Build + deploy to GitHub Pages
+scripts/             make-daily.py (Puzzle of the Day calendar)
+llms.txt, llms-full.txt   Summaries for AI assistants (Liquid templates)
 ```
 
 ---
 
-## Editing the site
+## Tools and generators
 
-Day-to-day editing (prices, coaches, products, internships, Lab settings, analytics) is documented in **[EDITING.md](EDITING.md)**. Important rules:
+Everything in `_tools/` runs locally and is excluded from the published site.
 
-- **Prices:** dollar prices are adjusted for purchasing power, about ₹67 = $1, rounded to a clean price (e.g. ₹19,999 → $299); monthly class fees are set by hand: one-to-one from ₹5,600 / $90 (depends on the coach), group ₹2,999 / $60.
+| Folder | What it makes |
+| --- | --- |
+| `opening-branches/` | Opening branches: edit `branches.txt`, check with `check.py` (legality and Stockfish), then `build.py` writes them into `openings.json` |
+| `ai-test/`, `ai-train/` | ChessDepth AI: a Node copy of the browser pipeline, benchmarks, training-data generator and trainer |
+| `move-of-the-day/` | The daily "Move of the Day" image for social media (fixed template) |
+| `opening-basics/`, `pawn-structures/`, `blindfold-pdfs/`, `score-sheet/` | The free PDF books and sheets |
+| `certificates/`, `admission-letter/` | Student certificates and admission letters (real student data is git-ignored) |
+
+---
+
+## Editing and deploying
+
+Day-to-day editing (prices, coaches, products, jobs, Lab settings) is in **[EDITING.md](EDITING.md)**. The main rules:
+
+- **Prices:** class fees are set by hand: one-to-one from ₹5,600 / US$90 (depending on the coach), group ₹2,999 / US$60, all taxes included.
 - **Shop products:** one file per product in `_products/`. Text containing a colon must be in double quotes; the deploy stops with a clear message if a product file is broken.
-- **Stylesheet:** `assets/css/tailwind.min.css` is committed. If you add new Tailwind classes, rebuild it before committing:
+- **Tailwind:** `assets/css/tailwind.min.css` is committed. After adding new Tailwind classes, rebuild it:
   ```
   npx tailwindcss@2.2.19 -c tailwind.config.js -i src/tailwind.css -o assets/css/tailwind.min.css --minify
   ```
-- **Daily puzzles:** the calendar runs to 31 Dec 2027. Extend it with `python3 scripts/make-daily.py` (needs `pip install chess`).
+- **Daily puzzles:** the calendar runs to 31 Dec 2027; extend it with `python3 scripts/make-daily.py`.
+- **Never commit real student data.** `.gitignore` excludes `_tools/**/students/` and `_tools/**/*-private.json`.
 
-### Running locally
+**Run locally:** `bundle exec jekyll serve` (needs Ruby and the `github-pages` gem), then open http://localhost:4000.
 
-```
-bundle exec jekyll serve      # needs Ruby + the github-pages gem
-```
-Then open http://localhost:4000.
-
-### Deploying
-
-Every push to `main` is built and published by `.github/workflows/jekyll-gh-pages.yml`: it checks the Shop product files, builds the trimmed Tailwind CSS, builds Jekyll and deploys to GitHub Pages.
-**Settings → Pages → Source should be "GitHub Actions"**, so only this workflow publishes the site.
+**Deploy:** every push to `main` runs `.github/workflows/jekyll-gh-pages.yml`, which checks the shop files, builds Tailwind and Jekyll, and publishes to GitHub Pages. In **Settings → Pages**, the source must be **GitHub Actions**.
 
 ---
 
 ## Roadmap
 
-### Now: 23 Oct – 30 Nov 2026
+**Done in Oct–Nov 2026:** Chess Lab and Student Area live with Firebase · Puzzle of the Day · blindfold trainer · ChessDepth AI from v0.1 to v0.6 · opening branches and Whole opening mode · country pages for the USA, UK, Gulf and Singapore · free PDF books · chat assistant.
 
-| Week | Focus |
-| --- | --- |
-| 23–31 Oct | Connect Firebase so the Chess Lab and Student Area go live; email sign-up; ChessDepth team on Lichess with a free weekly arena |
-| 1–7 Nov | **ChessDepth AI v0.1**: upload a screenshot or digital diagram, get a playable board or open it in Lichess |
-| 8–14 Nov | AI accuracy improvements and "turn this page into a puzzle set" for worksheets; weekly puzzle email |
-| 15–21 Nov | Chess Lab push (launch offer now runs to 31 Dec); decide Lab pricing before then; second Shop product |
-| 22–30 Nov | AI v0.3 (stretch): read photos of physical books; select Winter 2026 interns |
-
-**Targets for 30 Nov:** 50 Chess Lab students · 30 regular Daily Puzzle solvers · 100 email subscribers · 50 Lichess team members · AI beta reading 9 of 10 clean screenshots correctly.
-
-### Next (2027)
-
-- **ChessDepth AI**: book pages and worksheets into drillable puzzle sets; coach tools that turn printed worksheets into online assignments; an open-source core and community-contributed training data
-- **Coach tools**: homework, auto-graded quizzes and progress reports for parents, for ChessDepth and other small academies
-- **Asynchronous game reviews**: students upload games and get annotated reviews from titled coaches
-- **Community**: weekly Lichess arenas, Daily Puzzle leaderboard, build-in-public updates
-- **International students**: classes in UK, US and Singapore time zones; international card payments
-- **More Shop products**: checkmate patterns, tactics by theme, endgame workbook, opening repertoires, 90-day improvement plans
+**Next:**
+- **ChessDepth AI:** photos of physical boards, and turning book pages and worksheets into puzzle sets
+- **Chess Lab:** pricing after the launch offer (free until 31 Dec 2026), more courses, puzzle themes
+- **Coach tools:** homework, auto-graded quizzes and progress reports for parents
+- **Apps:** ChessDepth for iOS and Android
+- **Community:** weekly Lichess arenas and a Daily Puzzle leaderboard
 
 ---
 
@@ -119,15 +162,17 @@ Every push to `main` is built and published by `.github/workflows/jekyll-gh-page
 
 - Puzzles: [Lichess puzzle database](https://database.lichess.org/#puzzles) (CC0)
 - Boards: [chessboard-element](https://github.com/justinfagnani/chessboard-element) (MIT) and [chess.js](https://github.com/jhlywa/chess.js) (BSD-2-Clause)
+- Engine: [Stockfish](https://stockfishchess.org/) (GPL-3.0), run in the browser
+- AI training images use piece sets from [lichess-org/lila](https://github.com/lichess-org/lila), under their own licences
 - Fonts: Poppins and EB Garamond (Google Fonts) · Icons: Font Awesome
 
 ## Contributing
 
-See [Contributing.md](Contributing.md). Bug reports and suggestions are welcome as GitHub issues.
+Bug reports and ideas are welcome as [GitHub issues](https://github.com/Sourabhjoshi1/Chess-Depth/issues). For pull requests, see [Contributing.md](Contributing.md); security reports go through [SECURITY.md](SECURITY.md).
 
-## License
+## Licence
 
-Code: [MIT](LICENSE) © 2026 Sourabh K. Joshi. Course content, worksheets and Shop products © ChessDepth Academy, all rights reserved.
+Code: [MIT](LICENSE) © 2026 Sourabh Joshi. Course content, worksheets, books and shop products © ChessDepth Academy, all rights reserved.
 
 ## Contact
 
