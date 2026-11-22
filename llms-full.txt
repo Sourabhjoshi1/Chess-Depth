@@ -39,9 +39,9 @@ Four levels, each with three stages of 8 sessions and a quiz at the end of each 
 {%- endfor %}{% endif %}{% endfor %}
 
 ## Classes by country
-{% for r in site.data.regions %}
+{% for r in site.data.regions %}{% if r[1].url %}
 - {{ r[1].name }}: {{ site.url }}{{ r[1].url }}. {{ r[1].lead | strip_html }}
-{%- endfor %}
+{%- endif %}{% endfor %}
 
 ## Student reviews
 {% for rv in site.data.reviews %}

@@ -44,9 +44,9 @@ Tagline: {{ site.tagline }}
 ## Classes by country
 
 Class times in local time, fees in US$ and payment in local currency:
-{% for r in site.data.regions %}
-- [{{ r[1].h1 | default: r[1].title | strip_html }}]({{ site.url }}{{ r[1].url }})
-{%- endfor %}
+{% for r in site.data.regions %}{% if r[1].url %}
+- [{{ r[1].h1 | strip_html }}]({{ site.url }}{{ r[1].url }})
+{%- endif %}{% endfor %}
 
 ## Free tools
 
