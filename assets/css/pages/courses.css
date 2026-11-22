@@ -204,3 +204,8 @@ html.dark .cs-price .cs-from, html.dark .cs-price-note { color: #94a3b8; }
 .cs-abroad p { color: #374151; font-size: .93rem; line-height: 1.6; margin: 0; }
 .cs-abroad a { color: #4f46e5; font-weight: 600; }
 html.dark .cs-abroad { background: #1e2547; } html.dark .cs-abroad-h { color: #f1f5f9; } html.dark .cs-abroad p { color: #cbd5e1; } html.dark .cs-abroad a { color: #a5b4fc; }
+
+.cs-reg-notice { display: flex; gap: .75rem; align-items: flex-start; margin: 0 0 1.2rem; padding: .9rem 1.1rem; border: 1px solid #f3d9a4; border-left: 4px solid #d2ad6e; border-radius: 12px; background: #fffaf0; color: #4b3b1f; font-size: .93rem; line-height: 1.5; }
+.cs-reg-notice i { color: #b8893a; margin-top: .2rem; }
+.cs-reg-notice p { margin: 0; }
+html.dark .cs-reg-notice { background: #2a2416; border-color: #5c4a26; border-left-color: #d2ad6e; color: #f1e4c8; }
