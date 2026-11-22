@@ -63,10 +63,10 @@ Class times in local time, fees in US$ and payment in local currency:
 {%- endfor %}
 
 ## Books and worksheets for sale
-{% assign paid = site.products | where_exp: "p", "p.price_usd != '' and p.price_usd != nil and p.price_inr != '0'" | sort: "order" %}
-{%- for p in paid %}
+{% assign paid = site.products | sort: "order" %}
+{%- for p in paid %}{% if p.price_usd and p.price_usd != "" and p.price_inr != "0" %}
 - [{{ p.title }}]({{ site.url }}{{ p.url }}) (US${{ p.price_usd }}): {{ p.description }}
-{%- endfor %}
+{%- endif %}{% endfor %}
 
 ## Articles
 {% for post in site.posts limit: 25 %}
