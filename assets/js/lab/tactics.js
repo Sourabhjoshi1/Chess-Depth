@@ -37,7 +37,7 @@ async function run(st, prog) {
     if (!o) { o = document.createElement("option"); o.value = "missed"; ui.set.appendChild(o); }
     o.textContent = `Retry my missed puzzles (${P.missed.length})`; o.disabled = !P.missed.length;
     if (!P.missed.length && ui.set.value === "missed") ui.set.value = "lichess";
-    document.getElementById("tt-filters-lichess").classList.toggle("hidden", ui.set.value !== "lichess");
+    document.getElementById("tt-filters-lichess").classList.toggle("hidden", ui.set.value === "missed");
   }
   renderSetOptions();
 
@@ -58,9 +58,15 @@ async function run(st, prog) {
       return { ...m, moves: m.moves.slice(), themes: m.themes.slice(), retry: true };
     }
     if (ui.set.value === "originals") {
-      const pool = await loadOriginals();
+      // Originals respect the theme and difficulty filters too; if a filter leaves nothing, it is relaxed.
+      const all = await loadOriginals(), theme = ui.theme.value, band = BANDS.find((x) => x[0] === ui.level.value);
+      let pool = all.filter((p) => (!theme || p.themes.includes(theme)) && (!band || (p.rating >= band[1] && p.rating < band[2])));
+      if (!pool.length) pool = all.filter((p) => !theme || p.themes.includes(theme));
+      if (!pool.length) pool = all;
+      if (!band) pool = pool.slice().sort((x, y) => Math.abs(x.rating - P.rating) - Math.abs(y.rating - P.rating)).slice(0, Math.max(25, Math.ceil(pool.length / 3)));
       const unseen = pool.filter((p) => !P.seen.includes(p.id));
-      return (unseen.length ? unseen : pool)[Math.floor(Math.random() * (unseen.length ? unseen.length : pool.length))];
+      const from = unseen.length ? unseen : pool;
+      return from[Math.floor(Math.random() * from.length)];
     }
     let target = P.rating;
     if (ui.level.value) { const b = BANDS.find((x) => x[0] === ui.level.value), lo = Math.max(b[1], 450), hi = Math.min(b[2], 2750); target = lo + Math.random() * (hi - lo); }
