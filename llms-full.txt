@@ -1,0 +1,49 @@
+---
+layout: null
+permalink: /llms-full.txt
+sitemap: false
+---
+# ChessDepth Academy: full details
+
+> The long version of {{ site.url }}/llms.txt for AI assistants: every question parents and students ask us, answered from our own pages, plus the full curriculum. Built automatically from the website, so it stays up to date.
+
+## Summary
+
+ChessDepth Academy is an online chess academy from {{ site.contact.address }}. It teaches live online classes, one-to-one or in groups of 2 to 4, to children from about age 5 and to adults, from beginners to tournament players. Fees per month, all taxes included: one-to-one from ₹5,600 or US$90 depending on the coach; group classes ₹2,999 or US$60. Each month has 8 to 10 classes of 60 to 70 minutes. The first 30-minute demo class is free. Filling in the registration form does not guarantee a place: admission is confirmed once the coach has agreed the level and class times and the first month's fee is paid. Coaches include GM Daniel Gormally, IM Deboushnik De, CM Rajarishi Karthi and founder AFM Sourabh Joshi. Contact: WhatsApp or phone {{ site.contact.phone_display }}, {{ site.url }}/contact/.
+
+## Questions and answers
+{% assign faq_pages = site.pages | where_exp: "p", "p.faq" %}
+{%- for p in faq_pages %}
+
+### From {{ p.title | split: " | " | first }} ({{ site.url }}{{ p.url }})
+{% for f in p.faq %}
+Q: {{ f.q | strip_html }}
+A: {{ f.a | strip_html | strip_newlines }}
+{% endfor %}
+{%- endfor %}
+
+## Curriculum
+
+Four levels, each with three stages of 8 sessions and a quiz at the end of each stage. Students are placed after the free demo class and move up after the quizzes and their coach's review. Full page: {{ site.url }}/curriculum/
+{% for lv in site.data.curriculum %}
+
+### {{ lv[0] | capitalize }}
+{% for s in lv[1].stages %}
+- {{ s.name }} ({{ s.sessions }}): {{ s.topics | join: "; " }}. Ends with {{ s.quiz }}.
+{%- endfor %}
+{%- endfor %}
+
+## Openings covered on the free Resources page
+{% for side in site.data.openings %}{% if side[1].first %}{% for o in side[1] %}
+- {{ o.name }} ({{ o.moves }}): {{ o.idea }}
+{%- endfor %}{% endif %}{% endfor %}
+
+## Classes by country
+{% for r in site.data.regions %}
+- {{ r[1].name }}: {{ site.url }}{{ r[1].url }}. {{ r[1].lead | strip_html }}
+{%- endfor %}
+
+## Student reviews
+{% for rv in site.data.reviews %}
+- "{{ rv.quote | strip_newlines }}" ({{ rv.name }}, {{ rv.detail }})
+{%- endfor %}
