@@ -26,9 +26,14 @@
   window.CD_LAB = {
     price: {{ site.lab.price | jsonify }},
     paymentLink: {{ site.lab.payment_link | jsonify }},
+    paymentLinkYear: {{ site.lab.payment_link_year | jsonify }},
+    priceMonth: {{ site.lab.price_month | jsonify }},
+    priceYear: {{ site.lab.price_year | jsonify }},
     freeUntil: {{ site.lab.free_until | jsonify }},
     admins: {{ site.lab.admins | jsonify }},
     notifyUrl: "https://wa.me/{{ site.contact.phone_intl }}?text=Hi%2C%20please%20tell%20me%20when%20the%20ChessDepth%20Chess%20Lab%20opens",
-    joinUrl: "https://wa.me/{{ site.contact.phone_intl }}?text=Hi%2C%20I%20would%20like%20to%20join%20the%20ChessDepth%20Chess%20Lab"
+    joinUrl: "https://wa.me/{{ site.contact.phone_intl }}?text=Hi%2C%20I%20would%20like%20to%20join%20the%20ChessDepth%20Chess%20Lab",
+    joinMonthUrl: "https://wa.me/{{ site.contact.phone_intl }}?text=Hi%2C%20I%20would%20like%20the%20monthly%20Chess%20Lab%20membership%20(US%24{{ site.lab.price_month }}%20a%20month)",
+    joinYearUrl: "https://wa.me/{{ site.contact.phone_intl }}?text=Hi%2C%20I%20would%20like%20the%20yearly%20Chess%20Lab%20membership%20(US%24{{ site.lab.price_year }}%20a%20year)"
   };
 </script>

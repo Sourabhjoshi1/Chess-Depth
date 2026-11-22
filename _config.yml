@@ -26,8 +26,11 @@ adsense_client: ""   # Google AdSense publisher ID (was ca-pub-1353516013773606)
 
 # Chess Lab (paid membership)
 lab:
-  price: ""            # e.g. "₹299 / month". Empty shows "Pricing announced at launch".
-  payment_link: ""     # Razorpay payment link. Empty shows an "Ask to join on WhatsApp" button.
+  price: "US$5 a month, or US$50 a year (2 months free)"   # one-line summary shown where space is short
+  price_month: "5"     # US$ per month
+  price_year: "50"     # US$ per year (12 x 5 = 60, so 2 months free)
+  payment_link: ""        # monthly checkout link (e.g. a Gumroad or Razorpay subscription). Empty = join on WhatsApp.
+  payment_link_year: ""   # yearly checkout link. Empty = join on WhatsApp.
   free_until: "2026-12-31"   # Launch offer: everything free for signed-in users until the end of this day. Empty = no offer.
   admins:              # Google accounts that can switch Lab access on/off at /lab/admin/
     - joshisourabh47@gmail.com

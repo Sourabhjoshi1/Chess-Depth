@@ -710,3 +710,19 @@ html.dark .lab-bar .lab-tab-row + .lab-tab-row { border-top-color: #273449; }
 
 .lab-bar .t-short { display: none; }
 @media (max-width: 900px) { .lab-bar .lab-tab-row .lab-tab .t-long { display: none; } .lab-bar .lab-tab-row .lab-tab .t-short { display: inline; } }
+
+/* Chess Lab membership plans */
+.lab-plans { display: grid; grid-template-columns: 1fr 1fr; gap: .75rem; margin: .9rem 0 .4rem; text-align: center; }
+.lab-plan { position: relative; border: 1px solid #e2e8f0; border-radius: 16px; padding: 1.1rem .9rem .9rem; background: #fff; }
+.lab-plan-best { border: 2px solid #d2ad6e; background: #fffaf0; }
+.lab-plan-tag { position: absolute; top: -.7rem; left: 50%; transform: translateX(-50%); background: #b7841f; color: #fff; font-size: .72rem; font-weight: 700; padding: .15rem .65rem; border-radius: 999px; white-space: nowrap; }
+.lab-plan-name { font-weight: 700; color: #1e2547; }
+.lab-plan-price { font-size: 1.7rem; font-weight: 800; color: #0f172a; line-height: 1.2; margin: .2rem 0; }
+.lab-plan-price small { font-size: .8rem; font-weight: 500; color: #64748b; margin-left: .2rem; }
+.lab-plan-note { font-size: .78rem; color: #64748b; margin-bottom: .7rem; }
+.lab-plan .lab-btn { width: 100%; justify-content: center; }
+html.dark .lab-plan { background: #162032; border-color: #273449; }
+html.dark .lab-plan-best { background: rgba(210, 173, 110, .1); border-color: #d2ad6e; }
+html.dark .lab-plan-name { color: #e2e8f0; }
+html.dark .lab-plan-price { color: #f8fafc; }
+@media (max-width: 420px) { .lab-plans { grid-template-columns: 1fr; gap: 1.1rem; } }
