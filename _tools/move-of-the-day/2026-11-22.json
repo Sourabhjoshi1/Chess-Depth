@@ -1,0 +1,12 @@
+{
+ "date": "2026-11-22",
+ "fen": "2rr2k1/1b3ppp/pb2p3/1p2P3/1P2BPnq/P1N3P1/1B2Q2P/R4R1K b - - 0 22",
+ "move": "Rxc3",
+ "mark": "!!",
+ "line": ["gxh4", "Rd2", "Qxd2", "Bxe4+", "Qg2", "Rh3"],
+ "white": "Georg Rotlewi",
+ "black": "Akiba Rubinstein",
+ "event": "Lodz, 1907",
+ "explain": "Rubinstein leaves his queen hanging and takes the knight that guards e4. After gxh4, Rd2 deflects the white queen, Bxe4+ opens the long diagonal, and Rh3 leaves no defence to Rxh2 mate.",
+ "idea": "When every piece is aimed at the king, material stops mattering."
+}
