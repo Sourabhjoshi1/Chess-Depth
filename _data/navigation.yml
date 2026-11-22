@@ -4,10 +4,10 @@
   url: /about/
 - title: Academy
   children:
-    - title: Courses
+    - title: Live Classes
       url: /courses/
-      icon: fa-graduation-cap
-      desc: Levels, fees and class timings
+      icon: fa-chalkboard-teacher
+      desc: One-to-one and group, with fees and timings
     - title: Curriculum
       url: /curriculum/
       icon: fa-list-ol
