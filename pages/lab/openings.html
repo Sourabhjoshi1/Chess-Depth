@@ -1,6 +1,6 @@
 ---
 title: "Opening Courses | ChessDepth Chess Lab"
-description: "Learn chess openings move by move with explanations, then practise them from memory and earn points. Part of the ChessDepth Chess Lab."
+description: "Learn chess openings move by move with explanations, including the main branches your opponent can choose, then practise the whole opening from memory and earn points. Part of the ChessDepth Chess Lab."
 permalink: /lab/openings/
 page_css: lab
 ads: false
@@ -24,6 +24,7 @@ head_scripts:
       <div class="op-side">
         <h2 id="op-title" class="op-title"></h2>
         <p id="op-intro" class="op-intro"></p>
+        <div id="op-vars" class="op-vars hidden" role="group" aria-label="Lines in this course"></div>
         <div class="op-modes" role="group" aria-label="Mode">
           <button type="button" id="op-learn" class="op-mode is-active"><i class="fas fa-graduation-cap"></i>Learn</button>
           <button type="button" id="op-practice" class="op-mode"><i class="fas fa-dumbbell"></i>Practice</button>
@@ -32,7 +33,7 @@ head_scripts:
         <p id="op-status" class="op-status"></p>
         <div id="op-note" class="op-note"></div>
         <div id="op-moves" class="op-moves" aria-label="Moves of this line"></div>
-        <p class="tt-points-note">Points: 20 for learning a course, 30 for a perfect practice run (40 when it's a review after 3+ days), and a 50-point bonus when a line is mastered.</p>
+        <p class="tt-points-note">Points: 20 for learning the main line and 10 for each branch; 30 for a perfect main-line run (40 as a review after 3+ days) and 15 for a perfect branch. A perfect <b>Whole opening</b> run, with every line in random order, earns 60 points, plus a 50-point bonus the first time: that opening is then mastered.</p>
       </div>
     </div>
   </div>

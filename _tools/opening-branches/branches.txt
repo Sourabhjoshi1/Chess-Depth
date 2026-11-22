@@ -1,0 +1,119 @@
+# Branches for the Chess Lab opening courses. Format:
+#   @ course-id
+#   = Branch name | full line from move 1, with {notes} after the moves they explain
+# Notes are shown in Learn mode. Moves shared with the main line reuse its notes.
+
+@ italian-giuoco
+= 4...d6: Black holds e5 | e4 e5 Nf3 Nc6 Bc4 Bc5 c3 d6 {Black chooses a solid set-up and keeps the pawn on e5.} d4 {Strike in the centre anyway.} exd4 cxd4 {Take back with the pawn: two big centre pawns.} Bb6 h3 {Stop ...Bg4, which would pin the knight.} Nf6 Nc3 {Develop and guard e4.} O-O O-O {Castle. White has a fine centre and easy play.}
+= 4...Qe7: queen guards e5 | e4 e5 Nf3 Nc6 Bc4 Bc5 c3 Qe7 {Black protects e5 with the queen and prepares ...d6.} d4 {Strike in the centre.} Bb6 O-O {Castle first: the king is safe and the rook can come to e1.} Nf6 Re1 {Support e4 and prepare to open the e-file.} d6 h3 {Keep ...Bg4 out.} O-O a4 {Gain space and ask the b6-bishop where it is going.}
+
+@ italian-pianissimo
+= 3...Bc5: Giuoco Pianissimo | e4 e5 Nf3 Nc6 Bc4 Bc5 {Black develops the bishop to its most active square.} c3 {Prepare d4 one day and give the bishop a retreat on b3 or c2.} Nf6 d3 {The quiet plan: protect e4 and keep everything solid.} d6 O-O O-O Re1 {Support e4 and get ready for d4 later.} a6 Bb3 {Keep the bishop safe from ...Na5.} Ba7 h3 {A useful waiting move: no ...Bg4 or ...Ng4.}
+= 4...d5: an early strike | e4 e5 Nf3 Nc6 Bc4 Nf6 d3 d5 {Black hits back at once in the centre.} exd5 {Take: the d5-knight will be a target.} Nxd5 O-O {Castle and get ready for Re1, hitting e5.} Be7 Re1 {Pressure on e5: Black has to keep guarding it.} f6 Nbd2 {Develop and head for e4 or b3.}
+
+@ london
+= 2...c5: Black goes for the centre | d4 d5 Bf4 c5 {Black attacks d4 at once.} e3 {Support d4 and open the way for the f1-bishop.} Nc6 c3 {The London triangle: d4 is now rock solid.} Nf6 Nd2 {Develop towards e4 and keep c3 protected.} e6 Ngf3 Bd6 Bg3 {Keep the bishop: don't let Black swap it off.} O-O Bd3 {The usual London set-up is complete.}
+= 3...c5 and ...Qb6: hitting b2 | d4 d5 Bf4 Nf6 e3 c5 c3 Qb6 {The queen attacks b2, which the f4-bishop no longer guards.} Qb3 {Offer a queen swap: it would fix Black's pawns.} c4 Qc2 {Step back; the queen still watches e4 and f5.} Nc6 Nd2 {Develop towards f3 and keep e4 under control.} Bd7 Ngf3 {Normal development. If ...Bf5 now, the queen on c2 can take it.} e6 Be2 {Simple and solid. White can castle next.}
+= 1...Nf6 2...g6: King's Indian set-up | d4 Nf6 Bf4 g6 {Black plans ...Bg7 and ...d6, aiming for ...e5.} e3 Bg7 Nf3 O-O Be2 {A calm square: the bishop is not a target for ...e5-e4.} d6 h3 {Give the f4-bishop a retreat on h2 after ...Nh5.} Nbd7 O-O {Castle. White keeps a small, safe space edge.}
+
+@ scotch
+= 4...Bc5: the Classical | e4 e5 Nf3 Nc6 d4 exd4 Nxd4 Bc5 {Black attacks the d4-knight.} Be3 {Protect the knight with a developing move.} Qf6 c3 {Guard the knight a second time.} Nge7 Bc4 {Develop with an eye on f7.} O-O O-O {Castle. White's pieces are active and the centre is safe.}
+= 4...Nxd4: swap the knights | e4 e5 Nf3 Nc6 d4 exd4 Nxd4 Nxd4 {Black swaps knights to bring the white queen forward.} Qxd4 {The queen is strong in the centre and hard to chase.} Ne7 Bc4 {Develop with tempo-gaining ideas on f7.} Nc6 Qd5 {Hit f7 again. Black must defend carefully.} Qf6 O-O {Castle and bring the rook to e1 next.}
+
+@ vienna-gambit
+= 3...exf4: Black takes the pawn | e4 e5 Nc3 Nf6 f4 exf4 {Black accepts the gambit pawn.} e5 {Push: the knight must leave its best square.} Ng8 Nf3 {Develop and stop ...Qh4+.} d6 d4 {Build a big centre and free the c1-bishop.} dxe5 Qe2 {Pin along the e-file and win back the pawn soon.} Be7 dxe5 {Take back. White has a strong pawn on e5.}
+= 3...d6: Black stays solid | e4 e5 Nc3 Nf6 f4 d6 {Black guards e5 and avoids complications.} Nf3 {Develop and add pressure on e5.} Nc6 Bb5 {Pin the knight and add pressure on e5.} Bd7 d3 {Keep e4 protected.} exf4 Bxf4 {Take back: the bishop is active and the f-file is half open.} Be7 O-O {Castle. White's rook will enjoy the f-file.}
+
+@ qgd-white
+= 4...Nbd7: Black keeps it flexible | d4 d5 c4 e6 Nc3 Nf6 Bg5 Nbd7 {Black keeps the c8-bishop's path open for later.} e3 Be7 Nf3 O-O Rc1 {Rook to the c-file, where it will be useful.} c6 Bd3 {Develop; if ...dxc4 the bishop takes back.} dxc4 Bxc4 Nd5 {Black frees the position by swapping pieces.} Bxe7 Qxe7 O-O {Castle. White has easy, harmonious development.}
+= 3...c5: the Tarrasch | d4 d5 c4 e6 Nc3 c5 {Black strikes in the centre and will accept an isolated pawn.} cxd5 {Take: Black will have to recapture with a pawn.} exd5 Nf3 Nc6 g3 {The fianchetto puts the bishop right against d5.} Nf6 Bg2 Be7 O-O O-O Bg5 {Pressure on the knight that defends d5.}
+
+@ ruy-lopez
+= 3...Nf6: the Berlin (calm answer 4.d3) | e4 e5 Nf3 Nc6 Bb5 Nf6 {The Berlin: Black attacks e4 at once.} d3 {Protect e4 calmly and avoid the famous Berlin endgame.} Bc5 c3 {Make room for the bishop to retreat and prepare d4.} O-O O-O d6 h3 {No ...Bg4.} a6 Ba4 {Keep the bishop on the a4-e8 diagonal.}
+= 5...Nxe4: the Open Ruy Lopez | e4 e5 Nf3 Nc6 Bb5 a6 Ba4 Nf6 O-O Nxe4 {Black grabs the pawn; White gets it back with active play.} d4 {Open the centre while Black's king is still in the middle.} b5 Bb3 d5 dxe5 {Win back space: the e5-pawn cramps Black.} Be6 Nbd2 {Challenge the e4-knight at once.}
+= 7...O-O: the Anti-Marshall | e4 e5 Nf3 Nc6 Bb5 a6 Ba4 Nf6 O-O Be7 Re1 b5 Bb3 O-O {Black castles first and dreams of the sharp Marshall Attack with ...d5.} h3 {Avoid the Marshall: no c3 yet, so ...d5 doesn't come with a gambit.} Bb7 d3 {Solid: e4 is protected and the centre stays closed.} d6 a3 {Keep the bishop safe from ...Na5-b3 ideas.}
+
+@ evans-gambit
+= 4...Bb6: Black declines | e4 e5 Nf3 Nc6 Bc4 Bc5 b4 Bb6 {Black declines the gambit pawn.} a4 {Threaten a5, trapping the bishop.} a6 Nc3 {Develop and head for d5.} Nf6 Nd5 {Jump into d5 and swap off Black's good knight.} Nxd5 exd5 Nd4 a5 {Push the bishop back.} Ba7 d3 {Calm play: White has space on the queenside.}
+= 5...Be7: a safe retreat | e4 e5 Nf3 Nc6 Bc4 Bc5 b4 Bxb4 c3 Be7 {Black retreats to a safe square.} d4 {Build the big centre the gambit was for.} Na5 Be2 {Keep the bishop away from the knight.} exd4 Qxd4 {Centralise the queen.} Nf6 e5 {Chase the knight with space-gaining moves.} Nc6 Qh4 {Keep the queen active on the kingside.}
+
+@ english
+= 1...c5: the Symmetrical | c4 c5 {Black copies White's first move.} Nc3 Nc6 g3 {Fianchetto: the bishop will rule the long diagonal.} g6 Bg2 Bg7 Nf3 Nf6 O-O O-O d4 {Open the centre while White is slightly ahead in development.} cxd4 Nxd4 {Recapture: the g2-bishop now pins the c6-knight in spirit.}
+= 4...Bb4: Black pins the knight | c4 e5 Nc3 Nf6 Nf3 Nc6 g3 Bb4 {Black pins the c3-knight instead of playing ...d5.} Bg2 O-O O-O e4 {Black kicks the knight.} Ne1 {The knight goes back but will return via c2.} Bxc3 dxc3 {Take towards the centre: open lines for the c1-bishop.} h6 Nc2 {The knight comes back to e3 or d4.}
+
+@ catalan
+= 4...Bb4+: Black checks first | d4 Nf6 c4 e6 g3 d5 Bg2 Bb4+ {Black checks to disturb White's development.} Bd2 {Block with a developing move.} Be7 Nf3 O-O O-O c6 Qc2 {Protect c4 and support e4 later.} b6 Rd1 {Rook to the d-file, behind the d-pawn.}
+= 4...dxc4 early: the pawn grab | d4 Nf6 c4 e6 g3 d5 Bg2 dxc4 {Black takes the pawn early.} Nf3 {Develop first; the pawn can be won back later.} Nc6 Qa4 {Pin the knight and attack c4.} Bb4+ Bd2 Nd5 Bxb4 Ndxb4 O-O {Castle. White wins the c4-pawn back soon with a better position.}
+
+@ open-game-black
+= 4.O-O: White castles first | e4 e5 Nf3 Nc6 Bc4 Bc5 O-O Nf6 {Develop and attack e4.} d3 d6 {Solid: guard e5 and open the c8-bishop.} c3 O-O {Castle. Now both kings are safe.} Re1 a6 {Make a home for the bishop on a7.} Bb3 Ba7 {The bishop is safe from d4 and b4 ideas.}
+= 5.d4: White opens the centre | e4 e5 Nf3 Nc6 Bc4 Bc5 c3 Nf6 d4 {White strikes in the centre at once.} exd4 {Take: don't let White push e5 with tempo.} cxd4 Bb4+ {Check: White's centre is less stable than it looks.} Bd2 Bxd2+ Nbxd2 d5 {Hit back in the centre: the key freeing move.} exd5 Nxd5 Qb3 Nce7 {Guard d5 and f7.} O-O O-O {Castle. Black has a comfortable position.}
+= 4.b4: the Evans Gambit | e4 e5 Nf3 Nc6 Bc4 Bc5 b4 Bxb4 {Take the pawn: it's free for now.} c3 Ba5 {Keep the bishop pinning along the diagonal.} d4 exd4 {Take: Black doesn't let White keep the big centre.} O-O Nge7 {The modern defence: the knight covers f5 and d5 and keeps f7 safe.} cxd4 d5 {Give back material to free the position.} exd5 Nxd5 {Black is safe and well developed.}
+
+@ caro-classical
+= 3.exd5: the Exchange Variation | e4 c6 d4 d5 exd5 {White swaps in the centre.} cxd5 {Take with the c-pawn: a symmetrical, solid structure.} Bd3 Nc6 {Develop and pressure d4.} c3 Nf6 Bf4 Bg4 {Develop the light-squared bishop outside the pawn chain.} Qb3 Qd7 {Guard b7 calmly.} Nd2 e6 {Solid. Black's bishop is outside and all is well.}
+= 4.c4: the Panov Attack | e4 c6 d4 d5 exd5 cxd5 c4 {White goes for an attack with an isolated pawn.} Nf6 {Pressure on d5.} Nc3 e6 {Solid: d5 is supported.} Nf3 Bb4 {Pin the knight that guards d5.} cxd5 Nxd5 Bd2 Nc6 Bd3 O-O {Castle. Black targets White's isolated d-pawn.}
+= 2.Nc3 3.Nf3: the Two Knights | e4 c6 Nc3 d5 Nf3 {White develops knights instead of playing d4.} Bg4 {Develop the bishop before ...e6.} h3 Bxf3 {Swap: Black wants a solid pawn wall.} Qxf3 e6 {Solid centre on the light squares.} d4 Nf6 {Develop. Black is comfortable.}
+
+@ scandinavian
+= 3.d4: White plays d4 first | e4 d5 exd5 Qxd5 d4 {White grabs the centre before attacking the queen.} Nf6 {Develop; the queen is fine on d5 for now.} Nf3 Bf5 {Bishop out before ...e6.} c4 {Now White kicks the queen.} Qa5+ {Check, then the queen settles on a5.} Nc3 c6 {Solid: the queen has a retreat on c7 and d5 is covered.}
+= 3.Nf3: White delays Nc3 | e4 d5 exd5 Qxd5 Nf3 {White develops and keeps options.} Nf6 d4 Bg4 {Pin the knight that guards d4.} Be2 e6 O-O Nc6 {Pressure on d4.} c4 {White kicks the queen.} Qd7 {Step back to d7: the queen still supports the pin and ...O-O-O is possible.}
+
+@ caro-advance
+= 4.Bd3: White swaps bishops | e4 c6 d4 d5 e5 Bf5 Bd3 {White offers to swap Black's good bishop.} Bxd3 {Accept: Black has no bad bishop left.} Qxd3 e6 Nf3 Qb6 {The queen eyes b2 and d4.} O-O c5 {Strike at the base of White's pawn chain.} c3 Nc6 {Pressure on d4 again.}
+= 4.c3: a calm set-up | e4 c6 d4 d5 e5 Bf5 c3 {White supports d4.} e6 Be2 c5 {Attack the pawn chain at its base.} Nf3 Nc6 O-O cxd4 cxd4 {Open the c-file.} Nge7 {The knight heads for f5 or c6 and d4 is under pressure.}
+
+@ french-advance
+= 6.Bd3: the Milner-Barry gambit | e4 e6 d4 d5 e5 c5 c3 Nc6 Nf3 Qb6 Bd3 {White's bishop leaves d4 short of protection.} cxd4 cxd4 Bd7 {Develop first; d4 can be taken next.} O-O {White offers the d4-pawn as a gambit.} Nxd4 {Accept.} Nxd4 Qxd4 Nc3 a6 {Stop Nb5 and keep the queen safe.} Qe2 Ne7 {Develop and get the king to safety soon.}
+= 6.Be2: White develops calmly | e4 e6 d4 d5 e5 c5 c3 Nc6 Nf3 Qb6 Be2 {A calm developing move.} cxd4 {Open the c-file.} cxd4 Nge7 {The knight heads for f5 to hit d4.} Nc3 Nf5 {Pressure on d4 from three pieces.}
+
+@ petrov
+= 5.Nc3: swap the knights | e4 e5 Nf3 Nf6 Nxe5 d6 Nf3 Nxe4 Nc3 {White offers to swap knights.} Nxc3 dxc3 Be7 {Develop and get ready to castle.} Be3 Nc6 Qd2 Be6 {Solid development.} O-O-O Qd7 {Black is fine: castle next and play ...O-O-O or ...O-O.}
+= 3.d4: the Steinitz attack | e4 e5 Nf3 Nf6 d4 {White opens the centre at once.} Nxe4 {Take: the knight is well placed on e4.} Bd3 d5 {Support the knight.} Nxe5 Nd7 {Challenge the strong e5-knight.} Nxd7 Bxd7 O-O Bd6 {Develop. Black is solid and active.}
+
+@ pirc
+= 4.f4: the Austrian Attack | e4 d6 d4 Nf6 Nc3 g6 f4 {White builds a huge centre.} Bg7 Nf3 c5 {Strike back at once at the centre.} dxc5 Qa5 {Win the pawn back with the queen.} Bd3 Qxc5 Qe2 O-O {Castle. Black's pieces are active.}
+= 4.Be3: the 150 Attack | e4 d6 d4 Nf6 Nc3 g6 Be3 {White plans Qd2 and Bh6.} c6 {Prepare ...b5: counterplay on the queenside.} Qd2 b5 {Gain space quickly.} Bd3 Nbd7 Nf3 e5 {Strike in the centre.}
+
+@ najdorf
+= 6.Bg5: the main line | e4 c5 Nf3 d6 d4 cxd4 Nxd4 Nf6 Nc3 a6 Bg5 {White pins the f6-knight.} e6 {Solid: the f8-bishop can come to e7.} f4 Be7 Qf3 Qc7 {The queen guards e5 and watches the c-file.} O-O-O Nbd7 {Develop and get ready for ...b5.}
+= 6.Be2: the Classical | e4 c5 Nf3 d6 d4 cxd4 Nxd4 Nf6 Nc3 a6 Be2 {A calm developing move.} e5 {Kick the knight and gain space.} Nb3 Be7 O-O O-O Be3 Be6 {Develop and aim for ...d5.}
+= 6.Bc4: the Fischer–Sozin | e4 c5 Nf3 d6 d4 cxd4 Nxd4 Nf6 Nc3 a6 Bc4 {The bishop aims at e6 and f7.} e6 {Blunt the bishop.} Bb3 b5 {Gain space and threaten ...b4.} O-O Be7 Qf3 Qc7 {Guard a8 and the c-file.}
+
+@ sicilian-dragon
+= 6.Be2: the Classical | e4 c5 Nf3 d6 d4 cxd4 Nxd4 Nf6 Nc3 g6 Be2 {A calm set-up with short castling.} Bg7 O-O O-O Be3 Nc6 Nb3 Be6 {Develop and prepare ...d5 or ...Na5-c4.}
+= 9.O-O-O: the key ...d5 break | e4 c5 Nf3 d6 d4 cxd4 Nxd4 Nf6 Nc3 g6 Be3 Bg7 f3 O-O Qd2 Nc6 O-O-O {White castles long at once.} d5 {The thematic break: open the centre while White's king is on c1.} exd5 Nxd5 Nxc6 bxc6 Bd4 e5 {Gain time on the bishop. Black has an active position.}
+
+@ qgd-black
+= 4.cxd5: the Exchange | d4 d5 c4 e6 Nc3 Nf6 cxd5 {White swaps in the centre.} exd5 {Take back with the e-pawn: the c8-bishop is free.} Bg5 c6 {Solid: the Carlsbad structure.} e3 Be7 Bd3 Nbd7 Qc2 O-O Nf3 Re8 {The rook supports ...Ne4 and ...Nf8.} O-O Nf8 {The knight guards h7 and heads for e6 or g6.}
+= 4.Nf3 5.Bf4: the modern Bf4 | d4 d5 c4 e6 Nc3 Nf6 Nf3 Be7 Bf4 {White puts the bishop on f4 instead of g5.} O-O e3 c5 {Strike back in the centre.} dxc5 Bxc5 a3 Nc6 Qc2 Qa5 {The queen pins the c3-knight. Black is comfortable.}
+= 3.g3: the Catalan | d4 d5 c4 e6 g3 {White fianchettoes the bishop.} Nf6 Bg2 Be7 Nf3 O-O O-O dxc4 {Take the pawn and try to keep it for a while.} Qc2 a6 {Prepare ...b5.} Qxc4 b5 Qc2 Bb7 {Fight for the long diagonal.}
+
+@ slav
+= 3.cxd5: the Exchange Slav | d4 d5 c4 c6 cxd5 {White swaps pawns.} cxd5 Nc3 Nf6 Bf4 Nc6 {Develop.} e3 Bf5 {Copy White's set-up: the position is equal.} Nf3 e6 Qb3 Bb4 {Counter-attack: the pin stops Qxb7 ideas.}
+= 4.e3: the quiet line | d4 d5 c4 c6 Nf3 Nf6 e3 {White protects c4 but locks the c1-bishop in.} Bf5 {Develop the bishop outside the pawn chain.} Nc3 e6 Nh4 {White chases the bishop.} Bg6 Nxg6 hxg6 {The open h-file is useful for Black's rook.} Bd3 Nbd7 {Solid development.}
+= 5.e3: the Meran-style pawn grab | d4 d5 c4 c6 Nf3 Nf6 Nc3 dxc4 e3 {White doesn't stop ...b5.} b5 {Keep the extra pawn for now.} a4 b4 {Kick the knight.} Na2 e6 Bxc4 Be7 {Develop. White has the pawn back; Black has space.}
+
+@ nimzo-indian
+= 4.Qc2: the Classical | d4 Nf6 c4 e6 Nc3 Bb4 Qc2 {White avoids doubled pawns.} O-O a3 Bxc3+ Qxc3 d5 {Take the centre.} Nf3 dxc4 Qxc4 b6 {The bishop will come to b7 or a6.}
+= 4.f3: White wants e4 | d4 Nf6 c4 e6 Nc3 Bb4 f3 {White prepares e4.} d5 {Stop e4 at once.} a3 Be7 e4 dxe4 fxe4 e5 {Strike back at White's centre.} d5 Bc5 {Active bishop. Black has good play.}
+= 4.Bg5: the Leningrad | d4 Nf6 c4 e6 Nc3 Bb4 Bg5 {White pins the knight.} h6 Bh4 c5 {Attack the centre.} d5 d6 e3 exd5 cxd5 Nbd7 {Solid development.}
+
+@ queens-indian
+= 4.a3: the Petrosian | d4 Nf6 c4 e6 Nf3 b6 a3 {White stops ...Bb4.} Bb7 Nc3 d5 {Fight for the centre.} cxd5 Nxd5 Qc2 Nxc3 bxc3 Be7 e4 O-O Bd3 c5 {Attack White's centre.}
+= 4.e3: a quiet set-up | d4 Nf6 c4 e6 Nf3 b6 e3 {White plays calmly.} Bb7 Bd3 d5 {Take your share of the centre.} O-O Bd6 b3 O-O Bb2 Nbd7 {Solid and equal.}
+
+@ dutch-stonewall
+= 2.c4 3.Nc3: classical development | d4 f5 c4 Nf6 Nc3 e6 e3 d5 {The Stonewall: pawns on d5, e6 and f5.} Nf3 c6 Bd3 Bd6 {The bishop aims at h2.} O-O O-O {Castle. Black's plan is ...Ne4 and a kingside attack.}
+= 2.Bg5: White attacks at once | d4 f5 Bg5 g6 {Avoid ...Nf6, which would let White double Black's pawns.} Nd2 Bg7 {The bishop is strong on the long diagonal.} c3 Nf6 {Now the knight comes out: the g7-bishop can recapture on f6.} e3 d6 Ngf3 O-O {Castle. Black is solid and ready for ...e5.}
+= 2.e4: the Staunton Gambit | d4 f5 e4 fxe4 {Take the gambit pawn.} Nc3 Nf6 Bg5 g6 {Fianchetto the bishop: it guards the knight on f6 and the king.} f3 {White wants the pawn back and open lines.} exf3 {Take again: White must spend a move recapturing.} Nxf3 Bg7 Bd3 O-O {Castle. Black has a safe king and an extra pawn for now.} O-O d6 {Solid: e5 and the c8-bishop are covered.}
+
+@ kid
+= 5.f3: the Sämisch | d4 Nf6 c4 g6 Nc3 Bg7 e4 d6 f3 {White builds a big centre and guards e4.} O-O Be3 e5 {Strike in the centre.} d5 Nh5 {Prepare ...f5.} Qd2 f5 {The key counter-attack.} O-O-O Nd7 {Develop and support ...f4 or ...Ndf6.}
+= 7.d5: the Petrosian | d4 Nf6 c4 g6 Nc3 Bg7 e4 d6 Nf3 O-O Be2 e5 d5 {White closes the centre.} a5 {Stop b4 and make room for ...Na6-c5.} Bg5 h6 Bh4 Na6 {The knight heads for c5.} Nd2 Qe8 {Unpin and get ready for ...Nh7 and ...f5.}
+= 3.Nf3 4.g3: the Fianchetto | d4 Nf6 c4 g6 Nf3 Bg7 g3 {White fianchettoes too.} O-O Bg2 d6 O-O Nbd7 Nc3 e5 {Strike in the centre.} e4 c6 {Support ...exd4 and ...Qb6 ideas.}
+
+@ grunfeld
+= 7.Bc4: the Classical Exchange | d4 Nf6 c4 g6 Nc3 d5 cxd5 Nxd5 e4 Nxc3 bxc3 Bg7 Bc4 {The bishop eyes f7.} c5 {Attack the centre at once.} Ne2 Nc6 Be3 O-O O-O Bg4 {Pressure on the e2-knight and d4.} f3 Na5 {Chase the c4-bishop.}
+= 4.Bf4: an early bishop | d4 Nf6 c4 g6 Nc3 d5 Bf4 {White develops the bishop first.} Bg7 e3 c5 {Strike the centre.} dxc5 Qa5 {Pin the knight and win back the pawn.} Rc1 dxc4 Bxc4 O-O Nf3 Qxc5 {Pawns level and Black is active.}
+= 5.Qb3: the Russian System | d4 Nf6 c4 g6 Nc3 d5 Nf3 Bg7 Qb3 {White attacks d5 with the queen.} dxc4 {Take: the queen must recapture.} Qxc4 O-O e4 a6 {Prepare ...b5 to chase the queen.} Be2 b5 Qb3 c5 {Strike at d4.}

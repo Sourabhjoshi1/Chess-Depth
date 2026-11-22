@@ -62,7 +62,7 @@ async function run(st, prog) {
 
   // Openings
   const data = await fetch("/assets/lab/openings.json").then((r) => r.json());
-  const rows = data.courses.map((c) => { const r = prog.openings[c.id]; const s = !r ? "Not started" : r.perfect >= 2 ? "Mastered" : r.learned ? "Learned" : "Started"; return { c, r, s }; });
+  const rows = data.courses.map((c) => { const r = prog.openings[c.id]; const s = !r ? "Not started" : (r.whole >= 1 || r.perfect >= 2) ? "Mastered" : r.learned ? "Learned" : "Started"; return { c, r, s }; });
   const counts = { Mastered: 0, Learned: 0, Started: 0 }; rows.forEach((x) => { if (counts[x.s] != null) counts[x.s]++; });
   set("pd-openings", `<p class="pd-small">${counts.Mastered} mastered · ${counts.Learned} learned · ${data.courses.length - counts.Mastered - counts.Learned - counts.Started} not started</p>
     <ul class="pd-list">${rows.map((x) => `<li><span>${esc(x.c.name)}</span><span class="pd-state pd-${x.s.replace(/\s/g, "").toLowerCase()}">${x.s}</span></li>`).join("")}</ul>`);

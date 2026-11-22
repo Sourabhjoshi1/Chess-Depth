@@ -71,7 +71,7 @@ async function build(prog) {
   ops.forEach((c) => {
     const n = c.line.length;
     list.push({ id: "op-" + c.id, cat: "openings", title: c.name, desc: c.intro, level: c.level, fen: c.final, flip: c.side === "b",
-      units: 3, unitName: "stage", meta: `${sideLabel[c.group] || ""} · ${Math.ceil(n / 2)} moves`, mins: 5 + Math.ceil(n / 3), href: `/lab/openings/#${c.id}`,
+      units: 3, unitName: "stage", meta: `${sideLabel[c.group] || ""} · ${Math.ceil(n / 2)} moves${c.variations && c.variations.length > 1 ? ` · ${c.variations.length} lines` : ""}`, mins: 5 + Math.ceil(n / 3), href: `/lab/openings/#${c.id}`,
       progress: (p) => { const r = p && p.openings[c.id]; return r ? (r.learned ? 1 : 0) + Math.min(2, r.perfect || 0) : 0; },
       started: (p) => !!(p && p.openings[c.id] && (p.openings[c.id].learned || p.openings[c.id].practiced)) });
   });
