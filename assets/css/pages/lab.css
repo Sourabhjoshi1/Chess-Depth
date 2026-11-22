@@ -702,7 +702,7 @@ html.dark .lab-bar .lab-offer b { color: #fdf6e3; }
 html.dark .lab-bar .lab-tab-row + .lab-tab-row { border-top-color: #273449; }
 @media (max-width: 900px) {
   .lab-bar .lab-tab-row .lab-tab { flex-direction: column; gap: .25rem; padding: .35rem .2rem .3rem; font-size: .72rem; text-align: center; justify-content: center; }
-  .lab-bar .lab-tab-row .lab-tab-tx { display: block !important; max-width: 100%; }
+  .lab-bar .lab-tab-row .lab-tab-tx { display: block !important; max-width: 100%; white-space: normal; overflow: visible; line-height: 1.15; overflow-wrap: anywhere; }
   .lab-bar .lab-tab-row .lab-tab[aria-current] { padding-right: .2rem; }
   .lab-bar .lab-tab-row .lab-tab[aria-current]::after { bottom: -.35rem; }
 }
