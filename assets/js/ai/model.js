@@ -1,7 +1,7 @@
 // ChessDepth AI - square classifier, run in the browser (no uploads, no libraries).
 // Network: 4 conv layers (3x3, ReLU, max-pool) + 2 dense layers, 32x32 grayscale input, 13 classes.
 // Two sets of weights with the same layout (float16 .bin, described by a .json):
-//   model2 (v0.4) is trained on 36 piece styles and is used on its own to line up the grid;
+//   model2 (v0.6) is trained on 34 piece styles, book diagrams, photographed pages and textured boards, and is used on its own to line up the grid;
 //   model  (v0.2) is the earlier network. The final read averages both, which is more reliable than either alone.
 export const CLASSES = [".", "P", "N", "B", "R", "Q", "K", "p", "n", "b", "r", "q", "k"];
 let W = null, W_OLD = null;

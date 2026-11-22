@@ -4,7 +4,7 @@ const [dir, det, guard, tag, fine] = process.argv.slice(2);
 const cases = JSON.parse(fs.readFileSync(dir + '/cases.json'));
 let perfect = 0, sq = 0, boxOk = 0, flips = 0; const out = [];
 for (const c of cases) {
-  const r = await read(dir + '/' + c.img, { detect: det && det !== '-' ? det : null, guard: guard && guard !== '-' ? +guard : null, fine: fine ? +fine : null });
+  const r = await read(dir + '/' + c.img, { site: process.env.SITE || undefined, detect: det && det !== '-' ? det : null, guard: guard && guard !== '-' ? +guard : null, fine: fine ? +fine : null });
   let n = 0; for (let i = 0; i < 64; i++) if (r.board[i] === c.board[i]) n++;
   const err = Math.max(Math.abs(r.box.x - c.x), Math.abs(r.box.y - c.y), Math.abs(r.box.size - c.size)) / (c.size / 8);   // in squares
   const ok = err < 0.25; if (ok) boxOk++; if (n === 64) perfect++; sq += n; if (!r.whiteBottom) flips++;

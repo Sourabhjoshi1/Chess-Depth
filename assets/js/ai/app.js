@@ -12,7 +12,7 @@ const ui = {
   issue: $("ai-issue"), best: $("ai-best"), bestOut: $("ai-best-out"), link: $("ai-link"), cam: $("ai-cam"),
   send: $("ai-send"), sendBtn: $("ai-send-btn"), sendMsg: $("ai-send-msg"), srcCol: $("ai-src-col"),
 };
-const VERSION = "v0.5";
+const VERSION = "v0.6";
 const tick = () => new Promise((r) => setTimeout(r, 0));
 const track = (n, p) => { try { if (typeof window.gtag === "function") window.gtag("event", n, p || {}); } catch (e) { /* ignore */ } };
 let img = null, box = null, turn = "w", whiteBottom = true, edited = false, scaleShown = 1, drawing = null;
