@@ -35,7 +35,7 @@ Key facts:
 - [ChessDepth AI]({{ site.url }}/ai/): turns a chess screenshot or book diagram into a board and FEN, in the browser.
 - Classes for families outside India, with time differences, fees in US$ and payment in local currency: [USA and Canada]({{ site.url }}/online-chess-classes-usa/), [Dubai and the UAE]({{ site.url }}/online-chess-classes-uae/), [Saudi Arabia]({{ site.url }}/online-chess-classes-saudi-arabia/), [Qatar, Kuwait and Bahrain]({{ site.url }}/online-chess-classes-qatar/), [UK and Europe]({{ site.url }}/online-chess-classes-uk/), [Singapore and Southeast Asia]({{ site.url }}/online-chess-classes-singapore/).
 - [Free chess resources]({{ site.url }}/lab/resources/): study roadmap, a free printable chess score sheet (A4 and US Letter PDF), Lichess game analyser, board editor, opening guide, endgame checklist and book list.
-- [Chess Lab]({{ site.url }}/lab/): 68 courses including interactive lessons on chess thinking, strategy and pawn structures, a dedicated positional-play section ({{ site.url }}/lab/positional/), a tactics trainer, Puzzle Streak, timed Puzzle Rush, 26 opening courses, an endgame trainer against Stockfish, a coordinates trainer and a progress dashboard.
+- [Chess Lab]({{ site.url }}/lab/): 68 courses including interactive lessons on chess thinking, strategy and pawn structures, a dedicated positional-play section ({{ site.url }}/lab/positional/), a tactics trainer, Depth Dive, timed Depth Sprint, 26 opening courses, an endgame trainer against Stockfish, a coordinates trainer and a progress dashboard.
 
 ## Free downloads (PDF)
 {% assign free = site.products | where: "price_inr", "0" | sort: "order" %}

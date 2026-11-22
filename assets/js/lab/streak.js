@@ -1,4 +1,4 @@
-// ChessDepth Chess Lab - Puzzle Streak: puzzles get harder each time; one mistake ends the run.
+// ChessDepth Chess Lab - Depth Dive: puzzles get harder each time; one mistake ends the run.
 import { startLabPage, toast, esc } from "./shell.js";
 import { award, recordStreakRun, streakLeaderboard, track, saveProgress } from "./lab-core.js";
 import { makeBoard, uciToSan } from "./board.js";
@@ -6,7 +6,7 @@ import { puzzlesNear, loadIndex } from "./puzzles.js";
 
 const START = 650, STEP = 50, MAX = 2700;
 
-startLabPage({ toolName: "Puzzle Streak", ready: run });
+startLabPage({ toolName: "Depth Dive", ready: run });
 
 async function run(st, prog) {
   const ui = {
@@ -73,7 +73,7 @@ async function run(st, prog) {
 
   async function solved() {
     score++; solvedRatings.push(cur.rating); renderScore();
-    setStatus(`Solved! Streak: ${score}`, "Next puzzle is a little harder…", "ok");
+    setStatus(`Solved! Depth: ${score}`, "Next puzzle is a little harder…", "ok");
     if (score === prog.pstreak.best + 1 && prog.pstreak.best > 0) toast(`<b>New personal best!</b> ${score} in a row.`);
     busy = true; await wait(700); busy = false; await nextPuzzle();
   }
@@ -85,9 +85,9 @@ async function run(st, prog) {
     const failFen = board.game.fen();
     let pts = score * 2 + (score >= 10 ? 10 : 0) + (score >= 20 ? 20 : 0) + (score >= 30 ? 30 : 0);
     const { newBest } = recordStreakRun(score);
-    const res = pts ? award(pts, `Puzzle Streak: ${score} in a row`) : { added: 0 };
+    const res = pts ? award(pts, `Depth Dive: ${score} in a row`) : { added: 0 };
     renderScore();
-    setStatus(`Streak over: ${score}`, newBest && score ? "That's a new personal best!" : `Your best is ${prog.pstreak.best}. Go again!`, newBest && score ? "ok" : "bad");
+    setStatus(`Dive over: ${score}`, newBest && score ? "That's a new personal best!" : `Your best is ${prog.pstreak.best}. Go again!`, newBest && score ? "ok" : "bad");
     ui.recap.innerHTML = `<p><b>The answer was:</b> ${esc(line.join(" "))}</p>
       <p><b>Puzzles solved:</b> ${score}${solvedRatings.length ? ` · hardest ${Math.max(...solvedRatings)}` : ""}</p>
       ${res.added ? `<p><b>Points:</b> +${res.added}</p>` : ""}

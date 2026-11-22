@@ -1,4 +1,4 @@
-// ChessDepth Chess Lab - Puzzle Rush: as many puzzles as you can in 3 or 5 minutes; three mistakes end the run.
+// ChessDepth Chess Lab - Depth Sprint: as many puzzles as you can in 3 or 5 minutes; three mistakes end the run.
 import { startLabPage, toast, esc } from "./shell.js";
 import { award, saveProgress, track, postRecord, recordBoard } from "./lab-core.js";
 import { makeBoard, uciToSan } from "./board.js";
@@ -6,7 +6,7 @@ import { puzzlesNear, loadIndex } from "./puzzles.js";
 
 const START = 600, STEP = 45, MAX = 2600, LIVES = 3;
 
-startLabPage({ toolName: "Puzzle Rush", ready: run });
+startLabPage({ toolName: "Depth Sprint", ready: run });
 
 async function run(st, prog) {
   const $ = (id) => document.getElementById(id);
@@ -72,9 +72,9 @@ async function run(st, prog) {
     R.history = (R.history || []).concat([[Date.now(), minutes, score]]).slice(-60);
     if (newBest && score) postRecord("rush" + minutes, score);
     const pts = score * 2 + (score >= 15 ? 10 : 0) + (score >= 25 ? 20 : 0) + (score >= 35 ? 30 : 0);
-    const res = pts ? award(pts, `Puzzle Rush ${minutes} min: ${score} solved`) : (saveProgress(), { added: 0 });
+    const res = pts ? award(pts, `Depth Sprint ${minutes} min: ${score} solved`) : (saveProgress(), { added: 0 });
     setStatus(`${reason}! ${score} solved`, newBest && score ? "New personal best!" : `Your best (${minutes} min): ${R[key] || 0}`, newBest && score ? "ok" : "");
-    if (newBest && score) toast(`<b>New Puzzle Rush best!</b> ${score} in ${minutes} minutes.`);
+    if (newBest && score) toast(`<b>New Depth Sprint best!</b> ${score} in ${minutes} minutes.`);
     const missed = results.filter((r) => !r.ok);
     ui.recap.innerHTML = `${res.added ? `<p><b>Points:</b> +${res.added}</p>` : ""}
       <p><b>Hardest solved:</b> ${results.filter((r) => r.ok).reduce((m, r) => Math.max(m, r.p.rating), 0) || "–"}</p>

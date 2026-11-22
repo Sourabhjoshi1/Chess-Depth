@@ -22,7 +22,7 @@ async function today(st, prog) {
   const ln = prog.lessons || {};
   if (!Object.keys(ln).length) steps.push(["/lab/learn/?c=cct", "fa-brain", "New lesson course: Checks, captures and threats", "Seven short lessons, about 12 minutes."]);
   if (egDone < 3) steps.push(["/lab/endgames/", "fa-chess-king", "Learn the queen checkmate", "The first lesson in the new Endgame trainer."]);
-  if (!(prog.rush && prog.rush.runs)) steps.push(["/lab/rush/", "fa-stopwatch", "Try Puzzle Rush", "How many can you solve in 3 minutes?"]);
+  if (!(prog.rush && prog.rush.runs)) steps.push(["/lab/rush/", "fa-stopwatch", "Try Depth Sprint", "How many can you solve in 3 minutes?"]);
   if (!(prog.coords && prog.coords.runs)) steps.push(["/lab/coordinates/", "fa-th", "Learn the board in 30 seconds", "The Coordinates trainer."]);
   steps.push(["/lab/tactics/", "fa-bolt", "Solve rated puzzles", `Your puzzle rating: ${Math.round(P.rating)}.`]);
   box.innerHTML = `<div class="lab-today-head"><div><p class="lab-hero-kicker">Today</p><h2 class="lab-h2">Welcome back, ${esc(firstName(st.user))}</h2></div>

@@ -45,7 +45,7 @@
     - title: Puzzles
       url: /lab/tactics/
       icon: fa-bolt
-      desc: Tactics trainer, Streak and Rush
+      desc: Tactics trainer, Depth Dive and Depth Sprint
     - title: Blindfold trainer
       url: /blindfold/
       icon: fa-eye-slash

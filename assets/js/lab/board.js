@@ -1,4 +1,4 @@
-// ChessDepth - board helper used by every board on the site (Daily Puzzle, Chess Lab tactics, Streak, Openings):
+// ChessDepth - board helper used by every board on the site (Daily Puzzle, Chess Lab tactics, Depth Dive, Openings):
 // chessboard-element (display, drag & drop) + chess.js (rules) + tap-to-move, move hints and last-move highlights.
 import { Chess } from "https://cdn.jsdelivr.net/npm/chess.js@1.0.0/dist/esm/chess.js";
 export { Chess };

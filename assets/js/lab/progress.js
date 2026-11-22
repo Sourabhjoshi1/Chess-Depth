@@ -19,10 +19,10 @@ async function run(st, prog) {
   set("pd-rating", `<p class="pd-label">Puzzle rating</p><p class="pd-big">${Math.round(P.rating)}</p><p class="pd-small">${P.solved} solved of ${P.attempted} tried · best run ${P.bestRun || 0}</p>`);
 
   const PS = prog.pstreak || { best: 0, runs: 0, last: 0 };
-  set("pd-pstreak", `<p class="pd-label">Puzzle Streak best</p><p class="pd-big"><i class="fas fa-fire-alt"></i> ${PS.best}</p><p class="pd-small">${PS.runs ? `${PS.runs} runs · last ${PS.last}` : `<a href="/lab/streak/">Play your first streak</a>`}</p>`);
+  set("pd-pstreak", `<p class="pd-label">Depth Dive best</p><p class="pd-big"><i class="fas fa-fire-alt"></i> ${PS.best}</p><p class="pd-small">${PS.runs ? `${PS.runs} runs · last ${PS.last}` : `<a href="/lab/streak/">Play your first streak</a>`}</p>`);
 
   const RU = prog.rush || {}, CO = (prog.coords || {}).best || {};
-  set("pd-rush", `<p class="pd-label">Puzzle Rush best</p><p class="pd-big"><i class="fas fa-stopwatch"></i> ${RU.best3 || 0} <small class="pd-unit">3 min</small></p><p class="pd-small">${RU.runs ? `5 min: ${RU.best5 || 0} · ${RU.runs} runs` : `<a href="/lab/rush/">Play your first rush</a>`}</p>`);
+  set("pd-rush", `<p class="pd-label">Depth Sprint best</p><p class="pd-big"><i class="fas fa-stopwatch"></i> ${RU.best3 || 0} <small class="pd-unit">3 min</small></p><p class="pd-small">${RU.runs ? `5 min: ${RU.best5 || 0} · ${RU.runs} runs` : `<a href="/lab/rush/">Play your first rush</a>`}</p>`);
   const cf = Math.max(CO["find-w"] || 0, CO["find-b"] || 0, CO["find-r"] || 0), cn = Math.max(CO["name-w"] || 0, CO["name-b"] || 0, CO["name-r"] || 0);
   set("pd-coords", `<p class="pd-label">Coordinates best</p><p class="pd-big"><i class="fas fa-th"></i> ${cf}</p><p class="pd-small">${(prog.coords || {}).runs ? `Find the square · Name the square: ${cn}` : `<a href="/lab/coordinates/">Try the 30-second drill</a>`}</p>`);
   const EG = prog.endgames || {}; let egPos = 0, egStars = 0; Object.values(EG).forEach((r) => Object.values(r.stars || {}).forEach((n) => { if (n) { egPos++; egStars += n; } }));

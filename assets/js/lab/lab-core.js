@@ -120,7 +120,7 @@ export function award(points, reason) {
   return res;
 }
 
-// ---------- Puzzle Streak ----------
+// ---------- Depth Dive ----------
 export function recordStreakRun(score) {
   const s = progress.pstreak, newBest = score > (s.best || 0);
   s.runs++; s.last = score; s.total += score; if (newBest) s.best = score;
@@ -133,7 +133,7 @@ export function recordStreakRun(score) {
   return { newBest };
 }
 
-// ---------- All-time records (Puzzle Rush, Coordinates): one row per member in streakBoard ----------
+// ---------- All-time records (Depth Sprint, Coordinates): one row per member in streakBoard ----------
 // field: "rush3", "rush5", "coordsFind", "coordsName". Returns true for a new personal best.
 export function postRecord(field, score) {
   if (mode === "firebase" && user) {
