@@ -1,0 +1,12 @@
+{
+ "date": "2026-11-23",
+ "fen": "r3r1k1/pp3pbp/1qp3p1/2B5/2BP2b1/Q1n2N2/P4PPP/3R1K1R b - - 3 17",
+ "move": "Be6",
+ "mark": "!!",
+ "line": ["Bxb6", "Bxc4+", "Kg1", "Ne2+", "Kf1", "Nxd4+"],
+ "white": "Donald Byrne",
+ "black": "Bobby Fischer",
+ "event": "New York, 1956",
+ "explain": "13-year-old Fischer leaves his queen to be taken. After Bxb6, the bishop checks on c4 and the knight starts a windmill of discovered checks, picking up pieces until Black has far more than a queen's worth.",
+ "idea": "Count the checks: a windmill can win back more than you gave."
+}
