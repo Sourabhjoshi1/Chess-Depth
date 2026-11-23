@@ -3,6 +3,7 @@ title: "World Chess Championship 2026: Gukesh vs Sindarov, the Complete Preview"
 headline: "Gukesh vs Sindarov: The Complete World Championship 2026 Preview"
 crumb: "World Championship 2026 preview"
 description: "Everything about the 2026 World Chess Championship in Geneva: Gukesh D vs Javokhir Sindarov, how both players got here, the format and prize fund, the head-to-head record, what Carlsen, Caruana, Kasparov, Nakamura and others predict, and ChessDepth's own view."
+author: Sourabh Joshi
 category: News
 level: All levels
 image: /assets/images/blog/og-wcc-2026-gukesh-sindarov.jpg
@@ -98,12 +99,11 @@ Most experts lean towards the challenger, but not all of them.
 
 **And the players themselves?** Sindarov puts his own chances at 50.1% against 49.9%. He says he is preparing for the best version of Gukesh, and reminds everyone that people expected Ding Liren to lose easily in 2024, yet that match was very close.
 
-## ChessDepth's view
+## My view
 
-> **"Gukesh has real chances, but Sindarov is the favourite. Anything can happen in a World Championship match, and we're really looking forward to it."**
-> Sourabh Joshi, founder, ChessDepth Academy
+> **Gukesh has real chances, but Sindarov is the favourite. Anything can happen in a World Championship match, and we're really looking forward to it.**
 
-We agree with the majority, with one big caution. Ratings and recent results favour Sindarov. But a 14-game match is a different sport from a tournament. Gukesh beat a higher-rated Ding Liren in 2024 by staying calm, fighting in every game and pouncing on one mistake at the very end. If he wins an early game, the pressure flips onto the challenger.
+I agree with the majority, with one big caution. Ratings and recent results favour Sindarov. But a 14-game match is a different sport from a tournament. Gukesh beat a higher-rated Ding Liren in 2024 by staying calm, fighting in every game and pouncing on one mistake at the very end. If he wins an early game, the pressure flips onto the challenger.
 
 ## What to watch for
 
@@ -122,6 +122,6 @@ A World Championship match is the best free chess lesson of the year. Here's how
 - **Replay each game** the next day in our free [Lichess game analyser](/lab/resources/), and look at the critical moment where the evaluation changed.
 - **Learn the openings** they play: many of them, such as the Italian, the Ruy Lopez and the Queen's Gambit, are in our free [opening courses](/lab/openings/).
 
-We'll be following every game. Who's your pick: Gukesh or Sindarov?
+We'll be following every game at ChessDepth. Who's your pick: Gukesh or Sindarov?
 
 *Sources: [FIDE: schedule, format and prize fund](https://www.fide.com/salesforce-fide-world-championship-match-2026-schedule-format-and-prize-fund-confirmed/), [FIDE: match preview](https://www.fide.com/?p=51815), [Chess.com: Carlsen on the match](https://www.chess.com/news/view/carlsen-calls-sindarov-significant-favorite-against-gukesh-rules-out-comeback), [Chess.com: Carlsen and Caruana predictions](https://www.chess.com/news/view/carlsen-caruana-gukesh-sindarov-predictions), [Chess.com: Gukesh on pressure](https://www.chess.com/news/view/gukesh-pressure-sindarov-world-championship), [Chess.com: Sindarov wins the World Cup](https://www.chess.com/news/view/2025-fide-world-cup-final-tiebreaks), [ChessBase: Sindarov wins the Candidates](https://en.chessbase.com/post/candidates-tournament-2026-o-13), [ChessBase: Olympiad 2026](https://en.chessbase.com/post/chess-olympiad-2026-11), [ESPN: Gukesh's 2026](https://www.espn.com/chess/story/_/id/49417280/gukesh-dommaraju-nightmare-2026-threatens-derail-world-championship-defence), [Zamin.uz: expert predictions](https://zamin.uz/en/sport/223202-battle-for-the-world-crown-why-the-chess-elite-considers-sindarov-the-favorite-against-gukesh.html), [Cyprus Mail: Sindarov interview](https://cyprus-mail.com/2026/09/02/sindarov-focuses-on-preparation-over-predictions-ahead-of-gukesh-title-clash), [Sports Digest: Praggnanandhaa](https://sportsdigest.in/praggnanandhaa-on-gukesh-vs-sindarov-clash/192835/), [Sports Digest: Anand](https://sportsdigest.in/viswanathan-anand-advises-gukesh/195412/), [The Pioneer: Sasikiran](https://dailypioneer.com/news/gukesh-must-improve-speed-technique-sasikiran), [Chessdom: betting markets](https://www.chessdom.com/javokhir-sindarov-is-a-clear-favorite-ahead-of-historic-world-chess-championship-2026-clash-with-gukesh/).*
