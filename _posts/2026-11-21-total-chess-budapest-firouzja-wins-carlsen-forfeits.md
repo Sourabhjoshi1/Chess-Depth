@@ -93,7 +93,7 @@ In Armageddon Black only needs a draw, so a draw here meant the title. Firouzja 
 - **Arjun Erigaisi** reached the final of his bracket but lost both days to Haik Martirosyan, finishing **10th**. On day two he led 9–3 going into the fast classic game, and that single game decided the day.
 - **R. Praggnanandhaa** won his last match comfortably and finished **21st**.
 - **R. Vaishali** had the result of the opening blitz, beating Hans Niemann and Wesley So, and later beat Arjun in the group stage. She finished **24th** after a very hard final day against Nodirbek Abdusattorov.
-- World Champion **Gukesh** did not play: his title match against Javokhir Sindarov starts in Geneva on 25 November.
+- World Champion **Gukesh** did not play: his title match against Javokhir Sindarov starts in Geneva, with game 1 on 24 November.
 
 ## The Carlsen forfeits
 
@@ -128,6 +128,6 @@ Opinions were sharply split:
 3. **A bad start can be recovered.** Firouzja lost the first day of the final and still won the title. Arjun led 9–3 and still lost the day. Nothing is decided until the last game ends.
 4. **Be complete.** The whole idea of Total Chess is that the best player should be strong at every speed. Practise blitz for intuition, rapid for decisions, and longer games for real calculation.
 
-Congratulations to Alireza Firouzja, the first Total Chess champion. We'll be following the tour, and the Gukesh–Sindarov World Championship match in Geneva, closely.
+Congratulations to Alireza Firouzja, the first Total Chess champion. We'll be following the tour, and the Gukesh–Sindarov World Championship match in Geneva ([read our full preview](/blog/world-chess-championship-2026-gukesh-vs-sindarov-preview/)), closely.
 
 *Games: [official Lichess broadcast](https://lichess.org/broadcast/total-chess-world-championship-tour-pilot-2026-finals/6PTzCQFL). Sources: [Chess.com](https://www.chess.com/news/view/firouzja-wins-2026-total-chess-world-championship-tour-pilot), [Chess.com, day 7](https://www.chess.com/news/view/2026-total-chess-world-championship-tour-pilot-day-7), [ChessBase India](https://chessbase.in/news/alireza-firouzja-wins-total-chess-world-championship-pilot-2026), [ChessBase](https://en.chessbase.com/post/total-chess-budapest-2026-ko-1), [FIDE](https://www.fide.com/?p=51838), [Outlook India](https://www.outlookindia.com/sports/others/magnus-carlsen-consecutive-forfeit-bibisara-assaubayeva-total-chess-world-championship-2026), [Total Chess](https://www.totalchess.com/).*
