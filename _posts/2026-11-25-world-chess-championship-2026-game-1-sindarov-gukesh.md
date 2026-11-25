@@ -21,6 +21,14 @@ The 2026 World Championship has begun with a draw, and it was not a quiet one. *
 
 For me this was a **hard-fought and well-deserved draw**. Neither player made a real mistake, and both had to play precise chess to keep the balance.
 
+<figure class="cd-board" style="max-width:820px">
+  <picture>
+    <source srcset="/assets/images/blog/wcc26-g1-handshake.webp" type="image/webp">
+    <img src="/assets/images/blog/wcc26-g1-handshake.jpg" alt="Javokhir Sindarov and Gukesh D shake hands across the board after the draw in Game 1 of the 2026 World Championship in Geneva, with the arbiter standing beside them." width="1600" height="1067" loading="lazy">
+  </picture>
+  <figcaption>The handshake: Sindarov and Gukesh after the draw in Game 1, Geneva. Photo: a friend of ChessDepth in Geneva.</figcaption>
+</figure>
+
 ## Game 1 at a glance
 
 | | |
