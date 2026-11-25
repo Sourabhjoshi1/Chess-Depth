@@ -26,7 +26,7 @@ For me this was a **hard-fought and well-deserved draw**. Neither player made a 
     <source srcset="/assets/images/blog/wcc26-g1-handshake.webp" type="image/webp">
     <img src="/assets/images/blog/wcc26-g1-handshake.jpg" alt="Javokhir Sindarov and Gukesh D shake hands across the board after the draw in Game 1 of the 2026 World Championship in Geneva, with the arbiter standing beside them." width="1600" height="1067" loading="lazy">
   </picture>
-  <figcaption>The handshake: Sindarov and Gukesh after the draw in Game 1, Geneva. Photo: a friend of ChessDepth in Geneva.</figcaption>
+  <figcaption>The handshake: Sindarov and Gukesh after the draw in Game 1, Geneva. Photo: Michal Walusza and Y.E. Nisenbaum / FIDE.</figcaption>
 </figure>
 
 ## Game 1 at a glance
@@ -53,6 +53,14 @@ Before the game, FIDE President **Timur Turlov** made the ceremonial first move 
 - [Replay it move by move on Lichess](https://lichess.org/broadcast/fide-world-chess-championship-2026/game-1/xLgOJ6cb/j7pdr7s2).
 
 ## The opening: Gukesh goes Berlin
+
+<figure class="cd-board" style="max-width:820px">
+  <picture>
+    <source srcset="/assets/images/blog/wcc26-g1-hall.webp" type="image/webp">
+    <img src="/assets/images/blog/wcc26-g1-hall.jpg" alt="Sindarov and Gukesh at the board during Game 1 at the Fondation Martin Bodmer in Geneva, with the flags of Uzbekistan, India, FIDE and Switzerland on either side." width="1200" height="780" loading="lazy">
+  </picture>
+  <figcaption>Game 1 under way at the Fondation Martin Bodmer, Geneva. Photo: Michal Walusza and Y.E. Nisenbaum / FIDE.</figcaption>
+</figure>
 
 Gukesh chose the **Berlin Defence**, the same wall Vladimir Kramnik built against Garry Kasparov in their 2000 match. Sindarov accepted the challenge with 4.O-O and allowed the famous **Berlin Endgame**: the queens come off on move 8, Black's king stays in the centre and loses the right to castle, and White has a healthy pawn majority on the kingside.
 
