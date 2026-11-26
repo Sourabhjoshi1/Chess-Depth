@@ -67,8 +67,8 @@ for r in range(11):
         if (r + c) % 2 == 0: tiles += f'<rect x="{c*S}" y="{r*S}" width="{S}" height="{S}" fill="#fff" opacity=".03"/>'
 
 d = datetime.date.fromisoformat(DAY["date"])
-# Main template (19 Nov 2026): just "White to move" under the title. Player names only if show_players is true.
-if DAY.get("show_players") and DAY.get("white") and DAY.get("black"):
+# Main template (19 Nov 2026). Player names and event when given; otherwise just "White to move".
+if DAY.get("white") and DAY.get("black"):
     sub_line = "  ·  ".join(x for x in [DAY.get("event",""), side + " to move"] if x)
     players_svg = (f'<text x="{W/2}" y="246" text-anchor="middle" font-family="Poppins" font-size="25" fill="{INK}">{esc(DAY["white"])}  –  {esc(DAY["black"])}</text>'
                    f'<text x="{W/2}" y="284" text-anchor="middle" font-family="Poppins" font-size="21" fill="{SUB}">{esc(sub_line)}</text>')

@@ -14,6 +14,6 @@ The board is shown from the side to move, with an arrow for the star move.
 The design of the 19 November 2026 image is the main template. Don't change it.
 
 - Serif ChessDepth heading and big move (EB Garamond, weight 600).
-- Under MOVE OF THE DAY: only "White to move" / "Black to move". Player names appear only with `"show_players": true`.
+- Under MOVE OF THE DAY: player names and event when they are known; otherwise just "White to move" / "Black to move".
 - Follow-up line starts with the reply's real number: `1...Kxd5 2.Bxc4+ ...`.
 - Footer: `www.chessdepth.in · info@chessdepth.in` on the left, "Train tactics in the Chess Lab" on the right.
