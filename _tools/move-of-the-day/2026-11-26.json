@@ -1,0 +1,12 @@
+{
+ "date": "2026-11-26",
+ "fen": "r6r/p5b1/kpnBp1q1/4Pnp1/2PpNp2/8/6PP/1R1R2K1 w - - 0 1",
+ "move": "Nc5+",
+ "mark": "!!",
+ "line": ["bxc5", "Rb5", "Rh3", "Ra1+", "Ra3", "Rxa3+", "Na5", "Raxa5#"],
+ "white": "Savitha Shri Baskar",
+ "black": "Pyrih",
+ "event": "2024",
+ "explain": "White is a queen down, but Black's king is stuck on a6. The knight check opens the b-file: after bxc5, Rb5! cuts off the king and Ra1+ finishes on the a-file. If 1...Ka5, then 2.Rb5 is already mate.",
+ "idea": "A king on the edge needs only a few checks: open the files around it."
+}

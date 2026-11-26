@@ -115,7 +115,7 @@ svg = f'''<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" viewB
 <text x="80" y="{y_idea}" font-family="Inter" font-size="24" fill="{INK}"><tspan font-weight="600" fill="{BRASS2}">Idea: </tspan>{esc(DAY["idea"])}</text>
 
 <line x1="80" y1="{H-104}" x2="{W-80}" y2="{H-104}" stroke="{BRASS}" stroke-width="1" opacity=".5"/>
-<text x="80" y="{H-62}" font-family="Poppins" font-weight="600" font-size="24" fill="{INK}">www.chessdepth.in</text>
+<text x="80" y="{H-62}" font-family="Poppins" font-weight="600" font-size="24" fill="{INK}">www.chessdepth.in<tspan font-weight="400" fill="{SUB}">  ·  info@chessdepth.in</tspan></text>
 <text x="{W-80}" y="{H-62}" text-anchor="end" font-family="Poppins" font-size="22" fill="{SUB}">Train tactics in the Chess Lab</text>
 </svg>'''
 out = f"ChessDepth-Move-of-the-Day-{DAY['date']}.png"
