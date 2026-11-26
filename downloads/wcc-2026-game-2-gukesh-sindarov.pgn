@@ -1,0 +1,14 @@
+[Event "Salesforce FIDE World Championship Match 2026"]
+[Site "Cologny, Geneva SUI"]
+[Date "2026.11.25"]
+[Round "2"]
+[White "Gukesh D"]
+[Black "Sindarov, Javokhir"]
+[Result "1/2-1/2"]
+[WhiteElo "2710"]
+[BlackElo "2782"]
+[ECO "D02"]
+[Opening "Queen's Pawn Game: London System"]
+[Annotator "Sourabh Joshi, ChessDepth (with Stockfish)"]
+
+1. d4 d5 2. Nf3 Nf6 3. Bf4 {The London System, a first for Gukesh at this level.} 3... c5 4. e3 e6 5. Nbd2 Nc6 6. c3 Be7 7. Ne5 Qb6 {Black's standard way to test the London: pressure on b2.} 8. Rb1 {Six minutes.} 8... Nxe5 9. Bxe5 {The safe recapture.} (9. dxe5 Ne4 10. Nxe4 dxe4 11. h4 {is sharper and gives White a little more, about +0.4.}) 9... Bd7 10. a4 O-O 11. Bd3 Qd8 {The queen goes back home. Gukesh needed 14 minutes for his reply.} 12. O-O Rc8 13. Ra1 Be8 14. Qe2 Nd7 15. Bg3 f5 {Grabbing space and stopping e4 for now.} 16. f3 {30 minutes. White prepares e4.} (16. a5 a6 17. h3 {was about as good.}) 16... Nf6 {Stops e4 at once.} 17. Be5 {Gukesh chooses the repetition.} (17. a5 Bd6 18. Bxd6 Qxd6 19. Rfc1 {keeps a tiny edge, about +0.25.}) 17... Nd7 18. Bg3 Nf6 19. Be5 Nd7 20. Bg3 Nf6 1/2-1/2
