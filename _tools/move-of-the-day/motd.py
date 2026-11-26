@@ -67,7 +67,8 @@ for r in range(11):
         if (r + c) % 2 == 0: tiles += f'<rect x="{c*S}" y="{r*S}" width="{S}" height="{S}" fill="#fff" opacity=".03"/>'
 
 d = datetime.date.fromisoformat(DAY["date"])
-if DAY.get("white") and DAY.get("black"):
+# Main template (19 Nov 2026): just "White to move" under the title. Player names only if show_players is true.
+if DAY.get("show_players") and DAY.get("white") and DAY.get("black"):
     sub_line = "  ·  ".join(x for x in [DAY.get("event",""), side + " to move"] if x)
     players_svg = (f'<text x="{W/2}" y="246" text-anchor="middle" font-family="Poppins" font-size="25" fill="{INK}">{esc(DAY["white"])}  –  {esc(DAY["black"])}</text>'
                    f'<text x="{W/2}" y="284" text-anchor="middle" font-family="Poppins" font-size="21" fill="{SUB}">{esc(sub_line)}</text>')
@@ -82,8 +83,8 @@ n0 = board0.fullmove_number
 big = f"{n0}.{star_san}{DAY['mark']}" if white_to_move else f"{n0}…{star_san}{DAY['mark']}"
 wtm = not white_to_move
 if not white_to_move: n = 2
-for m in line_san:
-    parts.append(f"{n}.{m}" if wtm else m)
+for i, m in enumerate(line_san):
+    parts.append(f"{n}.{m}" if wtm else (f"{n0}...{m}" if i == 0 else m))
     if not wtm: n += 1
     wtm = not wtm
 line_txt = DAY.get("line_display") or " ".join(parts)
@@ -99,7 +100,7 @@ svg = f'''<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" viewB
 <rect x="24" y="24" width="{W-48}" height="{H-48}" fill="none" stroke="{BRASS}" stroke-width="2" opacity=".6"/>
 
 <g transform="translate(70,58)"><g transform="scale(1.55)" fill="{INK}"><path d="{ROOK}"/></g>
-<text x="62" y="40" font-family="EB Garamond SemiBold" font-size="50" fill="{INK}">ChessDepth</text>
+<text x="62" y="40" font-family="EB Garamond" font-weight="600" font-size="50" fill="{INK}">ChessDepth</text>
 <text x="63" y="70" font-family="EB Garamond" font-style="italic" font-size="24" fill="{BRASS2}">Think Deep. Play Deeper!</text></g>
 <text x="{W-70}" y="88" text-anchor="end" font-family="Poppins" font-weight="500" font-size="22" fill="{SUB}">{esc(datestr)}</text>
 
@@ -109,7 +110,7 @@ svg = f'''<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" viewB
 <rect x="{BX-8}" y="{BY-8}" width="{BS+16}" height="{BS+16}" rx="10" fill="#0e1228" stroke="{BRASS}" stroke-width="2"/>
 {bsvg}
 
-<text x="80" y="{BY+BS+82}" font-family="EB Garamond SemiBold" font-size="74" fill="{INK}">{esc(big)}</text>
+<text x="80" y="{BY+BS+82}" font-family="EB Garamond" font-weight="600" font-size="74" fill="{INK}">{esc(big)}</text>
 <text x="82" y="{BY+BS+126}" font-family="Inter" font-weight="600" font-size="26" fill="{BRASS2}">{esc(line_txt)}</text>
 {ex_svg}
 <text x="80" y="{y_idea}" font-family="Inter" font-size="24" fill="{INK}"><tspan font-weight="600" fill="{BRASS2}">Idea: </tspan>{esc(DAY["idea"])}</text>
