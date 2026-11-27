@@ -1,0 +1,14 @@
+[Event "Salesforce FIDE World Championship Match 2026"]
+[Site "Cologny, Geneva SUI"]
+[Date "2026.11.26"]
+[Round "3"]
+[White "Sindarov, Javokhir"]
+[Black "Gukesh D"]
+[Result "1/2-1/2"]
+[WhiteElo "2782"]
+[BlackElo "2710"]
+[ECO "C67"]
+[Opening "Ruy Lopez: Berlin Defence, Rio de Janeiro Variation"]
+[Annotator "Sourabh Joshi, ChessDepth (with Stockfish)"]
+
+1. e4 e5 2. Nf3 Nc6 3. Bb5 Nf6 4. O-O Nxe4 5. d4 Be7 {The Rio de Janeiro Variation, an old line from the Lasker-Tarrasch match of 1908.} 6. Qe2 Nd6 7. Bxc6 bxc6 8. dxe5 Nf5 {Instead of the usual 8...Nb7. Gukesh played his first 15 moves in under three minutes.} 9. Qe4 g6 10. Nd4 Nxd4 11. Qxd4 d5 12. Nc3 Be6 13. Na4 Qb8 14. a3 Qb5 15. Be3 Qc4 16. b3 Qxd4 {Gukesh's first long think, 11 minutes. He chooses the safe queen trade.} (16... Qxc2 17. Rfc1 Qe4 18. Rxc6 {gives White the initiative.}) 17. Bxd4 Bf5 18. Ra2 a5 19. f3 h5 20. Re1 g5 {Black gains space on the kingside.} 21. c3 Kd7 22. Nc5+ Bxc5 23. Bxc5 Rhb8 24. b4 axb4 25. cxb4 Ra4 26. Raa1 Ke6 27. Bd4 Bd3 28. Re3 Bc4 29. f4 gxf4 30. Rf3 Rba8 31. h3 Kf5 32. g3 Ke6 33. Kg2 c5 {A pawn sacrifice that frees the d-pawn and the bishop.} 34. Bxc5 d4 35. Rxf4 Bd5+ 36. Kf2 d3 37. b5 {With 1 minute 20 seconds left. 37.Be3 was a little more accurate.} 37... Rxf4+ 38. gxf4 Bc4 39. Bb4 {Played with 8 seconds left: the bishop stops the d-pawn from d2.} 39... Bxb5 40. Rc1 c6 41. Ke3 Rg8 42. Ke4 f5+ 43. exf6 Rg2 44. Bc3 Re2+ 45. Kf3 c5 46. Re1 Bc6+ 47. Kg3 Rxe1 48. f5+ Kxf5 49. Bxe1 Kxf6 {Black is a pawn up, but bishops of opposite colours make it a draw.} 50. Kf4 Ke6 51. Ke3 Bb5 52. a4 Ba6 53. Kd2 Ke5 54. Bf2 Kf4 55. h4 Kg4 56. Kc3 Kf3 57. Be1 Ke2 58. Bd2 Kf3 59. Bg5 Ke2 60. Bd2 Kf3 1/2-1/2
