@@ -1,18 +1,37 @@
 ---
-title: "ChessDepth AI: Turn a Chess Screenshot into a Board and FEN (Beta)"
-description: "Free: upload a chess screenshot or book diagram and ChessDepth AI turns it into a board and FEN you can analyse on Lichess. Runs in your browser, nothing is uploaded."
+title: "ChessDepth AI: Free Best Move Finder from a Chess Screenshot or Diagram"
+description: "ChessDepth AI is a free chess best move finder: upload a screenshot, book diagram or photo of a printed board and get the position, the FEN and Stockfish's best move in seconds. Runs in your browser."
+image: /assets/images/og-ai.jpg
+image_alt: "ChessDepth AI: find the best move from any chess picture"
 head_scripts:
   - src: "https://cdn.jsdelivr.net/npm/chessboard-element@1.2.0/bundled/chessboard-element.bundled.js"
     type: module
 permalink: /ai/
 page_css: ai
 crumb: ChessDepth AI
+faq:
+  - q: "What is ChessDepth AI?"
+    a: "ChessDepth AI is a free tool from ChessDepth Academy that reads a chess position from a picture. Give it a screenshot, a book diagram or a phone photo of a printed board and it sets up the board, gives you the FEN and shows Stockfish's best move."
+  - q: "How do I find the best move from a chess screenshot?"
+    a: "Open [chessdepth.in/ai](https://www.chessdepth.in/ai/), then choose an image, take a photo or paste a screenshot with Ctrl+V. Check that the board matches your picture and pick White or Black to move. The best move appears by itself at the top, with an arrow on the board."
+  - q: "Is ChessDepth AI free? Do I need an account?"
+    a: "Yes, it is free during the beta and you don't need an account or sign-up. Just open the page and add an image."
+  - q: "Which pictures does it read?"
+    a: "Screenshots from chess websites and apps, diagrams from chess books and magazines, and phone photos of printed diagrams or flat 2D boards. Photos of real 3D boards are not supported yet; they are coming next."
+  - q: "Are my images uploaded anywhere?"
+    a: "No. The recognition and Stockfish both run inside your browser, so your picture never leaves your device. Data is sent only if you choose to send a corrected position to help train the model."
+  - q: "How strong is the best move?"
+    a: "It comes from Stockfish, the strongest chess engine, running in your browser. The first answer appears in about a second; press **Think longer** for a deeper search, or open the position on Lichess for full analysis."
+  - q: "What if a piece is read wrongly?"
+    a: "Drag the piece to the right square, drag a new piece on from the side, or drag a wrong piece off the board. The best move updates by itself after every change. If the picture shows the board from Black's side, press the flip button."
+  - q: "Can I copy the FEN or open the position on Lichess?"
+    a: "Yes. The FEN, the Lichess board editor and a shareable link are under the board, and the **Analyse on Lichess** button opens the position in Lichess analysis."
 ---
 
   <section class="ai-hero cd-hero-bg">
     <div class="ai-hero-in max-w-6xl mx-auto px-4 text-center">
       <p class="ai-status"><span class="ai-dot" aria-hidden="true"></span>Beta · free</p>
-      <h1 class="ai-title">Find the best move from any chess picture</h1>
+      <h1 class="ai-title"><span class="ai-brand"><i class="fas fa-chess-knight" aria-hidden="true"></i>ChessDepth AI</span><span class="ai-tag">Find the best move from any chess picture</span></h1>
       <p class="ai-lead ai-lead-c">Drop in a screenshot or a book diagram. ChessDepth AI sets up the board and Stockfish shows you the best move, in a few seconds.</p>
       <ol class="ai-how" aria-label="How it works">
         <li><span>1</span>Add an image</li>
@@ -123,6 +142,12 @@ crumb: ChessDepth AI
     <div class="ai-note"><h3>Your images stay with you</h3><p>The recognition runs inside your browser, so your pictures are never uploaded. If a read is wrong you can choose to send us the corrected squares to help training; nothing is sent unless you press that button.</p></div>
     <div class="ai-note"><h3>Made for coaches and students</h3><p>Turn positions from books, worksheets and games into boards you can study, share and practise from.</p></div>
   </section>
+
+  <div class="cd-faq-section max-w-4xl mx-auto px-4 pb-12">{% include faq.html title="ChessDepth AI: frequently asked questions" %}</div>
+
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"WebApplication","@id":"{{ '/ai/' | absolute_url }}#app","name":"ChessDepth AI","alternateName":["ChessDepth AI best move finder","Chess screenshot to FEN"],"url":"{{ '/ai/' | absolute_url }}","description":{{ page.description | jsonify }},"applicationCategory":"GameApplication","applicationSubCategory":"Chess analysis","operatingSystem":"Any (runs in a web browser)","browserRequirements":"Requires JavaScript and WebAssembly","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"softwareVersion":"0.7 (beta)","image":"{{ '/assets/images/og-ai.jpg' | absolute_url }}","featureList":["Reads chess positions from screenshots, book diagrams and photos of printed boards","Shows Stockfish's best move automatically, with an evaluation and the main line","Board editor to fix any piece","FEN export and one-click Lichess analysis","Runs in the browser; images are not uploaded"],"publisher":{"@id":"{{ site.url }}/#organization"},"inLanguage":"en"}
+  </script>
 
   <section class="px-4 pb-8">
     <div class="max-w-4xl mx-auto ai-cta">

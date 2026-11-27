@@ -242,3 +242,10 @@ html.dark .ai-col-src { border-color: #273449; }
   .ai-hero .ai-how { gap: .8rem 1.5rem; font-size: .95rem; margin-top: 2rem; }
   .ai-tool-wrap { padding-top: 1.75rem; }
 }
+
+/* product name in the hero */
+.ai-hero .ai-title { display: flex; flex-direction: column; align-items: center; gap: .6rem; }
+.ai-hero .ai-brand { display: inline-flex; align-items: center; gap: .9rem; font-size: clamp(2.8rem, 7vw, 5.2rem); line-height: 1.02; letter-spacing: -.025em; color: #fff; }
+.ai-hero .ai-brand i { font-size: .72em; color: #c7d2fe; }
+.ai-hero .ai-tag { font-size: clamp(1.45rem, 3vw, 2.5rem); font-weight: 700; line-height: 1.25; color: #e0e7ff; letter-spacing: -.01em; }
+html.dark .ai-hero .ai-brand { color: #fff; } html.dark .ai-hero .ai-tag { color: #e0e7ff; }
