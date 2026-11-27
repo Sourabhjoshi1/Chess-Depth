@@ -28,11 +28,11 @@ def page(c, doc):
     rook(c, M-6*1.36, H-25.5*mm-1.5*1.36, 1.36, colors.white)
     c.setFillColor(colors.white); c.setFont('Gar', 27); c.drawString(M+36, H-19.5*mm, 'ChessDepth')
     c.setFillColor(colors.HexColor('#d2ad6e')); c.setFont('GarI', 12); c.drawString(M+37, H-25.5*mm, 'Think Deep. Play Deeper!')
-    c.setFillColor(colors.white); c.setFont('PopM', 10.5); c.drawRightString(W-M, H-15.5*mm, 'ChessDepth Academy')
+    bx = W-M-pdfmetrics.stringWidth('ChessDepth Academy', 'PopM', 10.5)   # one left-aligned column, as wide as its title
+    c.setFillColor(colors.white); c.setFont('PopM', 10.5); c.drawString(bx, H-12.6*mm, 'ChessDepth Academy')
     c.setFillColor(colors.HexColor('#c9cde6')); c.setFont('Pop', 8.5)
-    c.drawRightString(W-M, H-20.5*mm, 'Live online chess coaching')
-    c.drawRightString(W-M, H-25*mm, 'www.chessdepth.in  |  WhatsApp +91 98230 29262')
-    c.drawRightString(W-M, H-29.5*mm, 'info@chessdepth.in')
+    for k, t in enumerate(['Live online chess coaching', 'WhatsApp +91 98230 29262', 'www.chessdepth.in', 'info@chessdepth.in']):
+        c.drawString(bx, H-(17.4+4.1*k)*mm, t)
     c.setStrokeColor(LINE); c.line(M, 16*mm, W-M, 16*mm)
     c.setFillColor(MUTE); c.setFont('Pop', 7.8)
     c.drawString(M, 11*mm, 'www.chessdepth.in  |  info@chessdepth.in  |  WhatsApp +91 98230 29262')
