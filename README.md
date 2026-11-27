@@ -67,7 +67,7 @@ Every board on the site uses one shared component (`assets/js/lab/board.js`): dr
 
 ### ChessDepth AI, in short
 
-The browser finds the board, cuts it into 64 squares and reads each one with two small neural networks (float16 weights, under 0.4 MB each) that check each other, then applies chess rules to tidy the result. **v0.6** (Nov 2026) was trained on squares from 34 piece styles: book diagrams, phone photos of printed pages, screen boards and wooden boards. On 60 test book diagrams it reads 49 perfectly (up from 33 in v0.5). A new version is only released if all the real test photos still read perfectly. Test and training kits: `_tools/ai-test/`, `_tools/ai-train/`.
+The browser finds the board, cuts it into 64 squares and reads each one with two small neural networks (float16 weights, under 0.4 MB each) that check each other, then applies chess rules to tidy the result. **v0.6** (Nov 2026) was trained on squares from 34 piece styles: book diagrams, phone photos of printed pages, screen boards and wooden boards. On 60 test book diagrams it reads 49 perfectly (up from 33 in v0.5). **v0.7** (27 Nov 2026) adds training on 896 extra board and piece-style combinations (rebuilt from the open Kaggle "Chess Positions" generator): on 100 boards of that kind it reads 59 perfectly (v0.6: 54), with the other test sets unchanged or better except one screen board (57 to 56). A new version is only released if all the real test photos still read perfectly. Test and training kits: `_tools/ai-test/`, `_tools/ai-train/`.
 
 ### Shop and content
 
@@ -147,7 +147,7 @@ Day-to-day editing (prices, coaches, products, jobs, Lab settings) is in **[EDIT
 
 ## Roadmap
 
-**Done in Oct–Nov 2026:** Chess Lab and Student Area live with Firebase · Puzzle of the Day · blindfold trainer · ChessDepth AI from v0.1 to v0.6 · opening branches and Whole opening mode · country pages for the USA, UK, Gulf and Singapore · free PDF books · chat assistant.
+**Done in Oct–Nov 2026:** Chess Lab and Student Area live with Firebase · Puzzle of the Day · blindfold trainer · ChessDepth AI from v0.1 to v0.7 · opening branches and Whole opening mode · country pages for the USA, UK, Gulf and Singapore · free PDF books · chat assistant.
 
 **Next:**
 - **ChessDepth AI:** photos of physical boards, and turning book pages and worksheets into puzzle sets
