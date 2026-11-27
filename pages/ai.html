@@ -10,43 +10,69 @@ crumb: ChessDepth AI
 ---
 
   <section class="ai-hero cd-hero-bg">
-    <div class="max-w-6xl mx-auto px-4 pt-10 pb-6 text-center">
+    <div class="max-w-6xl mx-auto px-4 pt-9 pb-16 text-center">
       <p class="ai-status"><span class="ai-dot" aria-hidden="true"></span>Beta · free</p>
-      <h1 class="ai-title">ChessDepth AI</h1>
-      <p class="ai-lead ai-lead-c">Turn a chess screenshot or book diagram into a board you can analyse. Every piece on the right square, plus the FEN, in a few seconds.</p>
+      <h1 class="ai-title">Find the best move from any chess picture</h1>
+      <p class="ai-lead ai-lead-c">Drop in a screenshot or a book diagram. ChessDepth AI sets up the board and Stockfish shows you the best move, in a few seconds.</p>
+      <ol class="ai-how" aria-label="How it works">
+        <li><span>1</span>Add an image</li>
+        <li><span>2</span>Check the board</li>
+        <li><span>3</span>See the best move</li>
+      </ol>
     </div>
   </section>
 
   <section class="ai-tool-wrap">
     <div class="max-w-6xl mx-auto px-4">
       <div id="ai-drop" class="ai-drop" tabindex="0">
-        <i class="fas fa-image ai-drop-ic" aria-hidden="true"></i>
-        <p class="ai-drop-h">Drop a chess image here, paste it (Ctrl+V), or</p>
-        <label class="ai-btn"><input id="ai-file" type="file" accept="image/*" class="sr-only"><i class="fas fa-upload"></i> Choose an image</label>
-        <label class="ai-ghost-btn ai-cam"><input id="ai-cam" type="file" accept="image/*" capture="environment" class="sr-only"><i class="fas fa-camera"></i> Take a photo of a diagram</label>
-        <p class="ai-drop-small">Screenshots from Lichess, Chess.com or any app, and diagrams from books and worksheets. Your image stays on your device: everything runs in your browser.</p>
-        <p class="ai-examples">Try an example: <button type="button" data-example="/assets/ai/examples/example-1.png">Screenshot</button> <button type="button" data-example="/assets/ai/examples/example-2.png">Book diagram</button> <button type="button" data-example="/assets/ai/examples/example-3.jpg">Wood-style board</button></p>
+        <i class="fas fa-chess-board ai-drop-ic" aria-hidden="true"></i>
+        <p class="ai-drop-h">Drop a chess image here or paste it (Ctrl+V)</p>
+        <div class="ai-drop-btns">
+          <label class="ai-btn ai-btn-lg"><input id="ai-file" type="file" accept="image/*" class="sr-only"><i class="fas fa-upload"></i> Choose an image</label>
+          <label class="ai-ghost-btn ai-cam"><input id="ai-cam" type="file" accept="image/*" capture="environment" class="sr-only"><i class="fas fa-camera"></i> Take a photo of a diagram</label>
+        </div>
+        <p class="ai-examples">No image handy? Try one: <button type="button" data-example="/assets/ai/examples/example-1.png">Screenshot</button> <button type="button" data-example="/assets/ai/examples/example-2.png">Book diagram</button> <button type="button" data-example="/assets/ai/examples/example-3.jpg">Wood-style board</button></p>
+        <p class="ai-drop-small"><i class="fas fa-lock" aria-hidden="true"></i> Your image never leaves your device. Everything runs in your browser.</p>
       </div>
 
       <div id="ai-work" class="ai-work hidden">
         <p id="ai-status" class="ai-status-line" role="status" aria-live="polite"></p>
         <div class="ai-cols">
-          <div class="ai-col" id="ai-src-col">
-            <p class="ai-col-h">Your image <span>· the green box is the board we found</span></p>
-            <div class="ai-src-wrap"><canvas id="ai-src" class="ai-src"></canvas></div>
-            <div class="ai-row"><button type="button" id="ai-adjust" class="ai-ghost-btn"><i class="fas fa-crop-alt"></i> Wrong area? Draw the box</button><button type="button" id="ai-again" class="ai-ghost-btn"><i class="fas fa-redo"></i> New image</button></div>
-          </div>
-          <div class="ai-col">
-            <p class="ai-col-h">Result <span>· drag pieces to fix, drag off to remove</span></p>
-            <chess-board id="ai-board" class="ai-board" draggable-pieces spare-pieces drop-off-board="trash"></chess-board>
+          <div class="ai-col ai-col-result">
+            <div id="ai-bm" class="ai-bm is-idle" aria-live="polite">
+              <div class="ai-bm-top">
+                <span class="ai-bm-label"><i class="fas fa-bolt" aria-hidden="true"></i> Best move</span>
+                <div class="ai-turn" role="group" aria-label="Side to move"><button type="button" id="ai-turn-w" aria-pressed="true">White to move</button><button type="button" id="ai-turn-b" aria-pressed="false">Black to move</button></div>
+              </div>
+              <div class="ai-bm-main">
+                <span id="ai-bm-move" class="ai-bm-move">…</span>
+                <span id="ai-bm-eval" class="ai-bm-eval"></span>
+              </div>
+              <div class="ai-bm-bar" aria-hidden="true"><span id="ai-bm-fill"></span></div>
+              <p id="ai-best-out" class="ai-bm-note">Reading the board first…</p>
+              <p id="ai-bm-line" class="ai-bm-line"></p>
+              <div class="ai-row ai-bm-actions">
+                <a id="ai-lichess" class="ai-btn" target="_blank" rel="noopener"><i class="fas fa-chess-knight"></i> Analyse on Lichess</a>
+                <button type="button" id="ai-best" class="ai-ghost-btn"><i class="fas fa-hourglass-half"></i> Think longer</button>
+              </div>
+            </div>
+
+            <div class="ai-board-wrap">
+              <chess-board id="ai-board" class="ai-board" draggable-pieces spare-pieces drop-off-board="trash"></chess-board>
+              <svg id="ai-arrow" class="ai-arrow" viewBox="0 0 800 800" aria-hidden="true"><defs><marker id="ai-ah" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="3.2" markerHeight="3.2" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#16a34a"/></marker></defs><line id="ai-arrow-line" x1="0" y1="0" x2="0" y2="0" stroke="#16a34a" stroke-width="22" stroke-linecap="round" marker-end="url(#ai-ah)" opacity="0"/></svg>
+            </div>
+            <p class="ai-board-tip"><i class="fas fa-hand-pointer" aria-hidden="true"></i> Wrong piece? Drag it to fix, or drag it off the board to remove it. The best move updates by itself.</p>
             <p id="ai-unsure" class="ai-unsure"></p>
             <p id="ai-issue" class="ai-issue hidden" role="status"></p>
-            <div class="ai-row ai-turn" role="group" aria-label="Side to move"><span>To move:</span><button type="button" id="ai-turn-w" aria-pressed="true">White</button><button type="button" id="ai-turn-b" aria-pressed="false">Black</button><button type="button" id="ai-flip" class="ai-ghost-btn" title="If the picture showed the board from Black's side"><i class="fas fa-sync-alt"></i> Picture was from Black's side</button></div>
-            <label class="ai-fen-l" for="ai-fen">FEN</label>
-            <div class="ai-fen-row"><input id="ai-fen" readonly spellcheck="false"><button type="button" id="ai-copy" class="ai-ghost-btn"><i class="far fa-copy"></i> Copy FEN</button></div>
-            <div class="ai-row"><a id="ai-lichess" class="ai-btn" target="_blank" rel="noopener"><i class="fas fa-chess-knight"></i> Analyse on Lichess</a><a id="ai-editor" class="ai-ghost-btn" target="_blank" rel="noopener"><i class="fas fa-pen"></i> Lichess board editor</a></div>
-            <div class="ai-row"><button type="button" id="ai-best" class="ai-ghost-btn ai-best-btn"><i class="fas fa-lightbulb"></i> Show the best move</button><button type="button" id="ai-link" class="ai-ghost-btn"><i class="fas fa-link"></i> Copy link</button></div>
-            <p id="ai-best-out" class="ai-best-out" aria-live="polite"></p>
+            <div class="ai-row"><button type="button" id="ai-flip" class="ai-ghost-btn" title="If the picture showed the board from Black's side"><i class="fas fa-sync-alt"></i> Picture was from Black's side</button><button type="button" id="ai-again" class="ai-ghost-btn"><i class="fas fa-redo"></i> New image</button></div>
+
+            <details class="ai-more">
+              <summary><i class="fas fa-share-alt" aria-hidden="true"></i> FEN, board editor and sharing</summary>
+              <label class="ai-fen-l" for="ai-fen">FEN</label>
+              <div class="ai-fen-row"><input id="ai-fen" readonly spellcheck="false"><button type="button" id="ai-copy" class="ai-ghost-btn"><i class="far fa-copy"></i> Copy FEN</button></div>
+              <div class="ai-row"><a id="ai-editor" class="ai-ghost-btn" target="_blank" rel="noopener"><i class="fas fa-pen"></i> Lichess board editor</a><button type="button" id="ai-link" class="ai-ghost-btn"><i class="fas fa-link"></i> Copy link</button></div>
+            </details>
+
             <p id="ai-feedback" class="ai-feedback"><span>Did it read the position correctly?</span> <button type="button" id="ai-good">Yes</button> <button type="button" id="ai-bad">No</button></p>
             <div id="ai-send" class="ai-send hidden">
               <p><b>Help train ChessDepth AI.</b> Fix the board above so it matches your image, then send it. We receive only 64 small grey squares cut from the board and the corrected position, with no name or account details.</p>
@@ -54,9 +80,14 @@ crumb: ChessDepth AI
               <p id="ai-send-msg" class="ai-send-msg" aria-live="polite"></p>
             </div>
           </div>
+          <div class="ai-col ai-col-src" id="ai-src-col">
+            <p class="ai-col-h">Your image <span>· the green box is the board we found</span></p>
+            <div class="ai-src-wrap"><canvas id="ai-src" class="ai-src"></canvas></div>
+            <div class="ai-row"><button type="button" id="ai-adjust" class="ai-ghost-btn"><i class="fas fa-crop-alt"></i> Wrong area? Draw the box</button></div>
+          </div>
         </div>
       </div>
-      <p class="ai-beta-note"><i class="fas fa-flask"></i> Beta v0.7: now trained on hundreds more board and piece designs, on top of book diagrams, phone photos of printed pages and wooden boards. Two networks check each other on every square. Works best with clear, flat 2D boards. Photos of real boards are coming next.</p>
+      <p class="ai-beta-note"><i class="fas fa-flask"></i> Beta v0.7: trained on hundreds of board and piece designs, book diagrams, phone photos of printed pages and wooden boards. Works best with clear, flat 2D boards. Photos of real boards are coming next.</p>
     </div>
   </section>
   <script type="module" src="/assets/js/ai/app.js?v={{ site.time | date: "%s" }}"></script>
@@ -67,7 +98,7 @@ crumb: ChessDepth AI
       <div class="ai-feature"><i class="fas fa-chess-board"></i><h3>A clean 2D board</h3><p>Every piece recognised and placed on a standard ChessDepth board, whatever the original style.</p></div>
       <div class="ai-feature"><i class="fas fa-th"></i><h3>Coordinates</h3><p>Files a–h and ranks 1–8, with the board turned the right way round for White and Black.</p></div>
       <div class="ai-feature"><i class="fas fa-code"></i><h3>The FEN</h3><p>The position in standard notation, ready to copy into Lichess, Chess.com or any chess program.</p></div>
-      <div class="ai-feature"><i class="fas fa-microscope"></i><h3>Best move and analysis</h3><p>See Stockfish's best move and who is better right on the page, or open the position on Lichess to go deeper.</p></div>
+      <div class="ai-feature"><i class="fas fa-microscope"></i><h3>The best move</h3><p>Stockfish's best move appears by itself, with an arrow on the board and who is better. Open Lichess to go deeper.</p></div>
     </div>
     <p class="ai-fen-example">Example FEN for the position above: <code>{{ "r1bqk2r/1pppbppp/p1n2n2/4p3/B3P3/5N2/PPPP1PPP/RNBQ1RK1 w kq - 4 6" }}</code></p>
   </section>

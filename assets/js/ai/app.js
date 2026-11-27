@@ -11,6 +11,7 @@ const ui = {
   again: $("ai-again"), good: $("ai-good"), bad: $("ai-bad"), fb: $("ai-feedback"),
   issue: $("ai-issue"), best: $("ai-best"), bestOut: $("ai-best-out"), link: $("ai-link"), cam: $("ai-cam"),
   send: $("ai-send"), sendBtn: $("ai-send-btn"), sendMsg: $("ai-send-msg"), srcCol: $("ai-src-col"),
+  bm: $("ai-bm"), bmMove: $("ai-bm-move"), bmEval: $("ai-bm-eval"), bmFill: $("ai-bm-fill"), bmLine: $("ai-bm-line"), arrow: $("ai-arrow-line"),
 };
 const VERSION = "v0.7";
 const tick = () => new Promise((r) => setTimeout(r, 0));
@@ -49,8 +50,9 @@ async function run(manualBox) {
   const id = ++runId;
   ui.drop.classList.add("hidden"); ui.work.classList.remove("hidden"); ui.srcCol.classList.remove("hidden"); edited = false; ui.fb.classList.remove("hidden");
   ui.good.disabled = false; ui.bad.disabled = false; ui.fb.querySelector("span").textContent = "Did it read the position correctly?";
-  ui.send.classList.add("hidden"); ui.bestOut.textContent = ""; clearMarks();
-  say("Finding the board…");
+  ui.send.classList.add("hidden"); clearMarks(); bmState("idle", "Reading the board first…");
+  ui.work.scrollIntoView({ block: "start", behavior: "smooth" });
+  say("Step 1 of 3 · Finding the board…");
   await new Promise((r) => setTimeout(r, 20));
   // work on a copy at most 900px wide for detection
   const sc = Math.min(1, 900 / Math.max(img.naturalWidth, img.naturalHeight));
@@ -69,16 +71,16 @@ async function run(manualBox) {
   drawSource();
   const model = await modelReady;
   if (!model) return say("The recognition model couldn't load. Please refresh the page and try again.", "bad");
-  say("Reading the pieces…"); await new Promise((r) => setTimeout(r, 20));
+  say("Step 2 of 3 · Reading the pieces…"); await new Promise((r) => setTimeout(r, 20));
   const t0 = performance.now();
   let big = drawBoard(box), probs = readSquares(big);
   // 1) Line the grid up exactly: nudge and resize the box while the model gets more sure of what it sees.
-  say("Lining up the squares…"); await tick();
+  say("Step 2 of 3 · Lining up the squares…"); await tick();
   const fit = await refine(box, probs, !!manualBox, id);
   if (id !== runId) return;
   if (fit.changed) { box = fit.box; big = drawBoard(box); drawSource(); }
   // The final read uses both networks together.
-  say("Reading the pieces…"); await tick();
+  say("Step 2 of 3 · Reading the pieces…"); await tick();
   probs = readSquares(big, null, 0, 0, true);
   // 2) Second look at any square the model is unsure about, from four slightly shifted views.
   probs.forEach((p, i) => {
@@ -95,7 +97,7 @@ async function run(manualBox) {
   showResult(res);
   const ms = Math.round(performance.now() - t0);
   track("ai_result", { pieces: res.count, unsure: res.unsure.length, ms, refined: fit.changed, version: VERSION });
-  say(res.count ? `Done! ${res.count} pieces found${res.unsure.length ? `. Please check the highlighted squares.` : "."} Drag pieces on the board to fix anything.` : "No pieces found. Try drawing a box around the board.", res.count ? "ok" : "bad");
+  say(res.count ? `Board ready: ${res.count} pieces found${res.unsure.length ? `. Please check the orange squares.` : "."} Step 3 of 3 · Finding the best move…` : "No pieces found. Try drawing a box around the board.", res.count ? "ok" : "bad");
 }
 
 // the board area of the image, straightened to 512 x 512 (64 px per square)
@@ -211,7 +213,8 @@ function updateFen() {
   ui.fen.value = fen;
   const problem = issueWith(fen, pos); const ok = !problem;
   ui.issue.textContent = problem; ui.issue.classList.toggle("hidden", ok);
-  ui.best.disabled = !ok; ui.bestOut.textContent = ""; clearMarks();
+  ui.best.disabled = !ok; clearMarks();
+  if (ok) scheduleBest(); else { bestId++; bmState("bad", problem); }
   ui.lichess.href = "https://lichess.org/analysis/standard/" + fen.replace(/ /g, "_");
   ui.editor.href = "https://lichess.org/editor/" + fen.replace(/ /g, "_");
   ui.lichess.classList.toggle("is-disabled", !ok);
@@ -225,7 +228,7 @@ function issueWith(fen, pos) {
   if (Object.entries(pos).some(([sq, p]) => p[1] === "P" && (sq[1] === "1" || sq[1] === "8"))) return "Pawns can't stand on the first or last rank.";
   try {
     const other = new Chess(fen.replace(/ [wb] /, turn === "w" ? " b " : " w ").replace(/ [KQkq-]+ /, " - "));
-    if (other.isCheck()) return `${turn === "w" ? "Black" : "White"}'s king is in check, so it must be ${turn === "w" ? "Black" : "White"} to move. Switch "To move" above.`;
+    if (other.isCheck()) return `${turn === "w" ? "Black" : "White"}'s king is in check, so it must be ${turn === "w" ? "Black" : "White"} to move. Switch the "to move" button.`;
     new Chess(fen);
   } catch (e) { return "This position isn't legal yet. Check the kings and pawns."; }
   return "";
@@ -235,26 +238,59 @@ function markSquares(list, colour) {
   sr.querySelectorAll("[data-square]").forEach((el) => { if (list.includes(el.dataset.square)) el.style.boxShadow = `inset 0 0 0 4px ${colour}`; });
 }
 function clearMarks() { const sr = ui.board.shadowRoot; if (sr) sr.querySelectorAll("[data-square]").forEach((el) => { el.style.boxShadow = ""; }); }
-// Best move from Stockfish (runs in the browser, loaded only when asked for).
-ui.best.addEventListener("click", async () => {
-  if (ui.best.disabled) return;
-  const fen = ui.fen.value; ui.best.disabled = true; ui.bestOut.innerHTML = '<i class="fas fa-circle-notch fa-spin"></i> Stockfish is thinking…';
+// ---------- best move (Stockfish in the browser), shown automatically ----------
+let bestId = 0, bestTimer = null;
+function bmState(kind, note) {
+  ui.bm.className = "ai-bm is-" + kind;
+  if (kind !== "done") { ui.bmMove.textContent = kind === "think" ? "" : "–"; ui.bmEval.textContent = ""; ui.bmLine.textContent = ""; ui.bmFill.style.width = "50%"; hideArrow(); }
+  if (kind === "think") ui.bmMove.innerHTML = '<i class="fas fa-circle-notch fa-spin" aria-hidden="true"></i>';
+  ui.bestOut.textContent = note || "";
+}
+function scheduleBest() { clearTimeout(bestTimer); bestTimer = setTimeout(() => analyse(1200), 350); }
+async function analyse(ms) {
+  const fen = ui.fen.value, id = ++bestId;
+  bmState("think", ms > 2000 ? "Stockfish is thinking longer…" : "Stockfish is thinking…"); ui.best.disabled = true;
   try {
     const { bestMove } = await import("../lab/engine.js");
-    const r = await bestMove(fen, 1500);
-    if (fen !== ui.fen.value) return;
-    if (!r.move || r.move === "(none)") { ui.bestOut.textContent = new Chess(fen).isCheckmate() ? "It's checkmate: there is no move to find." : "No legal moves: stalemate."; return; }
+    const r = await bestMove(fen, ms);
+    if (id !== bestId || fen !== ui.fen.value) return;
+    if (!r.move || r.move === "(none)") { bmState("done"); ui.bmMove.textContent = "–"; ui.bestOut.textContent = new Chess(fen).isCheckmate() ? "It's checkmate: there is no move to find." : "No legal moves: it's stalemate."; return; }
     const g = new Chess(fen), mv = g.move({ from: r.move.slice(0, 2), to: r.move.slice(2, 4), promotion: r.move[4] });
-    const sc = r.score || {}, sign = turn === "w" ? 1 : -1; let verdict;
-    if (sc.mate != null) verdict = `${(sc.mate > 0) === (turn === "w") ? "White" : "Black"} mates in ${Math.abs(sc.mate)}`;
-    else { const cp = (sc.cp || 0) * sign, a = Math.abs(cp), who = cp > 0 ? "White" : "Black";
-      verdict = (a < 30 ? "The position is equal" : a < 100 ? `${who} is slightly better` : a < 300 ? `${who} is clearly better` : `${who} is winning`) + (a < 5 ? " (0.0)" : ` (${cp > 0 ? "+" : ""}${(cp / 100).toFixed(1)})`); }
-    ui.bestOut.innerHTML = `Best move: <b>${mv.san}</b> · ${verdict}`;
-    clearMarks(); markSquares([mv.from, mv.to], "rgba(22,163,74,.9)");
-    track("ai_best_move", {});
-  } catch (e) { ui.bestOut.textContent = "Stockfish couldn't start in this browser. Use the Lichess button instead."; }
-  finally { ui.best.disabled = !!issueWith(ui.fen.value, ui.board.position || {}); }
-});
+    const sc = r.score || {}, sign = turn === "w" ? 1 : -1; let verdict, evalTxt, whiteShare;
+    if (sc.mate != null) { const white = (sc.mate > 0) === (turn === "w"); verdict = `${white ? "White" : "Black"} mates in ${Math.abs(sc.mate)}`; evalTxt = `M${Math.abs(sc.mate)}`; whiteShare = white ? 100 : 0; }
+    else {
+      const cp = (sc.cp || 0) * sign, a = Math.abs(cp), who = cp > 0 ? "White" : "Black";
+      verdict = a < 30 ? "The position is equal" : a < 100 ? `${who} is slightly better` : a < 300 ? `${who} is clearly better` : `${who} is winning`;
+      evalTxt = a < 5 ? "0.0" : `${cp > 0 ? "+" : ""}${(cp / 100).toFixed(1)}`;
+      whiteShare = 50 + 50 * (2 / (1 + Math.exp(-cp / 250)) - 1);
+    }
+    // main line in SAN, numbered from the side to move
+    const line = new Chess(fen), sans = [];
+    for (const u of (r.pv || []).slice(0, 6)) { try { sans.push(line.move({ from: u.slice(0, 2), to: u.slice(2, 4), promotion: u[4] }).san); } catch (e) { break; } }
+    let txt = "", n = 1, w = turn === "w";
+    sans.forEach((m, k) => { if (w) txt += `${n}.${m} `; else { txt += k === 0 ? `${n}...${m} ` : `${m} `; n++; } w = !w; });
+    bmState("done", verdict);
+    ui.bmMove.textContent = mv.san; ui.bmEval.textContent = evalTxt; ui.bmFill.style.width = whiteShare.toFixed(1) + "%";
+    ui.bmLine.textContent = sans.length > 1 ? "Line: " + txt.trim() : "";
+    clearMarks(); markSquares([mv.from, mv.to], "rgba(22,163,74,.85)"); showArrow(mv.from, mv.to);
+    if (ui.status.className.includes("ok") && /Step 3/.test(ui.status.textContent)) say(ui.status.textContent.replace(/ Step 3 of 3 · Finding the best move…/, " Here is the best move."), "ok");
+    track("ai_best_move", { auto: ms < 2000 });
+  } catch (e) { if (id === bestId) bmState("bad", "Stockfish couldn't start in this browser. Use the Lichess button instead."); }
+  finally { if (id === bestId) ui.best.disabled = !!issueWith(ui.fen.value, ui.board.position || {}); }
+}
+ui.best.addEventListener("click", () => { if (!ui.best.disabled) analyse(4000); });
+function sqXY(sq) {
+  const f = "abcdefgh".indexOf(sq[0]), r = Number(sq[1]) - 1, white = ui.board.orientation !== "black";
+  return [((white ? f : 7 - f) + 0.5) * 100, ((white ? 7 - r : r) + 0.5) * 100];
+}
+function showArrow(from, to) {
+  const [x1, y1] = sqXY(from), [x2, y2] = sqXY(to), dx = x2 - x1, dy = y2 - y1, L = Math.hypot(dx, dy) || 1;
+  const svg = ui.arrow.ownerSVGElement, bd = ui.board.shadowRoot && ui.board.shadowRoot.querySelector('[part~="board"]');
+  if (bd) { const wr = svg.parentElement.getBoundingClientRect(), br = bd.getBoundingClientRect();
+    Object.assign(svg.style, { left: (br.left - wr.left) + "px", top: (br.top - wr.top) + "px", width: br.width + "px", height: br.height + "px" }); }
+  const a = ui.arrow; a.setAttribute("x1", x1 + dx / L * 18); a.setAttribute("y1", y1 + dy / L * 18); a.setAttribute("x2", x2 - dx / L * 34); a.setAttribute("y2", y2 - dy / L * 34); a.setAttribute("opacity", ".8");
+}
+function hideArrow() { if (ui.arrow) ui.arrow.setAttribute("opacity", "0"); }
 ui.link.addEventListener("click", async () => {
   const url = location.origin + "/ai/?fen=" + encodeURIComponent(ui.fen.value);
   try { await navigator.clipboard.writeText(url); ui.link.innerHTML = '<i class="fas fa-check"></i> Link copied'; } catch (e) { ui.fen.value = url; ui.fen.select(); ui.link.innerHTML = "Link is in the box: copy it"; return; }
@@ -290,7 +326,7 @@ ui.sendBtn.addEventListener("click", async () => {
 });
 
 let quiet = false; // setPosition from the model also fires "change"; only user edits count
-ui.board.addEventListener("change", () => { if (quiet) return; edited = true; setTimeout(() => { updateFen(); highlightUnsure([]); ui.unsure.textContent = ""; }, 0); });
+ui.board.addEventListener("change", () => { if (quiet) return; edited = true; hideArrow(); setTimeout(() => { updateFen(); highlightUnsure([]); ui.unsure.textContent = ""; }, 0); });
 ui.turnW.addEventListener("click", () => { turn = "w"; updateFen(); });
 ui.turnB.addEventListener("click", () => { turn = "b"; updateFen(); });
 ui.flip.addEventListener("click", () => { // the picture was the other way round: mirror the whole position

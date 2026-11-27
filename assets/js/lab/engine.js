@@ -14,11 +14,11 @@ export function loadEngine() {
 // Best move at full strength. Score is from the side to move: { cp } or { mate } (positive = good for the mover).
 export function bestMove(fen, movetime = 500) {
   const job = queue.then(() => loadEngine()).then((w) => new Promise((resolve) => {
-    let score = null;
+    let score = null, pv = [];
     w.onmessage = (e) => {
       const l = String(e.data);
-      const m = l.match(/ score (cp|mate) (-?\d+)/); if (m && / pv /.test(l)) score = m[1] === "cp" ? { cp: Number(m[2]) } : { mate: Number(m[2]) };
-      if (l.startsWith("bestmove")) resolve({ move: l.split(" ")[1], score });
+      const m = l.match(/ score (cp|mate) (-?\d+)/); if (m && / pv /.test(l)) { score = m[1] === "cp" ? { cp: Number(m[2]) } : { mate: Number(m[2]) }; pv = l.split(" pv ")[1].trim().split(/\s+/); }
+      if (l.startsWith("bestmove")) resolve({ move: l.split(" ")[1], score, pv });
     };
     w.postMessage("setoption name UCI_LimitStrength value false"); w.postMessage("setoption name Skill Level value 20");
     w.postMessage(`position fen ${fen}`); w.postMessage(`go movetime ${movetime}`);
