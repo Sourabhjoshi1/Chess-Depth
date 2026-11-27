@@ -21,6 +21,14 @@ This was the game the match needed. After a quiet Game 2, **Gukesh D** came to G
 
 The match is level at **1½–1½**, and Friday is the first rest day.
 
+<figure class="cd-board" style="max-width:820px">
+  <picture>
+    <source srcset="/assets/images/blog/wcc26-g3-handshake.webp" type="image/webp">
+    <img src="/assets/images/blog/wcc26-g3-handshake.jpg" alt="Javokhir Sindarov and Gukesh D shake hands across the board before Game 3, as the arbiter starts the clock." width="1600" height="1067" loading="lazy">
+  </picture>
+  <figcaption>Sindarov and Gukesh shake hands before Game 3 as the arbiter starts the clock. Photo: Michal Walusza, Yoav Nis / FIDE.</figcaption>
+</figure>
+
 ## Game 3 at a glance
 
 | | |
@@ -47,6 +55,14 @@ The match is level at **1½–1½**, and Friday is the first rest day.
 In Game 1, Gukesh defended with the Berlin Endgame. This time he went back to the Berlin, but with **5...Be7**, the **Rio de Janeiro Variation**. It is an old line: *The Times of India* points out that Emanuel Lasker and Siegbert Tarrasch played it three times in their 1908 World Championship match. Gukesh then chose **8...Nf5** instead of the usual 8...Nb7, a rare move that, according to several reports, had not been seen at this level for almost 40 years.
 
 The surprise worked on the clock. Gukesh played his first 15 moves in under three minutes, while Sindarov used more than half an hour on his first 12 moves. By move 16, Gukesh was about 50 minutes ahead.
+
+<figure class="cd-board" style="max-width:820px">
+  <picture>
+    <source srcset="/assets/images/blog/wcc26-g3-board.webp" type="image/webp">
+    <img src="/assets/images/blog/wcc26-g3-board.jpg" alt="Sindarov and Gukesh at the board during Game 3 at the Fondation Martin Bodmer, with the flags of Uzbekistan and India on the table." width="1600" height="1067" loading="lazy">
+  </picture>
+  <figcaption>Game 3 under way at the Fondation Martin Bodmer, Geneva. Photo: Michal Walusza, Yoav Nis / FIDE.</figcaption>
+</figure>
 
 ## Critical moment 1: grab a pawn or trade queens?
 
@@ -78,9 +94,25 @@ For the first time in the match, it was Sindarov who was short of time. In Games
 
 ## My view
 
+<figure class="cd-board" style="max-width:820px">
+  <picture>
+    <source srcset="/assets/images/blog/wcc26-g3-gukesh.webp" type="image/webp">
+    <img src="/assets/images/blog/wcc26-g3-gukesh.jpg" alt="Gukesh D smiling at the press conference after Game 3." width="1600" height="1066" loading="lazy">
+  </picture>
+  <figcaption>A relaxed Gukesh at the press conference after Game 3. Photo: Michal Walusza, Yoav Nis / FIDE.</figcaption>
+</figure>
+
 This was Gukesh's best game of the match so far. The opening choice was smart and brave: an old, almost forgotten line that took Sindarov out of his preparation and onto his own clock. And with Black, against the favourite, Gukesh was the one asking the questions in the second half of the game.
 
 But I want to give Sindarov a lot of credit too. Playing 39.Bb4 with 8 seconds on the clock, in a World Championship, tells you a lot about his nerves. He is only 20, and he did not crack.
+
+<figure class="cd-board" style="max-width:820px">
+  <picture>
+    <source srcset="/assets/images/blog/wcc26-g3-sindarov.webp" type="image/webp">
+    <img src="/assets/images/blog/wcc26-g3-sindarov.jpg" alt="Javokhir Sindarov smiling at the press conference after Game 3." width="1600" height="1066" loading="lazy">
+  </picture>
+  <figcaption>Sindarov, all smiles after surviving the time scramble. Photo: Michal Walusza, Yoav Nis / FIDE.</figcaption>
+</figure>
 
 After three games, the picture is clear: both players are very well prepared, and neither will give anything away easily. I still see Sindarov as the slight favourite, but Gukesh has shown that he can make him uncomfortable. Anything can happen.
 
