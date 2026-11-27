@@ -25,7 +25,7 @@ def page(c, doc):
     c.saveState()
     c.setFillColor(INK); c.rect(0, H-38*mm, W, 38*mm, fill=1, stroke=0)
     c.setFillColor(BRASS); c.rect(0, H-39.2*mm, W, 1.2*mm, fill=1, stroke=0)
-    rook(c, M, H-27*mm, 0.95, colors.white)
+    rook(c, M-6*1.36, H-25.5*mm-1.5*1.36, 1.36, colors.white)
     c.setFillColor(colors.white); c.setFont('Gar', 27); c.drawString(M+36, H-19.5*mm, 'ChessDepth')
     c.setFillColor(colors.HexColor('#d2ad6e')); c.setFont('GarI', 12); c.drawString(M+37, H-25.5*mm, 'Think Deep. Play Deeper!')
     c.setFillColor(colors.white); c.setFont('PopM', 10.5); c.drawRightString(W-M, H-15.5*mm, 'ChessDepth Academy')
