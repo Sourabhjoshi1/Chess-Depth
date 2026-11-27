@@ -30,7 +30,7 @@ def page(c, doc):
     c.setFillColor(colors.HexColor('#d2ad6e')); c.setFont('GarI', 12); c.drawString(M+37, H-25.5*mm, 'Think Deep. Play Deeper!')
     c.setFillColor(colors.white); c.setFont('PopM', 10.5); c.drawRightString(W-M, H-15.5*mm, 'ChessDepth Academy')
     c.setFillColor(colors.HexColor('#c9cde6')); c.setFont('Pop', 8.5)
-    c.drawRightString(W-M, H-20.5*mm, 'Bhopal, India  |  Live online chess coaching')
+    c.drawRightString(W-M, H-20.5*mm, 'Live online chess coaching')
     c.drawRightString(W-M, H-25*mm, 'www.chessdepth.in  |  WhatsApp +91 98230 29262')
     c.drawRightString(W-M, H-29.5*mm, 'info@chessdepth.in')
     c.setStrokeColor(LINE); c.line(M, 16*mm, W-M, 16*mm)
