@@ -227,3 +227,18 @@ html.dark .ai-bm-label { color: #86efac; } html.dark .ai-bm-eval { background: #
 html.dark .ai-bm .ai-turn { background: #0f172a; border-color: #334155; }
 html.dark .ai-more { border-color: #334155; } html.dark .ai-more summary { color: #e2e8f0; }
 html.dark .ai-col-src { border-color: #273449; }
+
+/* roomier hero (v2) */
+.ai-hero > .ai-hero-in { padding-top: 4.5rem; padding-bottom: 5.5rem; min-height: 0; }
+.ai-hero .ai-status { font-size: .8rem; padding: .45rem 1.1rem; }
+.ai-hero .ai-title { font-size: clamp(2.4rem, 5.6vw, 4.4rem); line-height: 1.12; margin-top: 1.75rem; max-width: 52rem; letter-spacing: -.02em; }
+.ai-hero .ai-lead { font-size: clamp(1.1rem, 1.6vw, 1.35rem); line-height: 1.75; margin-top: 1.6rem; max-width: 44rem; }
+.ai-hero .ai-how { margin-top: 2.6rem; gap: 1rem 2.75rem; font-size: 1.05rem; }
+.ai-hero .ai-how span { width: 2rem; height: 2rem; font-size: .95rem; }
+.ai-tool-wrap { padding-top: 3rem; }
+.ai-tool-wrap > div { margin-top: 0; }
+@media (max-width: 640px) {
+  .ai-hero > .ai-hero-in { padding-top: 2.75rem; padding-bottom: 3.25rem; }
+  .ai-hero .ai-how { gap: .8rem 1.5rem; font-size: .95rem; margin-top: 2rem; }
+  .ai-tool-wrap { padding-top: 1.75rem; }
+}
