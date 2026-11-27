@@ -58,7 +58,7 @@ def bullets(items):
 ref=Table([[Paragraph('<b>Scholar No.</b> '+S['no'], st('r',parent=SM,textColor=INK,fontSize=9.5)), Paragraph('<b>Date</b> '+S['date'], st('r2',parent=SM,textColor=INK,fontSize=9.5,alignment=2))]], colWidths=[(W-2*M)/2]*2)
 ref.setStyle(TableStyle([('LEFTPADDING',(0,0),(-1,-1),0),('RIGHTPADDING',(0,0),(-1,-1),0)]))
 
-details=[['Student', S['student']],['Age', S['age']],['Scholar number', S['no']],['Programme', S['programme']],['Level', S['level']],['Coach', S['coach']],
+details=[['Student', S['student']],['Age', S['age']],['Scholar number', S['no']],['Programme', S['programme']]]+([['Batch', S['batch']]] if S.get('batch') else [])+[['Level', S['level']],['Coach', S['coach']],
          ['Classes', S['classes']],['Start date', S['start']],['Monthly fee', S['fee']]]
 dt=Table([[Paragraph(a,TDL),Paragraph(b,TDV)] for a,b in details], colWidths=[42*mm, W-2*M-42*mm])
 dt.setStyle(TableStyle([('BACKGROUND',(0,0),(-1,-1),SOFT),('LINEBELOW',(0,0),(-1,-2),0.6,colors.white),('LEFTPADDING',(0,0),(-1,-1),9),('RIGHTPADDING',(0,0),(-1,-1),9),('TOPPADDING',(0,0),(-1,-1),3.4),('BOTTOMPADDING',(0,0),(-1,-1),3.4),('LINEBEFORE',(0,0),(0,-1),3,BRASS),('VALIGN',(0,0),(-1,-1),'MIDDLE')]))
