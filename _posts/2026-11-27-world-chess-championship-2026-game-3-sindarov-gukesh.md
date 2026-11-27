@@ -56,14 +56,6 @@ In Game 1, Gukesh defended with the Berlin Endgame. This time he went back to th
 
 The surprise worked on the clock. Gukesh played his first 15 moves in under three minutes, while Sindarov used more than half an hour on his first 12 moves. By move 16, Gukesh was about 50 minutes ahead.
 
-<figure class="cd-board" style="max-width:820px">
-  <picture>
-    <source srcset="/assets/images/blog/wcc26-g3-board.webp" type="image/webp">
-    <img src="/assets/images/blog/wcc26-g3-board.jpg" alt="Sindarov and Gukesh at the board during Game 3 at the Fondation Martin Bodmer, with the flags of Uzbekistan and India on the table." width="1600" height="1067" loading="lazy">
-  </picture>
-  <figcaption>Game 3 under way at the Fondation Martin Bodmer, Geneva. Photo: Michal Walusza, Yoav Nis / FIDE.</figcaption>
-</figure>
-
 ## Critical moment 1: grab a pawn or trade queens?
 
 {% include board.html img="wcc26-g3-16qxd4" caption="Sindarov – Gukesh, after 16.b3. Black to move. The pawn hits the queen. Should Black take on c2 or trade queens?" %}
@@ -83,6 +75,14 @@ The surprise worked on the clock. Gukesh played his first 15 moves in under thre
 {% include answer.html text="Sindarov played **39.Bb4!** with **8 seconds** left on his clock. The bishop controls d2, so the d-pawn can never move forward. White loses the b-pawn after **39...Bxb5**, but with the bishops on opposite colours, Black's extra pawn is not enough to win. The natural-looking **39.Ke3?!** lets Black's king come to d5, and Stockfish gives Black a small but lasting edge. Finding the right idea with seconds on the clock in a World Championship is very impressive." %}
 
 After move 40, both players got 30 extra minutes, and the rest of the game was technical. Black won back the material and ended up a pawn ahead, but with **bishops of opposite colours** the position was a fortress, and the players drew on move 60.
+
+<figure class="cd-board" style="max-width:820px">
+  <picture>
+    <source srcset="/assets/images/blog/wcc26-g3-board.webp" type="image/webp">
+    <img src="/assets/images/blog/wcc26-g3-board.jpg" alt="Sindarov and Gukesh at the board just after agreeing a draw in Game 3, with the final position still on the board." width="1600" height="1067" loading="lazy">
+  </picture>
+  <figcaption>Sindarov and Gukesh at the board just after agreeing the draw in Game 3, Fondation Martin Bodmer, Geneva. Photo: Michal Walusza, Yoav Nis / FIDE.</figcaption>
+</figure>
 
 ## The clock battle
 
