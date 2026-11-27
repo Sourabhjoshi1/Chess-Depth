@@ -28,13 +28,14 @@ def page(c, doc):
     rook(c, M, H-27*mm, 0.95, colors.white)
     c.setFillColor(colors.white); c.setFont('Gar', 27); c.drawString(M+36, H-19.5*mm, 'ChessDepth')
     c.setFillColor(colors.HexColor('#d2ad6e')); c.setFont('GarI', 12); c.drawString(M+37, H-25.5*mm, 'Think Deep. Play Deeper!')
-    c.setFillColor(colors.white); c.setFont('PopM', 10.5); c.drawRightString(W-M, H-17.5*mm, 'ChessDepth Academy')
+    c.setFillColor(colors.white); c.setFont('PopM', 10.5); c.drawRightString(W-M, H-15.5*mm, 'ChessDepth Academy')
     c.setFillColor(colors.HexColor('#c9cde6')); c.setFont('Pop', 8.5)
-    c.drawRightString(W-M, H-22.5*mm, 'Bhopal, India  |  Live online chess coaching')
-    c.drawRightString(W-M, H-27*mm, 'www.chessdepth.in  |  WhatsApp +91 98230 29262')
+    c.drawRightString(W-M, H-20.5*mm, 'Bhopal, India  |  Live online chess coaching')
+    c.drawRightString(W-M, H-25*mm, 'www.chessdepth.in  |  WhatsApp +91 98230 29262')
+    c.drawRightString(W-M, H-29.5*mm, 'info@chessdepth.in')
     c.setStrokeColor(LINE); c.line(M, 16*mm, W-M, 16*mm)
     c.setFillColor(MUTE); c.setFont('Pop', 7.8)
-    c.drawString(M, 11*mm, 'ChessDepth Academy  |  www.chessdepth.in  |  WhatsApp +91 98230 29262')
+    c.drawString(M, 11*mm, 'www.chessdepth.in  |  info@chessdepth.in  |  WhatsApp +91 98230 29262')
     c.drawRightString(W-M, 11*mm, 'Scholar No. ' + S['no'])
     c.restoreState()
 
@@ -73,7 +74,7 @@ s=[ref, Spacer(1,4), Paragraph('LETTER OF ADMISSION', EYE), Paragraph('Welcome t
    Paragraph('Next steps', H2),
    bullets(['Your coach will confirm class days and times with you on WhatsApp.',
             'Sign in to the Student Area at <b>www.chessdepth.in/student</b> with a Google account and enter the scholar number <b>'+S['no']+'</b>. The same number unlocks the Chess Lab.',
-            'Fees are paid monthly in advance. Please send the payment receipt on WhatsApp.',
+            'Fees are paid monthly in advance. Please send the payment receipt on WhatsApp or to info@chessdepth.in.',
             ]),
    Spacer(1,3),
    Paragraph('Please keep this letter, as the scholar number is used for all academy records. Our class rules, refund policy and terms are at www.chessdepth.in/refunds and www.chessdepth.in/terms. We look forward to helping '+S['first']+' grow as a player.', P),
